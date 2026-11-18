@@ -1,0 +1,73 @@
+{
+  "niche_id": "plumbing",
+  "label": "Plumbing",
+  "match_keywords": [
+    "plumbing",
+    "plumber",
+    "drain",
+    "leak",
+    "water heater",
+    "sewer",
+    "pipe"
+  ],
+  "business_descriptor": "",
+  "default_tone": "practical and reassuring, with clear urgency for active leaks and no-water emergencies",
+  "guardrails": "",
+  "content_slots": {
+    "feature_columns_local": "",
+    "local_relevance": "What drives plumbing problems varies a lot by region: in the Northeast and Midwest, winter freeze-thaw cycles crack pipes and cause bursts (water expands about 9% when it freezes); in the South and especially Texas, expansive clay soil shifts under slab foundations and is a major cause of slab leaks (over 95% of new homes in the West South Central states are built on concrete slabs); and hard-water regions see faster water heater failure and more drain clogs from mineral buildup.",
+    "seasonal_calendar": "Burst and frozen pipes spike in winter in cold-climate regions. Slab leaks and water heater failures are more evenly spread year-round but often surface after seasonal ground-shift (wet-to-dry cycles) in clay-soil regions. Drain clogs and water heater replacements are common in both spring and fall maintenance seasons.",
+    "why_choose_us": "",
+    "how_it_works": "",
+    "comparison": ""
+  },
+  "default_services": [
+    {
+      "label": "Emergency Plumber",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Drain Cleaning",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Leak Detection",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Slab Leak Repair",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Sewer Line Repair",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Toilet Installation",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "General Plumbing Services",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Water Heater Installation",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Water Heater Repair",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Tankless Water Heater Installation",
+      "keyword_pattern": ""
+    }
+  ],
+  "trust_bar_items": [
+    "Licensed & Insured",
+    "24/7 Emergency Service",
+    "Upfront Pricing",
+    "Free Estimates"
+  ],
+  "custom_research_fields": []
+}

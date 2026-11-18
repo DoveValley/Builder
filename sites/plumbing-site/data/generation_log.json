@@ -1,0 +1,52 @@
+[
+  {
+    "run_id": "820e8887-7d78-4dd5-995e-5a50e90ad398",
+    "started_at": "2026-11-18T03:46:34.926104Z",
+    "finished_at": "2026-11-18T03:46:52.202481Z",
+    "duration_ms": 17276,
+    "dry_run": false,
+    "options": {
+      "site": "plumbing-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 1,
+    "input_tokens": 850,
+    "output_tokens": 1455,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.024375
+  },
+  {
+    "run_id": "e2641a88-8b60-44ec-8254-a36b9bff0eb9",
+    "started_at": "2026-11-18T03:48:09.309125Z",
+    "finished_at": "2026-11-18T03:49:30.120711Z",
+    "duration_ms": 80811,
+    "dry_run": false,
+    "options": {
+      "site": "plumbing-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 108,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 108,
+    "cities_researched": 0,
+    "input_tokens": 187934,
+    "output_tokens": 41494,
+    "api_calls": 108,
+    "estimated_cost_usd": 0.395404
+  }
+]

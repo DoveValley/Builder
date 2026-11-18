@@ -1,0 +1,164 @@
+{
+    "niche": "plumbing",
+    "master_site": "plumbing-site",
+    "business_descriptor": "a referral service that connects property owners with independent local plumbing providers",
+    "service_noun": "plumbing repair",
+    "customer_noun": "homeowner",
+    "offerings": [
+        "Emergency Plumber",
+        "Drain Cleaning",
+        "Leak Detection",
+        "Slab Leak Repair",
+        "Sewer Line Repair",
+        "Toilet Installation",
+        "General Plumbing Services",
+        "Water Heater Installation",
+        "Water Heater Repair",
+        "Tankless Water Heater Installation"
+    ],
+    "local_angle": "What drives plumbing problems varies a lot by region: in the Northeast and Midwest, winter freeze-thaw cycles crack pipes and cause bursts (water expands about 9% when it freezes); in the South and especially Texas, expansive clay soil shifts under slab foundations and is a major cause of slab leaks (over 95% of new homes in the West South Central states are built on concrete slabs); and hard-water regions see faster water heater failure and more drain clogs from mineral buildup. Burst and frozen pipes spike in winter in cold-climate regions. Slab leaks and water heater failures are more evenly spread year-round but often surface after seasonal ground-shift (wet-to-dry cycles) in clay-soil regions. Drain clogs and water heater replacements are common in both spring and fall maintenance seasons.",
+    "tone": "practical and reassuring, with clear urgency for active leaks and no-water emergencies",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" fixing, installing, or repairing anything, never claim to directly perform plumbing work, and never claim to employ plumbers. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"master plumber\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not guarantee specific repair timelines, that a leak is fully resolved, or that a installed system will never fail. Do not give unsafe do-it-yourself advice for gas lines, water heaters, or active leaks — always recommend contacting a provider. Do not assume plumbing licensing requirements without being told, since requirements vary significantly by state (some states have no state-level requirement at all, only local). Do not fabricate specific pricing, warranty terms, or brand-specific technical specifications.",
+    "uses_research_fields": true,
+    "enabled_archetypes": [
+        "city_intro",
+        "hero_subtext",
+        "feature_columns_local",
+        "faq_local",
+        "seasonal_calendar",
+        "local_relevance",
+        "about_story",
+        "steps_local",
+        "homepage_feature_intro",
+        "homepage_grid_intro",
+        "homepage_service_area",
+        "why_choose_us",
+        "common_problems",
+        "brand_type_breakdown",
+        "type_brands_mention"
+    ],
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences on {city}'s typical housing stock (age, foundation type -- slab vs. basement/crawlspace) and the region's dominant plumbing risk factor (winter freeze-thaw, clay-soil slab leaks, or hard water).\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "custom_research_fields": [],
+    "blog_topics": [
+        {
+            "slug": "signs-of-a-slab-leak",
+            "title": "5 Signs You Might Have a Slab Leak",
+            "tag": "Prevention",
+            "focus_keyword": "signs of a slab leak",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "slab-leak-repair-explained",
+            "title": "How Slab Leak Repair Actually Works",
+            "tag": "How-To",
+            "focus_keyword": "slab leak repair",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "winter-pipe-freeze-prevention",
+            "title": "How to Protect Your Pipes During a Winter Freeze",
+            "tag": "Seasonal",
+            "focus_keyword": "prevent frozen pipes",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "burst-pipe-what-to-do",
+            "title": "A Pipe Burst - What to Do in the First 10 Minutes",
+            "tag": "Emergency Tips",
+            "focus_keyword": "burst pipe what to do",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "water-heater-lifespan",
+            "title": "How Long Should a Water Heater Really Last?",
+            "tag": "Education",
+            "focus_keyword": "water heater lifespan",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "water-heater-repair-or-replace",
+            "title": "Water Heater Repair or Replace? How to Decide",
+            "tag": "Cost & Planning",
+            "focus_keyword": "water heater repair or replace",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "hard-water-and-your-plumbing",
+            "title": "How Hard Water Shortens Your Plumbing's Lifespan",
+            "tag": "Education",
+            "focus_keyword": "hard water plumbing problems",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "slow-drain-causes",
+            "title": "What Actually Causes a Slow Drain",
+            "tag": "How-To",
+            "focus_keyword": "slow drain causes",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "sewer-line-warning-signs",
+            "title": "Sewer Line Warning Signs Every Homeowner Should Know",
+            "tag": "Prevention",
+            "focus_keyword": "sewer line warning signs",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "choosing-a-plumber",
+            "title": "What to Ask Before Hiring a Plumber",
+            "tag": "How-To",
+            "focus_keyword": "hiring a plumber",
+            "link_candidates": [
+                {
+                    "text": "Plumbing Services",
+                    "url": "/"
+                }
+            ]
+        }
+    ]
+}

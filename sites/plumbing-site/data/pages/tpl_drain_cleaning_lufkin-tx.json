@@ -1,0 +1,483 @@
+{
+  "template_id": "tpl_drain_cleaning",
+  "city_id": "lufkin-tx",
+  "slug": "drain-cleaning-lufkin-tx",
+  "title": "Drain Cleaning in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "lufkin-tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "tags": [
+      "proof-city"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and wood products industry given its location in the Piney Woods. The city also has a strong manufacturing base tied to oilfield equipment production, along with healthcare and retail sectors that draw from surrounding rural counties. As the Angelina County seat, Lufkin functions as a regional commercial and medical center for much of East Texas.",
+    "local_note": "Much of Lufkin's housing stock consists of mid-20th-century single-family homes built on slab foundations, with newer subdivisions following similar construction. The dominant plumbing risk factor in this part of Texas is clay-soil slab leaks, as shifting soil conditions can stress slab plumbing lines over time.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Kurth",
+      "Crown Colony",
+      "Brookhollow",
+      "Colonial Hills",
+      "Loma Linda"
+    ],
+    "population": 34640,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "city_image": "sites/plumbing-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forestry/wood products",
+      "Healthcare",
+      "Manufacturing (oilfield equipment)",
+      "Oil and gas services",
+      "Retail and regional trade",
+      "Education"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial Lufkin",
+      "Woodland Heights Medical Center",
+      "Lufkin Industries",
+      "Georgia-Pacific",
+      "Lufkin Independent School District",
+      "Angelina College",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart",
+      "Brookshire Brothers"
+    ],
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 19.1,
+      "1960-1979": 30.2,
+      "1980-1999": 32.1,
+      "2000-2009": 10.8,
+      "2010 or later": 7.8
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Lufkin city (14,397 housing units)",
+    "hot_days_monthly": [
+      0,
+      0,
+      0.1,
+      0.7,
+      8,
+      20.4,
+      27.3,
+      27.1,
+      17,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Hudson",
+        "miles": 6
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1,
+      "regional_plumbing_risk": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+    "neighborhoods_source": "verified",
+    "lat": "31.338624",
+    "lng": "-94.728856",
+    "wet_days_monthly": [
+      6.1,
+      5.6,
+      5.8,
+      5,
+      6.1,
+      6.2,
+      5.1,
+      5.1,
+      4.8,
+      4.7,
+      5.3,
+      6.4
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "noaa_station": "USW00093987",
+    "noaa_station_miles": 7.2,
+    "noaa_fetched_at": "2026-10-04",
+    "county_fips": "48005",
+    "county_name": "Angelina County",
+    "figures_fetched_at": "2026-10-04",
+    "acs_fetched_at": "2026-10-04",
+    "plumbing_risk_factor": "clay-soil slab leaks"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Lufkin's mid-20th-century housing stock, much of it built on slab foundations, sits on clay soil that shifts with seasonal moisture changes—a condition that stresses underground plumbing lines and leads to slow drains, backups, and water damage over time. Drain cleaning becomes critical when clay-soil movement compromises line integrity, trapping debris and restricting flow in ways that standard maintenance alone cannot prevent. Plumbing Connect links Lufkin homeowners with local independent providers who can diagnose and clear drain problems before they escalate into costly slab repairs.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo": "sites/plumbing-site/uploads/media/drain-cleaning.webp",
+      "hs_photo_alt": "Drain Cleaning in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "hs_mobile_order": "img_first",
+      "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:12.588263Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "5ee52550e0a3e464",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": false,
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/plumbing-site/uploads/media/drain-cleaning.webp",
+      "it_alt": "Drain Cleaning in {city_state}",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Drain Cleaning Services for Lufkin Homes",
+      "text": "<p>Homeowners in Lufkin face a particular plumbing challenge rooted in the region's soil composition. Much of the area's housing stock—especially mid-20th-century single-family homes built on slab foundations—sits atop clay soil that shifts with seasonal moisture changes. When that soil moves beneath a slab, the plumbing lines embedded in or under the foundation experience stress and can develop leaks. Over time, this same ground movement can also affect how water flows through drain lines, leading to slow drains, backups, and clogs that seem to return even after a quick fix. Drain problems in Lufkin often trace back to these subsurface conditions, making professional drain cleaning not just a convenience but a practical necessity for many property owners.</p><p>Plumbing Connect matches Lufkin homeowners with independent local plumbing providers who understand drain cleaning in the context of your home's specific foundation and soil. Rather than a one-time unclog, these providers assess what's causing the drainage issue, clear the line thoroughly, and explain what they found so you understand whether the problem is likely to recur or if deeper work is needed. Whether you're dealing with a slow kitchen sink, a backed-up bathroom, or a more serious mainline issue, the local providers in the Plumbing Connect network can respond quickly and get your drains flowing again. Connect today to find a provider ready to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:17.080187Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "3b5b2bf4866f996d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "id": "ai_block_2",
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Water Backs Up in Sink",
+          "text": "Slow drainage or standing water often signals a clog deeper in the line. Hair, soap buildup, and debris accumulate over time. A local provider can diagnose the blockage and clear it safely."
+        },
+        {
+          "heading": "Toilet Won't Drain Fully",
+          "text": "Toilets that drain slowly or incompletely may have a clog in the trap or main line. Tissue, wipes, or mineral deposits are common culprits. The independent provider Plumbing Connect connects you with can assess and unclog the issue."
+        },
+        {
+          "heading": "Shower Drains Too Slowly",
+          "text": "Showers backing up usually mean hair and soap scum have built up in the drain. Left unchecked, the blockage worsens. Local drain cleaning services can remove the clog and restore normal flow."
+        },
+        {
+          "heading": "Foul Odor from Drains",
+          "text": "Bad smells coming from drains typically indicate trapped organic matter decomposing inside the line. Bacteria and debris accumulation create the stench. A provider can clean the drain and eliminate the source of the odor."
+        },
+        {
+          "heading": "Multiple Drains Clogged",
+          "text": "When several fixtures drain slowly at once, the clog likely sits in the main line serving your home. This is more serious than a single-fixture backup. Hydro jetting or professional unclogging can clear the main line effectively."
+        },
+        {
+          "heading": "Gurgling Sounds from Pipes",
+          "text": "Gurgling noises often mean air is trapped because a partial clog disrupts water flow. The blockage may worsen quickly if ignored. A local provider can locate and remove the obstruction before it causes a complete backup."
+        }
+      ],
+      "fc_heading": "Drain Cleaning Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:22.693599Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "1c4a83ef0aa04ea9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "id": "ai_block_3",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Plumbing Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Drain Cleaning Response",
+          "text": "Drain Cleaning problems demand quick action. Plumbing Connect connects you with independent local providers ready to clear clogs and restore flow—no delays, no runaround."
+        },
+        {
+          "heading": "Thorough Drain Cleaning Work",
+          "text": "Drain Cleaning isn't one-size-fits-all. Providers in the network use appropriate methods to fully clear blockages and address root causes, ensuring lasting results."
+        },
+        {
+          "heading": "Drain Cleaning You Can Trust",
+          "text": "When Drain Cleaning is done right, problems stay solved. Plumbing Connect connects you with independent providers who stand behind their Drain Cleaning work."
+        },
+        {
+          "heading": "Slab Stress & Drain Risk",
+          "text": "Lufkin homes built on slab foundations face unique plumbing pressure as shifting soil stresses underground lines over time. Early Drain Cleaning maintenance helps catch problems before they worsen."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:26.150887Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c822351ca798775c",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Service Works",
+      "steps_items": [
+        {
+          "heading": "Tell Us About Your Drain",
+          "text": "Contact Plumbing Connect and describe your drain problem—whether it's slow drainage, complete blockage, or recurring backups. We'll connect you with an independent local plumbing provider in Lufkin who can schedule a drain cleaning visit at a time that works for you."
+        },
+        {
+          "heading": "Drain Assessment & Cleaning",
+          "text": "The provider will inspect your drain line to identify what's causing the blockage—buildup, debris, or in older Lufkin homes, root intrusion or soil pressure on slab lines. They'll then perform the appropriate drain cleaning method to clear the obstruction and restore water flow."
+        },
+        {
+          "heading": "Follow-Up & Prevention Tips",
+          "text": "After cleaning, the provider will explain what caused the clog and recommend ways to prevent future drain problems. If they identify a deeper issue—such as a damaged line—they'll discuss next steps with you clearly."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:29.047446Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "7f28006339d54877",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with a clogged drain in {city}? Get connected with a local provider.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1",
+      "anchor": "mid_cta"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/plumbing-site/uploads/media/drain-cleaning.webp",
+      "it_alt": "Drain Cleaning in {city_state}",
+      "id": "ai_block_4",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Drain Cleaning Services Across Lufkin",
+      "text": "<p>Lufkin's housing landscape is dominated by mid-20th-century single-family homes built on slab foundations, a construction method that remains common in newer subdivisions throughout the area. This foundation type brings a specific plumbing challenge: the clay soil underlying much of the region shifts with moisture changes, and over time that movement stresses the water and drain lines running beneath the slab. When soil conditions shift, drain lines can crack, settle unevenly, or become compressed—problems that may not announce themselves until slow drains, backups, or wet spots in the foundation become impossible to ignore. Drain cleaning becomes especially important as a preventive step and diagnostic tool, helping identify whether a slowdown is simply buildup or a sign of deeper line damage.</p><p>Whether you're in an older established neighborhood like Crown Colony or a newer area like Brookhollow, the underlying soil conditions remain consistent. Drain problems in Lufkin often develop gradually, making regular inspection and professional cleaning valuable for catching issues before they escalate into costly repairs. When you contact Plumbing Connect, we'll match you with local independent providers who understand how Lufkin's soil and construction patterns affect drain performance and can recommend the right solution for your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:33.223562Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "66cad4607648f5e4",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does drain cleaning in Lufkin typically involve?",
+          "answer": "<p>Drain cleaning removes buildup, blockages, and debris from your plumbing lines. The independent provider will assess your drain, use tools like drain snakes or hydro-jetting to clear the obstruction, and flush the line to restore normal flow. They'll explain what caused the clog and what they found during the process.</p>"
+        },
+        {
+          "question": "How quickly can Plumbing Connect connect me with a drain cleaning provider in Lufkin?",
+          "answer": "<p>Plumbing Connect matches you with local independent providers in the Lufkin area who can respond to your drain problem. Response times depend on the provider's current schedule and the urgency of your situation. Contact Plumbing Connect with details about your clog, and they'll work to connect you with an available provider promptly.</p>"
+        },
+        {
+          "question": "What factors affect the cost of drain cleaning in Lufkin, TX?",
+          "answer": "<p>Pricing varies based on the clog's location, severity, and what's causing it. A simple surface clog costs less than a blockage deep in the main line. The tools needed—basic snake versus hydro-jetting equipment—and whether the line requires camera inspection also influence the final cost. Each independent provider sets their own rates.</p>"
+        },
+        {
+          "question": "How should I prepare my home for a drain cleaning appointment?",
+          "answer": "<p>Before the provider arrives, clear the area around affected drains and fixtures. Remove any items stored near access points. Have a family member present to describe the problem and answer questions. If you know when the clog started or what might have caused it, share that information. The provider may need access to your water shut-off valve, so know its location.</p>"
+        },
+        {
+          "question": "What can I do to keep drains clear and avoid future clogs?",
+          "answer": "<p>Use drain screens to catch hair and debris. Avoid pouring grease down the kitchen sink—let it cool and dispose of it in the trash. Don't flush anything but toilet paper. Run hot water through drains regularly, and consider periodic drain maintenance to prevent buildup. These habits help keep your plumbing flowing smoothly year-round.</p>"
+        },
+        {
+          "question": "Does drain cleaning in Lufkin become more urgent during certain seasons?",
+          "answer": "<p>Drain issues can happen anytime, but they're often spotted during spring and fall when homeowners tackle maintenance. In areas with clay soil like much of Lufkin, shifting ground conditions can stress plumbing lines over time, potentially affecting drain performance. Regular drain care helps catch problems early, no matter the season.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:41.131305Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "dc9a4fc3fed86040",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 4,
+      "rl_items": [
+        {
+          "url": "/",
+          "text": "plumbing services"
+        },
+        {
+          "url": "/emergency-plumber-{city_slug}",
+          "text": "emergency plumber"
+        },
+        {
+          "url": "/leak-detection-{city_slug}",
+          "text": "leak detection"
+        },
+        {
+          "url": "/tank-gas-water-heater-{city_slug}",
+          "text": "gas tank water heater"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Plumbing Company",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Plumbing Company",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} drain cleaning today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1",
+      "mi_map_link": "{city_map_link}",
+      "mi_map_link_text": "View {city_state} on Google Maps ↗"
+    }
+  ],
+  "seo": {
+    "seo_title": "Drain Cleaning in {city_state} | {business_short}",
+    "canonical_url": "https://a.q111.xyz/drain-cleaning-lufkin-tx/",
+    "meta_description": "Slow or clogged drains in {city_state}? {business_short} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}.",
+    "meta_keywords": "drain cleaning Lufkin TX",
+    "og_title": "Drain Cleaning in {city_state} | {business}",
+    "og_description": "Slow or clogged drains in {city_state}? {business} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}.",
+    "og_image": "",
+    "service_name": "Drain Cleaning",
+    "service_type": "Drain Cleaning",
+    "service_area": "{city}, {SS}",
+    "service_description": "Slow or clogged drains in {city_state}? {business} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "Drain Cleaning",
+    "secondary_keywords": "clogged drain, drain unclogging, hydro jetting",
+    "brand": "",
+    "appliance_type": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Drain Cleaning in Lufkin, TX\",\n            \"serviceType\": \"Drain Cleaning\",\n            \"description\": \"Slow or clogged drains in Lufkin, TX? Plumbing Connect connects you with a local provider for drain cleaning and hydro jetting. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Plumbing Connect\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "appliance_types": "",
+    "brands_serviced": "",
+    "meta_description_pool": [
+      "Slow or clogged drains in {city_state}? {business_short} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Slow or clogged drains in {city_state}? {business} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T03:57:04+00:00",
+  "template_version": "2ccd1a1025a61fabb98a02272379d452"
+}

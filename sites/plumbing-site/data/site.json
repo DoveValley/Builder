@@ -1,0 +1,881 @@
+{
+  "theme": {
+    "header_bg": "#5B1F2A",
+    "header_text": "#ffffff",
+    "content_bg": "#ffffff",
+    "content_text": "#888c92",
+    "footer_bg": "#5B1F2A",
+    "footer_text": "#ffffff",
+    "accent_color": "#F2B705",
+    "primary_font": "Inter, sans-serif",
+    "button_radius": 8,
+    "analytics_head": "",
+    "facebook_pixel": "",
+    "font_family": "Inter, sans-serif",
+    "header_top_bg": "#ffffff",
+    "heading_color": "#5B1F2A",
+    "font_size_body": 16,
+    "font_size_h1": 3.25,
+    "font_size_h2": 2.5,
+    "font_size_h3": 1.75,
+    "font_size_h4": 1.25,
+    "heading_font": "",
+    "accent2_color": "#F2B705",
+    "btn_text": "#ffffff",
+    "border_color": "#e5e7eb",
+    "skins": {
+      "light": {
+        "bg": "#ffffff",
+        "heading": "#365314",
+        "text": "#000000"
+      },
+      "dark": {
+        "bg": "#5B1F2A",
+        "heading": "#ffffff",
+        "text": "#e2e8f0"
+      },
+      "accent": {
+        "heading": "#5B1F2A",
+        "text": "#ffffff"
+      },
+      "subtle": {
+        "bg": "#f5f8f1",
+        "heading": "#365314",
+        "text": "#000000"
+      }
+    },
+    "head_extra": "",
+    "font_size_lead": 1.15,
+    "font_size_small": 0.9,
+    "font_size_eyebrow": 0.75,
+    "heading_weight": "700",
+    "gsc_meta": ""
+  },
+  "header": {
+    "logo": "uploads/logo_wells-appliance-repair-lufkin.png",
+    "phone": "{phone}",
+    "city": "",
+    "topbar_text": "",
+    "topbar_link": "",
+    "menu": [
+      {
+        "label": "Home",
+        "url": "/",
+        "children": []
+      },
+      {
+        "label": "Plumbing Services",
+        "url": "/#plumbing_services",
+        "children": "@services_links"
+      }
+    ],
+    "socials": {
+      "facebook": "",
+      "instagram": "",
+      "twitter": "",
+      "youtube": "",
+      "linkedin": "",
+      "tiktok": "",
+      "yelp": ""
+    },
+    "nav_bg": "accent",
+    "nav_text": "#ffffff",
+    "phone_btn_style": "outline",
+    "sticky": false,
+    "info_items": [
+      {
+        "icon": "🌐",
+        "text": "{city_state}"
+      },
+      {
+        "icon": "🇺🇸",
+        "text": "Proudly American"
+      }
+    ],
+    "logo_max_height": 72,
+    "phone_label": "24/7 Helpline:",
+    "show_sponsored": true,
+    "cta_text": "",
+    "cta_url": "",
+    "site_name": "{business}",
+    "favicon": "uploads/favicon_wells-appliance-repair-lufkin.png",
+    "header_layout": "standard",
+    "sr_bar_height": 72,
+    "sponsored_text": "",
+    "sticky_nav_on_scroll": true,
+    "mobile_logo_icon_white": "uploads/logo_icon_white_1789747017_3d4849cd.png"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "skin": "",
+      "hs_heading": "Plumbing in {city_state}",
+      "hs_tagline": "",
+      "hs_subtext": "<p>A plumbing emergency in {city} needs fast attention. {business} connects you with local, independent plumbing providers who respond quickly to leaks, clogs, and no-water situations—often before small problems become costly damage.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_btn2_text": "",
+      "hs_btn2_url": "",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Local plumbing provider at work in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/plumbing-site/uploads/media/home-hero.webp",
+      "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp",
+      "hs_mobile_order": "img_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-09T00:08:17.163233Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "id": "hero_split_1",
+      "_ai_input_hash": "8ef5fcec14495715",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "trust_bar",
+      "skin": "",
+      "anchor": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": true,
+      "tb_items": "@safe_trust_badges",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "skin": "light",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_prompt_override": "",
+      "ai_inject_target": "previous",
+      "ai_inject_field": "",
+      "ai_inject_mode": "append",
+      "heading_text": "Plumbing Service {city} Homeowners Trust",
+      "heading_level": "h2",
+      "text": "<p>When a pipe bursts or a drain backs up, {city} homeowners need fast, dependable help. Plumbing problems—from dripping faucets to failing water heaters—show up in homes across town, and they rarely wait for a convenient time. Because {city} is a tightly knit community, a local plumbing provider can often reach your home quickly—whether you're in Crown Colony, Fuller Springs, or anywhere across town—so an active leak or no-water situation doesn't turn into a bigger problem.</p><p>{business} connects you with independent local providers who take a straightforward, thorough approach. They assess the real issue before recommending a fix, explain what's needed in plain terms, and complete the work with care. Many providers follow up after service to confirm everything is running as expected, giving you added confidence. When a plumbing issue strikes, you want someone who listens, responds quickly, and addresses the problem correctly—and that's the connection we aim to provide {city} every single day.</p>",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:14:40.882882Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "id": "ai_block_1",
+      "_ai_input_hash": "527ba1e2f691d031"
+    },
+    {
+      "type": "ai_block",
+      "skin": "light",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_prompt_override": "",
+      "ai_inject_target": "previous",
+      "ai_inject_field": "",
+      "ai_inject_mode": "append",
+      "heading_text": "Plumbing Across {city} and Surrounding Communities",
+      "heading_level": "h2",
+      "text": "<p>{city}'s mix of established neighborhoods and newer residential areas means plumbing needs vary by location. Homes in older sections like Downtown {city} often feature mature landscaping and vintage plumbing systems, which can sometimes add complexity when providers are navigating older pipe materials or tree root intrusion. Newer developments tend to have more direct access and more modern plumbing layouts. {business} connects you with independent local providers familiar with both settings, so response times stay quick whether your home sits in a densely treed, older pocket or a newer subdivision.</p><p>The East {state} climate—hot summers and occasional freeze cycles—puts consistent strain on pipes, water heaters, and drainage systems across all {city} neighborhoods. Older homes may still run original plumbing that requires extra care, while newer construction typically uses different materials and fixtures. Local providers in the network understand what households in the {city} area commonly need and can often reach you promptly. When a leak, clog, or water heater issue comes up, having access to a nearby independent provider who knows the region makes the process more manageable and less disruptive to your home.</p>",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-09T00:08:21.504731Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "id": "ai_block_3",
+      "_ai_input_hash": "934b83ae31905e79"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_num_cols": 3,
+      "columns": [
+        {
+          "heading": "No Hot Water",
+          "text": "A lack of hot water often points to a failing water heater element, thermostat, or pilot issue. The local plumbing providers {business} connects you with can diagnose the cause and work to restore your hot water."
+        },
+        {
+          "heading": "Slow or Clogged Drain",
+          "text": "Water backing up in a sink, shower, or tub usually means a buildup inside the pipe or a deeper line blockage. The independent local providers in our network can clear the clog or address the underlying issue."
+        },
+        {
+          "heading": "Leaking Pipe or Fixture",
+          "text": "Leaks typically come from worn seals, loose fittings, or a cracked pipe connection. The plumbing specialists we connect you with can pinpoint the source and address it to help limit further water damage."
+        },
+        {
+          "heading": "Water Heater Not Working",
+          "text": "A water heater that won't heat may have a faulty element, thermostat, or ignition issue depending on the unit. Local plumbing providers in our network can test components and address what's needed to get hot water flowing again."
+        },
+        {
+          "heading": "Toilet Running or Won't Flush",
+          "text": "A toilet that keeps running or won't flush properly often points to a worn flapper, fill valve, or blockage. The independent providers {business} connects you with can diagnose the issue and often respond quickly to get things working again."
+        },
+        {
+          "heading": "Low Water Pressure",
+          "text": "Low water pressure can stem from a range of causes, from mineral buildup in pipes to a deeper supply line issue. Local plumbing providers we work with can assess the system and perform targeted repairs safely and efficiently."
+        }
+      ],
+      "fc_heading": "Common Plumbing Problems We Help You Address",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-09T00:06:51.608855Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "4b962745d052fa2e",
+      "_ai_locked": true,
+      "id": "ai_block_common_problems"
+    },
+    {
+      "type": "steps",
+      "skin": "subtle",
+      "steps_heading": "How Our Plumbing Connection Service Works",
+      "steps_heading_level": "h2",
+      "steps_items": [
+        {
+          "heading": "Tell Us About Your Plumbing Issue",
+          "text": "Contact {business} with details about what's wrong—whether you have a leaking pipe, clogged drain, or no hot water. We'll connect you with a local independent provider in the {city} area ready to assess the issue."
+        },
+        {
+          "heading": "Local Provider Diagnoses the Problem",
+          "text": "An independent plumbing provider from our network visits your home to inspect the issue, identify the likely cause, and explain what's needed before any work begins. You'll get a clear picture of the situation up front."
+        },
+        {
+          "heading": "Plumbing Work Is Completed",
+          "text": "The independent provider completes the work using the methods appropriate for your plumbing system. Once finished, you can discuss simple maintenance tips to help reduce the chance of future issues."
+        }
+      ],
+      "id": "steps_1",
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:40:08.899729Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "14484f0fc8e94ccb",
+      "_ai_locked": true,
+      "steps_subtext": "We've streamlined the process of connecting you with a plumbing provider to be straightforward and convenient from start to finish.",
+      "steps_style": "card"
+    },
+    {
+      "type": "faq_two_col",
+      "skin": "dark",
+      "fq_heading": "Plumbing FAQ — {city_state}",
+      "fq_heading_level": "h2",
+      "fq_open": true,
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#f0f2f8",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "fq_items": [
+        {
+          "question": "What exactly happens during a plumbing visit in {city}?",
+          "answer": "<p>When you contact {business}, we connect you with a local independent provider who will assess the problem—whether it's a leak, a clog, or a water heater issue. The provider will inspect the situation, explain what they find, and discuss options with you before proceeding. You'll be present during the visit and can ask questions about the work being done.</p>"
+        },
+        {
+          "question": "How quickly can {business} connect me with a plumbing provider in {city}?",
+          "answer": "<p>Response times depend on the independent plumbing providers in our network and their current schedules. Many can often arrange visits within a few days, though urgent requests may sometimes be accommodated faster. {city}'s size and central {state} location generally allow technicians to reach homes in town and nearby areas reasonably quickly once a job is scheduled.</p>"
+        },
+        {
+          "question": "What factors affect the cost of plumbing repair in {city}?",
+          "answer": "<p>Plumbing repair costs vary based on what's going on—a worn washer or minor leak differs from a full pipe replacement or water heater issue. The age of your home's plumbing, parts availability, and labor time all play a role. When you're connected with a local provider, they can give you an estimate after diagnosing the issue so you know the cost before work begins.</p>"
+        },
+        {
+          "question": "How should I prepare my {city} home before a plumbing appointment?",
+          "answer": "<p>Clear the area around the sink, toilet, or fixture so the technician can access it easily and safely. Note where you've noticed leaks, slow drains, or unusual sounds—this helps with diagnosis. If you know where your main water shutoff valve is, it can be helpful to point it out. If it's an active leak or anything involving a water heater or gas line, contact your provider right away rather than attempting repairs yourself.</p>"
+        },
+        {
+          "question": "What can I do to prevent plumbing problems and avoid future repairs?",
+          "answer": "<p>Avoid pouring grease or food scraps down drains, since buildup over time can lead to clogs. Keep an eye out for slow drains or small leaks, which often signal a larger issue forming. Know where your main shutoff valve is in case of an emergency. Ask the technician about simple upkeep during their visit. Regular attention often helps your plumbing system run smoothly and reduces the chance of unexpected issues.</p>"
+        },
+        {
+          "question": "Do plumbing needs change seasonally in the {city} area?",
+          "answer": "<p>{state} summers are hot, and {city}'s heat can mean heavier use of water heaters, irrigation lines, and outdoor plumbing. You may notice more leaks or pressure issues during warm months as systems work harder. Spring and fall typically see steadier demand for service. Colder stretches can bring their own risks, like pipes under added strain, so addressing a developing issue sooner rather than later can help avoid bigger problems.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:40:18.247879Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_input_hash": "847f2f99737aa78c"
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Common Plumbing Services We Cover",
+      "rl_max": 6,
+      "rl_items": [
+        {
+          "url": "/emergency-plumber-{city_slug}",
+          "text": "emergency plumber"
+        },
+        {
+          "url": "/drain-cleaning-{city_slug}",
+          "text": "drain cleaning"
+        },
+        {
+          "url": "/leak-detection-{city_slug}",
+          "text": "leak detection"
+        },
+        {
+          "url": "/slab-leak-repair-{city_slug}",
+          "text": "slab leak repair"
+        },
+        {
+          "url": "/sewer-line-repair-{city_slug}",
+          "text": "sewer line repair"
+        },
+        {
+          "url": "/toilet-installation-{city_slug}",
+          "text": "toilet installation"
+        }
+      ],
+      "id": "related_links_home_1"
+    },
+    {
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_prompt_override": "",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "type": "ai_block",
+      "ai_type_id": "why_choose_us",
+      "skin": "light",
+      "fc_heading": "",
+      "fc_num_cols": 4,
+      "columns": [],
+      "id": "why_choose_us_home"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Plumbing Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Plumbing Company",
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Plumbing emergency in {city}? {business} can help — usually same-day.",
+      "cb_heading_level": "h2",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1"
+    },
+    {
+      "type": "map_info",
+      "skin": "light",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_map_side": "top",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "id": "map_info_1",
+      "mi_map_caption": "{city_map_caption}",
+      "mi_map_link": "{city_map_link}",
+      "mi_map_link_text": "View {city_state} on Google Maps ↗"
+    }
+  ],
+  "seo": {
+    "primary_keyword": "Plumbing",
+    "secondary_keywords": "plumbing service, home plumbing repair, same day plumbing service",
+    "seo_title": "Plumbing in {city_state} | {business_short}",
+    "canonical_url": "",
+    "meta_description": "Plumbing in {city_state}. {business_short} connects you with a local provider for leaks, clogs, and more, often available same-day. Call {phone}.",
+    "meta_keywords": "plumbing {city} {SS}, plumber near me {city}",
+    "og_title": "Plumbing in {city_state} | {business}",
+    "og_description": "Plumbing in {city_state} from {business}. Leaks, clogs, water heaters, fixtures, and more — connect with a local plumbing provider fast. same-day availability. Call {phone}.",
+    "og_image": "sites/plumbing-site/uploads/media/home-hero.webp",
+    "og_image_alt": "",
+    "bc_hide": false,
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "og_site_name": "",
+    "og_locale": "",
+    "twitter_card": "summary_large_image",
+    "twitter_handle": "",
+    "og_type": "website",
+    "robots_noindex": false,
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {city_state} property owners with independent local plumbing providers for leaks, clogs, water heaters, and other plumbing needs, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+    "meta_description_pool": [
+      "Plumbing services in {city_state}: {business_short} connects you with an independent local provider for emergencies, drain cleaning, leak detection & water heaters. Call {phone}.",
+      "Need a plumber near {city_state}? {business_short} links you to a responsive local provider for drains, leaks, slab leaks & water heaters. Call {phone} today.",
+      "{city_state} plumbing made simple — {business_short} puts you in touch with a nearby independent provider for emergencies & water heater work. Dial {phone}.",
+      "Searching for a plumber in {city_state}? {business_short} connects you fast with a local independent provider covering drains, leaks & water heaters. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Plumbing in {city_state}: {business} connects you with local providers for emergency plumbing, drain cleaning, leak detection, and water heaters.",
+      "Need a plumber in {city_state}? {business} links you to independent local providers who handle emergencies, drains, and water heaters.",
+      "{business} helps {city_state} residents find local plumbing providers for drains, leaks, slab leaks, and water heater installation.",
+      "Looking for a plumber near {city_state}? {business} quickly connects you with independent local providers for all plumbing needs."
+    ],
+    "service_name": "Plumbing"
+  },
+  "footer": {
+    "logo": "uploads/logo_wells-appliance-repair-lufkin.png",
+    "phone": "{phone}",
+    "columns": [
+      {
+        "type": "logo"
+      },
+      {
+        "type": "links",
+        "title": "Quick Links",
+        "links": [
+          {
+            "label": "Emergency Plumber",
+            "url": "/emergency-plumber-{city_slug}"
+          },
+          {
+            "label": "Drain Cleaning",
+            "url": "/drain-cleaning-{city_slug}"
+          },
+          {
+            "label": "Leak Detection",
+            "url": "/leak-detection-{city_slug}"
+          },
+          {
+            "label": "Slab Leak Repair",
+            "url": "/slab-leak-repair-{city_slug}"
+          },
+          {
+            "label": "Sewer Line Repair",
+            "url": "/sewer-line-repair-{city_slug}"
+          },
+          {
+            "label": "Toilet Installation",
+            "url": "/toilet-installation-{city_slug}"
+          }
+        ]
+      },
+      {
+        "type": "links",
+        "title": "Water Heater Services",
+        "links": [
+          {
+            "label": "Gas Tankless Water Heater",
+            "url": "/tankless-gas-water-heater-{city_slug}"
+          },
+          {
+            "label": "Electric Tankless Water Heater",
+            "url": "/tankless-electric-water-heater-{city_slug}"
+          },
+          {
+            "label": "Gas Tank Water Heater",
+            "url": "/tank-gas-water-heater-{city_slug}"
+          },
+          {
+            "label": "Electric Tank Water Heater",
+            "url": "/tank-electric-water-heater-{city_slug}"
+          }
+        ]
+      },
+      {
+        "type": "contact",
+        "title": "Contact Info",
+        "contact_extras": [],
+        "text": ""
+      }
+    ],
+    "copyright": "© Copyright {year} {business}. All Rights Reserved.",
+    "bottom_links": [
+      {
+        "label": "Privacy Policy",
+        "url": "/privacy-policy"
+      },
+      {
+        "label": "Terms and Conditions",
+        "url": "/terms-and-conditions"
+      },
+      {
+        "label": "Contact Us",
+        "url": "/contact-us"
+      }
+    ],
+    "disclaimer": "<p>Disclaimer: {business_domain} is a free service that helps homeowners connect with local plumbing service providers. All contractors and providers are independent, and {business_domain} does not warrant or guarantee any work performed. It is the homeowner&rsquo;s responsibility to verify that any hired contractor carries the license and insurance required for the work being performed, and to confirm the scope of the plumbing work &mdash; including the diagnosis, the recommended repair, and any parts involved &mdash; before work begins. All persons depicted in any photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as &ldquo;Sponsored&rdquo; or &ldquo;Ad&rdquo;. See our Terms and Conditions for further details.</p>",
+    "sticky_bar_text": "24/7 Help Line - Call Now",
+    "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+    "logo_in_copyright_bar": false,
+    "col_count": 4,
+    "socials": {
+      "facebook": "",
+      "instagram": "",
+      "linkedin": "",
+      "youtube": "",
+      "twitter": ""
+    },
+    "logo_in_contact_column": false,
+    "tagline": "We know every home and every problem is different. Our goal is simple: understand exactly what you're dealing with, and connect you with someone who can solve it right. That's the only outcome that matters to us.",
+    "show_sticky_info_icon": false
+  },
+  "pages": {
+    "page_8845f40cd5d04": {
+      "title": "Privacy Policy | {business}",
+      "slug": "privacy-policy",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "text",
+          "heading_level": "h1",
+          "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent plumbing providers and does not itself perform plumbing service services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "<h2>A. Information We Collect</h2><p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p><h2>B. How We Use Information</h2><p>We use the information we collect to operate and improve the Website, connect you with relevant plumbing providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p><h2>C. Cookies and Similar Technologies</h2><p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p><h2>D. How We Share Information</h2><p>We may share information about you with:</p><ul><li><strong>Appliance repair providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p><h2>E. Data Security</h2><p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p><h2>F. Data Retention</h2><p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p><h2>G. Children&#039;s Privacy</h2><p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at {email} so we can remove it.</p><h2>H. International Visitors</h2><p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p><h2>I. Your Privacy Rights</h2><p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at {email}. We will respond to verified requests consistent with applicable law.</p><h2>J. Contact Us</h2><p>Questions or concerns about this Privacy Policy can be sent to {email} or by calling {phone}.</p><h2>K. Changes to This Policy</h2><p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information.",
+        "og_title": "Privacy Policy | {business}",
+        "og_description": "How {business} collects, uses, and protects your information.",
+        "og_image": "",
+        "schema": "",
+        "canonical_url": "{website}/privacy-policy/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Privacy Policy",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": ""
+      }
+    },
+    "page_5ecf42631f084": {
+      "title": "Terms and Conditions | {business}",
+      "slug": "terms-and-conditions",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "text",
+          "heading_level": "h1",
+          "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "<h2>A. Who We Are</h2><p>{business} operates the Website as a free service that helps homeowners find independent plumbing providers in their area. We do not own, operate, or control any plumbing service business, and we do not perform plumbing service services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p><h2>B. Eligibility and Acceptance</h2><p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p><h2>C. Content Is Informational Only</h2><p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed plumbing service professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p><h2>D. Connecting You With Providers</h2><p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more plumbing providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p><h2>E. Prohibited Conduct</h2><p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p><h2>F. Disclaimer of Warranties</h2><p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p><h2>G. Limitation of Liability</h2><p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any plumbing provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p><h2>H. Indemnification</h2><p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p><h2>I. Intellectual Property</h2><p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at {email} with details of the alleged infringement so we can investigate.</p><h2>J. Relationship to Our Privacy Policy</h2><p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p><h2>K. Governing Law</h2><p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p><h2>L. Dispute Resolution</h2><p>If a dispute arises out of your use of the Website, we encourage you to contact us first at {email} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p><h2>M. Changes to These Terms</h2><p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p><h2>N. Contact Us</h2><p>Questions about these Terms can be directed to {email} or by calling {phone}.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
+        "og_title": "Terms and Conditions | {business}",
+        "og_description": "The terms governing your use of {website}.",
+        "og_image": "",
+        "schema": "",
+        "canonical_url": "{website}/terms-and-conditions/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Terms and Conditions",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": ""
+      }
+    },
+    "page_6a30c3339c03d": {
+      "title": "Contact Us",
+      "slug": "contact-us",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "hero_split",
+          "hs_heading": "Contact Us",
+          "hs_subtext": "",
+          "hs_btn_text": "",
+          "hs_btn_url": "#",
+          "hs_photo": "{city_image}",
+          "hs_photo_alt": "{city} home",
+          "hs_caption1": "",
+          "hs_caption2": "",
+          "hs_bg_color": "footer",
+          "hs_bg_photo": "",
+          "hs_image_side": "right",
+          "hs_mobile_order": "",
+          "hs_tagline": "",
+          "hs_btn2_text": "",
+          "hs_btn2_url": "#",
+          "anchor": "contact-hero"
+        },
+        {
+          "type": "contact_form",
+          "cf_heading": "Get in Touch",
+          "cf_subtext": "",
+          "cf_btn_text": "Send Message",
+          "cf_show_phone": true
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Contact {business} — call or email to be connected with a local plumbing provider in {city_state}.",
+        "og_title": "Contact Us | {business}",
+        "og_description": "Get in touch with {business} — call or email to schedule plumbing service in your area.",
+        "og_image": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"ContactPage\",\n            \"@id\": \"{website}/contact-us/#contactpage\",\n            \"url\": \"{website}/contact-us/\",\n            \"name\": \"Contact {business}\",\n            \"description\": \"Call or email {business} to be connected with a local plumbing provider in {city_state}.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        },\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"email\": \"{email}\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"contactPoint\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"{tel}\",\n                \"email\": \"{email}\",\n                \"contactType\": \"customer service\",\n                \"areaServed\": \"US\",\n                \"availableLanguage\": \"English\"\n            }\n        }\n    ]\n}",
+        "canonical_url": "{website}/contact-us/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Contact Us",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": "",
+        "seo_title": "Contact {business} | {city_state}"
+      }
+    },
+    "page_12ead07315570": {
+      "title": "About Us",
+      "slug": "about-us",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "ai_block",
+          "skin": "light",
+          "ai_type_id": "about_story",
+          "ai_mode": "standalone",
+          "ai_render_as": "text",
+          "ai_model": "claude-haiku-4-5-20251001",
+          "ai_prompt_override": "",
+          "ai_inject_target": null,
+          "ai_inject_field": null,
+          "ai_inject_mode": null,
+          "heading_text": "",
+          "heading_level": "h2",
+          "text": "",
+          "id": "ai_block_about"
+        },
+        {
+          "ai_mode": "standalone",
+          "ai_render_as": "feature_columns",
+          "ai_model": "claude-haiku-4-5-20251001",
+          "ai_prompt_override": "",
+          "ai_inject_target": null,
+          "ai_inject_field": null,
+          "ai_inject_mode": null,
+          "type": "ai_block",
+          "ai_type_id": "why_choose_us",
+          "skin": "light",
+          "fc_heading": "",
+          "fc_num_cols": 4,
+          "columns": [],
+          "id": "why_choose_us_about"
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Learn about {business} and our mission to connect {city_state} property owners with trusted, quality local service providers.",
+        "og_title": "About Us | {business}",
+        "og_description": "Learn about {business} and our mission to connect {city_state} property owners with trusted, quality local service providers.",
+        "og_image": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"AboutPage\",\n            \"@id\": \"{website}/about-us/#aboutpage\",\n            \"url\": \"{website}/about-us/\",\n            \"name\": \"About {business}\",\n            \"description\": \"How {business} connects {city_state} property owners with independent local plumbing providers.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        },\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            }\n        }\n    ]\n}",
+        "canonical_url": "{website}/about-us/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "About Us",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": "",
+        "seo_title": "About {business} | {city_state}"
+      }
+    }
+  },
+  "popups": {
+    "info": {
+      "enabled": true,
+      "heading": "How Your Calls Are Handled",
+      "image": "",
+      "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted plumbing professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide plumbing services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more plumbing options, visit our {website} or call us anytime at {phone}.</p>"
+    }
+  },
+  "local_business": {
+    "lb_name": "{business}",
+    "lb_type": "Plumber",
+    "lb_url": "{website}",
+    "lb_phone": "{phone}",
+    "lb_street": "",
+    "lb_city": "{city}",
+    "lb_state": "{SS}",
+    "lb_zip": "{zip}",
+    "lb_country": "US",
+    "lb_lat": "31.3382",
+    "lb_lng": "-94.7291",
+    "lb_price_range": "$$",
+    "lb_hours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
+    "lb_description": "{business} connects homeowners in {city_state} with independent local plumbing providers, including emergency plumbing, drain cleaning, leak detection, slab leak repair, sewer line repair, and water heater installation and repair for all major brands and types.",
+    "lb_logo": "{website}/uploads/logo_wells-appliance-repair-lufkin.png",
+    "lb_rating": "",
+    "lb_review_count": ""
+  },
+  "site_vars": {
+    "city": "Lufkin",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "lufkin-tx",
+    "business": "Plumbing Connect",
+    "phone": "936-867-4787",
+    "zip": "75901",
+    "website": "https://a.q111.xyz",
+    "tel": "+19368674787",
+    "city_image": "sites/appliance-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "email": "info@a.q111.xyz",
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "business_short": ""
+  },
+  "posts": [],
+  "blog_settings": {
+    "blog_heading": "Plumbing Tips & Advice for {city}",
+    "blog_intro": "Practical plumbing tips, seasonal guidance, and maintenance advice for homeowners in {city}, {SS} from {business}.",
+    "posts_per_page": 9,
+    "enabled": true
+  },
+  "services_links": {
+    "services": [
+      {
+        "name": "Emergency Plumber",
+        "url": "/emergency-plumber-{city_slug}"
+      },
+      {
+        "name": "Drain Cleaning",
+        "url": "/drain-cleaning-{city_slug}"
+      },
+      {
+        "name": "Leak Detection",
+        "url": "/leak-detection-{city_slug}"
+      },
+      {
+        "name": "Slab Leak Repair",
+        "url": "/slab-leak-repair-{city_slug}"
+      },
+      {
+        "name": "Sewer Line Repair",
+        "url": "/sewer-line-repair-{city_slug}"
+      },
+      {
+        "name": "Toilet Installation",
+        "url": "/toilet-installation-{city_slug}"
+      },
+      {
+        "name": "Gas Tank Water Heater",
+        "url": "/tank-gas-water-heater-{city_slug}"
+      },
+      {
+        "name": "Electric Tank Water Heater",
+        "url": "/tank-electric-water-heater-{city_slug}"
+      },
+      {
+        "name": "Gas Tankless Water Heater",
+        "url": "/tankless-gas-water-heater-{city_slug}"
+      },
+      {
+        "name": "Electric Tankless Water Heater",
+        "url": "/tankless-electric-water-heater-{city_slug}"
+      },
+      {
+        "name": "Rheem Water Heater Repair",
+        "url": "/rheem-water-heater-{city_slug}"
+      },
+      {
+        "name": "A.O. Smith Water Heater Repair",
+        "url": "/ao-smith-water-heater-{city_slug}"
+      },
+      {
+        "name": "Bradford White Water Heater Repair",
+        "url": "/bradford-white-water-heater-{city_slug}"
+      },
+      {
+        "name": "Rinnai Water Heater Repair",
+        "url": "/rinnai-water-heater-{city_slug}"
+      },
+      {
+        "name": "Navien Water Heater Repair",
+        "url": "/navien-water-heater-{city_slug}"
+      },
+      {
+        "name": "State Water Heater Repair",
+        "url": "/state-water-heater-{city_slug}"
+      },
+      {
+        "name": "Noritz Water Heater Repair",
+        "url": "/noritz-water-heater-{city_slug}"
+      }
+    ],
+    "url_pattern": "/{service_slug}-{city_slug}",
+    "heading": "Our Plumbing Services in {city_state}",
+    "sublabel": "",
+    "subtext": "We offer a full range of plumbing services in {city_state}, from emergency repairs and drain cleaning to water heater installation and repair across every major brand and type. Our local providers connect you with the right specialist for the job.",
+    "style": "dark",
+    "cols": 4,
+    "bg_photo": "sites/appliance-site/uploads/media/two-story-family-home.webp",
+    "overlay": "0.20",
+    "bg_color": "#ffffff",
+    "accent": "accent",
+    "accent_custom": "#fd783b",
+    "anchor": "plumbing_services",
+    "mega_menu_depth": "hubs"
+  },
+  "breadcrumbs": {
+    "enabled": true,
+    "hero_bg_mode": "auto",
+    "hero_bg_color": ""
+  },
+  "last_modified": "2026-07-19"
+}

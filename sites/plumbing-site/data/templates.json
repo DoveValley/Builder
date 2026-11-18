@@ -1,0 +1,3753 @@
+[
+  {
+    "id": "tpl_emergency_plumber",
+    "page_type": "template",
+    "title": "Emergency Plumber in {city_state} | {business_short}",
+    "slug_pattern": "emergency-plumber-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Emergency Plumber in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Emergency Plumber connections from {business}. We connect you with responsive local providers who respond quickly.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/emergency-plumber.webp",
+        "hs_photo_alt": "Emergency Plumber in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/emergency-plumber.webp",
+        "it_alt": "Emergency Plumber in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Book Online",
+            "text": "Tell us what's going on. We schedule quickly, often same-day."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Diagnose & Quote",
+            "text": "The local provider you connect with diagnoses the issue and gives you an upfront, no-surprise quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Repair & Warranty",
+            "text": "We complete the work with quality parts and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Have a plumbing emergency in {city}? We'll connect you with a provider fast.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/plumbing-site/uploads/media/emergency-plumber.webp",
+        "it_alt": "Emergency Plumber in {city_state}",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/drain-cleaning-{city_slug}",
+            "text": "drain cleaning"
+          },
+          {
+            "url": "/leak-detection-{city_slug}",
+            "text": "leak detection"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Call now for emergency plumbing help in {city}.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Emergency Plumber in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "A burst pipe or sewage backup can't wait. {business_short} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}.",
+      "meta_keywords": "emergency plumber {city} {SS}",
+      "og_title": "Emergency Plumber in {city_state} | {business}",
+      "og_description": "A burst pipe or sewage backup can't wait. {business} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Emergency Plumber",
+      "service_type": "Emergency Plumber",
+      "service_area": "{city}, {SS}",
+      "service_description": "A burst pipe or sewage backup can't wait. {business} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Emergency Plumber",
+      "secondary_keywords": "24 hour plumber, emergency plumbing service, same day plumber",
+      "brand": "",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Plumber in {city_state}\",\n            \"serviceType\": \"Emergency Plumber\",\n            \"description\": \"A burst pipe or sewage backup can't wait. {business} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "A burst pipe or sewage backup can't wait. {business_short} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "A burst pipe or sewage backup can't wait. {business} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Emergency Plumber",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_drain_cleaning",
+    "page_type": "template",
+    "title": "Drain Cleaning in {city_state} | {business_short}",
+    "slug_pattern": "drain-cleaning-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Drain Cleaning in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Drain Cleaning connections from {business}. We connect you with responsive local providers who respond quickly.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/drain-cleaning.webp",
+        "hs_photo_alt": "Drain Cleaning in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/drain-cleaning.webp",
+        "it_alt": "Drain Cleaning in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Book Online",
+            "text": "Tell us what's going on. We schedule quickly, often same-day."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Diagnose & Quote",
+            "text": "The local provider you connect with diagnoses the issue and gives you an upfront, no-surprise quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Repair & Warranty",
+            "text": "We complete the work with quality parts and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with a clogged drain in {city}? Get connected with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/plumbing-site/uploads/media/drain-cleaning.webp",
+        "it_alt": "Drain Cleaning in {city_state}",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/emergency-plumber-{city_slug}",
+            "text": "emergency plumber"
+          },
+          {
+            "url": "/leak-detection-{city_slug}",
+            "text": "leak detection"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} drain cleaning today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Drain Cleaning in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Slow or clogged drains in {city_state}? {business_short} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}.",
+      "meta_keywords": "drain cleaning {city} {SS}",
+      "og_title": "Drain Cleaning in {city_state} | {business}",
+      "og_description": "Slow or clogged drains in {city_state}? {business} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}.",
+      "og_image": "",
+      "service_name": "Drain Cleaning",
+      "service_type": "Drain Cleaning",
+      "service_area": "{city}, {SS}",
+      "service_description": "Slow or clogged drains in {city_state}? {business} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Drain Cleaning",
+      "secondary_keywords": "clogged drain, drain unclogging, hydro jetting",
+      "brand": "",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Drain Cleaning in {city_state}\",\n            \"serviceType\": \"Drain Cleaning\",\n            \"description\": \"Slow or clogged drains in {city_state}? {business} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Slow or clogged drains in {city_state}? {business_short} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Slow or clogged drains in {city_state}? {business} connects you with a local provider for drain cleaning and hydro jetting. Call {phone}."
+      ]
+    },
+    "service": "Drain Cleaning",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_leak_detection",
+    "page_type": "template",
+    "title": "Leak Detection in {city_state} | {business_short}",
+    "slug_pattern": "leak-detection-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Leak Detection in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Leak Detection connections from {business}. We connect you with responsive local providers who respond quickly.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/leak-detection.webp",
+        "hs_photo_alt": "Leak Detection in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/leak-detection.webp",
+        "it_alt": "Leak Detection in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Book Online",
+            "text": "Tell us what's going on. We schedule quickly, often same-day."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Diagnose & Quote",
+            "text": "The local provider you connect with diagnoses the issue and gives you an upfront, no-surprise quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Repair & Warranty",
+            "text": "We complete the work with quality parts and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Think you have a hidden leak in {city}? We'll connect you with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/plumbing-site/uploads/media/leak-detection.webp",
+        "it_alt": "Leak Detection in {city_state}",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/emergency-plumber-{city_slug}",
+            "text": "emergency plumber"
+          },
+          {
+            "url": "/drain-cleaning-{city_slug}",
+            "text": "drain cleaning"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Schedule your {city} leak detection today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Leak Detection in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Suspect a hidden water leak in {city_state}? {business_short} connects you with a local leak detection provider. Call {phone}.",
+      "meta_keywords": "leak detection {city} {SS}",
+      "og_title": "Leak Detection in {city_state} | {business}",
+      "og_description": "Suspect a hidden water leak in {city_state}? {business} connects you with a local leak detection provider. Call {phone}.",
+      "og_image": "",
+      "service_name": "Leak Detection",
+      "service_type": "Leak Detection",
+      "service_area": "{city}, {SS}",
+      "service_description": "Suspect a hidden water leak in {city_state}? {business} connects you with a local leak detection provider. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Leak Detection",
+      "secondary_keywords": "water leak detection, hidden leak detection, leak repair",
+      "brand": "",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Leak Detection in {city_state}\",\n            \"serviceType\": \"Leak Detection\",\n            \"description\": \"Suspect a hidden water leak in {city_state}? {business} connects you with a local leak detection provider. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Suspect a hidden water leak in {city_state}? {business_short} connects you with a local leak detection provider. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Suspect a hidden water leak in {city_state}? {business} connects you with a local leak detection provider. Call {phone}."
+      ]
+    },
+    "service": "Leak Detection",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_slab_leak_repair",
+    "page_type": "template",
+    "title": "Slab Leak Repair in {city_state} | {business_short}",
+    "slug_pattern": "slab-leak-repair-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Slab Leak Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Slab Leak Repair connections from {business}. We connect you with responsive local providers who respond quickly.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/slab-leak-repair.webp",
+        "hs_photo_alt": "Slab Leak Repair in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/slab-leak-repair.webp",
+        "it_alt": "Slab Leak Repair in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Book Online",
+            "text": "Tell us what's going on. We schedule quickly, often same-day."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Diagnose & Quote",
+            "text": "The local provider you connect with diagnoses the issue and gives you an upfront, no-surprise quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Repair & Warranty",
+            "text": "We complete the work with quality parts and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Notice warm spots or rising water bills in {city}? Ask about slab leak repair.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/plumbing-site/uploads/media/slab-leak-repair.webp",
+        "it_alt": "Slab Leak Repair in {city_state}",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/emergency-plumber-{city_slug}",
+            "text": "emergency plumber"
+          },
+          {
+            "url": "/drain-cleaning-{city_slug}",
+            "text": "drain cleaning"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Get your {city} slab leak evaluated today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Slab Leak Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Slab leaks are common in clay-soil regions. {business_short} connects {city_state} homeowners with an experienced local provider. Call {phone}.",
+      "meta_keywords": "slab leak repair {city} {SS}",
+      "og_title": "Slab Leak Repair in {city_state} | {business}",
+      "og_description": "Slab leaks are common in clay-soil regions. {business} connects {city_state} homeowners with an experienced local provider. Call {phone}.",
+      "og_image": "",
+      "service_name": "Slab Leak Repair",
+      "service_type": "Slab Leak Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Slab leaks are common in clay-soil regions. {business} connects {city_state} homeowners with an experienced local provider. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Slab Leak Repair",
+      "secondary_keywords": "slab leak detection, foundation leak repair",
+      "brand": "",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Slab Leak Repair in {city_state}\",\n            \"serviceType\": \"Slab Leak Repair\",\n            \"description\": \"Slab leaks are common in clay-soil regions. {business} connects {city_state} homeowners with an experienced local provider. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Slab leaks are common in clay-soil regions. {business_short} connects {city_state} homeowners with an experienced local provider. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Slab leaks are common in clay-soil regions. {business} connects {city_state} homeowners with an experienced local provider. Call {phone}."
+      ]
+    },
+    "service": "Slab Leak Repair",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_sewer_line_repair",
+    "page_type": "template",
+    "title": "Sewer Line Repair in {city_state} | {business_short}",
+    "slug_pattern": "sewer-line-repair-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Sewer Line Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Sewer Line Repair connections from {business}. We connect you with responsive local providers who respond quickly.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/sewer-line-repair.webp",
+        "hs_photo_alt": "Sewer Line Repair in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/sewer-line-repair.webp",
+        "it_alt": "Sewer Line Repair in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Book Online",
+            "text": "Tell us what's going on. We schedule quickly, often same-day."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Diagnose & Quote",
+            "text": "The local provider you connect with diagnoses the issue and gives you an upfront, no-surprise quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Repair & Warranty",
+            "text": "We complete the work with quality parts and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Sewer backing up in {city}? Connect with a local provider now.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/plumbing-site/uploads/media/sewer-line-repair.webp",
+        "it_alt": "Sewer Line Repair in {city_state}",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/emergency-plumber-{city_slug}",
+            "text": "emergency plumber"
+          },
+          {
+            "url": "/drain-cleaning-{city_slug}",
+            "text": "drain cleaning"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Schedule your {city} sewer line inspection today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Sewer Line Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Sewer backups and line failures in {city_state}? {business_short} connects you with a local provider, including trenchless options. Call {phone}.",
+      "meta_keywords": "sewer line repair {city} {SS}",
+      "og_title": "Sewer Line Repair in {city_state} | {business}",
+      "og_description": "Sewer backups and line failures in {city_state}? {business} connects you with a local provider, including trenchless options. Call {phone}.",
+      "og_image": "",
+      "service_name": "Sewer Line Repair",
+      "service_type": "Sewer Line Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Sewer backups and line failures in {city_state}? {business} connects you with a local provider, including trenchless options. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Sewer Line Repair",
+      "secondary_keywords": "sewer line replacement, sewer line inspection, trenchless sewer repair",
+      "brand": "",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Sewer Line Repair in {city_state}\",\n            \"serviceType\": \"Sewer Line Repair\",\n            \"description\": \"Sewer backups and line failures in {city_state}? {business} connects you with a local provider, including trenchless options. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Sewer backups and line failures in {city_state}? {business_short} connects you with a local provider, including trenchless options. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Sewer backups and line failures in {city_state}? {business} connects you with a local provider, including trenchless options. Call {phone}."
+      ]
+    },
+    "service": "Sewer Line Repair",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_toilet_installation",
+    "page_type": "template",
+    "title": "Toilet Installation in {city_state} | {business_short}",
+    "slug_pattern": "toilet-installation-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Toilet Installation in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Toilet Installation connections from {business}. We connect you with responsive local providers who respond quickly.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/toilet-installation.webp",
+        "hs_photo_alt": "Toilet Installation in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/toilet-installation.webp",
+        "it_alt": "Toilet Installation in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Book Online",
+            "text": "Tell us what's going on. We schedule quickly, often same-day."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Diagnose & Quote",
+            "text": "The local provider you connect with diagnoses the issue and gives you an upfront, no-surprise quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Repair & Warranty",
+            "text": "We complete the work with quality parts and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Ready for a new toilet in {city}? We'll connect you with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/plumbing-site/uploads/media/toilet-installation.webp",
+        "it_alt": "Toilet Installation in {city_state}",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/emergency-plumber-{city_slug}",
+            "text": "emergency plumber"
+          },
+          {
+            "url": "/drain-cleaning-{city_slug}",
+            "text": "drain cleaning"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} toilet installation today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Toilet Installation in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Replacing or installing a new toilet in {city_state}? {business_short} connects you with a local provider. Call {phone}.",
+      "meta_keywords": "toilet installation {city} {SS}",
+      "og_title": "Toilet Installation in {city_state} | {business}",
+      "og_description": "Replacing or installing a new toilet in {city_state}? {business} connects you with a local provider. Call {phone}.",
+      "og_image": "",
+      "service_name": "Toilet Installation",
+      "service_type": "Toilet Installation",
+      "service_area": "{city}, {SS}",
+      "service_description": "Replacing or installing a new toilet in {city_state}? {business} connects you with a local provider. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Toilet Installation",
+      "secondary_keywords": "toilet replacement, new toilet install",
+      "brand": "",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Toilet Installation in {city_state}\",\n            \"serviceType\": \"Toilet Installation\",\n            \"description\": \"Replacing or installing a new toilet in {city_state}? {business} connects you with a local provider. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Replacing or installing a new toilet in {city_state}? {business_short} connects you with a local provider. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Replacing or installing a new toilet in {city_state}? {business} connects you with a local provider. Call {phone}."
+      ]
+    },
+    "service": "Toilet Installation",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_tank_gas_water_heater",
+    "page_type": "template",
+    "title": "Gas Tank Water Heater Installation in {city_state} | {business_short}",
+    "slug_pattern": "tank-gas-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Gas Tank Water Heater Installation in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Gas Tank Water Heater installation and repair connections from {business}. We connect you with responsive local providers who know every major brand.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/tank-gas-water-heater.webp",
+        "hs_photo_alt": "Gas Tank Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/tank-gas-water-heater.webp",
+        "it_alt": "Gas Tank Water Heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "type_brands_mention",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "skin": "light",
+        "heading_level": "h2",
+        "anchor": "brands_serviced",
+        "id": "ai_block_brands_serviced"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need a gas tank water heater installed or repaired in {city}? We'll connect you with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/tank-electric-water-heater-{city_slug}",
+            "text": "electric tank water heater"
+          },
+          {
+            "url": "/tankless-gas-water-heater-{city_slug}",
+            "text": "gas tankless water heater"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Schedule your {city} water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Gas Tank Water Heater Installation in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need a Gas Tank Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "gas tank water heater {city} {SS}",
+      "og_title": "Gas Tank Water Heater Installation in {city_state} | {business}",
+      "og_description": "Need a Gas Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Gas Tank Water Heater",
+      "service_type": "Gas Tank Water Heater",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need a Gas Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Gas Tank Water Heater Installation",
+      "secondary_keywords": "gas tank water heater repair, gas tank water heater replacement, gas tank water heater cost, same day gas tank water heater installation",
+      "brand": "",
+      "appliance_type": "Gas Tank Water Heater",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Gas Tank Water Heater Installation in {city_state}\",\n            \"serviceType\": \"Gas Tank Water Heater\",\n            \"description\": \"Need a Gas Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "Rheem, A.O. Smith, Bradford White, Rinnai, Navien, State, Noritz",
+      "meta_description_pool": [
+        "Need a Gas Tank Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need a Gas Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Gas Tank Water Heater",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_type": "tank-gas"
+  },
+  {
+    "id": "tpl_tank_electric_water_heater",
+    "page_type": "template",
+    "title": "Electric Tank Water Heater Installation in {city_state} | {business_short}",
+    "slug_pattern": "tank-electric-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Electric Tank Water Heater Installation in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Electric Tank Water Heater installation and repair connections from {business}. We connect you with responsive local providers who know every major brand.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/tank-electric-water-heater.webp",
+        "hs_photo_alt": "Electric Tank Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/tank-electric-water-heater.webp",
+        "it_alt": "Electric Tank Water Heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "type_brands_mention",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "skin": "light",
+        "heading_level": "h2",
+        "anchor": "brands_serviced",
+        "id": "ai_block_brands_serviced"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need a electric tank water heater installed or repaired in {city}? We'll connect you with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          },
+          {
+            "url": "/tankless-gas-water-heater-{city_slug}",
+            "text": "gas tankless water heater"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Schedule your {city} water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Electric Tank Water Heater Installation in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need a Electric Tank Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "electric tank water heater {city} {SS}",
+      "og_title": "Electric Tank Water Heater Installation in {city_state} | {business}",
+      "og_description": "Need a Electric Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Electric Tank Water Heater",
+      "service_type": "Electric Tank Water Heater",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need a Electric Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Electric Tank Water Heater Installation",
+      "secondary_keywords": "electric tank water heater repair, electric tank water heater replacement, electric tank water heater cost, same day electric tank water heater installation",
+      "brand": "",
+      "appliance_type": "Electric Tank Water Heater",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Electric Tank Water Heater Installation in {city_state}\",\n            \"serviceType\": \"Electric Tank Water Heater\",\n            \"description\": \"Need a Electric Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "Rheem, A.O. Smith, Bradford White, Rinnai, Navien, State, Noritz",
+      "meta_description_pool": [
+        "Need a Electric Tank Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need a Electric Tank Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Electric Tank Water Heater",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_type": "tank-electric"
+  },
+  {
+    "id": "tpl_tankless_gas_water_heater",
+    "page_type": "template",
+    "title": "Gas Tankless Water Heater Installation in {city_state} | {business_short}",
+    "slug_pattern": "tankless-gas-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Gas Tankless Water Heater Installation in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Gas Tankless Water Heater installation and repair connections from {business}. We connect you with responsive local providers who know every major brand.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/tankless-gas-water-heater.webp",
+        "hs_photo_alt": "Gas Tankless Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/tankless-gas-water-heater.webp",
+        "it_alt": "Gas Tankless Water Heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "type_brands_mention",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "skin": "light",
+        "heading_level": "h2",
+        "anchor": "brands_serviced",
+        "id": "ai_block_brands_serviced"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need a gas tankless water heater installed or repaired in {city}? We'll connect you with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          },
+          {
+            "url": "/tank-electric-water-heater-{city_slug}",
+            "text": "electric tank water heater"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Schedule your {city} water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Gas Tankless Water Heater Installation in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need a Gas Tankless Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "gas tankless water heater {city} {SS}",
+      "og_title": "Gas Tankless Water Heater Installation in {city_state} | {business}",
+      "og_description": "Need a Gas Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Gas Tankless Water Heater",
+      "service_type": "Gas Tankless Water Heater",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need a Gas Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Gas Tankless Water Heater Installation",
+      "secondary_keywords": "gas tankless water heater repair, gas tankless water heater replacement, gas tankless water heater cost, same day gas tankless water heater installation",
+      "brand": "",
+      "appliance_type": "Gas Tankless Water Heater",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Gas Tankless Water Heater Installation in {city_state}\",\n            \"serviceType\": \"Gas Tankless Water Heater\",\n            \"description\": \"Need a Gas Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "Rheem, A.O. Smith, Bradford White, Rinnai, Navien, State, Noritz",
+      "meta_description_pool": [
+        "Need a Gas Tankless Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need a Gas Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Gas Tankless Water Heater",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_type": "tankless-gas"
+  },
+  {
+    "id": "tpl_tankless_electric_water_heater",
+    "page_type": "template",
+    "title": "Electric Tankless Water Heater Installation in {city_state} | {business_short}",
+    "slug_pattern": "tankless-electric-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Electric Tankless Water Heater Installation in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Electric Tankless Water Heater installation and repair connections from {business}. We connect you with responsive local providers who know every major brand.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/tankless-electric-water-heater.webp",
+        "hs_photo_alt": "Electric Tankless Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/tankless-electric-water-heater.webp",
+        "it_alt": "Electric Tankless Water Heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "type_brands_mention",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "skin": "light",
+        "heading_level": "h2",
+        "anchor": "brands_serviced",
+        "id": "ai_block_brands_serviced"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need a electric tankless water heater installed or repaired in {city}? We'll connect you with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          },
+          {
+            "url": "/tank-electric-water-heater-{city_slug}",
+            "text": "electric tank water heater"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Schedule your {city} water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Electric Tankless Water Heater Installation in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need a Electric Tankless Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "electric tankless water heater {city} {SS}",
+      "og_title": "Electric Tankless Water Heater Installation in {city_state} | {business}",
+      "og_description": "Need a Electric Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Electric Tankless Water Heater",
+      "service_type": "Electric Tankless Water Heater",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need a Electric Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Electric Tankless Water Heater Installation",
+      "secondary_keywords": "electric tankless water heater repair, electric tankless water heater replacement, electric tankless water heater cost, same day electric tankless water heater installation",
+      "brand": "",
+      "appliance_type": "Electric Tankless Water Heater",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Electric Tankless Water Heater Installation in {city_state}\",\n            \"serviceType\": \"Electric Tankless Water Heater\",\n            \"description\": \"Need a Electric Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "",
+      "brands_serviced": "Rheem, A.O. Smith, Bradford White, Rinnai, Navien, State, Noritz",
+      "meta_description_pool": [
+        "Need a Electric Tankless Water Heater? {business_short} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need a Electric Tankless Water Heater? {business} connects you with independent local providers who install and repair every major brand. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Electric Tankless Water Heater",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_type": "tankless-electric"
+  },
+  {
+    "id": "tpl_rheem_water_heater",
+    "page_type": "template",
+    "title": "Rheem Water Heater Repair in {city_state} | {business_short}",
+    "slug_pattern": "rheem-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Rheem Water Heater Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Rheem water heater connections from {business}. We connect you with responsive local providers who know Rheem systems.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "hs_photo_alt": "Rheem Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "it_alt": "Rheem water heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "brand_type_breakdown",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ts_badge1": "",
+        "ts_badge2": "",
+        "ts_active_bg": "header",
+        "ts_tabs": [],
+        "anchor": "water_heater_types",
+        "id": "ai_block_brand_types"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need Rheem water heater service in {city}? We'll connect you with a provider who knows your system.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/ao-smith-water-heater-{city_slug}",
+            "text": "A.O. Smith water heater"
+          },
+          {
+            "url": "/bradford-white-water-heater-{city_slug}",
+            "text": "Bradford White water heater"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} Rheem water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Rheem Water Heater Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need Rheem water heater repair? {business_short} connects you with independent local providers experienced with Rheem systems. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "rheem water heater repair {city} {SS}",
+      "og_title": "Rheem Water Heater Repair in {city_state} | {business}",
+      "og_description": "Need Rheem water heater repair? {business} connects you with independent local providers experienced with Rheem systems. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Rheem Water Heater Repair",
+      "service_type": "Rheem Water Heater Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need Rheem water heater repair? {business} connects you with independent local providers experienced with Rheem systems. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Rheem Water Heater Repair",
+      "secondary_keywords": "rheem water heater installation, rheem water heater service, rheem water heater cost",
+      "brand": "Rheem",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Rheem Water Heater Repair in {city_state}\",\n            \"serviceType\": \"Rheem Water Heater Repair\",\n            \"description\": \"Need Rheem water heater repair? {business} connects you with independent local providers experienced with Rheem systems. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "Gas Tank Water Heater, Electric Tank Water Heater, Gas Tankless Water Heater, Electric Tankless Water Heater",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Need Rheem water heater repair? {business_short} connects you with independent local providers experienced with Rheem systems. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need Rheem water heater repair? {business} connects you with independent local providers experienced with Rheem systems. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Rheem Water Heater Repair",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_brand": "rheem"
+  },
+  {
+    "id": "tpl_ao_smith_water_heater",
+    "page_type": "template",
+    "title": "A.O. Smith Water Heater Repair in {city_state} | {business_short}",
+    "slug_pattern": "ao-smith-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "A.O. Smith Water Heater Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable A.O. Smith water heater connections from {business}. We connect you with responsive local providers who know A.O. Smith systems.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "hs_photo_alt": "A.O. Smith Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "it_alt": "A.O. Smith water heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "brand_type_breakdown",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ts_badge1": "",
+        "ts_badge2": "",
+        "ts_active_bg": "header",
+        "ts_tabs": [],
+        "anchor": "water_heater_types",
+        "id": "ai_block_brand_types"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need A.O. Smith water heater service in {city}? We'll connect you with a provider who knows your system.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          },
+          {
+            "url": "/bradford-white-water-heater-{city_slug}",
+            "text": "Bradford White water heater"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} A.O. Smith water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "A.O. Smith Water Heater Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need A.O. Smith water heater repair? {business_short} connects you with independent local providers experienced with A.O. Smith systems. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "a.o. smith water heater repair {city} {SS}",
+      "og_title": "A.O. Smith Water Heater Repair in {city_state} | {business}",
+      "og_description": "Need A.O. Smith water heater repair? {business} connects you with independent local providers experienced with A.O. Smith systems. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "A.O. Smith Water Heater Repair",
+      "service_type": "A.O. Smith Water Heater Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need A.O. Smith water heater repair? {business} connects you with independent local providers experienced with A.O. Smith systems. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "A.O. Smith Water Heater Repair",
+      "secondary_keywords": "a.o. smith water heater installation, a.o. smith water heater service, a.o. smith water heater cost",
+      "brand": "A.O. Smith",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"A.O. Smith Water Heater Repair in {city_state}\",\n            \"serviceType\": \"A.O. Smith Water Heater Repair\",\n            \"description\": \"Need A.O. Smith water heater repair? {business} connects you with independent local providers experienced with A.O. Smith systems. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "Gas Tank Water Heater, Electric Tank Water Heater, Gas Tankless Water Heater, Electric Tankless Water Heater",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Need A.O. Smith water heater repair? {business_short} connects you with independent local providers experienced with A.O. Smith systems. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need A.O. Smith water heater repair? {business} connects you with independent local providers experienced with A.O. Smith systems. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "A.O. Smith Water Heater Repair",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_brand": "ao-smith"
+  },
+  {
+    "id": "tpl_bradford_white_water_heater",
+    "page_type": "template",
+    "title": "Bradford White Water Heater Repair in {city_state} | {business_short}",
+    "slug_pattern": "bradford-white-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Bradford White Water Heater Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Bradford White water heater connections from {business}. We connect you with responsive local providers who know Bradford White systems.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "hs_photo_alt": "Bradford White Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "it_alt": "Bradford White water heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "brand_type_breakdown",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ts_badge1": "",
+        "ts_badge2": "",
+        "ts_active_bg": "header",
+        "ts_tabs": [],
+        "anchor": "water_heater_types",
+        "id": "ai_block_brand_types"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need Bradford White water heater service in {city}? We'll connect you with a provider who knows your system.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          },
+          {
+            "url": "/ao-smith-water-heater-{city_slug}",
+            "text": "A.O. Smith water heater"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} Bradford White water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Bradford White Water Heater Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need Bradford White water heater repair? {business_short} connects you with independent local providers experienced with Bradford White systems. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "bradford white water heater repair {city} {SS}",
+      "og_title": "Bradford White Water Heater Repair in {city_state} | {business}",
+      "og_description": "Need Bradford White water heater repair? {business} connects you with independent local providers experienced with Bradford White systems. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Bradford White Water Heater Repair",
+      "service_type": "Bradford White Water Heater Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need Bradford White water heater repair? {business} connects you with independent local providers experienced with Bradford White systems. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Bradford White Water Heater Repair",
+      "secondary_keywords": "bradford white water heater installation, bradford white water heater service, bradford white water heater cost",
+      "brand": "Bradford White",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bradford White Water Heater Repair in {city_state}\",\n            \"serviceType\": \"Bradford White Water Heater Repair\",\n            \"description\": \"Need Bradford White water heater repair? {business} connects you with independent local providers experienced with Bradford White systems. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "Gas Tank Water Heater, Electric Tank Water Heater, Gas Tankless Water Heater, Electric Tankless Water Heater",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Need Bradford White water heater repair? {business_short} connects you with independent local providers experienced with Bradford White systems. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need Bradford White water heater repair? {business} connects you with independent local providers experienced with Bradford White systems. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Bradford White Water Heater Repair",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_brand": "bradford-white"
+  },
+  {
+    "id": "tpl_rinnai_water_heater",
+    "page_type": "template",
+    "title": "Rinnai Water Heater Repair in {city_state} | {business_short}",
+    "slug_pattern": "rinnai-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Rinnai Water Heater Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Rinnai water heater connections from {business}. We connect you with responsive local providers who know Rinnai systems.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "hs_photo_alt": "Rinnai Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "it_alt": "Rinnai water heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "brand_type_breakdown",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ts_badge1": "",
+        "ts_badge2": "",
+        "ts_active_bg": "header",
+        "ts_tabs": [],
+        "anchor": "water_heater_types",
+        "id": "ai_block_brand_types"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need Rinnai water heater service in {city}? We'll connect you with a provider who knows your system.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          },
+          {
+            "url": "/ao-smith-water-heater-{city_slug}",
+            "text": "A.O. Smith water heater"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} Rinnai water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Rinnai Water Heater Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need Rinnai water heater repair? {business_short} connects you with independent local providers experienced with Rinnai systems. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "rinnai water heater repair {city} {SS}",
+      "og_title": "Rinnai Water Heater Repair in {city_state} | {business}",
+      "og_description": "Need Rinnai water heater repair? {business} connects you with independent local providers experienced with Rinnai systems. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Rinnai Water Heater Repair",
+      "service_type": "Rinnai Water Heater Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need Rinnai water heater repair? {business} connects you with independent local providers experienced with Rinnai systems. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Rinnai Water Heater Repair",
+      "secondary_keywords": "rinnai water heater installation, rinnai water heater service, rinnai water heater cost",
+      "brand": "Rinnai",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Rinnai Water Heater Repair in {city_state}\",\n            \"serviceType\": \"Rinnai Water Heater Repair\",\n            \"description\": \"Need Rinnai water heater repair? {business} connects you with independent local providers experienced with Rinnai systems. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "Gas Tank Water Heater, Electric Tank Water Heater, Gas Tankless Water Heater, Electric Tankless Water Heater",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Need Rinnai water heater repair? {business_short} connects you with independent local providers experienced with Rinnai systems. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need Rinnai water heater repair? {business} connects you with independent local providers experienced with Rinnai systems. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Rinnai Water Heater Repair",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_brand": "rinnai"
+  },
+  {
+    "id": "tpl_navien_water_heater",
+    "page_type": "template",
+    "title": "Navien Water Heater Repair in {city_state} | {business_short}",
+    "slug_pattern": "navien-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Navien Water Heater Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Navien water heater connections from {business}. We connect you with responsive local providers who know Navien systems.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "hs_photo_alt": "Navien Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "it_alt": "Navien water heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "brand_type_breakdown",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ts_badge1": "",
+        "ts_badge2": "",
+        "ts_active_bg": "header",
+        "ts_tabs": [],
+        "anchor": "water_heater_types",
+        "id": "ai_block_brand_types"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need Navien water heater service in {city}? We'll connect you with a provider who knows your system.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          },
+          {
+            "url": "/ao-smith-water-heater-{city_slug}",
+            "text": "A.O. Smith water heater"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} Navien water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Navien Water Heater Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need Navien water heater repair? {business_short} connects you with independent local providers experienced with Navien systems. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "navien water heater repair {city} {SS}",
+      "og_title": "Navien Water Heater Repair in {city_state} | {business}",
+      "og_description": "Need Navien water heater repair? {business} connects you with independent local providers experienced with Navien systems. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Navien Water Heater Repair",
+      "service_type": "Navien Water Heater Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need Navien water heater repair? {business} connects you with independent local providers experienced with Navien systems. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Navien Water Heater Repair",
+      "secondary_keywords": "navien water heater installation, navien water heater service, navien water heater cost",
+      "brand": "Navien",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Navien Water Heater Repair in {city_state}\",\n            \"serviceType\": \"Navien Water Heater Repair\",\n            \"description\": \"Need Navien water heater repair? {business} connects you with independent local providers experienced with Navien systems. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "Gas Tank Water Heater, Electric Tank Water Heater, Gas Tankless Water Heater, Electric Tankless Water Heater",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Need Navien water heater repair? {business_short} connects you with independent local providers experienced with Navien systems. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need Navien water heater repair? {business} connects you with independent local providers experienced with Navien systems. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Navien Water Heater Repair",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_brand": "navien"
+  },
+  {
+    "id": "tpl_state_water_heater",
+    "page_type": "template",
+    "title": "State Water Heater Repair in {city_state} | {business_short}",
+    "slug_pattern": "state-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "State Water Heater Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable State water heater connections from {business}. We connect you with responsive local providers who know State systems.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "hs_photo_alt": "State Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "it_alt": "State water heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "brand_type_breakdown",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ts_badge1": "",
+        "ts_badge2": "",
+        "ts_active_bg": "header",
+        "ts_tabs": [],
+        "anchor": "water_heater_types",
+        "id": "ai_block_brand_types"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need State water heater service in {city}? We'll connect you with a provider who knows your system.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          },
+          {
+            "url": "/ao-smith-water-heater-{city_slug}",
+            "text": "A.O. Smith water heater"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} State water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "State Water Heater Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need State water heater repair? {business_short} connects you with independent local providers experienced with State systems. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "state water heater repair {city} {SS}",
+      "og_title": "State Water Heater Repair in {city_state} | {business}",
+      "og_description": "Need State water heater repair? {business} connects you with independent local providers experienced with State systems. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "State Water Heater Repair",
+      "service_type": "State Water Heater Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need State water heater repair? {business} connects you with independent local providers experienced with State systems. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "State Water Heater Repair",
+      "secondary_keywords": "state water heater installation, state water heater service, state water heater cost",
+      "brand": "State",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"State Water Heater Repair in {city_state}\",\n            \"serviceType\": \"State Water Heater Repair\",\n            \"description\": \"Need State water heater repair? {business} connects you with independent local providers experienced with State systems. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "Gas Tank Water Heater, Electric Tank Water Heater, Gas Tankless Water Heater, Electric Tankless Water Heater",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Need State water heater repair? {business_short} connects you with independent local providers experienced with State systems. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need State water heater repair? {business} connects you with independent local providers experienced with State systems. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "State Water Heater Repair",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_brand": "state"
+  },
+  {
+    "id": "tpl_noritz_water_heater",
+    "page_type": "template",
+    "title": "Noritz Water Heater Repair in {city_state} | {business_short}",
+    "slug_pattern": "noritz-water-heater-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Noritz Water Heater Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Noritz water heater connections from {business}. We connect you with responsive local providers who know Noritz systems.</p>",
+        "hs_btn_text": "Call {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "hs_photo_alt": "Noritz Water Heater in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1",
+        "hs_mobile_order": "img_first",
+        "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_show_icons": false,
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/plumbing-site/uploads/media/brand-water-heater.webp",
+        "it_alt": "Noritz water heater in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "brand_type_breakdown",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ts_badge1": "",
+        "ts_badge2": "",
+        "ts_active_bg": "header",
+        "ts_tabs": [],
+        "anchor": "water_heater_types",
+        "id": "ai_block_brand_types"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "common_problems",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "fc_num_cols": 3,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQ — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Need Noritz water heater service in {city}? We'll connect you with a provider who knows your system.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "plumbing services"
+          },
+          {
+            "url": "/rheem-water-heater-{city_slug}",
+            "text": "Rheem water heater"
+          },
+          {
+            "url": "/ao-smith-water-heater-{city_slug}",
+            "text": "A.O. Smith water heater"
+          },
+          {
+            "url": "/tank-gas-water-heater-{city_slug}",
+            "text": "gas tank water heater"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Plumbing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Plumbing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} Noritz water heater service today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#65a30d",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1",
+        "mi_map_link": "{city_map_link}",
+        "mi_map_link_text": "View {city_state} on Google Maps ↗"
+      }
+    ],
+    "seo": {
+      "seo_title": "Noritz Water Heater Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need Noritz water heater repair? {business_short} connects you with independent local providers experienced with Noritz systems. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "noritz water heater repair {city} {SS}",
+      "og_title": "Noritz Water Heater Repair in {city_state} | {business}",
+      "og_description": "Need Noritz water heater repair? {business} connects you with independent local providers experienced with Noritz systems. Serving {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Noritz Water Heater Repair",
+      "service_type": "Noritz Water Heater Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need Noritz water heater repair? {business} connects you with independent local providers experienced with Noritz systems. Serving {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Noritz Water Heater Repair",
+      "secondary_keywords": "noritz water heater installation, noritz water heater service, noritz water heater cost",
+      "brand": "Noritz",
+      "appliance_type": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Noritz Water Heater Repair in {city_state}\",\n            \"serviceType\": \"Noritz Water Heater Repair\",\n            \"description\": \"Need Noritz water heater repair? {business} connects you with independent local providers experienced with Noritz systems. Serving {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "appliance_types": "Gas Tank Water Heater, Electric Tank Water Heater, Gas Tankless Water Heater, Electric Tankless Water Heater",
+      "brands_serviced": "",
+      "meta_description_pool": [
+        "Need Noritz water heater repair? {business_short} connects you with independent local providers experienced with Noritz systems. Serving {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need Noritz water heater repair? {business} connects you with independent local providers experienced with Noritz systems. Serving {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Noritz Water Heater Repair",
+    "layout_enabled": true,
+    "layout_variants": [],
+    "wh_brand": "noritz"
+  }
+]

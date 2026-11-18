@@ -1,0 +1,483 @@
+{
+  "template_id": "tpl_sewer_line_repair",
+  "city_id": "lufkin-tx",
+  "slug": "sewer-line-repair-lufkin-tx",
+  "title": "Sewer Line Repair in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "lufkin-tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "tags": [
+      "proof-city"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and wood products industry given its location in the Piney Woods. The city also has a strong manufacturing base tied to oilfield equipment production, along with healthcare and retail sectors that draw from surrounding rural counties. As the Angelina County seat, Lufkin functions as a regional commercial and medical center for much of East Texas.",
+    "local_note": "Much of Lufkin's housing stock consists of mid-20th-century single-family homes built on slab foundations, with newer subdivisions following similar construction. The dominant plumbing risk factor in this part of Texas is clay-soil slab leaks, as shifting soil conditions can stress slab plumbing lines over time.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Kurth",
+      "Crown Colony",
+      "Brookhollow",
+      "Colonial Hills",
+      "Loma Linda"
+    ],
+    "population": 34640,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "city_image": "sites/plumbing-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forestry/wood products",
+      "Healthcare",
+      "Manufacturing (oilfield equipment)",
+      "Oil and gas services",
+      "Retail and regional trade",
+      "Education"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial Lufkin",
+      "Woodland Heights Medical Center",
+      "Lufkin Industries",
+      "Georgia-Pacific",
+      "Lufkin Independent School District",
+      "Angelina College",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart",
+      "Brookshire Brothers"
+    ],
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 19.1,
+      "1960-1979": 30.2,
+      "1980-1999": 32.1,
+      "2000-2009": 10.8,
+      "2010 or later": 7.8
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Lufkin city (14,397 housing units)",
+    "hot_days_monthly": [
+      0,
+      0,
+      0.1,
+      0.7,
+      8,
+      20.4,
+      27.3,
+      27.1,
+      17,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Hudson",
+        "miles": 6
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1,
+      "regional_plumbing_risk": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+    "neighborhoods_source": "verified",
+    "lat": "31.338624",
+    "lng": "-94.728856",
+    "wet_days_monthly": [
+      6.1,
+      5.6,
+      5.8,
+      5,
+      6.1,
+      6.2,
+      5.1,
+      5.1,
+      4.8,
+      4.7,
+      5.3,
+      6.4
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "noaa_station": "USW00093987",
+    "noaa_station_miles": 7.2,
+    "noaa_fetched_at": "2026-10-04",
+    "county_fips": "48005",
+    "county_name": "Angelina County",
+    "figures_fetched_at": "2026-10-04",
+    "acs_fetched_at": "2026-10-04",
+    "plumbing_risk_factor": "clay-soil slab leaks"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Lufkin's mid-20th-century housing stock, predominantly built on slab foundations, faces a persistent plumbing challenge: shifting clay soil beneath the foundation can stress and damage sewer lines over time, leading to leaks that go unnoticed until water damage or sewage concerns emerge. Homeowners in areas like Crown Colony and Colonial Hills who notice slow drains, damp spots in the yard, or sewage odors may be dealing with a sewer line problem that requires professional repair. Plumbing Connect matches you with independent local plumbers in Lufkin who can diagnose the issue and get your sewer line working properly again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo": "sites/plumbing-site/uploads/media/sewer-line-repair.webp",
+      "hs_photo_alt": "Sewer Line Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "hs_mobile_order": "img_first",
+      "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:39.871463Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e9f2abf5ccd94f47",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": false,
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/plumbing-site/uploads/media/sewer-line-repair.webp",
+      "it_alt": "Sewer Line Repair in {city_state}",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Sewer Line Repair for Lufkin Homes",
+      "text": "<p>Lufkin's housing stock is dominated by mid-20th-century single-family homes built on slab foundations, a construction approach that continues in newer subdivisions throughout the area. This type of foundation sits directly on the ground, and over decades, shifting soil conditions—particularly in Texas clay soils—can stress the plumbing lines running beneath them. When a sewer line is compromised by soil movement or simple age-related wear, the consequences escalate quickly: sewage can back up into the home, foundation damage may worsen, and yard drainage problems become impossible to ignore. Homeowners in Lufkin who notice slow drains, persistent odors, wet patches in the yard, or gurgling sounds from fixtures need prompt evaluation to determine whether sewer line repair is the solution.</p><p>Plumbing Connect makes it straightforward to reach independent local plumbing providers in Lufkin who specialize in sewer line repair. Rather than guessing at the problem or attempting a temporary fix, the providers in this network assess the full scope of the issue—using camera inspection and other diagnostic methods to pinpoint the exact location and nature of the damage. This thorough approach ensures that the repair addresses the root cause, not just the symptoms. Once you're connected, the independent provider handles the work and follows up to confirm the system is working as it should. If you're facing a sewer line emergency in Lufkin, reaching out quickly protects your home and prevents further damage.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:44.510234Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "36bf9e1a0a83dc1b",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "id": "ai_block_2",
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Sewage Backing Up",
+          "text": "Sewage or wastewater backing into your home or yard signals a serious blockage or collapse in your sewer line. The independent local providers Plumbing Connect connects you with can diagnose the cause—tree roots, grease buildup, or structural damage—and recommend repair or replacement options."
+        },
+        {
+          "heading": "Multiple Drains Slow",
+          "text": "When several drains throughout your home drain slowly at once, your main sewer line may be partially blocked or damaged. A local provider can inspect your line, identify the problem, and discuss whether cleaning, trenchless repair, or full replacement makes sense for your situation."
+        },
+        {
+          "heading": "Lush Patches in Yard",
+          "text": "Unusually green or soggy spots in your yard often indicate a sewer line leak underground. Sewage leaking into soil creates nutrient-rich zones. Connect with a local provider for sewer line inspection and repair to stop the leak and protect your property and groundwater."
+        },
+        {
+          "heading": "Persistent Rotten Egg Smell",
+          "text": "A strong sulfur or sewage odor near your home, yard, or foundation suggests a cracked or leaking sewer line. The independent providers Plumbing Connect connects you with can locate the source and repair or replace the damaged section to eliminate the smell."
+        },
+        {
+          "heading": "Foundation Cracks Appearing",
+          "text": "New cracks in your foundation or settling of your home can result from a sewer line leak eroding soil underneath. A local provider can perform sewer line inspection to confirm whether a leak is the cause and advise on repair or replacement to prevent further structural damage."
+        },
+        {
+          "heading": "Rats or Pests Indoors",
+          "text": "Rodents and insects may enter your home through cracks in a damaged sewer line. A local provider can inspect your sewer line, identify breaks or misalignments, and repair them—using trenchless methods or traditional replacement—to seal entry points and restore your line's integrity."
+        }
+      ],
+      "fc_heading": "Sewer Line Repair Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:49.723713Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "5dad0fc6ae0dc16a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "id": "ai_block_3",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Plumbing Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Sewer Line Repair Response",
+          "text": "Sewer line problems demand urgent attention. Plumbing Connect connects you with local independent providers ready to diagnose and repair sewer line issues quickly, minimizing water damage and service interruption to your home."
+        },
+        {
+          "heading": "Sewer Line Repair Expertise On Demand",
+          "text": "Sewer line repair requires specialized knowledge. Plumbing Connect links homeowners directly with independent local providers who understand sewer line systems and can deliver reliable repairs tailored to your property's specific needs."
+        },
+        {
+          "heading": "Transparent Sewer Line Repair Solutions",
+          "text": "Clear communication matters during sewer line repair. Plumbing Connect's independent providers explain what's wrong, what repair work is needed, and what to expect—so you understand the solution before work begins."
+        },
+        {
+          "heading": "Slab-Built Homes Need Sewer Line Care",
+          "text": "Lufkin's mid-20th-century homes and newer subdivisions typically sit on slab foundations. Soil movement beneath slabs can stress sewer lines over time. Plumbing Connect connects you with providers who understand these slab-related sewer line risks."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:53.326213Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d3a947b73fa81a19",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Service Works",
+      "steps_items": [
+        {
+          "heading": "Tell Us About Your Sewer Line",
+          "text": "Contact Plumbing Connect and describe what you've noticed—slow drains, sewage backup, wet patches in your yard, or foul odors. We'll connect you with a local sewer line repair provider in Lufkin who can schedule a prompt assessment at your property."
+        },
+        {
+          "heading": "Sewer Line Inspection & Diagnosis",
+          "text": "The provider will inspect your sewer line, often using camera equipment to pinpoint the problem—blockage, root intrusion, cracks, or ground movement affecting the line. In Lufkin's clay-heavy soil, shifting ground can stress slab plumbing over time, so the inspection confirms what's happening beneath your home."
+        },
+        {
+          "heading": "Repair Plan & Next Steps",
+          "text": "Once the sewer line damage is identified, the provider will explain your repair options—clearing, trenchless repair, or full replacement—and discuss cost and timeline with you before work begins. You'll know exactly what to expect for restoring your sewer line to working order."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:56.980013Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "c6dbad207382ca99",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Sewer backing up in {city}? Connect with a local provider now.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1",
+      "anchor": "mid_cta"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/plumbing-site/uploads/media/sewer-line-repair.webp",
+      "it_alt": "Sewer Line Repair in {city_state}",
+      "id": "ai_block_4",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Sewer Line Repair Across Lufkin",
+      "text": "<p>Lufkin's housing landscape is dominated by mid-20th-century single-family homes built on slab foundations, a construction approach that continues in newer subdivisions throughout the area. This building style creates a specific vulnerability: the clay soil beneath and around Lufkin shifts with seasonal moisture changes, putting stress on the plumbing lines embedded in and under those slabs. Over decades, this ground movement can crack, settle, or misalign sewer lines, leading to leaks, backups, or slow drainage that may not show obvious signs until damage has spread. Properties in older neighborhoods like Crown Colony and Colonial Hills often face compounded risk simply because their sewer systems have been subject to these soil pressures longer, while newer construction in areas such as Brookhollow may still avoid problems—at least for now.</p><p>Understanding your home's age and foundation type helps clarify why sewer line problems develop in Lufkin at all. When you notice slow drains, raw sewage odors, unusually green patches in your yard, or sewage backing up into fixtures, soil movement under your slab is often the culprit. Plumbing Connect connects Lufkin property owners with local independent providers who can inspect your sewer line, pinpoint the damage, and discuss repair options—whether trenchless methods, spot repairs, or full-line replacement. Early detection prevents costlier foundation damage and system failure.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:49:01.796059Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "9ce8de4b3cc5cf31",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does sewer line repair in Lufkin actually involve?",
+          "answer": "<p>Sewer line repair addresses damage or blockages in the underground pipe carrying wastewater from your home to the municipal system. The process typically begins with camera inspection to locate the problem, then the independent provider will recommend trenchless repair (pipe relining or spot repair) or, if necessary, excavation and replacement. You'll receive a clear assessment before work begins.</p>"
+        },
+        {
+          "question": "How quickly can I get a sewer line repair provider through Plumbing Connect in Lufkin?",
+          "answer": "<p>Plumbing Connect connects you with independent local plumbing providers in Lufkin who can respond to sewer line repair requests promptly. Response times vary by provider and demand, but reaching a local plumber quickly is the goal—especially important if you're dealing with sewage backup or no water flow into your home.</p>"
+        },
+        {
+          "question": "What factors affect the cost of sewer line repair in Lufkin?",
+          "answer": "<p>Sewer line repair pricing depends on damage severity, repair method (trenchless versus excavation), line depth, soil conditions, and pipe material. Camera inspection helps determine whether you need a simple spot repair or full-line replacement. The independent provider you're connected with will explain pricing based on your specific situation.</p>"
+        },
+        {
+          "question": "What should I expect when preparing for sewer line repair at my home?",
+          "answer": "<p>Before repair begins, clear the work area around the access point and limit water use in your home—avoid running multiple fixtures or doing laundry. The provider will explain whether excavation or trenchless methods apply to your line. Plan for temporary disruption; some repairs finish in hours, while others take longer. Ask the provider about timeline and restoration details.</p>"
+        },
+        {
+          "question": "What can I do to keep sewer line problems from happening again?",
+          "answer": "<p>Avoid flushing non-flushable items, limit grease disposal, and don't plant trees near your sewer line. In homes built on slab foundations—common throughout Lufkin—soil movement can stress plumbing lines over time. Regular camera inspections every few years help catch early damage. The provider can advise on monitoring and maintenance specific to your property's age and condition.</p>"
+        },
+        {
+          "question": "Is there a best time of year for sewer line repair in Lufkin, TX?",
+          "answer": "<p>Sewer line repairs can be needed year-round, but timing depends on your specific situation rather than seasonal patterns. If you notice slow drains, backups, or wet spots in your yard, don't delay—contact a provider regardless of season. Early diagnosis prevents the problem from worsening and causing more costly damage to your home's foundation or yard.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:49:09.223186Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d3f23e9412db2a5c",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 4,
+      "rl_items": [
+        {
+          "url": "/",
+          "text": "plumbing services"
+        },
+        {
+          "url": "/emergency-plumber-{city_slug}",
+          "text": "emergency plumber"
+        },
+        {
+          "url": "/drain-cleaning-{city_slug}",
+          "text": "drain cleaning"
+        },
+        {
+          "url": "/tank-gas-water-heater-{city_slug}",
+          "text": "gas tank water heater"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Plumbing Company",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Plumbing Company",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} sewer line inspection today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1",
+      "mi_map_link": "{city_map_link}",
+      "mi_map_link_text": "View {city_state} on Google Maps ↗"
+    }
+  ],
+  "seo": {
+    "seo_title": "Sewer Line Repair in {city_state} | {business_short}",
+    "canonical_url": "https://a.q111.xyz/sewer-line-repair-lufkin-tx/",
+    "meta_description": "Sewer backups and line failures in {city_state}? {business_short} connects you with a local provider, including trenchless options. Call {phone}.",
+    "meta_keywords": "sewer line repair Lufkin TX",
+    "og_title": "Sewer Line Repair in {city_state} | {business}",
+    "og_description": "Sewer backups and line failures in {city_state}? {business} connects you with a local provider, including trenchless options. Call {phone}.",
+    "og_image": "",
+    "service_name": "Sewer Line Repair",
+    "service_type": "Sewer Line Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Sewer backups and line failures in {city_state}? {business} connects you with a local provider, including trenchless options. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "Sewer Line Repair",
+    "secondary_keywords": "sewer line replacement, sewer line inspection, trenchless sewer repair",
+    "brand": "",
+    "appliance_type": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Sewer Line Repair in Lufkin, TX\",\n            \"serviceType\": \"Sewer Line Repair\",\n            \"description\": \"Sewer backups and line failures in Lufkin, TX? Plumbing Connect connects you with a local provider, including trenchless options. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Plumbing Connect\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "appliance_types": "",
+    "brands_serviced": "",
+    "meta_description_pool": [
+      "Sewer backups and line failures in {city_state}? {business_short} connects you with a local provider, including trenchless options. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Sewer backups and line failures in {city_state}? {business} connects you with a local provider, including trenchless options. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T03:57:04+00:00",
+  "template_version": "40d8044550d2454cb3761c430ad6717e"
+}

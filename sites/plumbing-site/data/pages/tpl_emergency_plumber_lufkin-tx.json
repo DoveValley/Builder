@@ -1,0 +1,483 @@
+{
+  "template_id": "tpl_emergency_plumber",
+  "city_id": "lufkin-tx",
+  "slug": "emergency-plumber-lufkin-tx",
+  "title": "Emergency Plumber in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "lufkin-tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "tags": [
+      "proof-city"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and wood products industry given its location in the Piney Woods. The city also has a strong manufacturing base tied to oilfield equipment production, along with healthcare and retail sectors that draw from surrounding rural counties. As the Angelina County seat, Lufkin functions as a regional commercial and medical center for much of East Texas.",
+    "local_note": "Much of Lufkin's housing stock consists of mid-20th-century single-family homes built on slab foundations, with newer subdivisions following similar construction. The dominant plumbing risk factor in this part of Texas is clay-soil slab leaks, as shifting soil conditions can stress slab plumbing lines over time.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Kurth",
+      "Crown Colony",
+      "Brookhollow",
+      "Colonial Hills",
+      "Loma Linda"
+    ],
+    "population": 34640,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "city_image": "sites/plumbing-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forestry/wood products",
+      "Healthcare",
+      "Manufacturing (oilfield equipment)",
+      "Oil and gas services",
+      "Retail and regional trade",
+      "Education"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial Lufkin",
+      "Woodland Heights Medical Center",
+      "Lufkin Industries",
+      "Georgia-Pacific",
+      "Lufkin Independent School District",
+      "Angelina College",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart",
+      "Brookshire Brothers"
+    ],
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 19.1,
+      "1960-1979": 30.2,
+      "1980-1999": 32.1,
+      "2000-2009": 10.8,
+      "2010 or later": 7.8
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Lufkin city (14,397 housing units)",
+    "hot_days_monthly": [
+      0,
+      0,
+      0.1,
+      0.7,
+      8,
+      20.4,
+      27.3,
+      27.1,
+      17,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Hudson",
+        "miles": 6
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1,
+      "regional_plumbing_risk": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+    "neighborhoods_source": "verified",
+    "lat": "31.338624",
+    "lng": "-94.728856",
+    "wet_days_monthly": [
+      6.1,
+      5.6,
+      5.8,
+      5,
+      6.1,
+      6.2,
+      5.1,
+      5.1,
+      4.8,
+      4.7,
+      5.3,
+      6.4
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "noaa_station": "USW00093987",
+    "noaa_station_miles": 7.2,
+    "noaa_fetched_at": "2026-10-04",
+    "county_fips": "48005",
+    "county_name": "Angelina County",
+    "figures_fetched_at": "2026-10-04",
+    "acs_fetched_at": "2026-10-04",
+    "plumbing_risk_factor": "clay-soil slab leaks"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Slab foundations dominate Lufkin's housing landscape, and the clay soil common to this region creates conditions where ground movement can gradually stress plumbing lines buried beneath homes, sometimes leading to leaks that demand urgent attention. When a slab leak surfaces or another plumbing emergency disrupts your water supply, Plumbing Connect links you directly to independent local plumbers in Lufkin who can respond quickly. Getting a qualified provider on the phone fast means the difference between a minor repair and water damage to your foundation or yard.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo": "sites/plumbing-site/uploads/media/emergency-plumber.webp",
+      "hs_photo_alt": "Emergency Plumber in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "hs_mobile_order": "img_first",
+      "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:12.275070Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d09af978a66b70f2",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": false,
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/plumbing-site/uploads/media/emergency-plumber.webp",
+      "it_alt": "Emergency Plumber in {city_state}",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Emergency Plumber in Lufkin, TX: Fast Local Help",
+      "text": "<p>Lufkin's older housing stock and newer residential developments share a common vulnerability: slab foundations are susceptible to leaks when shifting clay soil stresses the plumbing lines running beneath them. When ground conditions change seasonally, this pressure can crack or separate pipes, leading to water loss, foundation concerns, and urgent repair needs. A burst water line or sudden loss of water pressure demands immediate attention, and knowing how to reach a qualified local plumber quickly can save both time and money. That's why homeowners in Lufkin rely on emergency plumbing services to address active leaks, no-water situations, and other urgent plumbing failures before they worsen.</p><p>Plumbing Connect makes finding an emergency plumber in Lufkin straightforward and fast. When you contact us with an active plumbing emergency, we connect you directly with independent local providers who understand the specific plumbing challenges affecting homes in this area and can respond promptly to your situation. We focus on getting you matched quickly so the work can begin without delay, and we follow up to ensure the connection worked for you. Whether you're dealing with a slab leak, a burst line, or another urgent plumbing issue, Plumbing Connect helps you reach the local help you need right away.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:16.297043Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "465135860d7e824d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "id": "ai_block_2",
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "No Water or Low Pressure",
+          "text": "Burst pipes, broken main lines, or severe clogs can cut off water suddenly. A local provider connected through Plumbing Connect can diagnose the blockage or rupture and restore flow quickly—critical in an emergency."
+        },
+        {
+          "heading": "Active Leak Under Sink",
+          "text": "Worn supply lines, loose fittings, or corroded pipes often cause water pooling beneath cabinets. Same-day plumber response from our local network stops water damage before it spreads to floors and walls."
+        },
+        {
+          "heading": "Toilet Overflowing or Running",
+          "text": "A faulty fill valve, flapper, or clogged drain line keeps the bowl filling or draining constantly. Local providers in our network quickly identify and repair the internal mechanism to stop waste and water loss."
+        },
+        {
+          "heading": "Sewage or Drain Backup",
+          "text": "Tree roots, grease buildup, or collapsed sewer lines prevent waste from flowing away properly. Emergency plumbing service through Plumbing Connect connects you with a provider who can clear the blockage and assess damage."
+        },
+        {
+          "heading": "Frozen or Burst Pipe",
+          "text": "Cold weather can freeze standing water inside exposed pipes, causing cracks or ruptures when pressure builds. A 24 hour plumber in our network can thaw the line and repair or replace it before major flooding occurs."
+        },
+        {
+          "heading": "Water Heater Not Working",
+          "text": "No hot water may stem from a failed heating element, broken thermostat, or sediment buildup in the tank. Plumbing Connect links you with a local provider who diagnoses the fault and restores hot water to your home."
+        }
+      ],
+      "fc_heading": "Emergency Plumber Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:21.243375Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "98a0e3c4ced2e56a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "id": "ai_block_3",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Plumbing Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Emergency Plumber Response Time",
+          "text": "When a pipe bursts or water won't stop flowing, an emergency plumber from our local network arrives quickly to stop the damage. Fast response means less water loss and lower repair costs for your home."
+        },
+        {
+          "heading": "Emergency Plumber Expertise & Experience",
+          "text": "The independent emergency plumbers we connect you with understand Lufkin's plumbing challenges and common failure points. Their experience helps them diagnose problems accurately and fix them right the first time."
+        },
+        {
+          "heading": "Emergency Plumber Service Guarantees",
+          "text": "Our emergency plumber partners stand behind their work with solid guarantees on repairs. You get peace of mind knowing the fix is backed, not just a quick temporary patch."
+        },
+        {
+          "heading": "Slab Leak Detection for Lufkin Homes",
+          "text": "Many Lufkin properties sit on slab foundations where shifting soil conditions stress plumbing lines over time. An emergency plumber from our network knows how to spot early slab leak signs and can connect you with the right solution before damage spreads."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:24.577925Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "2786a649e4772e01",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Service Works",
+      "steps_items": [
+        {
+          "heading": "Report Your Emergency to Plumbing Connect",
+          "text": "Contact Plumbing Connect by phone or online to describe your plumbing emergency—whether it's an active leak, burst pipe, or no-water situation. We'll document the problem and connect you with an available emergency plumber in Lufkin who can respond quickly."
+        },
+        {
+          "heading": "Emergency Plumber Diagnoses the Problem",
+          "text": "The independent emergency plumber arrives at your property, locates the source of the emergency, and determines the cause—which in Lufkin's mid-century slab-foundation homes often involves subsurface line stress from soil movement. A clear diagnosis guides the right repair approach."
+        },
+        {
+          "heading": "Emergency Repair and Service Follow-Up",
+          "text": "The emergency plumber performs the necessary repair or isolation to stop the leak or restore water service. After the emergency is resolved, you'll receive information about the work completed and next steps for any additional evaluation or maintenance."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:27.501149Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "478bec8b843eed58",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Have a plumbing emergency in {city}? We'll connect you with a provider fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1",
+      "anchor": "mid_cta"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/plumbing-site/uploads/media/emergency-plumber.webp",
+      "it_alt": "Emergency Plumber in {city_state}",
+      "id": "ai_block_4",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Emergency Plumbing in Lufkin and the Surrounding Area",
+      "text": "<p>Lufkin's housing stock is dominated by mid-20th-century single-family homes built on slab foundations, a construction approach that also defines many of the newer subdivisions across the area. This foundation type exposes properties to a specific plumbing vulnerability: as clay soil shifts and settles over time—particularly through wet and dry cycles—the slab and its embedded plumbing lines experience stress that can lead to leaks. When a slab leak develops, water loss accelerates quickly, and the problem often isn't visible until water bills spike or structural issues emerge. Emergency Plumber calls in Lufkin frequently stem from this exact scenario, making rapid diagnosis and repair critical to prevent costly damage.</p><p>Whether you're in an established neighborhood or a newer section of town, the soil conditions beneath your foundation create similar risks for slab-related plumbing emergencies. When you need an emergency plumber in Lufkin, connecting with a local provider who understands how ground movement affects your plumbing system is essential. The sooner a leak is identified and addressed, the better the outcome for your property and your wallet.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:31.128857Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c947bfe795f30855",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect when calling an emergency plumber in Lufkin?",
+          "answer": "<p>When you contact Plumbing Connect for an emergency plumber in Lufkin, you'll describe your problem—whether it's a burst pipe, no water, or active leak—and we connect you with a local independent provider who can respond. The plumber will assess the issue, explain what's needed, and work to stop water damage quickly. Response times depend on current demand and the provider's schedule, but emergency calls are prioritized.</p>"
+        },
+        {
+          "question": "How fast can I reach an emergency plumber through Plumbing Connect in Lufkin?",
+          "answer": "<p>Plumbing Connect matches you with independent local plumbers in Lufkin who handle emergency calls. Once we connect you, the provider's response time depends on their availability and your location in the area. Many emergency plumbers keep availability for same-day response, but we recommend contacting us as soon as you notice an active leak or loss of water to get on a provider's schedule.</p>"
+        },
+        {
+          "question": "What factors affect the cost of emergency plumbing services in Lufkin?",
+          "answer": "<p>Pricing for emergency plumbing in Lufkin is set by the independent provider you're connected with and typically reflects the problem's severity, time of day, parts needed, and labor involved. Emergency calls often carry a higher service charge than scheduled repairs. When you contact a provider, ask for a clear explanation of costs before work begins so there are no surprises.</p>"
+        },
+        {
+          "question": "What can I do to prepare for an emergency plumber's visit in Lufkin?",
+          "answer": "<p>Before an emergency plumber arrives, shut off water at the main valve if there's a leak to minimize damage. Clear the area around the problem—under sinks, near water heater, or at the main line—so the plumber can access it quickly. Have your address and a brief description of the problem ready, and be prepared to show the plumber where you notice water damage or hear unusual sounds.</p>"
+        },
+        {
+          "question": "How can I keep from needing an emergency plumber again?",
+          "answer": "<p>Regular inspections of visible pipes, water heater, and fixtures help catch small problems before they become emergencies. In Lufkin's older homes with slab foundations, ground movement over time can stress buried plumbing lines—if you notice slow drains, damp spots on floors, or warm areas under carpet, contact a plumber promptly rather than waiting for a rupture. Also monitor water pressure and bill changes, which can signal hidden leaks.</p>"
+        },
+        {
+          "question": "What months see the most emergency plumber calls in Lufkin?",
+          "answer": "<p>In Lufkin and East Texas, plumbing emergencies happen year-round, but seasonal shifts in soil moisture can stress slab plumbing lines over time. Transitions between wet and dry seasons may bring ground movement that cracks or separates pipes, so increased problems sometimes surface in spring and fall. However, water heater failures and sudden leaks can occur any time, so stay alert to warning signs regardless of season.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:39.583802Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b6535e022b929563",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 4,
+      "rl_items": [
+        {
+          "url": "/",
+          "text": "plumbing services"
+        },
+        {
+          "url": "/drain-cleaning-{city_slug}",
+          "text": "drain cleaning"
+        },
+        {
+          "url": "/leak-detection-{city_slug}",
+          "text": "leak detection"
+        },
+        {
+          "url": "/tank-gas-water-heater-{city_slug}",
+          "text": "gas tank water heater"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Plumbing Company",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Plumbing Company",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Call now for emergency plumbing help in {city}.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1",
+      "mi_map_link": "{city_map_link}",
+      "mi_map_link_text": "View {city_state} on Google Maps ↗"
+    }
+  ],
+  "seo": {
+    "seo_title": "Emergency Plumber in {city_state} | {business_short}",
+    "canonical_url": "https://a.q111.xyz/emergency-plumber-lufkin-tx/",
+    "meta_description": "A burst pipe or sewage backup can't wait. {business_short} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}.",
+    "meta_keywords": "emergency plumber Lufkin TX",
+    "og_title": "Emergency Plumber in {city_state} | {business}",
+    "og_description": "A burst pipe or sewage backup can't wait. {business} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}.",
+    "og_image": "",
+    "service_name": "Emergency Plumber",
+    "service_type": "Emergency Plumber",
+    "service_area": "{city}, {SS}",
+    "service_description": "A burst pipe or sewage backup can't wait. {business} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "Emergency Plumber",
+    "secondary_keywords": "24 hour plumber, emergency plumbing service, same day plumber",
+    "brand": "",
+    "appliance_type": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Plumber in Lufkin, TX\",\n            \"serviceType\": \"Emergency Plumber\",\n            \"description\": \"A burst pipe or sewage backup can't wait. Plumbing Connect connects you with an independent 24-hour plumbing provider in Lufkin, TX. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Plumbing Connect\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "appliance_types": "",
+    "brands_serviced": "",
+    "meta_description_pool": [
+      "A burst pipe or sewage backup can't wait. {business_short} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}."
+    ],
+    "og_description_pool": [
+      "A burst pipe or sewage backup can't wait. {business} connects you with an independent 24-hour plumbing provider in {city_state}. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T03:57:04+00:00",
+  "template_version": "8f4efffa96efd494348ba13f7005e4d6"
+}

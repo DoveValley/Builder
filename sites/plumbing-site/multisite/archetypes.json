@@ -1,0 +1,66 @@
+{
+    "_about": "Plumbing-only archetype additions, merged over the shared multisite/ai/archetypes.json by compile.php (ms_ai_compile_master). An id not already in the shared file is added outright, not merged field-by-field. Adapted from sites/appliance-site/multisite/archetypes.json's brand/type pattern for water heaters — same {brand}/{appliance_type}/{appliance_types}/{brands_serviced} token names (reused as-is rather than adding new tokens to generate.py, even though the names read 'appliance'; the engine populates them generically from each page's seo.* fields regardless of niche).",
+    "common_problems": {
+        "label": "Common Problems (brand + water heater type)",
+        "description": "Grid of the common faults for this specific brand/water-heater-type, or for a flat plumbing service when brand/type are blank. Captures symptom long-tails and differentiates near-duplicate pages.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_num_cols": 3,
+            "columns": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a \"common problems we fix\" section for {business}, [[brief.business_descriptor]], on a {city}, {state} page about {service}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must read as the clear subject.\n\nfc_heading: 5-9 words. If {brand} and {appliance_type} are given, use them, e.g. \"Common {brand} {appliance_type} Problems We Fix\"; otherwise \"{service} Problems We Fix\".\n\nWrite exactly 6 columns, each a REAL, common fault a homeowner would actually experience with a {brand} {appliance_type} (or with {service} in general if brand/type are blank):\n- heading: the symptom in the homeowner's own words, 2-5 words (e.g. \"No Hot Water\", \"Leaking Tank\", \"Pilot Won't Stay Lit\", \"Rotten Egg Smell\", \"Rusty Water\", \"Tripped Breaker\", \"Takes Too Long to Heat\", \"Strange Noises\", \"Water Too Hot or Cold\").\n- text: 18-30 words naming the likely causes in plain language, noting that the local provider {business} connects you with diagnoses and repairs it. Keep each column about a DIFFERENT failure.\n\nChoose problems genuinely typical for that brand and water heater type (gas vs. electric faults differ — a gas unit's issues often involve the pilot, igniter, or venting; an electric unit's often involve the heating element or thermostat; a tankless unit's often involve flow sensors or mineral buildup; a tank unit's often involve sediment or the anode rod). Do NOT invent specific model numbers, exact error codes, or statistics.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, ... exactly 6 objects ...]}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy — never keyword-stuff; skip any that don't fit."
+    },
+    "brand_type_breakdown": {
+        "label": "Brand's Water Heater Types (tabbed breakdown)",
+        "description": "A brand-hub page's tabbed detail section — one tab per water heater type this brand makes (from seo.appliance_types, reusing the appliance-site token name for gas/electric tank/tankless types), each with brand-specific detail written directly onto this page instead of a separate thin page per brand+type combination.",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "ts_heading": "string",
+            "ts_tabs": "array"
+        },
+        "default_fields": {
+            "ts_badge1": "",
+            "ts_badge2": "",
+            "ts_active_bg": "header",
+            "ts_tabs": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a tabbed \"water heater types we service\" section for {business}, [[brief.business_descriptor]], on a {city}, {state} page about {service} ({brand} water heaters).\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it.\n\nThe water heater types {brand} makes, which this brand page must cover, ONE TAB EACH, in this exact order, no more, no fewer: {appliance_types}\n\nts_heading: 5-9 words, e.g. \"{brand} Water Heaters We Service\".\n\nFor each type listed, write one tab:\n- label: just the type name, e.g. \"Gas Tank\", \"Electric Tankless\" (title case, 2-3 words, drop the words \"Water Heater\" since the heading already establishes that).\n- desc: 30-45 words of REAL, brand-relevant detail about {brand} service specifically FOR THAT TAB'S OWN TYPE — what tends to go wrong on this brand's models of that type (gas vs electric, tank vs tankless each have genuinely different failure points and install considerations), what the local provider {business} connects you with actually checks or fixes. Do not repeat the same sentence structure across tabs, and do not blur two types together in one tab. Plain text only, no HTML tags.\n\nChoose brand-typical detail. Do NOT invent specific model numbers, exact error codes, or statistics.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"ts_heading\": \"...\", \"ts_tabs\": [{\"label\": \"...\", \"desc\": \"...\"}, ... one object per type listed above, same order ...]}"
+    },
+    "type_brands_mention": {
+        "label": "Type Page's Brand Breadth (short mention)",
+        "description": "A type-hub page's short, plain mention of which water heater brands are serviced — deliberately lighter than brand_type_breakdown, since the install/repair process for a given type doesn't change much by brand.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a short \"brands we service\" note for {business}, [[brief.business_descriptor]], on a {city}, {state} page about {service}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must stay the clear subject; this section is a brief mention, not a new topic.\n\nheading_text (H2): 4-8 words, e.g. \"Brands We Service\".\n\ntext: exactly 1 short paragraph, 40-60 words, plainly stating that the local providers {business} connects you with install and repair {service} across major brands, naming several from this real list: {brands_serviced}. Do not invent brands not on that list. Do not go into brand-specific detail — that's covered elsewhere; this is a brief breadth statement only.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nWrap the paragraph in <p>...</p>.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p>\"}"
+    }
+}

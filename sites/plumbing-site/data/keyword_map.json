@@ -1,0 +1,223 @@
+{
+  "niche": "plumbing",
+  "services": [
+    {
+      "primary": "plumber {city}, {ST}",
+      "slug": "plumbing-company",
+      "section": "home",
+      "tier": "high-1",
+      "secondary": [
+        "plumbing company",
+        "plumbing services",
+        "local plumber",
+        "plumber near me"
+      ]
+    },
+    {
+      "primary": "emergency plumber {city}, {ST}",
+      "slug": "emergency-plumber",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "24 hour plumber",
+        "emergency plumbing service",
+        "same day plumber"
+      ]
+    },
+    {
+      "primary": "drain cleaning {city}, {ST}",
+      "slug": "drain-cleaning",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "clogged drain",
+        "drain unclogging",
+        "hydro jetting"
+      ]
+    },
+    {
+      "primary": "leak detection {city}, {ST}",
+      "slug": "leak-detection",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "water leak detection",
+        "hidden leak detection",
+        "leak repair"
+      ]
+    },
+    {
+      "primary": "slab leak repair {city}, {ST}",
+      "slug": "slab-leak-repair",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "slab leak detection",
+        "foundation leak repair"
+      ]
+    },
+    {
+      "primary": "sewer line repair {city}, {ST}",
+      "slug": "sewer-line-repair",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "sewer line replacement",
+        "sewer line inspection",
+        "trenchless sewer repair"
+      ]
+    },
+    {
+      "primary": "toilet installation {city}, {ST}",
+      "slug": "toilet-installation",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "toilet replacement",
+        "new toilet install"
+      ]
+    },
+    {
+      "primary": "gas tank water heater installation {city}, {ST}",
+      "slug": "tank-gas-water-heater",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "gas tank water heater repair",
+        "gas tank water heater replacement"
+      ],
+      "role": "type_hub",
+      "wh_type": "tank-gas"
+    },
+    {
+      "primary": "electric tank water heater installation {city}, {ST}",
+      "slug": "tank-electric-water-heater",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "electric tank water heater repair",
+        "electric tank water heater replacement"
+      ],
+      "role": "type_hub",
+      "wh_type": "tank-electric"
+    },
+    {
+      "primary": "gas tankless water heater installation {city}, {ST}",
+      "slug": "tankless-gas-water-heater",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "gas tankless water heater repair",
+        "gas tankless water heater replacement"
+      ],
+      "role": "type_hub",
+      "wh_type": "tankless-gas"
+    },
+    {
+      "primary": "electric tankless water heater installation {city}, {ST}",
+      "slug": "tankless-electric-water-heater",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "electric tankless water heater repair",
+        "electric tankless water heater replacement"
+      ],
+      "role": "type_hub",
+      "wh_type": "tankless-electric"
+    },
+    {
+      "primary": "Rheem water heater repair {city}, {ST}",
+      "slug": "rheem-water-heater",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "Rheem water heater installation",
+        "Rheem water heater service"
+      ],
+      "role": "brand_hub",
+      "wh_brand": "rheem"
+    },
+    {
+      "primary": "A.O. Smith water heater repair {city}, {ST}",
+      "slug": "ao-smith-water-heater",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "A.O. Smith water heater installation",
+        "A.O. Smith water heater service"
+      ],
+      "role": "brand_hub",
+      "wh_brand": "ao-smith"
+    },
+    {
+      "primary": "Bradford White water heater repair {city}, {ST}",
+      "slug": "bradford-white-water-heater",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "Bradford White water heater installation",
+        "Bradford White water heater service"
+      ],
+      "role": "brand_hub",
+      "wh_brand": "bradford-white"
+    },
+    {
+      "primary": "Rinnai water heater repair {city}, {ST}",
+      "slug": "rinnai-water-heater",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "Rinnai water heater installation",
+        "Rinnai water heater service"
+      ],
+      "role": "brand_hub",
+      "wh_brand": "rinnai"
+    },
+    {
+      "primary": "Navien water heater repair {city}, {ST}",
+      "slug": "navien-water-heater",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "Navien water heater installation",
+        "Navien water heater service"
+      ],
+      "role": "brand_hub",
+      "wh_brand": "navien"
+    },
+    {
+      "primary": "State water heater repair {city}, {ST}",
+      "slug": "state-water-heater",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "State water heater installation",
+        "State water heater service"
+      ],
+      "role": "brand_hub",
+      "wh_brand": "state"
+    },
+    {
+      "primary": "Noritz water heater repair {city}, {ST}",
+      "slug": "noritz-water-heater",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "Noritz water heater installation",
+        "Noritz water heater service"
+      ],
+      "role": "brand_hub",
+      "wh_brand": "noritz"
+    }
+  ],
+  "updated_at": "2026-11-18",
+  "page_pool": {
+    "enabled": false,
+    "counts": [
+      18,
+      18,
+      18
+    ]
+  },
+  "keyword_metrics_pulled_at": null
+}

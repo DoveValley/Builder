@@ -1,0 +1,483 @@
+{
+  "template_id": "tpl_leak_detection",
+  "city_id": "lufkin-tx",
+  "slug": "leak-detection-lufkin-tx",
+  "title": "Leak Detection in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "lufkin-tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "tags": [
+      "proof-city"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and wood products industry given its location in the Piney Woods. The city also has a strong manufacturing base tied to oilfield equipment production, along with healthcare and retail sectors that draw from surrounding rural counties. As the Angelina County seat, Lufkin functions as a regional commercial and medical center for much of East Texas.",
+    "local_note": "Much of Lufkin's housing stock consists of mid-20th-century single-family homes built on slab foundations, with newer subdivisions following similar construction. The dominant plumbing risk factor in this part of Texas is clay-soil slab leaks, as shifting soil conditions can stress slab plumbing lines over time.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Kurth",
+      "Crown Colony",
+      "Brookhollow",
+      "Colonial Hills",
+      "Loma Linda"
+    ],
+    "population": 34640,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "city_image": "sites/plumbing-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forestry/wood products",
+      "Healthcare",
+      "Manufacturing (oilfield equipment)",
+      "Oil and gas services",
+      "Retail and regional trade",
+      "Education"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial Lufkin",
+      "Woodland Heights Medical Center",
+      "Lufkin Industries",
+      "Georgia-Pacific",
+      "Lufkin Independent School District",
+      "Angelina College",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart",
+      "Brookshire Brothers"
+    ],
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 19.1,
+      "1960-1979": 30.2,
+      "1980-1999": 32.1,
+      "2000-2009": 10.8,
+      "2010 or later": 7.8
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Lufkin city (14,397 housing units)",
+    "hot_days_monthly": [
+      0,
+      0,
+      0.1,
+      0.7,
+      8,
+      20.4,
+      27.3,
+      27.1,
+      17,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Hudson",
+        "miles": 6
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1,
+      "regional_plumbing_risk": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+    "neighborhoods_source": "verified",
+    "lat": "31.338624",
+    "lng": "-94.728856",
+    "wet_days_monthly": [
+      6.1,
+      5.6,
+      5.8,
+      5,
+      6.1,
+      6.2,
+      5.1,
+      5.1,
+      4.8,
+      4.7,
+      5.3,
+      6.4
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+    "noaa_station": "USW00093987",
+    "noaa_station_miles": 7.2,
+    "noaa_fetched_at": "2026-10-04",
+    "county_fips": "48005",
+    "county_name": "Angelina County",
+    "figures_fetched_at": "2026-10-04",
+    "acs_fetched_at": "2026-10-04",
+    "plumbing_risk_factor": "clay-soil slab leaks"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Lufkin's mid-20th-century housing stock, predominantly built on slab foundations, faces a persistent plumbing challenge: shifting clay soil beneath those foundations can stress and crack the lines running through them, often causing slow leaks that go undetected until water damage appears. Early leak detection catches these problems before they become costly repairs, protecting your foundation and your home's structural integrity.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo": "sites/plumbing-site/uploads/media/leak-detection.webp",
+      "hs_photo_alt": "Leak Detection in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "hs_mobile_order": "img_first",
+      "hs_bg_photo": "sites/plumbing-site/uploads/media/hero-bg-light.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:11.951760Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "40b5684369bfc995",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": false,
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/plumbing-site/uploads/media/leak-detection.webp",
+      "it_alt": "Leak Detection in {city_state}",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Leak Detection Services for Lufkin Homeowners",
+      "text": "<p>Homeowners in Lufkin face a distinctive plumbing challenge rooted in the region's soil composition and housing construction. Much of the area's housing stock—from mid-20th-century homes to newer subdivisions—sits on concrete slab foundations, a building method that leaves plumbing lines vulnerable to pressure and damage as shifting clay soil moves beneath. Over time, these underground shifts stress the water lines embedded in the slab, often leading to slow leaks that go unnoticed until water bills spike or structural damage becomes visible. Early detection of these leaks is critical: they waste water, raise utility costs, and can compromise the foundation itself if left unrepaired.</p><p>Plumbing Connect makes it straightforward to find local providers in Lufkin who specialize in leak detection and can pinpoint the source of water loss, whether it originates in slab lines or elsewhere in your home's plumbing system. When you contact us, we connect you directly with independent plumbing providers ready to listen to your symptoms—wet spots, unexplained dampness, or a sudden increase in water usage—and perform a thorough inspection to locate the leak. These providers use proven detection methods and follow up with clear repair recommendations so you understand what's needed and why. If you suspect a leak in your Lufkin home, reaching out quickly prevents small problems from becoming costly ones.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:16.301107Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "3ecbfd6fdb57b63e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "id": "ai_block_2",
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Water Pooling Under House",
+          "text": "Foundation leaks or underground pipe breaks often show as wet spots, soft soil, or pooling near your home's perimeter. The local provider Plumbing Connect connects you with uses detection methods to pinpoint the source and recommend repair options."
+        },
+        {
+          "heading": "Rising Water Bills",
+          "text": "A sudden spike in your bill often signals a hidden leak in walls, under slabs, or in yard lines you can't see. Plumbing Connect links you with a local provider who can perform water leak detection to find the problem quickly."
+        },
+        {
+          "heading": "Soft or Spongy Walls",
+          "text": "Interior wall dampness, discoloration, or mushy drywall usually means water is running inside the wall cavity from a supply line or drain. A provider from Plumbing Connect's network can locate the leak and discuss repair solutions with you."
+        },
+        {
+          "heading": "Hissing or Running Water Sound",
+          "text": "Constant background hissing or the sound of water running when nothing is on typically indicates a pressurized line leak. Plumbing Connect connects you with a local provider experienced in hidden leak repair and diagnosis."
+        },
+        {
+          "heading": "Wet Yard or Soggy Patches",
+          "text": "Unusually green grass, muddy areas, or persistent dampness in your yard often point to a buried service line leak. The independent providers Plumbing Connect refers can perform leak detection to confirm the location and advise on next steps."
+        },
+        {
+          "heading": "Mold or Musty Smell",
+          "text": "A moldy odor indoors without visible water usually means moisture is accumulating from a slow or hidden leak. Plumbing Connect can connect you with a local provider who offers leak detection to identify the source before mold spreads."
+        }
+      ],
+      "fc_heading": "Leak Detection Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:21.519488Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "37701971a37225af",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "id": "ai_block_3",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Plumbing Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Leak Detection Response",
+          "text": "<p>Plumbing Connect connects you with local leak detection providers in Lufkin who prioritize quick arrival. Speed matters—active leaks waste water and damage foundations. Same-day or next-day service gets your leak found and stopped fast.</p>"
+        },
+        {
+          "heading": "Thorough Leak Detection Process",
+          "text": "<p>Leak detection requires precision, not guesswork. Independent providers in the Plumbing Connect network use systematic methods to locate leaks accurately—from water meter checks to acoustic listening—so repairs target the real problem, not symptoms.</p>"
+        },
+        {
+          "heading": "Leak Detection Built on Trust",
+          "text": "<p>You need honest answers about what's leaking and where. Plumbing Connect pairs you with local leak detection providers who explain findings clearly, so you understand the issue and your repair options before moving forward.</p>"
+        },
+        {
+          "heading": "Slab Leak Expertise for Lufkin Homes",
+          "text": "<p>Lufkin's mid-century housing stock and shifting clay soil create ideal conditions for slab leaks. Local leak detection providers connected through Plumbing Connect understand this risk and know how to find leaks hidden beneath your foundation.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:25.555939Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "13e05bf257f7e373",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Service Works",
+      "steps_items": [
+        {
+          "heading": "Report Your Leak Detection Need",
+          "text": "Contact Plumbing Connect to describe signs of a leak—water stains, soft flooring, unexplained water bills, or pooling—and we'll connect you with an independent local plumber in Lufkin who handles leak detection."
+        },
+        {
+          "heading": "Plumber Locates the Leak",
+          "text": "The local provider uses specialized equipment to pinpoint where water is escaping, whether from visible pipes or slab lines beneath your home. In Lufkin's older slab foundations, shifting clay soil can stress plumbing lines over time, making professional leak detection essential to find hidden damage."
+        },
+        {
+          "heading": "Repair and Verification",
+          "text": "Once located, the independent plumber discusses repair options and completes the work to stop the leak. Follow-up checks confirm the leak is resolved and your water system is working normally again."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:28.541111Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "7fa20d32c840432e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Think you have a hidden leak in {city}? We'll connect you with a local provider.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1",
+      "anchor": "mid_cta"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/plumbing-site/uploads/media/leak-detection.webp",
+      "it_alt": "Leak Detection in {city_state}",
+      "id": "ai_block_4",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Leak Detection Services Across Lufkin",
+      "text": "<p>Lufkin's housing landscape is dominated by mid-20th-century single-family homes built on slab foundations, a construction approach that continues in newer subdivisions throughout the area. This consistent building pattern creates a specific vulnerability to leak detection challenges: the clay soil common to this region of Texas shifts seasonally, putting pressure on the plumbing lines that run beneath slab foundations. Over time, this soil movement can stress and crack those lines, leading to leaks that may go unnoticed until water damage surfaces or utility bills spike unexpectedly.</p><p>Whether your home is in an established neighborhood like Crown Colony or a newer section of town, understanding your property's slab-foundation plumbing is essential. Leak detection becomes more urgent the longer a slab leak persists, since water escaping beneath the foundation can damage the structure itself. Plumbing Connect connects Lufkin property owners with independent local providers who can assess whether shifting soil conditions have compromised your lines, locate hidden leaks quickly, and recommend the right repair path forward.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:32.334354Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0baa7a9456cf3dfc",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does leak detection in Lufkin involve and how does it work?",
+          "answer": "<p>Leak detection uses specialized tools and methods to locate hidden water leaks in your plumbing system without invasive digging or wall removal. Technicians use acoustic listening devices, moisture meters, thermal imaging, or dye tracing to pinpoint exactly where water is escaping. This precision saves time and prevents unnecessary damage to your home during the diagnostic phase.</p>"
+        },
+        {
+          "question": "How quickly can Plumbing Connect connect me with a leak detection provider in Lufkin?",
+          "answer": "<p>Plumbing Connect matches you with independent local plumbing providers in Lufkin who can respond to leak detection requests promptly. For active leaks or water emergencies, local providers prioritize rapid scheduling. Contact Plumbing Connect with your situation, and the network connects you to available providers in your area without unnecessary delay.</p>"
+        },
+        {
+          "question": "What factors affect the cost of leak detection service in Lufkin?",
+          "answer": "<p>Leak detection pricing depends on the detection method needed, the complexity of your plumbing layout, and how accessible the suspected leak area is. Homes in Lufkin with slab foundations may require different detection approaches than other construction types. The independent provider you're connected with will discuss pricing based on your specific situation and the tools required.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before leak detection arrives?",
+          "answer": "<p>Before the technician arrives, note any visible signs of leaks—wet spots, discoloration, unusually high water bills, or musty odors—and share this information. Ensure the technician has access to water meter locations, utility shutoffs, and areas where you suspect problems. Clear clutter from under sinks and around foundation perimeters to allow easy inspection of plumbing entry points.</p>"
+        },
+        {
+          "question": "How can I keep water leaks from happening in my Lufkin home?",
+          "answer": "<p>Monitor your water bill for unexpected increases, which often signal hidden leaks. Inspect visible pipes regularly for corrosion or seepage. Address minor drips immediately rather than waiting. In Lufkin's clay-soil environment, soil movement under slab foundations can stress plumbing lines over time, so early detection through periodic inspections helps prevent costly damage from developing undetected.</p>"
+        },
+        {
+          "question": "When is leak detection most important for Lufkin homeowners?",
+          "answer": "<p>Leak detection is valuable year-round, but shifts in soil conditions can stress slab plumbing during seasonal wet-to-dry cycles, making spring and fall particularly important times to investigate signs of leaks. If you notice damp spots, temperature changes in flooring, or rising water usage at any time of year, contact a provider promptly—early detection prevents expensive structural damage.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:48:40.183397Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e12397ccef4612fd",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 4,
+      "rl_items": [
+        {
+          "url": "/",
+          "text": "plumbing services"
+        },
+        {
+          "url": "/emergency-plumber-{city_slug}",
+          "text": "emergency plumber"
+        },
+        {
+          "url": "/drain-cleaning-{city_slug}",
+          "text": "drain cleaning"
+        },
+        {
+          "url": "/tank-gas-water-heater-{city_slug}",
+          "text": "gas tank water heater"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Plumbing Company",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Plumbing Company",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} leak detection today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1",
+      "mi_map_link": "{city_map_link}",
+      "mi_map_link_text": "View {city_state} on Google Maps ↗"
+    }
+  ],
+  "seo": {
+    "seo_title": "Leak Detection in {city_state} | {business_short}",
+    "canonical_url": "https://a.q111.xyz/leak-detection-lufkin-tx/",
+    "meta_description": "Suspect a hidden water leak in {city_state}? {business_short} connects you with a local leak detection provider. Call {phone}.",
+    "meta_keywords": "leak detection Lufkin TX",
+    "og_title": "Leak Detection in {city_state} | {business}",
+    "og_description": "Suspect a hidden water leak in {city_state}? {business} connects you with a local leak detection provider. Call {phone}.",
+    "og_image": "",
+    "service_name": "Leak Detection",
+    "service_type": "Leak Detection",
+    "service_area": "{city}, {SS}",
+    "service_description": "Suspect a hidden water leak in {city_state}? {business} connects you with a local leak detection provider. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "Leak Detection",
+    "secondary_keywords": "water leak detection, hidden leak detection, leak repair",
+    "brand": "",
+    "appliance_type": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Leak Detection in Lufkin, TX\",\n            \"serviceType\": \"Leak Detection\",\n            \"description\": \"Suspect a hidden water leak in Lufkin, TX? Plumbing Connect connects you with a local leak detection provider. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Plumbing Connect\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "appliance_types": "",
+    "brands_serviced": "",
+    "meta_description_pool": [
+      "Suspect a hidden water leak in {city_state}? {business_short} connects you with a local leak detection provider. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Suspect a hidden water leak in {city_state}? {business} connects you with a local leak detection provider. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T03:57:04+00:00",
+  "template_version": "a7a90a2ea8b3aa8393bd4078f481b162"
+}
