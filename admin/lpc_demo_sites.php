@@ -30,6 +30,11 @@ if (!empty($_GET['msg'])) {
 
 const LPC_DEMO_BASE = '/opt/landing-page-clients';
 const LPC_DEMO_SHARED_LOGIN = ['user' => 'admin', 'pass' => 'demosite2026'];
+// This box's own public IP/SSH login — fills in the per-site tunnel command
+// so it's copy-paste ready instead of a template with <user>/<host> to fill
+// in by hand. Edit here if the server or login ever changes.
+const LPC_DEMO_SSH_USER = 'root';
+const LPC_DEMO_SSH_HOST = '187.127.254.206';
 
 // Discover every demo-* site on disk — the filesystem IS the source of
 // truth (same reasoning as niche_library_list() elsewhere in this codebase:
@@ -92,14 +97,15 @@ usort($sites, fn($a, $b) => strcmp($a['niche'], $b['niche']));
     <p style="color:#6b7280;font-size:.85rem;">
         Local-only WordPress installs standing in for a real agency's "existing customer site" —
         used to rehearse agency onboarding, plugin pairing, and the full LPC workflow before taking
-        on a real paying agency. Never exposed to the internet; reach one with
-        <code>ssh -L PORT:localhost:PORT &lt;user&gt;@&lt;this box&gt;</code>, then open
-        <code>http://localhost:PORT</code>. Every site shares the same WordPress login —
+        on a real paying agency. Never exposed to the internet — each row below has its own ready-
+        to-copy SSH tunnel command; run it once, then the site's link opens normally in your browser.
+        Every site shares the same WordPress login —
         <strong>admin / <?= h(LPC_DEMO_SHARED_LOGIN['pass']) ?></strong> — on purpose, so there's
         nothing to look up per site.
     </p>
 
     <?php foreach ($sites as $s): ?>
+        <?php $tunnelCmd = $s['port'] !== '' ? sprintf('ssh -L %s:localhost:%s %s@%s', $s['port'], $s['port'], LPC_DEMO_SSH_USER, LPC_DEMO_SSH_HOST) : ''; ?>
         <div class="lpc-row">
             <div>
                 <strong><?= h(ucwords(str_replace('-', ' ', $s['niche']))) ?></strong>
@@ -107,6 +113,13 @@ usort($sites, fn($a, $b) => strcmp($a['niche'], $b['niche']));
                 <div class="meta">
                     port <?= h($s['port'] ?: '—') ?> &middot; theme: <?= h($s['theme']) ?>
                 </div>
+                <?php if ($tunnelCmd): ?>
+                <div class="meta" style="margin-top:6px;display:flex;align-items:center;gap:6px;">
+                    <code id="tunnel-<?= h($s['niche']) ?>" style="background:#f3f4f6;padding:3px 8px;border-radius:4px;font-size:.78rem;"><?= h($tunnelCmd) ?></code>
+                    <button type="button" class="btn-sm-outline" style="padding:2px 8px;font-size:.75rem;" onclick="lpcCopyTunnel('tunnel-<?= h($s['niche']) ?>', this)">Copy</button>
+                    <span class="meta">then open http://localhost:<?= h($s['port']) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
                 <?php if ($s['running']): ?>
@@ -160,5 +173,15 @@ usort($sites, fn($a, $b) => strcmp($a['niche'], $b['niche']));
     </form>
 
 </div>
+<script>
+function lpcCopyTunnel(id, btn) {
+    var text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(function () {
+        var original = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(function () { btn.textContent = original; }, 1500);
+    });
+}
+</script>
 </body>
 </html>
