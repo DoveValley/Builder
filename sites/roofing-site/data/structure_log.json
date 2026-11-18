@@ -1,0 +1,71 @@
+[
+    {
+        "run_id": "da5e03f4bc75fd45",
+        "started_at": "2026-11-18T04:27:54+00:00",
+        "finished_at": "2026-11-18T04:27:54+00:00",
+        "duration_ms": 2,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "colorado-springs-co"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 0,
+        "pages_skipped": 6,
+        "pages_backed_up": 0,
+        "errors": [
+            {
+                "template_id": "tpl_roof_repair",
+                "city_id": "colorado-springs-co",
+                "error": "Could not write page file: tpl_roof_repair_colorado-springs-co.json"
+            },
+            {
+                "template_id": "tpl_roof_replacement",
+                "city_id": "colorado-springs-co",
+                "error": "Could not write page file: tpl_roof_replacement_colorado-springs-co.json"
+            },
+            {
+                "template_id": "tpl_roof_inspection",
+                "city_id": "colorado-springs-co",
+                "error": "Could not write page file: tpl_roof_inspection_colorado-springs-co.json"
+            },
+            {
+                "template_id": "tpl_roof_leak_repair",
+                "city_id": "colorado-springs-co",
+                "error": "Could not write page file: tpl_roof_leak_repair_colorado-springs-co.json"
+            },
+            {
+                "template_id": "tpl_storm_damage_roof_repair",
+                "city_id": "colorado-springs-co",
+                "error": "Could not write page file: tpl_storm_damage_roof_repair_colorado-springs-co.json"
+            },
+            {
+                "template_id": "tpl_gutter_installation",
+                "city_id": "colorado-springs-co",
+                "error": "Could not write page file: tpl_gutter_installation_colorado-springs-co.json"
+            }
+        ]
+    },
+    {
+        "run_id": "2619bee440979ea6",
+        "started_at": "2026-11-18T04:28:03+00:00",
+        "finished_at": "2026-11-18T04:28:03+00:00",
+        "duration_ms": 3,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "colorado-springs-co"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 6,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    }
+]

@@ -1,0 +1,1370 @@
+[
+  {
+    "id": "tpl_roof_repair",
+    "page_type": "template",
+    "title": "Roof Repair in {city_state} | {business_short}",
+    "slug_pattern": "roof-repair-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Roof Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Roof Repair connections from {business}. We connect you with responsive local roofing providers who respond quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Roof Repair in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/roofing-site/uploads/media/roof-repair.webp",
+        "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/roofing-site/uploads/media/roof-repair.webp",
+        "it_alt": "Roof Repair in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Request a Quote",
+            "text": "Tell us what's going on with your roof. We schedule quickly, often same-day for active leaks."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Quote",
+            "text": "The local provider you connect with inspects the roof, explains what they find, and gives you an upfront quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Work Completed & Warranty",
+            "text": "We complete the work with quality materials and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Have roof damage in {city}? We'll connect you with a local roofer fast.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/roofing-site/uploads/media/roof-repair.webp",
+        "it_alt": "Roof Repair in {city_state}",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "roofing services"
+          },
+          {
+            "url": "/roof-replacement-{city_slug}",
+            "text": "roof replacement"
+          },
+          {
+            "url": "/roof-inspection-{city_slug}",
+            "text": "roof inspection"
+          },
+          {
+            "url": "/roof-leak-repair-{city_slug}",
+            "text": "roof leak repair"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Roofing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Roofing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} roof repair today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Roof Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "A damaged roof needs fast attention before a small problem becomes a bigger leak. {business_short} connects you with an independent local roofer in {city_state}. Call {phone}.",
+      "meta_keywords": "roof repair {city} {SS}",
+      "og_title": "Roof Repair in {city_state} | {business}",
+      "og_description": "A damaged roof needs fast attention before a small problem becomes a bigger leak. {business} connects you with an independent local roofer in {city_state}. Call {phone}.",
+      "og_image": "",
+      "service_name": "Roof Repair",
+      "service_type": "Roof Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "A damaged roof needs fast attention before a small problem becomes a bigger leak. {business} connects you with an independent local roofer in {city_state}. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Roof Repair",
+      "secondary_keywords": "roof repair near me, roof repair cost, shingle repair",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Roof Repair in {city_state}\",\n            \"serviceType\": \"Roof Repair\",\n            \"description\": \"A damaged roof needs fast attention before a small problem becomes a bigger leak. {business} connects you with an independent local roofer in {city_state}. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "meta_description_pool": [
+        "A damaged roof needs fast attention before a small problem becomes a bigger leak. {business_short} connects you with an independent local roofer in {city_state}. Call {phone}."
+      ],
+      "og_description_pool": [
+        "A damaged roof needs fast attention before a small problem becomes a bigger leak. {business} connects you with an independent local roofer in {city_state}. Call {phone}."
+      ]
+    },
+    "service": "Roof Repair",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_roof_replacement",
+    "page_type": "template",
+    "title": "Roof Replacement in {city_state} | {business_short}",
+    "slug_pattern": "roof-replacement-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Roof Replacement in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Roof Replacement connections from {business}. We connect you with responsive local roofing providers who respond quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Roof Replacement in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/roofing-site/uploads/media/roof-replacement.webp",
+        "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/roofing-site/uploads/media/roof-replacement.webp",
+        "it_alt": "Roof Replacement in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Request a Quote",
+            "text": "Tell us what's going on with your roof. We schedule quickly, often same-day for active leaks."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Quote",
+            "text": "The local provider you connect with inspects the roof, explains what they find, and gives you an upfront quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Work Completed & Warranty",
+            "text": "We complete the work with quality materials and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Considering a new roof in {city}? Get connected with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/roofing-site/uploads/media/roof-replacement.webp",
+        "it_alt": "Roof Replacement in {city_state}",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "roofing services"
+          },
+          {
+            "url": "/roof-repair-{city_slug}",
+            "text": "roof repair"
+          },
+          {
+            "url": "/roof-inspection-{city_slug}",
+            "text": "roof inspection"
+          },
+          {
+            "url": "/roof-leak-repair-{city_slug}",
+            "text": "roof leak repair"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Roofing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Roofing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Get your {city} roof replacement quote today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Roof Replacement in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Planning a new roof in {city_state}? {business_short} connects you with an independent local roofing provider for a full replacement. Call {phone}.",
+      "meta_keywords": "roof replacement {city} {SS}",
+      "og_title": "Roof Replacement in {city_state} | {business}",
+      "og_description": "Planning a new roof in {city_state}? {business} connects you with an independent local roofing provider for a full replacement. Call {phone}.",
+      "og_image": "",
+      "service_name": "Roof Replacement",
+      "service_type": "Roof Replacement",
+      "service_area": "{city}, {SS}",
+      "service_description": "Planning a new roof in {city_state}? {business} connects you with an independent local roofing provider for a full replacement. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Roof Replacement",
+      "secondary_keywords": "new roof cost, roof replacement cost, new roof installation",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Roof Replacement in {city_state}\",\n            \"serviceType\": \"Roof Replacement\",\n            \"description\": \"Planning a new roof in {city_state}? {business} connects you with an independent local roofing provider for a full replacement. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "meta_description_pool": [
+        "Planning a new roof in {city_state}? {business_short} connects you with an independent local roofing provider for a full replacement. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Planning a new roof in {city_state}? {business} connects you with an independent local roofing provider for a full replacement. Call {phone}."
+      ]
+    },
+    "service": "Roof Replacement",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_roof_inspection",
+    "page_type": "template",
+    "title": "Roof Inspection in {city_state} | {business_short}",
+    "slug_pattern": "roof-inspection-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Roof Inspection in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Roof Inspection connections from {business}. We connect you with responsive local roofing providers who respond quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Roof Inspection in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/roofing-site/uploads/media/roof-inspection.webp",
+        "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/roofing-site/uploads/media/roof-inspection.webp",
+        "it_alt": "Roof Inspection in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Request a Quote",
+            "text": "Tell us what's going on with your roof. We schedule quickly, often same-day for active leaks."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Quote",
+            "text": "The local provider you connect with inspects the roof, explains what they find, and gives you an upfront quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Work Completed & Warranty",
+            "text": "We complete the work with quality materials and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Want a professional opinion on your {city} roof? Schedule an inspection.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/roofing-site/uploads/media/roof-inspection.webp",
+        "it_alt": "Roof Inspection in {city_state}",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "roofing services"
+          },
+          {
+            "url": "/roof-repair-{city_slug}",
+            "text": "roof repair"
+          },
+          {
+            "url": "/roof-replacement-{city_slug}",
+            "text": "roof replacement"
+          },
+          {
+            "url": "/roof-leak-repair-{city_slug}",
+            "text": "roof leak repair"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Roofing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Roofing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Schedule your {city} roof inspection today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Roof Inspection in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Not sure about your roof's condition? {business_short} connects {city_state} homeowners with a local provider for a thorough roof inspection. Call {phone}.",
+      "meta_keywords": "roof inspection {city} {SS}",
+      "og_title": "Roof Inspection in {city_state} | {business}",
+      "og_description": "Not sure about your roof's condition? {business} connects {city_state} homeowners with a local provider for a thorough roof inspection. Call {phone}.",
+      "og_image": "",
+      "service_name": "Roof Inspection",
+      "service_type": "Roof Inspection",
+      "service_area": "{city}, {SS}",
+      "service_description": "Not sure about your roof's condition? {business} connects {city_state} homeowners with a local provider for a thorough roof inspection. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Roof Inspection",
+      "secondary_keywords": "free roof inspection, roof inspection cost, roof certification",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Roof Inspection in {city_state}\",\n            \"serviceType\": \"Roof Inspection\",\n            \"description\": \"Not sure about your roof's condition? {business} connects {city_state} homeowners with a local provider for a thorough roof inspection. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "meta_description_pool": [
+        "Not sure about your roof's condition? {business_short} connects {city_state} homeowners with a local provider for a thorough roof inspection. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Not sure about your roof's condition? {business} connects {city_state} homeowners with a local provider for a thorough roof inspection. Call {phone}."
+      ]
+    },
+    "service": "Roof Inspection",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_roof_leak_repair",
+    "page_type": "template",
+    "title": "Roof Leak Repair in {city_state} | {business_short}",
+    "slug_pattern": "roof-leak-repair-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Roof Leak Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Roof Leak Repair connections from {business}. We connect you with responsive local roofing providers who respond quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Roof Leak Repair in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/roofing-site/uploads/media/roof-leak-repair.webp",
+        "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/roofing-site/uploads/media/roof-leak-repair.webp",
+        "it_alt": "Roof Leak Repair in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Request a Quote",
+            "text": "Tell us what's going on with your roof. We schedule quickly, often same-day for active leaks."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Quote",
+            "text": "The local provider you connect with inspects the roof, explains what they find, and gives you an upfront quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Work Completed & Warranty",
+            "text": "We complete the work with quality materials and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with a roof leak in {city}? We'll connect you with a provider fast.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/roofing-site/uploads/media/roof-leak-repair.webp",
+        "it_alt": "Roof Leak Repair in {city_state}",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "roofing services"
+          },
+          {
+            "url": "/roof-repair-{city_slug}",
+            "text": "roof repair"
+          },
+          {
+            "url": "/roof-replacement-{city_slug}",
+            "text": "roof replacement"
+          },
+          {
+            "url": "/roof-inspection-{city_slug}",
+            "text": "roof inspection"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Roofing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Roofing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Get your {city} roof leak stopped today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Roof Leak Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "A roof leak won't wait. {business_short} connects {city_state} homeowners with an independent local provider who can find and stop the leak. Call {phone}.",
+      "meta_keywords": "roof leak repair {city} {SS}",
+      "og_title": "Roof Leak Repair in {city_state} | {business}",
+      "og_description": "A roof leak won't wait. {business} connects {city_state} homeowners with an independent local provider who can find and stop the leak. Call {phone}.",
+      "og_image": "",
+      "service_name": "Roof Leak Repair",
+      "service_type": "Roof Leak Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "A roof leak won't wait. {business} connects {city_state} homeowners with an independent local provider who can find and stop the leak. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Roof Leak Repair",
+      "secondary_keywords": "roof leak repair cost, ceiling leak, roof leak detection",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Roof Leak Repair in {city_state}\",\n            \"serviceType\": \"Roof Leak Repair\",\n            \"description\": \"A roof leak won't wait. {business} connects {city_state} homeowners with an independent local provider who can find and stop the leak. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "meta_description_pool": [
+        "A roof leak won't wait. {business_short} connects {city_state} homeowners with an independent local provider who can find and stop the leak. Call {phone}."
+      ],
+      "og_description_pool": [
+        "A roof leak won't wait. {business} connects {city_state} homeowners with an independent local provider who can find and stop the leak. Call {phone}."
+      ]
+    },
+    "service": "Roof Leak Repair",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_storm_damage_roof_repair",
+    "page_type": "template",
+    "title": "Storm Damage Roof Repair in {city_state} | {business_short}",
+    "slug_pattern": "storm-damage-roof-repair-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Storm Damage Roof Repair in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Storm Damage Roof Repair connections from {business}. We connect you with responsive local roofing providers who respond quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Storm Damage Roof Repair in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+        "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+        "it_alt": "Storm Damage Roof Repair in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Request a Quote",
+            "text": "Tell us what's going on with your roof. We schedule quickly, often same-day for active leaks."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Quote",
+            "text": "The local provider you connect with inspects the roof, explains what they find, and gives you an upfront quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Work Completed & Warranty",
+            "text": "We complete the work with quality materials and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Roof damage after a storm in {city}? Connect with a local provider who handles insurance claims.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+        "it_alt": "Storm Damage Roof Repair in {city_state}",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "roofing services"
+          },
+          {
+            "url": "/roof-repair-{city_slug}",
+            "text": "roof repair"
+          },
+          {
+            "url": "/roof-replacement-{city_slug}",
+            "text": "roof replacement"
+          },
+          {
+            "url": "/roof-inspection-{city_slug}",
+            "text": "roof inspection"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Roofing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Roofing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Get your {city} storm damage assessed today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Storm Damage Roof Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "After a hailstorm or high winds, {business_short} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}.",
+      "meta_keywords": "storm damage roof repair {city} {SS}",
+      "og_title": "Storm Damage Roof Repair in {city_state} | {business}",
+      "og_description": "After a hailstorm or high winds, {business} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}.",
+      "og_image": "",
+      "service_name": "Storm Damage Roof Repair",
+      "service_type": "Storm Damage Roof Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "After a hailstorm or high winds, {business} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Storm Damage Roof Repair",
+      "secondary_keywords": "hail damage roof repair, wind damage roof repair, roof insurance claim",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Storm Damage Roof Repair in {city_state}\",\n            \"serviceType\": \"Storm Damage Roof Repair\",\n            \"description\": \"After a hailstorm or high winds, {business} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "meta_description_pool": [
+        "After a hailstorm or high winds, {business_short} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}."
+      ],
+      "og_description_pool": [
+        "After a hailstorm or high winds, {business} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}."
+      ]
+    },
+    "service": "Storm Damage Roof Repair",
+    "layout_enabled": true,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_gutter_installation",
+    "page_type": "template",
+    "title": "Gutter Installation in {city_state} | {business_short}",
+    "slug_pattern": "gutter-installation-{city_slug}",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Gutter Installation in {city_state}",
+        "hs_subtext": "<p>Fast, reliable Gutter Installation connections from {business}. We connect you with responsive local roofing providers who respond quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Gutter Installation in {city_state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/roofing-site/uploads/media/gutter-installation.webp",
+        "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/roofing-site/uploads/media/gutter-installation.webp",
+        "it_alt": "Gutter Installation in {city_state}",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Service Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call or Request a Quote",
+            "text": "Tell us what's going on with your roof. We schedule quickly, often same-day for active leaks."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Quote",
+            "text": "The local provider you connect with inspects the roof, explains what they find, and gives you an upfront quote."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Work Completed & Warranty",
+            "text": "We complete the work with quality materials and back it with a warranty."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Ready for new gutters in {city}? We'll connect you with a local provider.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1",
+        "anchor": "mid_cta"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/roofing-site/uploads/media/gutter-installation.webp",
+        "it_alt": "Gutter Installation in {city_state}",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 4,
+        "rl_items": [
+          {
+            "url": "/",
+            "text": "roofing services"
+          },
+          {
+            "url": "/roof-repair-{city_slug}",
+            "text": "roof repair"
+          },
+          {
+            "url": "/roof-replacement-{city_slug}",
+            "text": "roof replacement"
+          },
+          {
+            "url": "/roof-inspection-{city_slug}",
+            "text": "roof inspection"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Roofing Company",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Roofing Company",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Book your {city} gutter installation today.",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Gutter Installation in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Need new or repaired gutters in {city_state}? {business_short} connects you with an independent local provider. Call {phone}.",
+      "meta_keywords": "gutter installation {city} {SS}",
+      "og_title": "Gutter Installation in {city_state} | {business}",
+      "og_description": "Need new or repaired gutters in {city_state}? {business} connects you with an independent local provider. Call {phone}.",
+      "og_image": "",
+      "service_name": "Gutter Installation",
+      "service_type": "Gutter Installation",
+      "service_area": "{city}, {SS}",
+      "service_description": "Need new or repaired gutters in {city_state}? {business} connects you with an independent local provider. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "primary_keyword": "Gutter Installation",
+      "secondary_keywords": "gutter repair, seamless gutters, gutter replacement cost",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Gutter Installation in {city_state}\",\n            \"serviceType\": \"Gutter Installation\",\n            \"description\": \"Need new or repaired gutters in {city_state}? {business} connects you with an independent local provider. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "meta_description_pool": [
+        "Need new or repaired gutters in {city_state}? {business_short} connects you with an independent local provider. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Need new or repaired gutters in {city_state}? {business} connects you with an independent local provider. Call {phone}."
+      ]
+    },
+    "service": "Gutter Installation",
+    "layout_enabled": true,
+    "layout_variants": []
+  }
+]

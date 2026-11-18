@@ -1,0 +1,479 @@
+{
+  "template_id": "tpl_roof_replacement",
+  "city_id": "colorado-springs-co",
+  "slug": "roof-replacement-colorado-springs-co",
+  "title": "Roof Replacement in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "colorado-springs-co",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "colorado-springs-co",
+    "lat": "38.833958",
+    "lng": "-104.825348",
+    "homes_by_decade": {
+      "Before 1960": 14,
+      "1960-1979": 26,
+      "1980-1999": 31.7,
+      "2000-2009": 14.9,
+      "2010 or later": 13.5
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Colorado Springs city (207,078 housing units)",
+    "acs_fetched_at": "2026-10-27",
+    "figures_fetched_at": "2026-10-27",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      5.6,
+      11,
+      5,
+      1.3,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, COLORADO SPRINGS MUNI AP, CO US station (7.6 mi from Colorado Springs)",
+    "wet_days_monthly": [
+      1.1,
+      1,
+      2.4,
+      3.5,
+      4.9,
+      4.4,
+      6.4,
+      6.4,
+      2.8,
+      2.2,
+      1,
+      0.7
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, COLORADO SPRINGS MUNI AP, CO US station (7.6 mi from Colorado Springs)",
+    "noaa_station": "USW00093037",
+    "noaa_station_miles": 7.6,
+    "noaa_fetched_at": "2026-10-27",
+    "industries": [
+      "Military and defense",
+      "Aerospace and space technology",
+      "Healthcare",
+      "Tourism and hospitality",
+      "Technology and IT services",
+      "Sports and Olympic training"
+    ],
+    "top_employers": [
+      "Fort Carson",
+      "Peterson Space Force Base",
+      "Schriever Space Force Base",
+      "United States Air Force Academy",
+      "UCHealth Memorial Hospital",
+      "Penrose-St. Francis Health Services",
+      "Colorado Springs School District 11",
+      "City of Colorado Springs",
+      "Progressive Insurance",
+      "Walmart",
+      "Booz Allen Hamilton",
+      "Children's Hospital Colorado"
+    ],
+    "market_blurb": "Colorado Springs' economy is heavily anchored by the military, with five major installations including Fort Carson and the U.S. Air Force Academy driving aerospace and defense employment. Healthcare systems like UCHealth Memorial and Penrose-St. Francis are also major employers, while tourism tied to Pikes Peak and the Garden of the Gods supports a sizable hospitality sector. A growing tech and cybersecurity presence has further diversified the local market.",
+    "local_note": "Asphalt composition shingles are the most common roofing material in Colorado Springs, with some tile and metal roofing in higher-end neighborhoods; the region's dominant risk is severe hail, as the area sits within 'hail alley' and experiences frequent, sometimes damaging hailstorms.",
+    "neighborhoods": [
+      "Bonnievillie",
+      "Cragmor",
+      "Divine Redeemer",
+      "Downtown",
+      "Fairfax",
+      "Gold Hill Mesa",
+      "Hillside",
+      "Historic Uptown",
+      "Old Colorado City",
+      "Broadmoor",
+      "Briargate",
+      "Rockrimmon",
+      "Stetson Hills",
+      "Manitou Springs",
+      "Downtown Colorado Springs",
+      "Cheyenne Canon",
+      "Knob Hill",
+      "Pleasant Valley"
+    ],
+    "population": 488664,
+    "nearby_towns": [
+      {
+        "name": "Manitou Springs",
+        "miles": 6
+      },
+      {
+        "name": "Fountain",
+        "miles": 10
+      },
+      {
+        "name": "Monument",
+        "miles": 18
+      },
+      {
+        "name": "Woodland Park",
+        "miles": 18
+      },
+      {
+        "name": "Falcon",
+        "miles": 15
+      },
+      {
+        "name": "Castle Rock",
+        "miles": 40
+      },
+      {
+        "name": "Pueblo",
+        "miles": 40
+      },
+      {
+        "name": "Cripple Creek",
+        "miles": 45
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 2
+    },
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified",
+    "tags": [
+      "proof-city"
+    ],
+    "city_image": "sites/roofing-site/uploads/media/city-scenic-colorado-springs-co.webp",
+    "city_image_alt": "Colorado Springs, CO",
+    "city_image_credit": "Photo: Quintin Soloviev, CC BY 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Colorado_Springs,_Colorado_(cropped).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Colorado Springs sits in a region where severe hail poses a significant threat to roofs, and asphalt shingles—the standard choice across most homes—can sustain damage that necessitates full replacement after a single damaging storm. Whether your roof has weathered years of UV exposure, sustained impact damage, or simply reached the end of its serviceable life, a replacement restores both protection and peace of mind. Roof Repair Connect matches Colorado Springs homeowners with independent local roofing providers who can assess your situation and guide you through the replacement process.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Roof Replacement in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/roofing-site/uploads/media/roof-replacement.webp",
+      "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+      "hs_mobile_order": "img_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:10.463660Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "04f157a9e763cc44",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/roofing-site/uploads/media/roof-replacement.webp",
+      "it_alt": "Roof Replacement in {city_state}",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Roof Replacement Demand in Colorado Springs",
+      "text": "<p>Colorado Springs homeowners face a unique roofing challenge: the region sits squarely in Hail Alley, where frequent and sometimes severe hailstorms pose a serious threat to roof integrity. Most homes in Colorado Springs are topped with asphalt composition shingles, a popular and cost-effective choice—but one vulnerable to hail damage. When a significant hailstorm passes through, the impact can compromise shingle integrity, leading to leaks, granule loss, and accelerated deterioration. In many cases, roof damage from hail is extensive enough to warrant full roof replacement rather than piecemeal repair. Property owners across neighborhoods like Broadmoor and Briargate may suddenly find themselves facing this decision after spring or early-summer storms, making fast access to qualified local roofing providers essential.</p><p>Roof Repair Connect links Colorado Springs homeowners directly to independent local roofing providers who can assess damage, guide you through the replacement process, and handle the full scope of work from tear-off to new installation. Whether your roof suffered acute storm damage or age-related wear has finally caught up, the providers in our network respond quickly to initial consultations, work directly with insurance adjusters when applicable, and manage the project through completion. We focus on connecting you with experienced local contractors ready to serve Colorado Springs promptly—so you can move from assessment to restoration without delay.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:15.135706Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "94d360bfa1803d9f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "id": "ai_block_2",
+      "skin": "light",
+      "fc_heading": "Why Colorado Springs Homeowners Choose Roof Replacement Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Roof Replacement Access",
+          "text": "Connect with independent roofing providers in Colorado Springs who respond quickly to replacement requests. Skip the wait for distant contractors and get local expertise on your timeline."
+        },
+        {
+          "heading": "Roof Replacement Built to Last",
+          "text": "Independent providers handle full replacement with attention to materials, installation, and long-term performance. Know your new roof is installed with care, not rushed through."
+        },
+        {
+          "heading": "Clear Process, No Hidden Surprises",
+          "text": "Roof replacement through Roof Repair Connect means straightforward communication from inspection through completion. Understand what's needed and what to expect before work begins."
+        },
+        {
+          "heading": "Colorado Springs Hail Damage Coverage",
+          "text": "Hailstorms across the region damage asphalt shingles frequently and can require full roof replacement. When hail strikes, connect instantly with local providers ready to assess and restore your roof."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:18.338092Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "030e40b3009c0ae7",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Service Works",
+      "steps_items": [
+        {
+          "heading": "Schedule Your Roof Replacement Assessment",
+          "text": "Contact Roof Repair Connect to describe your roof's condition—whether it's storm damage, age-related wear, or a planned upgrade. We'll connect you with an independent local roofing provider in Colorado Springs who can schedule a thorough inspection of your roof replacement needs."
+        },
+        {
+          "heading": "Get Your Roof Evaluated",
+          "text": "A local roofing provider visits your home to assess whether roof replacement is necessary. They'll examine shingle condition, structural integrity, and damage—especially hail impact, common in the Colorado Springs area—and explain findings and replacement options."
+        },
+        {
+          "heading": "Move Forward With Roof Replacement",
+          "text": "Once you've approved the roof replacement plan, the independent provider schedules installation, handles material ordering, and completes the work. They'll manage cleanup and answer questions about your new roof's maintenance and longevity."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:21.078630Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "491afb627e2b2313",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Considering a new roof in {city}? Get connected with a local provider.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1",
+      "anchor": "mid_cta"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/roofing-site/uploads/media/roof-replacement.webp",
+      "it_alt": "Roof Replacement in {city_state}",
+      "id": "ai_block_3",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Roof Replacement Needs Across Colorado Springs",
+      "text": "<p>Colorado Springs properties face distinct roof replacement challenges shaped by the region's exposure to severe hail. Asphalt shingles dominate residential roofing across the city, making them the most common choice for replacements, though some higher-end neighborhoods feature tile or metal roofing systems that require different expertise. Because the area sits within a zone known for frequent, sometimes damaging hailstorms, roof damage from impact is a leading reason property owners need full replacement rather than repair. A single spring or early-summer storm can compromise shingle integrity across large portions of a roof, leaving homeowners facing the choice between patch repairs and permanent replacement.</p><p>Neighborhoods throughout Colorado Springs—from established areas like Cheyenne Canon to newer developments such as Stetson Hills—experience similar hail risk, though roof age and material condition vary widely. Older homes may have roofs nearing the end of their lifespan, making them more vulnerable to hail damage that would otherwise be repairable on a younger system. When storm damage occurs or age-related wear accelerates the timeline, connecting with a local roofing provider quickly helps clarify whether repair is viable or replacement is the right path forward. Roof Repair Connect links Colorado Springs property owners with independent local providers who can assess storm damage, explain replacement options, and move forward promptly.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:25.590299Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "be8d24dbe41ff691",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "id": "ai_block_4",
+      "skin": "light",
+      "steps_heading": "Roof Replacement Timing Across Colorado Springs Seasons",
+      "steps_items": [
+        {
+          "heading": "Spring: Hail Damage Assessment",
+          "text": "<p>Spring storms frequently leave roof damage across Colorado Springs that becomes visible once snow melts and debris clears. Hailstones can crack or puncture asphalt shingles, dent metal roofing, and sometimes trigger the need for full replacement rather than spot repairs. Roof Repair Connect links homeowners to local providers who can inspect storm damage, document it for insurance claims, and discuss whether replacement is the most cost-effective path forward.</p>"
+        },
+        {
+          "heading": "Summer: Installation and Replacement Work",
+          "text": "<p>Warm, dry weather makes summer the ideal season for roof replacement projects in Colorado Springs. Extended daylight and stable conditions allow independent local providers to complete installations efficiently and safely. Whether you're replacing an aging roof, addressing spring hail damage, or upgrading materials, connecting through Roof Repair Connect lets you schedule work when weather cooperates and crews have availability.</p>"
+        },
+        {
+          "heading": "Fall: Preventive Replacement Planning",
+          "text": "<p>Fall is when many Colorado Springs homeowners assess roof condition before winter arrives and plan preventive replacements. Cooler temperatures and lower humidity create favorable conditions for roofing work, while clear skies allow thorough inspections of wear, aging, or previous storm damage. Roof Repair Connect helps you reach local providers now, so replacement work finishes before cold weather complicates scheduling and material delivery.</p>"
+        },
+        {
+          "heading": "Winter: Emergency Leak and Structural Repairs",
+          "text": "<p>Winter cold, snow load, and ice can expose weak points in aging roofs, sometimes forcing emergency replacement decisions when leaks develop or structural stress becomes apparent. While ice dams also plague the region, the underlying roof's condition often determines whether repairs suffice or replacement becomes necessary. Roof Repair Connect connects you to local providers who can respond to winter emergencies and help you decide if full replacement is warranted.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:31.701123Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "f4899101c685cab8",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What exactly happens during a full roof replacement in Colorado Springs?",
+          "answer": "<p>A full roof replacement removes your existing roofing material down to the deck, inspects the structure for damage, repairs any underlying issues, then installs new shingles, underlayment, flashing, and vents. The independent local provider you're connected with will walk you through each phase, explain what they find, and answer questions before work begins.</p>"
+        },
+        {
+          "question": "How quickly can Roof Repair Connect connect me with a provider in Colorado Springs?",
+          "answer": "<p>Roof Repair Connect links you to independent local roofing providers in Colorado Springs who can respond to your request quickly. After you describe your roof replacement need, the network matches you with available providers in your area who can discuss timeline, assess damage, and move forward on your schedule.</p>"
+        },
+        {
+          "question": "What factors affect the cost of roof replacement in Colorado Springs?",
+          "answer": "<p>Roof replacement pricing depends on roof size, pitch, existing material type, underlying structural repairs needed, and your choice of replacement shingles or other materials. Local providers will inspect your roof, provide a detailed estimate, and explain what drives the cost so you understand the investment before work starts.</p>"
+        },
+        {
+          "question": "How should I prepare my Colorado Springs home for roof replacement?",
+          "answer": "<p>Before replacement day, clear gutters and yard debris, secure outdoor items and patio furniture, move vehicles away from the work zone, and let neighbors know about the activity. The independent provider will confirm any additional prep steps. During work, expect noise and temporary disruption; plan accordingly if you work from home or have young children.</p>"
+        },
+        {
+          "question": "How often should a roof be replaced to stay ahead of major damage?",
+          "answer": "<p>Roof lifespan varies by material and local weather exposure. Many asphalt shingle roofs last 15–20 years; harsh conditions can shorten that window. If your roof is aging, showing granule loss, or has experienced significant weather events, an inspection by a local provider helps you decide whether replacement is overdue or can wait.</p>"
+        },
+        {
+          "question": "Is spring the best time for roof replacement in Colorado Springs?",
+          "answer": "<p>Colorado Springs sits in a region prone to severe hailstorms, which can trigger urgent replacements after spring and early-summer storm damage. Summer typically offers the longest dry windows for new installations and is a common choice for planned replacements. Fall and winter are possible but weather-dependent; discuss timing with your provider to ensure safe, quality work.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:39.328249Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "fcdc8c9a2427d2b5",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 4,
+      "rl_items": [
+        {
+          "url": "/",
+          "text": "roofing services"
+        },
+        {
+          "url": "/roof-repair-{city_slug}",
+          "text": "roof repair"
+        },
+        {
+          "url": "/roof-inspection-{city_slug}",
+          "text": "roof inspection"
+        },
+        {
+          "url": "/roof-leak-repair-{city_slug}",
+          "text": "roof leak repair"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Roofing Company",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Roofing Company",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Get your {city} roof replacement quote today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
+    }
+  ],
+  "seo": {
+    "seo_title": "Roof Replacement in {city_state} | {business_short}",
+    "canonical_url": "https://p.q111.xyz/roof-replacement-colorado-springs-co/",
+    "meta_description": "Planning a new roof in {city_state}? {business_short} connects you with an independent local roofing provider for a full replacement. Call {phone}.",
+    "meta_keywords": "roof replacement Colorado Springs CO",
+    "og_title": "Roof Replacement in {city_state} | {business}",
+    "og_description": "Planning a new roof in {city_state}? {business} connects you with an independent local roofing provider for a full replacement. Call {phone}.",
+    "og_image": "",
+    "service_name": "Roof Replacement",
+    "service_type": "Roof Replacement",
+    "service_area": "{city}, {SS}",
+    "service_description": "Planning a new roof in {city_state}? {business} connects you with an independent local roofing provider for a full replacement. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "Roof Replacement",
+    "secondary_keywords": "new roof cost, roof replacement cost, new roof installation",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Roof Replacement in Colorado Springs, CO\",\n            \"serviceType\": \"Roof Replacement\",\n            \"description\": \"Planning a new roof in Colorado Springs, CO? Roof Repair Connect connects you with an independent local roofing provider for a full replacement. Call 720-201-5555.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Colorado Springs\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Roof Repair Connect\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "meta_description_pool": [
+      "Planning a new roof in {city_state}? {business_short} connects you with an independent local roofing provider for a full replacement. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Planning a new roof in {city_state}? {business} connects you with an independent local roofing provider for a full replacement. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T04:28:03+00:00",
+  "template_version": "4eacb498a9da49dfd7b7a4e4dbeb2dcf"
+}

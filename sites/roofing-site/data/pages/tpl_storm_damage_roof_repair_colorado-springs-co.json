@@ -1,0 +1,479 @@
+{
+  "template_id": "tpl_storm_damage_roof_repair",
+  "city_id": "colorado-springs-co",
+  "slug": "storm-damage-roof-repair-colorado-springs-co",
+  "title": "Storm Damage Roof Repair in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "colorado-springs-co",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "colorado-springs-co",
+    "lat": "38.833958",
+    "lng": "-104.825348",
+    "homes_by_decade": {
+      "Before 1960": 14,
+      "1960-1979": 26,
+      "1980-1999": 31.7,
+      "2000-2009": 14.9,
+      "2010 or later": 13.5
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Colorado Springs city (207,078 housing units)",
+    "acs_fetched_at": "2026-10-27",
+    "figures_fetched_at": "2026-10-27",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      5.6,
+      11,
+      5,
+      1.3,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, COLORADO SPRINGS MUNI AP, CO US station (7.6 mi from Colorado Springs)",
+    "wet_days_monthly": [
+      1.1,
+      1,
+      2.4,
+      3.5,
+      4.9,
+      4.4,
+      6.4,
+      6.4,
+      2.8,
+      2.2,
+      1,
+      0.7
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, COLORADO SPRINGS MUNI AP, CO US station (7.6 mi from Colorado Springs)",
+    "noaa_station": "USW00093037",
+    "noaa_station_miles": 7.6,
+    "noaa_fetched_at": "2026-10-27",
+    "industries": [
+      "Military and defense",
+      "Aerospace and space technology",
+      "Healthcare",
+      "Tourism and hospitality",
+      "Technology and IT services",
+      "Sports and Olympic training"
+    ],
+    "top_employers": [
+      "Fort Carson",
+      "Peterson Space Force Base",
+      "Schriever Space Force Base",
+      "United States Air Force Academy",
+      "UCHealth Memorial Hospital",
+      "Penrose-St. Francis Health Services",
+      "Colorado Springs School District 11",
+      "City of Colorado Springs",
+      "Progressive Insurance",
+      "Walmart",
+      "Booz Allen Hamilton",
+      "Children's Hospital Colorado"
+    ],
+    "market_blurb": "Colorado Springs' economy is heavily anchored by the military, with five major installations including Fort Carson and the U.S. Air Force Academy driving aerospace and defense employment. Healthcare systems like UCHealth Memorial and Penrose-St. Francis are also major employers, while tourism tied to Pikes Peak and the Garden of the Gods supports a sizable hospitality sector. A growing tech and cybersecurity presence has further diversified the local market.",
+    "local_note": "Asphalt composition shingles are the most common roofing material in Colorado Springs, with some tile and metal roofing in higher-end neighborhoods; the region's dominant risk is severe hail, as the area sits within 'hail alley' and experiences frequent, sometimes damaging hailstorms.",
+    "neighborhoods": [
+      "Bonnievillie",
+      "Cragmor",
+      "Divine Redeemer",
+      "Downtown",
+      "Fairfax",
+      "Gold Hill Mesa",
+      "Hillside",
+      "Historic Uptown",
+      "Old Colorado City",
+      "Broadmoor",
+      "Briargate",
+      "Rockrimmon",
+      "Stetson Hills",
+      "Manitou Springs",
+      "Downtown Colorado Springs",
+      "Cheyenne Canon",
+      "Knob Hill",
+      "Pleasant Valley"
+    ],
+    "population": 488664,
+    "nearby_towns": [
+      {
+        "name": "Manitou Springs",
+        "miles": 6
+      },
+      {
+        "name": "Fountain",
+        "miles": 10
+      },
+      {
+        "name": "Monument",
+        "miles": 18
+      },
+      {
+        "name": "Woodland Park",
+        "miles": 18
+      },
+      {
+        "name": "Falcon",
+        "miles": 15
+      },
+      {
+        "name": "Castle Rock",
+        "miles": 40
+      },
+      {
+        "name": "Pueblo",
+        "miles": 40
+      },
+      {
+        "name": "Cripple Creek",
+        "miles": 45
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 2
+    },
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified",
+    "tags": [
+      "proof-city"
+    ],
+    "city_image": "sites/roofing-site/uploads/media/city-scenic-colorado-springs-co.webp",
+    "city_image_alt": "Colorado Springs, CO",
+    "city_image_credit": "Photo: Quintin Soloviev, CC BY 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Colorado_Springs,_Colorado_(cropped).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Colorado Springs sits in a region where severe hail presents a frequent and significant threat to roofing systems, particularly to the asphalt shingles that dominate residential rooftops across neighborhoods like Broadmoor and Briargate. When hail or wind damage occurs, prompt inspection and repair prevents secondary leaks and structural deterioration. Roof Repair Connect matches Colorado Springs property owners with independent local roofing providers who can assess storm damage and advise on repair or replacement options, so you can move forward with confidence.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Storm Damage Roof Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+      "hs_bg_photo": "sites/roofing-site/uploads/media/hero-bg-light.webp",
+      "hs_mobile_order": "img_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:10.372730Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3f6dede50f3e0d7b",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+      "it_alt": "Storm Damage Roof Repair in {city_state}",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Storm Damage Roof Repair in Colorado Springs",
+      "text": "<p>Colorado Springs sits squarely in one of North America's most active hail corridors, where severe spring and early-summer storms regularly deliver damaging hail to roofs across the region. Most homes in Colorado Springs are topped with asphalt composition shingles—a durable, cost-effective choice that is nonetheless vulnerable to the impact and puncturing that come with hail strikes. When a significant hail event passes through neighborhoods like Broadmoor, Briargate, or Stetson Hills, the damage may not always be immediately visible from the ground. Shingles can be cracked, dented, or stripped of their protective granule coating, creating entry points for water that lead to leaks weeks or months later. Storm damage repair after hail requires a thorough inspection by someone who knows what to look for and can document findings for insurance purposes.</p><p>Roof Repair Connect makes it straightforward to connect with independent local roofing providers in Colorado Springs who understand storm damage assessment and repair. When hail or high wind strikes your roof, time matters—both to prevent interior water damage and to file an insurance claim while evidence is fresh. The providers in our network respond quickly to storm damage calls, conduct detailed inspections, photograph damage, and work with you and your insurer to move repair or replacement forward. Whether damage is limited to a few shingles or requires a full roof replacement, having a local professional evaluate the situation promptly protects your home and simplifies the claims process. Reach out as soon as storm damage occurs so you can get your roof back to full protection.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:15.250150Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "b6b1a905f02ee900",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "id": "ai_block_2",
+      "skin": "light",
+      "fc_heading": "Why Colorado Springs Homeowners Choose Roof Repair Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Storm Damage Response",
+          "text": "<p>Storm damage to your roof demands immediate attention. Roof Repair Connect connects you directly to local providers ready to assess hail impact, missing shingles, or leaks quickly—often same-day inspection and emergency tarping available.</p>"
+        },
+        {
+          "heading": "Storm Damage Repair You Can Trust",
+          "text": "<p>Storm damage repair requires thorough inspection and honest assessment. The independent local providers in our network document damage comprehensively, work directly with your insurance adjuster, and handle repairs to restore your roof's integrity.</p>"
+        },
+        {
+          "heading": "Storm Damage Repair with Real Guarantees",
+          "text": "<p>Storm damage repair comes with peace of mind. Local providers stand behind their workmanship with warranties on repairs and materials, ensuring your asphalt shingles—Colorado Springs' most common roofing material—are properly restored.</p>"
+        },
+        {
+          "heading": "Hail Damage Ready Local Providers",
+          "text": "<p>Colorado Springs sits in hail alley, where damaging hailstorms are frequent and severe. The independent local providers Roof Repair Connect connects you to understand hail damage patterns unique to your region and repair asphalt shingles to withstand future storms.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:18.853535Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "60908eadd16160e7",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Service Works",
+      "steps_items": [
+        {
+          "heading": "Report Storm Damage & Connect",
+          "text": "Contact Roof Repair Connect to report hail or storm damage to your roof. We'll connect you with an independent local roofing provider in Colorado Springs who can schedule an urgent inspection, especially important after the severe hailstorms common to this region."
+        },
+        {
+          "heading": "Get Storm Damage Assessment",
+          "text": "A local provider visits your home to inspect storm damage—checking asphalt shingles for hail impact, granule loss, and structural issues. They'll document findings and advise whether repair or replacement is needed, and can help you understand insurance claim options."
+        },
+        {
+          "heading": "Complete Storm Damage Repair",
+          "text": "Once you approve the plan, the provider schedules storm damage repair or replacement work. They handle material sourcing, labor, and cleanup, then follow up to confirm your roof is secure and ready for Colorado Springs weather ahead."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:21.702016Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "b7eaccb180fb8606",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Roof damage after a storm in {city}? Connect with a local provider who handles insurance claims.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1",
+      "anchor": "mid_cta"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+      "it_alt": "Storm Damage Roof Repair in {city_state}",
+      "id": "ai_block_3",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Storm Damage Roof Repair Across Colorado Springs",
+      "text": "<p>Colorado Springs sits squarely in Hail Alley, where severe hailstorms pose the most significant threat to roofing. The region's most common roofing material—asphalt composition shingles—are particularly vulnerable to impact damage from large hail. When a damaging storm passes through, hail can crack or dent shingles, strip away protective granules, and compromise the roof's water-shedding ability within hours. Storm damage often goes unnoticed until leaks appear inside, making rapid inspection and repair critical to prevent water intrusion into walls, insulation, and ceilings.</p><p>Neighborhoods throughout Colorado Springs—from established areas like Old Colorado City and Cragmor to newer developments such as Stetson Hills—face the same hail risk, though roof age and condition vary widely. Older roofs already stressed by UV exposure are more susceptible to failure after impact, while newer installations may sustain damage that requires urgent repair or replacement even though the structure itself is sound. After a severe hailstorm, connecting with a local roofing provider for a thorough damage assessment helps property owners understand repair scope, document losses for insurance claims, and begin restoration before secondary weather events compound the damage.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:25.607938Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "668a823aba1abb48",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "id": "ai_block_4",
+      "skin": "light",
+      "steps_heading": "Storm Damage Roof Repair Through Colorado Springs Seasons",
+      "steps_items": [
+        {
+          "heading": "Spring: Hail Impact Assessment",
+          "text": "Spring storms across Colorado Springs frequently deliver severe hail that damages asphalt shingles, the region's most common roofing material. After hail impact, roof damage may not be immediately visible—granule loss, dents, and micro-fractures often appear subtle until leaks develop. Roof Repair Connect links homeowners with local providers who perform detailed post-storm inspections and document damage for insurance claims."
+        },
+        {
+          "heading": "Summer: UV Exposure and Wear",
+          "text": "Summer heat intensifies existing damage from spring hail, accelerating deterioration in compromised shingles. Prolonged UV exposure weakens already-stressed roofing material, turning minor impact damage into functional failures. Roof Repair Connect helps homeowners schedule repairs and replacements during dry weather windows when local providers can work safely and complete projects on predictable timelines."
+        },
+        {
+          "heading": "Fall: Preventive Storm Readiness",
+          "text": "Fall offers a critical window to address storm damage from earlier in the year before winter weather arrives. Inspecting and repairing hail-damaged sections, reinforcing flashing, and ensuring proper drainage preparation protect homes from compounding damage. Roof Repair Connect connects homeowners with local providers who help identify lingering summer and spring damage before the next severe weather season."
+        },
+        {
+          "heading": "Winter: Emergency Leak Response",
+          "text": "Winter cold and snow can expose previously undetected storm damage, triggering interior leaks and urgent repairs. Homeowners facing active roof leaks need fast local response, especially when damage stems from earlier storm impact. Roof Repair Connect links property owners to nearby independent providers available for emergency storm damage leak repairs and temporary protection measures during winter weather."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:30.982645Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "803072e41fc1ec14",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does storm damage roof repair involve in Colorado Springs?",
+          "answer": "<p>Storm damage roof repair addresses shingles torn or lifted by wind and hail, punctures, granule loss, flashing damage, and leaks that develop after severe weather. The repair process typically includes a full damage inspection, documentation for insurance, temporary tarping if needed to prevent further water entry, and targeted replacement or sealing of affected sections. The scope depends on hail size, wind speed, and the age and condition of your roof before the storm hit.</p>"
+        },
+        {
+          "question": "How quickly can Roof Repair Connect connect me with a local Colorado Springs roofer after storm damage?",
+          "answer": "<p>Roof Repair Connect links you directly with independent local roofing providers in the Colorado Springs area who can respond to storm damage calls. Response times vary by provider availability and workload, especially during peak storm season when many homeowners are filing claims simultaneously. Contact the service to describe your situation and get connected to a provider who can schedule an inspection and begin the assessment process promptly.</p>"
+        },
+        {
+          "question": "What factors affect the cost of storm damage roof repair in Colorado Springs?",
+          "answer": "<p>Repair costs depend on the extent of damage, your roof's age and material, the pitch and complexity of your roof structure, and whether structural components beneath the shingles were harmed. Insurance coverage, deductibles, and whether you need temporary protection before repairs begin also play a role. The local roofing provider you're connected with will assess the damage and provide pricing details after inspection.</p>"
+        },
+        {
+          "question": "What should I do to prepare my roof before storm damage repair work begins?",
+          "answer": "<p>Clear gutters and downspouts of debris so water drains freely during and after repairs. Document visible damage with photos for your insurance claim. Remove outdoor items or secure them so they won't interfere with work. Keep pets and children away from the work area for safety. The provider will advise on any additional preparation needed once they've inspected the damage and scheduled the work.</p>"
+        },
+        {
+          "question": "Can roofing maintenance help reduce hail damage risk in Colorado Springs?",
+          "answer": "<p>Regular roof maintenance—such as inspecting shingles, clearing debris, and fixing minor wear before it compounds—keeps your roof in better condition to withstand severe weather. Well-maintained roofs with intact granules and secure fasteners are more resilient, though no maintenance can eliminate hail damage risk entirely in regions prone to severe storms. After a hailstorm passes, prompt inspection and repair prevent secondary water damage and long-term deterioration.</p>"
+        },
+        {
+          "question": "When is the best time for storm damage roof repair in Colorado Springs?",
+          "answer": "<p>Spring and early summer are peak seasons for storm damage repairs in the region, as hailstorms and severe weather systems are most active in those months. However, storm damage can occur any season and should be addressed quickly—even small roof breaches allow water to enter and cause interior damage. Contact a local provider as soon as damage is visible, regardless of the season.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T04:28:39.374375Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "34bb9c040d86014f",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 4,
+      "rl_items": [
+        {
+          "url": "/",
+          "text": "roofing services"
+        },
+        {
+          "url": "/roof-repair-{city_slug}",
+          "text": "roof repair"
+        },
+        {
+          "url": "/roof-replacement-{city_slug}",
+          "text": "roof replacement"
+        },
+        {
+          "url": "/roof-inspection-{city_slug}",
+          "text": "roof inspection"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Roofing Company",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Roofing Company",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Get your {city} storm damage assessed today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
+    }
+  ],
+  "seo": {
+    "seo_title": "Storm Damage Roof Repair in {city_state} | {business_short}",
+    "canonical_url": "https://p.q111.xyz/storm-damage-roof-repair-colorado-springs-co/",
+    "meta_description": "After a hailstorm or high winds, {business_short} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}.",
+    "meta_keywords": "storm damage roof repair Colorado Springs CO",
+    "og_title": "Storm Damage Roof Repair in {city_state} | {business}",
+    "og_description": "After a hailstorm or high winds, {business} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}.",
+    "og_image": "",
+    "service_name": "Storm Damage Roof Repair",
+    "service_type": "Storm Damage Roof Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "After a hailstorm or high winds, {business} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "Storm Damage Roof Repair",
+    "secondary_keywords": "hail damage roof repair, wind damage roof repair, roof insurance claim",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Storm Damage Roof Repair in Colorado Springs, CO\",\n            \"serviceType\": \"Storm Damage Roof Repair\",\n            \"description\": \"After a hailstorm or high winds, Roof Repair Connect connects Colorado Springs, CO homeowners with a local provider experienced with storm damage and insurance claims. Call 720-201-5555.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Colorado Springs\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Roof Repair Connect\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "meta_description_pool": [
+      "After a hailstorm or high winds, {business_short} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}."
+    ],
+    "og_description_pool": [
+      "After a hailstorm or high winds, {business} connects {city_state} homeowners with a local provider experienced with storm damage and insurance claims. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T04:28:03+00:00",
+  "template_version": "278d41f8480bcaac938a413bf6dfab6e"
+}

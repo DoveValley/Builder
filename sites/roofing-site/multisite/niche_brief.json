@@ -1,0 +1,158 @@
+{
+    "niche": "roofing",
+    "master_site": "roofing-site",
+    "business_descriptor": "a referral service that connects property owners with independent local roofing providers",
+    "service_noun": "roof repair",
+    "customer_noun": "homeowner",
+    "offerings": [
+        "Roof Repair",
+        "Roof Replacement",
+        "Roof Inspection",
+        "Roof Leak Repair",
+        "Storm Damage Roof Repair",
+        "Gutter Installation",
+        "General Roofing Services"
+    ],
+    "local_angle": "What drives roof damage varies sharply by region: in Hail Alley (the Colorado Front Range, Texas, Oklahoma, Kansas, Nebraska) frequent severe hailstorms are the single biggest cause of roof claims, sometimes requiring full replacement after one storm; in the Gulf Coast and Southeast, high humidity, UV exposure, and hurricane-force wind drive granule loss and wind-lifted shingles; in northern snow-load regions, ice dams and heavy snow accumulation stress roof structures and cause winter leaks; and in the Southwest, intense sustained UV exposure shortens shingle lifespan through heat-driven brittleness. Spring is peak season for storm/hail damage inspections and insurance claims following winter and spring storm systems. Summer brings UV-driven wear and is the most common time for full replacements and new installations (dry weather, long work days). Fall is the preferred window for preventive maintenance and gutter work before winter. Winter brings emergency leak repairs and ice dam issues in colder regions.",
+    "tone": "practical and reassuring, with clear urgency after storm damage or an active leak",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" fixing, installing, or repairing anything, never claim to directly perform roofing work, and never claim to employ roofers. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"GAF-certified\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not guarantee a specific repair timeline, that a leak is fully resolved, or that a new roof will never fail. Do not give unsafe do-it-yourself advice for roof access, ladder work, or active storm conditions — always recommend contacting a provider. Do not promise a specific insurance claim outcome or that a claim will be approved — insurance adjusters, not the referred provider, make that determination. Do not assume roofing licensing or permit requirements without being told, since requirements vary significantly by state and county. Do not fabricate specific pricing, warranty terms, or manufacturer-specific technical claims.",
+    "uses_research_fields": true,
+    "enabled_archetypes": [
+        "city_intro",
+        "hero_subtext",
+        "feature_columns_local",
+        "faq_local",
+        "seasonal_calendar",
+        "local_relevance",
+        "about_story",
+        "steps_local",
+        "homepage_feature_intro",
+        "homepage_grid_intro",
+        "homepage_service_area",
+        "why_choose_us"
+    ],
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences on {city}'s typical roofing materials and the region's dominant roof-damage risk factor (severe hail, hurricane/high wind, heavy snow load and ice dams, or sustained UV/heat exposure).\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "custom_research_fields": [],
+    "blog_topics": [
+        {
+            "slug": "signs-you-need-a-new-roof",
+            "title": "7 Signs You Need a New Roof",
+            "tag": "Education",
+            "focus_keyword": "signs you need a new roof",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "roof-replacement-cost-factors",
+            "title": "What Actually Affects Roof Replacement Cost",
+            "tag": "Cost & Planning",
+            "focus_keyword": "roof replacement cost",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "hail-damage-roof-inspection",
+            "title": "How to Spot Hail Damage on Your Roof",
+            "tag": "Storm Damage",
+            "focus_keyword": "hail damage roof",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "filing-a-roof-insurance-claim",
+            "title": "Filing a Roof Insurance Claim: What to Expect",
+            "tag": "Insurance",
+            "focus_keyword": "roof insurance claim",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "roof-leak-what-to-do",
+            "title": "Found a Roof Leak? What to Do in the First Hour",
+            "tag": "Emergency Tips",
+            "focus_keyword": "roof leak what to do",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "ice-dam-prevention",
+            "title": "How to Prevent Ice Dams on Your Roof",
+            "tag": "Seasonal",
+            "focus_keyword": "ice dam prevention",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "roofing-material-comparison",
+            "title": "Asphalt, Metal, or Tile: Comparing Roofing Materials",
+            "tag": "Education",
+            "focus_keyword": "roofing material comparison",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "gutter-maintenance-tips",
+            "title": "Gutter Maintenance Tips Every Homeowner Should Know",
+            "tag": "Prevention",
+            "focus_keyword": "gutter maintenance",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "roof-lifespan-by-material",
+            "title": "How Long Does a Roof Actually Last?",
+            "tag": "Education",
+            "focus_keyword": "roof lifespan",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "choosing-a-roofing-contractor",
+            "title": "What to Ask Before Hiring a Roofing Contractor",
+            "tag": "How-To",
+            "focus_keyword": "hiring a roofing contractor",
+            "link_candidates": [
+                {
+                    "text": "Roofing Services",
+                    "url": "/"
+                }
+            ]
+        }
+    ]
+}

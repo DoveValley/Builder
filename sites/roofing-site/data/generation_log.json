@@ -1,0 +1,52 @@
+[
+  {
+    "run_id": "30ef18ad-801e-4e4d-85cd-efd737d60771",
+    "started_at": "2026-11-18T04:27:33.838206Z",
+    "finished_at": "2026-11-18T04:27:46.990958Z",
+    "duration_ms": 13152,
+    "dry_run": false,
+    "options": {
+      "site": "roofing-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 1,
+    "input_tokens": 764,
+    "output_tokens": 1154,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.019602
+  },
+  {
+    "run_id": "5d2ef01e-92eb-414d-9247-cdeca4e6c471",
+    "started_at": "2026-11-18T04:28:07.584244Z",
+    "finished_at": "2026-11-18T04:28:40.491734Z",
+    "duration_ms": 32907,
+    "dry_run": false,
+    "options": {
+      "site": "roofing-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 42,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 42,
+    "cities_researched": 0,
+    "input_tokens": 88258,
+    "output_tokens": 15129,
+    "api_calls": 42,
+    "estimated_cost_usd": 0.163903
+  }
+]

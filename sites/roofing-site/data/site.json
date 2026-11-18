@@ -1,0 +1,994 @@
+{
+  "theme": {
+    "header_bg": "#14532D",
+    "header_text": "#ffffff",
+    "content_bg": "#ffffff",
+    "content_text": "#888c92",
+    "footer_bg": "#14532D",
+    "footer_text": "#ffffff",
+    "accent_color": "#FFB100",
+    "primary_font": "Inter, sans-serif",
+    "button_radius": 8,
+    "analytics_head": "",
+    "facebook_pixel": "",
+    "font_family": "Inter, sans-serif",
+    "header_top_bg": "#ffffff",
+    "heading_color": "#14532D",
+    "font_size_body": 16,
+    "font_size_h1": 3.25,
+    "font_size_h2": 2.5,
+    "font_size_h3": 1.75,
+    "font_size_h4": 1.25,
+    "heading_font": "",
+    "accent2_color": "#FFB100",
+    "btn_text": "#ffffff",
+    "border_color": "#e5e7eb",
+    "skins": {
+      "light": {
+        "bg": "#ffffff",
+        "heading": "#14532D",
+        "text": "#000000"
+      },
+      "dark": {
+        "bg": "#14532D",
+        "heading": "#ffffff",
+        "text": "#e2e8f0"
+      },
+      "accent": {
+        "heading": "#14532D",
+        "text": "#ffffff"
+      },
+      "subtle": {
+        "bg": "#faf6f3",
+        "heading": "#14532D",
+        "text": "#000000"
+      }
+    },
+    "head_extra": "",
+    "font_size_lead": 1.15,
+    "font_size_small": 0.9,
+    "font_size_eyebrow": 0.75,
+    "heading_weight": "700",
+    "gsc_meta": ""
+  },
+  "header": {
+    "site_name": "{business}",
+    "logo": "uploads/logo_littleton-pest-pros.png",
+    "phone": "{phone}",
+    "city": "",
+    "topbar_text": "",
+    "topbar_link": "",
+    "menu": [
+      {
+        "label": "Home",
+        "url": "/",
+        "children": []
+      },
+      {
+        "label": "Roofing Services",
+        "url": "/#roofing_services",
+        "children": "@services_links"
+      }
+    ],
+    "socials": {
+      "facebook": "",
+      "instagram": "",
+      "twitter": "",
+      "youtube": "",
+      "linkedin": "",
+      "tiktok": "",
+      "yelp": ""
+    },
+    "nav_bg": "accent",
+    "nav_text": "#ffffff",
+    "phone_btn_style": "outline",
+    "sticky": false,
+    "info_items": [
+      {
+        "icon": "🌐",
+        "text": "{city_state}"
+      },
+      {
+        "icon": "🇺🇸",
+        "text": "Proudly American"
+      }
+    ],
+    "logo_max_height": 48,
+    "phone_label": "24/7 Helpline:",
+    "show_sponsored": true,
+    "cta_text": "",
+    "cta_url": "",
+    "favicon": "uploads/favicon_littleton-pest-pros.png",
+    "header_layout": "standard",
+    "sr_bar_height": 72,
+    "sponsored_text": "",
+    "sticky_nav_on_scroll": true,
+    "mobile_logo_icon_white": "uploads/logo_icon_white_1789747017_def00b65.png"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Trusted Local Roof Repair in {city_state}",
+      "hs_subtext": "<p>{state}'s Front Range climate puts predictable strain on roofs throughout the year. {city} Roof Pros connects you with a local roof repair provider suited to your home's specific needs.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Roof repair services in {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/roofing-site/uploads/media/home-hero.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
+      "hs_mobile_order": "img_first",
+      "id": "home_hero",
+      "ai_type_id": "hero_subtext",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:55:37.503936Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b4a593b09b1b4ba5",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "anchor": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": true,
+      "tb_items": "@safe_trust_badges",
+      "id": "trust_bar_1"
+    },
+    {
+      "id": "home_city_intro",
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-sonnet-5",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "{city} Roof Repair Solutions For Every Season",
+      "text": "<p>{city} homeowners face a unique mix of roofing pressures shaped by {state}'s shifting seasons, from intense summer hail and wind storms that can crack or loosen shingles to freezing winter temperatures that bring ice dams and added stress on aging materials. Newer subdivisions on more exposed terrain often see more storm-related roof wear, while established, older areas of {city} deal with homes that can have aging roofing materials and outdated flashing. Without timely attention, small roof issues in {city} can turn into bigger leaks once the weather turns.</p><p>{city} Roof Pros connects you with a local provider who starts every job with a thorough roof inspection, identifying damaged shingles, weak flashing, and other trouble spots before any repair work begins. The local providers we connect you with tailor their approach to the specific roof and damage at hand, rather than applying a one-size-fits-all fix, and can follow up to check how the repair is holding up. While our focus stays on roof repair, we also recognize that homes can face a range of related issues throughout the year. As {city} continues to grow, we remain committed to helping local homeowners stay ahead of roofing problems season after season.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:55:44.020264Z",
+      "_ai_model": "claude-sonnet-5",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "ffc7e431f16fb786",
+      "_ai_locked": true
+    },
+    {
+      "type": "feature_split",
+      "fs_heading": "Full-Service Roof Repair for Common {city} Roofing Issues",
+      "fs_subtext": "{state}'s high altitude and seasonal shifts bring year-round stress to {city} roofs—from spring hailstorms to winter ice buildup. Connect with local roof repair providers who understand the region's unique weather cycles and can help protect your property.",
+      "fs_photo_alt": "Roof repair technician in {city} {SS}",
+      "fs_star_text": "",
+      "fs_bg_color": "#f3f6f7",
+      "fs_accent": "#fd783b",
+      "fs_image_side": "left",
+      "fs_mobile_order": "img_first",
+      "fs_photo": "sites/roofing-site/uploads/media/roof-repair.webp",
+      "fs_items": [
+        {
+          "icon": "",
+          "alt": "Shingle damage roof repair {city} {SS}",
+          "heading": "Shingle Damage",
+          "text": "Cracked, curling, or missing shingles that leave the roof deck exposed to moisture and wind."
+        },
+        {
+          "icon": "",
+          "alt": "Roof leak repair {city} {SS}",
+          "heading": "Roof Leaks",
+          "text": "Water intrusion points that can damage insulation, ceilings, and interior walls if not addressed promptly."
+        },
+        {
+          "icon": "",
+          "alt": "Flashing repair {city} {SS}",
+          "heading": "Flashing Problems",
+          "text": "Worn or improperly sealed flashing around chimneys, vents, and valleys that allows water to seep in."
+        },
+        {
+          "icon": "",
+          "alt": "Storm and hail roof damage {city} {SS}",
+          "heading": "Storm & Wind Damage",
+          "text": "Impact from hail, heavy wind, or falling debris that can loosen, puncture, or tear roofing materials."
+        },
+        {
+          "icon": "",
+          "alt": "Gutter repair {city} {SS}",
+          "heading": "Gutter & Drainage Issues",
+          "text": "Clogged or damaged gutters that cause water to pool and back up beneath roof edges."
+        },
+        {
+          "icon": "",
+          "alt": "Attic ventilation roof repair {city} {SS}",
+          "heading": "Roof Ventilation Problems",
+          "text": "Poor attic airflow that can trap heat and moisture, accelerating wear on roofing materials."
+        }
+      ],
+      "skin": "subtle",
+      "ai_type_id": "homepage_feature_intro",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:37:29.928462Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "homepage_feature_intro",
+      "_ai_input_hash": "9de4519fc6b0263b",
+      "_ai_locked": true,
+      "id": "feature_split_1"
+    },
+    {
+      "type": "split_cta",
+      "sc_left_heading": "Serving the Greater {city_state} Area",
+      "sc_left_text": "{city} homeowners dealing with roof damage connect with responsive local roof repair providers through {city} Roof Pros. We match you quickly with independent professionals who communicate clearly, explain pricing upfront, and respond when you need it most.",
+      "sc_right_label": "Call The {business} Team",
+      "sc_right_phone": "{phone}",
+      "sc_right_phone_url": "tel:{tel}",
+      "sc_left_bg": "accent",
+      "sc_right_bg": "header",
+      "sc_left_bg_custom": "#fd783b",
+      "sc_right_bg_custom": "#120575",
+      "ai_type_id": "homepage_service_area",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:37:31.244748Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "homepage_service_area",
+      "_ai_input_hash": "406bb8abaa49613b",
+      "_ai_locked": true,
+      "id": "split_cta_1"
+    },
+    {
+      "type": "tab_services",
+      "ts_badge1": "{business}",
+      "ts_badge2": "SERVICES {city}, {SS}",
+      "ts_heading": "Leaks, Storm Damage, Missing Shingles & Ice Dams",
+      "ts_active_bg": "header",
+      "ts_active_bg_custom": "#120575",
+      "ts_tabs": [
+        {
+          "label": "Ice Dams",
+          "icon": "",
+          "photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+          "alt": "Ice dam damage on a roof in {city} {SS}",
+          "desc": "Ice buildup along the roof edge that can force water beneath shingles and lead to interior leaks."
+        },
+        {
+          "label": "Missing Shingles",
+          "icon": "",
+          "photo": "sites/roofing-site/uploads/media/roof-repair.webp",
+          "alt": "Missing shingles on a roof in {city} {SS}",
+          "desc": "Shingles torn loose or blown off by wind and weather, leaving the roof deck exposed to the elements."
+        },
+        {
+          "label": "Storm & Hail Damage",
+          "icon": "",
+          "photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+          "alt": "Hail damage on a roof in {city} {SS}",
+          "desc": "Dented, cracked, or granule-stripped shingles from hail or high wind, often the trigger for an insurance claim."
+        },
+        {
+          "label": "Roof Leaks",
+          "icon": "",
+          "photo": "sites/roofing-site/uploads/media/roof-leak-repair.webp",
+          "alt": "Roof leak repair in {city} {SS}",
+          "desc": "Water intrusion that can stain ceilings, soak insulation, and lead to bigger problems if left unaddressed."
+        }
+      ],
+      "skin": "light",
+      "id": "tab_services_1"
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Common Roof Repair Issues We Cover",
+      "rl_max": 6,
+      "rl_items": [
+        {
+          "url": "/roof-repair-{city_slug}",
+          "text": "roof repair"
+        },
+        {
+          "url": "/roof-replacement-{city_slug}",
+          "text": "roof replacement"
+        },
+        {
+          "url": "/roof-inspection-{city_slug}",
+          "text": "roof inspection"
+        },
+        {
+          "url": "/roof-leak-repair-{city_slug}",
+          "text": "roof leak repair"
+        },
+        {
+          "url": "/storm-damage-roof-repair-{city_slug}",
+          "text": "storm damage roof repair"
+        },
+        {
+          "url": "/gutter-installation-{city_slug}",
+          "text": "gutter installation"
+        }
+      ],
+      "id": "related_links_home_1"
+    },
+    {
+      "type": "wide_banner",
+      "wb_badge": "{city}, {SS} SPECIALISTS",
+      "wb_heading": "Repaired Right, Checked Again — Not a Quick Patch Job",
+      "wb_subtext": "",
+      "wb_btn_text": "Call Us",
+      "wb_btn_url": "tel:{tel}",
+      "wb_btn_style": "filled",
+      "wb_centered": false,
+      "wb_photo_alt": "Roof repair services in {city} {SS}",
+      "wb_overlay": "0.50",
+      "wb_bg_color": "#1a1a2e",
+      "wb_badge_bg": "accent",
+      "wb_badge_bg_custom": "#fd783b",
+      "wb_photo": "sites/roofing-site/uploads/media/storm-damage-roof-repair.webp",
+      "skin": "dark",
+      "wb_bg_mode": "header",
+      "id": "wide_banner_1"
+    },
+    {
+      "type": "image_features",
+      "if_heading": "Quality Roof Repair",
+      "if_intro": "Lasting roof repair usually takes more than a quick patch. The independent local providers in our network look at the full scope of the damage and address the underlying cause, not just the visible symptoms, to help protect your home going forward.",
+      "if_closing": "Roof repair work is carried out by independent, experienced local providers, so you can get matched quickly whenever a problem comes up.",
+      "if_phone_label": "Call Us 24/7",
+      "if_phone": "{phone}",
+      "if_phone_url": "tel:{tel}",
+      "if_photo_alt": "Quality roof repair in {city} {SS}",
+      "if_bg_color": "#f3f6f7",
+      "if_check_color": "accent",
+      "if_head_color": "header",
+      "if_check_color_custom": "#fd783b",
+      "if_head_color_custom": "#120575",
+      "if_photo": "sites/roofing-site/uploads/media/roof-inspection.webp",
+      "if_features": [
+        "Full roof inspections",
+        "Storm & hail damage assessment",
+        "Emergency leak repair",
+        "Insurance claim assistance"
+      ],
+      "skin": "light",
+      "id": "image_features_1"
+    },
+    {
+      "id": "home_seasonal",
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-sonnet-5",
+      "skin": "light",
+      "steps_heading": "{city}'s Four Seasons of Roof Wear",
+      "steps_items": [
+        {
+          "heading": "Spring Storm Damage",
+          "text": "<p>As spring storms roll through the area, hail and gusty winds can loosen shingles and expose weak points around flashing and vents. Local roof repair providers inspect vulnerable areas and address early damage, helping homeowners stay ahead of bigger issues as the season continues.</p>"
+        },
+        {
+          "heading": "Summer Heat & Storm Stress",
+          "text": "<p>Long, hot summer days followed by sudden afternoon storms near nearby open areas can stress roofing materials and reveal weak spots. Local providers address damaged shingles, seals, and flashing promptly, helping protect homes through the hottest stretch of the year.</p>"
+        },
+        {
+          "heading": "Fall Debris Buildup",
+          "text": "<p>Falling leaves and debris collect in gutters and roof valleys around older properties in Historic {city}, trapping moisture against the roofline. Local roof repair providers clear problem areas and address minor damage to help lower the risk of leaks before winter sets in.</p>"
+        },
+        {
+          "heading": "Winter Ice & Snow Strain",
+          "text": "<p>{state}'s cold winters bring snow, ice, and freeze-thaw cycles that can put real strain on a roof throughout the region. Local providers offer inspections and repairs aimed at addressing ice-related damage and helping homes stay protected until spring arrives.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:55:51.148419Z",
+      "_ai_model": "claude-sonnet-5",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "c63935dc19b202fc",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Roof Repair Works in {city_state}",
+      "steps_heading_level": "h2",
+      "steps_subtext": "Our streamlined process connects you with independent local roof repair providers and guides you from initial contact through completion of the work.",
+      "steps_style": "card",
+      "steps_items": [
+        {
+          "heading": "Connect & Consult",
+          "text": "Tell us about your roof issue and property details. We review your situation and connect you with independent local providers who service your area and match your needs."
+        },
+        {
+          "heading": "On-Site Assessment",
+          "text": "The provider visits your property to inspect the affected areas, identify the source of the damage, and evaluate the scope of repair needed. They explain their findings and discuss your options with you."
+        },
+        {
+          "heading": "Repair & Follow-Up",
+          "text": "The provider carries out the agreed repair work and outlines next steps, including any follow-up visits or maintenance recommendations. You receive guidance on keeping your roof in good shape over time."
+        }
+      ],
+      "ai_type_id": "homepage_process_steps",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-13T16:07:48.000000+00:00",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "homepage_process_steps",
+      "_ai_locked": true,
+      "id": "steps_1"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "FAQs – Roof Repair in {city}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#f0f2f8",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_inject_mode": "replace",
+      "_ai_injected_count": 8,
+      "fq_items": [
+        {
+          "question": "What should I expect during a professional roof repair inspection?",
+          "answer": "<p>A local roofing provider will inspect your roof from the ground and, when conditions allow, up close to identify damaged shingles, flashing issues, or leak points. They'll walk you through what they find, explain the recommended repair approach, and let you know what to expect before work begins. You'll get guidance on preparing your home and property beforehand and what to watch for afterward. Visit length varies depending on roof size and the extent of the damage.</p>"
+        },
+        {
+          "question": "How many visits does it usually take to complete a roof repair?",
+          "answer": "<p>Many repairs can be completed in a single visit once a provider has assessed the damage, though some issues—like widespread storm damage or a hidden leak source—may call for a follow-up visit to confirm the fix is holding. A return trip may also be needed if materials have to be ordered or additional damage turns up once work begins. During your inspection, the provider connected to you can walk through a timeline based on what they find.</p>"
+        },
+        {
+          "question": "When is roof repair season in {city} and the Denver area?",
+          "answer": "<p>In {state}, spring and summer bring hail and high-wind storms that are a leading cause of roof damage calls, with activity often picking up from May through August. Winter has its own risks, as heavy snow and ice can stress older roofs or worsen damage that's already there. Because storm damage isn't always obvious until a leak shows up, many homeowners find it worthwhile to have a roof checked after any major weather event, no matter the season.</p>"
+        },
+        {
+          "question": "Will a roof repair disrupt my family or pets at home?",
+          "answer": "<p>Local roof repair providers typically work on the exterior and roofline, so most households can carry on as usual inside during the visit. There may be some noise overhead, and areas near the work zone, like driveways or yard space, may need to stay clear for safety. If you have specific concerns—kids playing outside, pets, or vehicles that need to be moved—mention them when you schedule so the provider can plan around them.</p>"
+        },
+        {
+          "question": "What signs indicate my {city} home needs roof repair?",
+          "answer": "<p>Watch for missing or curling shingles, granules collecting in gutters, or sagging along the roofline. Water stains on ceilings or walls, musty attic odors, or daylight showing through the roof boards are all red flags. After a hailstorm or high winds, dented vents, dislodged flashing, or debris on the roof are also worth a closer look. If you notice any of these signs, it's best to have a local provider take a look promptly—small issues can turn into bigger leaks if left unaddressed.</p>"
+        },
+        {
+          "question": "How do I prepare my property before a roof repair appointment?",
+          "answer": "<p>Clear vehicles and outdoor furniture away from the areas below the roofline so the provider has room to work and set up equipment safely. Keep pets indoors or away from the yard during the visit, and let household members know there may be noise overhead. If you have fragile items on shelves or walls, it's worth securing them in case of vibration. The provider connected to you can share any additional prep details specific to your roof and project.</p>"
+        },
+        {
+          "question": "What's the difference between DIY roof patches and professional roof repair?",
+          "answer": "<p>Store-bought patch kits and sealants might cover a visible leak for a while, but they often don't address what's happening underneath—damaged underlayment, compromised flashing, or deteriorating decking. Getting on a roof to inspect or patch it also carries real safety risks, which is why it's best left to providers who do this kind of work regularly. A local roofing provider can look at the full picture, address the underlying cause, and use materials suited to your roof type, which tends to hold up better than a quick DIY fix.</p>"
+        },
+        {
+          "question": "What happens if a leak returns after roof repair?",
+          "answer": "<p>If a leak or issue returns after a repair, reach out to the provider who completed the work as soon as possible—many have their own follow-up terms for work they've completed, which they can explain directly. Noting when and where the leak reappeared can help speed up diagnosis. If the issue looks unrelated to the original repair, or you'd rather get a fresh set of eyes on it, we can help connect you with a local provider to take a look.</p>"
+        }
+      ],
+      "id": "home_faq",
+      "ai_type_id": "faq_local",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:56:02.117278Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "651122e14423745a",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "id": "home_local_rel",
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-sonnet-5",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Local Roof Repair Serving {city} and Nearby Areas",
+      "text": "<p>{city}'s mix of housing styles means roofs face different stresses depending on the neighborhood. In Historic {city}, mature tree canopy and older roofing materials create more debris buildup and moisture retention along rooflines and valleys, which can speed up wear and lead to leaks as homes age. Newer subdivisions near the area often have more modern roofing systems, but {state}'s intense summer sun and sudden hailstorms still take a toll, especially on roofs that haven't been checked in a while.</p><p>The Front Range's swings between freezing winters and hot, dry summers put extra stress on roofing materials over time, from ice buildup to UV exposure. Properties near open space or foothill-adjacent areas like those around the area can also see more wind-driven debris and exposure during storms. These differences mean a roof inspection or repair plan suited to one home's age, materials, and surroundings may not fit another—something local providers take into account property by property.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-18T23:56:46.603610Z",
+      "_ai_model": "claude-sonnet-5",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "e56b0d69ebe7f536",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "24/7 Roof Repair Connections in {city_state}",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal",
+      "id": "cta_banner_1"
+    },
+    {
+      "type": "cta_card",
+      "cc_heading": "Contact {city}'s Roof Repair Connection Today",
+      "cc_text": "We're known in {city} for more than just connecting homeowners—it's how we do it. We listen first, then match you with a local roof repair provider suited to the job—you deal with them directly on repairs and pricing. That's why so many local homeowners choose us—and come back when they need help again.",
+      "cc_btn_text": "{phone}",
+      "cc_btn_url": "tel:{tel}",
+      "cc_btn_style": "outline",
+      "cc_align": "split",
+      "cc_bg": "accent",
+      "cc_bg_custom": "#fd783b",
+      "cc_radius": 12,
+      "skin": "dark",
+      "id": "cta_card_1"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "skin": "light",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
+    },
+    {
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_prompt_override": "",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "type": "ai_block",
+      "ai_type_id": "why_choose_us",
+      "skin": "light",
+      "fc_heading": "",
+      "fc_num_cols": 4,
+      "columns": [],
+      "id": "why_choose_us_home"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Roof Repair Provider",
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_card",
+      "cc_heading": "The Values Behind Every {city} Roof Repair Connection",
+      "cc_text": "We're focused on one thing in {city}: connecting you with the right local roof repair provider, fast. Clear communication and a quick match mean less time worrying about damage and more peace of mind. You deal with the provider directly on repairs and pricing — getting your roof repair started quickly is always the goal.",
+      "cc_btn_text": "",
+      "cc_btn_url": "",
+      "cc_btn_style": "outline",
+      "cc_align": "center",
+      "cc_bg": "accent",
+      "cc_bg_custom": "#fd783b",
+      "cc_radius": 0,
+      "skin": "accent",
+      "id": "cta_card_2"
+    }
+  ],
+  "seo": {
+    "seo_title": "Roof Repair {city} {SS} | Local Roofing Help | {business_short}",
+    "canonical_url": "",
+    "meta_description": "Roof repair in {city_state}. {business_short} connects you with a local provider for leaks, storm damage, missing shingles & more. Call {phone}.",
+    "meta_keywords": "roof repair {city} {SS}, roofer {city} {SS}, roof leak repair {city}, storm damage roof repair {city} {SS}",
+    "og_title": "{city} Roof Repair | Local Roofing Help in {city_state}",
+    "og_description": "Roof repair in {city_state} — leaks, storm damage, missing shingles, flashing issues & more. Connect with a local provider for fast response.",
+    "og_image": "sites/roofing-site/uploads/media/home-hero.webp",
+    "service_name": "Roofing",
+    "service_type": "",
+    "service_area": "",
+    "service_description": "",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with independent local roof repair providers for leak repair, storm damage, shingle replacement, and flashing repair.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+    "primary_keyword": "Roofing",
+    "secondary_keywords": "",
+    "meta_description_pool": [
+      "Roofing services in {city_state}: {business_short} connects you with an independent local provider for repairs, replacement, storm damage & inspections. Call {phone}.",
+      "Need a roofer near {city_state}? {business_short} links you to a responsive local provider for repairs, replacement & storm damage. Call {phone} today.",
+      "{city_state} roofing made simple — {business_short} puts you in touch with a nearby independent provider for repairs & replacement. Dial {phone}.",
+      "Searching for a roofer in {city_state}? {business_short} connects you fast with a local independent provider covering repairs, replacement & storm damage. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Roofing in {city_state}: {business} connects you with local providers for repair, replacement, storm damage repair, and gutter installation.",
+      "Need a roofer in {city_state}? {business} links you to independent local providers who handle repairs, replacement, and storm damage.",
+      "{business} helps {city_state} residents find local roofing providers for repairs, replacement, and storm damage assessment.",
+      "Looking for a roofer near {city_state}? {business} quickly connects you with independent local providers for all roofing needs."
+    ]
+  },
+  "footer": {
+    "logo": "uploads/logo_littleton-pest-pros.png",
+    "phone": "{phone}",
+    "columns": [
+      {
+        "type": "logo"
+      },
+      {
+        "type": "links",
+        "title": "Quick Links",
+        "links": [
+          {
+            "label": "About Us",
+            "url": "/about-us"
+          },
+          {
+            "label": "Privacy Policy",
+            "url": "/privacy-policy"
+          },
+          {
+            "label": "Terms and Conditions",
+            "url": "/terms-and-conditions"
+          },
+          {
+            "label": "Contact Us",
+            "url": "/contact-us"
+          },
+          {
+            "label": "Blog",
+            "url": "/blog"
+          }
+        ]
+      },
+      {
+        "type": "links",
+        "title": "Roofing Services",
+        "links": [
+          {
+            "label": "Roof Repair",
+            "url": "/roof-repair-{city_slug}"
+          },
+          {
+            "label": "Roof Replacement",
+            "url": "/roof-replacement-{city_slug}"
+          },
+          {
+            "label": "Roof Inspection",
+            "url": "/roof-inspection-{city_slug}"
+          },
+          {
+            "label": "Storm Damage Repair",
+            "url": "/storm-damage-roof-repair-{city_slug}"
+          }
+        ]
+      },
+      {
+        "type": "contact",
+        "title": "Contact Info",
+        "contact_extras": [],
+        "text": ""
+      }
+    ],
+    "copyright": "© Copyright {year} {business}. All Rights Reserved.",
+    "bottom_links": [
+      {
+        "label": "Privacy Policy",
+        "url": "/privacy-policy"
+      },
+      {
+        "label": "Terms and Conditions",
+        "url": "/terms-and-conditions"
+      }
+    ],
+    "disclaimer": "<p>Disclaimer: {business_domain} is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and {business_domain} does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. It is the responsibility of the homeowner to ask the roofing work contractor about the roofing work solution to ensure it meets the homeowner's family and pet safety requirements. All persons depicted in a photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as \"Sponsored\" or \"Ad\". See Terms and Conditions for further details.</p>",
+    "sticky_bar_text": "24/7 Help Line - Call Now",
+    "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+    "logo_in_copyright_bar": false,
+    "col_count": 4,
+    "socials": {
+      "facebook": "",
+      "instagram": "",
+      "linkedin": "",
+      "youtube": "",
+      "twitter": ""
+    },
+    "logo_in_contact_column": false,
+    "tagline": "We know every home and every problem is different. Our goal is simple: understand exactly what you're dealing with, and connect you with someone who can solve it right. That's the only outcome that matters to us.",
+    "show_sticky_info_icon": false
+  },
+  "pages": {
+    "page_8845f40cd5d04": {
+      "title": "Privacy Policy | {business}",
+      "slug": "privacy-policy",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "text",
+          "heading_level": "h1",
+          "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent roofing providers and does not itself perform roofing services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "<h2>A. Information We Collect</h2><p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p><h2>B. How We Use Information</h2><p>We use the information we collect to operate and improve the Website, connect you with relevant roofing providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p><h2>C. Cookies and Similar Technologies</h2><p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p><h2>D. How We Share Information</h2><p>We may share information about you with:</p><ul><li><strong>Roofing providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p><h2>E. Data Security</h2><p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p><h2>F. Data Retention</h2><p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p><h2>G. Children&#039;s Privacy</h2><p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p><h2>H. International Visitors</h2><p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p><h2>I. Your Privacy Rights</h2><p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p><h2>J. Contact Us</h2><p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p><h2>K. Changes to This Policy</h2><p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information.",
+        "og_title": "Privacy Policy | {business}",
+        "og_description": "How {business} collects, uses, and protects your information.",
+        "og_image": "",
+        "schema": "",
+        "canonical_url": "{website}/privacy-policy/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Privacy Policy",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": ""
+      }
+    },
+    "page_5ecf42631f084": {
+      "title": "Terms and Conditions | {business}",
+      "slug": "terms-and-conditions",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "text",
+          "heading_level": "h1",
+          "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "<h2>A. Who We Are</h2><p>{business} operates the Website as a free service that helps homeowners find independent roofing providers in their area. We do not own, operate, or control any roofing business, and we do not perform roofing services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p><h2>B. Eligibility and Acceptance</h2><p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p><h2>C. Content Is Informational Only</h2><p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed roofing professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p><h2>D. Connecting You With Providers</h2><p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more roofing providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p><h2>E. Prohibited Conduct</h2><p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p><h2>F. Disclaimer of Warranties</h2><p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p><h2>G. Limitation of Liability</h2><p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any roofing provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p><h2>H. Indemnification</h2><p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p><h2>I. Intellectual Property</h2><p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p><h2>J. Relationship to Our Privacy Policy</h2><p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p><h2>K. Governing Law</h2><p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p><h2>L. Dispute Resolution</h2><p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p><h2>M. Changes to These Terms</h2><p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p><h2>N. Contact Us</h2><p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
+        "og_title": "Terms and Conditions | {business}",
+        "og_description": "The terms governing your use of {website}.",
+        "og_image": "",
+        "schema": "",
+        "canonical_url": "{website}/terms-and-conditions/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Terms and Conditions",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": ""
+      }
+    },
+    "page_6a30c3339c03d": {
+      "title": "Contact Us",
+      "slug": "contact-us",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "hero_split",
+          "hs_heading": "Contact Us",
+          "hs_subtext": "",
+          "hs_btn_text": "",
+          "hs_btn_url": "#",
+          "hs_photo": "{city_image}",
+          "hs_photo_alt": "{city} home",
+          "hs_caption1": "",
+          "hs_caption2": "",
+          "hs_bg_color": "footer",
+          "hs_bg_photo": "",
+          "hs_image_side": "right",
+          "hs_mobile_order": "",
+          "hs_tagline": "",
+          "hs_btn2_text": "",
+          "hs_btn2_url": "#",
+          "anchor": "contact-hero"
+        },
+        {
+          "type": "contact_form",
+          "cf_heading": "Get in Touch",
+          "cf_subtext": "",
+          "cf_btn_text": "Send Message",
+          "cf_show_phone": true
+        },
+        {
+          "type": "custom_html",
+          "html": "[services_links]"
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted roofing specialist in {city_state}.",
+        "og_title": "Contact Us | {business}",
+        "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
+        "og_image": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"ContactPage\",\n            \"@id\": \"{website}/contact-us/#contactpage\",\n            \"url\": \"{website}/contact-us/\",\n            \"name\": \"Contact {business}\",\n            \"description\": \"Call or email {business} to be connected with a local roofing provider in {city_state}.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        },\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"email\": \"{email}\",\n            \"contactPoint\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"{tel}\",\n                \"email\": \"{email}\",\n                \"contactType\": \"customer service\",\n                \"areaServed\": \"US\",\n                \"availableLanguage\": \"English\"\n            }\n        }\n    ]\n}",
+        "canonical_url": "{website}/contact-us/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Contact Us",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": "",
+        "seo_title": "Contact {business} | {city_state} Roofing"
+      }
+    },
+    "page_17093ef43cb21": {
+      "title": "About Us",
+      "slug": "about-us",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "ai_block",
+          "skin": "light",
+          "ai_type_id": "about_story",
+          "ai_mode": "standalone",
+          "ai_render_as": "text",
+          "ai_model": "claude-haiku-4-5-20251001",
+          "ai_prompt_override": "",
+          "ai_inject_target": null,
+          "ai_inject_field": null,
+          "ai_inject_mode": null,
+          "heading_text": "",
+          "heading_level": "h2",
+          "text": "",
+          "id": "ai_block_about"
+        },
+        {
+          "ai_mode": "standalone",
+          "ai_render_as": "feature_columns",
+          "ai_model": "claude-haiku-4-5-20251001",
+          "ai_prompt_override": "",
+          "ai_inject_target": null,
+          "ai_inject_field": null,
+          "ai_inject_mode": null,
+          "type": "ai_block",
+          "ai_type_id": "why_choose_us",
+          "skin": "light",
+          "fc_heading": "",
+          "fc_num_cols": 4,
+          "columns": [],
+          "id": "why_choose_us_about"
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Learn about {business} and our mission to connect {city_state} property owners with trusted, quality local service providers.",
+        "og_title": "About Us | {business}",
+        "og_description": "Learn about {business} and our mission to connect {city_state} property owners with trusted, quality local service providers.",
+        "og_image": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"AboutPage\",\n            \"@id\": \"{website}/about-us/#aboutpage\",\n            \"url\": \"{website}/about-us/\",\n            \"name\": \"About {business}\",\n            \"description\": \"How {business} connects {city_state} property owners with independent local roofing providers.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        },\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            }\n        }\n    ]\n}",
+        "canonical_url": "{website}/about-us/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "About Us",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": "",
+        "seo_title": "About {business} | {city_state} Roofing"
+      }
+    }
+  },
+  "popups": {
+    "info": {
+      "enabled": true,
+      "heading": "How Your Calls Are Handled",
+      "image": "",
+      "body": "<p>We offer a free, 24/7 confidential helpline to connect you with roofing professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide roofing services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more roofing options, visit our {website} or call us anytime at {phone}.</p>"
+    }
+  },
+  "local_business": {
+    "lb_name": "{business}",
+    "lb_type": "RoofingContractor",
+    "lb_url": "{website}",
+    "lb_phone": "{phone}",
+    "lb_street": "",
+    "lb_city": "{city}",
+    "lb_state": "{SS}",
+    "lb_zip": "{zip}",
+    "lb_country": "US",
+    "lb_lat": "31.3382",
+    "lb_lng": "-94.7291",
+    "lb_price_range": "$$",
+    "lb_hours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
+    "lb_description": "{business} connects homeowners in {city_state} with independent local roofing providers, including roof repair, roof replacement, roof inspection, storm damage repair, and gutter installation.",
+    "lb_logo": "{website}/uploads/logo_littleton-pest-pros.png",
+    "lb_rating": "",
+    "lb_review_count": ""
+  },
+  "site_vars": {
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "colorado-springs-co",
+    "business": "Roof Repair Connect",
+    "phone": "720-201-5555",
+    "zip": "80903",
+    "website": "https://p.q111.xyz",
+    "tel": "+17202015555",
+    "city_image": "sites/roofing-site/uploads/media/city-scenic-colorado-springs-co.webp",
+    "city_image_alt": "Colorado Springs, CO",
+    "city_image_credit": "Photo: Quintin Soloviev, CC BY 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Colorado_Springs,_Colorado_(cropped).jpg",
+    "email": "info@p.q111.xyz",
+    "city_spotlight": "Colorado Springs sits at the base of Pikes Peak, home to roughly 489,000 residents and anchored by a deep military presence — Fort Carson, the U.S. Air Force Academy, and several other installations drive a strong aerospace and defense economy. UCHealth Memorial and Penrose-St. Francis support a sizable healthcare sector, while Pikes Peak and the Garden of the Gods draw steady tourism, and a growing tech and cybersecurity presence has further diversified the local market.\n\nThe city carries its own front-range character across neighborhoods like Old Colorado City, Broadmoor, and Briargate, with newer growth areas like Stetson Hills and Rockrimmon pushing the city further into the foothills. It is also one of the most hail-prone metro areas in the country, a fact that shapes how often roofs here need attention.",
+    "business_short": ""
+  },
+  "posts": [],
+  "blog_settings": {
+    "blog_heading": "Roofing Tips & Advice for {city}",
+    "blog_intro": "Practical roofing tips, seasonal guidance, and maintenance advice for homeowners in {city}, {SS} from {business}.",
+    "posts_per_page": 9,
+    "enabled": true
+  },
+  "services_links": {
+    "services": [
+      {
+        "name": "Roof Repair",
+        "url": "/roof-repair-{city_slug}"
+      },
+      {
+        "name": "Roof Replacement",
+        "url": "/roof-replacement-{city_slug}"
+      },
+      {
+        "name": "Roof Inspection",
+        "url": "/roof-inspection-{city_slug}"
+      },
+      {
+        "name": "Roof Leak Repair",
+        "url": "/roof-leak-repair-{city_slug}"
+      },
+      {
+        "name": "Storm Damage Roof Repair",
+        "url": "/storm-damage-roof-repair-{city_slug}"
+      },
+      {
+        "name": "Gutter Installation",
+        "url": "/gutter-installation-{city_slug}"
+      }
+    ],
+    "url_pattern": "/{service_slug}-{city_slug}",
+    "heading": "Our Roofing Services in {city_state}",
+    "sublabel": "",
+    "subtext": "We offer a full range of roofing services in {city_state}, from emergency repairs and storm damage assessment to full roof replacement and gutter installation. Our local providers connect you with the right specialist for the job.",
+    "style": "dark",
+    "cols": 5,
+    "bg_photo": "sites/roofing-site/uploads/media/brand-roofing.webp",
+    "overlay": "0.20",
+    "bg_color": "#ffffff",
+    "accent": "accent",
+    "accent_custom": "#fd783b",
+    "anchor": "roofing_services"
+  },
+  "breadcrumbs": {
+    "enabled": true,
+    "hero_bg_mode": "auto",
+    "hero_bg_color": ""
+  }
+}
