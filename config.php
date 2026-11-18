@@ -120,16 +120,17 @@ define('CLIENTS_DIR', BASE_DIR . '/clients/');
 // sync hiccup never loses the source-of-truth copy.
 define('LPC_DELIVERY_DATA_DIR', '/opt/landing-page-clients/delivery/data/');
 
-// The dedicated delivery server (Box 1, 31.97.133.251) — a standalone
-// component on a shared Hestia box, deliberately isolated: its own
-// unprivileged system user (lpcdelivery, no sudo, confined to its own
-// directory), its own directory (/opt/standalone-lpc-delivery/), its own
-// systemd service, its own firewall rule. NOT a Hestia-managed domain, NOT
-// reachable through anything else on that box. Synced to via a SEPARATE,
-// narrowly-scoped SSH key (.lpc_delivery_sync_key, gitignored) that only
-// authenticates as lpcdelivery — never the root fleet-wide key, so a
-// compromise here can't reach anything else on the fleet.
-define('LPC_DELIVERY_REMOTE_HOST', '31.97.133.251');
+// The dedicated delivery server — migrated 2026-11-18 off fleet Box 1 onto
+// its own dedicated box (2.24.196.58), set up alongside the LPC demo
+// WordPress sites, so it no longer shares hardware with the production
+// fleet. Still isolated the same way on its new host: its own unprivileged
+// system user (lpcdelivery, no sudo, confined to its own directory), its own
+// directory (/opt/standalone-lpc-delivery/), its own systemd service, its
+// own firewall rule. Synced to via a SEPARATE, narrowly-scoped SSH key
+// (.lpc_delivery_sync_key, gitignored) that only authenticates as
+// lpcdelivery — never any other key, so a compromise here can't reach
+// anything else.
+define('LPC_DELIVERY_REMOTE_HOST', '2.24.196.58');
 define('LPC_DELIVERY_REMOTE_USER', 'lpcdelivery');
 define('LPC_DELIVERY_REMOTE_PATH', '/opt/standalone-lpc-delivery/data/');
 define('LPC_DELIVERY_SYNC_KEY', BASE_DIR . '/.lpc_delivery_sync_key');

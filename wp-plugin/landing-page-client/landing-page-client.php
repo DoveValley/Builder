@@ -11,12 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Delivery server base URL — same for every client site, hardcoded here
-// rather than a per-client setting. Now the real, dedicated delivery server
-// (Box 1, a standalone component isolated from both the Hestia fleet it
-// happens to share a physical machine with and this admin panel — see
-// project_landing_page_clients_feature_design memory, 2026-11-15) — no
-// longer the admin-panel box this constant originally pointed at.
-define( 'LPC_DELIVERY_BASE', 'http://31.97.133.251:8098/api.php' );
+// rather than a per-client setting. Migrated 2026-11-18 off fleet Box 1 onto
+// its own dedicated box, so it no longer shares hardware with the
+// production niche-fleet. NOT remote-configurable (see remote.php's
+// lpc_apply_remote_settings()) — this is a define(), so any future move of
+// this server requires updating this constant and redistributing the
+// plugin to every already-installed client site by hand. Only one real
+// install exists today (the restore-2 test client), so that cost is
+// currently trivial; worth revisiting (a stable DNS name, or a real plugin
+// setting) before there are many real paying clients.
+define( 'LPC_DELIVERY_BASE', 'http://2.24.196.58:8098/api.php' );
 
 require_once __DIR__ . '/includes/remote.php';
 require_once __DIR__ . '/includes/image_cache.php';
