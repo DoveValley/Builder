@@ -1,0 +1,171 @@
+{
+    "niche": "wildlife control",
+    "master_site": "wildlife-control-site",
+    "business_descriptor": "a referral service that connects property owners with independent local wildlife removal and nuisance animal control providers",
+    "service_noun": "wildlife removal",
+    "customer_noun": "homeowner",
+    "offerings": [
+        "Raccoon Removal",
+        "Squirrel Removal",
+        "Bat Removal",
+        "Snake Removal",
+        "Dead Animal Removal",
+        "Opossum Removal",
+        "Wildlife Exclusion & Attic Damage Repair"
+    ],
+    "local_angle": "Which nuisance species are the real local problem varies a lot by region: raccoons, squirrels, opossums and skunks dominate complaints across northern and midwestern states (88% of complaints in one Illinois study), while armadillos and snakes become major regional issues in southern states like Georgia and Texas, where armadillos also tear up lawns and undermine foundations digging for grubs. Squirrel maternity season peaks February-March as winter litters near full size and become active; bat exclusion work is legally restricted during June-July bat maternity season and resumes in August, making August the busiest month for bat jobs; rodent and raccoon calls climb through fall and winter as animals seek warm spaces to den.",
+    "tone": "practical and reassuring, emphasizing humane, safe removal over alarm",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" trapping, removing, or excluding wildlife, never claim to directly capture, remove, relocate, or exclude any animal, and never claim to employ wildlife control technicians. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"USDA-licensed\", \"state-licensed\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not guarantee complete removal or that an animal will never return. Do not make specific disease/health claims about wildlife (e.g. rabies, histoplasmosis from bat guano) beyond general, widely-known public caution. Do not give unsafe do-it-yourself advice for handling snakes, bats, or any wild animal directly. Do not promise a specific timeline for exclusion work — bat exclusion in particular has legally restricted removal windows during summer maternity season that vary by state. Do not assume state licensing requirements without being told, since nuisance wildlife control licensing varies significantly by state.",
+    "uses_research_fields": true,
+    "enabled_archetypes": [
+        "city_intro",
+        "hero_subtext",
+        "feature_columns_local",
+        "faq_local",
+        "seasonal_calendar",
+        "local_relevance",
+        "about_story",
+        "steps_local",
+        "homepage_feature_intro",
+        "homepage_grid_intro",
+        "homepage_service_area",
+        "why_choose_us"
+    ],
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences on {city}'s typical housing stock (age, foundation/attic style) and which nuisance wildlife species are the dominant local problem here.\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "custom_research_fields": [
+        {
+            "key": "common_regional_species",
+            "ask": "Which nuisance wildlife species are most commonly reported as problems in this specific city/region (e.g. raccoons, squirrels, opossums, and skunks are the dominant complaints across northern/midwestern states; armadillos and snakes become major regional issues in southern states like Georgia and Texas)? Name the 2-3 most locally relevant species."
+        }
+    ],
+    "blog_topics": [
+        {
+            "slug": "squirrels-in-attic-spring",
+            "title": "Why Squirrels Move Into Attics Every Spring",
+            "tag": "Seasonal",
+            "focus_keyword": "squirrels in attic",
+            "link_candidates": [
+                {
+                    "text": "Squirrel Removal",
+                    "url": "/squirrel-removal-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "signs-of-attic-wildlife",
+            "title": "5 Signs You Have Wildlife Living in Your Attic",
+            "tag": "Prevention",
+            "focus_keyword": "signs of animals in attic",
+            "link_candidates": [
+                {
+                    "text": "Wildlife Exclusion & Attic Damage Repair",
+                    "url": "/wildlife-exclusion-attic-repair-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "bat-removal-timing-law",
+            "title": "Why Bat Removal Can Not Happen in June or July",
+            "tag": "How-To",
+            "focus_keyword": "bat removal law",
+            "link_candidates": [
+                {
+                    "text": "Bat Removal",
+                    "url": "/bat-removal-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "raccoon-attic-damage",
+            "title": "The Real Damage a Raccoon Can Do to Your Attic",
+            "tag": "Prevention",
+            "focus_keyword": "raccoon attic damage",
+            "link_candidates": [
+                {
+                    "text": "Raccoon Removal",
+                    "url": "/raccoon-removal-{city_slug}"
+                },
+                {
+                    "text": "Wildlife Exclusion & Attic Damage Repair",
+                    "url": "/wildlife-exclusion-attic-repair-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "dead-animal-smell-house",
+            "title": "How to Find a Dead Animal Smell in Your House",
+            "tag": "How-To",
+            "focus_keyword": "dead animal smell in house",
+            "link_candidates": [
+                {
+                    "text": "Dead Animal Removal",
+                    "url": "/dead-animal-removal-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "humane-wildlife-removal-explained",
+            "title": "What Humane Wildlife Removal Actually Means",
+            "tag": "Trust",
+            "focus_keyword": "humane wildlife removal",
+            "link_candidates": [
+                {
+                    "text": "Wildlife Removal Services",
+                    "url": "/"
+                }
+            ]
+        },
+        {
+            "slug": "wildlife-exclusion-explained",
+            "title": "Removal vs. Exclusion: Keeping Animals Out for Good",
+            "tag": "How-To",
+            "focus_keyword": "wildlife exclusion",
+            "link_candidates": [
+                {
+                    "text": "Wildlife Exclusion & Attic Damage Repair",
+                    "url": "/wildlife-exclusion-attic-repair-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "snake-in-yard-what-to-do",
+            "title": "Found a Snake in Your Yard? What to Do Next",
+            "tag": "Emergency Tips",
+            "focus_keyword": "snake in yard",
+            "link_candidates": [
+                {
+                    "text": "Snake Removal",
+                    "url": "/snake-removal-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "opossum-myths",
+            "title": "Opossums Are Not the Threat You Think They Are",
+            "tag": "Education",
+            "focus_keyword": "opossum removal",
+            "link_candidates": [
+                {
+                    "text": "Opossum Removal",
+                    "url": "/opossum-removal-{city_slug}"
+                }
+            ]
+        },
+        {
+            "slug": "winter-wildlife-denning",
+            "title": "Why Wildlife Activity Picks Up Every Fall and Winter",
+            "tag": "Seasonal",
+            "focus_keyword": "wildlife in house winter",
+            "link_candidates": [
+                {
+                    "text": "Raccoon Removal",
+                    "url": "/raccoon-removal-{city_slug}"
+                },
+                {
+                    "text": "Squirrel Removal",
+                    "url": "/squirrel-removal-{city_slug}"
+                }
+            ]
+        }
+    ]
+}

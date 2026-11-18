@@ -1,0 +1,1787 @@
+[
+  {
+    "id": "tpl_raccoon_removal",
+    "base": false,
+    "title": "Raccoon Removal in {city_state} | {business_short}",
+    "slug_pattern": "raccoon-removal-{city_slug}",
+    "page_type": "template",
+    "service": "Raccoon Removal",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Raccoon Removal in {city_state}",
+        "hs_subtext": "<p>Fast, humane raccoon removal for {city_state} homes and properties. The local providers we connect you with find where raccoons are denning and resolve the problem safely.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Raccoon Removal provider serving a {city_state} home",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/wildlife-control-site/uploads/media/raccoon-removal.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/wildlife-control-site/uploads/media/raccoon-removal.webp",
+        "it_alt": "{business} provider handling raccoon removal in a {city_state} home",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Raccoon Removal Process Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call Our {city} Team",
+            "text": "Tell us what you're seeing. We work to get you scheduled quickly, often the same day for active situations."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Assessment",
+            "text": "A local provider inspects the home, locates where raccoons are entering and denning (often attics, chimneys, or crawlspaces), and builds a removal plan."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Removal & Follow-Up",
+            "text": "The provider removes the animal using humane methods and can advise on sealing entry points so raccoons do not return."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with raccoons in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#120575",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/wildlife-control-site/uploads/media/raccoon-removal.webp",
+        "it_alt": "Raccoon Removal in {city_state}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "it_caption": "{chart_group_moisture_caption}",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/squirrel-removal-{city_slug}",
+            "text": "squirrel removal"
+          },
+          {
+            "url": "/wildlife-exclusion-attic-repair-{city_slug}",
+            "text": "wildlife exclusion & attic damage repair"
+          },
+          {
+            "url": "/wildlife-removal-{city_slug}",
+            "text": "wildlife removal"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Wildlife Removal Provider",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with raccoons in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#fd783b",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Raccoon Removal in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}.",
+      "meta_keywords": "raccoon removal {city} {SS}",
+      "og_title": "Raccoon Removal in {city_state} | {business_short}",
+      "og_description": "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}.",
+      "og_image": "",
+      "service_name": "Raccoon Removal",
+      "service_type": "Raccoon Removal",
+      "service_area": "{city}, {SS}",
+      "service_description": "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Raccoon Removal in {city_state}\",\n            \"serviceType\": \"Raccoon Removal\",\n            \"description\": \"Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "primary_keyword": "Raccoon Removal",
+      "secondary_keywords": "raccoon trapping, raccoon control, raccoon in attic removal",
+      "meta_description_pool": [
+        "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}."
+      ]
+    },
+    "base_role": "Removal",
+    "layout_enabled": false,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_squirrel_removal",
+    "base": false,
+    "title": "Squirrel Removal in {city_state} | {business_short}",
+    "slug_pattern": "squirrel-removal-{city_slug}",
+    "page_type": "template",
+    "service": "Squirrel Removal",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Squirrel Removal in {city_state}",
+        "hs_subtext": "<p>Fast squirrel removal for {city_state} homes. The local providers we connect you with find where squirrels are getting into attics and rooflines and resolve it safely.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Squirrel Removal provider serving a {city_state} home",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/wildlife-control-site/uploads/media/squirrel-removal.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/wildlife-control-site/uploads/media/squirrel-removal.webp",
+        "it_alt": "{business} provider handling squirrel removal in a {city_state} home",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Squirrel Removal Process Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call Our {city} Team",
+            "text": "Tell us what you're seeing. We work to get you scheduled quickly, often the same day for active situations."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Assessment",
+            "text": "A local provider inspects the roofline and attic, identifies squirrel entry points and nesting areas, and builds a removal plan."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Removal & Follow-Up",
+            "text": "The provider removes the animals using humane methods and can advise on sealing entry points, since squirrel maternity season (late winter into spring) is when attic activity peaks."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with squirrels in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#120575",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/wildlife-control-site/uploads/media/squirrel-removal.webp",
+        "it_alt": "Squirrel Removal in {city_state}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "it_caption": "{chart_group_moisture_caption}",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/raccoon-removal-{city_slug}",
+            "text": "raccoon removal"
+          },
+          {
+            "url": "/wildlife-exclusion-attic-repair-{city_slug}",
+            "text": "wildlife exclusion & attic damage repair"
+          },
+          {
+            "url": "/wildlife-removal-{city_slug}",
+            "text": "wildlife removal"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Wildlife Removal Provider",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with squirrels in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#fd783b",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Squirrel Removal in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Squirrel removal connects {city_state} homeowners with an independent local provider for safe squirrel removal from attics and rooflines. Call {phone}.",
+      "meta_keywords": "squirrel removal {city} {SS}",
+      "og_title": "Squirrel Removal in {city_state} | {business_short}",
+      "og_description": "Squirrel removal connects {city_state} homeowners with an independent local provider for safe squirrel removal from attics and rooflines. Call {phone}.",
+      "og_image": "",
+      "service_name": "Squirrel Removal",
+      "service_type": "Squirrel Removal",
+      "service_area": "{city}, {SS}",
+      "service_description": "Squirrel removal connects {city_state} homeowners with an independent local provider for safe squirrel removal from attics and rooflines. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Squirrel Removal in {city_state}\",\n            \"serviceType\": \"Squirrel Removal\",\n            \"description\": \"Squirrel removal connects {city_state} homeowners with an independent local provider for safe squirrel removal from attics and rooflines. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "primary_keyword": "Squirrel Removal",
+      "secondary_keywords": "squirrel trapping, squirrel control, squirrel in attic removal",
+      "meta_description_pool": [
+        "Squirrel removal connects {city_state} homeowners with an independent local provider for safe squirrel removal from attics and rooflines. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Squirrel removal connects {city_state} homeowners with an independent local provider for safe squirrel removal from attics and rooflines. Call {phone}."
+      ]
+    },
+    "base_role": "Removal",
+    "layout_enabled": false,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_bat_removal",
+    "base": false,
+    "title": "Bat Removal in {city_state} | {business_short}",
+    "slug_pattern": "bat-removal-{city_slug}",
+    "page_type": "template",
+    "service": "Bat Removal",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Bat Removal in {city_state}",
+        "hs_subtext": "<p>Bat removal for {city_state} homes, handled on the right legal timeline. The local providers we connect you with use humane exclusion methods suited to bat colonies.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Bat Removal provider serving a {city_state} home",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/wildlife-control-site/uploads/media/bat-removal.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/wildlife-control-site/uploads/media/bat-removal.webp",
+        "it_alt": "{business} provider handling bat removal in a {city_state} home",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Bat Removal Process Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call Our {city} Team",
+            "text": "Tell us what you're seeing. We work to get you scheduled quickly, often the same day for active situations."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Assessment",
+            "text": "A local provider inspects the attic and roofline for roosting bats and entry points, and explains the right approach for the time of year."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Removal & Follow-Up",
+            "text": "The provider installs one-way exclusion devices so bats can leave but not return — note that bat exclusion work is legally restricted during the June-July maternity season in most states and typically resumes in August."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with bats in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#120575",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/wildlife-control-site/uploads/media/bat-removal.webp",
+        "it_alt": "Bat Removal in {city_state}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "it_caption": "{chart_group_moisture_caption}",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/wildlife-exclusion-attic-repair-{city_slug}",
+            "text": "wildlife exclusion & attic damage repair"
+          },
+          {
+            "url": "/raccoon-removal-{city_slug}",
+            "text": "raccoon removal"
+          },
+          {
+            "url": "/wildlife-removal-{city_slug}",
+            "text": "wildlife removal"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Wildlife Removal Provider",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with bats in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#fd783b",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Bat Removal in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Bat removal connects {city_state} homeowners with an independent local provider for humane bat exclusion, handled on the correct seasonal timeline. Call {phone}.",
+      "meta_keywords": "bat removal {city} {SS}",
+      "og_title": "Bat Removal in {city_state} | {business_short}",
+      "og_description": "Bat removal connects {city_state} homeowners with an independent local provider for humane bat exclusion, handled on the correct seasonal timeline. Call {phone}.",
+      "og_image": "",
+      "service_name": "Bat Removal",
+      "service_type": "Bat Removal",
+      "service_area": "{city}, {SS}",
+      "service_description": "Bat removal connects {city_state} homeowners with an independent local provider for humane bat exclusion, handled on the correct seasonal timeline. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bat Removal in {city_state}\",\n            \"serviceType\": \"Bat Removal\",\n            \"description\": \"Bat removal connects {city_state} homeowners with an independent local provider for humane bat exclusion, handled on the correct seasonal timeline. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "primary_keyword": "Bat Removal",
+      "secondary_keywords": "bat trapping, bat control, bat in attic removal",
+      "meta_description_pool": [
+        "Bat removal connects {city_state} homeowners with an independent local provider for humane bat exclusion, handled on the correct seasonal timeline. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Bat removal connects {city_state} homeowners with an independent local provider for humane bat exclusion, handled on the correct seasonal timeline. Call {phone}."
+      ]
+    },
+    "base_role": "Removal",
+    "layout_enabled": false,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_snake_removal",
+    "base": false,
+    "title": "Snake Removal in {city_state} | {business_short}",
+    "slug_pattern": "snake-removal-{city_slug}",
+    "page_type": "template",
+    "service": "Snake Removal",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Snake Removal in {city_state}",
+        "hs_subtext": "<p>Snake removal for {city_state} homes and yards. The local providers we connect you with respond quickly and handle snakes safely.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Snake Removal provider serving a {city_state} home",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/wildlife-control-site/uploads/media/snake-removal.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/wildlife-control-site/uploads/media/snake-removal.webp",
+        "it_alt": "{business} provider handling snake removal in a {city_state} home",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Snake Removal Process Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call Our {city} Team",
+            "text": "Tell us what you're seeing. We work to get you scheduled quickly, often the same day for active situations."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Assessment",
+            "text": "A local provider assesses the situation, including whether the species warrants extra caution around people and pets."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Removal & Follow-Up",
+            "text": "The provider safely captures and relocates the snake, and can advise on what's attracting snakes to the property (food sources, hiding spots, entry points)."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with snakes in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#120575",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/wildlife-control-site/uploads/media/snake-removal.webp",
+        "it_alt": "Snake Removal in {city_state}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "it_caption": "{chart_group_moisture_caption}",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/dead-animal-removal-{city_slug}",
+            "text": "dead animal removal"
+          },
+          {
+            "url": "/wildlife-exclusion-attic-repair-{city_slug}",
+            "text": "wildlife exclusion & attic damage repair"
+          },
+          {
+            "url": "/wildlife-removal-{city_slug}",
+            "text": "wildlife removal"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Wildlife Removal Provider",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with snakes in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#fd783b",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Snake Removal in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Snake removal connects {city_state} homeowners with an independent local provider for safe snake removal from homes and yards. Call {phone}.",
+      "meta_keywords": "snake removal {city} {SS}",
+      "og_title": "Snake Removal in {city_state} | {business_short}",
+      "og_description": "Snake removal connects {city_state} homeowners with an independent local provider for safe snake removal from homes and yards. Call {phone}.",
+      "og_image": "",
+      "service_name": "Snake Removal",
+      "service_type": "Snake Removal",
+      "service_area": "{city}, {SS}",
+      "service_description": "Snake removal connects {city_state} homeowners with an independent local provider for safe snake removal from homes and yards. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Snake Removal in {city_state}\",\n            \"serviceType\": \"Snake Removal\",\n            \"description\": \"Snake removal connects {city_state} homeowners with an independent local provider for safe snake removal from homes and yards. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "primary_keyword": "Snake Removal",
+      "secondary_keywords": "snake trapping, snake control, snake in attic removal",
+      "meta_description_pool": [
+        "Snake removal connects {city_state} homeowners with an independent local provider for safe snake removal from homes and yards. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Snake removal connects {city_state} homeowners with an independent local provider for safe snake removal from homes and yards. Call {phone}."
+      ]
+    },
+    "base_role": "Removal",
+    "layout_enabled": false,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_opossum_removal",
+    "base": false,
+    "title": "Opossum Removal in {city_state} | {business_short}",
+    "slug_pattern": "opossum-removal-{city_slug}",
+    "page_type": "template",
+    "service": "Opossum Removal",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Opossum Removal in {city_state}",
+        "hs_subtext": "<p>Opossum removal for {city_state} properties. The local providers we connect you with handle removal from under porches, decks, and outbuildings.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Opossum Removal provider serving a {city_state} home",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/wildlife-control-site/uploads/media/opossum-removal.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/wildlife-control-site/uploads/media/opossum-removal.webp",
+        "it_alt": "{business} provider handling opossum removal in a {city_state} home",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Opossum Removal Process Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call Our {city} Team",
+            "text": "Tell us what you're seeing. We work to get you scheduled quickly, often the same day for active situations."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Assessment",
+            "text": "A local provider inspects where the opossum is sheltering (commonly under porches, decks, or sheds) and builds a removal plan."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Removal & Follow-Up",
+            "text": "The provider removes the animal using humane methods — opossums are generally non-aggressive and rarely carry rabies, but removal is still best left to a professional."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with opossums in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#120575",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/wildlife-control-site/uploads/media/opossum-removal.webp",
+        "it_alt": "Opossum Removal in {city_state}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "it_caption": "{chart_group_moisture_caption}",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/raccoon-removal-{city_slug}",
+            "text": "raccoon removal"
+          },
+          {
+            "url": "/dead-animal-removal-{city_slug}",
+            "text": "dead animal removal"
+          },
+          {
+            "url": "/wildlife-removal-{city_slug}",
+            "text": "wildlife removal"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Wildlife Removal Provider",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with opossums in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#fd783b",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Opossum Removal in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Opossum removal connects {city_state} homeowners with an independent local provider for humane opossum removal from porches, decks, and yards. Call {phone}.",
+      "meta_keywords": "opossum removal {city} {SS}",
+      "og_title": "Opossum Removal in {city_state} | {business_short}",
+      "og_description": "Opossum removal connects {city_state} homeowners with an independent local provider for humane opossum removal from porches, decks, and yards. Call {phone}.",
+      "og_image": "",
+      "service_name": "Opossum Removal",
+      "service_type": "Opossum Removal",
+      "service_area": "{city}, {SS}",
+      "service_description": "Opossum removal connects {city_state} homeowners with an independent local provider for humane opossum removal from porches, decks, and yards. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Opossum Removal in {city_state}\",\n            \"serviceType\": \"Opossum Removal\",\n            \"description\": \"Opossum removal connects {city_state} homeowners with an independent local provider for humane opossum removal from porches, decks, and yards. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "primary_keyword": "Opossum Removal",
+      "secondary_keywords": "opossum trapping, opossum control, opossum in attic removal",
+      "meta_description_pool": [
+        "Opossum removal connects {city_state} homeowners with an independent local provider for humane opossum removal from porches, decks, and yards. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Opossum removal connects {city_state} homeowners with an independent local provider for humane opossum removal from porches, decks, and yards. Call {phone}."
+      ]
+    },
+    "base_role": "Removal",
+    "layout_enabled": false,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_dead_animal_removal",
+    "base": false,
+    "title": "Dead Animal Removal in {city_state} | {business_short}",
+    "slug_pattern": "dead-animal-removal-{city_slug}",
+    "page_type": "template",
+    "service": "Dead Animal Removal",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Dead Animal Removal in {city_state}",
+        "hs_subtext": "<p>Dead animal removal for {city_state} homes. The local providers we connect you with locate and remove the source of the odor quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Dead Animal Removal provider serving a {city_state} home",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/wildlife-control-site/uploads/media/dead-animal-removal.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/wildlife-control-site/uploads/media/dead-animal-removal.webp",
+        "it_alt": "{business} provider handling dead animal removal in a {city_state} home",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Dead Animal Removal Process Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call Our {city} Team",
+            "text": "Tell us what you're seeing. We work to get you scheduled quickly, often the same day for active situations."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Assessment",
+            "text": "A local provider uses the smell, staining, and other signs to pinpoint the carcass location — often inside a wall cavity, attic, or crawlspace."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Removal & Follow-Up",
+            "text": "The provider removes the carcass and can address lingering odor, helping restore normal air quality in the home."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with dead animals in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#120575",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/wildlife-control-site/uploads/media/dead-animal-removal.webp",
+        "it_alt": "Dead Animal Removal in {city_state}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "it_caption": "{chart_group_moisture_caption}",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/wildlife-exclusion-attic-repair-{city_slug}",
+            "text": "wildlife exclusion & attic damage repair"
+          },
+          {
+            "url": "/raccoon-removal-{city_slug}",
+            "text": "raccoon removal"
+          },
+          {
+            "url": "/wildlife-removal-{city_slug}",
+            "text": "wildlife removal"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Wildlife Removal Provider",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with a dead animal in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#fd783b",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Dead Animal Removal in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}.",
+      "meta_keywords": "dead animal removal {city} {SS}",
+      "og_title": "Dead Animal Removal in {city_state} | {business_short}",
+      "og_description": "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}.",
+      "og_image": "",
+      "service_name": "Dead Animal Removal",
+      "service_type": "Dead Animal Removal",
+      "service_area": "{city}, {SS}",
+      "service_description": "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dead Animal Removal in {city_state}\",\n            \"serviceType\": \"Dead Animal Removal\",\n            \"description\": \"Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "primary_keyword": "Dead Animal Removal",
+      "secondary_keywords": "dead animal trapping, dead animal control, dead animal in attic removal",
+      "meta_description_pool": [
+        "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}."
+      ]
+    },
+    "base_role": "Removal",
+    "layout_enabled": false,
+    "layout_variants": []
+  },
+  {
+    "id": "tpl_wildlife_exclusion_attic_repair",
+    "base": false,
+    "title": "Wildlife Exclusion & Attic Damage Repair in {city_state} | {business_short}",
+    "slug_pattern": "wildlife-exclusion-attic-repair-{city_slug}",
+    "page_type": "template",
+    "service": "Wildlife Exclusion & Attic Damage Repair",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Wildlife Exclusion & Attic Damage Repair in {city_state}",
+        "hs_subtext": "<p>Wildlife exclusion and attic damage repair for {city_state} homes. The local providers we connect you with seal entry points and repair damage so animals do not come back.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Wildlife Exclusion & Attic Damage Repair provider serving a {city_state} home",
+        "hs_image_side": "right",
+        "hs_bg_color": "#f3f6f7",
+        "hs_photo": "sites/wildlife-control-site/uploads/media/wildlife-exclusion-attic-repair.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/wildlife-control-site/uploads/media/wildlife-exclusion-attic-repair.webp",
+        "it_alt": "{business} provider handling wildlife exclusion removal in a {city_state} home",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our Wildlife Exclusion & Attic Damage Repair Process Works",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Call Our {city} Team",
+            "text": "Tell us what you're seeing. We work to get you scheduled quickly, often the same day for active situations."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Inspection & Assessment",
+            "text": "A local provider inspects the attic, roofline, and foundation for entry points and existing damage from prior animal activity."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Removal & Follow-Up",
+            "text": "The provider seals entry points with animal-proof materials and repairs damaged insulation, wiring chews, or structural damage, helping prevent repeat intrusions."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with exclusion services in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#120575",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "sites/wildlife-control-site/uploads/media/wildlife-exclusion-attic-repair.webp",
+        "it_alt": "Wildlife Exclusion & Attic Damage Repair in {city_state}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "it_caption": "{chart_group_moisture_caption}",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [],
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_heading_pool": [
+          "Related Services",
+          "You Might Also Need",
+          "More Ways We Can Help"
+        ],
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/raccoon-removal-{city_slug}",
+            "text": "raccoon removal"
+          },
+          {
+            "url": "/squirrel-removal-{city_slug}",
+            "text": "squirrel removal"
+          },
+          {
+            "url": "/wildlife-removal-{city_slug}",
+            "text": "wildlife removal"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "cards",
+        "cards_label": "Homeowner Safety Toolkit",
+        "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+        "cards_heading_pool": [
+          "Verify Your {city_state} Wildlife Removal Provider",
+          "Confirm Who You're Hiring in {city_state}",
+          "Before You Hire in {city_state}, Check This"
+        ],
+        "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+        "cards_cols": 3,
+        "cards_centered": true,
+        "cards_accent": "accent",
+        "cards_items": "@safety_toolkit_default",
+        "anchor": "safety-toolkit",
+        "id": "cards_safety_toolkit"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with animal entry points in {city}? Get fast help from a local provider.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#fd783b",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve in {city}, {state}",
+        "mi_map_heading_pool": [
+          "Areas We Serve in {city}, {state}",
+          "Our {city}, {state} Service Area",
+          "Where We Cover Near {city}, {state}"
+        ],
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_heading_pool": [
+          "{city_state} Information",
+          "About {city_state}",
+          "{city_state} at a Glance"
+        ],
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Wildlife Exclusion & Attic Damage Repair in {city_state} | {business_short}",
+      "canonical_url": "",
+      "meta_description": "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}.",
+      "meta_keywords": "wildlife exclusion attic repair {city} {SS}",
+      "og_title": "Wildlife Exclusion & Attic Damage Repair in {city_state} | {business_short}",
+      "og_description": "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}.",
+      "og_image": "",
+      "service_name": "Wildlife Exclusion & Attic Damage Repair",
+      "service_type": "Wildlife Exclusion & Attic Damage Repair",
+      "service_area": "{city}, {SS}",
+      "service_description": "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}.",
+      "bc_label": "",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wildlife Exclusion & Attic Damage Repair in {city_state}\",\n            \"serviceType\": \"Wildlife Exclusion & Attic Damage Repair\",\n            \"description\": \"Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+      "primary_keyword": "Wildlife Exclusion & Attic Damage Repair",
+      "secondary_keywords": "wildlife exclusion trapping, wildlife exclusion control, wildlife exclusion in attic removal",
+      "meta_description_pool": [
+        "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}."
+      ],
+      "og_description_pool": [
+        "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}."
+      ]
+    },
+    "base_role": "Removal",
+    "layout_enabled": false,
+    "layout_variants": []
+  }
+]

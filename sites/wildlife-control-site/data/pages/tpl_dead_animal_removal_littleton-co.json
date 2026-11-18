@@ -1,0 +1,546 @@
+{
+  "template_id": "tpl_dead_animal_removal",
+  "city_id": "littleton-co",
+  "slug": "dead-animal-removal-littleton-co",
+  "title": "Dead Animal Removal in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "39.613321",
+    "lng": "-105.016649",
+    "tags": [
+      "proof-city"
+    ],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
+    ],
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common nuisance wildlife issues involve raccoons and squirrels getting into attics and chimneys, especially in older homes near Ken Caryl and Columbine, along with occasional skunk and opossum activity near crawlspaces and porches.",
+    "city_spotlight": "Just south of Denver, Littleton, CO carries the easy confidence of a place that's long balanced big industry with small-town charm. Roughly 46,000 people call it home, many connected to the sprawling Lockheed Martin Space campus that anchors a local economy built on aerospace and defense, supported by healthcare, government, and education employers like Littleton Public Schools and Arapahoe Community College. Plenty of residents also commute into Denver's tech and professional services scene, making Littleton a comfortable landing spot between city ambition and quieter streets.\n\nDowntown Littleton still sets the tone, its historic storefronts filled with independent shops and restaurants that draw both locals and visitors. Out toward neighborhoods like Ken Caryl and Columbine, the pace softens into front-range foothill views, parks, and the kind of steady, community-minded living that keeps people here for good.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      29.3,
+      25.9,
+      21.2,
+      10.4,
+      2.3,
+      0.2,
+      0,
+      0,
+      0.4,
+      7.7,
+      20.6,
+      29.1
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "heavy_rain_days_monthly": [
+      0,
+      0,
+      0.1,
+      0.3,
+      0.6,
+      0.3,
+      0.4,
+      0.3,
+      0.1,
+      0.1,
+      0,
+      0
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "homes_by_decade": {
+      "Before 1960": 20.2,
+      "1960-1979": 26.7,
+      "1980-1999": 32.1,
+      "2000-2009": 11.8,
+      "2010 or later": 9.2
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Littleton city (21,506 housing units)",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      0.5,
+      6.6,
+      14.7,
+      8.9,
+      2.3,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "rainfall_monthly": [
+      0.48,
+      0.67,
+      1.19,
+      2.07,
+      2.73,
+      1.87,
+      2.05,
+      1.85,
+      1.26,
+      1.04,
+      0.74,
+      0.61
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "frost_free_days": 160,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "neighborhoods_source": "verified",
+    "wet_days_monthly": [
+      2.3,
+      2,
+      2.8,
+      4.4,
+      6.1,
+      4.2,
+      4.6,
+      3.9,
+      3.3,
+      2.9,
+      1.9,
+      1.7
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "noaa_station": "USC00055402",
+    "noaa_station_miles": 2.7,
+    "noaa_fetched_at": "2026-10-04",
+    "county_fips": "08005",
+    "county_name": "Arapahoe County",
+    "freeze_last_spring": "05/02",
+    "freeze_first_fall": "10/11",
+    "growing_degree_days": 2772.3,
+    "nights_below_50": 264.1,
+    "figures_fetched_at": "2026-10-04",
+    "acs_fetched_at": "2026-10-04"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>In Littleton's older residential areas near Ken Caryl and Columbine, raccoons and squirrels frequently enter attics and chimneys, and when these animals die inside walls or confined spaces, the odor and health concerns demand prompt professional removal. Wildlife Removal Connect matches Littleton property owners with independent local wildlife removal providers who handle dead animal extraction, locating carcasses, safely removing them, and addressing the spaces they occupied. Quick response prevents odor from spreading through your home and reduces exposure to decomposition byproducts.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Dead Animal Removal provider serving a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/wildlife-control-site/uploads/media/dead-animal-removal.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "img_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:05:54.309175Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "236ef68c71ccd41d",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/wildlife-control-site/uploads/media/dead-animal-removal.webp",
+      "it_alt": "{business} provider handling dead animal removal in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Dead Animal Removal Services for Littleton Homeowners",
+      "text": "<p>Littleton homeowners frequently encounter dead animal situations that require prompt, professional removal. In the Littleton area, raccoons and squirrels commonly find their way into attics and chimneys, particularly in older homes near Ken Caryl and Columbine, and when these animals die inside walls, crawlspaces, or other hidden areas, the resulting odor and potential health concerns demand swift action. Skunks and opossums may also leave carcasses near exterior areas like porches and foundation perimeters. A dead animal left in place can attract insects, create foul odors that spread through a home, and pose sanitation risks to your family. Dead animal removal in Littleton is not a task most homeowners are equipped to handle safely or comfortably on their own.</p><p>Wildlife Removal Connect links Littleton property owners with local independent wildlife removal providers who understand the specific challenges of dead animal removal in homes across the area. These providers locate the carcass, remove it safely and thoroughly, and address lingering odors and contamination to restore your home's comfort and hygiene. Beyond the immediate removal, they help identify how the animal accessed your property in the first place, reducing the risk of future occurrences. When you contact Wildlife Removal Connect, you'll be matched with a local provider ready to handle the job with minimal disruption to your household. Fast, dependable dead animal removal starts with a single call.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:05:58.692982Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "fe85cbdee1e61f86",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_2",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Choose Wildlife Removal Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Response to Dead Animals",
+          "text": "<p>Dead animal removal delays create health and odor problems fast. Wildlife Removal Connect connects you with local providers who prioritize quick response, minimizing exposure and contamination in your home.</p>"
+        },
+        {
+          "heading": "Thorough Dead Animal Cleanup",
+          "text": "<p>Removing the carcass is only part of the job. Providers in the network handle complete cleanup and sanitization of affected areas, addressing contamination left behind after removal.</p>"
+        },
+        {
+          "heading": "Dead Animal Removal with Prevention",
+          "text": "<p>Once an animal passes in your home, finding why it got inside matters. Local providers connected through Wildlife Removal Connect focus on removal and identifying entry points to prevent future incidents.</p>"
+        },
+        {
+          "heading": "Littleton's Older Homes Need Quick Action",
+          "text": "<p>Raccoons and squirrels in attics and chimneys—common in older Littleton homes near Ken Caryl and Columbine—often leave dead animals behind walls. Fast professional dead animal removal stops odor and damage from spreading.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:02.314773Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f88cdcb23af7236e",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Dead Animal Removal Process Works",
+      "steps_items": [
+        {
+          "heading": "Report the Dead Animal Location",
+          "text": "Contact Wildlife Removal Connect and describe where you've found the dead animal—whether in your attic, chimney, crawlspace, porch, or yard. Providing specifics about location and any odor helps connect you with a local Littleton provider experienced in dead animal removal."
+        },
+        {
+          "heading": "Local Provider Assesses & Removes",
+          "text": "An independent local dead animal removal provider visits to locate and safely extract the carcass, which is especially common in older Littleton-area homes where raccoons and squirrels access attics and chimneys. Proper removal eliminates odor and prevents health risks from decomposition."
+        },
+        {
+          "heading": "Cleanup & Prevention Guidance",
+          "text": "After dead animal removal, the provider addresses contaminated areas and may recommend sealing entry points to help prevent future wildlife access. You'll receive guidance on monitoring for signs of additional animal activity in your home."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:05.526158Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "fc4d2646158ec4cf",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Dealing with dead animals in {city}? Get fast help from a local provider.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/wildlife-control-site/uploads/media/dead-animal-removal.webp",
+      "it_alt": "Dead Animal Removal in {city_state}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "it_caption": "{chart_group_moisture_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "id": "ai_block_3",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Dead Animal Removal Across Littleton",
+      "text": "<p>Littleton's mix of established residential neighborhoods and newer developments creates different dead animal removal challenges. Older homes, particularly in areas like Ken Caryl and Columbine, feature mature trees and aging structures where raccoons and squirrels frequently nest in attics and chimneys. When these animals die inside walls, attics, or enclosed spaces, the removal becomes more complex—decay odors can penetrate living areas, and accessing carcasses often requires careful inspection of rooflines, vents, and interior wall cavities. The age and construction of these homes can make pinpointing dead animal locations and safely removing them without structural damage a priority consideration.</p><p>Skunks and opossums near crawlspaces and exterior areas present another local concern. Dead animals in or under these accessible spaces require prompt removal to prevent odor problems and potential health risks. Property owners across Littleton benefit from connecting with local removal providers who understand these neighborhood-specific scenarios and can respond quickly to prevent further complications.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:08.718277Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "81efcdf3afe8fbb5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_4",
+      "skin": "light",
+      "steps_heading": "Dead Animal Removal Across Littleton's Four Seasons",
+      "steps_items": [
+        {
+          "heading": "Spring: Thaw and Discovery",
+          "text": "As snow melts, dead animals cached under decks, in crawlspaces near porches, or hidden in attics become visible and odorous. Wildlife Removal Connect links you with local providers who handle prompt removal, odor treatment, and sanitation before warm weather accelerates decomposition."
+        },
+        {
+          "heading": "Summer: Heat and Urgency",
+          "text": "Peak temperatures accelerate decomposition in attics and wall cavities, creating severe odors that demand fast removal. Littleton homeowners in older neighborhoods like Ken Caryl and Columbine often face discoveries in hard-to-reach places; Wildlife Removal Connect connects you to providers equipped for safe extraction and cleanup."
+        },
+        {
+          "heading": "Fall: Seasonal Mortality",
+          "text": "Wildlife seeking shelter before winter dies more frequently in attics, chimneys, and enclosed spaces, increasing dead animal incidents. Wildlife Removal Connect helps you locate local providers who remove carcasses, identify entry points, and prevent repeat occurrences as cold approaches."
+        },
+        {
+          "heading": "Winter: Cold Preservation and Access",
+          "text": "Freezing temperatures slow decomposition but make carcasses easier to locate and remove without advanced decay complications. Snow cover can conceal entry holes; Wildlife Removal Connect pairs you with providers who perform winter removals and seal openings before spring activity resumes."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:13.183661Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "82c12244402b6cef",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does dead animal removal in Littleton actually involve?",
+          "answer": "<p>Dead animal removal includes locating the carcass (often in attics, chimneys, or crawlspaces), safely extracting it, and cleaning and deodorizing the affected area. Wildlife Removal Connect links you with local providers who handle the full process so you don't have to manage hazardous exposure or unpleasant conditions yourself.</p>"
+        },
+        {
+          "question": "How quickly can I get dead animal removal service in Littleton, CO?",
+          "answer": "<p>Response time varies by provider availability and severity. Wildlife Removal Connect connects you with independent local providers in Littleton who can often respond urgently to dead animal calls. Contact the service to discuss your timeline and get matched with someone who can help soon.</p>"
+        },
+        {
+          "question": "What factors affect the cost of dead animal removal in Littleton?",
+          "answer": "<p>Pricing depends on carcass location (attic, chimney, or crawlspace access difficulty), size of the animal, and extent of cleanup and deodorizing needed. The independent provider you're matched with will assess your specific situation and explain costs directly.</p>"
+        },
+        {
+          "question": "What should I do to prepare before dead animal removal arrives?",
+          "answer": "<p>Keep the area cordoned off if safe to do so, and note where you last saw or smelled the animal—this helps the provider locate it faster. Avoid handling the carcass yourself. Your matched provider will give you pre-arrival instructions when you schedule service.</p>"
+        },
+        {
+          "question": "How do I stop dead animals in my Littleton home after removal?",
+          "answer": "<p>Exclusion work by your provider—sealing entry points in attics, chimneys, and crawlspaces—prevents wildlife from returning. This is especially important in older Littleton homes where raccoons and squirrels commonly gain access. Ask your provider about exclusion during the removal service.</p>"
+        },
+        {
+          "question": "When is dead animal removal most common in Littleton?",
+          "answer": "<p>Fall and winter see higher wildlife activity as animals seek warm shelter indoors. This increases the likelihood of dead animals in attics and other spaces. Spring can also bring removal calls as winter casualties are discovered during seasonal activity increases.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:19.254696Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c9e97834fed1aab0",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 3,
+      "rl_items": [
+        {
+          "url": "/wildlife-exclusion-attic-repair-{city_slug}",
+          "text": "wildlife exclusion & attic damage repair"
+        },
+        {
+          "url": "/raccoon-removal-{city_slug}",
+          "text": "raccoon removal"
+        },
+        {
+          "url": "/wildlife-removal-{city_slug}",
+          "text": "wildlife removal"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Wildlife Removal Provider",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with a dead animal in {city}? Get fast help from a local provider.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
+    }
+  ],
+  "seo": {
+    "seo_title": "Dead Animal Removal in {city_state} | {business_short}",
+    "canonical_url": "https://p.q111.xyz/dead-animal-removal-littleton-co/",
+    "meta_description": "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}.",
+    "meta_keywords": "dead animal removal Littleton CO",
+    "og_title": "Dead Animal Removal in {city_state} | {business_short}",
+    "og_description": "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}.",
+    "og_image": "",
+    "service_name": "Dead Animal Removal",
+    "service_type": "Dead Animal Removal",
+    "service_area": "{city}, {SS}",
+    "service_description": "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dead Animal Removal in Littleton, CO\",\n            \"serviceType\": \"Dead Animal Removal\",\n            \"description\": \"Dead animal removal connects Littleton, CO homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call 720-201-5555.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Wildlife Removal Connect\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "primary_keyword": "Dead Animal Removal",
+    "secondary_keywords": "dead animal trapping, dead animal control, dead animal in attic removal",
+    "meta_description_pool": [
+      "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Dead animal removal connects {city_state} homeowners with an independent local provider to locate and remove a dead animal and the odor it causes. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T03:04:30+00:00",
+  "template_version": "1cadb02369dfa603e624ce5f48ad3d58"
+}

@@ -1,0 +1,546 @@
+{
+  "template_id": "tpl_raccoon_removal",
+  "city_id": "littleton-co",
+  "slug": "raccoon-removal-littleton-co",
+  "title": "Raccoon Removal in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "39.613321",
+    "lng": "-105.016649",
+    "tags": [
+      "proof-city"
+    ],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
+    ],
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common nuisance wildlife issues involve raccoons and squirrels getting into attics and chimneys, especially in older homes near Ken Caryl and Columbine, along with occasional skunk and opossum activity near crawlspaces and porches.",
+    "city_spotlight": "Just south of Denver, Littleton, CO carries the easy confidence of a place that's long balanced big industry with small-town charm. Roughly 46,000 people call it home, many connected to the sprawling Lockheed Martin Space campus that anchors a local economy built on aerospace and defense, supported by healthcare, government, and education employers like Littleton Public Schools and Arapahoe Community College. Plenty of residents also commute into Denver's tech and professional services scene, making Littleton a comfortable landing spot between city ambition and quieter streets.\n\nDowntown Littleton still sets the tone, its historic storefronts filled with independent shops and restaurants that draw both locals and visitors. Out toward neighborhoods like Ken Caryl and Columbine, the pace softens into front-range foothill views, parks, and the kind of steady, community-minded living that keeps people here for good.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      29.3,
+      25.9,
+      21.2,
+      10.4,
+      2.3,
+      0.2,
+      0,
+      0,
+      0.4,
+      7.7,
+      20.6,
+      29.1
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "heavy_rain_days_monthly": [
+      0,
+      0,
+      0.1,
+      0.3,
+      0.6,
+      0.3,
+      0.4,
+      0.3,
+      0.1,
+      0.1,
+      0,
+      0
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "homes_by_decade": {
+      "Before 1960": 20.2,
+      "1960-1979": 26.7,
+      "1980-1999": 32.1,
+      "2000-2009": 11.8,
+      "2010 or later": 9.2
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Littleton city (21,506 housing units)",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      0.5,
+      6.6,
+      14.7,
+      8.9,
+      2.3,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "rainfall_monthly": [
+      0.48,
+      0.67,
+      1.19,
+      2.07,
+      2.73,
+      1.87,
+      2.05,
+      1.85,
+      1.26,
+      1.04,
+      0.74,
+      0.61
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "frost_free_days": 160,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "neighborhoods_source": "verified",
+    "wet_days_monthly": [
+      2.3,
+      2,
+      2.8,
+      4.4,
+      6.1,
+      4.2,
+      4.6,
+      3.9,
+      3.3,
+      2.9,
+      1.9,
+      1.7
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "noaa_station": "USC00055402",
+    "noaa_station_miles": 2.7,
+    "noaa_fetched_at": "2026-10-04",
+    "county_fips": "08005",
+    "county_name": "Arapahoe County",
+    "freeze_last_spring": "05/02",
+    "freeze_first_fall": "10/11",
+    "growing_degree_days": 2772.3,
+    "nights_below_50": 264.1,
+    "figures_fetched_at": "2026-10-04",
+    "acs_fetched_at": "2026-10-04"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Raccoon removal is a frequent need across Littleton, particularly in older homes near Ken Caryl and Columbine where these animals commonly enter attics and chimneys seeking shelter and nesting sites. Wildlife Removal Connect links Littleton property owners with local independent wildlife removal providers who handle raccoon exclusion and removal safely and humanely. Getting a local provider matched quickly means stopping damage before it spreads and regaining peace of mind about your home's security.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Raccoon Removal provider serving a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/wildlife-control-site/uploads/media/raccoon-removal.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "img_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:05:54.059314Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "1b4e750a3b128a52",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/wildlife-control-site/uploads/media/raccoon-removal.webp",
+      "it_alt": "{business} provider handling raccoon removal in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Raccoon Removal Services for Littleton Homeowners",
+      "text": "<p>Raccoons are a persistent concern for homeowners throughout Littleton, particularly in older neighborhoods like Ken Caryl and Columbine where mature trees and established structures create ideal entry points. These intelligent animals frequently target attics and chimneys, seeking shelter and nesting space, especially during cooler months. Once inside, raccoons can cause significant damage to insulation, wiring, and structural materials, and their presence often signals the need for prompt professional removal. The combination of Littleton's proximity to natural habitats and the appeal of residential areas makes raccoon removal a common need for property owners looking to protect their homes and families.</p><p>Wildlife Removal Connect simplifies the process of finding a local raccoon removal provider in Littleton by connecting you directly with independent professionals who understand the challenges specific to your area. Rather than navigating the search alone, you receive referrals to providers ready to assess your situation, humanely remove raccoons, and address entry points to prevent future intrusions. The focus is on thorough, lasting solutions—not just immediate removal, but the follow-up work that keeps raccoons from returning to your property. If you're dealing with raccoon activity, reaching out to connect with a local provider is a straightforward first step toward reclaiming your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:05:57.796925Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "ab0f58f232b6f2bc",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_2",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Choose Wildlife Removal Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Raccoon Removal",
+          "text": "<p>Wildlife Removal Connect links Littleton property owners directly to independent local providers who respond quickly to raccoon problems. Fast response means less time for damage to worsen inside your home.</p>"
+        },
+        {
+          "heading": "Thorough Raccoon Removal & Exclusion",
+          "text": "<p>Connected providers handle complete raccoon removal—trapping, removal, and sealing entry points to prevent return. Comprehensive approach stops the problem at the source, not just temporarily.</p>"
+        },
+        {
+          "heading": "Raccoon Removal You Can Trust",
+          "text": "<p>Wildlife Removal Connect makes it simple to find independent raccoon removal providers in your area. Direct connection means you work with someone local who understands Littleton properties and stands behind their work.</p>"
+        },
+        {
+          "heading": "Protection for Older Littleton Homes",
+          "text": "<p>Raccoons commonly enter attics and chimneys in established neighborhoods like Ken Caryl and Columbine. Wildlife Removal Connect connects you with providers experienced in securing these vulnerable entry points on older homes.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:01.118036Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b53de59bdc67940c",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Raccoon Removal Process Works",
+      "steps_items": [
+        {
+          "heading": "Schedule Your Raccoon Removal Visit",
+          "text": "Contact Wildlife Removal Connect to describe your raccoon problem—whether you've heard noises in your attic, seen entry points, or spotted raccoons on your property. We'll connect you with a local raccoon removal provider in Littleton who can schedule an assessment at your convenience."
+        },
+        {
+          "heading": "Inspect and Identify Raccoon Entry Points",
+          "text": "The local provider will inspect your home for signs of raccoon activity, including entry holes, droppings, and damage to roofing or siding. In Littleton's older homes, raccoons commonly access attics and chimneys; a thorough inspection pinpoints exactly where raccoons are entering so removal can be targeted and effective."
+        },
+        {
+          "heading": "Remove Raccoons and Seal Entry Routes",
+          "text": "Once entry points are identified, the provider will humanely remove raccoons from your property and seal all openings to prevent their return. Follow-up monitoring ensures raccoon activity has stopped and your home is fully protected."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:04.250984Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "957dc058f933acbc",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Dealing with raccoons in {city}? Get fast help from a local provider.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/wildlife-control-site/uploads/media/raccoon-removal.webp",
+      "it_alt": "Raccoon Removal in {city_state}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "it_caption": "{chart_group_moisture_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "id": "ai_block_3",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Raccoon Removal Across Littleton's Neighborhoods",
+      "text": "<p>Raccoon removal in Littleton requires different approaches depending on where a property sits within the area. Older, established neighborhoods like Ken Caryl and Columbine tend to have mature trees and aging home construction—features that create ideal entry points for raccoons seeking attic and chimney access. These homes' roof lines, soffit gaps, and weathered exterior seals are common raccoon entry routes, making removal and exclusion work a frequent need in these areas.</p><p>Newer subdivisions and developments across Littleton present a different profile. While more recently built homes typically have tighter construction standards, raccoons still target chimneys, roof vents, and foundation areas when denning season arrives. The density and layout of your neighborhood—whether mature trees surround your property or whether homes sit closer together—affects how raccoons move through the area and which entry points on your structure become vulnerable. Local wildlife removal providers understand these neighborhood-by-neighborhood differences and can assess your specific property's risk factors to recommend the right removal and prevention strategy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:07.939310Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "60db3b6131a55b25",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_4",
+      "skin": "light",
+      "steps_heading": "Raccoon Removal Across Littleton's Seasons",
+      "steps_items": [
+        {
+          "heading": "Spring: Nesting and Entry Points",
+          "text": "<p>Spring is when raccoons emerge from winter denning and actively seek shelter in attics and chimneys to raise litters. Wildlife Removal Connect links Littleton homeowners to local providers who can identify and seal entry points before breeding season peaks, reducing the risk of a full family inside your home.</p>"
+        },
+        {
+          "heading": "Summer: Activity and Damage",
+          "text": "<p>Summer heat drives raccoon activity into nighttime hours, making nocturnal damage—overturned trash, torn soffits, disturbed insulation—more noticeable. Local providers connected through Wildlife Removal Connect can assess damage and remove active raccoons humanely before fall denning pressure returns.</p>"
+        },
+        {
+          "heading": "Fall: Preparation and Prevention",
+          "text": "<p>As temperatures drop in fall, raccoons intensify their search for warm winter shelters, making attics and crawlspaces near porches in older homes around Ken Caryl and Columbine particularly attractive targets. Wildlife Removal Connect helps homeowners connect with local providers who perform exclusion work and removal before animals settle in for the season.</p>"
+        },
+        {
+          "heading": "Winter: Denning and Removal",
+          "text": "<p>Winter cold concentrates raccoon activity indoors, where they den in attics and wall voids to conserve warmth—making winter the peak season for removal calls in Littleton. Local providers accessible through Wildlife Removal Connect can safely remove denned raccoons and implement exclusion to prevent re-entry when activity resumes in spring.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:12.551468Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "cd607d4386ed6ac0",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does the raccoon removal process involve in Littleton?",
+          "answer": "<p>Raccoon removal typically starts with an inspection to locate entry points and nesting areas, often in attics or chimneys of older homes. The local provider will humanely remove the raccoons and seal entry points to prevent re-entry. After removal, they may recommend cleanup and sanitation of affected areas. Each situation is unique, so the provider will explain the specific approach for your property.</p>"
+        },
+        {
+          "question": "How quickly can Wildlife Removal Connect connect me with a Littleton raccoon removal provider?",
+          "answer": "<p>Wildlife Removal Connect matches you with independent local providers in the Littleton area who can respond to raccoon problems. Since providers operate independently, response times vary. Contact the service to describe your situation, and they'll connect you with available providers in your area who can discuss timing and next steps.</p>"
+        },
+        {
+          "question": "What factors affect the cost of raccoon removal in Littleton, Colorado?",
+          "answer": "<p>Raccoon removal pricing depends on factors like the number of animals, location of entry points, extent of damage, and whether exclusion work is needed. Homes in areas like Ken Caryl or Columbine with older structures may have more complex removal needs. The independent provider you're connected with will assess your situation and discuss cost details directly with you.</p>"
+        },
+        {
+          "question": "What should I do to prepare before raccoon removal service arrives?",
+          "answer": "<p>Before the provider arrives, secure any loose items in affected areas and keep pets away from the work zone for safety. Document entry points and damage if possible. The provider may ask you to clear access to attics or other areas where raccoons are present. They'll give you specific preparation instructions when you schedule the appointment.</p>"
+        },
+        {
+          "question": "How can I keep raccoons from returning to my Littleton home?",
+          "answer": "<p>After removal, exclusion work seals entry points to prevent re-entry. Remove outdoor food sources like unsecured trash cans, fallen fruit, and pet food. Trim tree branches near your roof and secure chimney caps. The raccoon removal provider can advise on additional prevention measures specific to your home's layout and surroundings.</p>"
+        },
+        {
+          "question": "When is raccoon activity highest in Littleton during the year?",
+          "answer": "<p>Raccoon activity typically increases in fall and winter as the animals seek warm shelter indoors. Older homes near Columbine and similar neighborhoods may be especially attractive to raccoons looking for den sites. If you notice signs of raccoon entry, contacting a removal provider promptly prevents larger infestations during the colder months.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:19.799410Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "214d417c72c7b0ea",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 3,
+      "rl_items": [
+        {
+          "url": "/squirrel-removal-{city_slug}",
+          "text": "squirrel removal"
+        },
+        {
+          "url": "/wildlife-exclusion-attic-repair-{city_slug}",
+          "text": "wildlife exclusion & attic damage repair"
+        },
+        {
+          "url": "/wildlife-removal-{city_slug}",
+          "text": "wildlife removal"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Wildlife Removal Provider",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with raccoons in {city}? Get fast help from a local provider.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
+    }
+  ],
+  "seo": {
+    "seo_title": "Raccoon Removal in {city_state} | {business_short}",
+    "canonical_url": "https://p.q111.xyz/raccoon-removal-littleton-co/",
+    "meta_description": "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}.",
+    "meta_keywords": "raccoon removal Littleton CO",
+    "og_title": "Raccoon Removal in {city_state} | {business_short}",
+    "og_description": "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}.",
+    "og_image": "",
+    "service_name": "Raccoon Removal",
+    "service_type": "Raccoon Removal",
+    "service_area": "{city}, {SS}",
+    "service_description": "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Raccoon Removal in Littleton, CO\",\n            \"serviceType\": \"Raccoon Removal\",\n            \"description\": \"Raccoon removal connects Littleton, CO homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call 720-201-5555.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Wildlife Removal Connect\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "primary_keyword": "Raccoon Removal",
+    "secondary_keywords": "raccoon trapping, raccoon control, raccoon in attic removal",
+    "meta_description_pool": [
+      "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Raccoon removal connects {city_state} homeowners with an independent local provider for safe, humane raccoon removal from attics, chimneys, and yards. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T03:04:30+00:00",
+  "template_version": "c23a18771ed24c19e35c9f76946de712"
+}

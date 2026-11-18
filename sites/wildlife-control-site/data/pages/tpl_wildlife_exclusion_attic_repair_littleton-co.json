@@ -1,0 +1,546 @@
+{
+  "template_id": "tpl_wildlife_exclusion_attic_repair",
+  "city_id": "littleton-co",
+  "slug": "wildlife-exclusion-attic-repair-littleton-co",
+  "title": "Wildlife Exclusion & Attic Damage Repair in {city_state} | {business_short}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "39.613321",
+    "lng": "-105.016649",
+    "tags": [
+      "proof-city"
+    ],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
+    ],
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common nuisance wildlife issues involve raccoons and squirrels getting into attics and chimneys, especially in older homes near Ken Caryl and Columbine, along with occasional skunk and opossum activity near crawlspaces and porches.",
+    "city_spotlight": "Just south of Denver, Littleton, CO carries the easy confidence of a place that's long balanced big industry with small-town charm. Roughly 46,000 people call it home, many connected to the sprawling Lockheed Martin Space campus that anchors a local economy built on aerospace and defense, supported by healthcare, government, and education employers like Littleton Public Schools and Arapahoe Community College. Plenty of residents also commute into Denver's tech and professional services scene, making Littleton a comfortable landing spot between city ambition and quieter streets.\n\nDowntown Littleton still sets the tone, its historic storefronts filled with independent shops and restaurants that draw both locals and visitors. Out toward neighborhoods like Ken Caryl and Columbine, the pace softens into front-range foothill views, parks, and the kind of steady, community-minded living that keeps people here for good.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      29.3,
+      25.9,
+      21.2,
+      10.4,
+      2.3,
+      0.2,
+      0,
+      0,
+      0.4,
+      7.7,
+      20.6,
+      29.1
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "heavy_rain_days_monthly": [
+      0,
+      0,
+      0.1,
+      0.3,
+      0.6,
+      0.3,
+      0.4,
+      0.3,
+      0.1,
+      0.1,
+      0,
+      0
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "homes_by_decade": {
+      "Before 1960": 20.2,
+      "1960-1979": 26.7,
+      "1980-1999": 32.1,
+      "2000-2009": 11.8,
+      "2010 or later": 9.2
+    },
+    "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Littleton city (21,506 housing units)",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      0.5,
+      6.6,
+      14.7,
+      8.9,
+      2.3,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "rainfall_monthly": [
+      0.48,
+      0.67,
+      1.19,
+      2.07,
+      2.73,
+      1.87,
+      2.05,
+      1.85,
+      1.26,
+      1.04,
+      0.74,
+      0.61
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "frost_free_days": 160,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "neighborhoods_source": "verified",
+    "wet_days_monthly": [
+      2.3,
+      2,
+      2.8,
+      4.4,
+      6.1,
+      4.2,
+      4.6,
+      3.9,
+      3.3,
+      2.9,
+      1.9,
+      1.7
+    ],
+    "wet_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+    "noaa_station": "USC00055402",
+    "noaa_station_miles": 2.7,
+    "noaa_fetched_at": "2026-10-04",
+    "county_fips": "08005",
+    "county_name": "Arapahoe County",
+    "freeze_last_spring": "05/02",
+    "freeze_first_fall": "10/11",
+    "growing_degree_days": 2772.3,
+    "nights_below_50": 264.1,
+    "figures_fetched_at": "2026-10-04",
+    "acs_fetched_at": "2026-10-04"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Raccoons and squirrels frequently enter attics and chimneys in Littleton's older homes, particularly in areas like Ken Caryl and Columbine, while skunks and opossums can damage crawlspaces and porches—damage that grows costly if left unaddressed. Wildlife Exclusion & Attic Damage Repair seals entry points and restores structural integrity after animal intrusion, preventing future access and protecting your home's interior. Wildlife Removal Connect matches you with independent local providers who handle both exclusion and repair work, so you can address the full scope of the problem in one process.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Wildlife Exclusion & Attic Damage Repair provider serving a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/wildlife-control-site/uploads/media/wildlife-exclusion-attic-repair.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "img_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "id": "hero_split_1",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:05:53.975057Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b5e8613b37b9bd72",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": "@safe_trust_badges",
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/wildlife-control-site/uploads/media/wildlife-exclusion-attic-repair.webp",
+      "it_alt": "{business} provider handling wildlife exclusion removal in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_1",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Wildlife Exclusion & Attic Damage Repair for Littleton Homes",
+      "text": "<p>Homeowners throughout Littleton face a persistent challenge: raccoons and squirrels routinely find their way into attics and chimneys, particularly in the older homes found near Ken Caryl and Columbine. Once inside, these animals cause significant structural damage—torn insulation, chewed wiring, stained drywall, and compromised framing that can spread and worsen quickly if left unaddressed. Skunks and opossums also create problems around crawlspaces and porches, leaving behind odor, debris, and additional repair needs. Without prompt exclusion work to seal entry points and repair the damage these intrusions cause, homeowners face mounting costs and ongoing re-infestation cycles that become harder to break.</p><p>Wildlife Removal Connect matches Littleton property owners with independent local providers who handle both sides of the problem: removing the animals humanely and then systematically sealing entry points to prevent return. This dual approach—exclusion paired with damage restoration—stops the cycle rather than simply addressing one season's problem. The providers in our network assess attic and structure integrity, identify all accessible entry routes, perform repairs to insulation and structural elements, and implement lasting barriers. Rather than a temporary fix, comprehensive wildlife exclusion combined with attic damage repair gives homeowners lasting peace of mind and protects their investment for seasons to come.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:05:58.384817Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "07810cdb3c42c34b",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_2",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Choose Wildlife Removal Connect",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Exclusion Response",
+          "text": "<p>Wildlife Removal Connect links Littleton property owners directly with independent local providers who understand attic exclusion urgently. Same-day assessments and rapid repair scheduling mean damaged entry points close before wildlife returns.</p>"
+        },
+        {
+          "heading": "Thorough Attic Damage Assessment",
+          "text": "<p>Exclusion work requires identifying every entry point and structural damage. Connected providers inspect insulation, wiring, framing, and droppings to design complete sealing and repair solutions tailored to your home.</p>"
+        },
+        {
+          "heading": "Lasting Exclusion & Repair Guarantees",
+          "text": "<p>Quality wildlife exclusion and attic damage repair depend on workmanship. Independent providers connected through the service stand behind sealing and restoration work, giving homeowners confidence in long-term protection.</p>"
+        },
+        {
+          "heading": "Attic Protection for Older Littleton Homes",
+          "text": "<p>Raccoons and squirrels frequently target attics in established neighborhoods like Ken Caryl and Columbine, where older home construction offers easy roof and soffit access. Proper exclusion and attic repair close these vulnerabilities permanently.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:02.216623Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "50ea6ea299754ba0",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Wildlife Exclusion & Attic Damage Repair Process Works",
+      "steps_items": [
+        {
+          "heading": "Schedule Your Wildlife Exclusion & Attic Damage Repair Visit",
+          "text": "Contact Wildlife Removal Connect to describe wildlife activity in your Littleton home—whether raccoons, squirrels, or other animals have entered your attic or chimney. We'll connect you with a local independent provider who can schedule a time to assess the entry points and damage."
+        },
+        {
+          "heading": "Inspect Entry Points & Attic Damage",
+          "text": "The local provider will examine your attic, roof line, and chimney to identify how animals gained access and document structural damage. This inspection pinpoints exactly where wildlife exclusion work and attic repairs are needed to seal entry routes and restore your home."
+        },
+        {
+          "heading": "Complete Exclusion & Damage Restoration",
+          "text": "The provider will perform humane wildlife exclusion by sealing entry points and repairing attic damage caused by animal activity. Follow-up visits ensure exclusion barriers are holding and your attic is fully restored."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "id": "steps_1",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:05.147771Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "d6b32997841890a9",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Dealing with exclusion services in {city}? Get fast help from a local provider.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/wildlife-control-site/uploads/media/wildlife-exclusion-attic-repair.webp",
+      "it_alt": "Wildlife Exclusion & Attic Damage Repair in {city_state}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "it_caption": "{chart_group_moisture_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "id": "ai_block_3",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Wildlife Exclusion & Attic Damage Repair Across Littleton",
+      "text": "<p>Littleton's mix of established neighborhoods and newer developments creates distinct exclusion challenges. Older homes, particularly in areas like Ken Caryl and Columbine, feature mature trees and aging construction—conditions that attract raccoons and squirrels seeking entry points through deteriorated fascia, vents, and roof gaps. These properties often need both removal and comprehensive exclusion work to seal vulnerabilities that decades of weather exposure have created. Meanwhile, the gaps around foundation vents, chimneys, and porches across the community provide entry routes for skunks and opossums, requiring targeted exclusion paired with damage repair to prevent repeated intrusion.</p><p>Attic damage in Littleton homes ranges from insulation contamination and structural gnawing to soiled wiring and compromised ventilation—damage that compounds quickly once wildlife establishes access. Because wildlife removal alone doesn't prevent return visits, exclusion work must address both the immediate animal problem and the underlying construction gaps. Local wildlife removal providers connect through Wildlife Removal Connect can assess whether damage requires insulation replacement, vent covers, one-way door systems, or sealing of entry points, ensuring your attic returns to full function and remains secure against future intrusion.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:09.119059Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "b8c2e82811f83812",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "id": "ai_block_4",
+      "skin": "light",
+      "steps_heading": "Seasonal Wildlife Exclusion & Attic Damage Repair in Littleton",
+      "steps_items": [
+        {
+          "heading": "Spring: Activity and Entry Points",
+          "text": "As temperatures warm, wildlife becomes more active and visible around homes. Spring is the ideal time to inspect attics and repair damage from winter denning before animals breed. Wildlife Removal Connect links Littleton homeowners with local providers who assess entry points, seal gaps, and restore insulation and structural damage caused by raccoons and squirrels that nested over winter."
+        },
+        {
+          "heading": "Summer: Exclusion and Prevention",
+          "text": "Summer heat makes attic exclusion work more urgent as animals seek cool shelter and breeding season peaks. This season is optimal for sealing entry holes, reinforcing vents, and repairing soffit damage before fall denning pressure increases. Wildlife Removal Connect helps property owners find local providers who complete exclusion work and address attic damage while environmental conditions are favorable for repairs."
+        },
+        {
+          "heading": "Fall: Preparation and Repair",
+          "text": "As temperatures drop, wildlife intensifies efforts to find warm denning sites, making fall the busiest season for attic entry and damage. Exclusion work becomes critical to prevent winter occupation. Wildlife Removal Connect connects Littleton homeowners—especially those in older neighborhoods like Ken Caryl and Columbine—with local providers who seal entry points, repair damage, and fortify attics before animals establish winter dens."
+        },
+        {
+          "heading": "Winter: Damage Assessment",
+          "text": "Winter cold drives wildlife into attics and crawlspaces, compounding structural damage over months. Once animals settle in, exclusion becomes difficult until spring. Winter is an ideal time to plan repairs and schedule spring exclusion work. Wildlife Removal Connect helps homeowners connect with local providers to assess winter damage, plan remediation strategies, and prepare for humane removal and exclusion when conditions permit."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:14.709488Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "af4033b84b0117c3",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does Wildlife Exclusion & Attic Damage Repair in Littleton actually involve?",
+          "answer": "<p>Wildlife exclusion involves sealing entry points where raccoons, squirrels, and other animals enter your attic or home, then repairing structural damage they've caused—chewed wiring, soiled insulation, damaged wood, and contaminated areas. The process includes identifying all openings, humanely removing any remaining wildlife, exclusion work, cleanup, and restoration to restore your attic's integrity and safety.</p>"
+        },
+        {
+          "question": "How quickly can Wildlife Removal Connect connect me with a Littleton provider for attic damage repair?",
+          "answer": "<p>Wildlife Removal Connect matches you with independent local providers in the Littleton area who can typically respond to attic exclusion and damage repair inquiries within a short timeframe. Contact the service to discuss your situation, and you'll be connected to a local provider who can assess the work and schedule your project promptly.</p>"
+        },
+        {
+          "question": "What factors affect the cost of attic wildlife exclusion and damage repair in Littleton?",
+          "answer": "<p>Pricing depends on the extent of entry points, the amount of attic damage present, insulation replacement needs, and cleanup required. Homes in older neighborhoods may face higher costs if structural damage is extensive. The independent providers you're connected to will assess your specific situation and discuss pricing during an inspection.</p>"
+        },
+        {
+          "question": "What should I expect during a wildlife exclusion and attic damage repair appointment?",
+          "answer": "<p>The provider will inspect your attic to identify entry points, assess damage to insulation and structure, and check for active animal presence. They'll explain the exclusion strategy, damage repair scope, and timeline. You may be asked to vacate during the work. The process typically includes sealing, cleanup, decontamination, and restoration of damaged areas.</p>"
+        },
+        {
+          "question": "How do I keep raccoons and squirrels out of my Littleton attic after repairs?",
+          "answer": "<p>After exclusion work, maintain your home by trimming tree branches away from your roof, keeping gutters clean, and inspecting soffits and vents regularly for gaps. Secure chimney caps and ensure screens remain intact. Regular maintenance prevents new entry points from developing and reduces the chance of future intrusions in your attic space.</p>"
+        },
+        {
+          "question": "Is there a best time of year for attic exclusion and damage repair in Littleton?",
+          "answer": "<p>Fall and winter see increased wildlife seeking warm spaces indoors, making attic exclusion especially important before cold months arrive. Spring is also an active period as animals become more mobile. Addressing exclusion and damage repair promptly—whenever you discover signs—prevents further deterioration and reduces the risk of seasonal infestations.</p>"
+        }
+      ],
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-18T03:06:22.125726Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "beae7014f35af287",
+      "_ai_locked": true
+    },
+    {
+      "type": "related_links",
+      "rl_heading": "Related Services",
+      "rl_heading_pool": [
+        "Related Services",
+        "You Might Also Need",
+        "More Ways We Can Help"
+      ],
+      "rl_max": 3,
+      "rl_items": [
+        {
+          "url": "/raccoon-removal-{city_slug}",
+          "text": "raccoon removal"
+        },
+        {
+          "url": "/squirrel-removal-{city_slug}",
+          "text": "squirrel removal"
+        },
+        {
+          "url": "/wildlife-removal-{city_slug}",
+          "text": "wildlife removal"
+        }
+      ],
+      "id": "related_links_1"
+    },
+    {
+      "type": "cards",
+      "cards_label": "Homeowner Safety Toolkit",
+      "cards_heading": "Verify Your {city_state} Wildlife Removal Provider",
+      "cards_heading_pool": [
+        "Verify Your {city_state} Wildlife Removal Provider",
+        "Confirm Who You're Hiring in {city_state}",
+        "Before You Hire in {city_state}, Check This"
+      ],
+      "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+      "cards_cols": 3,
+      "cards_centered": true,
+      "cards_accent": "accent",
+      "cards_items": "@safety_toolkit_default",
+      "anchor": "safety-toolkit",
+      "id": "cards_safety_toolkit"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with animal entry points in {city}? Get fast help from a local provider.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_map_heading_pool": [
+        "Areas We Serve in {city}, {state}",
+        "Our {city}, {state} Service Area",
+        "Where We Cover Near {city}, {state}"
+      ],
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_heading_pool": [
+        "{city_state} Information",
+        "About {city_state}",
+        "{city_state} at a Glance"
+      ],
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
+    }
+  ],
+  "seo": {
+    "seo_title": "Wildlife Exclusion & Attic Damage Repair in {city_state} | {business_short}",
+    "canonical_url": "https://p.q111.xyz/wildlife-exclusion-attic-repair-littleton-co/",
+    "meta_description": "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}.",
+    "meta_keywords": "wildlife exclusion attic repair Littleton CO",
+    "og_title": "Wildlife Exclusion & Attic Damage Repair in {city_state} | {business_short}",
+    "og_description": "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}.",
+    "og_image": "",
+    "service_name": "Wildlife Exclusion & Attic Damage Repair",
+    "service_type": "Wildlife Exclusion & Attic Damage Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wildlife Exclusion & Attic Damage Repair in Littleton, CO\",\n            \"serviceType\": \"Wildlife Exclusion & Attic Damage Repair\",\n            \"description\": \"Wildlife exclusion and attic repair connects Littleton, CO homeowners with an independent local provider to seal entry points and repair animal damage. Call 720-201-5555.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Wildlife Removal Connect\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+    "primary_keyword": "Wildlife Exclusion & Attic Damage Repair",
+    "secondary_keywords": "wildlife exclusion trapping, wildlife exclusion control, wildlife exclusion in attic removal",
+    "meta_description_pool": [
+      "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Wildlife exclusion and attic repair connects {city_state} homeowners with an independent local provider to seal entry points and repair animal damage. Call {phone}."
+    ]
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-18T03:04:30+00:00",
+  "template_version": "94e05cc08cf740a1f20b23be6bec0962"
+}
