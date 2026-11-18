@@ -141,6 +141,22 @@ define('LPC_DELIVERY_SYNC_KEY', BASE_DIR . '/.lpc_delivery_sync_key');
 // plugin actually checks in against once published.
 define('LPC_DELIVERY_PUBLIC_BASE', 'http://' . LPC_DELIVERY_REMOTE_HOST . ':8098/api.php');
 
+// The LPC demo-sites box — the 12 rehearsal WordPress installs ("Demo Sites"
+// admin tab), a different box from the delivery server above and entirely
+// separate from the 20-box niche fleet. Reuses admin/infra/lib/hestia.php's
+// generic HestiaCP client (same module the fleet console uses) for domain
+// create/delete/restart over Hestia's own HTTP API — no SSH needed for that.
+// A separate, narrowly-scoped SSH key is used ONLY for the WordPress-specific
+// steps the API can't do (cloning the golden WP image into a new vhost,
+// running wp-cli, restarting php-fpm) — same "dedicated key per purpose"
+// discipline as LPC_DELIVERY_SYNC_KEY above, just for this one box.
+define('LPC_DEMO_BOX_HOST', '2.24.196.58');
+define('LPC_DEMO_BOX_HESTIA_USER', 'lpcadmin');
+define('LPC_DEMO_BOX_HESTIA_KEY_FILE', BASE_DIR . '/.lpc_demo_box_api_key.json');
+define('LPC_DEMO_BOX_SITE_USER', 'demo'); // the one shared Hestia hosting user all 12 sites are filed under
+define('LPC_DEMO_BOX_SSH_KEY', BASE_DIR . '/.lpc_demo_box_ssh_key');
+define('LPC_DEMO_BOX_SSH_USER', 'root'); // provisioning-only key, this box only — see comment above
+
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all
 // of them. They are per-site now (STARTERS_FILE, defined per branch above, next to

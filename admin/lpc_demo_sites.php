@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/lpc_demo_box.php';
 
 if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
@@ -28,36 +29,12 @@ if (!empty($_GET['msg'])) {
     }
 }
 
-const LPC_DEMO_BASE = '/opt/landing-page-clients';
 const LPC_DEMO_SHARED_LOGIN = ['user' => 'admin', 'pass' => 'demosite2026'];
-// This box's own public IP/SSH login — fills in the per-site tunnel command
-// so it's copy-paste ready instead of a template with <user>/<host> to fill
-// in by hand. Edit here if the server or login ever changes.
-const LPC_DEMO_SSH_USER = 'root';
-const LPC_DEMO_SSH_HOST = '187.127.254.206';
 
-// Discover every demo-* site on disk — the filesystem IS the source of
-// truth (same reasoning as niche_library_list() elsewhere in this codebase:
-// a flat-file registry can't drift from a separate index, because there
-// isn't one).
-$sites = [];
-foreach (glob(LPC_DEMO_BASE . '/demo-*', GLOB_ONLYDIR) ?: [] as $dir) {
-    $niche = substr(basename($dir), strlen('demo-'));
-    $port  = trim((string) @file_get_contents($dir . '/.port'));
-    $theme = trim((string) @file_get_contents($dir . '/.theme')) ?: '—';
-    $running = false;
-    if ($port !== '') {
-        $conn = @fsockopen('127.0.0.1', (int) $port, $errno, $errstr, 0.3);
-        if ($conn) { $running = true; fclose($conn); }
-    }
-    $apiKeySet = false;
-    $siteUrl = $port !== '' ? "http://127.0.0.1:{$port}" : '';
-    $sites[] = [
-        'niche' => $niche, 'dir' => $dir, 'port' => $port, 'theme' => $theme,
-        'running' => $running, 'url' => $siteUrl,
-    ];
-}
-usort($sites, fn($a, $b) => strcmp($a['niche'], $b['niche']));
+// Every site, live from the box itself (Hestia's domain list + a batched theme
+// check) — the box IS the source of truth, same reasoning the original
+// filesystem-glob version used, just pointed at a different box now.
+$sites = lpc_demo_list_sites();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,60 +72,59 @@ usort($sites, fn($a, $b) => strcmp($a['niche'], $b['niche']));
 
     <h1 style="font-size:1.3rem;">Demo Sites</h1>
     <p style="color:#6b7280;font-size:.85rem;">
-        Local-only WordPress installs standing in for a real agency's "existing customer site" —
-        used to rehearse agency onboarding, plugin pairing, and the full LPC workflow before taking
-        on a real paying agency. Never exposed to the internet — each row below has its own ready-
-        to-copy SSH tunnel command; run it once, then the site's link opens normally in your browser.
+        Real WordPress installs on their own dedicated box (<?= h(LPC_DEMO_BOX_HOST) ?>), standing in
+        for a real agency's "existing customer site" — used to rehearse agency onboarding, plugin
+        pairing, and the full LPC workflow before taking on a real paying agency. Current domains are
+        placeholders (<code>demo-*.q111.xyz</code>) pending real domains per site — until then, add the
+        hosts-file line shown per row to your own machine to view a site in a normal browser.
         Every site shares the same WordPress login —
         <strong>admin / <?= h(LPC_DEMO_SHARED_LOGIN['pass']) ?></strong> — on purpose, so there's
         nothing to look up per site.
     </p>
 
     <?php foreach ($sites as $s): ?>
-        <?php $tunnelCmd = $s['port'] !== '' ? sprintf('ssh -L %s:localhost:%s %s@%s', $s['port'], $s['port'], LPC_DEMO_SSH_USER, LPC_DEMO_SSH_HOST) : ''; ?>
+        <?php $hostsLine = LPC_DEMO_BOX_HOST . ' ' . $s['domain']; ?>
         <div class="lpc-row">
             <div>
-                <strong><?= h(ucwords(str_replace('-', ' ', $s['niche']))) ?></strong>
-                <span class="lpc-status lpc-status-<?= $s['running'] ? 'running' : 'stopped' ?>"><?= $s['running'] ? 'Running' : 'Stopped' ?></span>
+                <strong><?= h($s['domain']) ?></strong>
+                <span class="lpc-status lpc-status-<?= $s['running'] ? 'running' : 'stopped' ?>"><?= $s['running'] ? 'Running' : 'Not responding' ?></span>
                 <div class="meta">
-                    port <?= h($s['port'] ?: '—') ?> &middot; theme: <?= h($s['theme']) ?>
+                    niche: <?= h(ucwords(str_replace('-', ' ', $s['niche']))) ?> &middot; theme: <?= h($s['theme']) ?>
                 </div>
-                <?php if ($tunnelCmd): ?>
                 <div class="meta" style="margin-top:6px;display:flex;align-items:center;gap:6px;">
-                    <code id="tunnel-<?= h($s['niche']) ?>" style="background:#f3f4f6;padding:3px 8px;border-radius:4px;font-size:.78rem;"><?= h($tunnelCmd) ?></code>
-                    <button type="button" class="btn-sm-outline" style="padding:2px 8px;font-size:.75rem;" onclick="lpcCopyTunnel('tunnel-<?= h($s['niche']) ?>', this)">Copy</button>
-                    <span class="meta">then open http://localhost:<?= h($s['port']) ?></span>
+                    <code id="hosts-<?= h(md5($s['domain'])) ?>" style="background:#f3f4f6;padding:3px 8px;border-radius:4px;font-size:.78rem;"><?= h($hostsLine) ?></code>
+                    <button type="button" class="btn-sm-outline" style="padding:2px 8px;font-size:.75rem;" onclick="lpcCopyLine('hosts-<?= h(md5($s['domain'])) ?>', this)">Copy</button>
+                    <span class="meta">add to your hosts file, then open http://<?= h($s['domain']) ?>/</span>
                 </div>
-                <?php endif; ?>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
                 <?php if ($s['running']): ?>
-                <a href="<?= h($s['url']) ?>/wp-admin/" target="_blank" rel="noopener" class="btn-sm-outline">Log In</a>
-                <a href="<?= h($s['url']) ?>/" target="_blank" rel="noopener" class="btn-sm-outline">View Site</a>
+                <a href="http://<?= h($s['domain']) ?>/wp-admin/" target="_blank" rel="noopener" class="btn-sm-outline">Log In</a>
+                <a href="http://<?= h($s['domain']) ?>/" target="_blank" rel="noopener" class="btn-sm-outline">View Site</a>
                 <?php endif; ?>
                 <form method="post" action="lpc_demo_sites_save.php" style="margin:0;">
                     <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                     <input type="hidden" name="action" value="redeploy_plugin">
-                    <input type="hidden" name="niche" value="<?= h($s['niche']) ?>">
+                    <input type="hidden" name="domain" value="<?= h($s['domain']) ?>">
                     <button type="submit" class="btn-sm-outline">Redeploy Plugin</button>
                 </form>
                 <form method="post" action="lpc_demo_sites_save.php" style="margin:0;">
                     <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                     <input type="hidden" name="action" value="clear_cache">
-                    <input type="hidden" name="niche" value="<?= h($s['niche']) ?>">
+                    <input type="hidden" name="domain" value="<?= h($s['domain']) ?>">
                     <button type="submit" class="btn-sm-outline">Clear Cache</button>
                 </form>
                 <form method="post" action="lpc_demo_sites_save.php" style="margin:0;" onsubmit="return confirm('Delete this demo site? This cannot be undone.');">
                     <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                     <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="niche" value="<?= h($s['niche']) ?>">
+                    <input type="hidden" name="domain" value="<?= h($s['domain']) ?>">
                     <button type="submit" class="btn-sm-danger">Delete</button>
                 </form>
             </div>
         </div>
     <?php endforeach; ?>
     <?php if (!$sites): ?>
-        <p style="color:#6b7280;font-size:.85rem;">No demo sites yet — create one below.</p>
+        <p style="color:#6b7280;font-size:.85rem;">No demo sites yet, or the demo box isn't reachable right now.</p>
     <?php endif; ?>
 
     <h3 style="margin-top:28px;">New Demo Site</h3>
@@ -156,11 +132,22 @@ usort($sites, fn($a, $b) => strcmp($a['niche'], $b['niche']));
         <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
         <input type="hidden" name="action" value="create">
         <div class="lpc-form-row">
-            <div class="form-group"><label>Niche slug</label><input type="text" name="niche" required placeholder="e.g. hvac, electrician" pattern="[a-z0-9\-]+"></div>
             <div class="form-group">
-                <label>Theme <span style="font-weight:400;color:#6b7280;">(blank = auto-rotate)</span></label>
+                <label>Domain</label>
+                <input type="text" name="domain" required placeholder="e.g. demo-landscaping.q111.xyz, or a real domain" pattern="[a-z0-9\-\.]+">
+            </div>
+            <div class="form-group">
+                <label>Clone content from</label>
+                <select name="source_niche" required>
+                    <?php foreach ($sites as $s): ?>
+                        <option value="<?= h($s['niche']) ?>"><?= h(ucwords(str_replace('-', ' ', $s['niche']))) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Theme <span style="font-weight:400;color:#6b7280;">(blank = keep cloned theme)</span></label>
                 <select name="theme">
-                    <option value="">Auto-rotate</option>
+                    <option value="">Keep as cloned</option>
                     <option value="astra">Astra</option>
                     <option value="kadence">Kadence</option>
                     <option value="generatepress">GeneratePress</option>
@@ -169,12 +156,17 @@ usort($sites, fn($a, $b) => strcmp($a['niche'], $b['niche']));
                 </select>
             </div>
         </div>
+        <p class="meta" style="margin-top:8px;">
+            New sites are cloned from an existing site's real content (not a blank install) — pick
+            whichever niche is the closest starting point, then edit afterward through the WordPress
+            admin like any other demo site.
+        </p>
         <button type="submit" class="btn-open" style="margin-top:10px;">Create Demo Site</button>
     </form>
 
 </div>
 <script>
-function lpcCopyTunnel(id, btn) {
+function lpcCopyLine(id, btn) {
     var text = document.getElementById(id).textContent;
     navigator.clipboard.writeText(text).then(function () {
         var original = btn.textContent;

@@ -14,10 +14,19 @@ client_agencies_secrets/
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 
-# Dedicated SSH key: www-data (this box) -> lpcdelivery (Box 1), scoped to
+# Dedicated SSH key: www-data (this box) -> lpcdelivery (LPC box), scoped to
 # syncing the delivery data tree only. Real credential, never commit.
 .lpc_delivery_sync_key
 .lpc_delivery_sync_key.pub
+
+# HestiaCP access key for the LPC demo-sites box — real credential, never commit.
+.lpc_demo_box_api_key.json
+
+# Dedicated SSH key: www-data (this box) -> lpcprovision (LPC demo-sites box),
+# scoped to provisioning/managing WordPress content on that box only. Real
+# credential, never commit.
+.lpc_demo_box_ssh_key
+.lpc_demo_box_ssh_key.pub
 
 # FTP credentials — never commit. deploy.json lives at the SITE ROOT (the path
 # the code actually reads, ACTIVE_SITE_DIR/deploy.json); the data/ path below is
