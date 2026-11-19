@@ -28,6 +28,65 @@ if (!empty($_GET['msg'])) {
 }
 
 $sites = wpb_list_sites();
+$profileKeys = array_keys(wpb_profiles());
+
+// Editing an existing site pre-fills the form from its stored registry entry
+// and locks domain+profile (neither can change after creation) instead of
+// showing the full picker.
+$editDomain = isset($_GET['edit']) ? (string) $_GET['edit'] : '';
+$editEntry = $editDomain !== '' ? (wpb_registry()[$editDomain] ?? null) : null;
+$isEdit = $editEntry !== null;
+$editProfileKey = $isEdit ? ($editEntry['profile'] ?? 'local-business') : '';
+
+/** Renders one <input>/<textarea> for a profile field, matching the field's declared type, optionally pre-filled. */
+function wpb_admin_render_field(string $name, array $cfg, string $value = ''): string
+{
+    $label = h($cfg['label'] ?? ucwords(str_replace('_', ' ', $name)));
+    $mark = !empty($cfg['required']) ? ' *' : '';
+    $hint = isset($cfg['hint']) ? ' <span style="font-weight:400;color:#9ca3af;">(' . h($cfg['hint']) . ')</span>' : '';
+    $required = !empty($cfg['required']) ? ' required' : '';
+    $placeholder = isset($cfg['placeholder']) ? ' placeholder="' . h($cfg['placeholder']) . '"' : '';
+    $maxlength = isset($cfg['maxlength']) ? ' maxlength="' . (int) $cfg['maxlength'] . '"' : '';
+    $type = $cfg['type'] ?? 'text';
+
+    if ($type === 'textarea') {
+        $rows = (int) ($cfg['rows'] ?? 3);
+        $input = '<textarea name="' . h($name) . '" rows="' . $rows . '"' . $placeholder . '>' . h($value) . '</textarea>';
+    } elseif ($type === 'color') {
+        $v = h($value !== '' ? $value : ($cfg['default'] ?? '#000000'));
+        $input = '<input type="color" name="' . h($name) . '" value="' . $v . '">';
+    } else {
+        $input = '<input type="text" name="' . h($name) . '"' . $required . $placeholder . $maxlength . ' value="' . h($value) . '">';
+    }
+
+    return '<div class="form-group wpb-form-row"><label>' . $label . $mark . $hint . '</label>' . $input . '</div>';
+}
+
+/** A file input can never be pre-filled (browsers block it) — on edit, show what's already on file and make the upload optional, since leaving it blank keeps the current photo. */
+function wpb_admin_render_photo_field(array $cfg, string $currentUrl = '', bool $isEdit = false): string
+{
+    $label = h($cfg['label'] ?? 'Photo');
+    $required = (!$isEdit && !empty($cfg['required_ui'])) ? ' required' : '';
+    $mark = $required ? ' *' : '';
+    $hintText = $isEdit ? 'leave blank to keep the current photo' : ($cfg['hint'] ?? '');
+    $hint = $hintText ? ' <span style="font-weight:400;color:#9ca3af;">(' . h($hintText) . ')</span>' : '';
+    $field = h($cfg['field']);
+    $current = $currentUrl !== '' ? '<div class="meta" style="margin-bottom:4px;"><a href="' . h($currentUrl) . '" target="_blank" rel="noopener">Current photo &rarr;</a></div>' : '';
+    return '<div class="form-group wpb-form-row"><label>' . $label . $mark . $hint . '</label>' . $current . '<input type="file" name="' . $field . '" accept="image/*"' . $required . '></div>';
+}
+
+/** Renders one field or photo-field by key, looking it up in whichever bucket of the profile it belongs to. */
+function wpb_admin_render_tab_field(array $profile, string $key, array $values = [], bool $isEdit = false): string
+{
+    if (isset($profile['fields'][$key])) {
+        return wpb_admin_render_field($key, $profile['fields'][$key], (string) ($values[$key] ?? ''));
+    }
+    if (isset($profile['photos'][$key])) {
+        $currentUrl = $values[$key . '_photo_url'] ?? '';
+        return wpb_admin_render_photo_field($profile['photos'][$key], (string) $currentUrl, $isEdit);
+    }
+    return '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,16 +104,20 @@ $sites = wpb_list_sites();
 .wpb-tab-btn.active { color:#1e293b; border-bottom-color:#2563eb; }
 .wpb-tab-panel { display:none; }
 .wpb-tab-panel.active { display:block; }
-.wpb-form-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
-.wpb-form-row .form-group { flex:1; min-width:200px; margin:0; }
+.wpb-profile-block { display:none; }
+.wpb-profile-block.active { display:block; }
+.wpb-form-row { margin-bottom:14px; max-width:460px; }
 .wpb-form-row label { font-size:.82rem; font-weight:600; color:#374151; display:block; margin-bottom:4px; }
 .wpb-form-row input, .wpb-form-row textarea { width:100%; padding:8px 10px; border:1px solid #d1d5db; border-radius:6px; font-size:.85rem; font-family:inherit; box-sizing:border-box; }
 .wpb-form-row input[type=color] { padding:2px; height:38px; }
+.wpb-profile-select { font-size:.9rem; font-weight:600; padding:8px 10px; border:1px solid #d1d5db; border-radius:6px; margin-bottom:6px; }
+.wpb-profile-desc { color:#6b7280; font-size:.85rem; margin:0 0 20px; }
 .wpb-row { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:12px 16px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
 .wpb-row .meta { font-size:.8rem; color:#6b7280; }
 .wpb-status { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 8px; border-radius:10px; }
 .wpb-status-running { background:#dcfce7; color:#166534; }
 .wpb-status-stopped { background:#fee2e2; color:#991b1b; }
+.wpb-profile-tag { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 7px; border-radius:8px; background:#e0e7ff; color:#3730a3; }
 </style>
 </head>
 <body class="admin-body">
@@ -69,71 +132,82 @@ $sites = wpb_list_sites();
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
 
-    <h1 style="font-size:1.3rem;">WP Builder</h1>
+    <h1 style="font-size:1.3rem;"><?= $isEdit ? 'Edit ' . h($editDomain) : 'WP Builder' ?></h1>
+    <?php if ($isEdit): ?>
     <p style="color:#6b7280;font-size:.85rem;">
-        Builds a plain, 5-page WordPress site (Home, About, Services, Testimonials, Contact) on the
-        demo box from the fields below — no page-builder plugin, no imported template, just real
-        core-block content with a simple header/footer and basic on-page SEO. Meant as a realistic
-        "existing customer site" for rehearsing the LPC plugin-pairing workflow. Edit the content
-        afterward in that site's own WordPress admin.
+        Editing goes through the same build the site was created with — blank fields keep their
+        current value, and photos only change if you upload a new one.
+        <a href="wp_builder.php">&larr; Back to all sites</a>
     </p>
+    <?php else: ?>
+    <p style="color:#6b7280;font-size:.85rem;">
+        Builds a real WordPress site on the demo box from a recipe ("profile") — pick one below. No
+        page-builder plugin, no imported template, just plain core-block content, so every site stays
+        editable in the normal block editor afterward.
+    </p>
+    <?php endif; ?>
 
     <form method="post" action="wp_builder_save.php" enctype="multipart/form-data" class="card" style="margin-top:20px;">
         <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-        <input type="hidden" name="action" value="create">
+        <input type="hidden" name="action" value="<?= $isEdit ? 'update' : 'create' ?>">
 
         <div class="wpb-form-row">
-            <div class="form-group">
-                <label>Domain</label>
+            <label>Domain</label>
+            <?php if ($isEdit): ?>
+                <input type="text" name="domain" value="<?= h($editDomain) ?>" readonly style="background:#f3f4f6;">
+            <?php else: ?>
                 <input type="text" name="domain" required placeholder="e.g. demo-acme-plumbing.q111.xyz" pattern="[a-z0-9\-\.]+">
-            </div>
+            <?php endif; ?>
         </div>
 
-        <div class="wpb-tabs">
-            <button type="button" class="wpb-tab-btn active" data-tab="info">Business Info</button>
-            <button type="button" class="wpb-tab-btn" data-tab="design">Design</button>
+        <div class="wpb-form-row">
+            <label>Profile</label>
+            <?php if ($isEdit): ?>
+                <input type="hidden" name="profile" value="<?= h($editProfileKey) ?>">
+                <input type="text" value="<?= h(wpb_profiles()[$editProfileKey] ?? $editProfileKey) ?>" disabled style="background:#f3f4f6;">
+            <?php else: ?>
+                <select name="profile" id="wpb-profile-select" class="wpb-profile-select">
+                    <?php foreach (wpb_profiles() as $key => $label): ?>
+                        <option value="<?= h($key) ?>"><?= h($label) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            <?php endif; ?>
         </div>
 
-        <div class="wpb-tab-panel active" data-panel="info">
-            <div class="wpb-form-row">
-                <div class="form-group"><label>Business Name *</label><input type="text" name="business_name" required></div>
-                <div class="form-group"><label>Niche / Industry *</label><input type="text" name="niche" required placeholder="e.g. plumbing"></div>
+        <?php foreach ($profileKeys as $i => $profileKey):
+            if ($isEdit && $profileKey !== $editProfileKey) continue;
+            $profile = wpb_get_profile($profileKey);
+            $values = $isEdit ? $editEntry : [];
+            $showActive = $isEdit || $i === 0;
+        ?>
+        <div class="wpb-profile-block<?= $showActive ? ' active' : '' ?>" data-profile="<?= h($profileKey) ?>">
+            <p class="wpb-profile-desc"><?= h($profile['description'] ?? '') ?></p>
+
+            <?php if (!empty($profile['tabs'])): ?>
+            <div class="wpb-tabs">
+                <?php foreach ($profile['tabs'] as $ti => $tab): ?>
+                    <button type="button" class="wpb-tab-btn<?= $ti === 0 ? ' active' : '' ?>" data-tab="<?= h($profileKey . ':' . $ti) ?>"><?= h($tab['label']) ?></button>
+                <?php endforeach; ?>
             </div>
-            <div class="wpb-form-row">
-                <div class="form-group"><label>Phone *</label><input type="text" name="phone" required></div>
-                <div class="form-group"><label>City *</label><input type="text" name="city" required></div>
-                <div class="form-group"><label>State *</label><input type="text" name="state" required maxlength="2" placeholder="TX"></div>
-            </div>
-            <div class="wpb-form-row">
-                <div class="form-group"><label>Tagline <span style="font-weight:400;color:#9ca3af;">(blank = auto)</span></label><input type="text" name="tagline"></div>
-                <div class="form-group"><label>Email <span style="font-weight:400;color:#9ca3af;">(blank = auto)</span></label><input type="text" name="email"></div>
-            </div>
-            <div class="wpb-form-row">
-                <div class="form-group">
-                    <label>Services <span style="font-weight:400;color:#9ca3af;">(comma-separated, blank = auto from niche)</span></label>
-                    <input type="text" name="services" placeholder="Drain Cleaning, Water Heaters, Gas Lines">
+            <?php foreach ($profile['tabs'] as $ti => $tab): ?>
+                <div class="wpb-tab-panel<?= $ti === 0 ? ' active' : '' ?>" data-panel="<?= h($profileKey . ':' . $ti) ?>">
+                    <?php foreach ($tab['fields'] as $fieldKey): ?>
+                        <?= wpb_admin_render_tab_field($profile, $fieldKey, $values, $isEdit) ?>
+                    <?php endforeach; ?>
                 </div>
-            </div>
-            <div class="wpb-form-row">
-                <div class="form-group">
-                    <label>Testimonials <span style="font-weight:400;color:#9ca3af;">(one per line: Quote | Name | City — blank = sample quotes)</span></label>
-                    <textarea name="testimonials" rows="3" placeholder="Fixed our water heater same day. | Donald Hunter | Downtown Lufkin"></textarea>
-                </div>
-            </div>
+            <?php endforeach; ?>
+            <?php else: ?>
+                <?php foreach (array_keys($profile['fields']) as $fieldKey): ?>
+                    <?= wpb_admin_render_tab_field($profile, $fieldKey, $values, $isEdit) ?>
+                <?php endforeach; ?>
+                <?php foreach (array_keys($profile['photos'] ?? []) as $photoKey): ?>
+                    <?= wpb_admin_render_tab_field($profile, $photoKey, $values, $isEdit) ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
+        <?php endforeach; ?>
 
-        <div class="wpb-tab-panel" data-panel="design">
-            <div class="wpb-form-row">
-                <div class="form-group"><label>Primary Color (footer)</label><input type="color" name="primary_color" value="#1a2b49"></div>
-                <div class="form-group"><label>Accent Color (buttons/links)</label><input type="color" name="accent_color" value="#2563eb"></div>
-            </div>
-            <div class="wpb-form-row">
-                <div class="form-group"><label>Hero / Home Photo *</label><input type="file" name="hero_photo" accept="image/*" required></div>
-                <div class="form-group"><label>About Photo <span style="font-weight:400;color:#9ca3af;">(blank = reuse hero photo)</span></label><input type="file" name="about_photo" accept="image/*"></div>
-            </div>
-        </div>
-
-        <button type="submit" class="btn-open" style="margin-top:14px;">Create Site</button>
+        <button type="submit" class="btn-open" style="margin-top:14px;"><?= $isEdit ? 'Save Changes' : 'Create Site' ?></button>
     </form>
 
     <h3 style="margin-top:32px;">Sites Built With WP Builder</h3>
@@ -142,8 +216,9 @@ $sites = wpb_list_sites();
             <div>
                 <strong><?= h($s['domain']) ?></strong>
                 <span class="wpb-status wpb-status-<?= $s['running'] ? 'running' : 'stopped' ?>"><?= $s['running'] ? 'Running' : 'Not responding' ?></span>
+                <span class="wpb-profile-tag"><?= h(wpb_profiles()[$s['profile'] ?? 'local-business'] ?? ($s['profile'] ?? 'local-business')) ?></span>
                 <div class="meta">
-                    <?= h($s['business_name'] ?? '') ?> &middot; <?= h($s['niche'] ?? '') ?> &middot; <?= h($s['city'] ?? '') ?>, <?= h($s['state'] ?? '') ?>
+                    <?= h($s['business_name'] ?? '') ?> &middot; <?= h($s['niche'] ?? '') ?> &middot; <?= h($s['city'] ?? '') ?><?= !empty($s['state']) ? ', ' . h($s['state']) : '' ?>
                 </div>
                 <?php $hostsLine = LPC_DEMO_BOX_HOST . ' ' . $s['domain']; ?>
                 <div class="meta" style="margin-top:6px;display:flex;align-items:center;gap:6px;">
@@ -153,6 +228,7 @@ $sites = wpb_list_sites();
                 </div>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <a href="wp_builder.php?edit=<?= rawurlencode($s['domain']) ?>" class="btn-sm-outline">Edit</a>
                 <?php if ($s['running']): ?>
                 <a href="wp_builder_preview.php?domain=<?= rawurlencode($s['domain']) ?>&path=/" target="_blank" rel="noopener" class="btn-sm-outline">Preview</a>
                 <a href="http://<?= h($s['domain']) ?>/wp-admin/" target="_blank" rel="noopener" class="btn-sm-outline">Log In</a>
@@ -173,12 +249,24 @@ $sites = wpb_list_sites();
 
 </div>
 <script>
+var profileSelect = document.getElementById('wpb-profile-select');
+function wpbShowProfile(key) {
+    document.querySelectorAll('.wpb-profile-block').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.profile === key);
+    });
+}
+if (profileSelect) {
+    profileSelect.addEventListener('change', function () { wpbShowProfile(this.value); });
+    wpbShowProfile(profileSelect.value);
+}
+
 document.querySelectorAll('.wpb-tab-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
-        document.querySelectorAll('.wpb-tab-btn').forEach(function (b) { b.classList.remove('active'); });
-        document.querySelectorAll('.wpb-tab-panel').forEach(function (p) { p.classList.remove('active'); });
+        var block = btn.closest('.wpb-profile-block');
+        block.querySelectorAll('.wpb-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+        block.querySelectorAll('.wpb-tab-panel').forEach(function (p) { p.classList.remove('active'); });
         btn.classList.add('active');
-        document.querySelector('.wpb-tab-panel[data-panel="' + btn.dataset.tab + '"]').classList.add('active');
+        block.querySelector('.wpb-tab-panel[data-panel="' + btn.dataset.tab + '"]').classList.add('active');
     });
 });
 

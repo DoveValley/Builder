@@ -28,10 +28,30 @@ if ($action === 'create') {
         header('Location: wp_builder.php?msg=error:Invalid+domain');
         exit;
     }
+    $profile = (string) ($_POST['profile'] ?? '');
+    if (!wpb_get_profile($profile)) {
+        header('Location: wp_builder.php?msg=error:Unknown+profile');
+        exit;
+    }
 
     set_time_limit(180);
-    $r = wpb_create_site($domain, $_POST, $_FILES);
+    $r = wpb_create_site($profile, $domain, $_POST, $_FILES);
     header('Location: wp_builder.php?msg=' . ($r['ok'] ? 'success' : 'error') . ':' . rawurlencode($r['message']));
+    exit;
+}
+
+if ($action === 'update') {
+    $domain = strtolower(trim($_POST['domain'] ?? ''));
+    if (!wpb_valid_domain($domain)) {
+        header('Location: wp_builder.php?msg=error:Invalid+domain');
+        exit;
+    }
+
+    set_time_limit(180);
+    $r = wpb_update_site($domain, $_POST, $_FILES);
+    $redirect = $r['ok'] ? 'wp_builder.php' : ('wp_builder.php?edit=' . rawurlencode($domain));
+    $sep = strpos($redirect, '?') !== false ? '&' : '?';
+    header('Location: ' . $redirect . $sep . 'msg=' . ($r['ok'] ? 'success' : 'error') . ':' . rawurlencode($r['message']));
     exit;
 }
 

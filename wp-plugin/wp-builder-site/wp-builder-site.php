@@ -86,8 +86,20 @@ add_action( 'wp_head', function () {
 	<?php
 }, 20 );
 
-/** Simple header: business name + nav to the 5 pages. Works on any theme since it's not a template part. */
+/**
+ * Simple header: business name + nav to the 5 pages. Works on any theme since
+ * it's not a template part. A profile with its own custom header ships a
+ * second mu-plugin file (its "chrome_dir") defining wpb_custom_header() —
+ * when that function exists, it wins and this generic one never runs. This is
+ * the only local-business-specific chrome in this file; every other hook
+ * below (title, meta description, schema, Settings page) is shared by every
+ * profile regardless of which header/footer it uses.
+ */
 add_action( 'wp_body_open', function () {
+	if ( function_exists( 'wpb_custom_header' ) ) {
+		wpb_custom_header();
+		return;
+	}
 	$s = wpb_settings();
 	echo '<header class="wpb-header"><a class="wpb-logo" href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( $s['business_name'] ) . '</a><nav class="wpb-nav">';
 	foreach ( wpb_nav_pages() as $slug => $label ) {
@@ -96,8 +108,12 @@ add_action( 'wp_body_open', function () {
 	echo '</nav></header>';
 } );
 
-/** Simple 4-column footer, same pattern already proven on the restoration demo site. */
+/** Simple 4-column footer, same pattern already proven on the restoration demo site. See the header hook above for how a profile overrides this. */
 add_action( 'wp_footer', function () {
+	if ( function_exists( 'wpb_custom_footer' ) ) {
+		wpb_custom_footer();
+		return;
+	}
 	$s = wpb_settings();
 	$year = get_option( 'wpb_created_year', gmdate( 'Y' ) );
 	?>
@@ -225,7 +241,49 @@ add_filter( 'pre_get_document_title', function ( $title ) {
 	return $title;
 }, 20 );
 
-/** Meta description + LocalBusiness schema — no SEO plugin needed. */
+/**
+ * Builds the site's JSON-LD schema object. Which shape to build is profile
+ * data (the `wpb_schema_type` option, set once at creation time from the
+ * profile's own site_options — see wpb_lb_site_options() for local-business),
+ * not hardcoded here. A future profile just needs a new case, not a new
+ * mechanism: adding e.g. `SoftwareApplication` for a SaaS marketing site
+ * means one more branch below, nothing structural.
+ */
+function wpb_build_schema( array $s ): array {
+	$type = get_option( 'wpb_schema_type', 'LocalBusiness' );
+	switch ( $type ) {
+		case 'SoftwareApplication':
+			return [
+				'@context'      => 'https://schema.org',
+				'@type'         => 'SoftwareApplication',
+				'name'          => $s['business_name'] ?: get_bloginfo( 'name' ),
+				'applicationCategory' => 'BusinessApplication',
+				'url'           => home_url( '/' ),
+			];
+		case 'LocalBusiness':
+		default:
+			return [
+				'@context'  => 'https://schema.org',
+				'@type'     => 'LocalBusiness',
+				'name'      => $s['business_name'],
+				'telephone' => $s['phone'],
+				'email'     => $s['email'],
+				'url'       => home_url( '/' ),
+				'address'   => [
+					'@type'           => 'PostalAddress',
+					'addressLocality' => $s['city'],
+					'addressRegion'   => $s['state'],
+				],
+			];
+	}
+}
+
+/**
+ * Meta description, canonical URL, Open Graph/Twitter tags, and schema — no
+ * SEO plugin needed. Entirely generic (reads whatever title/description was
+ * saved per-page plus a couple of site-wide options) so every profile gets
+ * this for free; nothing here is local-business-specific.
+ */
 add_action( 'wp_head', function () {
 	if ( ! is_singular() ) {
 		return;
@@ -238,18 +296,28 @@ add_action( 'wp_head', function () {
 		echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
 	}
 
-	$schema = [
-		'@context'  => 'https://schema.org',
-		'@type'     => 'LocalBusiness',
-		'name'      => $s['business_name'],
-		'telephone' => $s['phone'],
-		'email'     => $s['email'],
-		'url'       => home_url( '/' ),
-		'address'   => [
-			'@type'           => 'PostalAddress',
-			'addressLocality' => $s['city'],
-			'addressRegion'   => $s['state'],
-		],
-	];
+	// Canonical URL is NOT added here — WordPress core already outputs one via
+	// its own rel_canonical() hook on wp_head (confirmed live: adding a second
+	// one here produced a visible duplicate <link rel="canonical"> tag).
+	$permalink = get_permalink( $post->ID );
+
+	$ogTitle = get_post_meta( $post->ID, '_wpb_seo_title', true ) ?: get_the_title( $post->ID );
+	$ogImage = has_post_thumbnail( $post->ID )
+		? get_the_post_thumbnail_url( $post->ID, 'large' )
+		: get_option( 'wpb_og_image', '' );
+
+	echo '<meta property="og:type" content="website">' . "\n";
+	echo '<meta property="og:site_name" content="' . esc_attr( get_bloginfo( 'name' ) ) . '">' . "\n";
+	echo '<meta property="og:title" content="' . esc_attr( $ogTitle ) . '">' . "\n";
+	if ( $desc ) {
+		echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
+	}
+	echo '<meta property="og:url" content="' . esc_url( $permalink ) . '">' . "\n";
+	if ( $ogImage ) {
+		echo '<meta property="og:image" content="' . esc_url( $ogImage ) . '">' . "\n";
+	}
+	echo '<meta name="twitter:card" content="' . ( $ogImage ? 'summary_large_image' : 'summary' ) . '">' . "\n";
+
+	$schema = wpb_build_schema( $s );
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }, 25 );
