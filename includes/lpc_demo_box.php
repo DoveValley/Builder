@@ -178,6 +178,21 @@ function lpc_demo_create_site(string $domain, string $sourceNiche, string $theme
     // Not fatal if this fails — falls back to the default template (no pretty
     // permalinks) rather than leaving the domain half-created.
 
+    // SSL — only for the current .q111.xyz placeholder domains, using the one
+    // genuinely self-signed wildcard cert covering all of them (Hestia's own
+    // "default" cert is a REAL Let's Encrypt cert for the box's own hostname,
+    // not self-signed, so it can never pass as a CA for these — found the hard
+    // way). Real future domains need their own real cert (Let's Encrypt via
+    // Cloudflare, same as the niche fleet) once DNS is actually pointed —
+    // deliberately not attempted here.
+    if (preg_match('/\.q111\.xyz$/', $domain)) {
+        lpc_demo_box_ssh(
+            'cp /opt/landing-page-clients/ssl/wildcard.crt ' . escapeshellarg('/opt/landing-page-clients/ssl/' . $domain . '.crt')
+            . ' && cp /opt/landing-page-clients/ssl/wildcard.key ' . escapeshellarg('/opt/landing-page-clients/ssl/' . $domain . '.key')
+        );
+        hestia_api($server, 'v-add-web-domain-ssl', [$siteUser, $domain, '/opt/landing-page-clients/ssl', 'same']);
+    }
+
     $restart = hestia_api($server, 'v-restart-web');
 
     // 2) Content — clone an existing site's docroot as the starting point, since
