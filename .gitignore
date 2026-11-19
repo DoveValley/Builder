@@ -174,3 +174,6 @@ data/gf_preload_cache.json
 
 # NOAA/Census retrieval cache (noaa_normals.py) — re-fetchable, never source of truth
 /cache/
+
+# Demo Sites panel's theme-info cache (short TTL, regenerable) — not meaningful to version.
+.lpc_demo_box_theme_cache.json

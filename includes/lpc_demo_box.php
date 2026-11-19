@@ -64,40 +64,87 @@ function lpc_demo_list_sites(): array
     $domains = array_keys($r['json']);
     sort($domains);
 
-    // One batched SSH call for theme info on every site at once, rather than one
-    // round trip per row — the admin page renders a table, not a single site.
-    $themes = [];
-    if ($domains) {
+    // Theme info, cached with a short TTL. Each lookup is a full WordPress
+    // bootstrap via wp-cli (connects to its DB, loads core+theme), and even
+    // run in parallel across all sites, a 2-vCPU box genuinely can't do 19 of
+    // those at once without real CPU contention — measured ~6.8s on its own,
+    // on top of everything else, every single page load. Themes essentially
+    // never change outside of an explicit create/redeploy action, so a 5-minute
+    // cache trades negligible staleness for a page that loads instantly on
+    // every repeat visit instead of re-paying this cost every time.
+    $cacheFile = BASE_DIR . '/.lpc_demo_box_theme_cache.json';
+    $cache = json_decode((string) @file_get_contents($cacheFile), true) ?: ['at' => 0, 'themes' => []];
+    $themes = $cache['themes'];
+    $missing = array_diff($domains, array_keys($themes));
+    if ($missing || (time() - $cache['at']) > 300) {
+        $toFetch = $missing ?: $domains; // full refresh past the TTL, else just the gaps
         $cmds = [];
-        foreach ($domains as $d) {
+        foreach ($toFetch as $d) {
             $dir = '/home/' . $siteUser . '/web/' . $d . '/public_html';
-            $cmds[] = 'echo ' . escapeshellarg($d . '|') . '$(sudo -u ' . escapeshellarg($siteUser)
+            $cmds[] = '(echo ' . escapeshellarg($d . '|') . '$(sudo -u ' . escapeshellarg($siteUser)
                     . ' php ' . escapeshellarg($dir . '/wp-cli.phar') . ' theme list --status=active --field=name --path='
-                    . escapeshellarg($dir) . ' 2>/dev/null)';
+                    . escapeshellarg($dir) . ' 2>/dev/null)) &';
         }
-        $batch = lpc_demo_box_ssh(implode(' ; ', $cmds));
-        foreach (explode("\n", $batch['output']) as $line) {
-            if (strpos($line, '|') === false) continue;
-            [$d, $t] = explode('|', $line, 2);
-            $themes[$d] = trim($t) ?: '—';
+        if ($cmds) {
+            $batch = lpc_demo_box_ssh(implode(' ', $cmds) . ' wait');
+            foreach (explode("\n", $batch['output']) as $line) {
+                if (strpos($line, '|') === false) continue;
+                [$d, $t] = explode('|', $line, 2);
+                $themes[$d] = trim($t) ?: '—';
+            }
         }
+        @file_put_contents($cacheFile, json_encode(['at' => time(), 'themes' => $themes]));
+    }
+
+    // "Running" check, parallelized but CAPPED at a small batch size — each
+    // domain cold-starts its own tiny php-fpm pool on demand (pm.max_children
+    // 4-8) on a 2-vCPU box, so firing all 19 at once caused real resource
+    // contention: some requests genuinely timed out under the burst, silently
+    // misreporting real running sites as down. Batches of 6 avoid that while
+    // still being far faster than one-at-a-time (was up to 1.5s EACH, serial).
+    $running = array_fill_keys($domains, false);
+    foreach (array_chunk($domains, 6) as $batch) {
+        $mh = curl_multi_init();
+        $handles = [];
+        foreach ($batch as $d) {
+            $ch = curl_init();
+            curl_setopt_array($ch, [
+                CURLOPT_URL => 'http://' . LPC_DEMO_BOX_HOST . '/',
+                CURLOPT_HTTPHEADER => ['Host: ' . $d],
+                CURLOPT_NOBODY => true,
+                CURLOPT_TIMEOUT => 5,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => false,
+            ]);
+            curl_multi_add_handle($mh, $ch);
+            $handles[$d] = $ch;
+        }
+        $active = null;
+        do {
+            $status = curl_multi_exec($mh, $active);
+        } while ($status === CURLM_CALL_MULTI_PERFORM);
+        while ($active && $status === CURLM_OK) {
+            if (curl_multi_select($mh, 3) === -1) usleep(10000);
+            do {
+                $status = curl_multi_exec($mh, $active);
+            } while ($status === CURLM_CALL_MULTI_PERFORM);
+        }
+        foreach ($handles as $d => $ch) {
+            $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $running[$d] = in_array($code, [200, 301, 302], true);
+            curl_multi_remove_handle($mh, $ch);
+            curl_close($ch);
+        }
+        curl_multi_close($mh);
     }
 
     $sites = [];
     foreach ($domains as $d) {
-        $running = false;
-        $conn = @fsockopen(LPC_DEMO_BOX_HOST, 80, $errno, $errstr, 1.5);
-        if ($conn) {
-            fwrite($conn, "HEAD / HTTP/1.0\r\nHost: {$d}\r\nConnection: close\r\n\r\n");
-            $resp = fread($conn, 64);
-            $running = strpos($resp, ' 200') !== false || strpos($resp, ' 301') !== false || strpos($resp, ' 302') !== false;
-            fclose($conn);
-        }
         $sites[] = [
             'domain'  => $d,
             'niche'   => preg_replace('/^demo-/', '', explode('.', $d)[0]),
             'theme'   => $themes[$d] ?? '—',
-            'running' => $running,
+            'running' => $running[$d] ?? false,
             'docroot' => '/home/' . $siteUser . '/web/' . $d . '/public_html',
         ];
     }
