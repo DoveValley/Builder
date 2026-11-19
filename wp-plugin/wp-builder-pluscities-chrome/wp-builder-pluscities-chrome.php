@@ -29,8 +29,8 @@ function pc_settings(): array {
 function pc_logo_svg(): string {
 	return '<svg class="pc-logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
 		. '<path d="M14 1C7.9 1 3 5.9 3 12c0 7.8 11 15 11 15s11-7.2 11-15c0-6.1-4.9-11-11-11z" fill="#C8F55A"/>'
-		. '<rect x="12" y="7" width="4" height="12" rx="1" fill="#0B1B33"/>'
-		. '<rect x="8" y="11" width="12" height="4" rx="1" fill="#0B1B33"/>'
+		. '<rect x="11.5" y="6" width="5" height="14" rx="1" fill="#0B1B33"/>'
+		. '<rect x="7" y="10.5" width="14" height="5" rx="1" fill="#0B1B33"/>'
 		. '</svg>';
 }
 
