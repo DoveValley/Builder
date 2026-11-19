@@ -164,6 +164,46 @@ $sites = lpc_demo_list_sites();
         <button type="submit" class="btn-open" style="margin-top:10px;">Create Demo Site</button>
     </form>
 
+    <h3 id="template-review" style="margin-top:36px;">Premium Template Review</h3>
+    <p class="meta" style="margin-bottom:12px;">
+        Candidate replacements for the sites that came back "not great." Click a template name to view
+        its live preview, then mark Yes/No — nothing gets rebuilt until you approve one.
+    </p>
+    <?php $verdicts = lpc_kadence_template_verdicts(); ?>
+    <?php foreach (lpc_kadence_template_candidates() as $group => $templates): ?>
+        <div class="card" style="margin-bottom:14px;">
+            <strong><?= h($group) ?></strong>
+            <?php foreach ($templates as $t): ?>
+                <?php $v = $verdicts[$t['slug']] ?? null; ?>
+                <div class="lpc-row" style="margin-top:8px;">
+                    <div>
+                        <a href="https://startertemplatecloud.com/<?= h($t['slug']) ?>/" target="_blank" rel="noopener"><?= h($t['name']) ?></a>
+                        <span class="meta">&middot; <?= $t['pro'] ? 'Kadence Pro' : 'Free' ?> &middot; <?= (int) $t['pages'] ?> pages</span>
+                        <?php if ($v): ?>
+                            <span class="lpc-status lpc-status-<?= $v === 'yes' ? 'running' : 'stopped' ?>"><?= $v === 'yes' ? 'Approved' : 'Rejected' ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        <form method="post" action="lpc_demo_sites_save.php" style="margin:0;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="action" value="template_verdict">
+                            <input type="hidden" name="slug" value="<?= h($t['slug']) ?>">
+                            <input type="hidden" name="verdict" value="yes">
+                            <button type="submit" class="btn-sm-outline">Yes</button>
+                        </form>
+                        <form method="post" action="lpc_demo_sites_save.php" style="margin:0;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="action" value="template_verdict">
+                            <input type="hidden" name="slug" value="<?= h($t['slug']) ?>">
+                            <input type="hidden" name="verdict" value="no">
+                            <button type="submit" class="btn-sm-outline">No</button>
+                        </form>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
+
 </div>
 <script>
 function lpcCopyLine(id, btn) {

@@ -24,6 +24,18 @@ function lpc_demo_valid_domain(string $d): bool {
     return $d !== '' && preg_match('/^[a-z0-9]([a-z0-9\-\.]*[a-z0-9])?$/', $d) === 1 && strlen($d) <= 253;
 }
 
+if ($action === 'template_verdict') {
+    $slug = trim($_POST['slug'] ?? '');
+    $verdict = trim($_POST['verdict'] ?? '');
+    if (!preg_match('/^[a-z0-9]+$/', $slug)) {
+        header('Location: lpc_demo_sites.php?msg=error:Invalid+template+slug#template-review');
+        exit;
+    }
+    $r = lpc_kadence_set_template_verdict($slug, $verdict);
+    header('Location: lpc_demo_sites.php?msg=' . ($r['ok'] ? 'success' : 'error') . ':' . rawurlencode($r['message']) . '#template-review');
+    exit;
+}
+
 if ($action === 'create') {
     $domain = strtolower(trim($_POST['domain'] ?? ''));
     $sourceNiche = trim($_POST['source_niche'] ?? '');

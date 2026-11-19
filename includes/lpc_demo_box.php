@@ -293,3 +293,51 @@ function lpc_demo_clear_cache(string $domain): array
     $ok = strpos($r['output'], 'CACHE_CLEAR_OK') !== false;
     return ['ok' => $ok, 'message' => $ok ? 'Cache cleared and disabled' : ('Failed: ' . $r['output'])];
 }
+
+/**
+ * Candidate premium Kadence templates shortlisted for rebuilding the sites that
+ * came back "not great" in Scott's review — curated by hand from the real
+ * catalog (api.startertemplatecloud.com), not auto-generated, since "looks
+ * good" is a judgment call only Scott can make. Grouped by which sites each
+ * one is a candidate for. Scott reviews the live preview link for each and
+ * marks yes/no before any site actually gets rebuilt with it.
+ */
+function lpc_kadence_template_candidates(): array
+{
+    return [
+        'Home services / trades' => [
+            ['slug' => 'g61', 'name' => 'Roofing', 'pro' => true, 'pages' => 7],
+            ['slug' => 'g62', 'name' => 'Lawn Care', 'pro' => true, 'pages' => 7],
+            ['slug' => 'g58', 'name' => 'Painting Service', 'pro' => false, 'pages' => 7],
+            ['slug' => 'g59', 'name' => 'Cleaning Service', 'pro' => false, 'pages' => 6],
+            ['slug' => 'g54', 'name' => 'Builder', 'pro' => true, 'pages' => 6],
+        ],
+        'Legal' => [
+            ['slug' => 'g10', 'name' => 'Law Firm', 'pro' => false, 'pages' => 6],
+        ],
+        'Medical / dental' => [
+            ['slug' => 'g55', 'name' => 'Dentist', 'pro' => true, 'pages' => 6],
+        ],
+    ];
+}
+
+function lpc_kadence_template_verdicts_file(): string
+{
+    return BASE_DIR . '/.lpc_template_review.json';
+}
+
+function lpc_kadence_template_verdicts(): array
+{
+    return json_decode((string) @file_get_contents(lpc_kadence_template_verdicts_file()), true) ?: [];
+}
+
+function lpc_kadence_set_template_verdict(string $slug, string $verdict): array
+{
+    if (!in_array($verdict, ['yes', 'no'], true)) {
+        return ['ok' => false, 'message' => 'Invalid verdict'];
+    }
+    $verdicts = lpc_kadence_template_verdicts();
+    $verdicts[$slug] = $verdict;
+    @file_put_contents(lpc_kadence_template_verdicts_file(), json_encode($verdicts, JSON_PRETTY_PRINT));
+    return ['ok' => true, 'message' => 'Saved'];
+}
