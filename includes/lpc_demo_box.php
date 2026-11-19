@@ -229,6 +229,7 @@ function lpc_demo_create_site(string $domain, string $sourceNiche, string $theme
     $fixup = lpc_demo_box_ssh($fixupCmd);
 
     hestia_api($server, 'v-restart-service', ['php-fpm']);
+    lpc_demo_deploy_back_link($domain);
 
     return [
         'ok'      => true,
@@ -277,6 +278,38 @@ function lpc_demo_redeploy_plugin(string $domain): array
     $r = lpc_demo_box_ssh($applyCmd);
     $ok = strpos($r['output'], 'REDEPLOY_OK') !== false;
     return ['ok' => $ok, 'message' => $ok ? 'Plugin redeployed from the repo' : ('Redeploy failed: ' . $r['output'])];
+}
+
+/**
+ * Deploy the internal-only "back to Site Factory" badge as an mu-plugin — mu-plugins
+ * autoload with no activation step, so this can't be left switched off like a
+ * normal plugin could. Lives outside wp-content/plugins/landing-page-client on
+ * purpose: that plugin ships to real clients eventually, this badge must never
+ * go with it.
+ */
+function lpc_demo_deploy_back_link(string $domain): array
+{
+    $siteUser = LPC_DEMO_BOX_SITE_USER;
+    $destDir  = '/home/' . $siteUser . '/web/' . $domain . '/public_html/wp-content/mu-plugins';
+    $src = rtrim(__DIR__ . '/../wp-plugin/demo-site-back-link', '/');
+    if (!is_dir($src)) return ['ok' => false, 'message' => 'Plugin source not found in repo'];
+
+    $stageCmd = sprintf(
+        'rsync -az -e %s %s %s@%s:/tmp/lpc_backlink_stage/',
+        escapeshellarg('ssh -i ' . LPC_DEMO_BOX_SSH_KEY . ' -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'),
+        escapeshellarg($src . '/'),
+        escapeshellarg(LPC_DEMO_BOX_SSH_USER),
+        escapeshellarg(LPC_DEMO_BOX_HOST)
+    );
+    shell_exec($stageCmd . ' 2>&1');
+
+    $applyCmd = 'mkdir -p ' . escapeshellarg($destDir)
+              . ' && rsync -a /tmp/lpc_backlink_stage/ ' . escapeshellarg($destDir . '/')
+              . ' && chown -R ' . escapeshellarg($siteUser . ':www-data') . ' ' . escapeshellarg($destDir)
+              . ' && echo BACKLINK_OK';
+    $r = lpc_demo_box_ssh($applyCmd);
+    $ok = strpos($r['output'], 'BACKLINK_OK') !== false;
+    return ['ok' => $ok, 'message' => $ok ? 'Back-link badge deployed' : ('Deploy failed: ' . $r['output'])];
 }
 
 /** Make sure a site's page-cache plugin stays off, same guard as the original local version. */

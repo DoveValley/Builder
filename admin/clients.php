@@ -148,6 +148,7 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
             <a href="agencies.php" class="btn-sm-outline">Agencies</a>
             <a href="niche_profiles.php" class="btn-sm-outline">Niche Profiles</a>
             <a href="lpc_demo_sites.php" class="btn-sm-outline">Demo Sites</a>
+            <a href="wp_builder.php" class="btn-sm-outline">WP Builder</a>
             <?php endif; ?>
             <a href="client_wizard.php?restart=1" class="btn-open">+ New Client</a>
         </div>
