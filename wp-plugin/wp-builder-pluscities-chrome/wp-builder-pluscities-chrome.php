@@ -29,8 +29,8 @@ function pc_settings(): array {
 function pc_logo_svg(): string {
 	return '<svg class="pc-logo-mark" width="34" height="34" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
 		. '<path d="M14 1C7.9 1 3 5.9 3 12c0 7.8 11 15 11 15s11-7.2 11-15c0-6.1-4.9-11-11-11z" fill="#C8F55A"/>'
-		. '<rect x="11.5" y="5" width="5" height="16" rx="1" fill="#0B1B33"/>'
-		. '<rect x="7" y="10.5" width="14" height="5" rx="1" fill="#0B1B33"/>'
+		. '<rect x="11" y="5" width="6" height="16" rx="1" fill="#0B1B33"/>'
+		. '<rect x="7" y="10" width="14" height="6" rx="1" fill="#0B1B33"/>'
 		. '</svg>';
 }
 
@@ -138,7 +138,7 @@ add_action( 'wp_head', function () {
 	.pc-header{background:var(--navy);position:sticky;top:0;z-index:40;}
 	.pc-header-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px;}
 	.pc-logo{display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
-	.pc-wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+	.pc-wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:23px;}
 	.pc-wordmark-plus{color:#fff;}
 	.pc-wordmark-cities{color:var(--lime);}
 	.pc-nav{display:flex;gap:28px;}
