@@ -22,6 +22,10 @@ config/gsc_service_account.json
 # HestiaCP access key for the LPC demo-sites box — real credential, never commit.
 .lpc_demo_box_api_key.json
 
+# Kinsta management API key, used one-time to migrate the 7 LPC test sites off
+# Kinsta onto the LPC demo-sites box. Real credential, never commit.
+.kinsta_api_key
+
 # Dedicated SSH key: www-data (this box) -> lpcprovision (LPC demo-sites box),
 # scoped to provisioning/managing WordPress content on that box only. Real
 # credential, never commit.
