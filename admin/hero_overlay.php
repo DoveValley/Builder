@@ -18,6 +18,7 @@
  *   bg_fade    1 (gradient) | 0 (flat)          bg_opacity  0-100
  */
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); header('Content-Type: text/plain'); exit('Not authenticated.'); }
 if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 

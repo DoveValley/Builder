@@ -11,6 +11,7 @@
  * proportionally to each hero's actual size.
  */
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php'; // ms_image_settings_write()
 header('Content-Type: application/json');
 

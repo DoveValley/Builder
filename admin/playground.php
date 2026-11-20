@@ -11,6 +11,7 @@
  * belongs in the panel that owns the site, not this experiments page.
  */
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/convo_uploads.php';   // accepted upload types, shared with convo_upload.php
 require_once __DIR__ . '/../includes/layout_variations.php';  // ms_variant() — the REAL assigner
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }

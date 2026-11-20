@@ -13,6 +13,7 @@
  * accepted, since this folder is web-served.
  */
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/convo_uploads.php';   // the accepted-types list, shared with the picker
 require_once __DIR__ . '/../includes/helpers.php';          // sanitize_svg()
 header('Content-Type: application/json');

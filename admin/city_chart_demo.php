@@ -12,6 +12,7 @@
  */
 
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../plugins/image-data-chart/charts.php';
 require_once __DIR__ . '/../plugins/image-data-chart/draw.php';
 

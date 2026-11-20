@@ -9,6 +9,7 @@
  * POST: csrf_token, styles = JSON {"icon.svg": {fill_pct, bg_style, corner_pct, trace_pct}, …}
  */
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/visual.php';   // ms_sanitize_icon_style()
 header('Content-Type: application/json');
 if (empty($_SESSION['admin_logged_in']))                                      { http_response_code(403); echo json_encode(['ok' => false, 'error' => 'Not authenticated.']); exit; }
