@@ -111,6 +111,12 @@ add_action( 'wp_head', function () {
 	@media (max-width:640px){ :root{ --pc-pad:20px; } }
 
 	.site-header,.page-header,.wpb-header,.wpb-footer{display:none !important;}
+	/* Hello Elementor's own #content/.site-main wrapper caps at 1140px and auto-centers
+	   with a margin — that's what was leaving the full-bleed navy/mist/lime-soft section
+	   backgrounds short of the real browser edges, not anything in this stylesheet.
+	   Every .pc-section already centers its own content at --pc-max (1240px) via
+	   .pc-container, so the backgrounds are free to go edge-to-edge once this is reset. */
+	#content,.site-main,.page-content{max-width:none !important;width:100% !important;margin-left:0 !important;margin-right:0 !important;}
 	*{box-sizing:border-box;}
 	body.pc-body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);line-height:1.6;background:#fff;}
 	.pc-container{max-width:var(--pc-max);margin:0 auto;padding:0 var(--pc-pad);}
