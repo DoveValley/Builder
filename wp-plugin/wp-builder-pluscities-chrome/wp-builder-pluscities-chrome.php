@@ -364,6 +364,14 @@ add_action( 'wp_body_open', function () {
 	?><script>document.body.classList.add('pc-body');</script><?php
 }, 1 );
 
+/** Loaded only once a Turnstile widget actually exists (wpb_turnstile_site_key set) — an idle script tag on every page otherwise isn't worth the request. */
+add_action( 'wp_head', function () {
+	if ( get_option( 'wpb_turnstile_site_key', '' ) === '' ) {
+		return;
+	}
+	?><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script><?php
+}, 15 );
+
 function pc_print_js(): void {
 	?>
 	<div class="pc-modal-backdrop" id="pc-preview-modal">
@@ -374,6 +382,10 @@ function pc_print_js(): void {
 			<form id="pc-modal-form">
 				<input type="email" id="pc-modal-email" placeholder="you@agency.com" required>
 				<input type="text" class="pc-hp-field" tabindex="-1" autocomplete="off" name="website" id="pc-hp">
+				<?php $turnstileSiteKey = get_option( 'wpb_turnstile_site_key', '' ); ?>
+				<?php if ( $turnstileSiteKey !== '' ) : ?>
+				<div class="cf-turnstile" data-sitekey="<?php echo esc_attr( $turnstileSiteKey ); ?>"></div>
+				<?php endif; ?>
 				<button type="submit" class="pc-btn pc-btn-lime">Send my preview</button>
 				<div class="pc-form-msg" id="pc-modal-msg" role="status"></div>
 			</form>
@@ -523,7 +535,8 @@ function pc_print_js(): void {
 				var email = document.getElementById('pc-modal-email').value.trim();
 				var hp = document.getElementById('pc-hp').value;
 				var out = document.getElementById('pc-modal-msg');
-				var lead = Object.assign({}, pendingLead || {}, { email: email, website: hp });
+				var tsField = modalForm.querySelector('[name="cf-turnstile-response"]');
+				var lead = Object.assign({}, pendingLead || {}, { email: email, website: hp, 'cf-turnstile-response': tsField ? tsField.value : '' });
 				fetch('<?php echo esc_js( admin_url( 'admin-ajax.php' ) ); ?>?action=pluscities_lead', {
 					method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(lead)
 				}).then(function(r){ return r.json(); }).then(function(res){
@@ -579,10 +592,37 @@ function pc_print_js(): void {
 }
 
 /**
+ * Verifies a Turnstile token against Cloudflare's siteverify endpoint.
+ * Returns true (skip verification) if no secret key is configured yet —
+ * same "blank = not active yet" convention as every other PlusCities
+ * credential, so forms keep working exactly as before until a real key is
+ * set. Once a secret key IS set, a missing/invalid token is a hard reject,
+ * not a soft warning — this only ever runs for actual form submissions.
+ */
+function pc_verify_turnstile( string $token ): bool {
+	$secret = get_option( 'wpb_turnstile_secret_key', '' );
+	if ( $secret === '' ) {
+		return true;
+	}
+	if ( $token === '' ) {
+		return false;
+	}
+	$response = wp_remote_post( 'https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+		'timeout' => 10,
+		'body'    => [ 'secret' => $secret, 'response' => $token ],
+	] );
+	if ( is_wp_error( $response ) ) {
+		return false;
+	}
+	$body = json_decode( wp_remote_retrieve_body( $response ), true );
+	return ! empty( $body['success'] );
+}
+
+/**
  * Leads endpoint — Phase 1 per the spec: capture + email Scott directly from
  * WordPress. No cross-system /api/leads call yet (that app doesn't exist),
- * and no "saved in the app database" half until it does. Honeypot only for
- * now; Turnstile not wired (ask Scott).
+ * and no "saved in the app database" half until it does. Honeypot plus
+ * Turnstile (once a key is configured — see pc_verify_turnstile()).
  *
  * Generic by design: every form posts whatever fields it collects plus a
  * `source` — the email just lists them, so a new form (apply, audit,
@@ -593,6 +633,9 @@ function pc_handle_lead(): void {
 	$raw = json_decode( file_get_contents( 'php://input' ), true ) ?: [];
 	if ( ! empty( $raw['website'] ) ) { // honeypot tripped
 		wp_send_json_success( [ 'ok' => true ] ); // pretend success, drop silently
+	}
+	if ( ! pc_verify_turnstile( (string) ( $raw['cf-turnstile-response'] ?? '' ) ) ) {
+		wp_send_json_error( [ 'message' => 'verification failed' ], 400 );
 	}
 	$email  = sanitize_email( $raw['email'] ?? '' );
 	$source = sanitize_text_field( $raw['source'] ?? 'unknown' );

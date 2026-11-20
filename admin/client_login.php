@@ -22,6 +22,7 @@ if (time() - $attempts['first'] > 900) {
     $attempts = ['count' => 0, 'first' => time()];
 }
 $locked = $attempts['count'] >= 10;
+$turnstileSiteKey = lpc_turnstile_keys()['site_key'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!hash_equals($_SESSION['client_login_csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
@@ -30,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $loginCsrfToken = $_SESSION['client_login_csrf_token'];
     } elseif ($locked) {
         $error = 'Too many failed attempts. Please wait 15 minutes before trying again.';
+    } elseif (!lpc_verify_turnstile((string) ($_POST['cf-turnstile-response'] ?? ''))) {
+        $error = 'Verification failed — please try again.';
     } else {
         $username = trim($_POST['username'] ?? '');
         $password = $_POST['password'] ?? '';
@@ -66,6 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../assets/css/style.css">
     <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
     <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+    <?php if ($turnstileSiteKey !== ''): ?>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <?php endif; ?>
 </head>
 <body class="admin-body">
     <div class="login-wrapper">
@@ -89,6 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required autocomplete="current-password">
                 </div>
+                <?php if ($turnstileSiteKey !== ''): ?>
+                <div class="cf-turnstile" data-sitekey="<?= h($turnstileSiteKey) ?>" style="margin-bottom:14px;"></div>
+                <?php endif; ?>
                 <button type="submit" class="btn" style="width:100%;">Log In</button>
             </form>
             <?php endif; ?>

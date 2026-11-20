@@ -26,6 +26,35 @@ function wpb_pc_normalize(array $post): array
     ];
 }
 
+/**
+ * Reads .pluscities_turnstile.json (gitignored, same convention as
+ * .pluscities_cf_token/.pluscities_cf_zone.json) — a Turnstile widget's
+ * Site Key and Secret Key for pluscities.com + app.pluscities.com. Blank
+ * (the file's own default) means Turnstile is skipped everywhere: no
+ * widget rendered, no verification required, exactly today's honeypot-only
+ * behavior. The Site Key is public by design (baked straight into the
+ * generated form HTML below); the Secret Key is NOT — it only ever leaves
+ * this server via wpb_apply_site_options() into a WP option, read back by
+ * pc_verify_turnstile() in the mu-plugin at verification time, same
+ * pattern every other PlusCities credential-shaped value already uses.
+ */
+function pc_turnstile_keys(): array
+{
+    $file = __DIR__ . '/../../.pluscities_turnstile.json';
+    $data = is_file($file) ? (json_decode(file_get_contents($file), true) ?: []) : [];
+    return [
+        'site_key'   => trim((string) ($data['site_key'] ?? '')),
+        'secret_key' => trim((string) ($data['secret_key'] ?? '')),
+    ];
+}
+
+/** The Turnstile widget div, or '' if no Site Key is configured yet — callers just concatenate this in, no conditional needed at the call site. */
+function pc_turnstile_widget_html(): string
+{
+    $siteKey = pc_turnstile_keys()['site_key'];
+    return $siteKey !== '' ? '<div class="cf-turnstile" data-sitekey="' . h($siteKey) . '"></div>' : '';
+}
+
 /** The founder-video poster, reused as-is on both the homepage hero and the How It Works page — same content, same loads-on-click behavior, written once. */
 function pc_founder_video_block(): string
 {
@@ -462,6 +491,7 @@ function wpb_pc_block_agencies_apply(array $d, array $ctx): string
       <input type="text" name="niches" placeholder="Main niches (e.g. HVAC, Roofing)">
       <textarea name="message" rows="3" placeholder="Anything else we should know?"></textarea>
       <input type="text" class="pc-hp-field" tabindex="-1" autocomplete="off" name="website">
+      ' . pc_turnstile_widget_html() . '
       <button type="submit" class="pc-btn pc-btn-lime">Apply to be a partner &rarr;</button>
       <div class="pc-form-msg" id="pc-apply-msg" role="status"></div>
     </form>
@@ -522,6 +552,7 @@ function wpb_pc_block_audit(array $d, array $ctx): string
       <input type="email" name="email" placeholder="you@email.com" required>
       <input type="text" name="agency_name" placeholder="Agency name (optional)">
       <input type="text" class="pc-hp-field" tabindex="-1" autocomplete="off" name="website">
+      ' . pc_turnstile_widget_html() . '
       <button type="submit" class="pc-btn pc-btn-lime">Get my free coverage audit &rarr;</button>
       <div class="pc-form-msg" id="pc-audit-msg" role="status"></div>
     </form>
@@ -1164,6 +1195,12 @@ wpb_register_profile(WPB_PLUSCITIES, [
             'wpb_stripe_growth_url'  => $d['stripe_growth'],
             'wpb_stripe_dominate_url'=> $d['stripe_dominate'],
             'wpb_og_image'           => '',
+            // Pushed so the mu-plugin (which runs on the live WP site, not here) can
+            // decide at runtime whether to load the Turnstile script and verify
+            // submissions — see pc_turnstile_keys() in this file for the source of
+            // truth. Secret key never appears in generated page HTML, only here.
+            'wpb_turnstile_site_key'   => pc_turnstile_keys()['site_key'],
+            'wpb_turnstile_secret_key' => pc_turnstile_keys()['secret_key'],
         ];
     },
     'chrome_dir' => rtrim(__DIR__ . '/../../wp-plugin/wp-builder-pluscities-chrome', '/'),
@@ -1182,7 +1219,9 @@ wpb_register_profile(WPB_PLUSCITIES, [
  *   [TURNAROUND]          — /audit's confirmation line names it literally until a real value is set
  *   Lead notification email — falls back to the site's WP admin email until a real one is set
  *   Analytics (Plausible/GA4) — not wired; dataLayer.push() calls are no-ops until a real tag exists
- *   Turnstile — not wired, honeypot only
+ *   Turnstile — fully wired (audit form, partner-apply form, hero preview modal, plus the agency
+ *     and client admin logins), but inactive until real keys are dropped into .pluscities_turnstile.json
+ *     — honeypot-only until then, same behavior as before this was built.
  *   PARTNER DISCOUNT is set (40%, live on /pricing's wholesale column) — no longer a placeholder.
  *   app.pluscities.com (Log in / Client login) — deliberately out of scope for this project; the
  *     real agency/billing app already exists but isn't exposed at that public address yet.

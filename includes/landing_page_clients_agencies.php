@@ -371,3 +371,41 @@ function lpc_pause_agency_clients($agency_id) {
     }
     return $paused;
 }
+
+/**
+ * Same .pluscities_turnstile.json this app's PlusCities profile already
+ * reads (includes/wp_builder_profiles/pluscities.php's pc_turnstile_keys())
+ * — one shared Site Key/Secret Key pair, since app.pluscities.com (where
+ * these two logins live) is one of the domains that key is already scoped
+ * to. Blank = Turnstile skipped, same "not configured yet" convention as
+ * every other credential-shaped value in this codebase.
+ */
+function lpc_turnstile_keys(): array {
+    $file = BASE_DIR . '/.pluscities_turnstile.json';
+    $data = is_file($file) ? (json_decode(file_get_contents($file), true) ?: []) : [];
+    return [
+        'site_key'   => trim((string) ($data['site_key'] ?? '')),
+        'secret_key' => trim((string) ($data['secret_key'] ?? '')),
+    ];
+}
+
+/** Same verification rule as pc_verify_turnstile() in the PlusCities mu-plugin: no secret key configured = skip (today's behavior unchanged); secret key set = a missing/invalid token is a hard reject. */
+function lpc_verify_turnstile(string $token): bool {
+    $secret = lpc_turnstile_keys()['secret_key'];
+    if ($secret === '') return true;
+    if ($token === '') return false;
+
+    $ch = curl_init('https://challenges.cloudflare.com/turnstile/v0/siteverify');
+    curl_setopt_array($ch, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => http_build_query(['secret' => $secret, 'response' => $token]),
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 10,
+    ]);
+    $raw = curl_exec($ch);
+    curl_close($ch);
+    if ($raw === false) return false;
+
+    $body = json_decode($raw, true);
+    return !empty($body['success']);
+}
