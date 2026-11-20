@@ -215,6 +215,11 @@ add_action( 'wp_head', function () {
 	.pc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
 	@media (max-width:880px){ .pc-steps{grid-template-columns:1fr;} }
 	.pc-step-card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff;}
+	/* How It Works detail page: text+screenshot side by side on desktop, stacked on mobile —
+	   was a bare inline grid-template-columns:1fr 1fr with no breakpoint, so it stayed 2
+	   cramped columns all the way down to 375px. */
+	.pc-step-detail{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;}
+	@media (max-width:640px){ .pc-step-detail{grid-template-columns:1fr;} }
 	.pc-step-card.pc-navy{background:var(--navy);border-color:var(--navy);color:var(--on-navy);}
 	.pc-step-card.pc-navy h3{color:#fff;}
 	.pc-step-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:var(--lime-ink);margin-bottom:10px;}
@@ -230,7 +235,10 @@ add_action( 'wp_head', function () {
 	.pc-demo-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;}
 	.pc-demo-shot{aspect-ratio:16/10;background:repeating-linear-gradient(135deg,var(--mist),var(--mist) 10px,#e8edf5 10px,#e8edf5 20px);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;overflow:hidden;}
 	.pc-demo-shot-real{background:#fff;}
-	.pc-demo-shot-real img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+	/* contain, not cover — uploaded screenshots are arbitrary-aspect-ratio photos (one real example
+	   is a 1130x80 footer-strip crop, nowhere near this box's 16:10), and cover was blowing that one
+	   up to fill the box, cropping away everything but a sliver of the phone number it exists to show. */
+	.pc-demo-shot-real img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;}
 	.pc-demo-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--lime-ink);padding:14px 16px 0;}
 	.pc-demo-card h4{font-size:16px;padding:6px 16px 0;font-family:'Space Grotesk',sans-serif;}
 	.pc-demo-card p{font-size:13.5px;color:var(--ink-2);padding:8px 16px 18px;}
@@ -284,6 +292,12 @@ add_action( 'wp_head', function () {
 	.pc-quality-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;}
 	@media (max-width:980px){ .pc-quality-cards{grid-template-columns:1fr 1fr;} }
 	@media (max-width:560px){ .pc-quality-cards{grid-template-columns:1fr;} }
+	/* 3-column variant (billing/demo-booking/niche-page info cards) — was being forced via an
+	   inline grid-template-columns that overrode the responsive rules above and clipped the third
+	   card off-screen on mobile. */
+	.pc-quality-cards-3{grid-template-columns:repeat(3,1fr);}
+	@media (max-width:980px){ .pc-quality-cards-3{grid-template-columns:1fr 1fr;} }
+	@media (max-width:560px){ .pc-quality-cards-3{grid-template-columns:1fr;} }
 	.pc-quality-card{background:#fff;border-radius:16px;padding:22px;}
 	.pc-quality-card h3{font-size:17px;}
 	.pc-quality-card p{font-size:14px;color:var(--ink-2);margin-top:8px;}

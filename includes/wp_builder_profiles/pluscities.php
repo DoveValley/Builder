@@ -383,15 +383,15 @@ function wpb_pc_block_how_it_works_detail(array $d, array $ctx): string
 <section class="pc-section">
   <div class="pc-container">
     <div class="pc-steps" style="grid-template-columns:1fr;gap:40px;">
-      <div class="pc-step-card" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;">
+      <div class="pc-step-card pc-step-detail">
         <div><div class="pc-step-num">01</div><h3>Install the plugin</h3><p>Upload it to any WordPress site and paste your API key. It reads the theme&rsquo;s fonts, colors and layout automatically &mdash; no template to pick, no CSS to match by hand.</p></div>
         <div class="pc-demo-shot">[SCREENSHOT]</div>
       </div>
-      <div class="pc-step-card" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;">
+      <div class="pc-step-card pc-step-detail">
         <div><div class="pc-step-num">02</div><h3>Pick towns &amp; services</h3><p>Choose the cities the business actually serves and the services it sells. 5 cities &times; 5 services = 25 pages, generated from real local detail for each one.</p></div>
         <div class="pc-demo-shot">[SCREENSHOT]</div>
       </div>
-      <div class="pc-step-card pc-navy" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;">
+      <div class="pc-step-card pc-navy pc-step-detail">
         <div><div class="pc-step-num">03</div><h3>Pages go live</h3><p>A Service Areas link appears in the footer, leading to a hub page that links every city page &mdash; on the client&rsquo;s own domain, in their own theme.</p></div>
         <div class="pc-demo-shot">[SCREENSHOT]</div>
       </div>
@@ -430,7 +430,7 @@ function wpb_pc_block_agencies_billing(array $d, array $ctx): string
   <div class=\"pc-container\">
     <span class=\"pc-eyebrow\">How billing works</span>
     <h2>Wholesale in, your price out.</h2>
-    <div class=\"pc-quality-cards\" style=\"grid-template-columns:repeat(3,1fr);margin-top:28px;\">
+    <div class=\"pc-quality-cards pc-quality-cards-3\" style=\"margin-top:28px;\">
       <div class=\"pc-quality-card\"><h3>You're billed wholesale</h3><p>{$discount} off retail, charged to your card on file through Stripe &mdash; one invoice for every client.</p></div>
       <div class=\"pc-quality-card\"><h3>You bill your client</h3><p>Whatever you charge them is between you and them. We never see or touch that invoice.</p></div>
       <div class=\"pc-quality-card\"><h3>Change anytime</h3><p>Add a client, pause one, or move a plan up or down in a click &mdash; billing adjusts automatically.</p></div>
@@ -541,7 +541,7 @@ function wpb_pc_block_demo_booking(array $d, array $ctx): string
 ' . pc_page_hero('Book a demo', 'See it on your own clients&rsquo; towns.', 'A real 15-minute walkthrough, not a sales pitch.') . '
 <section class="pc-section">
   <div class="pc-container" style="max-width:720px;">
-    <div class="pc-quality-cards" style="grid-template-columns:repeat(3,1fr);">
+    <div class="pc-quality-cards pc-quality-cards-3">
       <div class="pc-quality-card"><h3>How it reads your theme</h3><p>See the plugin pick up your (or your client&rsquo;s) fonts, colors and layout automatically.</p></div>
       <div class="pc-quality-card"><h3>Picking towns &amp; services</h3><p>A live walkthrough of choosing real towns and services for a real business.</p></div>
       <div class="pc-quality-card"><h3>Partner pricing</h3><p>Margin and wholesale pricing, if you&rsquo;re asking on behalf of an agency.</p></div>
@@ -778,7 +778,7 @@ function wpb_pc_block_niche_page(array $d, array $ctx): string
 <section class="pc-section">
   <div class="pc-container">
     <h2>What ' . $label . ' clients run into</h2>
-    <div class="pc-quality-cards" style="grid-template-columns:repeat(3,1fr);margin-top:28px;">' . $points . '</div>
+    <div class="pc-quality-cards pc-quality-cards-3" style="margin-top:28px;">' . $points . '</div>
   </div>
 </section>
 <section class="pc-section pc-mist">
@@ -931,7 +931,7 @@ function wpb_pc_block_demos(array $d, array $ctx): string
 ' . pc_page_hero('Live demos', 'Real plugin, real themes.', 'Every card below is a real WordPress install on a different theme, built to prove the plugin adapts &mdash; not a mockup.') . '
 <section class="pc-section">
   <div class="pc-container">
-    <div class="pc-demo-cards" style="grid-template-columns:repeat(3,1fr);">' . $cards . '</div>
+    <div class="pc-demo-cards">' . $cards . '</div>
   </div>
 </section>
 ');
