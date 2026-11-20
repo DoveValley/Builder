@@ -178,7 +178,8 @@ add_action( 'wp_head', function () {
 	.pc-checks span{display:flex;align-items:center;gap:6px;}
 	.pc-checks svg{color:var(--lime);flex-shrink:0;}
 
-	.pc-preview-bar{background:#fff;border-radius:16px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;box-shadow:0 10px 30px rgba(0,0,0,.18);}
+	.pc-preview-caption{color:var(--on-navy);font-size:13px;font-weight:600;margin:24px 0 8px;}
+	.pc-preview-bar{background:#fff;border-radius:16px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;margin-top:0;box-shadow:0 10px 30px rgba(0,0,0,.18);}
 	.pc-preview-bar input{flex:1 1 150px;min-width:120px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:15px;font-family:inherit;color:var(--ink);}
 	.pc-preview-bar button{flex:0 0 auto;}
 	@media (max-width:520px){ .pc-preview-bar{flex-direction:column;} .pc-preview-bar button{width:100%;} }
@@ -197,10 +198,10 @@ add_action( 'wp_head', function () {
 	   bold lead phrase is the deliberate "pop" color: same lime as "+50 cities" in the headline and
 	   every primary CTA, so it reads as this brand's one highest-contrast accent, not a new color. */
 	.pc-hero-bullets{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:22px;}
-	.pc-hero-bullet{display:flex;gap:14px;align-items:flex-start;}
-	.pc-hero-bullet-icon{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;margin-top:2px;}
-	.pc-hero-bullet-text{color:var(--on-navy);font-size:15px;line-height:1.55;margin:0;}
-	.pc-hero-bullet-text strong{color:var(--lime);}
+	.pc-hero-bullet{display:flex;gap:16px;align-items:flex-start;}
+	.pc-hero-bullet-icon{flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;margin-top:1px;}
+	.pc-hero-bullet-text{color:var(--on-navy);font-size:16px;line-height:1.55;margin:0;}
+	.pc-hero-bullet-text strong{color:var(--lime);font-size:19px;font-weight:800;}
 
 	/* Video */
 	.pc-video-wrap{max-width:1040px;margin:56px auto 0;}

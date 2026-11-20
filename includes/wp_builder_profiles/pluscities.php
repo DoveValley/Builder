@@ -90,7 +90,7 @@ function pc_hero_bullet(string $lead, string $detail): string
 {
     return '
 <div class="pc-hero-bullet">
-  <span class="pc-hero-bullet-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+  <span class="pc-hero-bullet-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
   <p class="pc-hero-bullet-text"><strong>' . $lead . '</strong> ' . $detail . '</p>
 </div>';
 }
@@ -102,10 +102,11 @@ function wpb_pc_block_hero(array $d, array $ctx): string
   <div class="pc-container">
     <div class="pc-hero-grid">
       <div>
-        <span class="pc-pill"><span class="dot"></span> For marketing agencies &amp; WordPress sites</span>
+        <span class="pc-pill"><span class="dot"></span> WordPress plugin &middot; automatic local landing pages</span>
         <h1>Add every town you serve.<br><span class="pc-lime">+50 cities</span> by Friday.</h1>
-        <p class="pc-lead">City + service landing pages built from real local detail &mdash; neighborhoods, permit rules, weather and unique photos &mdash; live on your client&rsquo;s own domain, in their own theme.</p>
+        <p class="pc-lead">PlusCities is a WordPress plugin that builds a real, unique landing page for every town and service a business offers &mdash; using actual neighborhood, permit, and weather detail, not templates. Pages live on your client&rsquo;s own domain, inside their own theme.</p>
 
+        <p class="pc-preview-caption">Try it &mdash; type a real service and city below to see an example page we&rsquo;d build:</p>
         <form class="pc-preview-bar" id="pc-hero-form">
           <input type="text" id="pc-hero-service" placeholder="Med spa" aria-label="Service">
           <input type="text" id="pc-hero-city" placeholder="Keller, TX" aria-label="City">
@@ -122,10 +123,10 @@ function wpb_pc_block_hero(array $d, array $ctx): string
 
       <div class="pc-hero-coverage-wrap">
         <div class="pc-hero-bullets">
-          ' . pc_hero_bullet('No contracts.', 'Cancel anytime &mdash; your pages stay live through the period you&rsquo;ve already paid for.') . '
           ' . pc_hero_bullet('Real local detail, not AI fluff.', 'Every page uses actual neighborhoods, permit rules, and weather for that town.') . '
           ' . pc_hero_bullet('Built to actually rank.', 'Real local detail &mdash; not thin, templated pages &mdash; the kind of content search engines reward.') . '
           ' . pc_hero_bullet('Wholesale pricing for agencies.', 'You set your own price and keep 100% of the markup.') . '
+          ' . pc_hero_bullet('No contracts.', 'Cancel anytime &mdash; your pages stay live through the period you&rsquo;ve already paid for.') . '
         </div>
       </div>
     </div>
