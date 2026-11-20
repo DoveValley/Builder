@@ -61,6 +61,28 @@ body.admin-body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sa
 .pc-btn-outline-navy{background:#fff;color:var(--pc-ink);border-color:var(--pc-line);}
 .pc-btn-outline-navy:hover{border-color:var(--pc-navy-line);}
 
+/*
+ * .btn-open/.btn-sm-outline/.btn-sm-danger are used throughout client.php,
+ * client_wizard.php, page_editor.php, agencies.php, and approvals.php (80+
+ * call sites — Save/Publish/Remove/Delete/Regenerate/etc.) but have NO CSS
+ * definition anywhere in the shared stylesheets — the only real one found
+ * anywhere in this codebase is a one-off <style> block local to sites.php
+ * alone. Every other page using these classes, on every admin surface (not
+ * just these 8), has been rendering them as plain unstyled browser buttons.
+ * Pre-existing gap, not something this redesign introduced — fixing it here
+ * for the 8 LPC pages specifically (same color roles as sites.php's own
+ * version: .btn-open primary, .btn-sm-outline secondary, .btn-sm-danger
+ * destructive) rather than renaming 80+ call sites, since the classes
+ * already correctly describe each button's role — they just needed colors.
+ */
+.btn-open{background:var(--pc-lime);color:var(--pc-navy);border:1.5px solid transparent;padding:8px 16px;border-radius:8px;font-size:.84rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;font-family:inherit;}
+.btn-open:hover{filter:brightness(.96);}
+.btn-sm-outline{background:#fff;border:1px solid var(--pc-line);color:var(--pc-ink);padding:6px 12px;border-radius:7px;font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;font-family:inherit;}
+.btn-sm-outline:hover{border-color:var(--pc-navy-line);background:var(--pc-mist);}
+.btn-sm-outline:disabled{opacity:.5;cursor:not-allowed;}
+.btn-sm-danger{background:#fff;border:1px solid #fca5a5;color:#dc2626;padding:6px 12px;border-radius:7px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;}
+.btn-sm-danger:hover{background:#fef2f2;}
+
 .pcadmin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-bottom:24px;}
 .pcadmin-stat{background:#fff;border:1px solid var(--pc-line);border-radius:14px;padding:18px 20px;}
 .pcadmin-stat .num{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--pc-ink);}
