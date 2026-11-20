@@ -111,31 +111,13 @@ function wpb_pc_block_hero(array $d, array $ctx): string
       </div>
 
       <div class="pc-hero-coverage-wrap">
-        <div class="pc-coverage-card">
-          <div class="pc-coverage-title">Service area coverage <span class="pc-badge-added">+9 towns added</span></div>
-          <div class="pc-chip-row">
-            <span class="pc-chip pc-chip-home">Southlake &middot; home</span>
-            <span class="pc-chip pc-chip-lime">+ Keller</span>
-            <span class="pc-chip pc-chip-lime">+ Grapevine</span>
-            <span class="pc-chip pc-chip-lime">+ Colleyville</span>
-            <span class="pc-chip pc-chip-lime">+ Roanoke</span>
-            <span class="pc-chip pc-chip-lime">+ Trophy Club</span>
-            <span class="pc-chip pc-chip-lime">+ Westlake</span>
-            <span class="pc-chip pc-chip-lime">+ Flower Mound</span>
-            <span class="pc-chip pc-chip-lime">+ Coppell</span>
-            <span class="pc-chip pc-chip-lime">+ Hurst</span>
-            <span class="pc-chip pc-chip-dashed">Euless</span>
-            <span class="pc-chip pc-chip-dashed">Bedford</span>
-          </div>
-        </div>
-        <div class="pc-browser">
+        <div class="pc-browser pc-hero-browser">
           <div class="pc-browser-bar"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-browser-url">yourclient.com/med-spa/keller-tx</span></div>
           <div class="pc-browser-body">
+            <div class="pc-coverage-title pc-browser-label">Example generated page <span class="pc-badge-added">26 towns &middot; 5 services</span></div>
             <h4>Botox &amp; Fillers in Keller, TX</h4>
-            <div class="pc-browser-tags"><span>Neighborhood guide</span><span>Local photos</span><span>City rules</span></div>
-            <div class="pc-browser-line" style="width:100%"></div>
-            <div class="pc-browser-line" style="width:92%"></div>
-            <div class="pc-browser-line" style="width:70%"></div>
+            <p class="pc-browser-copy">Keller&rsquo;s Southlake-adjacent clientele searches by neighborhood, not just city &mdash; this page names Keller Town Center, Marshall Ridge, and the Keller&ndash;Southlake border explicitly, with real Tarrant County permit notes and current-season treatment advice.</p>
+            <div class="pc-browser-tags"><span>Neighborhood guide</span><span>Local photos</span><span>City rules</span><span>Seasonal advice</span></div>
           </div>
         </div>
       </div>
@@ -366,7 +348,7 @@ function wpb_pc_block_faq(array $d, array $ctx): string
       <details><summary>Will the pages match my client&rsquo;s theme?</summary><p>Yes. The plugin renders inside the site&rsquo;s own header, footer and styles, so the pages look native.</p></details>
       <details><summary>Do you guarantee rankings?</summary><p>No one honest does. We add real, local coverage for every town your client serves &mdash; that&rsquo;s the part you control.</p></details>
       <details><summary>Where are the pages hosted?</summary><p>We host and update the content; the plugin caches it locally and serves it on the client&rsquo;s own domain.</p></details>
-      <details><summary>What happens if a client cancels?</summary><p>[CANCELLATION POLICY]</p></details>
+      <details><summary>What happens if a client cancels?</summary><p>' . pc_cancellation_policy_text() . '</p></details>
     </div>
   </div>
 </section>
@@ -382,7 +364,7 @@ function pc_faq_schema(): string
             ['@type' => 'Question', 'name' => "Will the pages match my client's theme?", 'acceptedAnswer' => ['@type' => 'Answer', 'text' => "Yes. The plugin renders inside the site's own header, footer and styles, so the pages look native."]],
             ['@type' => 'Question', 'name' => 'Do you guarantee rankings?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => "No one honest does. We add real, local coverage for every town your client serves — that's the part you control."]],
             ['@type' => 'Question', 'name' => 'Where are the pages hosted?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => "We host and update the content; the plugin caches it locally and serves it on the client's own domain."]],
-            ['@type' => 'Question', 'name' => 'What happens if a client cancels?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => '[CANCELLATION POLICY]']],
+            ['@type' => 'Question', 'name' => 'What happens if a client cancels?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => pc_cancellation_policy_text()]],
         ],
     ];
     return wpb_html('<script type="application/ld+json">' . json_encode($schema) . '</script>');
@@ -523,15 +505,127 @@ function wpb_pc_block_docs(array $d, array $ctx): string
 ');
 }
 
-/** /terms and /privacy: structure is real, the body text is explicitly [PLACEHOLDER] per the spec — "Legal: [PLACEHOLDER] text from Scott." Don't invent legal language standing in for a real policy. */
-function wpb_pc_block_legal(array $d, array $ctx): string
+/**
+ * The one cancellation-policy paragraph reused verbatim in 4 places (homepage FAQ + its schema,
+ * pricing FAQ, /faq's Billing group) — a drafted-not-lawyer-reviewed starting point, same honesty
+ * convention as every other placeholder on this site: [SUPPORT EMAIL] stays a literal visible
+ * placeholder (same token /docs already uses) rather than inventing a fake one. Plain unicode
+ * punctuation, not HTML entities — matches pc_faq_schema()'s own existing style, and this exact
+ * string gets embedded directly into that JSON-LD schema as well as into visible HTML, so it needs
+ * to be valid in both without a separate escaped variant.
+ */
+function pc_cancellation_policy_text(): string
 {
-    $title = $ctx['page'] === 'privacy' ? 'Privacy Policy' : 'Terms &amp; Conditions';
+    return "No contracts — cancel anytime from your account or by emailing [SUPPORT EMAIL]. "
+        . "Your pages stay live through the end of your current billing period (no partial refunds "
+        . "for time already paid for), then the plugin stops updating and your city pages come down. "
+        . "If you're an agency, cancelling pauses billing for every client under your account "
+        . "the same way — we'll always give you a heads-up before anything goes down, "
+        . "never a surprise takedown.";
+}
+
+/**
+ * /terms and /privacy: a real drafted starting point, not invented boilerplate — written to match
+ * how this site already describes itself (e.g. the "no ranking guarantees" section mirrors /quality's
+ * own wording) and to reflect what the product actually does (Stripe subscriptions, the agency
+ * reseller program, GSC-based reporting). Two placeholders deliberately left literal, same convention
+ * as every other unset value on this site: [STATE] (governing-law state — Scott's own legal/business
+ * decision, not guessable) and [SUPPORT EMAIL] (already used elsewhere). NOT a substitute for an
+ * actual lawyer's review before relying on this for a real paying business.
+ */
+function wpb_pc_block_terms(array $d, array $ctx): string
+{
+    $updated = h(date('F j, Y'));
     return wpb_html('
-' . pc_page_hero('Legal', $title) . '
+' . pc_page_hero('Legal', 'Terms &amp; Conditions') . '
 <section class="pc-section">
   <div class="pc-container" style="max-width:720px;">
-    <p style="color:var(--muted);font-style:italic;">[PLACEHOLDER &mdash; ' . $title . ' text from Scott]</p>
+    <p style="color:var(--muted);font-size:13px;">Last updated: ' . $updated . '</p>
+
+    <h3>1. Agreement to Terms</h3>
+    <p>By signing up for or using PlusCities (&ldquo;the Service,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;), you agree to these Terms &amp; Conditions. If you&rsquo;re signing up on behalf of an agency or business, you&rsquo;re confirming you have authority to bind that organization.</p>
+
+    <h3>2. What PlusCities Does</h3>
+    <p>PlusCities provides a WordPress plugin and hosted content service that generates city + service landing pages for your business (or, if you&rsquo;re a partner agency, for your clients&rsquo; businesses), using real local detail for each town served. Pages are served through our plugin, cached locally on your WordPress install, and rendered inside your own site&rsquo;s theme.</p>
+
+    <h3>3. Accounts &amp; Access</h3>
+    <p>You&rsquo;re responsible for keeping your login credentials confidential and for all activity under your account. Tell us immediately if you suspect unauthorized access.</p>
+
+    <h3>4. Subscriptions &amp; Billing</h3>
+    <p>Plans are billed monthly in advance via Stripe. By subscribing, you authorize recurring charges to your payment method until you cancel. Prices are as shown on our pricing page at the time you subscribe &mdash; we&rsquo;ll give you notice before any price increase takes effect on your account. See our Cancellation Policy (below, and on our FAQ) &mdash; it&rsquo;s part of these Terms. Failed payments may result in a grace period followed by suspension of your pages if not resolved.</p>
+
+    <h3>5. Partner / Agency Program</h3>
+    <p>If you join as a partner agency: you&rsquo;re billed wholesale for the plans you activate, you set your own pricing for your own clients, and PlusCities has no relationship with or obligation to your end clients. You&rsquo;re responsible for your own billing relationship with the businesses you serve. We reserve the right to approve, suspend, or decline agency accounts at our discretion &mdash; most commonly for non-payment or abuse.</p>
+
+    <h3>6. Content &amp; Ownership</h3>
+    <p>You own your business&rsquo;s brand, name, and the underlying WordPress site. PlusCities owns the page-generation system, templates, and underlying technology. The specific city-page content we generate for your account is licensed to you for use on your own site for as long as your subscription is active &mdash; it isn&rsquo;t yours to resell, copy to unrelated sites, or use after cancellation.</p>
+
+    <h3>7. No Ranking Guarantees</h3>
+    <p>We don&rsquo;t promise search rankings &mdash; nobody honestly can. What we provide is genuinely useful, locally-specific coverage for every town and service you tell us you serve. Results depend on factors outside our control, including competition, your existing site, and search engine behavior.</p>
+
+    <h3>8. Acceptable Use</h3>
+    <p>You won&rsquo;t use the Service to publish false, misleading, or illegal content about your business or location coverage, impersonate a business you don&rsquo;t operate or represent, or attempt to disrupt or reverse-engineer the Service.</p>
+
+    <h3>9. Termination</h3>
+    <p>We may suspend or terminate your access for non-payment, abuse, or violation of these Terms. You may cancel at any time per our Cancellation Policy.</p>
+
+    <h3>10. Disclaimers &amp; Limitation of Liability</h3>
+    <p>The Service is provided &ldquo;as is.&rdquo; To the maximum extent permitted by law, PlusCities isn&rsquo;t liable for indirect, incidental, or consequential damages, lost profits, or lost rankings/traffic. Our total liability for any claim is limited to the amount you paid us in the 3 months before the claim arose.</p>
+
+    <h3>11. Changes to These Terms</h3>
+    <p>We may update these Terms from time to time. Material changes will be posted here with an updated date; continued use of the Service after a change means you accept the updated Terms.</p>
+
+    <h3>12. Governing Law</h3>
+    <p>These Terms are governed by the laws of [STATE], without regard to conflict-of-law principles.</p>
+
+    <h3>13. Contact</h3>
+    <p>Questions about these Terms? Email [SUPPORT EMAIL].</p>
+  </div>
+</section>
+');
+}
+
+function wpb_pc_block_privacy(array $d, array $ctx): string
+{
+    $updated = h(date('F j, Y'));
+    return wpb_html('
+' . pc_page_hero('Legal', 'Privacy Policy') . '
+<section class="pc-section">
+  <div class="pc-container" style="max-width:720px;">
+    <p style="color:var(--muted);font-size:13px;">Last updated: ' . $updated . '</p>
+
+    <h3>1. What We Collect</h3>
+    <p><strong>Information you give us</strong>: name, email, phone, business name, and website/city/service details you submit through our forms (coverage audit, demo booking, partner application) or when creating an account.</p>
+    <p><strong>Account data</strong>: login username and encrypted password for agency and client portal access.</p>
+    <p><strong>Usage data</strong>: if you connect Google Search Console, we access click/impression data for your own pages so we can show it to you in your reporting dashboard. We don&rsquo;t access anything beyond what that connection grants.</p>
+    <p><strong>Technical data</strong>: standard web server logs (IP address, browser type, pages visited) for security and troubleshooting.</p>
+
+    <h3>2. How We Use It</h3>
+    <p>To provide and bill for the Service, respond to your inquiries, send you the coverage audit or materials you requested, show you your own reporting, and improve PlusCities. We do not sell your personal information to third parties.</p>
+
+    <h3>3. Who We Share It With</h3>
+    <p><strong>Stripe</strong>, to process payments &mdash; we don&rsquo;t store your full card details ourselves. <strong>Hosting/infrastructure providers</strong>, to run the Service. Law enforcement or other parties, only if required by law.</p>
+
+    <h3>4. Data Retention</h3>
+    <p>We keep your account and content data for as long as your account is active, and for a reasonable period after cancellation in case you reactivate or need historical records, after which it&rsquo;s deleted.</p>
+
+    <h3>5. Your Rights</h3>
+    <p>You can ask us to access, correct, or delete your personal information at any time by emailing [SUPPORT EMAIL]. If you&rsquo;re in a region with specific privacy rights (such as the EU/UK or California), we&rsquo;ll honor the rights applicable to you under that law.</p>
+
+    <h3>6. Cookies</h3>
+    <p>We use essential cookies to keep you logged in and, if enabled, analytics cookies to understand how visitors use our site. You can control cookies through your browser settings.</p>
+
+    <h3>7. Security</h3>
+    <p>We use reasonable technical and organizational measures to protect your data, but no system is 100% secure &mdash; we can&rsquo;t guarantee absolute security.</p>
+
+    <h3>8. Children</h3>
+    <p>PlusCities is a business-to-business service not directed at children, and we don&rsquo;t knowingly collect data from anyone under 18.</p>
+
+    <h3>9. Changes to This Policy</h3>
+    <p>We may update this policy from time to time; the &ldquo;Last updated&rdquo; date above will reflect the most recent change.</p>
+
+    <h3>10. Contact</h3>
+    <p>Questions about this policy? Email [SUPPORT EMAIL].</p>
   </div>
 </section>
 ');
@@ -602,7 +696,7 @@ function wpb_pc_faq_groups(): array
             ['What happens if I outgrow my plan?', 'Move up a tier anytime — the pages you already have stay live, and your next invoice reflects the new plan.'],
             ['Do unused pages carry over?', 'No — pricing is coverage, not a page bank. Pick the tier that matches how many towns and services the business actually serves today.'],
             ['Can I move from Direct to Agency pricing?', "Yes — if you're running client sites through an agency relationship, apply to the partner program and we'll move you to wholesale pricing."],
-            ['What happens if a client cancels?', '[CANCELLATION POLICY]'],
+            ['What happens if a client cancels?', pc_cancellation_policy_text()],
         ],
         'Technical' => [
             ["How do I install the plugin?", "Upload it in your WordPress admin and paste the API key from your dashboard — it reads your theme's fonts, colors and layout automatically."],
@@ -906,7 +1000,7 @@ function wpb_pc_block_pricing_faq(array $d, array $ctx): string
       <details><summary>What happens if I outgrow my plan?</summary><p>Move up a tier anytime &mdash; the pages you already have stay live, and your next invoice reflects the new plan.</p></details>
       <details><summary>Do unused pages carry over?</summary><p>No &mdash; pricing is coverage, not a page bank. Pick the tier that matches how many towns and services the business actually serves today.</p></details>
       <details><summary>Can I move from Direct to Agency pricing?</summary><p>Yes &mdash; if you\'re running client sites through an agency relationship, apply to the partner program and we\'ll move you to wholesale pricing.</p></details>
-      <details><summary>What happens if a client cancels?</summary><p>[CANCELLATION POLICY]</p></details>
+      <details><summary>What happens if a client cancels?</summary><p>' . pc_cancellation_policy_text() . '</p></details>
     </div>
   </div>
 </section>
@@ -983,7 +1077,8 @@ foreach ([
     'agencies_billing'    => 'wpb_pc_block_agencies_billing',
     'agencies_apply'      => 'wpb_pc_block_agencies_apply',
     'docs'                => 'wpb_pc_block_docs',
-    'legal'               => 'wpb_pc_block_legal',
+    'terms_content'       => 'wpb_pc_block_terms',
+    'privacy_content'     => 'wpb_pc_block_privacy',
     'industries_grid'     => 'wpb_pc_block_industries_grid',
     'niche_page'          => 'wpb_pc_block_niche_page',
     'pricing_tabs'        => 'wpb_pc_block_pricing_tabs',
@@ -1058,13 +1153,13 @@ wpb_register_profile(WPB_PLUSCITIES, [
         'terms' => [
             'slug' => 'terms',
             'title' => 'Terms & Conditions',
-            'blocks' => ['legal', 'final_cta'],
+            'blocks' => ['terms_content', 'final_cta'],
             'seo' => fn(array $d) => ['Terms & Conditions | PlusCities', 'PlusCities terms and conditions.'],
         ],
         'privacy' => [
             'slug' => 'privacy',
             'title' => 'Privacy Policy',
-            'blocks' => ['legal', 'final_cta'],
+            'blocks' => ['privacy_content', 'final_cta'],
             'seo' => fn(array $d) => ['Privacy Policy | PlusCities', 'PlusCities privacy policy.'],
         ],
         'industries' => [
@@ -1211,7 +1306,13 @@ wpb_register_profile(WPB_PLUSCITIES, [
 /**
  * Placeholders left visible on this build, per the spec's own instruction —
  * surfaced here so they're never silently forgotten:
- *   [CANCELLATION POLICY]— homepage FAQ, /pricing FAQ, and /faq's Billing group
+ *   Cancellation policy — real drafted text now (pc_cancellation_policy_text()), not a placeholder,
+ *     used verbatim in the homepage FAQ, /pricing FAQ, and /faq's Billing group. Drafted, not
+ *     lawyer-reviewed — still names [SUPPORT EMAIL] literally, same convention as every other
+ *     unset value on this site.
+ *   /terms and /privacy — real drafted text now (wpb_pc_block_terms()/wpb_pc_block_privacy()), not
+ *     the old generic "[PLACEHOLDER] text from Scott." Drafted, not lawyer-reviewed. Two values left
+ *     literally visible: [STATE] (governing-law state — Scott's own decision) and [SUPPORT EMAIL].
  *   [SCREENSHOT] x2       — "See it on a real site" cards 1 and 2 (card 3 has a real title, no image yet)
  *   [FOUNDER VIDEO]       — shown only after the poster is clicked (loads-on-click, per spec)
  *   Stripe checkout URLs  — all three pricing "Get started" buttons link to # until supplied
@@ -1223,8 +1324,8 @@ wpb_register_profile(WPB_PLUSCITIES, [
  *     and client admin logins), but inactive until real keys are dropped into .pluscities_turnstile.json
  *     — honeypot-only until then, same behavior as before this was built.
  *   PARTNER DISCOUNT is set (40%, live on /pricing's wholesale column) — no longer a placeholder.
- *   app.pluscities.com (Log in / Client login) — deliberately out of scope for this project; the
- *     real agency/billing app already exists but isn't exposed at that public address yet.
+ *   app.pluscities.com (Log in / Client login) — LIVE as of 2026-11-20: real DNS, points at the real
+ *     agency_login.php/client_login.php. No longer out of scope — this note previously said otherwise.
  *   Every other route in the spec's site map now exists: /how-it-works, /agencies, /docs, /terms,
  *     /privacy, /industries (+ all 10 niches), /pricing, /demos, /audit, /demo, /faq, /quality.
  */

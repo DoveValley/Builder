@@ -183,19 +183,11 @@ add_action( 'wp_head', function () {
 	.pc-preview-bar button{flex:0 0 auto;}
 	@media (max-width:520px){ .pc-preview-bar{flex-direction:column;} .pc-preview-bar button{width:100%;} }
 
-	/* Coverage card */
-	.pc-coverage-card{background:#fff;border-radius:22px;padding:22px;position:relative;}
-	.pc-coverage-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
 	.pc-badge-added{background:var(--lime);color:var(--navy);font-size:11px;font-weight:700;border-radius:999px;padding:3px 10px;}
-	.pc-chip-row{display:flex;flex-wrap:wrap;gap:8px;}
-	.pc-chip{font-size:13px;font-weight:600;border-radius:999px;padding:7px 14px;}
-	.pc-chip-home{background:var(--mist);border:1px solid var(--line);color:var(--ink);}
-	.pc-chip-lime{background:var(--lime);color:var(--navy);opacity:0;transform:scale(.8);}
-	.pc-chip-dashed{background:none;border:1.5px dashed var(--line);color:var(--muted);}
-	.pc-coverage-card.pc-animate .pc-chip-lime{animation:pcChipIn .35s ease forwards;}
-	@keyframes pcChipIn{from{opacity:0;transform:scale(.8);}to{opacity:1;transform:scale(1);}}
-	@media (prefers-reduced-motion:reduce){ .pc-chip-lime{opacity:1 !important;transform:none !important;animation:none !important;} }
-
+	/* Shared with the niche-page "what a page looks like" mockup (wpb_pc_block_niche_page) — don't
+	   remove .pc-browser/.pc-browser-bar/.pc-browser-body, they're reused there with their own
+	   inline margin-top override. */
+	.pc-coverage-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
 	.pc-browser{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:14px;margin-top:-30px;position:relative;z-index:2;padding:0;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.3);}
 	.pc-browser-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(0,0,0,.2);}
 	.pc-browser-bar .pc-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);}
@@ -204,8 +196,12 @@ add_action( 'wp_head', function () {
 	.pc-browser-body h4{color:#fff;font-size:17px;margin:4px 0 10px;font-family:'Space Grotesk',sans-serif;}
 	.pc-browser-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
 	.pc-browser-tags span{font-size:11px;background:var(--navy);border:1px solid var(--navy-line);color:var(--on-navy);border-radius:999px;padding:3px 9px;}
-	.pc-browser-line{height:9px;background:rgba(255,255,255,.12);border-radius:5px;margin-bottom:8px;}
 	.pc-hero-coverage-wrap{position:relative;}
+	/* Hero's single unified mockup, replacing the old two-piece coverage-card + browser layout —
+	   nothing above it to overlap into anymore, so cancel the base .pc-browser's negative margin. */
+	.pc-hero-browser{margin-top:0;}
+	.pc-browser-label{color:var(--on-navy);}
+	.pc-browser-copy{color:var(--on-navy);font-size:14px;line-height:1.6;margin:0 0 12px;}
 
 	/* Video */
 	.pc-video-wrap{max-width:1040px;margin:56px auto 0;}
@@ -424,24 +420,6 @@ function pc_print_js(): void {
 				burger.setAttribute('aria-expanded', open ? 'true' : 'false');
 				menu.hidden = !open;
 			});
-		}
-
-		/* Coverage chip animation — once, on first view, skipped under reduced motion */
-		var coverage = document.querySelector('.pc-coverage-card');
-		if (coverage && !reduceMotion && 'IntersectionObserver' in window) {
-			var io = new IntersectionObserver(function(entries){
-				entries.forEach(function(e){
-					if (e.isIntersecting) {
-						var chips = coverage.querySelectorAll('.pc-chip-lime');
-						chips.forEach(function(c, i){ c.style.animationDelay = (i * 80) + 'ms'; });
-						coverage.classList.add('pc-animate');
-						io.disconnect();
-					}
-				});
-			}, { threshold: 0.3 });
-			io.observe(coverage);
-		} else if (coverage) {
-			coverage.classList.add('pc-animate');
 		}
 
 		/* Founder video — loads only on click */
