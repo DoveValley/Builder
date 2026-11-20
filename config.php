@@ -226,4 +226,11 @@ $_ctmSecretFile = __DIR__ . '/.ctm_secret';
 $_ctmSecret = file_exists($_ctmSecretFile) ? trim(file_get_contents($_ctmSecretFile)) : '';
 if ($_ctmSecret === '') $_ctmSecret = getenv('CTM_SECRET_KEY') ?: '';
 define('CTM_SECRET_KEY', $_ctmSecret);
+
+// Login activity tracking for the Platform Information admin page — hooked
+// here, not in functions.php, so every authenticated request updates it
+// regardless of which admin page it is. No-ops instantly for the vast
+// majority of requests (public site visitors, nobody logged in).
+require_once __DIR__ . '/includes/platform_sessions.php';
+platform_session_heartbeat();
 unset($_ctmSecret, $_ctmSecretFile);

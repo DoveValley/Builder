@@ -186,3 +186,8 @@ data/gf_preload_cache.json
 .pluscities_cf_token
 .pluscities_cf_zone.json
 .pluscities_turnstile.json
+
+# Platform Information's "Who's Logged In" session registry — live runtime state
+# (who's online right now, login history), rewritten on every authenticated
+# request. Not meaningful to version, and it carries real IPs/session ids.
+.platform_login_sessions.json

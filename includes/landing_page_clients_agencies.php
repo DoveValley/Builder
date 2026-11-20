@@ -284,6 +284,41 @@ function lpc_actor_branding() {
     return $default;
 }
 
+/**
+ * Who's logged in and what kind of account it is — shown in the sidebar
+ * above "Log out" so a Super Admin mid-impersonation (or anyone, really)
+ * can tell at a glance which seat they're sitting in. Deliberately reads
+ * the CURRENT actor_role/agency_id/client_id, same as lpc_admin_nav_items()
+ * and lpc_actor_branding() — during impersonation this reflects the
+ * impersonated identity, not the real one (the orange banner above already
+ * covers "who you really are and how to get back").
+ */
+function lpc_current_actor_identity(): array {
+    return lpc_actor_identity_label(lpc_current_actor_role(), lpc_current_actor_agency_id(), lpc_current_actor_client_id());
+}
+
+/**
+ * Same lookup as lpc_current_actor_identity(), but for an arbitrary
+ * role/agency_id/client_id rather than the live session — used by the
+ * Platform Information page to label historical login records, where the
+ * agency/client in question usually isn't the one currently logged in.
+ */
+function lpc_actor_identity_label(string $role, ?string $agencyId, ?string $clientId): array {
+    if ($role === 'agency_admin') {
+        $agency = $agencyId ? lpc_load_agency($agencyId) : null;
+        $name = $agency ? ($agency['login']['username'] ?: $agency['name']) : $agencyId;
+        return ['role_label' => 'Agency', 'name' => $name ?: 'Agency'];
+    }
+
+    if ($role === 'end_client') {
+        $client = $clientId ? lpc_load_client($clientId) : null;
+        $name = $client ? ($client['login']['username'] ?: $client['identity']['business_name']) : $clientId;
+        return ['role_label' => 'Client', 'name' => $name ?: 'Client'];
+    }
+
+    return ['role_label' => 'Platform Admin', 'name' => defined('ADMIN_USERNAME') ? ADMIN_USERNAME : 'admin'];
+}
+
 /** Echoes the shared admin topbar's branding mark — an agency's own logo when it set one, else the stock hamburger glyph, next to lpc_actor_branding()'s name. One place so all 4 topbar call sites stay in sync. */
 function lpc_render_actor_branding() {
     $b = lpc_actor_branding();

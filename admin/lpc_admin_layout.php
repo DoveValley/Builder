@@ -48,6 +48,9 @@ body.admin-body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sa
 .pcadmin-sidebar-bottom{padding:14px 10px;border-top:1px solid var(--pc-navy-line);}
 .pcadmin-sidebar-bottom a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;color:var(--pc-on-navy);text-decoration:none;font-size:.88rem;font-weight:500;}
 .pcadmin-sidebar-bottom a:hover{background:var(--pc-navy-2);color:#fff;}
+.pcadmin-whoami{padding:6px 12px 12px;}
+.pcadmin-whoami .role{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--pc-muted);}
+.pcadmin-whoami .name{font-size:.86rem;font-weight:700;color:#fff;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
 .pcadmin-main{flex:1;min-width:0;}
 .pcadmin-topbar{background:#fff;border-bottom:1px solid var(--pc-line);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
@@ -169,6 +172,8 @@ function lpc_admin_nav_items(): array {
             'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>'];
         $items[] = ['key' => 'wp_builder', 'href' => 'wp_builder.php', 'label' => 'WP Builder',
             'icon' => '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'];
+        $items[] = ['key' => 'platform_info', 'href' => 'platform_info.php', 'label' => 'Platform Information',
+            'icon' => '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'];
         $items[] = ['key' => 'sites', 'href' => 'sites.php', 'label' => '&larr; Site Factory',
             'icon' => '<path d="M3 12h18M3 6h18M3 18h18"/>'];
     }
@@ -202,6 +207,11 @@ function lpc_admin_sidebar(string $activeKey): void {
             <?php endforeach; ?>
         </nav>
         <div class="pcadmin-sidebar-bottom">
+            <?php $who = lpc_current_actor_identity(); ?>
+            <div class="pcadmin-whoami">
+                <div class="role"><?= h($who['role_label']) ?></div>
+                <div class="name"><?= h($who['name']) ?></div>
+            </div>
             <a href="logout.php">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
                 Log out
