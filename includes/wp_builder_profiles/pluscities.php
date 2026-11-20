@@ -85,6 +85,16 @@ function pc_page_hero(string $eyebrow, string $h1, string $lead = ''): string
 ';
 }
 
+/** One hero sales-point row: lime checkmark circle + bold lead phrase + supporting detail, on the hero's own navy-2 panel. Bold lead is the "pop" — lime-on-navy is the brand's own highest-contrast accent, already used for the headline's "+50 cities" and every primary CTA. */
+function pc_hero_bullet(string $lead, string $detail): string
+{
+    return '
+<div class="pc-hero-bullet">
+  <span class="pc-hero-bullet-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+  <p class="pc-hero-bullet-text"><strong>' . $lead . '</strong> ' . $detail . '</p>
+</div>';
+}
+
 function wpb_pc_block_hero(array $d, array $ctx): string
 {
     return wpb_html('
@@ -111,14 +121,11 @@ function wpb_pc_block_hero(array $d, array $ctx): string
       </div>
 
       <div class="pc-hero-coverage-wrap">
-        <div class="pc-browser pc-hero-browser">
-          <div class="pc-browser-bar"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-browser-url">yourclient.com/med-spa/keller-tx</span></div>
-          <div class="pc-browser-body">
-            <div class="pc-coverage-title pc-browser-label">Example generated page <span class="pc-badge-added">26 towns &middot; 5 services</span></div>
-            <h4>Botox &amp; Fillers in Keller, TX</h4>
-            <p class="pc-browser-copy">Keller&rsquo;s Southlake-adjacent clientele searches by neighborhood, not just city &mdash; this page names Keller Town Center, Marshall Ridge, and the Keller&ndash;Southlake border explicitly, with real Tarrant County permit notes and current-season treatment advice.</p>
-            <div class="pc-browser-tags"><span>Neighborhood guide</span><span>Local photos</span><span>City rules</span><span>Seasonal advice</span></div>
-          </div>
+        <div class="pc-hero-bullets">
+          ' . pc_hero_bullet('No contracts.', 'Cancel anytime &mdash; your pages stay live through the period you&rsquo;ve already paid for.') . '
+          ' . pc_hero_bullet('Real local detail, not AI fluff.', 'Every page uses actual neighborhoods, permit rules, and weather for that town.') . '
+          ' . pc_hero_bullet('Built to actually rank.', 'Real local detail &mdash; not thin, templated pages &mdash; the kind of content search engines reward.') . '
+          ' . pc_hero_bullet('Wholesale pricing for agencies.', 'You set your own price and keep 100% of the markup.') . '
         </div>
       </div>
     </div>

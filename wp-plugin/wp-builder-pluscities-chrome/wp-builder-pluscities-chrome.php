@@ -183,25 +183,24 @@ add_action( 'wp_head', function () {
 	.pc-preview-bar button{flex:0 0 auto;}
 	@media (max-width:520px){ .pc-preview-bar{flex-direction:column;} .pc-preview-bar button{width:100%;} }
 
-	.pc-badge-added{background:var(--lime);color:var(--navy);font-size:11px;font-weight:700;border-radius:999px;padding:3px 10px;}
 	/* Shared with the niche-page "what a page looks like" mockup (wpb_pc_block_niche_page) — don't
-	   remove .pc-browser/.pc-browser-bar/.pc-browser-body, they're reused there with their own
-	   inline margin-top override. */
-	.pc-coverage-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+	   remove these, they're reused there with their own inline margin-top override. */
 	.pc-browser{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:14px;margin-top:-30px;position:relative;z-index:2;padding:0;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.3);}
 	.pc-browser-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(0,0,0,.2);}
 	.pc-browser-bar .pc-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);}
 	.pc-browser-url{background:rgba(255,255,255,.08);border-radius:6px;padding:3px 10px;font-size:11px;color:var(--on-navy);margin-left:8px;}
 	.pc-browser-body{padding:18px 20px 24px;}
 	.pc-browser-body h4{color:#fff;font-size:17px;margin:4px 0 10px;font-family:'Space Grotesk',sans-serif;}
-	.pc-browser-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
-	.pc-browser-tags span{font-size:11px;background:var(--navy);border:1px solid var(--navy-line);color:var(--on-navy);border-radius:999px;padding:3px 9px;}
 	.pc-hero-coverage-wrap{position:relative;}
-	/* Hero's single unified mockup, replacing the old two-piece coverage-card + browser layout —
-	   nothing above it to overlap into anymore, so cancel the base .pc-browser's negative margin. */
-	.pc-hero-browser{margin-top:0;}
-	.pc-browser-label{color:var(--on-navy);}
-	.pc-browser-copy{color:var(--on-navy);font-size:14px;line-height:1.6;margin:0 0 12px;}
+	/* Hero's sales-bullet panel — replaced an earlier single-mockup version of this same slot, which
+	   itself replaced the original two-piece coverage-card + browser layout. Lime-on-navy for the
+	   bold lead phrase is the deliberate "pop" color: same lime as "+50 cities" in the headline and
+	   every primary CTA, so it reads as this brand's one highest-contrast accent, not a new color. */
+	.pc-hero-bullets{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:22px;}
+	.pc-hero-bullet{display:flex;gap:14px;align-items:flex-start;}
+	.pc-hero-bullet-icon{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;margin-top:2px;}
+	.pc-hero-bullet-text{color:var(--on-navy);font-size:15px;line-height:1.55;margin:0;}
+	.pc-hero-bullet-text strong{color:var(--lime);}
 
 	/* Video */
 	.pc-video-wrap{max-width:1040px;margin:56px auto 0;}
