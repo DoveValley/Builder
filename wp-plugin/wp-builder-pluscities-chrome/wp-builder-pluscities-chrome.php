@@ -51,7 +51,7 @@ function wpb_custom_header(): void {
 				<a href="/demos">Live demos</a>
 			</nav>
 			<div class="pc-header-actions">
-				<a href="https://app.pluscities.com" class="pc-btn pc-btn-outline-navy pc-login-btn" data-pc-event="login_click">
+				<a href="https://app.pluscities.com/admin/agency_login.php" class="pc-btn pc-btn-outline-navy pc-login-btn" data-pc-event="login_click">
 					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
 					Log in
 				</a>
@@ -83,7 +83,7 @@ function wpb_custom_footer(): void {
 				<a href="/how-it-works">How it works</a>
 				<a href="/agencies">Partners</a>
 				<a href="/docs">Plugin docs</a>
-				<a href="https://app.pluscities.com">Client login</a>
+				<a href="https://app.pluscities.com/admin/client_login.php">Client login</a>
 				<a href="/terms">Terms</a>
 				<a href="/privacy">Privacy</a>
 			</nav>
