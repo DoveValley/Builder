@@ -53,55 +53,78 @@ function lpc_demo_box_ssh(string $remoteCmd): array
     return ['output' => trim((string) $output)];
 }
 
-/** Every real site on this box, straight from Hestia — no local cache, nothing to drift. */
-function lpc_demo_list_sites(): array
+/** Domains straight from Hestia — no local cache, nothing to drift. */
+function lpc_demo_box_domains(): array
 {
     $server = lpc_demo_box_hestia_server();
-    $siteUser = LPC_DEMO_BOX_SITE_USER;
-    $r = hestia_api($server, 'v-list-web-domains', [$siteUser, 'json'], false);
+    $r = hestia_api($server, 'v-list-web-domains', [LPC_DEMO_BOX_SITE_USER, 'json'], false);
     if (!$r['ok'] || !is_array($r['json'])) return [];
-
     $domains = array_keys($r['json']);
     sort($domains);
+    return $domains;
+}
 
-    // Theme info, cached with a short TTL. Each lookup is a full WordPress
-    // bootstrap via wp-cli (connects to its DB, loads core+theme), and even
-    // run in parallel across all sites, a 2-vCPU box genuinely can't do 19 of
-    // those at once without real CPU contention — measured ~6.8s on its own,
-    // on top of everything else, every single page load. Themes essentially
-    // never change outside of an explicit create/redeploy action, so a 5-minute
-    // cache trades negligible staleness for a page that loads instantly on
-    // every repeat visit instead of re-paying this cost every time.
-    $cacheFile = BASE_DIR . '/.lpc_demo_box_theme_cache.json';
-    $cache = json_decode((string) @file_get_contents($cacheFile), true) ?: ['at' => 0, 'themes' => []];
-    $themes = $cache['themes'];
-    $missing = array_diff($domains, array_keys($themes));
-    if ($missing || (time() - $cache['at']) > 300) {
-        $toFetch = $missing ?: $domains; // full refresh past the TTL, else just the gaps
-        $cmds = [];
-        foreach ($toFetch as $d) {
-            $dir = '/home/' . $siteUser . '/web/' . $d . '/public_html';
-            $cmds[] = '(echo ' . escapeshellarg($d . '|') . '$(sudo -u ' . escapeshellarg($siteUser)
-                    . ' php ' . escapeshellarg($dir . '/wp-cli.phar') . ' theme list --status=active --field=name --path='
-                    . escapeshellarg($dir) . ' 2>/dev/null)) &';
+/**
+ * Every real site on this box. Deliberately does NOT check theme or running
+ * status here — both require live WordPress bootstraps / HTTP pings across
+ * every site on a 2-vCPU box, which made this page take up to ~20s to load
+ * and caused false "Not responding" badges from the check's own cold-start
+ * contention. That's now a separate, explicit action — see
+ * lpc_demo_check_sites_status() — triggered by a button instead of every
+ * page load.
+ */
+function lpc_demo_list_sites(): array
+{
+    $siteUser = LPC_DEMO_BOX_SITE_USER;
+    $domains = lpc_demo_box_domains();
+
+    $sites = [];
+    foreach ($domains as $d) {
+        $sites[] = [
+            'domain'  => $d,
+            'niche'   => preg_replace('/^demo-/', '', explode('.', $d)[0]),
+            'theme'   => null,   // unknown until lpc_demo_check_sites_status() runs
+            'running' => null,   // unknown until lpc_demo_check_sites_status() runs
+            'docroot' => '/home/' . $siteUser . '/web/' . $d . '/public_html',
+        ];
+    }
+    return $sites;
+}
+
+/**
+ * The expensive live check, run only on explicit request (the "Check Status"
+ * button), never on page load. Themes are fetched in parallel over one SSH
+ * call (each lookup is a full WordPress bootstrap — connects to its DB,
+ * loads core+theme — ~6.8s for all sites even in parallel on this box).
+ * Running status is batched at 6 domains at a time: each domain cold-starts
+ * its own tiny php-fpm pool on demand (pm.max_children 4-8), and firing all
+ * of them at once caused real resource contention on this 2-vCPU box — some
+ * requests genuinely timed out under the burst, misreporting real running
+ * sites as down. Batches of 6 avoid that while still beating one-at-a-time.
+ */
+function lpc_demo_check_sites_status(): array
+{
+    $siteUser = LPC_DEMO_BOX_SITE_USER;
+    $domains = lpc_demo_box_domains();
+    if (!$domains) return [];
+
+    $themes = [];
+    $cmds = [];
+    foreach ($domains as $d) {
+        $dir = '/home/' . $siteUser . '/web/' . $d . '/public_html';
+        $cmds[] = '(echo ' . escapeshellarg($d . '|') . '$(sudo -u ' . escapeshellarg($siteUser)
+                . ' php ' . escapeshellarg($dir . '/wp-cli.phar') . ' theme list --status=active --field=name --path='
+                . escapeshellarg($dir) . ' 2>/dev/null)) &';
+    }
+    if ($cmds) {
+        $batch = lpc_demo_box_ssh(implode(' ', $cmds) . ' wait');
+        foreach (explode("\n", $batch['output']) as $line) {
+            if (strpos($line, '|') === false) continue;
+            [$d, $t] = explode('|', $line, 2);
+            $themes[$d] = trim($t) ?: '—';
         }
-        if ($cmds) {
-            $batch = lpc_demo_box_ssh(implode(' ', $cmds) . ' wait');
-            foreach (explode("\n", $batch['output']) as $line) {
-                if (strpos($line, '|') === false) continue;
-                [$d, $t] = explode('|', $line, 2);
-                $themes[$d] = trim($t) ?: '—';
-            }
-        }
-        @file_put_contents($cacheFile, json_encode(['at' => time(), 'themes' => $themes]));
     }
 
-    // "Running" check, parallelized but CAPPED at a small batch size — each
-    // domain cold-starts its own tiny php-fpm pool on demand (pm.max_children
-    // 4-8) on a 2-vCPU box, so firing all 19 at once caused real resource
-    // contention: some requests genuinely timed out under the burst, silently
-    // misreporting real running sites as down. Batches of 6 avoid that while
-    // still being far faster than one-at-a-time (was up to 1.5s EACH, serial).
     $running = array_fill_keys($domains, false);
     foreach (array_chunk($domains, 6) as $batch) {
         $mh = curl_multi_init();
@@ -138,17 +161,11 @@ function lpc_demo_list_sites(): array
         curl_multi_close($mh);
     }
 
-    $sites = [];
+    $out = [];
     foreach ($domains as $d) {
-        $sites[] = [
-            'domain'  => $d,
-            'niche'   => preg_replace('/^demo-/', '', explode('.', $d)[0]),
-            'theme'   => $themes[$d] ?? '—',
-            'running' => $running[$d] ?? false,
-            'docroot' => '/home/' . $siteUser . '/web/' . $d . '/public_html',
-        ];
+        $out[$d] = ['theme' => $themes[$d] ?? '—', 'running' => $running[$d] ?? false];
     }
-    return $sites;
+    return $out;
 }
 
 /**

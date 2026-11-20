@@ -1046,6 +1046,7 @@ function wpb_pc_block_demos(array $d, array $ctx): string
 {
     $cards = '';
     if (function_exists('lpc_demo_list_sites')) {
+        $status = function_exists('lpc_demo_check_sites_status') ? lpc_demo_check_sites_status() : [];
         foreach (lpc_demo_list_sites() as $site) {
             $domain = $site['domain'] ?? '';
             $niche = $site['niche'] ?? '';
@@ -1053,7 +1054,7 @@ function wpb_pc_block_demos(array $d, array $ctx): string
                 continue;
             }
             $cards .= '<div class="pc-demo-card">'
-                . '<div class="pc-demo-label">' . h(wpb_pc_theme_label($site['theme'] ?? '')) . ' theme</div>'
+                . '<div class="pc-demo-label">' . h(wpb_pc_theme_label($status[$domain]['theme'] ?? '')) . ' theme</div>'
                 . '<h4>' . h(wpb_pc_niche_label($niche)) . '</h4>'
                 . '<div class="pc-demo-shot">[SCREENSHOT]</div>'
                 . '<p><a href="http://' . h($domain) . '/" target="_blank" rel="noopener">Open demo &rarr;</a></p>'

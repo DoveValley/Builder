@@ -31,9 +31,9 @@ if (!empty($_GET['msg'])) {
 
 const LPC_DEMO_SHARED_LOGIN = ['user' => 'admin', 'pass' => 'demosite2026'];
 
-// Every site, live from the box itself (Hestia's domain list + a batched theme
-// check) — the box IS the source of truth, same reasoning the original
-// filesystem-glob version used, just pointed at a different box now.
+// Every site, live from the box's own domain list (fast — no theme/running
+// check here). Those are fetched on demand via the "Check Status" button,
+// which calls lpc_demo_sites_status.php; see lpc_demo_check_sites_status().
 $sites = lpc_demo_list_sites();
 ?>
 <!DOCTYPE html>
@@ -56,6 +56,7 @@ $sites = lpc_demo_list_sites();
 .lpc-status { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 8px; border-radius:10px; }
 .lpc-status-running  { background:#dcfce7; color:#166534; }
 .lpc-status-stopped  { background:#fee2e2; color:#991b1b; }
+.lpc-status-unknown  { background:#f1f5f9; color:#64748b; }
 </style>
 </head>
 <body class="admin-body">
@@ -70,7 +71,10 @@ $sites = lpc_demo_list_sites();
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
 
-    <h1 style="font-size:1.3rem;">Demo Sites</h1>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <h1 style="font-size:1.3rem;margin:0;">Demo Sites</h1>
+        <button type="button" id="lpc-check-status-btn" class="btn-sm-outline" onclick="lpcCheckStatus(this)">Check Status</button>
+    </div>
     <p style="color:#6b7280;font-size:.85rem;">
         Real WordPress installs on their own dedicated box (<?= h(LPC_DEMO_BOX_HOST) ?>), standing in
         for a real agency's "existing customer site" — used to rehearse agency onboarding, plugin
@@ -83,25 +87,23 @@ $sites = lpc_demo_list_sites();
     </p>
 
     <?php foreach ($sites as $s): ?>
-        <?php $hostsLine = LPC_DEMO_BOX_HOST . ' ' . $s['domain']; ?>
-        <div class="lpc-row">
+        <?php $hostsLine = LPC_DEMO_BOX_HOST . ' ' . $s['domain']; $hash = md5($s['domain']); ?>
+        <div class="lpc-row" data-domain="<?= h($s['domain']) ?>">
             <div>
                 <strong><?= h($s['domain']) ?></strong>
-                <span class="lpc-status lpc-status-<?= $s['running'] ? 'running' : 'stopped' ?>"><?= $s['running'] ? 'Running' : 'Not responding' ?></span>
+                <span class="lpc-status lpc-status-unknown" id="status-<?= h($hash) ?>">Not checked</span>
                 <div class="meta">
-                    niche: <?= h(ucwords(str_replace('-', ' ', $s['niche']))) ?> &middot; theme: <?= h($s['theme']) ?>
+                    niche: <?= h(ucwords(str_replace('-', ' ', $s['niche']))) ?> &middot; theme: <span id="theme-<?= h($hash) ?>">&mdash;</span>
                 </div>
                 <div class="meta" style="margin-top:6px;display:flex;align-items:center;gap:6px;">
-                    <code id="hosts-<?= h(md5($s['domain'])) ?>" style="background:#f3f4f6;padding:3px 8px;border-radius:4px;font-size:.78rem;"><?= h($hostsLine) ?></code>
-                    <button type="button" class="btn-sm-outline" style="padding:2px 8px;font-size:.75rem;" onclick="lpcCopyLine('hosts-<?= h(md5($s['domain'])) ?>', this)">Copy</button>
+                    <code id="hosts-<?= h($hash) ?>" style="background:#f3f4f6;padding:3px 8px;border-radius:4px;font-size:.78rem;"><?= h($hostsLine) ?></code>
+                    <button type="button" class="btn-sm-outline" style="padding:2px 8px;font-size:.75rem;" onclick="lpcCopyLine('hosts-<?= h($hash) ?>', this)">Copy</button>
                     <span class="meta">add to your hosts file, then open http://<?= h($s['domain']) ?>/</span>
                 </div>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <?php if ($s['running']): ?>
-                <a href="http://<?= h($s['domain']) ?>/wp-admin/" target="_blank" rel="noopener" class="btn-sm-outline">Log In</a>
-                <a href="http://<?= h($s['domain']) ?>/" target="_blank" rel="noopener" class="btn-sm-outline">View Site</a>
-                <?php endif; ?>
+                <a href="http://<?= h($s['domain']) ?>/wp-admin/" target="_blank" rel="noopener" class="btn-sm-outline lpc-running-only" id="login-<?= h($hash) ?>" style="display:none;">Log In</a>
+                <a href="http://<?= h($s['domain']) ?>/" target="_blank" rel="noopener" class="btn-sm-outline lpc-running-only" id="view-<?= h($hash) ?>" style="display:none;">View Site</a>
                 <form method="post" action="lpc_demo_sites_save.php" style="margin:0;">
                     <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                     <input type="hidden" name="action" value="redeploy_plugin">
@@ -213,6 +215,48 @@ function lpcCopyLine(id, btn) {
         btn.textContent = 'Copied!';
         setTimeout(function () { btn.textContent = original; }, 1500);
     });
+}
+
+function lpcCheckStatus(btn) {
+    var original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Checking…';
+    var body = new URLSearchParams();
+    body.set('csrf_token', <?= json_encode($csrf) ?>);
+    fetch('lpc_demo_sites_status.php', { method: 'POST', body: body })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+            if (!data.ok) { alert(data.error || 'Check failed.'); return; }
+            document.querySelectorAll('.lpc-row[data-domain]').forEach(function (row) {
+                var domain = row.getAttribute('data-domain');
+                var info = data.sites[domain];
+                var hash = md5ForDomain(domain);
+                if (!info) return;
+                var statusEl = document.getElementById('status-' + hash);
+                var themeEl = document.getElementById('theme-' + hash);
+                var loginEl = document.getElementById('login-' + hash);
+                var viewEl = document.getElementById('view-' + hash);
+                if (statusEl) {
+                    statusEl.textContent = info.running ? 'Running' : 'Not responding';
+                    statusEl.className = 'lpc-status ' + (info.running ? 'lpc-status-running' : 'lpc-status-stopped');
+                }
+                if (themeEl) themeEl.textContent = info.theme || '—';
+                if (loginEl) loginEl.style.display = info.running ? '' : 'none';
+                if (viewEl) viewEl.style.display = info.running ? '' : 'none';
+            });
+        })
+        .catch(function () { alert('Check failed — see console.'); })
+        .finally(function () {
+            btn.disabled = false;
+            btn.textContent = original;
+        });
+}
+
+// Matches PHP's md5() on the domain — used to key the per-row element ids
+// rendered server-side, so results from the status check land on the right row.
+var LPC_DOMAIN_HASHES = <?= json_encode(array_combine(array_column($sites, 'domain'), array_map(fn($s) => md5($s['domain']), $sites))) ?>;
+function md5ForDomain(domain) {
+    return LPC_DOMAIN_HASHES[domain] || '';
 }
 </script>
 </body>
