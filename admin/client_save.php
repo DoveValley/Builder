@@ -169,6 +169,36 @@ switch ($section) {
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=success:Reporting+settings+saved');
         exit;
 
+    /* ---- CLIENT PORTAL LOGIN ----
+     * lpc_set_client_password() has existed since the End Client portal was built, but nothing in
+     * the admin ever called it — there was no way to actually give a client working credentials
+     * short of a direct server/CLI call. This is that missing piece. Password field is optional on
+     * save (same "leave blank to keep the current one" pattern agencies.php already uses) so you can
+     * change just the username without being forced to also reset the password. */
+    case 'login':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client_for_current_actor($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $username = trim($_POST['login_username'] ?? '');
+        $password = (string) ($_POST['login_password'] ?? '');
+
+        if ($username !== '') {
+            $clash = lpc_find_client_by_username($username);
+            if ($clash && $clash['client_id'] !== $client_id) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=error:That+username+is+already+in+use+by+another+client');
+                exit;
+            }
+        }
+
+        $client['login']['username'] = $username;
+        lpc_save_client($client_id, $client);
+        if ($password !== '') {
+            lpc_set_client_password($client_id, $password);
+        }
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=success:Client+login+saved');
+        exit;
+
     /* ---- INTEGRATIONS (analytics / CDN — stored, inert until a real account exists) ---- */
     case 'integrations':
         $client_id = $_POST['client_id'] ?? '';

@@ -998,6 +998,22 @@ Thanks!</textarea></div>
     <?php elseif ($tab === 'reporting'): ?>
 
         <div class="card">
+            <strong style="font-size:.88rem;">Client Login</strong>
+            <p style="color:#6b7280;font-size:.82rem;margin:6px 0 10px;">
+                Lets this client log in at <code>client_login.php</code> to see their own read-only
+                reporting below — nothing else. Leave password blank to keep the current one.
+            </p>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="login">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group"><label>Username</label><input type="text" name="login_username" autocomplete="off" value="<?= h($client['login']['username'] ?? '') ?>"></div>
+                <div class="form-group"><label>Password</label><input type="password" name="login_password" autocomplete="new-password" placeholder="<?= !empty($client['login']['username']) ? 'leave blank to keep current' : '' ?>"></div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
+        <div class="card">
             <strong style="font-size:.88rem;">Search Console Connection</strong>
             <p style="color:#6b7280;font-size:.82rem;margin:6px 0 10px;">
                 Have the client add this email as a <strong>Restricted</strong> (read-only) user on their
