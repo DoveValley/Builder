@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 
 if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
@@ -58,8 +59,9 @@ foreach (lpc_list_agencies() as $id) {
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
 <style>
-.lpc-wrap     { max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; }
+.lpc-wrap     { max-width: 900px; }
 .lpc-form-row { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; margin-top:14px; }
 .lpc-form-row .form-group { margin:0; flex:1; min-width:150px; }
 .lpc-form-row label { font-size:.82rem; font-weight:600; color:#374151; display:block; margin-bottom:4px; }
@@ -67,24 +69,17 @@ foreach (lpc_list_agencies() as $id) {
 .lpc-row { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:12px 16px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
 .lpc-row .meta { font-size:.8rem; color:#6b7280; }
 .lpc-status { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 8px; border-radius:10px; }
-.lpc-status-active   { background:#dcfce7; color:#166534; }
+.lpc-status-active   { background:var(--pc-lime-soft); color:var(--pc-lime-ink); }
 .lpc-status-suspended{ background:#fee2e2; color:#991b1b; }
 .lpc-status-pending_approval { background:#fef3c7; color:#92400e; }
 </style>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
-    <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
-</div>
-
-<div class="lpc-wrap">
+<?php lpc_admin_open('agencies', 'Agencies'); ?>
 
     <?php if ($alert): ?>
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
 
-    <h1 style="font-size:1.3rem;">Agencies</h1>
     <p style="color:#6b7280;font-size:.85rem;">
         Each agency resells Landing Page Clients to its own customers, scoped to only the clients
         it created — creating one here IS the approval, there's no separate signup to review.
@@ -175,10 +170,7 @@ foreach (lpc_list_agencies() as $id) {
             <div class="form-group"><label>Logo URL</label><input type="text" name="logo_url" value="<?= h($editing['branding']['logo_url'] ?? '') ?>"></div>
         </div>
 
-        <button type="submit" class="btn-open" style="margin-top:10px;display:block;"><?= $editing ? 'Save Changes' : 'Create Agency' ?></button>
-        <?php if ($editing): ?><a href="agencies.php" class="btn-sm-outline" style="margin-top:10px;margin-left:8px;">Cancel</a><?php endif; ?>
+        <button type="submit" class="pc-btn pc-btn-lime" style="margin-top:10px;"><?= $editing ? 'Save Changes' : 'Create Agency' ?></button>
+        <?php if ($editing): ?><a href="agencies.php" class="pc-btn pc-btn-outline-navy" style="margin-top:10px;margin-left:8px;">Cancel</a><?php endif; ?>
     </form>
-
-</div>
-</body>
-</html>
+<?php lpc_admin_close(); ?>

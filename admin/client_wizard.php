@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/lpc_nav.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 require_once __DIR__ . '/infra/lib/cities.php';      // infra_cities_init() — the 43,901-row cities table
 require_once __DIR__ . '/infra/lib/keywords.php';    // infra_kw_fetch() — optional, spends API quota, opt-in only
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_geocode_city(), ms_haversine_miles()
@@ -338,12 +339,13 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
 <style>
-.lpc-wrap      { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+.lpc-wrap      { max-width: 760px; }
 .lpc-steps     { display:flex; gap:6px; margin-bottom:28px; }
-.lpc-step-pill { flex:1; text-align:center; padding:8px 6px; border-radius:6px; font-size:.76rem; font-weight:600; background:#f1f5f9; color:#94a3b8; }
-.lpc-step-pill.done   { background:#dcfce7; color:#166534; }
-.lpc-step-pill.active { background:#2563eb; color:#fff; }
+.lpc-step-pill { flex:1; text-align:center; padding:8px 6px; border-radius:6px; font-size:.76rem; font-weight:600; background:var(--pc-mist); color:var(--pc-muted); }
+.lpc-step-pill.done   { background:var(--pc-lime-soft); color:var(--pc-lime-ink); }
+.lpc-step-pill.active { background:var(--pc-navy); color:#fff; }
 .lpc-form-row  { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; margin-top:14px; }
 .lpc-form-row .form-group { margin:0; flex:1; min-width:150px; }
 .lpc-form-row label { font-size:.82rem; font-weight:600; color:#374151; display:block; margin-bottom:4px; }
@@ -353,18 +355,7 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
 .lpc-actions   { display:flex; justify-content:space-between; margin-top:28px; }
 </style>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <?php lpc_render_actor_branding(); ?>
-    <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Cancel</a>
-</div>
-<?php lpc_render_impersonation_banner(); ?>
-
-<div class="lpc-wrap">
-
-    <?php lpc_render_nav('new_client'); ?>
-
-    <h1 style="font-size:1.3rem;">New Landing Page Client</h1>
+<?php lpc_admin_open('new_client', 'New Landing Page Client', '<a href="clients.php" class="pc-btn pc-btn-outline-navy">Cancel</a>'); ?>
 
     <div class="lpc-steps">
         <?php foreach ($stepLabels as $n => $label): ?>
@@ -660,7 +651,4 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
         </form>
 
     <?php endif; ?>
-
-</div>
-</body>
-</html>
+<?php lpc_admin_close(); ?>

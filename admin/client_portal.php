@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 
 if (!lpc_actor_is_authenticated()) {
     header('Location: client_login.php');
@@ -36,18 +37,12 @@ $clickTotals = lpc_fetch_click_summary($client_id);
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
 <style>
-.lpc-wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; }
+.lpc-wrap { max-width: 900px; }
 </style>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;"><?= h($client['identity']['business_name'] ?: $client_id) ?> — Reporting</div>
-    <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
-</div>
-<?php lpc_render_impersonation_banner(); ?>
-
-<div class="lpc-wrap">
+<?php lpc_admin_open('reporting', 'Reporting'); ?>
     <p style="color:#6b7280;font-size:.85rem;">
         How your landing pages are doing — read-only. "Tried to Contact" counts anyone who tapped
         a phone number or call-to-action button on one of your pages; it's an intent signal, not a
@@ -92,6 +87,4 @@ $clickTotals = lpc_fetch_click_summary($client_id);
         <tr><td colspan="4" style="padding:16px 12px;color:#6b7280;text-align:center;">No published pages yet.</td></tr>
         <?php endif; ?>
     </table>
-</div>
-</body>
-</html>
+<?php lpc_admin_close(); ?>

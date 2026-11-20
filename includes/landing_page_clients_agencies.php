@@ -260,17 +260,28 @@ function lpc_render_impersonation_banner(): void {
  */
 function lpc_actor_branding() {
     $default = ['name' => 'Site Factory', 'logo_url' => ''];
-    if (lpc_current_actor_role() !== 'agency_admin') {
-        return $default;
+    $role = lpc_current_actor_role();
+
+    if ($role === 'agency_admin') {
+        $agency = lpc_load_agency(lpc_current_actor_agency_id());
+        if ($agency) {
+            return [
+                'name'     => $agency['branding']['display_name'] ?: $default['name'],
+                'logo_url' => $agency['branding']['logo_url'] ?: $default['logo_url'],
+            ];
+        }
+    } elseif ($role === 'end_client') {
+        // An end client's portal has always shown their OWN business name here
+        // (never "Site Factory" or their reselling agency's name) — preserved
+        // as-is when client_portal.php moved onto the shared sidebar, not a
+        // new behavior.
+        $client = lpc_load_client(lpc_current_actor_client_id());
+        if ($client) {
+            return ['name' => $client['identity']['business_name'] ?: lpc_current_actor_client_id(), 'logo_url' => ''];
+        }
     }
-    $agency = lpc_load_agency(lpc_current_actor_agency_id());
-    if (!$agency) {
-        return $default;
-    }
-    return [
-        'name'     => $agency['branding']['display_name'] ?: $default['name'],
-        'logo_url' => $agency['branding']['logo_url'] ?: $default['logo_url'],
-    ];
+
+    return $default;
 }
 
 /** Echoes the shared admin topbar's branding mark — an agency's own logo when it set one, else the stock hamburger glyph, next to lpc_actor_branding()'s name. One place so all 4 topbar call sites stay in sync. */

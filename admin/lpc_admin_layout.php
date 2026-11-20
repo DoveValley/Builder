@@ -1,0 +1,232 @@
+<?php
+/**
+ * admin/lpc_admin_layout.php — the shared navy/lime sidebar shell for every
+ * LPC/PlusCities admin page (clients.php, client.php, client_wizard.php,
+ * approvals.php, agency_branding.php, agencies.php, client_portal.php,
+ * page_editor.php). Palette/fonts lifted straight from the public
+ * PlusCities site (wp-builder-pluscities-chrome.php's own :root vars) so an
+ * agency or client logging in after seeing the marketing site and login
+ * page gets one consistent product, not a branded front door and a plain
+ * internal tool behind it.
+ *
+ * Prototyped on clients.php alone first, reviewed live, then extracted
+ * here for the rest once approved — one shared layout, not 10 copies of
+ * the same ~150 lines of CSS/markup to keep in sync by hand.
+ *
+ * Does NOT touch Site Factory (the other ~80 admin pages) — those keep
+ * their existing look. A deliberate scope line, not an oversight.
+ */
+
+/** Fonts + the shared shell/sidebar/topbar/stat-tile/table/badge/button CSS. Page-specific extra rules (e.g. client.php's wizard-step styles) stay in that page's own <style> block, called after this. */
+function lpc_admin_head_assets(): void {
+    ?>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --pc-navy:#0B1B33; --pc-navy-2:#12264A; --pc-navy-line:#2B4670;
+    --pc-lime:#C8F55A; --pc-lime-soft:#EEF6DA; --pc-lime-ink:#3D6B0E;
+    --pc-ink:#1C2B45; --pc-ink-2:#42506A; --pc-muted:#52607A;
+    --pc-on-navy:#C9D4E6; --pc-mist:#F4F7FB; --pc-line:#E2E8F2;
+}
+*{box-sizing:border-box;}
+body.admin-body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--pc-mist);color:var(--pc-ink);}
+.pcadmin-shell{display:flex;min-height:100vh;}
+
+.pcadmin-sidebar{width:232px;flex:0 0 232px;background:var(--pc-navy);color:var(--pc-on-navy);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;}
+.pcadmin-brand{padding:22px 20px;border-bottom:1px solid var(--pc-navy-line);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;display:flex;align-items:center;gap:10px;}
+.pcadmin-nav{flex:1;padding:14px 10px;overflow-y:auto;}
+.pcadmin-nav-section{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--pc-muted);padding:14px 12px 6px;}
+.pcadmin-nav a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;color:var(--pc-on-navy);text-decoration:none;font-size:.88rem;font-weight:500;margin-bottom:2px;}
+.pcadmin-nav a:hover{background:var(--pc-navy-2);color:#fff;}
+.pcadmin-nav a.active{background:var(--pc-lime);color:var(--pc-navy);font-weight:700;}
+.pcadmin-nav a.active svg{color:var(--pc-navy);}
+.pcadmin-nav a svg{flex-shrink:0;color:var(--pc-on-navy);}
+.pcadmin-nav-badge{margin-left:auto;background:rgba(255,255,255,.15);color:#fff;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:99px;}
+.pcadmin-nav a.active .pcadmin-nav-badge{background:var(--pc-navy);color:var(--pc-lime);}
+.pcadmin-sidebar-bottom{padding:14px 10px;border-top:1px solid var(--pc-navy-line);}
+.pcadmin-sidebar-bottom a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;color:var(--pc-on-navy);text-decoration:none;font-size:.88rem;font-weight:500;}
+.pcadmin-sidebar-bottom a:hover{background:var(--pc-navy-2);color:#fff;}
+
+.pcadmin-main{flex:1;min-width:0;}
+.pcadmin-topbar{background:#fff;border-bottom:1px solid var(--pc-line);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.pcadmin-topbar h1{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin:0;color:var(--pc-ink);}
+.pcadmin-hamburger{display:none;background:none;border:1px solid var(--pc-line);border-radius:8px;width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;margin-right:8px;}
+.lpc-wrap{max-width:1180px;margin:0 auto;padding:28px 32px 64px;}
+
+.pc-btn{display:inline-flex;align-items:center;gap:6px;border-radius:10px;padding:9px 16px;font-size:.85rem;font-weight:700;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit;}
+.pc-btn-lime{background:var(--pc-lime);color:var(--pc-navy);}
+.pc-btn-lime:hover{filter:brightness(.96);}
+.pc-btn-outline-navy{background:#fff;color:var(--pc-ink);border-color:var(--pc-line);}
+.pc-btn-outline-navy:hover{border-color:var(--pc-navy-line);}
+
+.pcadmin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-bottom:24px;}
+.pcadmin-stat{background:#fff;border:1px solid var(--pc-line);border-radius:14px;padding:18px 20px;}
+.pcadmin-stat .num{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--pc-ink);}
+.pcadmin-stat .num.warn{color:#b45309;}
+.pcadmin-stat .label{font-size:.78rem;color:var(--pc-muted);margin-top:2px;}
+
+.lpc-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--pc-line);border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(11,27,51,.04);}
+.lpc-table th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--pc-muted);padding:12px 16px;background:var(--pc-mist);border-bottom:1px solid var(--pc-line);}
+.lpc-table td{padding:13px 16px;border-bottom:1px solid var(--pc-mist);font-size:.88rem;color:var(--pc-ink);}
+.lpc-table tr:last-child td{border-bottom:none;}
+.lpc-table tr:hover td{background:var(--pc-mist);}
+.lpc-table a.lpc-name{font-weight:700;color:var(--pc-ink);text-decoration:none;}
+.lpc-table a.lpc-name:hover{color:var(--pc-lime-ink);text-decoration:underline;}
+.lpc-badge{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:99px;display:inline-block;}
+.lpc-badge-connected{background:var(--pc-lime-soft);color:var(--pc-lime-ink);}
+.lpc-badge-stale{background:#fef9c3;color:#92400e;}
+.lpc-badge-never{background:var(--pc-mist);color:var(--pc-muted);}
+.lpc-empty{text-align:center;padding:64px 24px;background:#fff;border:2px dashed var(--pc-line);border-radius:14px;}
+.lpc-empty h2{font-size:1.3rem;margin:0 0 8px;color:var(--pc-ink);font-family:'Space Grotesk',sans-serif;}
+.lpc-empty p{color:var(--pc-muted);margin:0 0 24px;}
+
+/* Per-record sub-tabs (client.php/page_editor.php's "which aspect of THIS client" row) —
+   a second-level nav within the content area, distinct from the sidebar's top-level nav. */
+.pcadmin-subtabs{display:flex;gap:4px;border-bottom:1px solid var(--pc-line);margin-bottom:22px;flex-wrap:wrap;}
+.pcadmin-subtabs a{padding:10px 14px;font-size:.85rem;font-weight:600;color:var(--pc-muted);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;}
+.pcadmin-subtabs a:hover{color:var(--pc-ink);}
+.pcadmin-subtabs a.active{color:var(--pc-lime-ink);border-bottom-color:var(--pc-lime);}
+
+@media (max-width:880px){
+    .pcadmin-sidebar{position:fixed;left:0;top:0;bottom:0;z-index:40;transform:translateX(-100%);transition:transform .2s ease;}
+    .pcadmin-sidebar.open{transform:translateX(0);box-shadow:20px 0 40px rgba(11,27,51,.25);}
+    .pcadmin-hamburger{display:flex;}
+}
+</style>
+    <?php
+}
+
+/**
+ * Nav items vary by real role — not by whatever the current impersonation
+ * overlay happens to be, since lpc_current_actor_role() already reflects
+ * that overlay correctly (same session fields either way, by design — see
+ * lpc_start_impersonation()'s own doc comment). An impersonated session
+ * sees exactly the sidebar that identity would really see, which is the
+ * whole point of impersonation.
+ */
+function lpc_admin_nav_items(): array {
+    $role = lpc_current_actor_role();
+
+    // An End Client has exactly one screen (this one) and no business on
+    // any of the editing/approval/agency pages below — every one of those
+    // redirects an end_client session straight back here anyway, so the
+    // nav shouldn't offer them in the first place.
+    if ($role === 'end_client') {
+        return [
+            ['key' => 'reporting', 'href' => 'client_portal.php', 'label' => 'Reporting',
+                'icon' => '<path d="M3 3v18h18M7 14l4-4 3 3 5-6"/>'],
+        ];
+    }
+
+    $items = [];
+
+    $items[] = ['key' => 'clients', 'href' => 'clients.php', 'label' => 'All Clients',
+        'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/>'];
+    $items[] = ['key' => 'new_client', 'href' => 'client_wizard.php?restart=1', 'label' => 'New Client',
+        'icon' => '<path d="M12 5v14M5 12h14"/>'];
+
+    $approvalStage = $role === 'super_admin' ? 'pending_platform_review' : 'pending_agency_review';
+    $pendingCount  = count(lpc_list_pages_by_approval_stage($approvalStage, lpc_list_clients_for_current_actor()));
+    $items[] = ['key' => 'approvals', 'href' => 'approvals.php', 'label' => 'Approvals',
+        'icon' => '<path d="M20 6 9 17l-5-5"/>', 'badge' => $pendingCount ?: null];
+
+    if ($role === 'agency_admin') {
+        $items[] = ['key' => 'branding', 'href' => 'agency_branding.php', 'label' => 'My Branding',
+            'icon' => '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>'];
+    }
+
+    if ($role === 'super_admin') {
+        $items[] = ['section' => 'Platform'];
+        $items[] = ['key' => 'agencies', 'href' => 'agencies.php', 'label' => 'Agencies',
+            'icon' => '<path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/>'];
+        $items[] = ['key' => 'niche_profiles', 'href' => 'niche_profiles.php', 'label' => 'Niche Profiles',
+            'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/>'];
+        $items[] = ['key' => 'demo_sites', 'href' => 'lpc_demo_sites.php', 'label' => 'Demo Sites',
+            'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>'];
+        $items[] = ['key' => 'wp_builder', 'href' => 'wp_builder.php', 'label' => 'WP Builder',
+            'icon' => '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'];
+        $items[] = ['key' => 'sites', 'href' => 'sites.php', 'label' => '&larr; Site Factory',
+            'icon' => '<path d="M3 12h18M3 6h18M3 18h18"/>'];
+    }
+
+    return $items;
+}
+
+function lpc_admin_sidebar(string $activeKey): void {
+    $branding = lpc_actor_branding();
+    ?>
+    <aside class="pcadmin-sidebar" id="pcadmin-sidebar">
+        <div class="pcadmin-brand">
+            <?php if (!empty($branding['logo_url'])): ?>
+                <img src="<?= h($branding['logo_url']) ?>" alt="" style="height:24px;width:auto;display:block;">
+            <?php else: ?>
+                <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 1C7.9 1 3 5.9 3 12c0 7.8 11 15 11 15s11-7.2 11-15c0-6.1-4.9-11-11-11z" fill="#C8F55A"/><rect x="11" y="5" width="6" height="16" rx="1" fill="#0B1B33"/><rect x="7" y="10" width="14" height="6" rx="1" fill="#0B1B33"/></svg>
+            <?php endif; ?>
+            <?= h($branding['name']) ?>
+        </div>
+        <nav class="pcadmin-nav">
+            <?php foreach (lpc_admin_nav_items() as $item): ?>
+                <?php if (isset($item['section'])): ?>
+                    <div class="pcadmin-nav-section"><?= h($item['section']) ?></div>
+                <?php else: ?>
+                    <a href="<?= h($item['href']) ?>" class="<?= $item['key'] === $activeKey ? 'active' : '' ?>">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><?= $item['icon'] ?></svg>
+                        <?= $item['label'] /* may contain &larr; entity, not escaped */ ?>
+                        <?php if (!empty($item['badge'])): ?><span class="pcadmin-nav-badge"><?= (int) $item['badge'] ?></span><?php endif; ?>
+                    </a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </nav>
+        <div class="pcadmin-sidebar-bottom">
+            <a href="logout.php">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+                Log out
+            </a>
+        </div>
+    </aside>
+    <div class="pcadmin-overlay" id="pcadmin-overlay" onclick="pcadminToggleSidebar()" style="display:none;position:fixed;inset:0;background:rgba(11,27,51,.35);z-index:30;"></div>
+    <?php
+}
+
+/** Opens the whole shell: sidebar, overlay, main column, impersonation banner, topbar, then the content wrapper. Pair with lpc_admin_close(). */
+function lpc_admin_open(string $activeKey, string $title, string $actionsHtml = ''): void {
+    ?>
+<body class="admin-body">
+<div class="pcadmin-shell">
+    <?php lpc_admin_sidebar($activeKey); ?>
+    <div class="pcadmin-main">
+        <?php lpc_render_impersonation_banner(); ?>
+        <header class="pcadmin-topbar">
+            <div style="display:flex;align-items:center;">
+                <button class="pcadmin-hamburger" onclick="pcadminToggleSidebar()" aria-label="Open menu">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                </button>
+                <h1><?= h($title) ?></h1>
+            </div>
+            <div style="display:flex;gap:10px;">
+                <?= $actionsHtml ?>
+            </div>
+        </header>
+    <div class="lpc-wrap">
+    <?php
+}
+
+function lpc_admin_close(): void {
+    ?>
+    </div>
+    </div>
+</div>
+<script>
+function pcadminToggleSidebar() {
+    document.getElementById('pcadmin-sidebar').classList.toggle('open');
+    const overlay = document.getElementById('pcadmin-overlay');
+    const isOpen = document.getElementById('pcadmin-sidebar').classList.contains('open');
+    overlay.style.display = isOpen ? 'block' : 'none';
+}
+</script>
+</body>
+</html>
+    <?php
+}

@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/lpc_nav.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 require_once __DIR__ . '/infra/lib/cities.php';      // infra_cities_init() — shared with client_wizard.php's lpc_city_candidates()
 require_once __DIR__ . '/infra/lib/keywords.php';    // cities.php's infra_cn_cols() calls infra_kw_types() internally — not optional despite not using keyword fetch here
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_haversine_miles()
@@ -68,18 +69,14 @@ $apiKey = lpc_get_client_api_key($client_id);
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
 <style>
-.lpc-wrap     { max-width: 1000px; margin: 0 auto; padding: 32px 24px 64px; }
-.lpc-topbar   { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:12px; }
-.lpc-topbar h1{ font-size:1.4rem; font-weight:700; margin:0; }
+.lpc-wrap     { max-width: 1000px; }
 .lpc-sub      { color:#6b7280; font-size:.85rem; margin:0 0 20px; }
-.lpc-stats    { display:flex; gap:28px; background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 22px; margin-bottom:24px; flex-wrap:wrap; }
-.lpc-stats div strong { display:block; font-size:1.25rem; color:#111; }
-.lpc-stats div span   { font-size:.78rem; color:#6b7280; }
 .lpc-badge    { font-size:.72rem; font-weight:700; padding:2px 9px; border-radius:99px; display:inline-block; }
-.lpc-badge-connected { background:#dcfce7; color:#166534; }
+.lpc-badge-connected { background:var(--pc-lime-soft); color:var(--pc-lime-ink); }
 .lpc-badge-stale      { background:#fef9c3; color:#92400e; }
-.lpc-badge-never      { background:#f3f4f6; color:#6b7280; }
+.lpc-badge-never      { background:var(--pc-mist); color:var(--pc-muted); }
 .lpc-hub-row  { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:14px 18px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
 .lpc-hub-row .meta { font-size:.82rem; color:#6b7280; }
 .lpc-placeholder { background:#f8fafc; border:2px dashed #cbd5e1; border-radius:10px; padding:40px 24px; text-align:center; color:#6b7280; }
@@ -89,34 +86,19 @@ $apiKey = lpc_get_client_api_key($client_id);
 .lpc-form-row input, .lpc-form-row textarea { width:100%; padding:8px 10px; border:1px solid #d1d5db; border-radius:6px; font-size:.85rem; font-family:inherit; }
 </style>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <?php lpc_render_actor_branding(); ?>
-    <div style="display:flex; align-items:center; gap:16px;">
-        <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
-        <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
-    </div>
-</div>
-<?php lpc_render_impersonation_banner(); ?>
-
-<div class="lpc-wrap">
+<?php
+$badgeClass = $status === 'Connected' ? 'connected' : ($status === 'Stale' ? 'stale' : 'never');
+lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
+    '<button class="pc-btn pc-btn-outline-navy" onclick="toggleLpcHowItWorks()">How This Works</button>'
+    . '<a href="preview_site.php?client_id=' . urlencode($client_id) . '" class="pc-btn pc-btn-outline-navy" target="_blank">Preview Site</a>'
+    . '<span class="lpc-badge lpc-badge-' . $badgeClass . '" style="align-self:center;">' . h($status) . '</span>'
+);
+?>
 
     <?php if ($alert): ?>
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
 
-    <div class="lpc-topbar">
-        <h1><?= h($client['identity']['business_name']) ?></h1>
-        <div style="display:flex;align-items:center;gap:10px;">
-            <a href="sites.php" class="btn-sm-outline">&larr; Dashboard</a>
-            <button class="btn-sm-outline" onclick="toggleLpcHowItWorks()">How This Works &#9432;</button>
-            <a href="preview_site.php?client_id=<?= h($client_id) ?>" class="btn-sm-outline" target="_blank">&#128065; Preview Site</a>
-            <?php
-            $badgeClass = $status === 'Connected' ? 'connected' : ($status === 'Stale' ? 'stale' : 'never');
-            ?>
-            <span class="lpc-badge lpc-badge-<?= $badgeClass ?>"><?= h($status) ?></span>
-        </div>
-    </div>
     <p class="lpc-sub"><?= h($client['identity']['domain']) ?: 'No domain set' ?></p>
 
     <div id="lpc-how-it-works-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
@@ -204,13 +186,13 @@ $apiKey = lpc_get_client_api_key($client_id);
     }
     </script>
 
-    <div class="lpc-stats">
-        <div><strong><?= $pagesLive ?> / <?= $pagesTotal ?></strong><span>Pages Live</span></div>
-        <div><strong><?= $locations ?></strong><span>Target Locations</span></div>
-        <div><strong>$<?= number_format($mrr, 0) ?>/mo</strong><span>MRR</span></div>
+    <div class="pcadmin-stats">
+        <div class="pcadmin-stat"><div class="num"><?= $pagesLive ?> / <?= $pagesTotal ?></div><div class="label">Pages Live</div></div>
+        <div class="pcadmin-stat"><div class="num"><?= $locations ?></div><div class="label">Target Locations</div></div>
+        <div class="pcadmin-stat"><div class="num">$<?= number_format($mrr, 0) ?>/mo</div><div class="label">MRR</div></div>
     </div>
 
-    <?php lpc_render_nav('', $client_id, $client['identity']['business_name'], $tab); ?>
+    <?php lpc_render_nav($client_id, $client['identity']['business_name'], $tab); ?>
 
     <?php if ($tab === 'overview'): ?>
 
@@ -1100,7 +1082,4 @@ Thanks!</textarea></div>
         </div>
 
     <?php endif; ?>
-
-</div>
-</body>
-</html>
+<?php lpc_admin_close(); ?>

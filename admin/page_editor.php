@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/lpc_nav.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 
 if (!lpc_actor_is_authenticated()) {
     header('Location: login.php');
@@ -100,14 +101,13 @@ if ($preview) {
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
 <style>
-.lpc-wrap     { max-width: 820px; margin: 0 auto; padding: 32px 24px 64px; }
-.lpc-topbar   { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:12px; }
-.lpc-topbar h1{ font-size:1.3rem; font-weight:700; margin:0; }
+.lpc-wrap     { max-width: 820px; }
 .lpc-badge    { font-size:.72rem; font-weight:700; padding:2px 9px; border-radius:99px; display:inline-block; }
-.lpc-badge-connected { background:#dcfce7; color:#166534; }
+.lpc-badge-connected { background:var(--pc-lime-soft); color:var(--pc-lime-ink); }
 .lpc-badge-stale      { background:#fef9c3; color:#92400e; }
-.lpc-badge-never      { background:#f3f4f6; color:#6b7280; }
+.lpc-badge-never      { background:var(--pc-mist); color:var(--pc-muted); }
 .lpc-section  { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px; margin-bottom:14px; }
 .lpc-section h3 { margin:0 0 10px; font-size:.95rem; }
 .lpc-field    { margin-bottom:10px; }
@@ -119,33 +119,24 @@ if ($preview) {
 .lpc-actions-bar { display:flex; justify-content:space-between; align-items:center; margin:20px 0; }
 </style>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
-    <a href="client.php?id=<?= h($client_id) ?>&tab=locations" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Locations &amp; Services</a>
-</div>
+<?php
+$pageStatus = $isNew ? 'not_created' : $page['status'];
+$badgeClass = $pageStatus === 'published' ? 'connected' : ($pageStatus === 'needs_update' ? 'stale' : 'never');
+$badgeText  = $pageStatus === 'not_created' ? 'Not Saved Yet' : ucfirst(str_replace('_', ' ', $pageStatus));
+$locked = !empty($page['locked']);
+$editorActions = '<a href="client.php?id=' . urlencode($client_id) . '&tab=locations" class="pc-btn pc-btn-outline-navy">&larr; Locations &amp; Services</a>'
+    . '<span class="lpc-badge lpc-badge-' . $badgeClass . '" style="align-self:center;">' . h($badgeText) . '</span>';
+if ($locked) {
+    $editorActions .= '<span class="lpc-badge lpc-badge-stale" style="align-self:center;">&#128274; Locked</span>';
+}
+lpc_admin_open('clients', $page_id, $editorActions);
+?>
 
-<div class="lpc-wrap">
-
-    <?php lpc_render_nav('', $client_id, $client['identity']['business_name'], 'locations'); ?>
+    <?php lpc_render_nav($client_id, $client['identity']['business_name'], 'locations'); ?>
 
     <?php if ($alert): ?>
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
-
-    <div class="lpc-topbar">
-        <h1><?= h($page_id) ?></h1>
-        <?php
-        $pageStatus = $isNew ? 'not_created' : $page['status'];
-        $badgeClass = $pageStatus === 'published' ? 'connected' : ($pageStatus === 'needs_update' ? 'stale' : 'never');
-        $badgeText  = $pageStatus === 'not_created' ? 'Not Saved Yet' : ucfirst(str_replace('_', ' ', $pageStatus));
-        $locked = !empty($page['locked']);
-        ?>
-        <span class="lpc-badge lpc-badge-<?= $badgeClass ?>"><?= h($badgeText) ?></span>
-        <?php if ($locked): ?>
-        <span class="lpc-badge lpc-badge-stale">&#128274; Locked</span>
-        <?php endif; ?>
-    </div>
 
     <div class="lpc-actions-bar">
         <a href="?client_id=<?= h($client_id) ?>&page_id=<?= h($page_id) ?>&preview=1" class="btn-sm-outline" target="_blank">Preview</a>
@@ -345,10 +336,8 @@ if ($preview) {
             <?php endif; ?>
         </div>
 
-        <button type="submit" class="btn-open">Save</button>
+        <button type="submit" class="pc-btn pc-btn-lime">Save</button>
     </form>
-
-</div>
 <script>
 function lpcAddRow(containerId, name1, ph1, name2, ph2) {
     var row = document.createElement('div');
@@ -359,5 +348,4 @@ function lpcAddRow(containerId, name1, ph1, name2, ph2) {
     document.getElementById(containerId).appendChild(row);
 }
 </script>
-</body>
-</html>
+<?php lpc_admin_close(); ?>

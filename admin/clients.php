@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/lpc_nav.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 
 if (!lpc_actor_is_authenticated()) {
     header('Location: login.php');
@@ -96,69 +97,18 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
-<style>
-.lpc-wrap        { max-width: 1100px; margin: 0 auto; padding: 32px 24px 64px; }
-.lpc-topbar      { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
-.lpc-topbar h1   { font-size:1.4rem; font-weight:700; margin:0; }
-.lpc-totals      { display:flex; gap:28px; background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 22px; margin-bottom:24px; flex-wrap:wrap; }
-.lpc-totals div strong { display:block; font-size:1.3rem; color:#111; }
-.lpc-totals div span   { font-size:.78rem; color:#6b7280; }
-.lpc-table       { width:100%; border-collapse:collapse; background:#fff; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; }
-.lpc-table th    { text-align:left; font-size:.74rem; text-transform:uppercase; letter-spacing:.03em; color:#6b7280; padding:10px 16px; background:#f9fafb; border-bottom:1px solid #e5e7eb; }
-.lpc-table td    { padding:12px 16px; border-bottom:1px solid #f1f5f9; font-size:.88rem; }
-.lpc-table tr:last-child td { border-bottom:none; }
-.lpc-table a.lpc-name { font-weight:600; color:#111; text-decoration:none; }
-.lpc-table a.lpc-name:hover { text-decoration:underline; }
-.lpc-badge       { font-size:.72rem; font-weight:700; padding:2px 9px; border-radius:99px; display:inline-block; }
-.lpc-badge-connected { background:#dcfce7; color:#166534; }
-.lpc-badge-stale      { background:#fef9c3; color:#92400e; }
-.lpc-badge-never      { background:#f3f4f6; color:#6b7280; }
-.lpc-empty       { text-align:center; padding:64px 24px; background:#fff; border:2px dashed #e5e7eb; border-radius:12px; }
-.lpc-empty h2    { font-size:1.3rem; margin:0 0 8px; color:#111; }
-.lpc-empty p     { color:#6b7280; margin:0 0 24px; }
-</style>
+<?php lpc_admin_head_assets(); ?>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <?php lpc_render_actor_branding(); ?>
-    <div style="display:flex; align-items:center; gap:16px;">
-        <?php if (lpc_current_actor_role() === 'agency_admin'): ?>
-        <a href="agency_branding.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">My Branding</a>
-        <?php endif; ?>
-        <?php if (lpc_current_actor_role() === 'super_admin'): ?>
-        <a href="sites.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Sites</a>
-        <?php endif; ?>
-        <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
-    </div>
-</div>
-<?php lpc_render_impersonation_banner(); ?>
-
-<div class="lpc-wrap">
-
-    <?php lpc_render_nav('clients'); ?>
+<?php
+lpc_admin_open('clients', 'Landing Page Clients',
+    '<button class="pc-btn pc-btn-outline-navy" onclick="toggleLpcHowItWorks()">How This Works</button>'
+    . '<a href="client_wizard.php?restart=1" class="pc-btn pc-btn-lime">+ New Client</a>'
+);
+?>
 
     <?php if ($alert): ?>
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
-
-    <div class="lpc-topbar">
-        <h1>Landing Page Clients</h1>
-        <div style="display:flex;gap:8px;">
-            <button class="btn-sm-outline" onclick="toggleLpcHowItWorks()">How This Works &#9432;</button>
-            <?php
-            $_approvalStage = lpc_current_actor_role() === 'super_admin' ? 'pending_platform_review' : 'pending_agency_review';
-            $_pendingCount  = count(lpc_list_pages_by_approval_stage($_approvalStage, lpc_list_clients_for_current_actor()));
-            ?>
-            <a href="approvals.php" class="btn-sm-outline">Approvals<?= $_pendingCount ? ' (' . (int) $_pendingCount . ')' : '' ?></a>
-            <?php if (lpc_current_actor_role() === 'super_admin'): ?>
-            <a href="agencies.php" class="btn-sm-outline">Agencies</a>
-            <a href="niche_profiles.php" class="btn-sm-outline">Niche Profiles</a>
-            <a href="lpc_demo_sites.php" class="btn-sm-outline">Demo Sites</a>
-            <a href="wp_builder.php" class="btn-sm-outline">WP Builder</a>
-            <?php endif; ?>
-            <a href="client_wizard.php?restart=1" class="btn-open">+ New Client</a>
-        </div>
-    </div>
 
     <div id="lpc-how-it-works-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
         <h3 style="margin-top:0;color:#1e3a5f;">What this is, how it's built, how to use it</h3>
@@ -271,14 +221,14 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
         </div>
     <?php else: ?>
 
-        <div class="lpc-totals">
-            <div><strong><?= (int) $totals['clients'] ?></strong><span>Active Clients</span></div>
-            <div><strong><?= (int) $totals['pages_live'] ?></strong><span>Pages Live</span></div>
+        <div class="pcadmin-stats">
+            <div class="pcadmin-stat"><div class="num"><?= (int) $totals['clients'] ?></div><div class="label">Active Clients</div></div>
+            <div class="pcadmin-stat"><div class="num"><?= (int) $totals['pages_live'] ?></div><div class="label">Pages Live</div></div>
             <?php if ($totals['pending_review'] > 0): ?>
-            <div><strong style="color:#92400e;"><?= (int) $totals['pending_review'] ?></strong><span>Awaiting Review</span></div>
+            <div class="pcadmin-stat"><div class="num warn"><?= (int) $totals['pending_review'] ?></div><div class="label">Awaiting Review</div></div>
             <?php endif; ?>
-            <div><strong><?= (int) $totals['tried_to_contact'] ?></strong><span title="Tap-to-call/CTA clicks across every page, last 30 days — an intent signal, not confirmed calls or leads.">Tried to Contact (30d)</span></div>
-            <div><strong>$<?= number_format($totals['mrr'], 0) ?>/mo</strong><span>Total MRR</span></div>
+            <div class="pcadmin-stat"><div class="num"><?= (int) $totals['tried_to_contact'] ?></div><div class="label" title="Tap-to-call/CTA clicks across every page, last 30 days — an intent signal, not confirmed calls or leads.">Tried to Contact (30d)</div></div>
+            <div class="pcadmin-stat"><div class="num">$<?= number_format($totals['mrr'], 0) ?>/mo</div><div class="label">Total MRR</div></div>
         </div>
 
         <table class="lpc-table">
@@ -318,7 +268,7 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
                         <input type="hidden" name="action" value="start">
                         <input type="hidden" name="type" value="client">
                         <input type="hidden" name="client_id" value="<?= h($r['id']) ?>">
-                        <button type="submit" class="btn-sm-outline">Log in as</button>
+                        <button type="submit" class="pc-btn pc-btn-outline-navy" style="padding:5px 12px;font-size:.78rem;">Log in as</button>
                     </form>
                 </td>
             </tr>
@@ -326,13 +276,10 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
         </table>
 
     <?php endif; ?>
-
-</div>
 <script>
 function toggleLpcHowItWorks() {
     const el = document.getElementById('lpc-how-it-works-card');
     el.style.display = (el.style.display === 'none') ? '' : 'none';
 }
 </script>
-</body>
-</html>
+<?php lpc_admin_close(); ?>

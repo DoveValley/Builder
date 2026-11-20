@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 
 if (!lpc_actor_is_authenticated()) {
     header('Location: login.php');
@@ -45,26 +46,19 @@ $rows  = lpc_list_pages_by_approval_stage($stage, lpc_list_clients_for_current_a
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
 <style>
-.lpc-wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; }
+.lpc-wrap { max-width: 900px; }
 .lpc-row  { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:12px 16px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
 .lpc-row .meta { font-size:.8rem; color:#6b7280; }
 </style>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <?php lpc_render_actor_branding(); ?>
-    <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
-</div>
-<?php lpc_render_impersonation_banner(); ?>
-
-<div class="lpc-wrap">
+<?php lpc_admin_open('approvals', 'Approvals'); ?>
 
     <?php if ($alert): ?>
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
 
-    <h1 style="font-size:1.3rem;">Approvals</h1>
     <p style="color:#6b7280;font-size:.85rem;">
         <?= $isSuperAdmin
             ? 'Pages submitted by an agency, waiting on the platform\'s review before the agency gets a final say. Only applies to real agencies — Scott\'s own direct-sale clients publish with no gate.'
@@ -101,8 +95,6 @@ $rows  = lpc_list_pages_by_approval_stage($stage, lpc_list_clients_for_current_a
             </div>
         </div>
     <?php endforeach; ?>
-
-</div>
 <script>
 function reject(form) {
     var note = prompt('Reason for rejecting (shown to whoever submitted it):', '');
@@ -111,5 +103,4 @@ function reject(form) {
     return true;
 }
 </script>
-</body>
-</html>
+<?php lpc_admin_close(); ?>

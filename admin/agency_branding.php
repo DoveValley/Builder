@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/lpc_admin_layout.php';
 
 if (!lpc_actor_is_authenticated()) { header('Location: login.php'); exit; }
 // Self-service for the agency that owns this branding only — Scott still
@@ -42,31 +43,21 @@ if (!empty($_GET['msg'])) {
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
 <style>
-.lpc-wrap { max-width: 640px; margin: 0 auto; padding: 32px 24px 64px; }
+.lpc-wrap { max-width: 640px; }
 .lpc-form-row { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; margin-top:14px; }
 .lpc-form-row .form-group { margin:0; flex:1; min-width:200px; }
 .lpc-form-row label { font-size:.82rem; font-weight:600; color:#374151; display:block; margin-bottom:4px; }
 .lpc-form-row input { width:100%; padding:8px 10px; border:1px solid #d1d5db; border-radius:6px; font-size:.85rem; font-family:inherit; }
 </style>
 </head>
-<body class="admin-body">
-<div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <?php lpc_render_actor_branding(); ?>
-    <div style="display:flex; align-items:center; gap:16px;">
-        <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
-        <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
-    </div>
-</div>
-<?php lpc_render_impersonation_banner(); ?>
-
-<div class="lpc-wrap">
+<?php lpc_admin_open('branding', 'My Branding'); ?>
 
     <?php if ($alert): ?>
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>
     <?php endif; ?>
 
-    <h1 style="font-size:1.3rem;">My Branding</h1>
     <p style="color:#6b7280;font-size:.85rem;">
         Shown in place of &quot;Site Factory&quot; across your own dashboard once set &mdash; visual
         only, no color theming, no custom domain.
@@ -92,9 +83,6 @@ if (!empty($_GET['msg'])) {
             <img src="<?= h($agency['branding']['logo_url']) ?>" alt="" style="height:32px;width:auto;display:block;">
         </div>
         <?php endif; ?>
-        <button type="submit" class="btn-open" style="margin-top:16px;">Save Branding</button>
+        <button type="submit" class="pc-btn pc-btn-lime" style="margin-top:16px;">Save Branding</button>
     </form>
-
-</div>
-</body>
-</html>
+<?php lpc_admin_close(); ?>
