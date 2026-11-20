@@ -122,7 +122,12 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
 <div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
     <?php lpc_render_actor_branding(); ?>
     <div style="display:flex; align-items:center; gap:16px;">
+        <?php if (lpc_current_actor_role() === 'agency_admin'): ?>
+        <a href="agency_branding.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">My Branding</a>
+        <?php endif; ?>
+        <?php if (lpc_current_actor_role() === 'super_admin'): ?>
         <a href="sites.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Sites</a>
+        <?php endif; ?>
         <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
     </div>
 </div>
