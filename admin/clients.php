@@ -101,8 +101,7 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
 </head>
 <?php
 lpc_admin_open('clients', 'Landing Page Clients',
-    '<a href="platform_info.php?tab=how_it_works" class="pc-btn pc-btn-outline-navy">How This Works</a>'
-    . '<a href="client_wizard.php?restart=1" class="pc-btn pc-btn-lime">+ New Client</a>'
+    '<a href="client_wizard.php?restart=1" class="pc-btn pc-btn-lime">+ New Client</a>'
 );
 ?>
 
