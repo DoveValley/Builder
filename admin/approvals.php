@@ -56,6 +56,7 @@ $rows  = lpc_list_pages_by_approval_stage($stage, lpc_list_clients_for_current_a
     <?php lpc_render_actor_branding(); ?>
     <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
 </div>
+<?php lpc_render_impersonation_banner(); ?>
 
 <div class="lpc-wrap">
 

@@ -131,6 +131,7 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
         <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
     </div>
 </div>
+<?php lpc_render_impersonation_banner(); ?>
 
 <div class="lpc-wrap">
 
@@ -288,6 +289,7 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
                 <th title="Tap-to-call/CTA clicks, last 30 days — an intent signal, not confirmed calls or leads.">Tried to Contact</th>
                 <th>Plugin Status</th>
                 <th>MRR</th>
+                <th></th>
             </tr>
             <?php foreach ($rows as $r): ?>
             <tr>
@@ -310,6 +312,15 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
                     <span class="lpc-badge lpc-badge-<?= $badgeClass ?>"><?= h($r['status']) ?></span>
                 </td>
                 <td>$<?= number_format($r['mrr'], 0) ?>/mo</td>
+                <td>
+                    <form method="post" action="impersonate.php" style="margin:0;">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="action" value="start">
+                        <input type="hidden" name="type" value="client">
+                        <input type="hidden" name="client_id" value="<?= h($r['id']) ?>">
+                        <button type="submit" class="btn-sm-outline">Log in as</button>
+                    </form>
+                </td>
             </tr>
             <?php endforeach; ?>
         </table>

@@ -45,6 +45,7 @@ $clickTotals = lpc_fetch_click_summary($client_id);
     <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;"><?= h($client['identity']['business_name'] ?: $client_id) ?> — Reporting</div>
     <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
 </div>
+<?php lpc_render_impersonation_banner(); ?>
 
 <div class="lpc-wrap">
     <p style="color:#6b7280;font-size:.85rem;">

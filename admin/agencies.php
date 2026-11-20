@@ -114,6 +114,13 @@ foreach (lpc_list_agencies() as $id) {
             </div>
             <div style="display:flex;gap:8px;">
                 <a href="?edit=<?= h($a['agency_id']) ?>" class="btn-sm-outline">Edit</a>
+                <form method="post" action="impersonate.php" style="margin:0;">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="action" value="start">
+                    <input type="hidden" name="type" value="agency">
+                    <input type="hidden" name="agency_id" value="<?= h($a['agency_id']) ?>">
+                    <button type="submit" class="btn-sm-outline">Log in as</button>
+                </form>
                 <?php if ($a['agency_id'] !== 'scotts-agency' && (float) ($a['billing']['monthly_fee_usd'] ?? 0) > 0 && !$a['billing']['stripe_subscription_id']): ?>
                 <form method="post" action="agencies_save.php" style="margin:0;">
                     <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">

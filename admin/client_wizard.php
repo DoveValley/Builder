@@ -358,6 +358,7 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
     <?php lpc_render_actor_branding(); ?>
     <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Cancel</a>
 </div>
+<?php lpc_render_impersonation_banner(); ?>
 
 <div class="lpc-wrap">
 

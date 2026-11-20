@@ -183,6 +183,73 @@ function lpc_current_actor_client_id() {
 }
 
 /**
+ * "Log in as" — lets a Super Admin view the product as any agency or any
+ * client, and lets an Agency Admin view it as one of its own clients,
+ * without ever touching that account's actual password. One hop only, no
+ * stacking: starting a new impersonation while already impersonating is
+ * rejected (lpc_start_impersonation() checks lpc_is_impersonating() first)
+ * — exit back to your real self and start a fresh one instead of nesting.
+ *
+ * Mechanism: the real login flag (admin_logged_in/agency_logged_in) never
+ * changes — impersonation only overlays actor_role/agency_id/client_id,
+ * the exact same fields lpc_current_actor_role() etc. already read, with
+ * the real values tucked into real_actor_role/real_agency_id/
+ * real_client_id so lpc_stop_impersonation() can restore them exactly.
+ */
+function lpc_is_impersonating() {
+    return !empty($_SESSION['impersonating']);
+}
+
+function lpc_start_impersonation(string $targetRole, ?string $agencyId, ?string $clientId): bool {
+    if (lpc_is_impersonating()) return false; // no stacking
+
+    $_SESSION['real_actor_role']  = lpc_current_actor_role();
+    $_SESSION['real_agency_id']   = lpc_current_actor_agency_id();
+    $_SESSION['real_client_id']   = lpc_current_actor_client_id();
+    $_SESSION['impersonating']    = true;
+    $_SESSION['actor_role']       = $targetRole;
+    $_SESSION['agency_id']        = $agencyId;
+    $_SESSION['client_id']        = $clientId;
+
+    error_log(sprintf(
+        'IMPERSONATION START: %s (agency=%s) -> %s (agency=%s client=%s)',
+        $_SESSION['real_actor_role'], $_SESSION['real_agency_id'] ?? '-',
+        $targetRole, $agencyId ?? '-', $clientId ?? '-'
+    ));
+    return true;
+}
+
+function lpc_stop_impersonation(): void {
+    if (!lpc_is_impersonating()) return;
+    error_log(sprintf(
+        'IMPERSONATION END: %s (agency=%s client=%s) -> %s (agency=%s)',
+        lpc_current_actor_role(), lpc_current_actor_agency_id() ?? '-', lpc_current_actor_client_id() ?? '-',
+        $_SESSION['real_actor_role'], $_SESSION['real_agency_id'] ?? '-'
+    ));
+    $_SESSION['actor_role']  = $_SESSION['real_actor_role'];
+    $_SESSION['agency_id']   = $_SESSION['real_agency_id'];
+    $_SESSION['client_id']   = $_SESSION['real_client_id'];
+    unset($_SESSION['impersonating'], $_SESSION['real_actor_role'], $_SESSION['real_agency_id'], $_SESSION['real_client_id']);
+}
+
+/** A loud, impossible-to-miss banner on every page while impersonating — names who you're viewing as and gives a one-click way back, never silent. */
+function lpc_render_impersonation_banner(): void {
+    if (!lpc_is_impersonating()) return;
+    $role = lpc_current_actor_role();
+    if ($role === 'agency_admin') {
+        $agency = lpc_load_agency(lpc_current_actor_agency_id());
+        $label = 'agency ' . h($agency['name'] ?? lpc_current_actor_agency_id());
+    } else {
+        $client = lpc_load_client(lpc_current_actor_client_id());
+        $label = 'client ' . h($client['identity']['business_name'] ?? lpc_current_actor_client_id());
+    }
+    echo '<div style="background:#b45309;color:#fff;padding:10px 24px;text-align:center;font-size:.85rem;font-weight:600;">'
+        . 'Viewing as ' . $label . ' &mdash; '
+        . '<a href="impersonate.php?action=stop&csrf_token=' . urlencode($_SESSION['csrf_token'] ?? '') . '" style="color:#fff;text-decoration:underline;">Return to your own account</a>'
+        . '</div>';
+}
+
+/**
  * The name/logo the shared admin topbar should show for whoever's logged
  * in right now — "Site Factory" with no logo for the platform itself,
  * or an agency's own branding.display_name/logo_url when an Agency Admin

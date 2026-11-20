@@ -58,6 +58,7 @@ if (!empty($_GET['msg'])) {
         <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
     </div>
 </div>
+<?php lpc_render_impersonation_banner(); ?>
 
 <div class="lpc-wrap">
 
