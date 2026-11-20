@@ -91,7 +91,7 @@ $apiKey = lpc_get_client_api_key($client_id);
 </head>
 <body class="admin-body">
 <div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
+    <?php lpc_render_actor_branding(); ?>
     <div style="display:flex; align-items:center; gap:16px;">
         <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
         <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>

@@ -160,6 +160,42 @@ function lpc_current_actor_client_id() {
 }
 
 /**
+ * The name/logo the shared admin topbar should show for whoever's logged
+ * in right now — "Site Factory" with no logo for the platform itself,
+ * or an agency's own branding.display_name/logo_url when an Agency Admin
+ * is logged in (falling back to the platform default for any field an
+ * agency left blank, same as every other optional branding field in this
+ * codebase). Not used for End Client — client_portal.php already shows the
+ * end client's own business name, not the reselling agency's.
+ */
+function lpc_actor_branding() {
+    $default = ['name' => 'Site Factory', 'logo_url' => ''];
+    if (lpc_current_actor_role() !== 'agency_admin') {
+        return $default;
+    }
+    $agency = lpc_load_agency(lpc_current_actor_agency_id());
+    if (!$agency) {
+        return $default;
+    }
+    return [
+        'name'     => $agency['branding']['display_name'] ?: $default['name'],
+        'logo_url' => $agency['branding']['logo_url'] ?: $default['logo_url'],
+    ];
+}
+
+/** Echoes the shared admin topbar's branding mark — an agency's own logo when it set one, else the stock hamburger glyph, next to lpc_actor_branding()'s name. One place so all 4 topbar call sites stay in sync. */
+function lpc_render_actor_branding() {
+    $b = lpc_actor_branding();
+    echo '<div style="font-weight:700; font-size:1rem; letter-spacing:.01em; display:flex; align-items:center; gap:8px;">';
+    if ($b['logo_url'] !== '') {
+        echo '<img src="' . h($b['logo_url']) . '" alt="" style="height:22px;width:auto;display:block;">';
+    } else {
+        echo '&#9776;';
+    }
+    echo ' ' . h($b['name']) . '</div>';
+}
+
+/**
  * Same as lpc_load_client(), scoped to whoever's actually asking. An
  * Agency Admin gets null (same "not found" shape every existing call site
  * already handles) for a client belonging to a different agency; an End

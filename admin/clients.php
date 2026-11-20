@@ -120,7 +120,7 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
 </head>
 <body class="admin-body">
 <div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
+    <?php lpc_render_actor_branding(); ?>
     <div style="display:flex; align-items:center; gap:16px;">
         <a href="sites.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Sites</a>
         <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>

@@ -355,7 +355,7 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
 </head>
 <body class="admin-body">
 <div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
+    <?php lpc_render_actor_branding(); ?>
     <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Cancel</a>
 </div>
 
