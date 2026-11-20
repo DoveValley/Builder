@@ -6,7 +6,7 @@ require_once __DIR__ . '/infra/lib/cities.php';      // infra_cities_init() — 
 require_once __DIR__ . '/infra/lib/keywords.php';    // cities.php's infra_cn_cols() calls infra_kw_types() internally — not optional despite not using keyword fetch here
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_haversine_miles()
 
-if (empty($_SESSION['admin_logged_in'])) {
+if (!lpc_actor_is_authenticated()) {
     header('Location: login.php');
     exit;
 }

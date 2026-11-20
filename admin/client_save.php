@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/infra/lib/keywords.php'; // infra_kw_has_creds()/infra_kw_provider()/infra_kw_dfs_post() — the 'pages' section's check_rank action
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_geocode_city() — the 'hubs' section's add action
 
-if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+if (!lpc_actor_is_authenticated()) { header('Location: login.php'); exit; }
 // Every section/action here edits or publishes something — an End Client
 // gets read-only reporting only, never a write path, regardless of which
 // client their session is scoped to.

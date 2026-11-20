@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+if (!lpc_actor_is_authenticated()) { header('Location: login.php'); exit; }
 if (lpc_current_actor_role() !== 'agency_admin') {
     header('Location: clients.php');
     exit;

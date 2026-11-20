@@ -2,9 +2,8 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-// If already logged in as anyone, send end clients to their own portal —
-// never clients.php, which they have no business seeing.
-if (!empty($_SESSION['admin_logged_in']) && lpc_current_actor_role() === 'end_client') {
+// Already logged in as an end client -> straight to their own portal.
+if (!empty($_SESSION['client_logged_in'])) {
     header('Location: client_portal.php');
     exit;
 }
@@ -39,7 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($client && lpc_verify_client_password($client['client_id'], $password)) {
             session_regenerate_id(true);
             $_SESSION[$ipKey] = ['count' => 0, 'first' => time()];
-            $_SESSION['admin_logged_in'] = true;
+            // Deliberately NOT admin_logged_in — see lpc_actor_is_authenticated()'s
+            // doc comment for why end clients get their own flag.
+            $_SESSION['client_logged_in'] = true;
             $_SESSION['actor_role']      = 'end_client';
             $_SESSION['client_id']       = $client['client_id'];
             $_SESSION['csrf_token']      = bin2hex(random_bytes(32));

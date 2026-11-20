@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+if (!lpc_actor_is_authenticated()) { header('Location: login.php'); exit; }
 // Self-service for the agency that owns this branding only — Scott still
 // edits any agency's branding (plus everything else about it) from
 // agencies.php; an End Client has no agency-level settings of its own.

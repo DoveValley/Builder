@@ -2,8 +2,8 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-// If already logged in (either role), go straight to the LPC client list.
-if (!empty($_SESSION['admin_logged_in'])) {
+// If already logged in (any role), go straight to the LPC client list.
+if (lpc_actor_is_authenticated()) {
     header('Location: clients.php');
     exit;
 }
@@ -49,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 session_regenerate_id(true);
                 $_SESSION[$ipKey] = ['count' => 0, 'first' => time()]; // reset on success
-                $_SESSION['admin_logged_in'] = true;
+                // Deliberately NOT admin_logged_in — see lpc_actor_is_authenticated()'s
+                // doc comment for why agencies get their own flag.
+                $_SESSION['agency_logged_in'] = true;
                 $_SESSION['actor_role']      = 'agency_admin';
                 $_SESSION['agency_id']       = $agency['agency_id'];
                 $_SESSION['csrf_token']      = bin2hex(random_bytes(32));

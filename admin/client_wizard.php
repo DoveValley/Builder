@@ -6,7 +6,7 @@ require_once __DIR__ . '/infra/lib/cities.php';      // infra_cities_init() — 
 require_once __DIR__ . '/infra/lib/keywords.php';    // infra_kw_fetch() — optional, spends API quota, opt-in only
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_geocode_city(), ms_haversine_miles()
 
-if (empty($_SESSION['admin_logged_in'])) {
+if (!lpc_actor_is_authenticated()) {
     header('Location: login.php');
     exit;
 }

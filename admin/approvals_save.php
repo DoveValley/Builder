@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+if (!lpc_actor_is_authenticated()) { header('Location: login.php'); exit; }
 // Same as approvals.php — an End Client never approves/rejects content.
 if (lpc_current_actor_role() === 'end_client') { header('Location: client_portal.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: approvals.php'); exit; }

@@ -147,6 +147,29 @@ function lpc_list_agencies() {
  * single-operator behavior. Safe to introduce now, ahead of the login work
  * that will actually set these for a real agency session.
  */
+/**
+ * Three separate login flags — admin_logged_in (super_admin, set by
+ * login.php), agency_logged_in (agency_login.php), client_logged_in
+ * (client_login.php) — NOT one shared flag plus a role tag. The point:
+ * every fleet-only/Site-Factory page in this codebase was written (and
+ * every new one will be written) checking only `empty($_SESSION
+ * ['admin_logged_in'])`, with no reason to think about agencies or end
+ * clients at all. With one shared flag, that default was dangerous — see
+ * commit 47cbb498, which had to retrofit an explicit actor_role check onto
+ * 68 existing pages that got this wrong. With separate flags, that same
+ * simplest-possible check is correct BY DEFAULT, forever, with nothing to
+ * remember: an agency or end-client session simply never sets
+ * admin_logged_in, so it can't satisfy that check no matter what a new
+ * page forgets to add. Pages genuinely meant to be shared across roles
+ * (clients.php, client.php, etc.) use lpc_actor_is_authenticated() below
+ * instead — a deliberate, visible opt-in, not the accidental default.
+ */
+function lpc_actor_is_authenticated() {
+    return !empty($_SESSION['admin_logged_in'])
+        || !empty($_SESSION['agency_logged_in'])
+        || !empty($_SESSION['client_logged_in']);
+}
+
 function lpc_current_actor_role() {
     return $_SESSION['actor_role'] ?? 'super_admin';
 }
