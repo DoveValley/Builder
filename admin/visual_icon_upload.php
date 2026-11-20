@@ -12,6 +12,7 @@
 require_once __DIR__ . '/../config.php';
 header('Content-Type: application/json');
 if (empty($_SESSION['admin_logged_in']))                                     { http_response_code(403); echo json_encode(['ok' => false, 'error' => 'Not authenticated.']); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')                                   { echo json_encode(['ok' => false, 'error' => 'POST only.']); exit; }
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) { echo json_encode(['ok' => false, 'error' => 'Bad CSRF token.']); exit; }
 if (!ACTIVE_SITE_ID)                                                         { echo json_encode(['ok' => false, 'error' => 'No active site.']); exit; }

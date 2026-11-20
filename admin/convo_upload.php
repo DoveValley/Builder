@@ -18,6 +18,7 @@ require_once __DIR__ . '/../includes/helpers.php';          // sanitize_svg()
 header('Content-Type: application/json');
 
 if (empty($_SESSION['admin_logged_in']))   { http_response_code(403); echo json_encode(['error' => 'Not authenticated.']); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')  { http_response_code(405); echo json_encode(['error' => 'POST required.']); exit; }
 // The empty check is not redundant. hash_equals('', '') is TRUE, so a session with
 // no token stored would accept a POST that carries none — the check passes by having

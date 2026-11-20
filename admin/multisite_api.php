@@ -18,6 +18,7 @@ header('Content-Type: application/json');
 
 // ── Auth ──────────────────────────────────────────────────────────────────────
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); echo json_encode(['error' => 'Not authenticated.']); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if (!ACTIVE_SITE_ID)                      { http_response_code(400); echo json_encode(['error' => 'No active site selected.']); exit; }
 if ($_SERVER['REQUEST_METHOD'] === 'POST'
     && !hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {

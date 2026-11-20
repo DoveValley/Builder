@@ -12,6 +12,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';   // model_is_valid() etc.
 if (empty($_SESSION['admin_logged_in']))          { header('Location: login.php'); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')        { header('Location: index.php?tab=niche_brief'); exit; }
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
     header('Location: index.php?tab=niche_brief&msg=error:Invalid+request+token'); exit;

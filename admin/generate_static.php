@@ -15,6 +15,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     echo "data: " . json_encode(['type' => 'fatal', 'msg' => 'Not authenticated.']) . "\n\n";
     exit;
 }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if (!ACTIVE_SITE_ID) {
     http_response_code(400);
     echo "data: " . json_encode(['type' => 'fatal', 'msg' => 'No active site selected.']) . "\n\n";

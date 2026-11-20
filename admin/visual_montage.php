@@ -8,6 +8,7 @@
  */
 require_once __DIR__ . '/../config.php';
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); header('Content-Type: text/plain'); exit('Not authenticated.'); }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if (!ACTIVE_SITE_ID)                      { http_response_code(400); header('Content-Type: text/plain'); exit('No active site.'); }
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/visual.php';   // ms_generate_logo(), ms_convert_run(), ms_convert_bin()

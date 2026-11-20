@@ -14,6 +14,7 @@ require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/convo_uploads.php';   // accepted upload types, shared with convo_upload.php
 require_once __DIR__ . '/../includes/layout_variations.php';  // ms_variant() — the REAL assigner
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 
 $csrf = $_SESSION['csrf_token'] ?? '';
 $h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);

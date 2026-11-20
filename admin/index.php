@@ -7,6 +7,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
     exit;
 }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 
 // Require an active site to be selected
 if (!ACTIVE_SITE_ID) {

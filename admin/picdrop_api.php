@@ -26,6 +26,7 @@ function pd_fail(string $msg, int $code = 400): never {
 }
 
 if (empty($_SESSION['admin_logged_in']))              pd_fail('Not authenticated.', 403);
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 
 /* ── GET: the adjuster's two read-only needs ───────────────────────────────────
    Kept behind this endpoint rather than letting the browser fetch _originals/

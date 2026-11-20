@@ -12,6 +12,7 @@ require_once __DIR__ . '/../includes/multisite/batch.php';
 function ms_pf_sse(array $obj): void { echo 'data: ' . json_encode($obj) . "\n\n"; @ob_flush(); flush(); }
 
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); ms_pf_sse(['type' => 'fatal', 'msg' => 'Not authenticated.']); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if (!ACTIVE_SITE_ID)                      { http_response_code(400); ms_pf_sse(['type' => 'fatal', 'msg' => 'No active site.']); exit; }
 // A dedicated, single-use, 60s token (minted by action=preflight_token) — NOT the
 // general csrf_token. EventSource can't send a header or POST body, so this token

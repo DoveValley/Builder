@@ -6,6 +6,7 @@ require_once __DIR__ . '/../includes/picdrop.php';
 require_once __DIR__ . '/../includes/templates_store.php';
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: index.php?tab=templates'); exit; }
 
 $token = $_POST['csrf_token'] ?? '';

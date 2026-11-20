@@ -10,6 +10,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     echo 'Not authenticated.';
     exit;
 }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if (!ACTIVE_SITE_ID) {
     http_response_code(400);
     echo 'No active site selected.';

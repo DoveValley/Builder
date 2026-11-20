@@ -16,6 +16,7 @@ require_once __DIR__ . '/../plugins/image-data-chart/charts.php';
 require_once __DIR__ . '/../plugins/image-data-chart/draw.php';
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 $h = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
 
 // Stand-in series. Deliberately different shapes so the "every city differs" claim is visible.

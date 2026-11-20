@@ -14,6 +14,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     echo json_encode(['error' => 'Unauthorized']);
     exit;
 }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'POST only']);

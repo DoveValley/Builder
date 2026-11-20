@@ -15,6 +15,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     header('Location: ' . ($adminBase ?: '/admin') . '/login.php');
     exit;
 }
+if (lpc_current_actor_role() !== 'super_admin') { http_response_code(403); exit('Forbidden: platform-operator access only.'); }
 
 if (empty($_SESSION['infra_csrf'])) {
     $_SESSION['infra_csrf'] = bin2hex(random_bytes(32));
