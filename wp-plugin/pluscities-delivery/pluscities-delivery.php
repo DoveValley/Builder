@@ -46,12 +46,135 @@ function pluscities_delivery_add_rewrite_rules() {
         'index.php?pluscities_city=$matches[1]&pluscities_service=$matches[2]',
         'top'
     );
+    add_rewrite_rule('^pluscities-sitemap\.xml$', 'index.php?pluscities_sitemap=1', 'top');
 }
 
 add_filter('query_vars', function ($vars) {
     $vars[] = 'pluscities_city';
     $vars[] = 'pluscities_service';
+    $vars[] = 'pluscities_sitemap';
     return $vars;
+});
+
+/**
+ * Every currently-live page's absolute URL on this site — reused by the
+ * self-served sitemap and by every SEO-plugin registration below, so there's
+ * one real source of truth instead of each integration tracking its own
+ * stale copy. Always asks the server fresh (site_rev=0 forces the FULL live
+ * list, not just what changed since last sync) rather than trusting the
+ * locally-accumulated pluscities_page_url_* options, which never get an
+ * explicit removal signal today when a page is unpublished.
+ */
+function pluscities_delivery_live_urls() {
+    $key = get_option('pluscities_api_key', '');
+    if ($key === '') return [];
+    $resp = wp_remote_get(PLUSCITIES_DELIVERY_BASE . '?action=manifest&site_rev=0', [
+        'headers' => ['Authorization' => 'Bearer ' . $key],
+        'timeout' => 10,
+    ]);
+    if (is_wp_error($resp)) return [];
+    $manifest = json_decode(wp_remote_retrieve_body($resp), true);
+    if (!is_array($manifest) || empty($manifest['changed_pages'])) return [];
+    return array_map(fn($p) => home_url($p['url']), $manifest['changed_pages']);
+}
+
+// Priority 5 — ahead of WordPress's own redirect_canonical() (priority 10 on
+// this same hook), which otherwise 301s this file-extension URL to a
+// trailing-slash version before our handler ever runs.
+add_action('template_redirect', function () {
+    if (!get_query_var('pluscities_sitemap')) return;
+    header('Content-Type: application/xml; charset=UTF-8');
+    echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    foreach (pluscities_delivery_live_urls() as $url) {
+        echo '<url><loc>' . esc_url($url) . '</loc></url>' . "\n";
+    }
+    echo '</urlset>';
+    exit;
+}, 5);
+
+/**
+ * Sitemap inclusion, spec Section 5 — respect whichever SEO plugin the
+ * client is already running rather than fighting it or generating a
+ * competing, undiscoverable sitemap of our own. Each plugin's hook was
+ * confirmed by reading its actual installed source (not assumed from
+ * memory). get_index_links() returning one entry pointing at our own
+ * self-served XML above is all either needs — we never need their internal
+ * per-type routing to dispatch back to us, so handles_type() and
+ * get_sitemap_links() are correctly-shaped no-ops, not partial work.
+ *
+ * Two near-identical classes, not one shared one: Yoast's own merge loop
+ * does `$provider instanceof WPSEO_Sitemap_Provider` — a real interface
+ * check, not duck typing — confirmed by reading inc/sitemaps/class-sitemaps.php
+ * directly after a plain, non-implementing class silently vanished from its
+ * output with no error. Rank Math's equivalent check is only
+ * `is_object($provider)` (confirmed the same way), so it never needed this,
+ * but giving it the same explicit-interface treatment costs nothing.
+ */
+function pluscities_delivery_sitemap_index_links() {
+    if (!pluscities_delivery_live_urls()) return [];
+    return [['loc' => home_url('/pluscities-sitemap.xml'), 'lastmod' => gmdate('c'), 'mod' => gmdate('c')]];
+}
+
+// Deferred to plugins_loaded, not run at top-level file-load time — plugins
+// load in their active_plugins option order (alphabetical by default), which
+// put this plugin BEFORE seo-by-rank-math/wordpress-seo in that list. A
+// top-level defined('RANK_MATH_VERSION') check here saw false every time,
+// regardless of which was actually active, since Rank Math's own file hadn't
+// run yet. plugins_loaded fires once every active plugin has been included,
+// and it's also where each conditional provider class below gets declared —
+// WPSEO_Sitemap_Provider only exists to implement against once Yoast's own
+// file has actually loaded.
+add_action('plugins_loaded', function () {
+    if (defined('WPSEO_VERSION') && interface_exists('WPSEO_Sitemap_Provider')) {
+        class PlusCities_Sitemap_Provider_Yoast implements WPSEO_Sitemap_Provider {
+            public function handles_type($type) { return false; }
+            public function get_sitemap_links($type, $max_entries, $current_page) { return []; }
+            public function get_index_links($max_entries) { return pluscities_delivery_sitemap_index_links(); }
+        }
+        add_filter('wpseo_sitemaps_providers', function ($providers) {
+            $providers[] = new PlusCities_Sitemap_Provider_Yoast();
+            return $providers;
+        });
+    }
+    if (defined('RANK_MATH_VERSION')) {
+        class PlusCities_Sitemap_Provider_RankMath {
+            public function handles_type($type) { return false; }
+            public function get_sitemap_links($type, $max_entries, $current_page) { return []; }
+            public function get_index_links($max_entries) { return pluscities_delivery_sitemap_index_links(); }
+        }
+        add_filter('rank_math/sitemap/providers', function ($providers) {
+            $providers[] = new PlusCities_Sitemap_Provider_RankMath();
+            return $providers;
+        });
+    }
+    if (defined('AIOSEO_VERSION')) {
+        // AIOSEO's shape is genuinely different, confirmed by reading
+        // app/Common/Sitemap/Root.php directly: this filter runs on entries
+        // AIOSEO already transformed to plain ['loc','lastmod'] arrays (not
+        // the raw stored additionalPage objects), and folds them into
+        // AIOSEO's OWN "additional pages" sub-sitemap rather than linking out
+        // to a separate one of ours — so the array shape has to match
+        // exactly, not just "some object with a URL on it." Also only runs
+        // when the client has their own "Additional Pages" setting turned
+        // on — a real constraint of that hook, not something forceable from
+        // the outside.
+        add_filter('aioseo_sitemap_additional_pages', function ($entries) {
+            foreach (pluscities_delivery_live_urls() as $url) {
+                $entries[] = ['loc' => $url, 'lastmod' => gmdate('c')];
+            }
+            return $entries;
+        });
+    }
+});
+
+// Universal fallback regardless of which SEO plugin (if any) is active —
+// spec Section 5's "the plugin's own sitemap as a fallback when the client
+// has none of those installed," plus a harmless, additive courtesy line
+// even when one is: a Sitemap: directive is additive, not exclusive, so
+// listing ours alongside an active plugin's own line doesn't conflict with it.
+add_filter('robots_txt', function ($output) {
+    return $output . "Sitemap: " . home_url('/pluscities-sitemap.xml') . "\n";
 });
 
 /** Settings page — just the API key and delivery base, same minimal shape as
@@ -158,6 +281,9 @@ add_action('template_redirect', function () {
     add_action('wp_head', function () use ($page) {
         if (!empty($page['head']['meta_description'])) {
             echo '<meta name="description" content="' . esc_attr($page['head']['meta_description']) . '">' . "\n";
+        }
+        if (!empty($page['head']['canonical'])) {
+            echo '<link rel="canonical" href="' . esc_url($page['head']['canonical']) . '">' . "\n";
         }
         if (!empty($page['style'])) echo $page['style'] . "\n";
         // Schema arrived already-assembled from the server (spec Section 5) —

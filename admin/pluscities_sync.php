@@ -110,6 +110,11 @@ if ($action === 'page') {
             'title'            => $serviceLabel . ' in ' . $cityLabel . ' | ' . $businessName,
             'meta_description' => 'Professional ' . $serviceLabel . ' in ' . $cityLabel . ' from ' . $businessName . '.',
             'schema'           => $schema,
+            // Built here, not on the plugin side — the client's own domain is
+            // already known server-side (same source BreadcrumbList's absolute
+            // URLs already use), and per Section 9 the plugin only places what
+            // it's given rather than deriving URLs itself.
+            'canonical'        => 'https://' . $client['domain'] . $page['slug'],
         ],
     ]);
     exit;
