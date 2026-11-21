@@ -48,7 +48,7 @@ body.admin-body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sa
 .pcadmin-sidebar-bottom{padding:14px 10px;border-top:1px solid var(--pc-navy-line);}
 .pcadmin-sidebar-bottom a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;color:var(--pc-on-navy);text-decoration:none;font-size:.88rem;font-weight:500;}
 .pcadmin-sidebar-bottom a:hover{background:var(--pc-navy-2);color:#fff;}
-.pcadmin-whoami{padding:6px 12px 12px;}
+.pcadmin-whoami{padding:14px 20px 16px;border-bottom:1px solid var(--pc-navy-line);}
 .pcadmin-whoami .role{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--pc-muted);}
 .pcadmin-whoami .name{font-size:.86rem;font-weight:700;color:#fff;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
@@ -185,16 +185,16 @@ function lpc_admin_nav_items(): array {
 }
 
 function lpc_admin_sidebar(string $activeKey): void {
-    $branding = lpc_actor_branding();
+    $who = lpc_current_actor_identity();
     ?>
     <aside class="pcadmin-sidebar" id="pcadmin-sidebar">
         <div class="pcadmin-brand">
-            <?php if (!empty($branding['logo_url'])): ?>
-                <img src="<?= h($branding['logo_url']) ?>" alt="" style="height:24px;width:auto;display:block;">
-            <?php else: ?>
-                <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 1C7.9 1 3 5.9 3 12c0 7.8 11 15 11 15s11-7.2 11-15c0-6.1-4.9-11-11-11z" fill="#C8F55A"/><rect x="11" y="5" width="6" height="16" rx="1" fill="#0B1B33"/><rect x="7" y="10" width="14" height="6" rx="1" fill="#0B1B33"/></svg>
-            <?php endif; ?>
-            <?= h($branding['name']) ?>
+            <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 1C7.9 1 3 5.9 3 12c0 7.8 11 15 11 15s11-7.2 11-15c0-6.1-4.9-11-11-11z" fill="#C8F55A"/><rect x="11" y="5" width="6" height="16" rx="1" fill="#0B1B33"/><rect x="7" y="10" width="14" height="6" rx="1" fill="#0B1B33"/></svg>
+            PlusCities
+        </div>
+        <div class="pcadmin-whoami">
+            <div class="role"><?= h($who['role_label']) ?></div>
+            <div class="name"><?= h($who['name']) ?></div>
         </div>
         <nav class="pcadmin-nav">
             <?php foreach (lpc_admin_nav_items() as $item): ?>
@@ -210,11 +210,6 @@ function lpc_admin_sidebar(string $activeKey): void {
             <?php endforeach; ?>
         </nav>
         <div class="pcadmin-sidebar-bottom">
-            <?php $who = lpc_current_actor_identity(); ?>
-            <div class="pcadmin-whoami">
-                <div class="role"><?= h($who['role_label']) ?></div>
-                <div class="name"><?= h($who['name']) ?></div>
-            </div>
             <a href="logout.php">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
                 Log out
