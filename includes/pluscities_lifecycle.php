@@ -34,6 +34,30 @@ function pluscities_client_ids_for_current_actor(): array
     return $ids;
 }
 
+/**
+ * Whether the current actor may view/act on a given client at all — beyond
+ * pluscities_client_ids_for_current_actor()'s agency-level scoping, an
+ * Agency Editor with a non-empty assigned_client_ids list is further
+ * restricted to just those. Called at a single choke point in
+ * admin/pluscities_page.php and admin/pluscities_page_save.php rather than
+ * per-action, since every action there already carries page_id (and
+ * therefore client_id) regardless of which specific verb it is.
+ */
+function pluscities_actor_can_access_client(string $client_id): bool
+{
+    $allowed = pluscities_client_ids_for_current_actor();
+    if (!isset($allowed[$client_id])) return false;
+
+    if (lpc_current_actor_role() === 'agency_editor') {
+        $userId = $_SESSION['pluscities_user_id'] ?? '';
+        $user = $userId ? pluscities_user_load($userId) : null;
+        if ($user && !empty($user['assigned_client_ids']) && !in_array($client_id, $user['assigned_client_ids'], true)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function pluscities_compute_draft_hash(string $page_id): string
 {
     $db = pluscities_db();
@@ -196,7 +220,13 @@ function pluscities_approve_page(string $page_id, string $actor): array
  * new immutable revision, updates live_revision_id, bumps the client's
  * site_rev (for plugin sync), status -> live.
  */
-function pluscities_publish_page(string $page_id, string $actor): array
+/**
+ * $actor_role gates "Agency Editor can publish only if the agency allows it"
+ * (spec Section 10) — checked here, not just at the call site, for the same
+ * reason the validator's override function checks role internally: a
+ * capability enforced only in the UI is not actually enforced.
+ */
+function pluscities_publish_page(string $page_id, string $actor, string $actor_role = 'super_admin'): array
 {
     $db = pluscities_db();
     $st = $db->prepare('SELECT * FROM pages WHERE page_id = ?');
@@ -204,6 +234,15 @@ function pluscities_publish_page(string $page_id, string $actor): array
     $page = $st->fetch(PDO::FETCH_ASSOC);
     if (!$page) return ['ok' => false, 'msg' => 'Page not found.'];
     if ($page['approval_stage'] !== 'approved') return ['ok' => false, 'msg' => 'This page hasn\'t been approved yet.'];
+
+    if ($actor_role === 'agency_editor') {
+        $clientFile = PLUSCITIES_CLIENTS_DIR . $page['client_id'] . '.json';
+        $client = json_decode((string) @file_get_contents($clientFile), true) ?: [];
+        $agency = lpc_load_agency($client['agency_id'] ?? '');
+        if (!$agency || empty($agency['editor_can_publish'])) {
+            return ['ok' => false, 'msg' => 'This agency hasn\'t enabled Editor publishing — ask an Agency Admin to publish this page.'];
+        }
+    }
 
     $blocksStmt = $db->prepare('SELECT * FROM blocks WHERE page_id = ? ORDER BY position');
     $blocksStmt->execute([$page_id]);

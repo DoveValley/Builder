@@ -27,12 +27,7 @@ if (!$pageIds) {
     header('Location: pluscities_pages.php?msg=error:No+pages+selected'); exit;
 }
 
-// Scope check: a selected page must belong to a client this actor can
-// actually see — same rule the table itself applies when listing rows, so
-// bulk-posting a page id by hand can't reach outside an agency's own clients.
-$allowedClientIds = array_keys(pluscities_client_ids_for_current_actor());
 $db = pluscities_db();
-
 $okCount = 0;
 $failMsgs = [];
 
@@ -41,13 +36,17 @@ foreach ($pageIds as $pageId) {
     $st = $db->prepare('SELECT client_id FROM pages WHERE page_id = ?');
     $st->execute([$pageId]);
     $clientId = $st->fetchColumn();
-    if (!$clientId || !in_array($clientId, $allowedClientIds, true)) continue;
+    // Same authorization check as pluscities_page_save.php — agency scope
+    // AND, for an Agency Editor, their own assigned-clients restriction, not
+    // just agency-level scope. A page outside either silently doesn't
+    // participate in the bulk action, same as it wouldn't appear as a row.
+    if (!$clientId || !pluscities_actor_can_access_client($clientId)) continue;
 
     if ($action === 'approve') {
         $r = pluscities_approve_page($pageId, $actor);
         if ($r['ok']) $okCount++; else $failMsgs[] = "$pageId: {$r['msg']}";
     } elseif ($action === 'publish') {
-        $r = pluscities_publish_page($pageId, $actor);
+        $r = pluscities_publish_page($pageId, $actor, lpc_current_actor_role());
         if ($r['ok']) $okCount++; else $failMsgs[] = "$pageId: {$r['msg']}";
     } elseif ($action === 'regenerate_unlocked') {
         $blocksStmt = $db->prepare('SELECT id FROM blocks WHERE page_id = ? AND locked = 0');

@@ -173,6 +173,11 @@ define('PLUSCITIES_CLIENTS_DIR', BASE_DIR . '/pluscities_clients/');
 // secret has no business in version control even though the client record
 // itself is tracked source. Sibling flat tree, gitignored.
 define('PLUSCITIES_CLIENTS_SECRETS_DIR', BASE_DIR . '/pluscities_clients_secrets/');
+// Real per-person Agency Editor accounts (spec Section 1/10) — replaces
+// today's one-shared-login-per-agency model for that one role. Password
+// hash in the sibling secrets dir, same convention as above.
+define('PLUSCITIES_AGENCY_USERS_DIR', BASE_DIR . '/pluscities_agency_users/');
+define('PLUSCITIES_AGENCY_USERS_SECRETS_DIR', BASE_DIR . '/pluscities_agency_users_secrets/');
 
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all

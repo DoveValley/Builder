@@ -42,7 +42,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = $_POST['password'] ?? '';
         $agency   = lpc_find_agency_by_username($username);
 
-        if ($agency && lpc_verify_agency_password($agency['agency_id'], $password)) {
+        // Real per-person Agency Editor accounts (spec Section 1/10) check
+        // first — a username collision between an agency's own shared login
+        // and a team member's is prevented at account-creation time
+        // (admin/pluscities_team_save.php), not here, so this order doesn't
+        // matter in practice; checked first only because it's the newer,
+        // narrower case.
+        $editorUser = pluscities_user_find_by_username($username);
+        if ($editorUser && pluscities_user_verify_password($editorUser['user_id'], $password)) {
+            $editorAgency = lpc_load_agency($editorUser['agency_id']);
+            if (!$editorAgency || $editorAgency['status'] !== 'active') {
+                $error = 'This agency account is not currently active.';
+            } else {
+                session_regenerate_id(true);
+                $_SESSION[$ipKey] = ['count' => 0, 'first' => time()];
+                $_SESSION['agency_logged_in']    = true;
+                $_SESSION['actor_role']          = 'agency_editor';
+                $_SESSION['agency_id']           = $editorUser['agency_id'];
+                $_SESSION['pluscities_user_id']  = $editorUser['user_id'];
+                $_SESSION['csrf_token']          = bin2hex(random_bytes(32));
+                header('Location: clients.php');
+                exit;
+            }
+        } elseif ($agency && lpc_verify_agency_password($agency['agency_id'], $password)) {
             // A suspended/not-yet-approved agency authenticates correctly but
             // still can't in — same "credentials right, access wrong" shape
             // as a disabled user account elsewhere, not a generic bad-login
@@ -60,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['actor_role']      = 'agency_admin';
                 $_SESSION['agency_id']       = $agency['agency_id'];
                 $_SESSION['csrf_token']      = bin2hex(random_bytes(32));
+                unset($_SESSION['pluscities_user_id']); // no stale editor identity from a prior session
                 header('Location: clients.php');
                 exit;
             }

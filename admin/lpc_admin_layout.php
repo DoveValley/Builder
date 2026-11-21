@@ -167,6 +167,10 @@ function lpc_admin_nav_items(): array {
     if ($role === 'agency_admin') {
         $items[] = ['key' => 'branding', 'href' => 'agency_branding.php', 'label' => 'My Branding',
             'icon' => '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>'];
+        // Real per-person Agency Editor accounts (spec Section 1/10) —
+        // Agency-Admin-only, same gate as admin/pluscities_team.php itself.
+        $items[] = ['key' => 'pluscities_team', 'href' => 'pluscities_team.php', 'label' => 'Team',
+            'icon' => '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'];
     }
 
     if ($role === 'super_admin') {

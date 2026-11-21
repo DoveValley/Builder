@@ -18,6 +18,16 @@ $back   = 'pluscities_page.php?page_id=' . urlencode($pageId);
 $actor  = lpc_current_actor_role() . ':' . (lpc_current_actor_identity()['name'] ?? 'unknown');
 $action = $_POST['action'] ?? '';
 
+// Same authorization choke point as pluscities_page.php — every action here
+// carries page_id regardless of which verb it is, so one check up front
+// covers block-level actions too.
+$pageClientStmt = pluscities_db()->prepare('SELECT client_id FROM pages WHERE page_id = ?');
+$pageClientStmt->execute([$pageId]);
+$pageClientId = $pageClientStmt->fetchColumn();
+if (!$pageClientId || !pluscities_actor_can_access_client($pageClientId)) {
+    header('Location: pluscities_pages.php?msg=error:Page+not+found'); exit;
+}
+
 if ($action === 'edit') {
     $blockId = (int) ($_POST['block_id'] ?? 0);
     $db = pluscities_db();
@@ -61,7 +71,7 @@ if ($action === 'approve') {
 }
 
 if ($action === 'publish') {
-    $result = pluscities_publish_page($pageId, $actor);
+    $result = pluscities_publish_page($pageId, $actor, lpc_current_actor_role());
     header('Location: ' . $back . '&msg=' . ($result['ok'] ? 'success:Published' : 'error:' . urlencode($result['msg']))); exit;
 }
 

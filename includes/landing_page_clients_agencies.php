@@ -108,6 +108,12 @@ function lpc_default_agency_data() {
         // Scott deliberately trusts a specific agency enough to flip it off
         // — never agency self-service, set on admin/settings.php only.
         'requires_approval_gate' => true,
+        // Spec docs/PLUSCITIES_FEATURE_SPEC.md Section 10: an Agency Editor
+        // can approve/edit/regenerate freely, but publishing a page live
+        // requires this explicit opt-in from the Agency Admin — defaults to
+        // the conservative/off side, same instinct as requires_approval_gate
+        // above (every agency starts cautious; Admin decides to loosen it).
+        'editor_can_publish' => false,
     ];
 }
 

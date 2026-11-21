@@ -28,6 +28,14 @@ $st = $db->prepare('SELECT * FROM pages WHERE page_id = ?');
 $st->execute([$pageId]);
 $page = $st->fetch(PDO::FETCH_ASSOC);
 
+// Authorization: a page belonging to a client outside this actor's scope
+// (wrong agency, or an Agency Editor not assigned to it) doesn't exist as
+// far as this screen is concerned — same "zero is an honest answer" rule as
+// the table listing, not a 403 that confirms the page_id was valid.
+if ($page && !pluscities_actor_can_access_client($page['client_id'])) {
+    $page = null;
+}
+
 $alert = null;
 if (!empty($_GET['msg'])) {
     $raw = $_GET['msg'];

@@ -16,6 +16,11 @@ client_agencies_secrets/
 # flat tree instead (see config.php's PLUSCITIES_CLIENTS_SECRETS_DIR).
 pluscities_clients_secrets/
 
+# Same reasoning, for real per-person Agency Editor account passwords —
+# pluscities_agency_users/*.json is tracked source; the password hash lives
+# in this sibling flat tree instead.
+pluscities_agency_users_secrets/
+
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 
