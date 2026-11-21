@@ -886,7 +886,7 @@ function platform_info_content_workflow_data(): array {
     <p style="font-size:.88rem;line-height:1.7;">
         <strong>This is the plan for a feature that doesn't exist yet: letting the actual client approve
         their own pages before they go live.</strong> A closer look at one specific gap from the Content
-        Workflow tab (step 15, "Client review / approval") and the Product Roadmap tab (Workflow section,
+        Workflow tab (step 16, "Client review / approval") and the Product Roadmap tab (Workflow section,
         gate: <strong>Must-Have to Sell</strong>, effort: <strong>Major</strong>) — how it would actually
         fit into the existing review pipeline, who'd be involved, and exactly where each piece would live
         in the app. This is a design writeup to work from when it's greenlit, not a status page for
@@ -896,11 +896,13 @@ function platform_info_content_workflow_data(): array {
     <h4 style="margin-bottom:4px;">Where this fits in the flow today</h4>
     <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
         <strong>Right now, the client never gets a say before their own pages go live.</strong> Publishing
-        a page goes through two stages, the same for every agency with no exceptions &mdash;
-        the Platform Admin reviews first (<code>pending_platform_review</code>), then the owning agency
-        gives the final sign-off (<code>pending_agency_review</code> &rarr; <code>approved</code> &rarr;
-        live), both on <code>approvals.php</code>. Either way, the End Client never participates &mdash;
-        they only ever see a page after it's already live, on their own read-only Reporting tab.
+        a page goes through two stages &mdash; the Platform Admin reviews first
+        (<code>pending_platform_review</code>), then the owning agency gives the final sign-off
+        (<code>pending_agency_review</code> &rarr; <code>approved</code> &rarr; live), both on
+        <code>approvals.php</code> &mdash; unless the Platform Admin has turned this gate off for that
+        specific agency (Settings, per-agency, defaults on). Either way, whether the gate ran or not, the
+        End Client never participates &mdash; they only ever see a page after it's already live, on their
+        own read-only Reporting tab.
     </p>
 
     <h4 style="margin-bottom:4px;">The proposed design</h4>
@@ -911,10 +913,11 @@ function platform_info_content_workflow_data(): array {
         <li><strong>Agencies get to choose whether their own clients are involved at all.</strong>
             Per-client toggle, off by default — not every agency wants their client in
             the loop; this is a switch the Platform Admin or Agency Admin flips per client, not a rule
-            forced on everyone. It's additive, not a replacement — every client's pages already go
-            through the platform + agency review above regardless of this toggle; turning it on just adds
-            the client's own review as a third stage on top, for the clients where that extra check is
-            wanted.</li>
+            forced on everyone. It stacks on top of whatever that agency's own approval-gate setting is
+            (Settings) rather than assuming the platform + agency review above always ran first: if that
+            agency's gate is on, client review (when turned on for a client) is a third stage after agency
+            review; if the Platform Admin has turned that agency's gate off, client review would be the
+            only check left before the page goes live.</li>
         <li><strong>The client never sees anything still being worked on.</strong> The client sees only
             what's waiting on them &mdash; never a draft still being worked on internally, never anything
             mid-edit.</li>
@@ -961,7 +964,7 @@ function platform_info_content_workflow_data(): array {
     <p style="font-size:.88rem;line-height:1.7;margin:0;">
         <strong>This isn't a brand-new idea &mdash; it's already written down elsewhere, just explained in
         more depth here.</strong> Same item as the Product Roadmap tab's "Client approve / request-changes step (per-client
-        toggle)" row and the Content Workflow tab's step 15 ("Client review / approval") &mdash; this
+        toggle)" row and the Content Workflow tab's step 16 ("Client review / approval") &mdash; this
         page is the detailed design for that one entry, not a new addition to scope.
     </p>
 <?php endif; ?>
