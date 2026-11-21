@@ -58,6 +58,112 @@ function pluscities_actor_can_access_client(string $client_id): bool
     return true;
 }
 
+/** Full service-pool list, spec Section 5 — one shared set for every niche
+ *  (a process, cost factors, maintenance tips, etc. apply to any local
+ *  service business), unlike the city pool which varies per family. */
+const PLUSCITIES_SERVICE_POOL = [
+    'common_problems', 'cited_expert_guidance', 'niche_data_table', 'process',
+    'cost_factors', 'why_choose_us', 'repair_vs_replace', 'maintenance', 'before_the_tech_arrives',
+];
+
+/**
+ * Creates a new page with its full real block set — the 4 spine blocks
+ * (always present) plus the caller's chosen city/service blocks — and
+ * generates real content for every one via the same pluscities_regenerate_block()
+ * every edit already uses, so there's no second, parallel content-generation
+ * path to keep in sync.
+ *
+ * $city_block_picks/$service_block_picks are explicit choices, not
+ * auto-selected: the real selection rules (spec Section 5 — city blocks
+ * ≥50% of body words, ≤50% service-block overlap across a client's cities,
+ * varied order) aren't built yet (same gap pluscities_swap_block()'s own
+ * comment already flags), so this takes a caller's picks rather than
+ * pretending to apply rules that don't exist yet.
+ *
+ * @return array{ok:bool,msg:string,page_id:?string}
+ */
+function pluscities_create_page(string $client_id, string $city_id, string $service_key, array $city_block_picks, array $service_block_picks, string $actor): array
+{
+    $clientFile = PLUSCITIES_CLIENTS_DIR . $client_id . '.json';
+    $client = json_decode((string) @file_get_contents($clientFile), true);
+    if (!$client) return ['ok' => false, 'msg' => 'Client not found.', 'page_id' => null];
+    $niche = pluscities_niche_resolved($client['niche_id'] ?? '');
+    if (!$niche) return ['ok' => false, 'msg' => 'Niche not found.', 'page_id' => null];
+
+    foreach ($city_block_picks as $bt) {
+        if (!in_array($bt, $niche['city_blocks'] ?? [], true)) {
+            return ['ok' => false, 'msg' => "\"$bt\" is not in this niche's city block pool.", 'page_id' => null];
+        }
+    }
+    foreach ($service_block_picks as $bt) {
+        if (!in_array($bt, PLUSCITIES_SERVICE_POOL, true)) {
+            return ['ok' => false, 'msg' => "\"$bt\" is not a known service block type.", 'page_id' => null];
+        }
+    }
+
+    $pageId   = 'pg_' . str_replace('-', '', $client_id) . '_' . $city_id . '_' . $service_key;
+    $basePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
+    $slug     = $basePath . $city_id . '/' . $service_key . '/';
+
+    $db = pluscities_db();
+    $existing = $db->prepare('SELECT 1 FROM pages WHERE page_id = ?');
+    $existing->execute([$pageId]);
+    if ($existing->fetchColumn()) return ['ok' => false, 'msg' => 'This page already exists.', 'page_id' => null];
+
+    $db->prepare('INSERT INTO pages (page_id, client_id, city_id, service_key, slug, status, approval_stage) VALUES (?,?,?,?,?,?,?)')
+       ->execute([$pageId, $client_id, $city_id, $service_key, $slug, 'draft', 'none']);
+
+    $ins = $db->prepare('INSERT INTO blocks (page_id, block_type, position, pool, classification, content_json, fact_ids, dataset_refs, locked, origin) VALUES (?,?,?,?,?,?,?,?,?,?)');
+    $position  = 0;
+    $blockIds  = [];
+
+    foreach (['hero', 'overview', 'faq', 'service_area'] as $bt) {
+        $classification = $bt === 'service_area' ? 'automatic' : 'editable';
+        $origin = $bt === 'service_area' ? 'data' : 'generated'; // matches the regenerate branch that never rewrites origin for this one type
+        $ins->execute([$pageId, $bt, $position++, 'spine', $classification, '{}', '[]', '[]', 0, $origin]);
+        $blockIds[] = (int) $db->lastInsertId();
+    }
+    foreach ($city_block_picks as $bt) {
+        if ($bt === 'reviews_from_city') {
+            // Client-supplied — content is the client's own reviews for this
+            // city, never through the AI writer at all.
+            $content = ['reviews' => $client['reviews_by_city'][$city_id] ?? []];
+            $ins->execute([$pageId, $bt, $position++, 'city', 'client-supplied', json_encode($content), '[]', '[]', 0, 'client']);
+            continue;
+        }
+        $classification = $bt === 'housing_stock' ? 'automatic' : 'editable';
+        $ins->execute([$pageId, $bt, $position++, 'city', $classification, '{}', '[]', '[]', 0, 'generated']);
+        $blockIds[] = (int) $db->lastInsertId();
+    }
+    foreach ($service_block_picks as $bt) {
+        $classification = $bt === 'niche_data_table' ? 'automatic' : 'editable';
+        $ins->execute([$pageId, $bt, $position++, 'service', $classification, '{}', '[]', '[]', 0, 'generated']);
+        $blockIds[] = (int) $db->lastInsertId();
+    }
+
+    // housing_stock needs its Census dataset fetched once per city before the
+    // automatic-block writer has anything to template — the same real
+    // pluscities_dataset_get() every city already uses, not a special path.
+    if (in_array('housing_stock', $city_block_picks, true)) {
+        if (pluscities_dataset_get($city_id, 'census_acs')) {
+            $st = $db->prepare('SELECT id FROM blocks WHERE page_id = ? AND block_type = "housing_stock"');
+            $st->execute([$pageId]);
+            if ($hsId = $st->fetchColumn()) {
+                $db->prepare('UPDATE blocks SET dataset_refs = ? WHERE id = ?')
+                   ->execute([json_encode([['city_id' => $city_id, 'provider' => 'census_acs']]), $hsId]);
+            }
+        }
+    }
+
+    foreach ($blockIds as $bid) {
+        pluscities_regenerate_block($bid, $actor);
+    }
+
+    pluscities_touch_page($pageId);
+    pluscities_log_event($actor, 'create_page', 'page:' . $pageId, '');
+    return ['ok' => true, 'msg' => '', 'page_id' => $pageId];
+}
+
 function pluscities_compute_draft_hash(string $page_id): string
 {
     $db = pluscities_db();

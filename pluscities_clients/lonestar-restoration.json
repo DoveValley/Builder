@@ -1,0 +1,68 @@
+{
+    "client_id": "lonestar-restoration",
+    "agency_id": "coastal-marketing",
+    "niche_id": "water-damage-restoration",
+    "domain": "lonestarrestoration.com",
+    "site_rev": 1,
+    "plugin_rev": 0,
+    "plugin_version": "",
+    "last_seen_at": "",
+    "class_prefix": "lpc-lonestar",
+    "radius_minutes": 45,
+    "identity": {
+        "business_name": "Lonestar Restoration & Recovery",
+        "hubs": [
+            {
+                "address": "2100 Travis St, Houston, TX 77002",
+                "phone": "(713) 555-0199"
+            }
+        ]
+    },
+    "licenses": [
+        {
+            "number": "TX-GC-88214",
+            "state": "TX",
+            "trade": "General Contractor"
+        }
+    ],
+    "years_in_business": 9,
+    "hours": {
+        "mon_fri": "0:00-24:00",
+        "sat": "0:00-24:00",
+        "sun": "0:00-24:00"
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": {
+        "houston-tx": [
+            {
+                "author": "Marcus T.",
+                "rating": 5,
+                "text": "Had a pipe burst in our kitchen and they had extraction equipment running within two hours. Saved our floors."
+            }
+        ]
+    },
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "approval_gate_override": null,
+    "services": [
+        "water-damage-restoration",
+        "fire-damage-restoration"
+    ],
+    "target_cities": [
+        {
+            "city_id": "houston-tx",
+            "drive_minutes": 20,
+            "confirmed_by_client": true
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": ""
+    },
+    "images": []
+}
