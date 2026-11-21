@@ -31,6 +31,14 @@ $TABS = [
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 
+// Purely a display grouping for the tab bar — $TABS above stays the flat
+// key => label map everything else (validation, tab lookups) uses.
+$TAB_ROWS = [
+    ['label' => 'Settings', 'tabs' => ['who_logged_in']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'roadmap', 'content_workflow', 'client_approval_stage']],
+    ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
+];
+
 function platform_info_fmt_duration(int $seconds): string {
     if ($seconds < 60) return $seconds . 's';
     $h = intdiv($seconds, 3600);
@@ -651,14 +659,22 @@ function platform_info_content_flow_data(): array {
 .lpc-wf-who, .lpc-wf-where { font-size:.78rem; color:#6b7280; }
 .lpc-wf-where code { font-size:.76rem; }
 .lpc-wf-what { font-size:.82rem; line-height:1.6; color:#374151; }
+.pcadmin-subtabs-row-label { font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--pc-muted); margin:10px 0 2px; }
+.pcadmin-subtabs-row .pcadmin-subtabs { margin-bottom:10px; border-bottom:none; }
+.pcadmin-subtabs-row:last-of-type .pcadmin-subtabs { border-bottom:1px solid var(--pc-line); margin-bottom:22px; }
 </style>
 </head>
 <?php lpc_admin_open('platform_info', 'Platform Information'); ?>
-<div class="pcadmin-subtabs">
-    <?php foreach ($TABS as $key => $label): ?>
-        <a class="<?= $tab === $key ? 'active' : '' ?>" href="platform_info.php?tab=<?= h($key) ?>"><?= h($label) ?></a>
-    <?php endforeach; ?>
+<?php foreach ($TAB_ROWS as $row): ?>
+<div class="pcadmin-subtabs-row">
+    <div class="pcadmin-subtabs-row-label"><?= h($row['label']) ?></div>
+    <div class="pcadmin-subtabs">
+        <?php foreach ($row['tabs'] as $key): ?>
+            <a class="<?= $tab === $key ? 'active' : '' ?>" href="platform_info.php?tab=<?= h($key) ?>"><?= h($TABS[$key]) ?></a>
+        <?php endforeach; ?>
+    </div>
 </div>
+<?php endforeach; ?>
 
 <?php if ($tab === 'who_logged_in'):
     $sessions = platform_sessions_load();
