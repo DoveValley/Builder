@@ -258,7 +258,7 @@ function lpc_render_impersonation_banner(): void {
 
 /**
  * The name/logo the shared admin topbar should show for whoever's logged
- * in right now — "Site Factory" with no logo for the platform itself,
+ * in right now — "PlusCities" with no logo for the platform itself,
  * or an agency's own branding.display_name/logo_url when an Agency Admin
  * is logged in (falling back to the platform default for any field an
  * agency left blank, same as every other optional branding field in this
@@ -266,7 +266,7 @@ function lpc_render_impersonation_banner(): void {
  * end client's own business name, not the reselling agency's.
  */
 function lpc_actor_branding() {
-    $default = ['name' => 'Site Factory', 'logo_url' => ''];
+    $default = ['name' => 'PlusCities', 'logo_url' => ''];
     $role = lpc_current_actor_role();
 
     if ($role === 'agency_admin') {

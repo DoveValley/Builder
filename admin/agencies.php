@@ -166,7 +166,7 @@ foreach (lpc_list_agencies() as $id) {
             branding when this agency is logged in. No color theming, no custom domain.
         </p>
         <div class="lpc-form-row">
-            <div class="form-group"><label>Display Name</label><input type="text" name="display_name" placeholder="shown in place of &quot;Site Factory&quot;" value="<?= h($editing['branding']['display_name'] ?? '') ?>"></div>
+            <div class="form-group"><label>Display Name</label><input type="text" name="display_name" placeholder="shown in place of &quot;PlusCities&quot;" value="<?= h($editing['branding']['display_name'] ?? '') ?>"></div>
             <div class="form-group"><label>Logo URL</label><input type="text" name="logo_url" value="<?= h($editing['branding']['logo_url'] ?? '') ?>"></div>
         </div>
 

@@ -59,7 +59,7 @@ if (!empty($_GET['msg'])) {
     <?php endif; ?>
 
     <p style="color:#6b7280;font-size:.85rem;">
-        Shown in place of &quot;Site Factory&quot; across your own dashboard once set &mdash; visual
+        Shown in place of &quot;PlusCities&quot; across your own dashboard once set &mdash; visual
         only, no color theming, no custom domain.
     </p>
 
@@ -68,7 +68,7 @@ if (!empty($_GET['msg'])) {
         <div class="lpc-form-row">
             <div class="form-group">
                 <label>Display Name</label>
-                <input type="text" name="display_name" placeholder="shown in place of &quot;Site Factory&quot;" value="<?= h($agency['branding']['display_name'] ?? '') ?>">
+                <input type="text" name="display_name" placeholder="shown in place of &quot;PlusCities&quot;" value="<?= h($agency['branding']['display_name'] ?? '') ?>">
             </div>
         </div>
         <div class="lpc-form-row">
