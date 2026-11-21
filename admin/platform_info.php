@@ -456,6 +456,10 @@ function platform_info_content_flow_data(): array {
         [
             'title' => 'B — Site Factory: niche setup',
             'rows' => [
+                ['step' => 'Score whether the niche is worth building at all', 'status' => 'needs_adding', 'gate' => 'sell', 'effort' => 'moderate',
+                 'simple' => 'This would score whether a whole niche is worth building before any pages exist, not just which cities to expand into once you\'ve already committed.',
+                 'what' => "Doesn't exist — the real keyword-scoring formula (Demand × Winnability × Lead-value) only runs once a niche is already being built, to pick cities. Nothing scores the niche's own core services for real keyword volume/competition/CPC before committing 30+ pages and real AI/image cost to it. Already part of the process: the scoring formula and its real data providers (Ahrefs/DataForSEO) exist and work — this would reuse them for a new, earlier decision point, not invent new infrastructure.",
+                 'who' => 'Would be: Platform Admin', 'where' => 'Would extend admin/infra/lib/keywords.php (infra_kw_score()), as a new step before the niche brief'],
                 ['step' => 'Pick a niche ID', 'status' => 'in_place',
                  'simple' => 'This is naming the industry — and it has to match exactly, or charts silently vanish.',
                  'what' => "Must exactly match the folder slug under plugins/image-data-chart/niches/{slug}/ — a mismatch doesn't error, it just quietly produces no chart at all.",
@@ -468,6 +472,10 @@ function platform_info_content_flow_data(): array {
                  'simple' => 'This turns the brief into the real instructions the AI uses, automatically, every time you save.',
                  'what' => "Runs on every brief save, so the brief and the registry can never drift out of sync with each other. A shared-library edit to the archetype file does NOT auto-propagate though — each master needs its own manual \"Compile Registry Now.\"",
                  'who' => 'System — triggered by saving the brief', 'where' => 'multisite/ai/compile.php → ms_ai_compile_master() → sites/{id}/ai_block_types.json'],
+                ['step' => 'Decide upfront which blocks and differentiators actually make sense for this niche', 'status' => 'needs_adding', 'gate' => 'retain', 'effort' => 'moderate',
+                 'simple' => "This would plan what actually makes a page win in THIS niche specifically — not just which blocks to include, since that varies a lot by industry.",
+                 'what' => "Today block composition is decided ad hoc while hand-building the master template (next section), and archetypes branch off it when intent clearly differs (inspection vs. category pages) — but there's no deliberate step that asks what actually differentiates a winning page in this specific niche (real licensing/certifications for a regulated trade, real response time for an emergency service, transparent pricing for a commodity service, etc.) and which blocks support that. The niche brief already has a free-text local_angle and guardrails field, but nothing structured for \"what wins in this niche.\" Would turn an implicit choice made while building the template into a real planning step tied to the niche brief itself.",
+                 'who' => 'Would be: Platform Admin', 'where' => 'Would extend admin/tabs/niche_brief.php, before the Templates tab'],
             ],
         ],
         [
@@ -477,10 +485,18 @@ function platform_info_content_flow_data(): array {
                  'simple' => "This is deciding, by hand, what every single page is actually trying to rank for.",
                  'what' => "One row per service: a primary keyword (the page's real target, drives the URL/H1/title), secondary keywords (variant phrasings woven into the copy, never given their own URL — the rank-and-rent rule), section, tier. Fully manual: no auto-seed, no auto-fill, no AI.",
                  'who' => 'Platform Admin', 'where' => 'admin/tabs/keywords.php → admin/keywords_save.php → data/keyword_map.json'],
+                ['step' => 'Use tiers to actually decide build order', 'status' => 'needs_adding', 'gate' => 'retain', 'effort' => 'quick',
+                 'simple' => "This would make the keyword map's existing tier field actually decide which pages get built and polished first.",
+                 'what' => "Partially there already: every service in the keyword map already has a tier field, right in data/keyword_map.json — but nothing reads it to decide build order. Every service gets generated and reviewed in the same arbitrary order regardless of tier today.",
+                 'who' => 'Would be: Platform Admin', 'where' => 'Would extend admin/generate.php / the AI generation queue order'],
                 ['step' => 'Score candidate cities for expansion', 'status' => 'in_place',
                  'simple' => 'This is a formula that scores a city using real demand, real difficulty, and real ad value — not a guess.',
                  'what' => "Demand (search volume, log-scaled) × Winnability (1 − keyword difficulty) × Lead value (CPC), geometric mean, scaled 1-10 — a zero on any one factor sinks the whole score on purpose. Real data from Ahrefs or DataForSEO, separately calibrated per provider since they report very different absolute numbers for the same city. A human decision aid, not an automatic trigger — nothing gets built just because it scored well.",
                  'who' => 'Platform Admin (decides), System (scores)', 'where' => 'admin/infra/lib/keywords.php (infra_kw_score()), admin/infra/views/cities.php'],
+                ['step' => 'Check for keyword cannibalization before generating', 'status' => 'needs_adding', 'gate' => 'sell', 'effort' => 'moderate',
+                 'simple' => 'This would catch two pages competing for the same real keyword before both go live and hurt each other\'s ranking.',
+                 'what' => "Doesn't exist for Site Factory — the same confirmed gap already flagged for LPC on the Product Roadmap tab. Two services' primary keywords, or a service page vs. its own city-hub page, can end up targeting the same real intent — both pages then compete with each other instead of each owning their own ranking, which actively hurts both, not just a missed opportunity. Would run against the finished keyword map before bulk generation, not after 30+ pages already exist.",
+                 'who' => 'Would be: Platform Admin', 'where' => 'Would extend admin/keywords_save.php / admin/tabs/keywords.php'],
             ],
         ],
         [
@@ -1115,7 +1131,34 @@ function platform_info_content_flow_data(): array {
         thing &mdash; the Niche Library (section A) &mdash; and it's a one-time copy-in, not a live link:
         editing the library later does not retroactively change a niche that already pulled from it.
     </p>
+    <p style="font-size:.88rem;line-height:1.7;">
+        <strong>Four real additions surfaced 2026-11-21</strong> while reviewing this tab for what it'd
+        take to build the best possible city&times;service pages for a niche, each tagged with a
+        <strong>Priority</strong> (how directly it protects/improves whether pages actually rank) and
+        <strong>Effort</strong>, the same two-axis approach used on the Product Roadmap tab &mdash; just
+        labeled for this context instead of "sell to an agency," which doesn't apply here.
+    </p>
+    <?php
+    $cfGateLabels   = ['sell' => 'Core to Ranking', 'retain' => 'Quality Improvement', 'differentiate' => 'Nice to Have'];
+    $cfEffortLabels = ['quick' => 'Quick', 'moderate' => 'Moderate', 'major' => 'Major'];
+    ?>
     <div class="lpc-roadmap-filters">
+        <span><label for="cf-filter-gate">Priority</label>
+            <select id="cf-filter-gate" onchange="lpcContentFlowFilter()">
+                <option value="">All</option>
+                <?php foreach ($cfGateLabels as $k => $label): ?>
+                    <option value="<?= h($k) ?>"><?= h($label) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </span>
+        <span><label for="cf-filter-effort">Effort</label>
+            <select id="cf-filter-effort" onchange="lpcContentFlowFilter()">
+                <option value="">All</option>
+                <?php foreach ($cfEffortLabels as $k => $label): ?>
+                    <option value="<?= h($k) ?>"><?= h($label) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </span>
         <span><label for="cf-filter-status">Status</label>
             <select id="cf-filter-status" onchange="lpcContentFlowFilter()">
                 <option value="">All</option>
@@ -1131,21 +1174,37 @@ function platform_info_content_flow_data(): array {
         <table class="lpc-table lpc-wf-table lpc-cf-table" style="margin-bottom:8px;">
             <thead><tr>
                 <th style="width:3%;">#</th>
-                <th style="width:20%;">Step</th>
-                <th style="width:9%;">Status</th>
-                <th style="width:30%;">What it is</th>
-                <th style="width:17%;">Who does it</th>
+                <th style="width:16%;">Step</th>
+                <th style="width:8%;">Status</th>
+                <th style="width:11%;">Priority</th>
+                <th style="width:8%;">Effort</th>
+                <th style="width:27%;">What it is</th>
+                <th style="width:14%;">Who does it</th>
                 <th>Where in the app</th>
             </tr></thead>
             <tbody>
             <?php foreach ($section['rows'] as $r): $cfStepN++; ?>
-                <tr data-status="<?= h($r['status']) ?>">
+                <tr data-status="<?= h($r['status']) ?>" data-gate="<?= h($r['gate'] ?? '') ?>" data-effort="<?= h($r['effort'] ?? '') ?>">
                     <td class="lpc-wf-step-n"><?= $cfStepN ?></td>
                     <td class="lpc-wf-step"><?= h($r['step']) ?></td>
                     <td>
                         <span class="lpc-roadmap-status lpc-roadmap-status-<?= $r['status'] === 'in_place' ? 'complete' : 'todo' ?>">
                             <?= $r['status'] === 'in_place' ? 'In Place' : 'Needs to Be Added' ?>
                         </span>
+                    </td>
+                    <td>
+                        <?php if (isset($r['gate'])): ?>
+                            <span class="lpc-roadmap-gate lpc-roadmap-gate-<?= h($r['gate']) ?>"><?= h($cfGateLabels[$r['gate']]) ?></span>
+                        <?php else: ?>
+                            <span class="lpc-roadmap-na">&mdash;</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if (isset($r['effort'])): ?>
+                            <span class="lpc-roadmap-effort lpc-roadmap-effort-<?= h($r['effort']) ?>"><?= h($cfEffortLabels[$r['effort']]) ?></span>
+                        <?php else: ?>
+                            <span class="lpc-roadmap-na">&mdash;</span>
+                        <?php endif; ?>
                     </td>
                     <td class="lpc-wf-what"><strong><?= h($r['simple']) ?></strong> <?= h($r['what']) ?></td>
                     <td class="lpc-wf-who"><?= h($r['who']) ?></td>
@@ -1157,6 +1216,8 @@ function platform_info_content_flow_data(): array {
     <?php endforeach; ?>
     <script>
     function lpcContentFlowFilter() {
+        var gate = document.getElementById('cf-filter-gate').value;
+        var effort = document.getElementById('cf-filter-effort').value;
         var status = document.getElementById('cf-filter-status').value;
         var tables = document.querySelectorAll('.lpc-cf-table');
         var shown = 0, total = 0;
@@ -1164,7 +1225,9 @@ function platform_info_content_flow_data(): array {
             var visibleRows = 0;
             table.querySelectorAll('tbody tr').forEach(function (row) {
                 total++;
-                var match = !status || row.dataset.status === status;
+                var match = (!gate || row.dataset.gate === gate)
+                    && (!effort || row.dataset.effort === effort)
+                    && (!status || row.dataset.status === status);
                 row.style.display = match ? '' : 'none';
                 if (match) { visibleRows++; shown++; }
             });
