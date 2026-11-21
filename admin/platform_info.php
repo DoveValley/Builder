@@ -27,6 +27,7 @@ $TABS = [
     'content_workflow'     => 'Content Workflow',
     'client_approval_stage'=> 'Client Approval Stage',
     'content_flow'         => 'Content Flow',
+    'spec_document'        => 'Spec Document',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -35,7 +36,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'roadmap', 'content_workflow', 'client_approval_stage']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'roadmap', 'content_workflow', 'client_approval_stage', 'spec_document']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1405,6 +1406,30 @@ function platform_info_content_flow_data(): array {
         toggle)" row and the Content Workflow tab's step 16 ("Client review / approval") &mdash; this
         page is the detailed design for that one entry, not a new addition to scope.
     </p>
+<?php endif; ?>
+
+<?php if ($tab === 'spec_document'):
+    $specPath = __DIR__ . '/../docs/PLUSCITIES_FEATURE_SPEC.md';
+    $specText = is_file($specPath) ? file_get_contents($specPath) : null;
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">PlusCities consolidated feature spec</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        The full component-by-component specification worked through before any of the rebuild is
+        built &mdash; data model, niche library, research &amp; fact cards, writer contract, block
+        library, validator, page lifecycle, publishing &amp; plugin sync, roles, billing, white-label,
+        and onboarding, plus the phased build order. Source file:
+        <code><?= h(str_replace(__DIR__ . '/../', '', $specPath)) ?></code><?php if ($specText !== null): ?>,
+        last updated <?= h(date('Y-m-d H:i', filemtime($specPath))) ?><?php endif; ?>.
+    </p>
+    <?php if ($specText === null): ?>
+        <div class="lpc-empty"><h2>Spec file not found</h2>
+            <p>Expected it at <code>docs/PLUSCITIES_FEATURE_SPEC.md</code>.</p></div>
+    <?php else: ?>
+        <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                    padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                    font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                    max-height:none;color:#1C2B45;"><?= h($specText) ?></div>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php lpc_admin_close(); ?>

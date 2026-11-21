@@ -1,0 +1,30 @@
+{
+    "label": "legal",
+    "schema_type_family": "LocalBusiness",
+    "compliance_preset": "contractor",
+    "default_radius_minutes": 25,
+    "default_city_blocks": [
+        "climate_data",
+        "housing_stock",
+        "neighborhoods",
+        "permits",
+        "utilities",
+        "hoa_rules",
+        "seasonal_guide",
+        "hazards",
+        "reviews_from_city"
+    ],
+    "approved_sources": [
+        "*.gov"
+    ],
+    "research_topics": [
+        "neighborhoods",
+        "permits",
+        "utilities",
+        "hoa",
+        "hazards",
+        "seasons",
+        "civic"
+    ],
+    "family_id": "legal"
+}

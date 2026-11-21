@@ -1,0 +1,64 @@
+{
+    "client_id": "elite-air-hvac",
+    "agency_id": "agy_coastal-marketing",
+    "niche_id": "hvac",
+    "domain": "eliteairhvac.com",
+    "site_rev": 2,
+    "plugin_rev": 0,
+    "plugin_version": "",
+    "last_seen_at": "",
+    "class_prefix": "lpc-eliteair",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "Elite Air HVAC",
+        "hubs": [
+            {
+                "address": "412 Main St, Frisco, TX 75034",
+                "phone": "(972) 555-0148"
+            }
+        ]
+    },
+    "licenses": [
+        {
+            "number": "TACLB123456C",
+            "state": "TX",
+            "trade": "HVAC Contractor"
+        }
+    ],
+    "years_in_business": 12,
+    "hours": {
+        "mon_fri": "7:00-19:00",
+        "sat": "8:00-14:00",
+        "sun": "closed"
+    },
+    "banned_phrases": [
+        "24/7"
+    ],
+    "photos_by_city": [],
+    "reviews_by_city": {
+        "frisco-tx": [
+            {
+                "author": "Dana R.",
+                "rating": 5,
+                "text": "Fixed our AC same day during the July heat wave."
+            }
+        ]
+    },
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "approval_gate_override": null,
+    "services": [
+        "ac-repair",
+        "furnace-repair"
+    ],
+    "target_cities": [
+        {
+            "city_id": "frisco-tx",
+            "drive_minutes": 12,
+            "confirmed_by_client": false
+        }
+    ]
+}

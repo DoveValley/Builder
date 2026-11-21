@@ -157,6 +157,23 @@ define('LPC_DEMO_BOX_SITE_USER', 'demo'); // the one shared Hestia hosting user 
 define('LPC_DEMO_BOX_SSH_KEY', BASE_DIR . '/.lpc_demo_box_ssh_key');
 define('LPC_DEMO_BOX_SSH_USER', 'root'); // provisioning-only key, this box only — see comment above
 
+// PlusCities content-engine rewrite (docs/PLUSCITIES_FEATURE_SPEC.md) — a NEW
+// engine built alongside the LPC_* constants above, not replacing them in
+// place. Its own SQLite file (never fleet.db, per
+// docs/lpc-vs-site-factory-boundary.md §2) and its own JSON-per-entity
+// directories for the niche library and client records, kept separate from
+// CLIENTS_DIR/niche_library above so the old and new engines can't collide.
+define('PLUSCITIES_DB_FILE', BASE_DIR . '/admin/infra/state/pluscities.db');
+define('PLUSCITIES_NICHE_FAMILIES_DIR', BASE_DIR . '/niche_families/');
+define('PLUSCITIES_NICHE_BLUEPRINTS_DIR', BASE_DIR . '/niche_blueprints/');
+define('PLUSCITIES_COMPLIANCE_PRESETS_DIR', BASE_DIR . '/compliance_presets/');
+define('PLUSCITIES_CLIENTS_DIR', BASE_DIR . '/pluscities_clients/');
+// API keys live outside the client JSON on purpose — same reasoning as the
+// old engine's clients/*/secrets/ and client_agencies_secrets/: a plaintext
+// secret has no business in version control even though the client record
+// itself is tracked source. Sibling flat tree, gitignored.
+define('PLUSCITIES_CLIENTS_SECRETS_DIR', BASE_DIR . '/pluscities_clients_secrets/');
+
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all
 // of them. They are per-site now (STARTERS_FILE, defined per branch above, next to

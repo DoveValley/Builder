@@ -11,6 +11,11 @@ clients/*/secrets/
 # tracked source; the password hash lives in this sibling flat tree instead.
 client_agencies_secrets/
 
+# Same reasoning, for the PlusCities rewrite's client API keys —
+# pluscities_clients/*.json is tracked source; the key lives in this sibling
+# flat tree instead (see config.php's PLUSCITIES_CLIENTS_SECRETS_DIR).
+pluscities_clients_secrets/
+
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 

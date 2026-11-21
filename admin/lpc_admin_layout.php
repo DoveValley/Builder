@@ -158,6 +158,12 @@ function lpc_admin_nav_items(): array {
     $items[] = ['key' => 'approvals', 'href' => 'approvals.php', 'label' => 'Approvals',
         'icon' => '<path d="M20 6 9 17l-5-5"/>', 'badge' => $pendingCount ?: null];
 
+    // Phase 1's manual-drive screen (spec Section 6) — direct-links to the one
+    // walking-skeleton page for now, since the real table-of-pages UI
+    // (spec Section 11) is Phase 2. Remove this link once that exists.
+    $items[] = ['key' => 'pluscities_page', 'href' => 'pluscities_page.php?page_id=pg_eliteairhvac_frisco-tx_ac-repair',
+        'label' => 'PlusCities Page (Phase 1)', 'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>'];
+
     if ($role === 'agency_admin') {
         $items[] = ['key' => 'branding', 'href' => 'agency_branding.php', 'label' => 'My Branding',
             'icon' => '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>'];
@@ -167,7 +173,15 @@ function lpc_admin_nav_items(): array {
         $items[] = ['section' => 'Platform'];
         $items[] = ['key' => 'agencies', 'href' => 'agencies.php', 'label' => 'Agencies',
             'icon' => '<path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/>'];
-        $items[] = ['key' => 'niche_profiles', 'href' => 'niche_profiles.php', 'label' => 'Niche Profiles',
+        $items[] = ['key' => 'niche_profiles', 'href' => 'niche_profiles.php', 'label' => 'Niche Profiles (old)',
+            'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/>'];
+        // The real niche library from docs/PLUSCITIES_FEATURE_SPEC.md Section 2 —
+        // family inheritance, compliance presets, real keyword validation. A
+        // separate nav item from "Niche Profiles" above (the old engine's
+        // content-slot library, still in live use by landing_page_clients_ai.php)
+        // rather than repointing that link, since the old pipeline still needs it
+        // until it's retired.
+        $items[] = ['key' => 'pluscities_niches', 'href' => 'pluscities_niches.php', 'label' => 'Niche Library',
             'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/>'];
         $items[] = ['key' => 'demo_sites', 'href' => 'lpc_demo_sites.php', 'label' => 'Demo Sites',
             'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>'];
