@@ -24,6 +24,15 @@ pluscities_agency_users_secrets/
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 
+# PlusCities client photos/logos: a client's own real upload, and the
+# per-client branded cache generated from a niche default (see
+# includes/pluscities_images.php) — both disposable and regenerable, same as
+# the main engine's uploads/ never being committed wholesale. The niche
+# defaults themselves (niche_default_images/) ARE real shared source and
+# stay tracked — only this per-client derived/uploaded content is excluded.
+pluscities_uploads/branded/
+pluscities_uploads/photos/
+
 # Dedicated SSH key: www-data (this box) -> lpcdelivery (LPC box), scoped to
 # syncing the delivery data tree only. Real credential, never commit.
 .lpc_delivery_sync_key

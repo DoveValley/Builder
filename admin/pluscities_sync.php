@@ -73,15 +73,16 @@ if ($action === 'page') {
     $page = $st->fetch(PDO::FETCH_ASSOC);
     if (!$page) pluscities_sync_fail(404, 'Page not found or not live.');
 
+    $niche = pluscities_niche_resolved($client['niche_id']);
+
     $blocksStmt = $db->prepare('SELECT * FROM blocks WHERE page_id = ? ORDER BY position');
     $blocksStmt->execute([$pageId]);
     $blocks = $blocksStmt->fetchAll(PDO::FETCH_ASSOC);
     $html = '';
     foreach ($blocks as $b) {
-        $html .= pluscities_render_block($b);
+        $html .= pluscities_render_block($b, $client, $niche);
     }
 
-    $niche = pluscities_niche_resolved($client['niche_id']);
     $businessName = $client['identity']['business_name'] ?? '';
     $serviceLabel = $page['service_key'];
     foreach (($niche['services'] ?? []) as $svc) {
@@ -96,7 +97,8 @@ if ($action === 'page') {
     // further Phase 2 polish.
     $style = '<style>.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:#1C2B45;}'
         . '.lpc-breadcrumbs{font-size:.82rem;color:#52607a;margin:0 0 14px;}'
-        . '.lpc-breadcrumbs a{color:#52607a;}</style>';
+        . '.lpc-breadcrumbs a{color:#52607a;}'
+        . '.lpc-hero-photo{width:100%;max-width:100%;height:auto;border-radius:10px;margin:0 0 16px;display:block;}</style>';
 
     $schema = pluscities_assemble_schema($page, $client, $niche, $blocks, $page['slug']);
     $breadcrumbHtml = pluscities_breadcrumb_nav_html($page, $client, $cityLabel, $serviceLabel);

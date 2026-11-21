@@ -255,7 +255,7 @@ function pluscities_write_automatic_block(string $block_type, array $dataset, ar
  * publish and any preview screen call (spec Section 4's "fact references are
  * removed at render" rule, kept in one place).
  */
-function pluscities_render_block(array $block_row): string
+function pluscities_render_block(array $block_row, ?array $client = null, ?array $niche = null): string
 {
     $content = json_decode($block_row['content_json'], true) ?: [];
     $factIds = json_decode($block_row['fact_ids'], true) ?: [];
@@ -325,8 +325,23 @@ function pluscities_render_block(array $block_row): string
     // other editable block is a sub-section (h3).
     $body = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($content['body'] ?? ''));
     $headingTag = $block_row['block_type'] === 'hero' ? 'h1' : 'h3';
-    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . '">'
-        . '<' . $headingTag . '>' . htmlspecialchars((string) ($content['heading'] ?? '')) . '</' . $headingTag . '>'
+    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . '">';
+    // The hero's photo — resolved per spec (client's own upload > their branded
+    // niche default > the plain niche default), same function the Photos
+    // screen itself shows, so what the client picks there is exactly what
+    // renders here. $client/$niche are optional because most callers (e.g.
+    // the admin block-list preview) only need the text content.
+    if ($block_row['block_type'] === 'hero' && $client && $niche) {
+        $heroImg = pluscities_resolve_image_url($client, $niche, 'hero');
+        if ($heroImg) {
+            // Absolute — a client's WordPress site is a different origin than
+            // this platform, so the root-relative path pluscities_resolve_image_url()
+            // returns (correct for same-origin admin screens) would 404 there.
+            $html .= '<img class="lpc-hero-photo" src="' . htmlspecialchars(PLUSCITIES_PUBLIC_BASE . $heroImg) . '" alt="'
+                . htmlspecialchars((string) ($content['heading'] ?? '')) . '">';
+        }
+    }
+    $html .= '<' . $headingTag . '>' . htmlspecialchars((string) ($content['heading'] ?? '')) . '</' . $headingTag . '>'
         . '<p>' . htmlspecialchars($body) . '</p>';
     if ($factIds) {
         $sources = [];

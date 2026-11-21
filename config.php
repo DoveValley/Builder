@@ -178,6 +178,22 @@ define('PLUSCITIES_CLIENTS_SECRETS_DIR', BASE_DIR . '/pluscities_clients_secrets
 // hash in the sibling secrets dir, same convention as above.
 define('PLUSCITIES_AGENCY_USERS_DIR', BASE_DIR . '/pluscities_agency_users/');
 define('PLUSCITIES_AGENCY_USERS_SECRETS_DIR', BASE_DIR . '/pluscities_agency_users_secrets/');
+// Client logo uploads, their own real photos, and the cached per-client
+// branded version of each niche default image — all reuse the existing
+// save_uploaded_file() validation (MIME/size/WebP conversion), just pointed
+// at this new directory instead of the single-site UPLOAD_DIR.
+define('PLUSCITIES_UPLOADS_DIR', BASE_DIR . '/pluscities_uploads/');
+define('PLUSCITIES_UPLOADS_URL', '/pluscities_uploads/');
+
+// This platform's own public host — asset URLs handed to a client's WordPress
+// site over admin/pluscities_sync.php (hero photos, niche defaults) must be
+// absolute: a client site is a different origin, so the root-relative paths
+// above resolve to nothing there, same reason BreadcrumbList schema builds
+// its own absolute URLs separately from the relative visible breadcrumb nav.
+// Literal host:port for now, matching PLUSCITIES_DELIVERY_BASE's own literal
+// host in wp-plugin/pluscities-delivery/pluscities-delivery.php — both need
+// to become the platform's real public domain at deploy time.
+define('PLUSCITIES_PUBLIC_BASE', 'http://localhost:8130');
 
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all

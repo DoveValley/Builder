@@ -170,6 +170,14 @@ function pluscities_niche_defaults(): array
         'blog_topics'     => [],   // [{slug, title, focus_keyword, tag, related_topics:[]}]
         'match_keywords'  => [],   // LPC-only: auto-matches a new client's typed industry to this niche
 
+        // One real stock photo per image slot a page actually has, shared by
+        // every client in this niche — "research once, reuse everywhere"
+        // applied to photos instead of facts. A client's own real upload or
+        // branded version (includes/pluscities_images.php) always takes
+        // priority over this; this is only the bottom-of-the-chain default.
+        // [{slot_id, label, width, height, default_image_path}]
+        'image_slots' => [],
+
         'created_at' => '',
         'updated_at' => '',
     ];
@@ -254,6 +262,7 @@ function pluscities_niche_resolved(string $niche_id): ?array
         'trust_bar_items'   => $niche['trust_bar_items'],
         'blog_topics'       => $niche['blog_topics'],
         'match_keywords'    => $niche['match_keywords'],
+        'image_slots'       => $niche['image_slots'],
     ];
 }
 

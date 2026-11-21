@@ -1,0 +1,11 @@
+# Allow images to be viewed, but never executed as scripts
+<FilesMatch "\.(php|phtml|php\d|phar)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule !mod_authz_core.c>
+    <FilesMatch "\.(php|phtml|php\d|phar)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>
