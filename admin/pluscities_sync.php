@@ -75,8 +75,9 @@ if ($action === 'page') {
 
     $blocksStmt = $db->prepare('SELECT * FROM blocks WHERE page_id = ? ORDER BY position');
     $blocksStmt->execute([$pageId]);
+    $blocks = $blocksStmt->fetchAll(PDO::FETCH_ASSOC);
     $html = '';
-    foreach ($blocksStmt->fetchAll(PDO::FETCH_ASSOC) as $b) {
+    foreach ($blocks as $b) {
         $html .= pluscities_render_block($b);
     }
 
@@ -86,19 +87,27 @@ if ($action === 'page') {
     foreach (($niche['services'] ?? []) as $svc) {
         if ($svc['slug'] === $page['service_key']) { $serviceLabel = $svc['label']; break; }
     }
-    $cityLabel = $page['city_id']; // Phase 1: city_id itself; real city-name lookup is Phase 2's page-frame work
+    // Real "Frisco, TX" label — city_id is an internal slug, never shown to
+    // anyone (spec Section 5's Title/H1/schema all need the real name).
+    $cityLabel = pluscities_city_label($page['city_id']);
 
     // The small, theme-independent stylesheet from Section 9 — brand colors
-    // only for Phase 1; the sticky call bar / quote-form CSS is Phase 2 polish.
-    $style = '<style>.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:#1C2B45;}</style>';
+    // and the breadcrumb nav for now; the sticky call bar / quote-form CSS is
+    // further Phase 2 polish.
+    $style = '<style>.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:#1C2B45;}'
+        . '.lpc-breadcrumbs{font-size:.82rem;color:#52607a;margin:0 0 14px;}'
+        . '.lpc-breadcrumbs a{color:#52607a;}</style>';
+
+    $schema = pluscities_assemble_schema($page, $client, $niche, $blocks, $page['slug']);
+    $breadcrumbHtml = pluscities_breadcrumb_nav_html($page, $client, $cityLabel, $serviceLabel);
 
     echo json_encode([
-        'html'  => $html,
+        'html'  => $breadcrumbHtml . $html,
         'style' => $style,
         'head'  => [
             'title'            => $serviceLabel . ' in ' . $cityLabel . ' | ' . $businessName,
             'meta_description' => 'Professional ' . $serviceLabel . ' in ' . $cityLabel . ' from ' . $businessName . '.',
-            'schema'           => [], // JSON-LD assembly is Phase 2's SEO-completion work (spec Section 5)
+            'schema'           => $schema,
         ],
     ]);
     exit;

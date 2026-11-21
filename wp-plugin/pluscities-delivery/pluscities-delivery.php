@@ -160,6 +160,13 @@ add_action('template_redirect', function () {
             echo '<meta name="description" content="' . esc_attr($page['head']['meta_description']) . '">' . "\n";
         }
         if (!empty($page['style'])) echo $page['style'] . "\n";
+        // Schema arrived already-assembled from the server (spec Section 5) —
+        // the plugin's only job is placing it, same "thin plugin" rule as the
+        // HTML itself. One <script> tag per schema object, not one array,
+        // since that's the format Google's own rich-results tooling expects.
+        foreach ($page['head']['schema'] ?? [] as $schemaObject) {
+            echo '<script type="application/ld+json">' . wp_json_encode($schemaObject) . '</script>' . "\n";
+        }
     });
 
     get_header();
