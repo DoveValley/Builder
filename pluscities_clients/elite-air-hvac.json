@@ -3,7 +3,7 @@
     "agency_id": "coastal-marketing",
     "niche_id": "hvac",
     "domain": "eliteairhvac.com",
-    "site_rev": 12,
+    "site_rev": 13,
     "plugin_rev": 0,
     "plugin_version": "",
     "last_seen_at": "",
@@ -42,6 +42,13 @@
                 "rating": 5,
                 "text": "Fixed our AC same day during the July heat wave."
             }
+        ],
+        "mckinney-tx": [
+            {
+                "author": "Priya S.",
+                "rating": 5,
+                "text": "Our furnace went out the week of a cold snap and they had a tech out the same afternoon. Fair pricing too."
+            }
         ]
     },
     "price_ranges": null,
@@ -58,6 +65,11 @@
         {
             "city_id": "frisco-tx",
             "drive_minutes": 12,
+            "confirmed_by_client": false
+        },
+        {
+            "city_id": "mckinney-tx",
+            "drive_minutes": 18,
             "confirmed_by_client": false
         }
     ],
