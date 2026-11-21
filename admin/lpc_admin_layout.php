@@ -158,11 +158,11 @@ function lpc_admin_nav_items(): array {
     $items[] = ['key' => 'approvals', 'href' => 'approvals.php', 'label' => 'Approvals',
         'icon' => '<path d="M20 6 9 17l-5-5"/>', 'badge' => $pendingCount ?: null];
 
-    // Phase 1's manual-drive screen (spec Section 6) — direct-links to the one
-    // walking-skeleton page for now, since the real table-of-pages UI
-    // (spec Section 11) is Phase 2. Remove this link once that exists.
-    $items[] = ['key' => 'pluscities_page', 'href' => 'pluscities_page.php?page_id=pg_eliteairhvac_frisco-tx_ac-repair',
-        'label' => 'PlusCities Page (Phase 1)', 'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>'];
+    // The real table-of-pages UI, spec Section 11 — stage-dot matrix per row,
+    // modeled on the fleet's Go-Live grid. Row click drills into
+    // pluscities_page.php's block-level detail view.
+    $items[] = ['key' => 'pluscities_pages', 'href' => 'pluscities_pages.php',
+        'label' => 'PlusCities Pages', 'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>'];
 
     if ($role === 'agency_admin') {
         $items[] = ['key' => 'branding', 'href' => 'agency_branding.php', 'label' => 'My Branding',

@@ -12,6 +12,28 @@
  * Validate -> Approve -> Publish again regardless of how many times before.
  */
 
+/**
+ * Which pluscities_clients/*.json ids the current actor may see — Platform
+ * Owner sees all, Agency Admin/Editor see only their own agency's. Shared by
+ * admin/pluscities_pages.php (listing) and admin/pluscities_pages_save.php
+ * (scope-checking a bulk action), so the rule only lives once.
+ *
+ * @return array client_id => client record
+ */
+function pluscities_client_ids_for_current_actor(): array
+{
+    $role     = lpc_current_actor_role();
+    $agencyId = lpc_current_actor_agency_id();
+    $ids = [];
+    foreach (glob(PLUSCITIES_CLIENTS_DIR . '*.json') as $f) {
+        $c = json_decode((string) file_get_contents($f), true);
+        if (!$c) continue;
+        if ($role !== 'super_admin' && ($c['agency_id'] ?? '') !== $agencyId) continue;
+        $ids[$c['client_id']] = $c;
+    }
+    return $ids;
+}
+
 function pluscities_compute_draft_hash(string $page_id): string
 {
     $db = pluscities_db();
