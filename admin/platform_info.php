@@ -544,40 +544,48 @@ function platform_info_content_workflow_data(): array {
 <?php if ($tab === 'how_it_works'): ?>
     <h3 style="margin-top:0;color:#1e3a5f;">What this is, how it's built, how to use it</h3>
     <p style="font-size:.88rem;line-height:1.7;">
-        A multi-location landing-page service sold to external businesses (plumbers, restoration
-        companies, etc.) — each client gets one page per city &times; service combo (e.g. "Fire Damage
-        Restoration in Plano, TX"), hosted on their own WordPress site via a small plugin we give them.
-        Resold through agencies — an agency buys access and onboards its own clients, scoped to only
-        what it owns.
+        <strong>This is a service that builds and sells local-SEO landing pages to other businesses,
+        either directly or through agencies.</strong> A multi-location landing-page service sold to
+        external businesses (plumbers, restoration companies, etc.) — each client gets one page per city
+        &times; service combo (e.g. "Fire Damage Restoration in Plano, TX"), hosted on their own
+        WordPress site via a small plugin we give them. Resold through agencies — an agency buys access
+        and onboards its own clients, scoped to only what it owns.
     </p>
     <h4 style="margin-bottom:4px;">Roles</h4>
     <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
-        <li><strong>Platform Super Admin</strong> (Scott) — approves every new agency (never self-serve),
+        <li><strong>This is Scott — the one person who runs the whole platform.</strong>
+            <strong>Platform Admin</strong> — approves every new agency (never self-serve),
             sets each agency's monthly fee and spend cap, owns Niche Profiles (global, shared across every
             agency — so one agency can't silently change AI output for another's clients), platform-wide
             reporting, and the first stage of content review.</li>
-        <li><strong>Agency Admin</strong> — logs in separately (<code>agency_login.php</code>), sees only
+        <li><strong>This is an agency reselling the product to its own clients.</strong>
+            <strong>Agency Admin</strong> — logs in separately (<code>agency_login.php</code>), sees only
             the clients under its own agency (not necessarily ones it personally created — Scott can set
             up a client and hand it to an agency too), pays its own platform bill via Stripe, runs
             onboarding, sets its own branding (logo/display name, swapped into this admin UI in place of
             the platform's own), and gives the second/final stage of content review before a page goes
             live.</li>
-        <li><strong>End Client</strong> — the actual business. Gets a separate read-only login
+        <li><strong>This is the actual business whose pages these are.</strong>
+            <strong>End Client</strong> — the actual business. Gets a separate read-only login
             (<code>client_login.php</code> &rarr; a stripped-down reporting-only portal, never this
             screen) showing GSC clicks and "Tried to Contact" counts for just their own pages.</li>
-        <li><strong>"Log in as"</strong> (the Clients list's per-row button) — Super Admin can view the
+        <li><strong>This lets Scott or an agency see the product exactly as someone else would see it,
+            without ever touching their password.</strong>
+            <strong>"Log in as"</strong> (the Clients list's per-row button) — Platform Admin can view the
             product as any agency or any client; Agency Admin can view it as one of its own clients only
             (never another agency's). Neither ever touches the target account's real password. One hop
             only — you can't start a second impersonation while already in one, exit back to yourself
             first — and every start/stop is written to the server error log. Note: the Who's Logged In
             tab tracks the REAL account during impersonation, not whoever's currently being viewed as.</li>
-        <li><strong>Scott's own direct-sale work</strong> runs through "Scott's Agency," a normal agency
-            row like any other — not a separate code path. If you created a client before any of this
-            existed, it already belongs to that agency and nothing changed for it.</li>
+        <li><strong>Scott's own clients aren't a special case — they're just another agency in the
+            system.</strong> <strong>Scott's own direct-sale work</strong> runs through "Scott's Agency,"
+            a normal agency row like any other — not a separate code path. If you created a client before
+            any of this existed, it already belongs to that agency and nothing changed for it.</li>
     </ul>
     <h4 style="margin-bottom:4px;">Content approval — real agencies only</h4>
     <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
-        Publishing a page for a REAL agency's client doesn't go live immediately — it queues on the
+        <strong>A real agency's pages don't go live until two different people have signed off on
+        them.</strong> Publishing a page for a REAL agency's client doesn't go live immediately — it queues on the
         <strong>Approvals</strong> screen (sidebar, with a pending count badge): Scott approves first, then
         that agency approves, and only then does it actually publish. This never applies to Scott's own
         agency's clients — publishing there works exactly as it always has, no gate, since the whole point
@@ -586,66 +594,86 @@ function platform_info_content_workflow_data(): array {
     </p>
     <h4 style="margin-bottom:4px;">Billing &amp; access</h4>
     <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
-        <li>The <strong>Agencies</strong> screen (sidebar, Scott-only) creates agencies and generates a
+        <li><strong>This is where Scott sets up a new agency and sends them a real bill.</strong> The
+            <strong>Agencies</strong> screen (sidebar, Scott-only) creates agencies and generates a
             real Stripe Checkout link to send them — set a Monthly Platform Fee first. Changing that fee
             later updates an already-paying agency's real live price, not just the next link.</li>
-        <li>A failed payment suspends the agency's login immediately (Stripe webhook &rarr;
+        <li><strong>If an agency stops paying, their login is cut off right away, but their clients' pages
+            get a 15-day grace period before anything actually goes down.</strong> A failed payment
+            suspends the agency's login immediately (Stripe webhook &rarr;
             <code>status: suspended</code>) <em>and</em> starts a 15-day grace period before their client
             sites actually get paused — a daily cron enforces that automatically
             (<code>tools/lpc_check_grace_periods.php</code>), it isn't instant.</li>
-        <li>An agency can set its own logo/display name (Branding fields on its Agencies entry) — swapped
+        <li><strong>An agency can put its own logo and name on this admin instead of ours.</strong> An
+            agency can set its own logo/display name (Branding fields on its Agencies entry) — swapped
             into this admin UI in place of the platform's own branding when that agency is logged in.</li>
     </ul>
     <h4 style="margin-bottom:4px;">How it's built</h4>
     <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
-        <li>Content reuses this site factory's own engine — the same AI content pipeline, real per-city
-            Census research (population, income, home values, year built, etc.), a real NOAA climate data
-            chart per city, and niche-specific content templates the four live niche sites
-            (water/mold/pest/appliance) already use.</li>
-        <li>Each client's pages are stored here (<code>clients/{id}/data/</code>), then published to a
-            separate delivery server their WordPress plugin fetches from — a thin, stateless proxy that
-            renders inside <strong>their own theme's header/footer</strong>, so it inherits their real
-            site's look with no custom CSS to fight against. A small floating badge the plugin injects
-            site-wide links back to a public "Service Locations" hub page, grouped State &gt; Hub Area
-            &gt; City &gt; Services, with real nearby-city cross-linking between pages.</li>
-        <li>A niche profile (Niche Profiles, sidebar) defines content slots and a default service list
+        <li><strong>The content-writing engine is the exact same one the other niche sites already
+            use.</strong> Content reuses this site factory's own engine — the same AI content pipeline,
+            real per-city Census research (population, income, home values, year built, etc.), a real
+            NOAA climate data chart per city, and niche-specific content templates the four live niche
+            sites (water/mold/pest/appliance) already use.</li>
+        <li><strong>A client's pages show up on their own WordPress site, wrapped in their own
+            theme.</strong> Each client's pages are stored here (<code>clients/{id}/data/</code>), then
+            published to a separate delivery server their WordPress plugin fetches from — a thin,
+            stateless proxy that renders inside <strong>their own theme's header/footer</strong>, so it
+            inherits their real site's look with no custom CSS to fight against. A small floating badge
+            the plugin injects site-wide links back to a public "Service Locations" hub page, grouped
+            State &gt; Hub Area &gt; City &gt; Services, with real nearby-city cross-linking between
+            pages.</li>
+        <li><strong>Each industry has its own template for what a page should cover.</strong> A niche
+            profile (Niche Profiles, sidebar) defines content slots and a default service list
             per industry vertical — a new client's wizard offers these as checkboxes, never auto-copied.</li>
     </ul>
     <h4 style="margin-bottom:4px;">How to use it</h4>
     <ol style="margin:0;padding-left:20px;line-height:1.85;font-size:.88rem;">
-        <li><strong>+ New Client</strong> — the wizard: business identity, industry (matches a niche
+        <li><strong>This is where you start: entering who the client actually is.</strong>
+            <strong>+ New Client</strong> — the wizard: business identity, industry (matches a niche
             profile), services offered, real hub office(s), target cities per hub.</li>
-        <li>Finishing the wizard immediately AI-generates a draft page for every city &times; service
+        <li><strong>The system immediately writes a first draft of every page for you.</strong> Finishing
+            the wizard immediately AI-generates a draft page for every city &times; service
             combination (real cost per page) — nothing publishes yet.</li>
-        <li>In the client's workspace: set Content Profile (tone/excluded services) <em>before</em>
+        <li><strong>This is the main screen where you manage everything about a client's pages.</strong>
+            In the client's workspace: set Content Profile (tone/excluded services) <em>before</em>
             reviewing drafts, then use <strong>Locations &amp; Services</strong> — a city-grouped matrix
             with a checkbox per page and four selection-based actions:
             <ul style="margin:4px 0 0;padding-left:18px;">
-                <li><strong>Research Selected</strong> — real Census population lookup, free, runs once
+                <li><strong>This pulls in real facts about a city.</strong>
+                    <strong>Research Selected</strong> — real Census population lookup, free, runs once
                     per unique city among the pages checked.</li>
-                <li><strong>Generate / Refresh Selected</strong> — redraws each checked page one at a time
+                <li><strong>This rewrites the selected pages.</strong>
+                    <strong>Generate / Refresh Selected</strong> — redraws each checked page one at a time
                     with live progress, with its own checkboxes for what to actually spend on: refresh
                     hero image, re-fetch climate data ($), regenerate text content ($), and skip locked
                     pages.</li>
-                <li><strong>Publish Selected</strong> — makes the checked drafts live.</li>
-                <li><strong>Check Live Selected</strong> — fetches each page's real public URL and
+                <li><strong>This makes the selected pages go live.</strong>
+                    <strong>Publish Selected</strong> — makes the checked drafts live.</li>
+                <li><strong>This double-checks that what's live matches what it should be.</strong>
+                    <strong>Check Live Selected</strong> — fetches each page's real public URL and
                     compares what it's actually serving against what the data says it should be (hero
                     image, area map, climate chart) — the one check that catches a host's CDN still
                     serving a stale cached copy.</li>
             </ul>
         </li>
-        <li>The Status column is honest, not decorative — a page can say Published and still carry a
-            &#9888; warning if something expected (hero image, climate data, etc.) is actually missing.
-            Lock any page that's final to block it from being touched by Regenerate.</li>
-        <li>Once pages are published, go to the Delivery tab — download the plugin zip and copy the API
+        <li><strong>The status shown is always honest about real problems, not just whether a page is
+            published.</strong> The Status column is honest, not decorative — a page can say Published
+            and still carry a &#9888; warning if something expected (hero image, climate data, etc.) is
+            actually missing. Lock any page that's final to block it from being touched by Regenerate.</li>
+        <li><strong>This is how you hand the client what they need to connect their own site.</strong>
+            Once pages are published, go to the Delivery tab — download the plugin zip and copy the API
             key to email the client (built-in compose form).</li>
-        <li>Once they paste the key into their WordPress plugin settings, the status badge on the Clients
+        <li><strong>Once the client sets it up correctly, you'll see it marked as working.</strong> Once
+            they paste the key into their WordPress plugin settings, the status badge on the Clients
             list flips to Connected.</li>
-        <li>Once live, the plugin tracks taps on a page's phone number/CTA buttons automatically (no
+        <li><strong>This automatically counts real visitor interest on a page.</strong> Once live, the
+            plugin tracks taps on a page's phone number/CTA buttons automatically (no
             setup) — rolled into the "Tried to Contact" total on the Clients list and the per-page
             Reporting tab. It's an intent signal, not a confirmed call or lead, and is the best evidence
             to show a client/agency the pages are actually doing something.</li>
-        <li>On the Reporting tab: have the client add our email as a Restricted (read-only) user on their
+        <li><strong>This shows real Google search numbers once the client grants access.</strong> On the
+            Reporting tab: have the client add our email as a Restricted (read-only) user on their
             real Google Search Console property, paste the property URL in, and real per-page impressions/
             clicks start showing instead of "Not Connected" — nothing on our end until they actually grant
             that access.</li>
