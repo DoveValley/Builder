@@ -569,9 +569,9 @@ function platform_info_content_workflow_data(): array {
             <strong>Agency Admin</strong> — logs in separately (<code>agency_login.php</code>), sees only
             the clients under its own agency (not necessarily ones it personally created — Scott can set
             up a client and hand it to an agency too), pays its own platform bill via Stripe, runs
-            onboarding, sets its own branding (logo/display name, swapped into this admin UI in place of
-            the platform's own), and gives the second/final stage of content review before a page goes
-            live.</li>
+            onboarding, can save its own branding (logo/display name) on its Agencies entry — stored but
+            not currently shown anywhere in this admin (the sidebar always reads "PlusCities" now), and
+            gives the second/final stage of content review before a page goes live.</li>
         <li><strong>This is the actual business whose pages these are.</strong>
             <strong>End Client</strong> — the actual business. Gets a separate read-only login
             (<code>client_login.php</code> &rarr; a stripped-down reporting-only portal, never this
@@ -610,9 +610,10 @@ function platform_info_content_workflow_data(): array {
             <code>status: suspended</code>) <em>and</em> starts a 15-day grace period before their client
             sites actually get paused — a daily cron enforces that automatically
             (<code>tools/lpc_check_grace_periods.php</code>), it isn't instant.</li>
-        <li><strong>An agency can put its own logo and name on this admin instead of ours.</strong> An
-            agency can set its own logo/display name (Branding fields on its Agencies entry) — swapped
-            into this admin UI in place of the platform's own branding when that agency is logged in.</li>
+        <li><strong>An agency can save its own logo and name, but nothing displays it anywhere right
+            now.</strong> Branding fields on its Agencies entry still exist and still save correctly —
+            there's just no consumer left to show them; the sidebar brand mark was changed this session
+            to always read "PlusCities," which was the only place this was ever displayed.</li>
     </ul>
     <h4 style="margin-bottom:4px;">How it's built</h4>
     <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
