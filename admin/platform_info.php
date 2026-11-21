@@ -326,7 +326,7 @@ function platform_info_content_workflow_data(): array {
                  'simple' => 'This would let someone undo a change and go back to an earlier version of a page.',
                  'what' => "Doesn't exist — every save overwrites in place. There's no version history and nothing to roll back to. Would be page-level like every other save action today — restoring a whole page's worth of blocks at once, not a single block in isolation.",
                  'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would be a new history/diff view on page_editor.php'],
-                ['step' => 'Validate content before it can be approved', 'status' => 'needs_adding',
+                ['step' => 'Validate a page\'s content before it can be approved', 'status' => 'needs_adding',
                  'simple' => "This would automatically check a page for mistakes or forbidden wording before it's allowed to go live.",
                  'what' => "Doesn't exist — nothing blocks a page with a banned phrase or a wrong phone number from being approved and published.",
                  'who' => 'Would run automatically at submit/approve time', 'where' => 'Would live inside the approvals.php gate'],
