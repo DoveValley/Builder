@@ -119,6 +119,21 @@ function pluscities_db(): PDO
         timestamp TEXT DEFAULT ""
     )');
 
+    // One override mechanism (spec Section 7/9, design rule #9) — keyed to the
+    // exact draft_hash it was granted against, so any further edit silently
+    // stops it applying rather than needing to be explicitly revoked. Agency
+    // Admin only, reason required, enforced at the call site
+    // (pluscities_override_validator_check()), not here.
+    $db->exec('CREATE TABLE IF NOT EXISTS overrides (
+        page_id    TEXT NOT NULL,
+        check_name TEXT NOT NULL,
+        draft_hash TEXT NOT NULL,
+        reason     TEXT DEFAULT "",
+        actor      TEXT DEFAULT "",
+        created_at TEXT DEFAULT "",
+        PRIMARY KEY (page_id, check_name, draft_hash)
+    )');
+
     return $db;
 }
 

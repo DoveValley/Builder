@@ -48,6 +48,13 @@ if ($action === 'validate') {
     header('Location: ' . $back . '&msg=success:Validation+run'); exit;
 }
 
+if ($action === 'override') {
+    $checkName = (string) ($_POST['check_name'] ?? '');
+    $reason    = (string) ($_POST['reason'] ?? '');
+    $result    = pluscities_override_validator_check($pageId, $checkName, $reason, lpc_current_actor_role(), $actor);
+    header('Location: ' . $back . '&msg=' . ($result['ok'] ? 'success:Override+recorded' : 'error:' . urlencode($result['msg']))); exit;
+}
+
 if ($action === 'approve') {
     $result = pluscities_approve_page($pageId, $actor);
     header('Location: ' . $back . '&msg=' . ($result['ok'] ? 'success:Approved' : 'error:' . urlencode($result['msg']))); exit;

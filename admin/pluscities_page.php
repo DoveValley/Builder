@@ -85,9 +85,25 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
         <div style="margin-top:12px;">
             <?php foreach ($validation['results'] as $r): ?>
                 <div class="pc-check">
-                    <span class="<?= h($r['result']) ?>"><?= $r['result'] === 'pass' ? '✓' : '✗' ?></span>
+                    <span class="<?= !empty($r['overridden']) ? 'pass' : h($r['result']) ?>">
+                        <?= $r['result'] === 'pass' || !empty($r['overridden']) ? '✓' : '✗' ?>
+                    </span>
                     <strong><?= h($r['check']) ?></strong>
                     <?php if ($r['detail']): ?><span style="color:var(--pc-muted,#52607a);"> — <?= h($r['detail']) ?></span><?php endif; ?>
+                    <?php if (!empty($r['overridden'])): ?>
+                        <span style="color:#92400e;"> (overridden by <?= h($r['override_by']) ?>: <?= h($r['override_reason']) ?>)</span>
+                    <?php elseif ($r['result'] === 'fail' && ($r['overridable'] ?? true) && in_array(lpc_current_actor_role(), ['agency_admin', 'super_admin'], true)): ?>
+                        <form method="post" action="pluscities_page_save.php" style="display:inline-flex;gap:6px;margin-left:8px;" onsubmit="return this.reason.value.trim() !== '';">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
+                            <input type="hidden" name="action" value="override">
+                            <input type="hidden" name="check_name" value="<?= h($r['check']) ?>">
+                            <input type="text" name="reason" placeholder="Reason (required)" style="font-size:.78rem;padding:3px 6px;width:220px;">
+                            <button type="submit" class="btn-sm-outline">Override</button>
+                        </form>
+                    <?php elseif ($r['result'] === 'fail' && !($r['overridable'] ?? true)): ?>
+                        <span style="color:var(--pc-muted,#52607a);font-size:.78rem;"> (cannot be overridden — fix required)</span>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
