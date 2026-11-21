@@ -23,9 +23,14 @@ function pluscities_check_unsupported_claim(array $blocks): array
     foreach ($blocks as $b) {
         if ($b['classification'] !== 'editable') continue;
         $factIds = json_decode($b['fact_ids'] ?? '[]', true) ?: [];
-        if (!$factIds) {
+        // Zero fact_ids is only a problem if the block ALSO wasn't grounded in
+        // client-profile facts — spec Section 4 allows a block (Hero,
+        // Overview) to be entirely client-facts-grounded with no external
+        // citation at all. client_grounded distinguishes that legitimate case
+        // from a block that genuinely has nothing backing it.
+        if (!$factIds && !(int) ($b['client_grounded'] ?? 0)) {
             return ['check' => 'unsupported_claim', 'result' => 'fail',
-                'detail' => 'The "' . $b['block_type'] . '" block has no cited facts backing it.'];
+                'detail' => 'The "' . $b['block_type'] . '" block has no cited facts or client facts backing it.'];
         }
     }
     return ['check' => 'unsupported_claim', 'result' => 'pass', 'detail' => ''];

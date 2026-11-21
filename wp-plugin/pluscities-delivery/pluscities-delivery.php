@@ -25,6 +25,12 @@ register_activation_hook(__FILE__, 'pluscities_delivery_activate');
 function pluscities_delivery_activate() {
     add_option('pluscities_api_key', '');
     add_option('pluscities_site_rev_seen', 0);
+    // Per-client, agency-set at onboarding (spec Section 1/15) — same option
+    // the old "Landing Page Client" plugin already has as lpc_base_path
+    // (default /locations). Configurable here for the same reason: fixing
+    // this platform-wide would be a real regression from what agencies can
+    // already do today.
+    add_option('pluscities_base_path', 'service-area');
     pluscities_delivery_add_rewrite_rules();
     flush_rewrite_rules();
 }
@@ -33,9 +39,10 @@ register_deactivation_hook(__FILE__, function () { flush_rewrite_rules(); });
 
 add_action('init', 'pluscities_delivery_add_rewrite_rules');
 function pluscities_delivery_add_rewrite_rules() {
-    // Matches spec Section 5's page frame URL: /service-area/[city]/[service]/
+    $base = trim(get_option('pluscities_base_path', 'service-area'), '/');
+    if ($base === '') return;
     add_rewrite_rule(
-        '^service-area/([^/]+)/([^/]+)/?$',
+        '^' . $base . '/([^/]+)/([^/]+)/?$',
         'index.php?pluscities_city=$matches[1]&pluscities_service=$matches[2]',
         'top'
     );
@@ -56,16 +63,32 @@ function pluscities_delivery_settings_page() {
     if (!empty($_POST['pluscities_api_key']) && check_admin_referer('pluscities_delivery_save')) {
         update_option('pluscities_api_key', sanitize_text_field($_POST['pluscities_api_key']));
         update_option('pluscities_site_rev_seen', 0); // force a full re-sync after a key change
+        $newBase = trim(sanitize_text_field($_POST['pluscities_base_path'] ?? 'service-area'), '/');
+        if ($newBase !== '' && $newBase !== get_option('pluscities_base_path')) {
+            update_option('pluscities_base_path', $newBase);
+            update_option('pluscities_rewrite_flush_needed', 1); // same pattern as the old plugin's lpc_rewrite_flush_needed
+        }
         echo '<div class="notice notice-success"><p>Saved.</p></div>';
     }
-    $key = get_option('pluscities_api_key', '');
+    if (get_option('pluscities_rewrite_flush_needed')) {
+        flush_rewrite_rules();
+        delete_option('pluscities_rewrite_flush_needed');
+    }
+    $key  = get_option('pluscities_api_key', '');
+    $base = get_option('pluscities_base_path', 'service-area');
     ?>
     <div class="wrap"><h1>PlusCities Delivery</h1>
     <form method="post">
         <?php wp_nonce_field('pluscities_delivery_save'); ?>
-        <table class="form-table"><tr><th>API Key</th>
+        <table class="form-table">
+        <tr><th>API Key</th>
             <td><input type="text" name="pluscities_api_key" value="<?php echo esc_attr($key); ?>" style="width:400px;"></td>
-        </tr></table>
+        </tr>
+        <tr><th>URL Base Path</th>
+            <td><input type="text" name="pluscities_base_path" value="<?php echo esc_attr($base); ?>" style="width:200px;">
+            <p class="description">e.g. "service-area" or "locations" — set once per client at onboarding, matching the agency's choice.</p></td>
+        </tr>
+        </table>
         <?php submit_button(); ?>
     </form>
     </div>
@@ -112,7 +135,8 @@ add_action('template_redirect', function () {
 
     pluscities_delivery_sync_if_needed();
 
-    $url    = '/service-area/' . $city . '/' . $service . '/';
+    $base   = trim(get_option('pluscities_base_path', 'service-area'), '/');
+    $url    = '/' . $base . '/' . $city . '/' . $service . '/';
     $pageId = get_option('pluscities_page_url_' . md5($url));
     $page   = $pageId ? get_transient('pluscities_page_' . $pageId) : false;
 

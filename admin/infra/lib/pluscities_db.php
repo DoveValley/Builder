@@ -84,8 +84,18 @@ function pluscities_db(): PDO
         fact_ids       TEXT DEFAULT "[]",        -- JSON array
         dataset_refs   TEXT DEFAULT "[]",        -- JSON array
         locked         INTEGER DEFAULT 0,
-        origin         TEXT DEFAULT ""           -- generated | edited | data
+        origin         TEXT DEFAULT "",          -- generated | edited | data
+        client_grounded INTEGER DEFAULT 0        -- 1 if written using client-profile facts (spec Section 4) —
+                                                  -- distinguishes "legitimately has zero fact_ids" (Hero/Overview)
+                                                  -- from "actually ungrounded" for the Unsupported Claim check
     )');
+    // Additive migration — same convention as admin/infra/lib/state.php's
+    // infra_state_db(): a column added after a table already exists gets
+    // backfilled onto it rather than requiring a destructive recreate.
+    $blocksCols = $db->query('PRAGMA table_info(blocks)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('client_grounded', $blocksCols, true)) {
+        $db->exec('ALTER TABLE blocks ADD COLUMN client_grounded INTEGER DEFAULT 0');
+    }
     $db->exec('CREATE INDEX IF NOT EXISTS idx_blocks_page ON blocks(page_id)');
 
     // Immutable — a revision row is never UPDATEd once written, only inserted.

@@ -108,7 +108,7 @@ need appears.
 |---|---|
 | **agencies** | status, billing plan tier, branding (logo/display_name), `requires_approval_gate` (default) |
 | **users** | `user_id, email, role (platform_owner\|agency_admin\|agency_editor\|client_viewer), agency_id or client_id` — per-person accounts, not shared logins |
-| **clients** (= sites) | identity (business name, domain, niche_id, contact), `api_key, site_rev, plugin_rev, plugin_version, last_seen_at, class_prefix, radius_minutes`; NAP (per hub), `licenses[]`, `years_in_business`, `hours`, `banned_phrases[]` (client-preference), `photos_by_city`, `reviews_by_city` (client-supplied only), `price_ranges` (optional); billing tier + Platform-Owner-only custom override; `approval_gate_override` (yes/no, inherits agency default if unset); `services[]`, `target_cities[]` (each with `drive_minutes`, `confirmed_by_client`) |
+| **clients** (= sites) | identity (business name, domain, niche_id, contact), `api_key, site_rev, plugin_rev, plugin_version, last_seen_at, class_prefix, radius_minutes, url_base_path` (default "service-area," agency-editable at onboarding); NAP (per hub), `licenses[]`, `years_in_business`, `hours`, `banned_phrases[]` (client-preference), `photos_by_city`, `reviews_by_city` (client-supplied only), `price_ranges` (optional); billing tier + Platform-Owner-only custom override; `approval_gate_override` (yes/no, inherits agency default if unset); `services[]`, `target_cities[]` (each with `drive_minutes`, `confirmed_by_client`) |
 | **cities** (shared) | name, state, slug, lat/lng, population. `neighbors` computed at request time (haversine), not stored |
 | **datasets** (shared) | one row per `(city_id, provider)` — Census ACS, NOAA climate, FEMA flood zones. Flat cached values, no citation — the provider *is* the source |
 | **fact_cards** (shared) | `id, scope (city\|service\|niche), scope_key, topic, claim, value, source_url, source_title, quote, checked_at, expires_at, status (active\|stale\|rejected)` |
@@ -254,7 +254,12 @@ since it's structural, while pool blocks are where the real city-specific differ
 shares ≤50% of its service-block choices (rotated); a city block only appears if its facts/data support
 it; middle-block order varies per page.
 
-**Page frame:** URL `/service-area/[city]/[service]/`; title/meta/H1 templates; breadcrumbs with
+**Page frame:** URL `/{base_path}/[city]/[service]/`, where `base_path` is a **per-client, configurable**
+setting (e.g. "service-area," "locations," or a custom label), not a fixed platform-wide string — the
+current WordPress plugin already has this exact option (`lpc_base_path`, default `/locations`), and
+fixing it platform-wide for the rewrite would be a real regression from what agencies can already do
+today. Set once per client at onboarding (Section 15), carried by the client record, read by the plugin's
+rewrite rule the same way the existing option is; title/meta/H1 templates; breadcrumbs with
 `BreadcrumbList` schema (**currently missing — needs building**, alongside LocalBusiness/Service/FAQPage
 schema and, where the client has real reviews, `AggregateRating` schema built directly from
 `reviews_by_city` — not just displayed as prose, since structured rating data is what actually earns a
@@ -541,7 +546,9 @@ infrastructure work, and not a branding leak the way client-facing plugin text i
 A short linear wizard, reusing components already specified above rather than inventing new mechanics:
 
 1. **Business identity & NAP** — name, domain, contact, per-hub address/phone, license, years in
-   business, hours.
+   business, hours, and the **URL base path** pages will live under on that domain (defaults to
+   "service-area," editable — e.g. "locations" if that fits the client's site better). Asked here, next
+   to the domain it actually applies to, rather than buried in a separate settings screen later.
 2. **Pick a niche** — one dropdown; determines schema type, compliance preset, services, research
    topics automatically.
 3. **Pick cities and services as two separate lists**, cross-multiplied by default — this covers

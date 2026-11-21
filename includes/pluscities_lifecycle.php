@@ -39,7 +39,12 @@ function pluscities_edit_block(int $block_id, array $content, string $actor): bo
     $pageId = $st->fetchColumn();
     if (!$pageId) return false;
 
-    $db->prepare('UPDATE blocks SET content_json = ?, locked = 1, origin = "edited" WHERE id = ?')
+    // A human edit is implicitly trusted for the Unsupported Claim check —
+    // the validator can't mechanically verify freeform human text traces to
+    // a fact the way it can an AI-generated [[fact_id]] tag, and the person
+    // editing is accountable for what they write in a way raw AI output
+    // isn't, so it's treated as grounded rather than falsely failing.
+    $db->prepare('UPDATE blocks SET content_json = ?, locked = 1, origin = "edited", client_grounded = 1 WHERE id = ?')
        ->execute([json_encode($content), $block_id]);
     pluscities_touch_page($pageId);
     pluscities_log_event($actor, 'edit_block', 'block:' . $block_id, '');
@@ -60,12 +65,42 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
 
     $client  = json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $block['client_id'] . '.json'), true) ?: [];
     $context = ['city_label' => $block['city_id'], 'service_label' => $block['service_key'], 'business_name' => $client['identity']['business_name'] ?? ''];
+    $clientFacts = pluscities_client_facts_for_writer($client);
+
+    // Service area + links is pure structural data — no writer call, nothing
+    // to regenerate in the AI sense, just rebuilt from the current record.
+    if ($block['block_type'] === 'service_area') {
+        $pageStmt = $db->prepare('SELECT * FROM pages WHERE page_id = ?');
+        $pageStmt->execute([$block['page_id']]);
+        $page   = $pageStmt->fetch(PDO::FETCH_ASSOC);
+        $niche  = pluscities_niche_resolved($client['niche_id'] ?? '') ?? [];
+        $result = pluscities_write_service_area_block($client, $page, $niche);
+        $db->prepare('UPDATE blocks SET content_json = ? WHERE id = ?')->execute([json_encode($result['content']), $block_id]);
+        pluscities_touch_page($block['page_id']);
+        pluscities_log_event($actor, 'regenerate_block', 'block:' . $block_id, '');
+        return ['ok' => true, 'msg' => ''];
+    }
+
+    if ($block['block_type'] === 'faq') {
+        $facts  = pluscities_fact_card_get_active('city', $block['city_id'], 'permits');
+        $result = pluscities_write_faq_block($facts, $clientFacts, $context);
+        if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
+        $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated", client_grounded = 1 WHERE id = ?')
+           ->execute([json_encode($result['content']), json_encode($result['fact_ids']), $block_id]);
+        pluscities_touch_page($block['page_id']);
+        pluscities_log_event($actor, 'regenerate_block', 'block:' . $block_id, '');
+        return ['ok' => true, 'msg' => ''];
+    }
 
     if ($block['classification'] === 'editable') {
-        $facts  = pluscities_fact_card_get_active('city', $block['city_id'], $block['block_type']);
-        $result = pluscities_write_editable_block($block['block_type'], $block['block_type'], $facts, $context);
+        // hero/overview make no externally-sourced claims (client facts
+        // only); permits-style city blocks are grounded in the matching
+        // fact-card topic. Topic name == block_type for those, by convention.
+        $facts  = in_array($block['block_type'], ['hero', 'overview'], true)
+            ? [] : pluscities_fact_card_get_active('city', $block['city_id'], $block['block_type']);
+        $result = pluscities_write_editable_block($block['block_type'], $block['block_type'], $facts, $clientFacts, $context);
         if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
-        $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated" WHERE id = ?')
+        $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated", client_grounded = 1 WHERE id = ?')
            ->execute([json_encode($result['content']), json_encode($result['fact_ids']), $block_id]);
     } else { // automatic
         $refs    = json_decode($block['dataset_refs'], true) ?: [];
