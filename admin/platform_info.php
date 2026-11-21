@@ -1141,7 +1141,44 @@ function platform_info_content_flow_data(): array {
     <?php
     $cfGateLabels   = ['sell' => 'Core to Ranking', 'retain' => 'Quality Improvement', 'differentiate' => 'Nice to Have'];
     $cfEffortLabels = ['quick' => 'Quick', 'moderate' => 'Moderate', 'major' => 'Major'];
+    $cfAllSections  = platform_info_content_flow_data();
+    $cfGaps = [];
+    $cfTotalSteps = 0;
+    foreach ($cfAllSections as $section) {
+        foreach ($section['rows'] as $r) {
+            $cfTotalSteps++;
+            if ($r['status'] === 'needs_adding') $cfGaps[] = $r;
+        }
+    }
     ?>
+    <h4 style="margin:22px 0 8px;font-family:'Space Grotesk',sans-serif;color:#1e3a5f;">Where this stands</h4>
+    <p style="font-size:.88rem;line-height:1.7;">
+        <?= $cfTotalSteps - count($cfGaps) ?> of <?= $cfTotalSteps ?> steps
+        are already real and built &mdash; both pipelines work end to end today, from niche research
+        through live, ranking-verified pages. The <?= count($cfGaps) ?> gaps below are specifically what
+        it'd take to make the pages this produces the <em>best</em> they can be, not what's needed to make
+        the pipeline work at all. None of them require major new infrastructure &mdash; the two Core to
+        Ranking items both reuse scoring/checking logic that's already real and built elsewhere in the
+        pipeline, just not yet applied at this point.
+    </p>
+    <table class="lpc-table lpc-wf-table" style="margin-bottom:22px;">
+        <thead><tr>
+            <th style="width:24%;">Gap</th>
+            <th style="width:12%;">Priority</th>
+            <th style="width:10%;">Effort</th>
+            <th>In one line</th>
+        </tr></thead>
+        <tbody>
+        <?php foreach ($cfGaps as $r): ?>
+            <tr>
+                <td class="lpc-wf-step"><?= h($r['step']) ?></td>
+                <td><span class="lpc-roadmap-gate lpc-roadmap-gate-<?= h($r['gate']) ?>"><?= h($cfGateLabels[$r['gate']]) ?></span></td>
+                <td><span class="lpc-roadmap-effort lpc-roadmap-effort-<?= h($r['effort']) ?>"><?= h($cfEffortLabels[$r['effort']]) ?></span></td>
+                <td class="lpc-wf-what"><?= h($r['simple']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
     <div class="lpc-roadmap-filters">
         <span><label for="cf-filter-gate">Priority</label>
             <select id="cf-filter-gate" onchange="lpcContentFlowFilter()">
@@ -1169,7 +1206,7 @@ function platform_info_content_flow_data(): array {
         <span class="lpc-roadmap-count" id="cf-filter-count"></span>
     </div>
     <?php $cfStepN = 0; ?>
-    <?php foreach (platform_info_content_flow_data() as $section): ?>
+    <?php foreach ($cfAllSections as $section): ?>
         <h4 class="lpc-cf-section" style="margin:22px 0 8px;font-family:'Space Grotesk',sans-serif;color:#1e3a5f;"><?= h($section['title']) ?></h4>
         <table class="lpc-table lpc-wf-table lpc-cf-table" style="margin-bottom:8px;">
             <thead><tr>
