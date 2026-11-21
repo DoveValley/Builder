@@ -724,7 +724,20 @@ pre-specified in Phase 0's contracts, which only fix the block's *content* shape
 cancellation behavior (Section 13); agency dashboard reporting; onboarding polish (Section 15).
 
 **Phase 4 — Tier 2/3 differentiators**, deferred by design, not by debt: GSC indexing-status monitoring
-beyond click count, white-labeled PDF reports, lead attribution, CSV bulk expansion, a Client Approver
+beyond click count, white-labeled PDF reports, **lead attribution**, CSV bulk expansion, a Client Approver
 role, scheduled fact-card refresh, expansion suggestions, Spanish pages, webhooks, audit-log UI. Because
 every module here was built modular from Phase 0, adding any one of these later is "add a file," not a
 rebuild.
+
+**Lead attribution, mechanism (deferred to this phase, decided now so it's not re-derived later):** an
+opt-in, per-client tracking number (real recurring cost — never on by default) plus an agency-configured
+attribution window in days. A visitor landing on a PlusCities page sets a cookie; for the window's
+duration, the client's phone number displays as the tracking number anywhere on their WordPress site, not
+just the landing page — which means this is the one feature that needs the plugin to act site-wide rather
+than only on its own rendered pages. The swap stays a theme-independent display snippet (same pattern as
+the sticky call bar, Section 5/9), never a PHP-level rewrite of the theme's own output. **Two rules that
+must hold regardless of implementation:** (1) reuse the fleet's existing CallTrackingMetrics integration
+for number provisioning — not a second call-tracking client, per CLAUDE.md's "one module per service"
+rule; (2) the tracking number is display-only and must never appear in the page's schema/JSON-LD or any
+citation-facing data — the real number stays authoritative everywhere NAP consistency actually matters
+(Section 12), since that's a real local-ranking factor this feature must not quietly undermine.
