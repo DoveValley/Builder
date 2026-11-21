@@ -21,10 +21,11 @@ if (lpc_current_actor_role() !== 'super_admin') {
 }
 
 $TABS = [
-    'who_logged_in'    => "Who's Logged In",
-    'how_it_works'     => 'How This Works',
-    'roadmap'          => 'PlusCities Product Roadmap',
-    'content_workflow' => 'Content Workflow',
+    'who_logged_in'        => "Who's Logged In",
+    'how_it_works'         => 'How This Works',
+    'roadmap'              => 'PlusCities Product Roadmap',
+    'content_workflow'     => 'Content Workflow',
+    'client_approval_stage'=> 'Client Approval Stage',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -769,6 +770,80 @@ function platform_info_content_workflow_data(): array {
     }
     lpcWorkflowFilter();
     </script>
+<?php endif; ?>
+
+<?php if ($tab === 'client_approval_stage'): ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Client Approval Stage — design reference, not yet built</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        A closer look at one specific gap from the Content Workflow tab (step 15, "Client review /
+        approval") and the Product Roadmap tab (Workflow section, gate: <strong>Must-Have to Sell</strong>,
+        effort: <strong>Major</strong>) — how it would actually fit into the existing review pipeline,
+        who'd be involved, and exactly where each piece would live in the app. This is a design writeup
+        to work from when it's greenlit, not a status page for something already shipped &mdash; nothing
+        described below exists in the code yet.
+    </p>
+
+    <h4 style="margin-bottom:4px;">Where this fits in the flow today</h4>
+    <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
+        Right now, publishing a real third-party agency's client page goes through two stages &mdash;
+        Scott reviews first (<code>pending_platform_review</code>), then the owning agency gives the
+        final sign-off (<code>pending_agency_review</code> &rarr; <code>approved</code> &rarr; live),
+        both on <code>approvals.php</code>. Scott's own direct-sale clients skip this gate entirely and
+        publish immediately. Either way, the End Client never participates &mdash; they only ever see a
+        page after it's already live, on their own read-only Reporting tab.
+    </p>
+
+    <h4 style="margin-bottom:4px;">The proposed design</h4>
+    <ul style="margin:0 0 14px;padding-left:20px;line-height:1.85;font-size:.88rem;">
+        <li><strong>A third, optional stage</strong> &mdash; <code>pending_client_review</code> &mdash;
+            sitting after agency approval and before a page actually goes live.</li>
+        <li><strong>Per-client toggle, off by default.</strong> Not every agency wants their client in
+            the loop at all; this is a switch the Owner or Agency Admin flips per client, not a rule
+            forced on everyone. It's also orthogonal to the existing platform/agency gate above &mdash;
+            Scott could require client review on one of his own direct clients even though they skip the
+            platform/agency stages, and a real agency's client could skip client review even though that
+            agency's pages still go through platform + agency review.</li>
+        <li><strong>The client sees only what's waiting on them</strong> &mdash; never a draft still being
+            worked on internally, never anything mid-edit.</li>
+        <li><strong>Two actions, same shape as every other stage:</strong> <em>Approve</em> (publishes
+            immediately) or <em>Request Changes</em> (sends it back with a note, mirroring the existing
+            Reject flow &mdash; the page's own content is untouched, just not live, until resubmitted).</li>
+    </ul>
+
+    <h4 style="margin-bottom:4px;">New pieces this would need</h4>
+    <ul style="margin:0 0 14px;padding-left:20px;line-height:1.85;font-size:.88rem;">
+        <li><strong>The toggle itself</strong> &mdash; set once per client by the Owner or Agency Admin.
+            Would live on <code>client.php</code>, most likely the Overview tab next to Billing, the same
+            place the other per-client settings already live.</li>
+        <li><strong>A new End Client screen, with its own sidebar tab</strong> &mdash; parallel to the
+            client's existing Reporting tab, so the client's sidebar would go from one item to two:
+            <em>Reporting</em> (what's already there) and <em>Approvals</em> (new), badge-counted the
+            same way the Owner/Agency sidebar already badges their own Approvals queue.</li>
+        <li><strong>A save handler scoped strictly to that client's own pages</strong> &mdash;
+            CSRF-protected, restricted to <code>end_client</code> sessions, only able to act on pages
+            already sitting at <code>pending_client_review</code> for their own <code>client_id</code>.
+            Mirrors <code>approvals_save.php</code>'s existing pattern rather than inventing a new one.</li>
+        <li><strong>One new value on the page's own approval_stage field</strong> &mdash; today's possible
+            values are <code>none / pending_platform_review / pending_agency_review / approved /
+            rejected</code>; this adds <code>pending_client_review</code> alongside them.</li>
+    </ul>
+
+    <h4 style="margin-bottom:4px;">The one hard constraint</h4>
+    <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
+        This would be the single most client-visible screen in the entire product &mdash; the end
+        client's own eyes land here directly, not an agency's. Per the positioning rule already flagged
+        on the Product Roadmap tab ("never present as an AI product"), its wording has to stay completely
+        clear of "AI," "regenerate," "generate," or "prompt." Just <em>Approve</em> and
+        <em>Request Changes</em> &mdash; the two verbs a client already understands from ordinary
+        business software, nothing that hints at how the page was actually made.
+    </p>
+
+    <h4 style="margin-bottom:4px;">Where this sits in prior planning</h4>
+    <p style="font-size:.88rem;line-height:1.7;margin:0;">
+        Same item as the Product Roadmap tab's "Client approve / request-changes step (per-client
+        toggle)" row and the Content Workflow tab's step 15 ("Client review / approval") &mdash; this
+        page is the detailed design for that one entry, not a new addition to scope.
+    </p>
 <?php endif; ?>
 
 <?php lpc_admin_close(); ?>
