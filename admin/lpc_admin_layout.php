@@ -110,9 +110,10 @@ body.admin-body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sa
 /* Per-record sub-tabs (client.php/page_editor.php's "which aspect of THIS client" row) —
    a second-level nav within the content area, distinct from the sidebar's top-level nav. */
 .pcadmin-subtabs{display:flex;gap:4px;border-bottom:1px solid var(--pc-line);margin-bottom:22px;flex-wrap:wrap;}
-.pcadmin-subtabs a{padding:10px 14px;font-size:.85rem;font-weight:600;color:var(--pc-muted);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;}
-.pcadmin-subtabs a:hover{color:var(--pc-ink);}
-.pcadmin-subtabs a.active{color:var(--pc-lime-ink);border-bottom-color:var(--pc-lime);}
+.pcadmin-subtabs a{padding:10px 14px;font-size:.85rem;font-weight:600;color:var(--pc-muted);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;border-radius:8px 8px 0 0;}
+.pcadmin-subtabs a:hover{color:var(--pc-ink);background:var(--pc-mist);}
+.pcadmin-subtabs a.active{color:var(--pc-navy);background:var(--pc-lime);border-bottom-color:var(--pc-lime);font-weight:700;}
+.pcadmin-subtabs a.active:hover{background:var(--pc-lime);}
 
 @media (max-width:880px){
     .pcadmin-sidebar{position:fixed;left:0;top:0;bottom:0;z-index:40;transform:translateX(-100%);transition:transform .2s ease;}
