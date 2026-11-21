@@ -633,6 +633,31 @@ function platform_info_content_flow_data(): array {
                  'who' => 'n/a (automatic)', 'where' => 'Gen-Visual / Gen-Image / Gen-Mod tabs'],
             ],
         ],
+        [
+            'title' => 'J — Converging LPC toward Site Factory\'s rigor (recommendations from 2026-11-21 discussion, not yet decided)',
+            'rows' => [
+                ['step' => 'Extract keyword scoring into a shared module both products call', 'status' => 'needs_adding', 'gate' => 'sell', 'effort' => 'major',
+                 'simple' => 'This would let LPC use real keyword data too, instead of reinventing its own version of something Site Factory already built.',
+                 'what' => "Doesn't exist — Site Factory's real keyword-scoring formula (infra_kw_score(), Demand × Winnability × Lead-value) lives only in admin/infra/lib/keywords.php, used only for Site Factory's city-expansion decision. Recommended: extract it into a shared library both products call — matching this codebase's own \"one module per service, reused everywhere\" principle — rather than LPC building a second, separate version. Real new cost: per-client API spend (DataForSEO/Ahrefs) that doesn't exist in LPC today, so this needs to be opt-in or cost-capped per client, not automatic for every one of potentially hundreds of LPC clients. Prerequisite for the next row.",
+                 'who' => 'Would be: Platform Admin (build); Agency Admin (opt in per client later)', 'where' => 'Would extend admin/infra/lib/keywords.php into a shared include'],
+                ['step' => 'Give LPC a real primary keyword instead of a fill-in-the-blank pattern', 'status' => 'needs_adding', 'gate' => 'sell', 'effort' => 'moderate',
+                 'simple' => "This would check that an LPC page's primary keyword is a real search term people actually use, not just an assumed pattern.",
+                 'what' => "Today LPC's primary keyword is just \"{service} in {city}, {state}\" or a simple keyword_pattern substitution — no volume data, no check it's a real target at all. This is the single biggest keyword-quality gap between the two products. Depends on the shared keyword-scoring module above.",
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would extend lpc_default_primary_keyword(), includes/landing_page_clients_ai.php'],
+                ['step' => "Check for cannibalization across one client's own pages", 'status' => 'needs_adding', 'gate' => 'sell', 'effort' => 'moderate',
+                 'simple' => "This would catch two of the SAME client's pages competing for the same keyword, before both go live.",
+                 'what' => "Doesn't exist for LPC — same confirmed gap as Site Factory's version (section C), but scoped to one client's own page set instead of a whole niche fleet, which makes it a much smaller, cheaper check (a handful of pages, not 30+).",
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => "Would extend client.php's Locations & Services tab, before Publish"],
+                ['step' => 'Let a niche profile turn optional sections on/off per niche', 'status' => 'needs_adding', 'gate' => 'retain', 'effort' => 'moderate',
+                 'simple' => 'This would stop giving every single LPC client the exact same page skeleton regardless of whether it actually fits that niche.',
+                 'what' => "Site Factory has 39 block types + archetypes that change which blocks appear by page intent. LPC has a fixed set of sections that appear on every page, every niche, with no archetype concept at all — a plumbing client and a dog-walking client get an identical page skeleton today. Recommended as a lighter, scoped version of Site Factory's archetype idea (toggle comparison/steps/seasonal_calendar on or off per niche), not a full 39-type system — LPC's simpler one-client-at-a-time use case doesn't need that much variety.",
+                 'who' => 'Would be: Platform Admin', 'where' => "Would extend the niche profile's content_slots, admin/niche_profiles.php"],
+                ['step' => 'Add a shared per-(city, niche) local-flavor research layer', 'status' => 'needs_adding', 'gate' => 'retain', 'effort' => 'major',
+                 'simple' => 'This would give LPC pages real local color — notable industries, a market blurb — instead of just dry Census numbers.',
+                 'what' => "Site Factory has a real AI research step gathering qualitative local facts (industries, top employers, market blurb, local note), cached once per master and reused free across every cloned city. LPC only gets real Census numbers (population/income/home value) — real but dry, with no \"what's actually interesting about this place\" layer at all. Recommended cache key: per (city, niche) pair, SHARED across every LPC client in that niche serving that city — if ten different plumbing clients all serve Dallas, that's one research call, not ten, mirroring Site Factory's own per-master caching pattern exactly.",
+                 'who' => 'Would be: Platform Admin (build); System (Claude) generates', 'where' => 'Would be a new shared cache + extend includes/landing_page_clients_ai.php'],
+            ],
+        ],
     ];
 }
 
@@ -1137,6 +1162,19 @@ function platform_info_content_flow_data(): array {
         <strong>Priority</strong> (how directly it protects/improves whether pages actually rank) and
         <strong>Effort</strong>, the same two-axis approach used on the Product Roadmap tab &mdash; just
         labeled for this context instead of "sell to an agency," which doesn't apply here.
+    </p>
+    <p style="font-size:.88rem;line-height:1.7;">
+        <strong>A second round of recommendations, same day, from Scott directly asking how to bring
+        LPC's keyword/content rigor up toward Site Factory's</strong> &mdash; captured in section J
+        below. Deliberately scoped, not a wholesale copy: niche-viability scoring and tier-driven build
+        order were discussed and explicitly <strong>not</strong> recommended for LPC, since neither
+        solves a real problem LPC has today &mdash; there's no "which cities should we expand into"
+        decision in LPC the way there is in Site Factory (a client is already paying, already has a
+        defined footprint), and clients are built one at a time, not as a fleet needing build-order
+        prioritization. Same reasoning ruled out a separate blog pipeline and AI model-tiering by task
+        for LPC &mdash; neither addresses something LPC is actually missing. The five items that
+        <strong>did</strong> make the cut are in section J, same Priority/Effort tagging as everything
+        else on this tab. Not yet decided to build &mdash; a design discussion, not committed scope.
     </p>
     <?php
     $cfGateLabels   = ['sell' => 'Core to Ranking', 'retain' => 'Quality Improvement', 'differentiate' => 'Nice to Have'];
