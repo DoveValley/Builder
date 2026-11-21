@@ -39,7 +39,7 @@ function platform_info_fmt_duration(int $seconds): string {
 
 /**
  * Gap analysis of the live LPC/PlusCities code against the feature/permissions
- * spec Scott supplied 2026-11-20 (5-role model: Platform Owner, Agency Admin,
+ * spec Scott supplied 2026-11-20 (5-role model: Platform Admin, Agency Admin,
  * Agency Editor, Client Approver, Client Viewer). Verified by direct code
  * read, not guessed — a point-in-time snapshot, re-check against the code
  * before trusting an old "Complete" after a big change in that area.
@@ -59,7 +59,7 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Role model & permissions',
             'rows' => [
-                ['cap' => '5-role model (Owner / Agency Admin / Agency Editor / Client Approver / Client Viewer)', 'roles' => 'All', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                ['cap' => '5-role model (Platform Admin / Agency Admin / Agency Editor / Client Approver / Client Viewer)', 'roles' => 'All', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
                  'simple' => 'This means giving different types of users — owner, agency staff, client — their own separate logins and permissions.',
                  'detail' => "Only 3 roles exist today: super_admin, agency_admin, end_client — no Agency Editor, no Approver/Viewer split. Needs a 4th/5th role plus a real multi-user invite-and-assign system; today each agency and each client has exactly one shared login, not per-person accounts. Retention, not launch-blocking: a single shared login can carry a first pilot agency through; this matters once agencies have their own staff to onboard."],
                 ['cap' => 'Self-Managed Client (client upgraded to Editor rights on own site)', 'roles' => 'Client Approver', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
@@ -73,25 +73,25 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Pages & content',
             'rows' => [
-                ['cap' => 'View pages, including drafts', 'roles' => 'Owner, Agency Admin, Agency Editor, Client Approver, Client Viewer', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                ['cap' => 'View pages, including drafts', 'roles' => 'Platform Admin, Agency Admin, Agency Editor, Client Approver, Client Viewer', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
                  'simple' => 'This means being able to see a page before it\'s finished, not just after it\'s already live.',
-                 'detail' => "Complete for Owner/Agency Admin/Editor — full draft/published matrix in the client workspace. Not started for Client Approver/Viewer: the only End Client screen (client_portal.php) is a reporting rollup, not a page browser — there's nothing for a client to actually look at or approve. Must-have to sell: a client that can't see what they're approving breaks the whole approve-before-live pitch — the Client Approver role is pointless without it."],
-                ['cap' => 'Generate pages (new city × service combos)', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                 'detail' => "Complete for Platform Admin/Agency Admin/Editor — full draft/published matrix in the client workspace. Not started for Client Approver/Viewer: the only End Client screen (client_portal.php) is a reporting rollup, not a page browser — there's nothing for a client to actually look at or approve. Must-have to sell: a client that can't see what they're approving breaks the whole approve-before-live pitch — the Client Approver role is pointless without it."],
+                ['cap' => 'Generate pages (new city × service combos)', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'complete',
                  'simple' => 'This is the system automatically writing a new page for a city and service.',
                  'detail' => 'Adding a target city auto-drafts real AI content for every service at that city.'],
-                ['cap' => 'Edit section text, titles, meta', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                ['cap' => 'Edit section text, titles, meta', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'complete',
                  'simple' => 'This is editing the actual words and images on a page by hand.',
                  'detail' => 'Full field editor per section type, plus SEO title/meta/keywords.'],
-                ['cap' => 'Lock / unlock sections or pages', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                ['cap' => 'Lock / unlock sections or pages', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This protects a page\'s content from being accidentally changed.',
                  'detail' => "Whole-page lock exists and blocks Regenerate. No section-level lock — locking a page locks everything in it, so you can't protect just the intro while regenerating the rest. Retention: whole-page lock already protects a finished page; section-level control is a workflow upgrade for agencies already working in the tool, not a launch blocker."],
-                ['cap' => 'Regenerate with an instruction field ("make it shorter")', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                ['cap' => 'Regenerate with an instruction field ("make it shorter")', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This would let someone tell the system how to rewrite a page instead of it rewriting the same way every time.',
                  'detail' => 'Regenerate (single page) and bulk refresh (checked pages) both exist, but neither takes a free-text instruction — every regenerate reruns the same fixed prompt template. Retention: the fixed-prompt regenerate already produces a usable draft; a steerable instruction field is a quality-of-life upgrade, not a blocker to a first sale.'],
-                ['cap' => 'Roll back to a previous version (history + diff)', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                ['cap' => 'Roll back to a previous version (history + diff)', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
                  'simple' => 'This would let someone undo a mistake and go back to an older version of a page.',
                  'detail' => "No version history at all. Every save overwrites in place — there's nothing to roll back to. Retention: a real safety net once agencies are editing live client content daily — a first handful of pilot clients can get by with careful manual edits in the meantime."],
-                ['cap' => 'Swap / upload images with alt text', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                ['cap' => 'Swap / upload images with alt text', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'complete',
                  'simple' => 'This is adding or changing the pictures on a page.',
                  'detail' => 'Manual upload or AI-generate per service, real alt-text fields, WebP output, lazy-loading below the fold.'],
             ],
@@ -99,19 +99,19 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Workflow',
             'rows' => [
-                ['cap' => 'Agency approve step', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                ['cap' => 'Agency approve step', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'complete',
                  'simple' => 'This is the agency\'s own sign-off before one of its pages is allowed to go live.',
                  'detail' => 'Two-stage gate: pending_platform_review -> pending_agency_review -> approved.'],
                 ['cap' => 'Client approve / request-changes step (per-client toggle)', 'roles' => 'Client Approver', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'major',
                  'simple' => 'This would let the actual client approve a page before it goes live.',
                  'detail' => "Doesn't exist — End Client has no approval role today at all. The existing approval gate is all-or-nothing per agency (Scott's own agency skips it, every other agency always goes through it), not a per-client toggle, and the client never participates in it. Must-have to sell: this is the core differentiator in the pitch — agency approves, then the client approves, before anything goes live. Without it there's no real client sign-off, just an agency's word."],
-                ['cap' => 'Publish / unpublish', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                ['cap' => 'Publish / unpublish', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
                  'simple' => 'This is making a page go live, or taking it back down.',
                  'detail' => "Publish exists. There's no per-page unpublish — only deactivating a client's entire API key, which takes every page down at once, not one. Must-have to sell: an agency needs to be able to pull one bad page without killing a client's whole site — the all-or-nothing kill switch isn't a real substitute."],
-                ['cap' => 'Bulk approve / publish / unpublish, by selection, city, service, or all', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                ['cap' => 'Bulk approve / publish / unpublish, by selection, city, service, or all', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This would let someone handle many pages at once instead of one at a time.',
                  'detail' => 'The page workspace has bulk publish/generate by checkbox selection. The Approvals queue itself is one row at a time — no bulk approve, and nothing filters by city or service. Retention: matters once page volume is real; one-row-at-a-time approval is tolerable for a first few clients.'],
-                ['cap' => 'Validator / override flags (banned phrases, NAP mismatch)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                ['cap' => 'Validator / override flags (banned phrases, NAP mismatch)', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
                  'simple' => 'This would automatically catch mistakes or forbidden wording before a page is approved.',
                  'detail' => "Doesn't exist anywhere in the product — nothing blocks a page from being approved for a banned phrase or a wrong phone number. Must-have to sell: the product's whole value is agencies trusting the content is accurate and compliant before it goes live; nothing today actually enforces that."],
                 ['cap' => 'Comment on pages', 'roles' => 'All', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
@@ -122,22 +122,22 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Client setup',
             'rows' => [
-                ['cap' => 'Create / delete clients and sites', 'roles' => 'Owner, Agency Admin', 'status' => 'complete',
+                ['cap' => 'Create / delete clients and sites', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'complete',
                  'simple' => 'This is adding a brand-new client to the system, or removing one.',
                  'detail' => '5-step onboarding wizard; a delete action exists.'],
-                ['cap' => 'Client facts (NAP, licenses, hours, years in business, tone, brand terms)', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                ['cap' => 'Client facts (NAP, licenses, hours, years in business, tone, brand terms)', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
                  'simple' => 'This is storing the real business details — like license number and hours — that should show up in the content.',
                  'detail' => 'Has phone, a free-text tone field, and always-mention/never-mention guardrails. Missing entirely: a structured address, license numbers, hours, years-in-business — none of these fields exist on a client yet. Must-have to sell: license numbers, hours, and years-in-business are exactly the NAP-adjacent facts an agency expects to enter and see reflected in the content — their absence is an obvious gap in a first demo.'],
-                ['cap' => 'Banned-phrases list + niche compliance presets (toggleable)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                ['cap' => 'Banned-phrases list + niche compliance presets (toggleable)', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
                  'simple' => 'This would stop certain words or claims from ever appearing on a page.',
                  'detail' => "Doesn't exist. always_mention/never_mention is free text with no niche-default inheritance and no on/off toggle. Must-have to sell: pairs with the Workflow section's Validator row above — without a banned-phrases list there's nothing to actually validate against."],
-                ['cap' => 'Generate / rotate the API key', 'roles' => 'Owner, Agency Admin', 'status' => 'complete',
+                ['cap' => 'Generate / rotate the API key', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'complete',
                  'simple' => 'This is the secret code that connects a client\'s website to the system.',
                  'detail' => 'One-click regenerate.'],
-                ['cap' => 'Connect Google Search Console per site', 'roles' => 'Owner, Agency Admin, Client Approver', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                ['cap' => 'Connect Google Search Console per site', 'roles' => 'Platform Admin, Agency Admin, Client Approver', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
                  'simple' => 'This connects a client\'s real Google search data so you can see how their pages are actually performing.',
                  'detail' => "Works, but isn't OAuth — it's a shared service-account key; the client adds that service-account email as a read-only user on their own GSC property by hand, then an admin pastes the property URL in. Retention: the manual service-account method already works end to end; real OAuth is a polish upgrade, not a launch blocker."],
-                ['cap' => 'Connect call tracking (CallRail or agency\'s own number)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
+                ['cap' => 'Connect call tracking (CallRail or agency\'s own number)', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
                  'simple' => 'This would give each page its own trackable phone number.',
                  'detail' => "Doesn't exist. Pages just show the hub's real phone number as a tel: link — no CallRail integration, no per-client tracking-number pool. Differentiator: the hub's real phone number already gives a client something to show for the spend; per-page tracking is a later upsell."],
             ],
@@ -147,11 +147,11 @@ function platform_info_roadmap_data(): array {
             'rows' => [
                 ['cap' => 'View reports', 'roles' => 'All (own scope)', 'status' => 'complete',
                  'simple' => 'This is seeing how a client\'s pages are performing.',
-                 'detail' => 'Basic reporting tab (Owner/Agency) and a read-only portal (Client), both working.'],
-                ['cap' => 'Automated monthly white-labeled PDF reports, emailed', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'Basic reporting tab (Platform Admin/Agency) and a read-only portal (Client), both working.'],
+                ['cap' => 'Automated monthly white-labeled PDF reports, emailed', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This would automatically email a client a performance report every month.',
                  'detail' => 'No PDF generation and no scheduled email report exist anywhere in the codebase. Retention: explicitly a Tier 2 feature in the spec — keeps agencies paying after launch, doesn\'t block the first sale.'],
-                ['cap' => 'View leads, by city and by service', 'roles' => 'Owner, Agency Admin, Agency Editor, Client Approver', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                ['cap' => 'View leads, by city and by service', 'roles' => 'Platform Admin, Agency Admin, Agency Editor, Client Approver', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
                  'simple' => 'This would show which cities and services are actually bringing in real leads.',
                  'detail' => '"Tried to Contact" is a raw click counter on tel:/CTA links — no name or contact info is ever captured, so there\'s no actual lead to list by city or service. Retention: needs real lead capture to exist first (see the Tier 2 CTA form row); not a launch blocker on its own.'],
                 ['cap' => 'GSC dashboard: impressions, clicks, CTR, position, trend', 'roles' => 'All (own scope)', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
@@ -165,7 +165,7 @@ function platform_info_roadmap_data(): array {
                 ['cap' => 'JSON-LD schema (LocalBusiness/Service/FAQPage), canonical, sitemap', 'roles' => 'n/a (built-in to every page)', 'status' => 'complete',
                  'simple' => 'This is the behind-the-scenes code that helps Google understand and rank a page.',
                  'detail' => 'Confirmed well-built: real schema per page, a self-served sitemap.xml linked via robots.txt, and real handling of the Yoast canonical-tag conflict.'],
-                ['cap' => 'Cannibalization check, near-duplicate check, slug pattern per site, breadcrumbs', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                ['cap' => 'Cannibalization check, near-duplicate check, slug pattern per site, breadcrumbs', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
                  'simple' => 'This would stop a client\'s own pages from accidentally competing with each other in search.',
                  'detail' => "Not directly confirmed either way in this audit — no code reference to any of these four surfaced while checking everything else, so treat as most likely not built until checked directly, not as a confirmed gap. Must-have to sell: an SEO-literate agency will test this on day one; failing it undermines trust in everything else the product claims about SEO."],
             ],
@@ -193,19 +193,19 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Platform only',
             'rows' => [
-                ['cap' => 'Manage agencies, wholesale pricing, plans', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                ['cap' => 'Manage agencies, wholesale pricing, plans', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
                  'simple' => 'This is where Scott sets up new agencies and what they pay.',
                  'detail' => "Can create agencies and set a fee, but there's no actual pricing-tier catalog — just a free-text plan field and a number. Retention/ops convenience for Scott; a free-text plan field works fine for the first handful of agencies."],
-                ['cap' => 'Edit niche presets / default banned phrases', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                ['cap' => 'Edit niche presets / default banned phrases', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
                  'simple' => 'This is where Scott sets the default rules every industry\'s content has to follow.',
                  'detail' => 'Niche Profiles exist (tone, "AI guardrails" per niche) but there\'s no distinct "default banned phrases" concept separate from that free-text guardrail blob. Must-have to sell: the easy half of the validator story — pairs with the Client Setup section\'s banned-phrases row.'],
-                ['cap' => 'Impersonate any user — logged, visible banner', 'roles' => 'Owner', 'status' => 'complete',
+                ['cap' => 'Impersonate any user — logged, visible banner', 'roles' => 'Platform Admin', 'status' => 'complete',
                  'simple' => 'This lets Scott see the product exactly as a specific agency or client would see it.',
                  'detail' => 'One-hop-only (no stacking), orange banner always shown, every start/stop logged.'],
-                ['cap' => 'Suspend an agency/site or force-unpublish', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                ['cap' => 'Suspend an agency/site or force-unpublish', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
                  'simple' => 'This would let Scott shut something down platform-wide if something goes wrong.',
                  'detail' => "Agency suspend/reactivate exists. There's no platform-level per-site or per-page force-unpublish beyond what an agency can already do to itself. Retention: a safety net for when things go wrong at scale, not something needed to close a first sale."],
-                ['cap' => 'Global usage, health and revenue dashboard', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                ['cap' => 'Global usage, health and revenue dashboard', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This would give Scott one place to see how the whole business is doing.',
                  'detail' => 'This Platform Information page currently covers login history only. No fleet-wide view of plugin versions/themes/site health, and no revenue rollup beyond reading each agency\'s row individually. Retention/ops visibility for Scott as the fleet grows; invisible to the agency or client either way.'],
             ],
@@ -219,7 +219,7 @@ function platform_info_roadmap_data(): array {
                 ['cap' => 'Local cache + offline fallback if the server is down', 'roles' => 'n/a', 'status' => 'complete',
                  'simple' => 'This keeps a client\'s pages working even if our own server goes down.',
                  'detail' => 'Poll-based (not webhook-based), but genuinely verified: pages kept rendering after the delivery server was shut off entirely during testing.'],
-                ['cap' => 'Reports health to server (version, theme, SEO plugin, last sync)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                ['cap' => 'Reports health to server (version, theme, SEO plugin, last sync)', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
                  'simple' => 'This would let Scott see which clients are running an outdated version of the plugin.',
                  'detail' => "Only a last-checkin timestamp is sent today. Plugin version, active theme, and active SEO plugin are detected locally for rendering decisions but never phoned home — so there's no way to see from here which clients are running an outdated plugin. Retention/ops: lets Scott spot an outdated plugin across the fleet; invisible to the agency or client either way."],
                 ['cap' => 'Clean uninstall (no orphan data left behind)', 'roles' => 'n/a', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
@@ -238,13 +238,13 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Tier 2 — retention',
             'rows' => [
-                ['cap' => 'Lead-capture CTA form (city/service attached, emailed + webhook)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                ['cap' => 'Lead-capture CTA form (city/service attached, emailed + webhook)', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
                  'simple' => 'This would let a visitor fill out a real form instead of just tapping a phone number.',
                  'detail' => "Doesn't exist. Only tel:/CTA click counters exist today — no actual form, no email-on-submit, no webhook. Retention: a stronger renewal story later, but \"Tried to Contact\" click counts are enough evidence to close a first sale."],
-                ['cap' => 'Bulk expansion: "Add city" / "Add service" / CSV import', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                ['cap' => 'Bulk expansion: "Add city" / "Add service" / CSV import', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This is adding a new city or service to a client\'s site all at once instead of one page at a time.',
                  'detail' => '"Add city" (draft every service for a new city) works and is genuinely complete. Whether "Add service" retroactively expands across every existing city was not confirmed either way in this audit — test directly before relying on it. CSV import of cities/services doesn\'t exist for this product (it exists only for the unrelated niche-fleet system). Retention: matters once an agency is actively growing an existing client\'s page count; "Add city" already works for onboarding a new one.'],
-                ['cap' => 'Plan-limit enforcement, overage -> upgrade prompt', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                ['cap' => 'Plan-limit enforcement, overage -> upgrade prompt', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This would stop a client from generating more pages than they\'re actually paying for.',
                  'detail' => 'Billing today is a flat rate per location, not a page-count tier — there\'s no cap and no overage/upgrade-prompt logic. Retention: becomes necessary once there are enough real agencies to need usage guardrails; nothing stops a first sale from running without it.'],
             ],
@@ -252,14 +252,14 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Tier 3 — differentiators',
             'rows' => [
-                ['cap' => 'Scheduled refresh (quarterly/seasonal regeneration)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'major',
+                ['cap' => 'Scheduled refresh (quarterly/seasonal regeneration)', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'major',
                  'simple' => 'This would automatically freshen up old content on a regular schedule.',
                  'detail' => "Doesn't exist — the only scheduling that exists controls the plugin's own cache refresh interval, not server-side content regeneration. Differentiator: a freshness nicety well after launch, not something a prospect asks about before buying."],
-                ['cap' => 'GSC-driven expansion suggestions', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'major', 'simple' => 'This would suggest new cities to add based on real search performance.',
+                ['cap' => 'GSC-driven expansion suggestions', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'major', 'simple' => 'This would suggest new cities to add based on real search performance.',
                  'detail' => "Doesn't exist. Differentiator: a nice-to-have upsell prompt once there's real ranking data to act on."],
-                ['cap' => 'Spanish /es/ version + hreflang', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate', 'simple' => 'This would offer a Spanish-language version of a client\'s pages.',
+                ['cap' => 'Spanish /es/ version + hreflang', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate', 'simple' => 'This would offer a Spanish-language version of a client\'s pages.',
                  'detail' => "Doesn't exist for this product. Differentiator: only relevant to agencies with bilingual-market clients — a narrow vertical expansion, not a launch gap."],
-                ['cap' => 'Webhooks / Zapier outbound events', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
+                ['cap' => 'Webhooks / Zapier outbound events', 'roles' => 'Platform Admin, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
                  'simple' => 'This would let other tools automatically react when something happens in this product.',
                  'detail' => 'Doesn\'t exist — the only webhook in the system is Stripe\'s inbound one. Differentiator: an integration nicety for technically sophisticated agencies, not something a first sale depends on.'],
             ],
@@ -284,7 +284,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Create the client & define scope', 'status' => 'in_place',
                  'simple' => 'This is where you set up a brand-new client in the system.',
                  'what' => 'The onboarding wizard: business identity + niche, services offered, hub office(s), target cities per hub.',
-                 'who' => 'Owner, Agency Admin', 'where' => 'client_wizard.php (5 steps)'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client_wizard.php (5 steps)'],
                 ['step' => 'Auto-draft every page', 'status' => 'in_place',
                  'simple' => 'The system automatically writes a first draft of every page for you.',
                  'what' => "Finishing the wizard immediately AI-drafts a page for every city \u{d7} service combination (real AI cost per page). Nothing publishes yet.",
@@ -292,11 +292,11 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Set the Content Profile', 'status' => 'in_place',
                  'simple' => 'This is where you tell the system how the client wants to sound and what to avoid mentioning.',
                  'what' => "Tone, excluded services, and always-mention/never-mention guardrails — meant to be set before reviewing drafts. Missing fields: structured address, license numbers, hours, years-in-business (see the Product Roadmap tab's Client Setup section).",
-                 'who' => 'Owner, Agency Admin', 'where' => 'client.php → Content Profile tab'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client.php → Content Profile tab'],
                 ['step' => 'Research a city', 'status' => 'in_place',
                  'simple' => "This pulls in real facts about a city so the content isn't generic.",
                  'what' => 'Real Census population lookup — free, runs once per unique city among the pages checked.',
-                 'who' => 'Owner, Agency Admin', 'where' => 'client.php → Locations & Services tab → "Research Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client.php → Locations & Services tab → "Research Selected"'],
             ],
         ],
         [
@@ -305,27 +305,27 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Edit page content by hand', 'status' => 'in_place',
                  'simple' => 'This is where someone can manually change the words on a page.',
                  'what' => 'A field editor per section (hero, intro, steps, FAQ, etc.) plus SEO title/meta/keywords. Editing an already-published page flips its status to "Needs Update" rather than silently leaving it shown as current.',
-                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php'],
                 ['step' => 'Regenerate a page with AI', 'status' => 'in_place',
                  'simple' => "This tells the system to rewrite a page's content from scratch.",
                  'what' => 'Reruns the fixed AI prompt template for one page, or "Generate / Refresh Selected" for many at once — with its own checkboxes for refresh hero image, re-fetch climate data ($), regenerate text ($), and skip locked pages.',
-                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php "Regenerate" button, or client.php → Locations & Services → "Generate / Refresh Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Regenerate" button, or client.php → Locations & Services → "Generate / Refresh Selected"'],
                 ['step' => 'Steer a regenerate with an instruction ("make it shorter")', 'status' => 'needs_adding',
                  'simple' => "This would let someone tell the system exactly how to change the rewrite, like \"make it shorter.\"",
                  'what' => "Doesn't exist — every regenerate reruns the identical fixed prompt, with no free-text instruction field.",
-                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would extend the existing Regenerate control in page_editor.php'],
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would extend the existing Regenerate control in page_editor.php'],
                 ['step' => 'Lock a page', 'status' => 'in_place',
                  'simple' => "This protects a finished page so it can't be accidentally overwritten.",
                  'what' => 'Blocks Regenerate from touching that page. Whole-page only — locking a page locks every section in it.',
-                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php "Lock" toggle (also shown in the Locations & Services Status column)'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Lock" toggle (also shown in the Locations & Services Status column)'],
                 ['step' => 'Lock one section within a page', 'status' => 'needs_adding',
                  'simple' => 'This would let someone protect just one part of a page instead of the whole thing.',
                  'what' => "Doesn't exist — there's no way to protect just the intro while regenerating the rest of the same page.",
-                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would extend page_editor.php'],
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would extend page_editor.php'],
                 ['step' => 'Roll back to a previous version', 'status' => 'needs_adding',
                  'simple' => 'This would let someone undo a change and go back to an earlier version of a page.',
                  'what' => "Doesn't exist — every save overwrites in place. There's no version history and nothing to roll back to.",
-                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would be a new history/diff view on page_editor.php'],
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would be a new history/diff view on page_editor.php'],
                 ['step' => 'Validate content before it can be approved', 'status' => 'needs_adding',
                  'simple' => "This would automatically check a page for mistakes or forbidden wording before it's allowed to go live.",
                  'what' => "Doesn't exist — nothing blocks a page with a banned phrase or a wrong phone number from being approved and published.",
@@ -338,11 +338,11 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Submit for review', 'status' => 'in_place',
                  'simple' => 'This sends a finished page off to be checked before it goes live.',
                  'what' => "Clicking Publish. For Scott's own agency's clients this publishes immediately, no gate. For a real third-party agency's clients it instead enters a two-stage approval queue (approval_stage: pending_platform_review).",
-                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php "Publish" button, or client.php → Locations & Services → "Publish Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Publish" button, or client.php → Locations & Services → "Publish Selected"'],
                 ['step' => 'Platform review — stage 1, real agencies only', 'status' => 'in_place',
                  'simple' => "This is Scott's first check on a page an agency submitted.",
                  'what' => "Scott reviews what an agency submitted. \"Approve → Agency\" advances it to pending_agency_review; \"Reject\" sends it back with a note — the page's own content is untouched, just not live.",
-                 'who' => 'Platform Owner only', 'where' => 'approvals.php'],
+                 'who' => 'Platform Admin only', 'where' => 'approvals.php'],
                 ['step' => 'Agency review — stage 2, real agencies only', 'status' => 'in_place',
                  'simple' => "This is the agency's final sign-off before a page goes live.",
                  'what' => '"Approve & Publish" both clears this stage and actually publishes the page in one step; "Reject" sends it back with a note.',
@@ -354,7 +354,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Bulk-approve the review queue, or filter it by city/service', 'status' => 'needs_adding',
                  'simple' => 'This would let someone approve many pages at once instead of one at a time.',
                  'what' => "Doesn't exist — approvals.php is one row at a time, with no bulk action and no city/service filter.",
-                 'who' => 'Would be: Platform Owner, Agency Admin', 'where' => 'Would extend approvals.php'],
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would extend approvals.php'],
             ],
         ],
         [
@@ -367,15 +367,15 @@ function platform_info_content_workflow_data(): array {
                 ['step' => "Connect the client's WordPress site", 'status' => 'in_place',
                  'simple' => "This is how the client's website gets hooked up to actually display the pages.",
                  'what' => "Download the plugin zip and copy the API key (a built-in compose-email form). Once the client pastes the key into their plugin's settings, the Clients list badge flips to Connected.",
-                 'who' => 'Owner/Agency Admin send it; the client\'s own WP admin installs it', 'where' => 'client.php → Delivery tab; status shown on clients.php'],
+                 'who' => 'Platform Admin/Agency Admin send it; the client\'s own WP admin installs it', 'where' => 'client.php → Delivery tab; status shown on clients.php'],
                 ['step' => "Check what's actually live", 'status' => 'in_place',
                  'simple' => "This double-checks that what's really showing on the client's site matches what it should.",
                  'what' => "Fetches each page's real public URL and compares it against what the data says it should be (hero image, area map, climate chart) — catches a stale CDN cache that a status badge alone would miss.",
-                 'who' => 'Owner, Agency Admin', 'where' => 'client.php → Locations & Services → "Check Live Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client.php → Locations & Services → "Check Live Selected"'],
                 ['step' => 'Take a single page down', 'status' => 'needs_adding',
                  'simple' => 'This would let someone remove just one page without touching the rest of the site.',
                  'what' => "Doesn't exist as a per-page action — the only kill switch today deactivates the client's entire API key, taking every page down at once, not one.",
-                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would extend page_editor.php / Locations & Services'],
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would extend page_editor.php / Locations & Services'],
             ],
         ],
         [
@@ -388,7 +388,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Connect Google Search Console', 'status' => 'in_place',
                  'simple' => "This connects the client's real Google data so you can see actual search traffic numbers.",
                  'what' => 'The client adds a shared service-account email as a Restricted (read-only) user on their own GSC property by hand; an admin pastes the property URL in and a real 28-day click total per page starts showing. No impressions/CTR/position/trend yet.',
-                 'who' => 'Owner/Agency Admin paste the URL; the client grants access', 'where' => 'client.php → Reporting tab'],
+                 'who' => 'Platform Admin/Agency Admin paste the URL; the client grants access', 'where' => 'client.php → Reporting tab'],
                 ['step' => 'Refresh content on a schedule (quarterly/seasonal)', 'status' => 'needs_adding',
                  'simple' => 'This would automatically update page content every so often without anyone having to ask for it.',
                  'what' => "Doesn't exist — nothing regenerates content automatically; every refresh today is manually triggered.",
@@ -400,7 +400,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'See a record of who did what, when', 'status' => 'needs_adding',
                  'simple' => 'This would keep a history log of every change anyone made and when they made it.',
                  'what' => "Doesn't exist — only impersonation start/stop is logged anywhere; content edits, publishes, and deletes leave no trail.",
-                 'who' => 'Would be: Agency Admin (read), Platform Owner', 'where' => 'Would be a new audit log'],
+                 'who' => 'Would be: Agency Admin (read), Platform Admin', 'where' => 'Would be a new audit log'],
             ],
         ],
     ];
@@ -659,7 +659,7 @@ function platform_info_content_workflow_data(): array {
     <p style="font-size:.88rem;line-height:1.7;">
         A role &times; capability matrix comparing what's actually built today against a full feature
         and permissions spec Scott supplied (2026-11-20), which defines a 5-role model &mdash;
-        <strong>Platform Owner</strong>, <strong>Agency Admin</strong>, <strong>Agency Editor</strong>,
+        <strong>Platform Admin</strong>, <strong>Agency Admin</strong>, <strong>Agency Editor</strong>,
         <strong>Client Approver</strong>, <strong>Client Viewer</strong> &mdash; against what the live
         code today only implements as 3 roles (<code>super_admin</code>, <code>agency_admin</code>,
         <code>end_client</code>). Every row below was verified by reading the actual current code, not
@@ -873,7 +873,7 @@ function platform_info_content_workflow_data(): array {
         <li><strong>A third, optional stage</strong> &mdash; <code>pending_client_review</code> &mdash;
             sitting after agency approval and before a page actually goes live.</li>
         <li><strong>Per-client toggle, off by default.</strong> Not every agency wants their client in
-            the loop at all; this is a switch the Owner or Agency Admin flips per client, not a rule
+            the loop at all; this is a switch the Platform Admin or Agency Admin flips per client, not a rule
             forced on everyone. It's also orthogonal to the existing platform/agency gate above &mdash;
             Scott could require client review on one of his own direct clients even though they skip the
             platform/agency stages, and a real agency's client could skip client review even though that
@@ -887,13 +887,13 @@ function platform_info_content_workflow_data(): array {
 
     <h4 style="margin-bottom:4px;">New pieces this would need</h4>
     <ul style="margin:0 0 14px;padding-left:20px;line-height:1.85;font-size:.88rem;">
-        <li><strong>The toggle itself</strong> &mdash; set once per client by the Owner or Agency Admin.
+        <li><strong>The toggle itself</strong> &mdash; set once per client by the Platform Admin or Agency Admin.
             Would live on <code>client.php</code>, most likely the Overview tab next to Billing, the same
             place the other per-client settings already live.</li>
         <li><strong>A new End Client screen, with its own sidebar tab</strong> &mdash; parallel to the
             client's existing Reporting tab, so the client's sidebar would go from one item to two:
             <em>Reporting</em> (what's already there) and <em>Approvals</em> (new), badge-counted the
-            same way the Owner/Agency sidebar already badges their own Approvals queue.</li>
+            same way the Platform Admin/Agency sidebar already badges their own Approvals queue.</li>
         <li><strong>A save handler scoped strictly to that client's own pages</strong> &mdash;
             CSRF-protected, restricted to <code>end_client</code> sessions, only able to act on pages
             already sitting at <code>pending_client_review</code> for their own <code>client_id</code>.
