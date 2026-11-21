@@ -196,6 +196,9 @@ function platform_info_roadmap_data(): array {
                 ['cap' => 'Manage agencies, wholesale pricing, plans', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
                  'simple' => 'This is where Scott sets up new agencies and what they pay.',
                  'detail' => "Can create agencies and set a fee, but there's no actual pricing-tier catalog — just a free-text plan field and a number. Retention/ops convenience for Scott; a free-text plan field works fine for the first handful of agencies."],
+                ['cap' => 'Per-agency approval-gate toggle (on/off)', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                 'simple' => 'This would let Scott turn the two-stage review on or off for one specific agency, instead of it applying the same way to every agency.',
+                 'detail' => "Doesn't exist — every agency currently goes through the identical two-stage gate with no per-agency override. Deliberately Platform-Admin-only, not agency self-service: the whole point is Scott deciding how much oversight a given agency needs, not the agency opting itself out of the check meant to supervise it. Retention: the current uniform gate works fine for a first handful of agencies; this matters once there's a real mix of large/trusted and new/small agencies."],
                 ['cap' => 'Edit niche presets / default banned phrases', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
                  'simple' => 'This is where Scott sets the default rules every industry\'s content has to follow.',
                  'detail' => 'Niche Profiles exist (tone, "AI guardrails" per niche) but there\'s no distinct "default banned phrases" concept separate from that free-text guardrail blob. Must-have to sell: the easy half of the validator story — pairs with the Client Setup section\'s banned-phrases row.'],
@@ -331,6 +334,10 @@ function platform_info_content_workflow_data(): array {
         [
             'title' => 'C — Review & approve',
             'rows' => [
+                ['step' => 'Decide whether an agency requires the approval gate', 'status' => 'needs_adding',
+                 'simple' => 'This would let the Platform Admin turn the two-stage review on or off for one specific agency.',
+                 'what' => "Doesn't exist — every agency currently goes through the identical two-stage gate with no per-agency override. Platform-Admin-only; an agency could never turn this off for itself.",
+                 'who' => 'Would be: Platform Admin only', 'where' => 'Would be a new toggle on admin/agencies.php'],
                 ['step' => 'Validate a page\'s content before it can be approved', 'status' => 'needs_adding',
                  'simple' => "This would automatically check a page for mistakes or forbidden wording before it's allowed to go live.",
                  'what' => "Doesn't exist — nothing blocks a page with a banned phrase or a wrong phone number from being approved and published.",
