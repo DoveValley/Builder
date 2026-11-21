@@ -1,13 +1,10 @@
 <?php
 /**
- * Two-stage content approval queue — Scott reviews first, then the owning
- * agency, before a page actually goes live. Only applies to a real
- * third-party agency's clients; Scott's own direct-sale clients (agency_id
- * 'scotts-agency') publish exactly as they always have, with no gate at
- * all — the whole point of this mechanism is quality control over AGENCIES'
- * output, not friction on Scott's own work (see the north-star note in
- * project memory: the reseller plumbing serves shipping good pages, not
- * the other way around).
+ * Two-stage content approval queue — the Platform Admin reviews first, then
+ * the owning agency, before a page actually goes live. Applies uniformly to
+ * every agency, including the platform's own house agency (agency_id
+ * 'scotts-agency') — no exemptions. Every agency's pages go through the
+ * same two stages before anything publishes.
  *
  * The mechanical state-advance functions below (platform_approve/
  * agency_approve/reject) do NOT check who's calling — same boundary
@@ -20,7 +17,7 @@ function lpc_requires_approval_gate($client_id) {
     $client = lpc_load_client($client_id);
     if (!$client) return false;
     $agencyId = $client['agency_id'] ?? '';
-    return $agencyId !== '' && $agencyId !== 'scotts-agency';
+    return $agencyId !== '';
 }
 
 /**

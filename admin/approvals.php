@@ -61,7 +61,7 @@ $rows  = lpc_list_pages_by_approval_stage($stage, lpc_list_clients_for_current_a
 
     <p style="color:#6b7280;font-size:.85rem;">
         <?= $isSuperAdmin
-            ? 'Pages submitted by an agency, waiting on the platform\'s review before the agency gets a final say. Only applies to real agencies — Scott\'s own direct-sale clients publish with no gate.'
+            ? 'Pages submitted by an agency, waiting on the platform\'s review before the agency gets a final say. Applies to every agency, including the platform\'s own.'
             : 'Pages the platform has already reviewed — your approval here is the last step before they go live.' ?>
     </p>
 

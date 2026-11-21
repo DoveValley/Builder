@@ -104,7 +104,7 @@ function platform_info_roadmap_data(): array {
                  'detail' => 'Two-stage gate: pending_platform_review -> pending_agency_review -> approved.'],
                 ['cap' => 'Client approve / request-changes step (per-client toggle)', 'roles' => 'Client Approver', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'major',
                  'simple' => 'This would let the actual client approve a page before it goes live.',
-                 'detail' => "Doesn't exist — End Client has no approval role today at all. The existing approval gate is all-or-nothing per agency (Scott's own agency skips it, every other agency always goes through it), not a per-client toggle, and the client never participates in it. Must-have to sell: this is the core differentiator in the pitch — agency approves, then the client approves, before anything goes live. Without it there's no real client sign-off, just an agency's word."],
+                 'detail' => "Doesn't exist — End Client has no approval role today at all. The existing approval gate is the same fixed two stages for every agency, not a per-client toggle, and the client never participates in it regardless. Must-have to sell: this is the core differentiator in the pitch — agency approves, then the client approves, before anything goes live. Without it there's no real client sign-off, just an agency's word."],
                 ['cap' => 'Publish / unpublish', 'roles' => 'Platform Admin, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
                  'simple' => 'This is making a page go live, or taking it back down.',
                  'detail' => "Publish exists. There's no per-page unpublish — only deactivating a client's entire API key, which takes every page down at once, not one. Must-have to sell: an agency needs to be able to pull one bad page without killing a client's whole site — the all-or-nothing kill switch isn't a real substitute."],
@@ -337,13 +337,13 @@ function platform_info_content_workflow_data(): array {
             'rows' => [
                 ['step' => 'Submit for review', 'status' => 'in_place',
                  'simple' => 'This sends a finished page off to be checked before it goes live.',
-                 'what' => "Clicking Publish. One agency — the platform's own — is currently exempt and publishes immediately with no gate; every other agency's pages instead enter a two-stage approval queue (approval_stage: pending_platform_review).",
+                 'what' => "Clicking Publish. Every agency's pages, with no exceptions, enter the same two-stage approval queue (approval_stage: pending_platform_review).",
                  'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Publish" button, or client.php → Locations & Services → "Publish Selected"'],
-                ['step' => 'Platform review — stage 1, real agencies only', 'status' => 'in_place',
+                ['step' => 'Platform review — stage 1', 'status' => 'in_place',
                  'simple' => "This is the Platform Admin's first check on a page an agency submitted.",
-                 'what' => "The Platform Admin reviews what an agency submitted. \"Approve → Agency\" advances it to pending_agency_review; \"Reject\" sends it back with a note — the page's own content is untouched, just not live.",
+                 'what' => "The Platform Admin reviews what an agency submitted. \"Approve → Agency\" advances it to pending_agency_review; \"Reject\" sends it back with a note — the page's own content is untouched, just not live. Applies to every agency, with no exceptions.",
                  'who' => 'Platform Admin only', 'where' => 'approvals.php'],
-                ['step' => 'Agency review — stage 2, real agencies only', 'status' => 'in_place',
+                ['step' => 'Agency review — stage 2', 'status' => 'in_place',
                  'simple' => "This is the agency's final sign-off before a page goes live.",
                  'what' => '"Approve & Publish" both clears this stage and actually publishes the page in one step; "Reject" sends it back with a note.',
                  'who' => 'Agency Admin', 'where' => 'approvals.php'],
@@ -582,15 +582,14 @@ function platform_info_content_workflow_data(): array {
             a normal agency row like any other — not a separate code path. If you created a client before
             any of this existed, it already belongs to that agency and nothing changed for it.</li>
     </ul>
-    <h4 style="margin-bottom:4px;">Content approval — real agencies only</h4>
+    <h4 style="margin-bottom:4px;">Content approval — every agency, no exceptions</h4>
     <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
-        <strong>A real agency's pages don't go live until two different people have signed off on
-        them.</strong> Publishing a page for a REAL agency's client doesn't go live immediately — it queues on the
-        <strong>Approvals</strong> screen (sidebar, with a pending count badge): Scott approves first, then
-        that agency approves, and only then does it actually publish. This never applies to Scott's own
-        agency's clients — publishing there works exactly as it always has, no gate, since the whole point
-        is quality control over what an outside agency ships, not friction on direct work. The Pipeline
-        column on the Clients list shows "N awaiting review"/"N rejected" whenever that's actually happening.
+        <strong>A page doesn't go live until two different people have signed off on it — the same rule
+        for every agency, including the platform's own.</strong> Publishing a page doesn't go live
+        immediately — it queues on the <strong>Approvals</strong> screen (sidebar, with a pending count
+        badge): the Platform Admin approves first, then the owning agency approves, and only then does it
+        actually publish. No agency is exempt. The Pipeline column on the Clients list shows "N awaiting
+        review"/"N rejected" whenever that's actually happening.
     </p>
     <h4 style="margin-bottom:4px;">Billing &amp; access</h4>
     <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
@@ -890,12 +889,11 @@ function platform_info_content_workflow_data(): array {
     <h4 style="margin-bottom:4px;">Where this fits in the flow today</h4>
     <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
         <strong>Right now, the client never gets a say before their own pages go live.</strong> Publishing
-        a real third-party agency's client page goes through two stages &mdash;
-        Scott reviews first (<code>pending_platform_review</code>), then the owning agency gives the
-        final sign-off (<code>pending_agency_review</code> &rarr; <code>approved</code> &rarr; live),
-        both on <code>approvals.php</code>. Scott's own direct-sale clients skip this gate entirely and
-        publish immediately. Either way, the End Client never participates &mdash; they only ever see a
-        page after it's already live, on their own read-only Reporting tab.
+        a page goes through two stages, the same for every agency with no exceptions &mdash;
+        the Platform Admin reviews first (<code>pending_platform_review</code>), then the owning agency
+        gives the final sign-off (<code>pending_agency_review</code> &rarr; <code>approved</code> &rarr;
+        live), both on <code>approvals.php</code>. Either way, the End Client never participates &mdash;
+        they only ever see a page after it's already live, on their own read-only Reporting tab.
     </p>
 
     <h4 style="margin-bottom:4px;">The proposed design</h4>
@@ -906,10 +904,10 @@ function platform_info_content_workflow_data(): array {
         <li><strong>Agencies get to choose whether their own clients are involved at all.</strong>
             Per-client toggle, off by default — not every agency wants their client in
             the loop; this is a switch the Platform Admin or Agency Admin flips per client, not a rule
-            forced on everyone. It's also orthogonal to the existing platform/agency gate above &mdash;
-            Scott could require client review on one of his own direct clients even though they skip the
-            platform/agency stages, and a real agency's client could skip client review even though that
-            agency's pages still go through platform + agency review.</li>
+            forced on everyone. It's additive, not a replacement — every client's pages already go
+            through the platform + agency review above regardless of this toggle; turning it on just adds
+            the client's own review as a third stage on top, for the clients where that extra check is
+            wanted.</li>
         <li><strong>The client never sees anything still being worked on.</strong> The client sees only
             what's waiting on them &mdash; never a draft still being worked on internally, never anything
             mid-edit.</li>
