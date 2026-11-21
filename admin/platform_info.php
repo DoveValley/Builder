@@ -337,7 +337,7 @@ function platform_info_content_workflow_data(): array {
             'rows' => [
                 ['step' => 'Submit for review', 'status' => 'in_place',
                  'simple' => 'This sends a finished page off to be checked before it goes live.',
-                 'what' => "Clicking Publish. For Scott's own agency's clients this publishes immediately, no gate. For a real third-party agency's clients it instead enters a two-stage approval queue (approval_stage: pending_platform_review).",
+                 'what' => "Clicking Publish. One agency — the platform's own — is currently exempt and publishes immediately with no gate; every other agency's pages instead enter a two-stage approval queue (approval_stage: pending_platform_review).",
                  'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Publish" button, or client.php → Locations & Services → "Publish Selected"'],
                 ['step' => 'Platform review — stage 1, real agencies only', 'status' => 'in_place',
                  'simple' => "This is Scott's first check on a page an agency submitted.",
