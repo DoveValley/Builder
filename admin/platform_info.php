@@ -26,6 +26,7 @@ $TABS = [
     'roadmap'              => 'PlusCities Product Roadmap',
     'content_workflow'     => 'Content Workflow',
     'client_approval_stage'=> 'Client Approval Stage',
+    'content_flow'         => 'Content Flow',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -408,6 +409,204 @@ function platform_info_content_workflow_data(): array {
                  'simple' => 'This would keep a history log of every change anyone made and when they made it.',
                  'what' => "Doesn't exist — only impersonation start/stop is logged anywhere; content edits, publishes, and deletes leave no trail.",
                  'who' => 'Would be: Agency Admin (read), Platform Admin', 'where' => 'Would be a new audit log'],
+            ],
+        ],
+    ];
+}
+
+/**
+ * Niche-to-SEO-page pipeline — how a niche gets created and how that work
+ * turns into live, ranking-ready pages, across BOTH products. Verified by
+ * reading docs/landing-page-build-process-V1-20260709.md,
+ * docs/niche-brief-and-research.md, docs/lpc-vs-site-factory-boundary.md,
+ * and the real code they describe (2026-11-21) — not carried over from
+ * memory.
+ *
+ * Two separate pipelines, not one shared system: Site Factory (sections
+ * A-G) is the real keyword-research-driven build for niche-fleet sites
+ * (water/mold/pest/appliance-style). LPC (section H) is a lighter
+ * per-client content pipeline with no keyword research of its own. They
+ * share exactly one thing — the Niche Library (section A) — and it's a
+ * one-time copy-in, not a live link: editing the library later does not
+ * retroactively change a niche that already pulled from it.
+ */
+function platform_info_content_flow_data(): array {
+    return [
+        [
+            'title' => 'A — Niche Library (the one shared starting point)',
+            'rows' => [
+                ['step' => 'Draft a reusable niche starter kit', 'status' => 'in_place',
+                 'simple' => 'This is a shared shelf of starter facts about an industry that either product can pull from.',
+                 'what' => "Services/slugs/keyword-pattern catalog, trust-bar phrases, local/seasonal angle, blog topic ideas, custom research fields. Deliberately does NOT hold guardrails or business_descriptor — those stay hand-authored separately on each side, since Site Factory frames itself as a referral network (\"never say our team did the repair\") while LPC frames the client as the one actually doing the work — merging the two would produce factually wrong claims about who performs the work.",
+                 'who' => 'Platform Admin only', 'where' => 'admin/niche_library.php → niche_library/{slug}.json'],
+                ['step' => 'Pull starter facts into a real niche (either product)', 'status' => 'in_place',
+                 'simple' => "This copies the library's starter facts into one specific niche, once.",
+                 'what' => "A one-time copy-in, not a live link — a later library edit does not retroactively change a niche brief or profile that already pulled from it. Same action on both sides: a \"Pull facts from the Niche Library\" button.",
+                 'who' => 'Platform Admin only', 'where' => 'admin/niche_brief_save.php (Site Factory) or admin/niche_profiles_save.php (LPC)'],
+            ],
+        ],
+        [
+            'title' => 'B — Site Factory: niche setup',
+            'rows' => [
+                ['step' => 'Pick a niche ID', 'status' => 'in_place',
+                 'simple' => 'This is naming the industry — and it has to match exactly, or charts silently vanish.',
+                 'what' => "Must exactly match the folder slug under plugins/image-data-chart/niches/{slug}/ — a mismatch doesn't error, it just quietly produces no chart at all.",
+                 'who' => 'Platform Admin', 'where' => 'plugins/image-data-chart/niches/{slug}/, admin/tabs/niche_brief.php'],
+                ['step' => 'Fill out the Niche Brief', 'status' => 'in_place',
+                 'simple' => 'This is where you describe the industry: how it talks, what it offers, and what it can never claim.',
+                 'what' => "Business descriptor, service/customer nouns, offerings, local angle, tone, guardrails (the only place licensing/advertising-rule language lives), research fields, enabled archetypes.",
+                 'who' => 'Platform Admin', 'where' => 'admin/tabs/niche_brief.php → admin/niche_brief_save.php → sites/{id}/multisite/niche_brief.json'],
+                ['step' => 'Compile the brief into the AI block registry', 'status' => 'in_place',
+                 'simple' => 'This turns the brief into the real instructions the AI uses, automatically, every time you save.',
+                 'what' => "Runs on every brief save, so the brief and the registry can never drift out of sync with each other. A shared-library edit to the archetype file does NOT auto-propagate though — each master needs its own manual \"Compile Registry Now.\"",
+                 'who' => 'System — triggered by saving the brief', 'where' => 'multisite/ai/compile.php → ms_ai_compile_master() → sites/{id}/ai_block_types.json'],
+            ],
+        ],
+        [
+            'title' => 'C — Site Factory: the keyword map (fully manual, zero AI)',
+            'rows' => [
+                ['step' => 'Build the keyword map', 'status' => 'in_place',
+                 'simple' => "This is deciding, by hand, what every single page is actually trying to rank for.",
+                 'what' => "One row per service: a primary keyword (the page's real target, drives the URL/H1/title), secondary keywords (variant phrasings woven into the copy, never given their own URL — the rank-and-rent rule), section, tier. Fully manual: no auto-seed, no auto-fill, no AI.",
+                 'who' => 'Platform Admin', 'where' => 'admin/tabs/keywords.php → admin/keywords_save.php → data/keyword_map.json'],
+                ['step' => 'Score candidate cities for expansion', 'status' => 'in_place',
+                 'simple' => 'This is a formula that scores a city using real demand, real difficulty, and real ad value — not a guess.',
+                 'what' => "Demand (search volume, log-scaled) × Winnability (1 − keyword difficulty) × Lead value (CPC), geometric mean, scaled 1-10 — a zero on any one factor sinks the whole score on purpose. Real data from Ahrefs or DataForSEO, separately calibrated per provider since they report very different absolute numbers for the same city. A human decision aid, not an automatic trigger — nothing gets built just because it scored well.",
+                 'who' => 'Platform Admin (decides), System (scores)', 'where' => 'admin/infra/lib/keywords.php (infra_kw_score()), admin/infra/views/cities.php'],
+            ],
+        ],
+        [
+            'title' => 'D — Site Factory: master template + bulk generation',
+            'rows' => [
+                ['step' => 'Build one master landing-page template', 'status' => 'in_place',
+                 'simple' => 'This is designing the one real page that every other page gets cloned from.',
+                 'what' => "The real, fully-built template for one service — every other service's page starts as a clone of this one.",
+                 'who' => 'Platform Admin', 'where' => 'Templates tab'],
+                ['step' => 'Bulk-generate every other service from it', 'status' => 'in_place',
+                 'simple' => 'This clones the master page for every other service automatically, and double-checks its own work first.',
+                 'what' => "Case-aware find/replace pairs (e.g. cockroach→termite) clone the master to every other service. A dry-run pass flags leftover subject words or missing images before anything is actually committed.",
+                 'who' => 'Platform Admin', 'where' => 'admin/templates_save.php (bulk_generate action)'],
+                ['step' => 'Branch off real archetypes where intent differs', 'status' => 'in_place',
+                 'simple' => "This builds a genuinely different page shape for services that aren't just a word-swap of the master.",
+                 'what' => "Inspection pages, category/plans pages, etc. — built directly off the master skeleton for structure, but with their own prompt logic, not forced through the same find/replace as a same-shaped service.",
+                 'who' => 'Platform Admin', 'where' => 'multisite/ai/archetypes.json, enabled_archetypes[] on the niche brief'],
+                ['step' => 'Sync keywords and cross-links onto every template', 'status' => 'in_place',
+                 'simple' => 'This makes sure every cloned page actually got the right keywords and links, not just the master\'s.',
+                 'what' => "Secondary keywords from the keyword map get synced onto every template's seo.secondary_keywords; related-service cross-links get re-synced from templates.json. Documented as a recurring drift risk if a template is added later and this step is skipped.",
+                 'who' => 'Platform Admin', 'where' => 'Templates tab'],
+            ],
+        ],
+        [
+            'title' => 'E — Site Factory: cities & real research',
+            'rows' => [
+                ['step' => 'Add target cities', 'status' => 'in_place',
+                 'simple' => 'This is picking which real towns get a page.',
+                 'what' => "Geocoding (lat/lng via OpenStreetMap) always runs first regardless of niche settings — schema needs real coordinates either way.",
+                 'who' => 'Platform Admin', 'where' => 'Landing Cities tab, or the Batch tab\'s multisite flow'],
+                ['step' => 'Run AI research per city', 'status' => 'in_place',
+                 'simple' => "This has the AI go research real facts about each city instead of inventing generic filler.",
+                 'what' => "Claude researches real facts per city (industries, top employers, market blurb, local note). Self-deciding: a never-researched city gets a full pass; an already-researched city is only re-asked for what's missing, and a field declined twice is left alone for good. Stored once on the master, reused free by every domain cloned from it.",
+                 'who' => 'System (Claude), triggered by Platform Admin', 'where' => 'generate.py --research-only (run_research_step())'],
+                ['step' => 'Pull real government climate data', 'status' => 'in_place',
+                 'simple' => "This gets real weather data from the government instead of letting the AI guess numbers.",
+                 'what' => "NOAA 1991-2020 Climate Normals, fetched directly — never sent to the AI as something to guess, specifically so the model can't fabricate numbers next to a cited government source.",
+                 'who' => 'System (automatic)', 'where' => 'noaa_normals.py'],
+                ['step' => 'Verify neighborhood names', 'status' => 'in_place',
+                 'simple' => "This double-checks real neighborhood names instead of trusting whatever the AI assumes.",
+                 'what' => "OpenStreetMap first (free); a targeted Claude follow-up only for whatever OSM couldn't resolve.",
+                 'who' => 'System (automatic)', 'where' => 'sync_osm_neighborhoods()'],
+            ],
+        ],
+        [
+            'title' => 'F — Site Factory: page generation (two passes, in order)',
+            'rows' => [
+                ['step' => 'Generate page structure (no AI, no cost)', 'status' => 'in_place',
+                 'simple' => 'This creates the empty shell of every page first, before spending anything on AI.',
+                 'what' => "Clones the template per city, resolves placeholders like {city}/{state}, writes one page file per city×template, rebuilds the page index.",
+                 'who' => 'Platform Admin triggers; System executes', 'where' => 'includes/generation/engine.php (generate_city_pages()), admin/generate.php'],
+                ['step' => 'Clean up orphan pages', 'status' => 'in_place',
+                 'simple' => 'This deletes leftover page files from templates that no longer exist, before paying to fill them with content.',
+                 'what' => "Stale page files from removed templates are cleared before the AI content pass, so they don't pollute the page index or waste AI spend.",
+                 'who' => 'System (automatic)', 'where' => 'includes/generation/engine.php'],
+                ['step' => 'Generate AI content per page', 'status' => 'in_place',
+                 'simple' => 'This is the AI actually writing the real words on every page.',
+                 'what' => "Fills every AI block from the niche's own prompt registry — roughly $0.20/city for a 30-page set. force_locked wipes existing content without refilling, so it's not safe to use at scale on an already-filled site.",
+                 'who' => 'Platform Admin triggers; System (Claude) executes', 'where' => 'generate.py, admin/ai_generate.php'],
+                ['step' => 'Generate blog posts (optional, per domain)', 'status' => 'in_place',
+                 'simple' => "This writes real blog posts, but only publishes the ones that actually pass a quality check.",
+                 'what' => "About 25 hand-authored topics per niche, 3 posts per domain, Haiku model (Sonnet's default thinking burned the token budget on this prompt in testing). A real quality check (word count, keyword-stuffing cap, banned-overclaim phrases) gates auto-publish — a post that fails stays a draft, never force-published.",
+                 'who' => 'System (Claude), triggered by Platform Admin', 'where' => 'generate_blog_posts() in generate.py'],
+            ],
+        ],
+        [
+            'title' => 'G — Site Factory: anti-duplicate variance, SEO check, deploy',
+            'rows' => [
+                ['step' => 'Rotate visuals and structure fleet-wide', 'status' => 'in_place',
+                 'simple' => "This makes sure a hundred domains built from the same master don't all look like obvious copies to Google.",
+                 'what' => "Color/logo pool, photo variation, block-order variance, CSS class-name rotation, schema key-order reordering — all automatic on every batch build.",
+                 'who' => 'System (automatic on batch builds)', 'where' => 'Gen-Visual / Gen-Image / Gen-Mod tabs'],
+                ['step' => 'Run the SEO gate', 'status' => 'in_place',
+                 'simple' => 'This automatically checks that every page is actually set up to rank before it goes out.',
+                 'what' => "Checks: primary keyword in every H1, exactly one H1 per page, title leads with the keyword (not just contains it), titles/meta descriptions present and not duplicated, schema types unchanged, canonical points at the site's own domain. Reports only today — it flags problems, it doesn't block a bad build yet.",
+                 'who' => 'System (automatic on batch builds)', 'where' => 'includes/multisite/seo_gate.php'],
+                ['step' => 'Build the static site', 'status' => 'in_place',
+                 'simple' => "This turns everything above into the real HTML files that actually get served.",
+                 'what' => "Real static HTML generation, with schema.org JSON-LD (FAQPage/sameAs/BlogPosting) resolved fresh from the page's actual current content every time — never stale, never a fabricated rating or address.",
+                 'who' => 'Platform Admin triggers; System executes', 'where' => 'includes/static_build.php, includes/schema.php'],
+                ['step' => 'Deploy to the live host', 'status' => 'in_place',
+                 'simple' => 'This pushes the finished site to the real server where visitors and Google actually see it.',
+                 'what' => "FTP or SFTP push to the live host, driven by each site's own deploy config.",
+                 'who' => 'Platform Admin', 'where' => 'includes/multisite/deploy.php, admin/batch.php'],
+                ['step' => 'Real-world QA before go-live', 'status' => 'in_place',
+                 'simple' => "This is a human double-checking the page actually works well in the real world, not just in our own code.",
+                 'what' => "Manual, not code-enforced: PageSpeed Insights 90+, Google Rich Results Test, Mobile-Friendly check, Search Console sitemap submission + indexing request, internal link crawl. Off-page signals (backlinks, citations, Google Business Profile) are explicitly called out as outweighing everything else here for local-service ranking, and none of this tooling does anything for those.",
+                 'who' => 'Platform Admin', 'where' => 'Manual — Google\'s own tools'],
+            ],
+        ],
+        [
+            'title' => 'H — LPC: one client\'s niche profile to one live page',
+            'rows' => [
+                ['step' => 'Create a reusable Niche Profile', 'status' => 'in_place',
+                 'simple' => "This is the lighter LPC version of a niche brief: tone, rules, and what each section of a page should cover.",
+                 'what' => "Tone, guardrails (industry-accuracy/safety rules — never referral-network framing, since an LPC client does their own work), six content-slot instructions, default service list, trust-bar items. Agencies can't edit this — Platform Admin only.",
+                 'who' => 'Platform Admin only', 'where' => 'admin/niche_profiles.php'],
+                ['step' => "Match a new client to a niche profile", 'status' => 'in_place',
+                 'simple' => "This automatically figures out which industry template a new client belongs to.",
+                 'what' => "Plain substring match against whatever industry category the new client typed in the onboarding wizard.",
+                 'who' => 'System (automatic)', 'where' => 'lpc_match_niche_profile()'],
+                ['step' => 'Pull in real per-city facts', 'status' => 'in_place',
+                 'simple' => "This gets real government population/income/housing data for the client's city instead of letting the AI guess.",
+                 'what' => "Real US Census data — population, median income, home value, homeownership rate, housing stock — not AI-guessed, not the same per-master research file Site Factory uses (a deliberate, separate data source).",
+                 'who' => 'System (automatic)', 'where' => 'lpc_get_city_research(), admin/infra/lib/census.php'],
+                ['step' => "Generate one page's content", 'status' => 'in_place',
+                 'simple' => "This is the actual moment the AI writes a specific page, using the niche profile and the real city facts together.",
+                 'what' => "System prompt (descriptor/guardrails/tone/a hard never-invent-a-fact rule) + user prompt (primary/secondary keywords, the real city fact block, per-slot guidance from the niche profile) sent to Claude. Phone number and image are never AI-generated — both filled from real data afterward, and the page title is forced to lead with the primary keyword.",
+                 'who' => 'Platform Admin, Agency Admin trigger it; System (Claude) generates', 'where' => 'lpc_generate_page_content(), includes/landing_page_clients_ai.php'],
+            ],
+        ],
+        [
+            'title' => 'I — What actually makes any of this rank',
+            'rows' => [
+                ['step' => 'Real facts, never invented', 'status' => 'in_place',
+                 'simple' => "Both products explicitly tell the AI to use only verified real data, or say plainly that none exists — never make something up.",
+                 'what' => "Enforced as a hard rule in both AI prompts: never invent a phone number, address, review count, or statistic. Government/authoritative sources (Census, NOAA) are fetched directly rather than asked of the AI specifically so it can't fabricate a number next to a cited real source.",
+                 'who' => 'n/a (built into every prompt)', 'where' => 'Both AI pipelines'],
+                ['step' => 'Schema.org structured data resolved fresh, every time', 'status' => 'in_place',
+                 'simple' => "The hidden markup that helps Google understand a page is rebuilt from the page's real current content, never left stale.",
+                 'what' => "FAQPage/sameAs/BlogPosting schema resolved at render time from the page's actual live content — never a fabricated rating or address, and never out of sync with what a visitor actually sees.",
+                 'who' => 'n/a (automatic)', 'where' => 'includes/schema.php'],
+                ['step' => 'Internal links only point to pages that actually exist', 'status' => 'in_place',
+                 'simple' => "A link to another page only appears if that page is actually real on this exact site — never a guess, never a dead link.",
+                 'what' => "Related-service and related-city links are checked against the domain's real, currently-built page set at render time — if a page wasn't built for this domain, the link to it simply doesn't render.",
+                 'who' => 'n/a (automatic)', 'where' => 'plugins/related_links, plugins/services_links'],
+                ['step' => 'Real, unique images — not stock photos', 'status' => 'in_place',
+                 'simple' => "Each city gets a real, correct photo of itself and its own unique data chart, not a generic stock image reused everywhere.",
+                 'what' => "A real, geo-correct, freely-licensed city photo (Wikimedia Commons) plus genuinely unique per-city data visualizations — incidentally also avoids duplicate alt text across pages.",
+                 'who' => 'n/a (automatic)', 'where' => 'plugins/city-image, plugins/image-data-chart, plugins/image-area-map'],
+                ['step' => "Anti-duplicate-content machinery, fleet-wide", 'status' => 'in_place',
+                 'simple' => "A hundred sites built from the same master don't read as obvious copies of each other to Google.",
+                 'what' => "Color/logo rotation, photo treatment variance, block-order variance, CSS class-name rotation, schema key-order shuffling — all automatic across every batch build.",
+                 'who' => 'n/a (automatic)', 'where' => 'Gen-Visual / Gen-Image / Gen-Mod tabs'],
             ],
         ],
     ];
@@ -881,6 +1080,88 @@ function platform_info_content_workflow_data(): array {
         document.getElementById('wf-filter-count').textContent = shown + ' of ' + total + ' steps shown';
     }
     lpcWorkflowFilter();
+    </script>
+<?php endif; ?>
+
+<?php if ($tab === 'content_flow'): ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">From "niche doesn't exist yet" to live, ranking-ready pages</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        Every step needed to create a niche with real research and real keywords, and turn that into
+        live pages built to actually rank &mdash; across <strong>both</strong> products. Verified by
+        reading <code>docs/landing-page-build-process-V1-20260709.md</code>,
+        <code>docs/niche-brief-and-research.md</code>, <code>docs/lpc-vs-site-factory-boundary.md</code>,
+        and the real code they describe (2026-11-21), not carried over from memory.
+    </p>
+    <p style="font-size:.88rem;line-height:1.7;">
+        <strong>These are two separate pipelines, not one shared system.</strong> Site Factory (sections
+        B-G) is the real keyword-research-driven build for niche-fleet sites. LPC (section H) is a
+        lighter per-client content pipeline with no keyword research of its own. They share exactly one
+        thing &mdash; the Niche Library (section A) &mdash; and it's a one-time copy-in, not a live link:
+        editing the library later does not retroactively change a niche that already pulled from it.
+    </p>
+    <div class="lpc-roadmap-filters">
+        <span><label for="cf-filter-status">Status</label>
+            <select id="cf-filter-status" onchange="lpcContentFlowFilter()">
+                <option value="">All</option>
+                <option value="in_place">In Place</option>
+                <option value="needs_adding">Needs to Be Added</option>
+            </select>
+        </span>
+        <span class="lpc-roadmap-count" id="cf-filter-count"></span>
+    </div>
+    <?php $cfStepN = 0; ?>
+    <?php foreach (platform_info_content_flow_data() as $section): ?>
+        <h4 class="lpc-cf-section" style="margin:22px 0 8px;font-family:'Space Grotesk',sans-serif;color:#1e3a5f;"><?= h($section['title']) ?></h4>
+        <table class="lpc-table lpc-wf-table lpc-cf-table" style="margin-bottom:8px;">
+            <thead><tr>
+                <th style="width:3%;">#</th>
+                <th style="width:20%;">Step</th>
+                <th style="width:9%;">Status</th>
+                <th style="width:30%;">What it is</th>
+                <th style="width:17%;">Who does it</th>
+                <th>Where in the app</th>
+            </tr></thead>
+            <tbody>
+            <?php foreach ($section['rows'] as $r): $cfStepN++; ?>
+                <tr data-status="<?= h($r['status']) ?>">
+                    <td class="lpc-wf-step-n"><?= $cfStepN ?></td>
+                    <td class="lpc-wf-step"><?= h($r['step']) ?></td>
+                    <td>
+                        <span class="lpc-roadmap-status lpc-roadmap-status-<?= $r['status'] === 'in_place' ? 'complete' : 'todo' ?>">
+                            <?= $r['status'] === 'in_place' ? 'In Place' : 'Needs to Be Added' ?>
+                        </span>
+                    </td>
+                    <td class="lpc-wf-what"><strong><?= h($r['simple']) ?></strong> <?= h($r['what']) ?></td>
+                    <td class="lpc-wf-who"><?= h($r['who']) ?></td>
+                    <td class="lpc-wf-where"><?= h($r['where']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endforeach; ?>
+    <script>
+    function lpcContentFlowFilter() {
+        var status = document.getElementById('cf-filter-status').value;
+        var tables = document.querySelectorAll('.lpc-cf-table');
+        var shown = 0, total = 0;
+        tables.forEach(function (table) {
+            var visibleRows = 0;
+            table.querySelectorAll('tbody tr').forEach(function (row) {
+                total++;
+                var match = !status || row.dataset.status === status;
+                row.style.display = match ? '' : 'none';
+                if (match) { visibleRows++; shown++; }
+            });
+            var heading = table.previousElementSibling;
+            var show = visibleRows > 0;
+            table.style.display = show ? '' : 'none';
+            if (heading && heading.classList.contains('lpc-cf-section')) {
+                heading.style.display = show ? '' : 'none';
+            }
+        });
+        document.getElementById('cf-filter-count').textContent = shown + ' of ' + total + ' steps shown';
+    }
+    lpcContentFlowFilter();
     </script>
 <?php endif; ?>
 
