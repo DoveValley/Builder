@@ -589,14 +589,16 @@ function platform_info_content_workflow_data(): array {
             a normal agency row like any other — not a separate code path. If you created a client before
             any of this existed, it already belongs to that agency and nothing changed for it.</li>
     </ul>
-    <h4 style="margin-bottom:4px;">Content approval — every agency, no exceptions</h4>
+    <h4 style="margin-bottom:4px;">Content approval — on by default, per-agency toggle</h4>
     <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
-        <strong>A page doesn't go live until two different people have signed off on it — the same rule
-        for every agency, including the platform's own.</strong> Publishing a page doesn't go live
-        immediately — it queues on the <strong>Approvals</strong> screen (sidebar, with a pending count
-        badge): the Platform Admin approves first, then the owning agency approves, and only then does it
-        actually publish. No agency is exempt. The Pipeline column on the Clients list shows "N awaiting
-        review"/"N rejected" whenever that's actually happening.
+        <strong>A page doesn't go live until two different people have signed off on it — unless the
+        Platform Admin has turned that off for a specific agency.</strong> Publishing a page doesn't go
+        live immediately — it queues on the <strong>Approvals</strong> screen (sidebar, with a pending
+        count badge): the Platform Admin approves first, then the owning agency approves, and only then
+        does it actually publish. This defaults on for every agency, including the platform's own, but
+        it's a real per-agency switch on the <strong>Settings</strong> screen (sidebar) — not a hardcoded
+        rule, and never something an agency can set for itself. The Pipeline column on the Clients list
+        shows "N awaiting review"/"N rejected" whenever that's actually happening.
     </p>
     <h4 style="margin-bottom:4px;">Billing &amp; access</h4>
     <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
