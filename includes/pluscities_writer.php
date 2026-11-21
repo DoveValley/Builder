@@ -38,6 +38,25 @@ function pluscities_extract_fact_ids(string $body): array
 }
 
 /**
+ * A tag citing a fact that was never offered is a model-invented citation —
+ * real failure mode, confirmed in testing (the model fabricated a plausible
+ * second fact, with a fake id, rather than leaving it out). Silently
+ * stripping the bad tag and keeping the surrounding sentence would leave an
+ * ungrounded claim in the rendered prose once the tag disappears at render,
+ * exactly what the writer contract exists to prevent — so this is checked as
+ * a hard failure, not cleaned up quietly.
+ *
+ * @return string|null null if every cited tag is valid; otherwise the first invalid id found
+ */
+function pluscities_find_invented_tag(string $body, array $validIds): ?string
+{
+    foreach (pluscities_extract_fact_ids($body) as $tag) {
+        if (!in_array($tag, $validIds, true)) return $tag;
+    }
+    return null;
+}
+
+/**
  * Writes one AI-authored (editable) block, grounded in up to two allowed
  * sources per spec Section 4: fact cards (need a [[fact_id]] tag on every
  * specific claim) and the client's own profile (stated directly, no tag —
@@ -76,32 +95,48 @@ function pluscities_write_editable_block(string $block_type, string $heading_hin
         . "1) Externally-sourced facts — EVERY specific claim (a number, a rule, a name, a date, a "
         . "requirement) you state from these must be immediately followed by its [[fact_id]] tag, copied "
         . "exactly as shown:\n$factList\n"
-        . "2) The client's own facts about themselves — state these directly, no tag needed (they're not "
-        . "an external source to cite):\n$clientFactList\n"
-        . "Do not state any specific fact that isn't in one of these two lists. General, non-specific "
-        . "sentences (e.g. \"our technicians can help\") need no tag."
+        . "2) The client's own facts about themselves — state these directly, in plain text, NEVER inside "
+        . "[[ ]] brackets (that bracket syntax is reserved only for the externally-sourced fact_ids in "
+        . "list 1 above, nothing else — do not bracket a license number, a phone number, or any other "
+        . "client fact):\n$clientFactList\n"
+        . "Do not state any specific fact that isn't in one of these two lists — if something relevant "
+        . "isn't in either list, leave it out entirely rather than adding a plausible-sounding fact of "
+        . "your own. Only tag ids copied exactly from the list above are ever accepted; a tag naming "
+        . "anything else fails this generation outright. General, non-specific sentences (e.g. \"our "
+        . "technicians can help\") need no tag."
         . ($bannedList ? ' Never use these exact phrases: ' . implode(', ', $bannedList) . '.' : '') . "\n\n"
-        . "Reply as JSON only, no markdown fences: {\"heading\": \"...\", \"body\": \"... [[fact_id]] ...\"}";
+        // The [[fact_id]] in this example is a FORMAT illustration, not literal
+        // text to copy — confirmed in testing that with an empty fact list the
+        // model sometimes echoes the placeholder itself. Show a format with no
+        // bracket at all when there's nothing to cite, so there's no
+        // placeholder for it to latch onto.
+        . ($fact_cards
+            ? "Reply as JSON only, no markdown fences: {\"heading\": \"...\", \"body\": \"... [[an id copied from list 1]] ...\"}"
+            : "Reply as JSON only, no markdown fences: {\"heading\": \"...\", \"body\": \"...\"} — no [[ ]] brackets at all, there's nothing to cite.");
 
-    $res = anthropic_message($prompt, ['max_tokens' => 500]);
-    if (!($res['ok'] ?? false)) {
-        return ['ok' => false, 'msg' => $res['error'] ?? 'Writer call failed.', 'content' => null, 'fact_ids' => []];
-    }
-    $raw  = preg_replace('/^```(?:json)?\s*|\s*```$/i', '', trim((string) $res['text']));
-    $json = json_decode(trim($raw), true);
-    if (!is_array($json) || empty($json['body'])) {
-        return ['ok' => false, 'msg' => 'Writer did not return usable content.', 'content' => null, 'fact_ids' => []];
-    }
-
-    $factIds = pluscities_extract_fact_ids((string) $json['body']);
-    // Only facts actually offered can be cited — a tag the model invented
-    // (wrong id, or one not in this call's fact list) is not trusted as a
-    // real citation, matching the "nothing from the model's own knowledge"
-    // rule applied to the tags themselves, not just the prose.
     $validIds = array_column($fact_cards, 'id');
-    $factIds  = array_values(array_intersect($factIds, $validIds));
-
-    return ['ok' => true, 'msg' => '', 'content' => ['heading' => (string) $json['heading'], 'body' => (string) $json['body']], 'fact_ids' => $factIds];
+    // One retry: a model hallucinating a second, plausible-sounding fact is
+    // confirmed in testing, not hypothetical — silently stripping the bad tag
+    // would leave the surrounding ungrounded sentence in the rendered prose
+    // once the tag disappears at render, so this is a hard failure + retry,
+    // not a cleanup.
+    for ($attempt = 1; $attempt <= 2; $attempt++) {
+        $res = anthropic_message($prompt, ['max_tokens' => 500]);
+        if (!($res['ok'] ?? false)) {
+            return ['ok' => false, 'msg' => $res['error'] ?? 'Writer call failed.', 'content' => null, 'fact_ids' => []];
+        }
+        $raw  = preg_replace('/^```(?:json)?\s*|\s*```$/i', '', trim((string) $res['text']));
+        $json = json_decode(trim($raw), true);
+        if (!is_array($json) || empty($json['body'])) {
+            return ['ok' => false, 'msg' => 'Writer did not return usable content.', 'content' => null, 'fact_ids' => []];
+        }
+        $invented = pluscities_find_invented_tag((string) $json['body'], $validIds);
+        if ($invented === null) {
+            $factIds = array_values(array_intersect(pluscities_extract_fact_ids((string) $json['body']), $validIds));
+            return ['ok' => true, 'msg' => '', 'content' => ['heading' => (string) $json['heading'], 'body' => (string) $json['body']], 'fact_ids' => $factIds];
+        }
+    }
+    return ['ok' => false, 'msg' => 'The writer cited a fact it was never given (' . $invented . ') twice in a row — refusing to accept it rather than silently dropping the claim.', 'content' => null, 'fact_ids' => []];
 }
 
 /**
@@ -126,26 +161,37 @@ function pluscities_write_faq_block(array $fact_cards, array $client_facts, arra
         . "City: {$context['city_label']}. Service: {$context['service_label']}. Business: {$context['business_name']}.\n\n"
         . "At least one question must be answered using one of these city-specific facts (tag the claim "
         . "with its [[fact_id]], copied exactly):\n$factList\n"
-        . "The client's own facts, stated directly, no tag needed:\n$clientFactList\n"
+        . "The client's own facts, stated directly in plain text, NEVER inside [[ ]] brackets (that "
+        . "bracket syntax is reserved only for the fact ids above):\n$clientFactList\n"
         . "The rest may be general service questions needing no specific fact at all. Never state a "
-        . "specific fact that isn't in one of the two lists above."
+        . "specific fact that isn't in one of the two lists above — if nothing relevant is available, leave "
+        . "it out rather than adding a plausible-sounding fact of your own. Only tag ids copied exactly "
+        . "from the list above are ever accepted; any other tag fails this generation outright."
         . ($bannedList ? ' Never use these exact phrases: ' . implode(', ', $bannedList) . '.' : '') . "\n\n"
         . "Reply as JSON only, no markdown fences: {\"faqs\": [{\"question\": \"...\", \"answer\": \"... [[fact_id]] ...\"}]}";
 
-    $res = anthropic_message($prompt, ['max_tokens' => 600]);
-    if (!($res['ok'] ?? false)) return ['ok' => false, 'msg' => $res['error'] ?? 'Writer call failed.', 'content' => null, 'fact_ids' => []];
-    $raw  = preg_replace('/^```(?:json)?\s*|\s*```$/i', '', trim((string) $res['text']));
-    $json = json_decode(trim($raw), true);
-    if (!is_array($json) || empty($json['faqs'])) return ['ok' => false, 'msg' => 'Writer did not return usable FAQ content.', 'content' => null, 'fact_ids' => []];
-
     $validIds = array_column($fact_cards, 'id');
-    $allFactIds = [];
-    foreach ($json['faqs'] as &$faq) {
-        $used = array_values(array_intersect(pluscities_extract_fact_ids((string) ($faq['answer'] ?? '')), $validIds));
-        $allFactIds = array_merge($allFactIds, $used);
+    for ($attempt = 1; $attempt <= 2; $attempt++) {
+        $res = anthropic_message($prompt, ['max_tokens' => 600]);
+        if (!($res['ok'] ?? false)) return ['ok' => false, 'msg' => $res['error'] ?? 'Writer call failed.', 'content' => null, 'fact_ids' => []];
+        $raw  = preg_replace('/^```(?:json)?\s*|\s*```$/i', '', trim((string) $res['text']));
+        $json = json_decode(trim($raw), true);
+        if (!is_array($json) || empty($json['faqs'])) return ['ok' => false, 'msg' => 'Writer did not return usable FAQ content.', 'content' => null, 'fact_ids' => []];
+
+        $invented = null;
+        foreach ($json['faqs'] as $faq) {
+            $invented = pluscities_find_invented_tag((string) ($faq['answer'] ?? ''), $validIds);
+            if ($invented !== null) break;
+        }
+        if ($invented === null) {
+            $allFactIds = [];
+            foreach ($json['faqs'] as $faq) {
+                $allFactIds = array_merge($allFactIds, array_intersect(pluscities_extract_fact_ids((string) ($faq['answer'] ?? '')), $validIds));
+            }
+            return ['ok' => true, 'msg' => '', 'content' => ['faqs' => $json['faqs']], 'fact_ids' => array_values(array_unique($allFactIds))];
+        }
     }
-    unset($faq);
-    return ['ok' => true, 'msg' => '', 'content' => ['faqs' => $json['faqs']], 'fact_ids' => array_values(array_unique($allFactIds))];
+    return ['ok' => false, 'msg' => 'The writer cited a fact it was never given (' . $invented . ') twice in a row — refusing to accept it rather than silently dropping the claim.', 'content' => null, 'fact_ids' => []];
 }
 
 /**
@@ -192,7 +238,7 @@ function pluscities_write_service_area_block(array $client, array $page, array $
 function pluscities_write_automatic_block(string $block_type, array $dataset, array $context): array
 {
     $prompt = "Write ONE short, general sentence (no specific numbers, no specific claims) introducing a "
-        . "local climate/housing data section for {$context['city_label']}, for a " . $context['service_label']
+        . "local housing-stock data section for {$context['city_label']}, for a " . $context['service_label']
         . " business's landing page. Reply as plain text, one sentence only, no JSON, no quotes.";
     $res = anthropic_message($prompt, ['max_tokens' => 80]);
     $intro = ($res['ok'] ?? false) ? trim((string) $res['text']) : '';
@@ -223,13 +269,25 @@ function pluscities_render_block(array $block_row): string
         return $html . '</section>';
     }
 
-    if ($block_row['block_type'] === 'climate_data') {
-        $html = '<section class="lpc-climate-data"><h3>Local Climate</h3>';
+    if ($block_row['block_type'] === 'housing_stock') {
+        // Human-readable labels, not raw field names — "income_median: 146158"
+        // reads as a debug dump, not content; real SEO value comes from
+        // genuine local specificity read as a sentence, not a key/value list.
+        $labels = [
+            'income_median'     => 'Median household income',
+            'home_value_median' => 'Median home value',
+            'year_built_median' => 'Median year homes were built',
+            'homeownership_pct' => 'Homeownership rate',
+        ];
+        $html = '<section class="lpc-housing-stock"><h3>Local Housing Stock</h3>';
         if (!empty($content['intro'])) $html .= '<p>' . htmlspecialchars($content['intro']) . '</p>';
         $html .= '<ul>';
         foreach ($content['dataset_values'] ?? [] as $k => $v) {
             if ($v === null) continue;
-            $html .= '<li>' . htmlspecialchars($k) . ': ' . htmlspecialchars((string) $v) . '</li>';
+            $label = $labels[$k] ?? $k;
+            $display = $k === 'income_median' || $k === 'home_value_median' ? '$' . number_format((float) $v)
+                : ($k === 'homeownership_pct' ? number_format((float) $v, 1) . '%' : (string) $v);
+            $html .= '<li>' . htmlspecialchars($label) . ': ' . htmlspecialchars($display) . '</li>';
         }
         return $html . '</ul><p class="lpc-source">Source: US Census ACS 5-Year Estimates</p></section>';
     }

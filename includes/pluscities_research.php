@@ -82,6 +82,30 @@ function pluscities_fact_card_row_decode(array $row): array
 }
 
 /**
+ * Extracts plain text from a fetched PDF via `pdftotext` (poppler-utils) —
+ * shelling out to an available system tool, same spirit as the fleet's own
+ * NOAA python3 subprocess bridge, rather than pulling in a PHP PDF library
+ * for one conversion. @return array{0:?string,1:string} [text, source title]
+ */
+function pluscities_extract_pdf_text(string $pdfBytes, string $sourceUrl): array
+{
+    $tmp = tempnam(sys_get_temp_dir(), 'pcpdf_');
+    file_put_contents($tmp, $pdfBytes);
+    $text = shell_exec('pdftotext -layout ' . escapeshellarg($tmp) . ' - 2>/dev/null');
+    // PDF metadata title, if set — falls back to the URL's filename otherwise,
+    // since PDFs often lack a meaningful <title>-equivalent.
+    $infoRaw = shell_exec('pdfinfo ' . escapeshellarg($tmp) . ' 2>/dev/null');
+    unlink($tmp);
+
+    $title = basename(parse_url($sourceUrl, PHP_URL_PATH) ?: $sourceUrl);
+    if ($infoRaw && preg_match('/^Title:\s*(.+)$/m', $infoRaw, $m) && trim($m[1]) !== '') {
+        $title = trim($m[1]);
+    }
+    if (!is_string($text) || trim($text) === '') return [null, $title];
+    return [trim(preg_replace('/\s+/', ' ', $text)), $title];
+}
+
+/**
  * Researches ONE fact card from a real, already-fetched source page — never
  * from the model's own knowledge. $sourceUrl is the candidate page to fetch;
  * Phase 1 passes one known-good URL per topic by hand (finding the right
@@ -96,30 +120,41 @@ function pluscities_research_run(string $scope, string $scope_key, string $topic
     // infra_http() is built for JSON APIs and doesn't follow redirects — real
     // city/county sites redirect their own pages often enough that one hop
     // needs handling here rather than growing that shared, generic client for
-    // this one caller's need.
-    $fetch = infra_http('GET', $sourceUrl, ['timeout' => 20, 'capture_headers' => true]);
+    // this one caller's need. A real User-Agent is also required — confirmed
+    // in testing that energy.gov (and likely other government CDN-fronted
+    // sites) returns a flat 403 to a request with no UA at all.
+    $uaHeader = ['User-Agent: Mozilla/5.0 (compatible; PlusCitiesResearchBot/1.0)'];
+    $fetch = infra_http('GET', $sourceUrl, ['timeout' => 20, 'capture_headers' => true, 'headers' => $uaHeader]);
     if (in_array($fetch['code'], [301, 302, 303, 307, 308], true) && !empty($fetch['headers']['location'])) {
         $redirectUrl = $fetch['headers']['location'];
         if (!preg_match('#^https?://#i', $redirectUrl)) {
             $parts = parse_url($sourceUrl);
             $redirectUrl = $parts['scheme'] . '://' . $parts['host'] . '/' . ltrim($redirectUrl, '/');
         }
-        $fetch = infra_http('GET', $redirectUrl, ['timeout' => 20]);
+        $fetch = infra_http('GET', $redirectUrl, ['timeout' => 20, 'headers' => $uaHeader]);
     }
     if ($fetch['code'] !== 200 || $fetch['raw'] === '') {
         return ['ok' => false, 'msg' => 'Could not fetch ' . $sourceUrl . ' (HTTP ' . $fetch['code'] . ')', 'card' => null];
     }
 
-    // Strip tags/scripts to plain text — the model is grounded in this text
-    // only, per the writer/research contract's "nothing from the model's own
-    // knowledge" rule. A rough strip is enough for Phase 1's one page.
-    $text = preg_replace('/<(script|style)\b[^>]*>.*?<\/\1>/is', '', $fetch['raw']);
-    $text = trim(preg_replace('/\s+/', ' ', strip_tags($text)));
-    $text = mb_substr($text, 0, 60000); // keep the prompt bounded — real municipal pages run long
-
-    $titleMatch = null;
-    preg_match('/<title[^>]*>(.*?)<\/title>/is', $fetch['raw'], $titleMatch);
-    $sourceTitle = $titleMatch ? trim(html_entity_decode($titleMatch[1])) : $sourceUrl;
+    // Official city/county sources publish exactly this kind of informational
+    // content (planning flyers, zoning/hazard documents) as PDFs at least as
+    // often as HTML — detected by magic bytes, not just Content-Type, since
+    // municipal servers don't always set that header correctly.
+    if (str_starts_with($fetch['raw'], '%PDF')) {
+        [$text, $sourceTitle] = pluscities_extract_pdf_text($fetch['raw'], $sourceUrl);
+        if ($text === null) return ['ok' => false, 'msg' => 'Could not extract text from PDF at ' . $sourceUrl, 'card' => null];
+    } else {
+        // Strip tags/scripts to plain text — the model is grounded in this
+        // text only, per the writer/research contract's "nothing from the
+        // model's own knowledge" rule.
+        $text = preg_replace('/<(script|style)\b[^>]*>.*?<\/\1>/is', '', $fetch['raw']);
+        $text = trim(preg_replace('/\s+/', ' ', strip_tags($text)));
+        $titleMatch = null;
+        preg_match('/<title[^>]*>(.*?)<\/title>/is', $fetch['raw'], $titleMatch);
+        $sourceTitle = $titleMatch ? trim(html_entity_decode($titleMatch[1])) : $sourceUrl;
+    }
+    $text = mb_substr($text, 0, 60000); // keep the prompt bounded — real municipal pages/documents run long
 
     $prompt = "You are extracting ONE factual claim from the page text below, for the topic \"$topic\" "
         . "about \"$scope_key\". What we're looking for: $claimHint\n\n"
