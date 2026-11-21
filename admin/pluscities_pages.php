@@ -106,6 +106,17 @@ lpc_admin_open('pluscities_pages', 'PlusCities Pages');
 
 <?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
 
+<?php
+// Plugin download — per-agency branded copy (spec Section 14: the client's
+// own WP admin must show the agency's name, never "PlusCities"). Agency
+// Admin/Editor see their own agency's download; Platform Owner can fetch any
+// agency's via ?agency_id= on the download endpoint directly for now — a
+// per-agency picker here is a reasonable later addition, not blocking.
+$downloadAgencyId = in_array(lpc_current_actor_role(), ['agency_admin', 'agency_editor'], true) ? lpc_current_actor_agency_id() : null;
+if ($downloadAgencyId): ?>
+    <p style="margin:0 0 14px;"><a class="btn-sm-outline" href="pluscities_plugin_download.php?agency_id=<?= h($downloadAgencyId) ?>">Download Delivery Plugin</a></p>
+<?php endif; ?>
+
 <?php if (!$rows): ?>
     <div class="lpc-empty"><h2>No pages yet</h2><p>Pages appear here once a client has cities and services added.</p></div>
 <?php else: ?>
