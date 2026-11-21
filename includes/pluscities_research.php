@@ -56,6 +56,7 @@ function pluscities_dataset_get(string $city_id, string $provider): ?array
 const PLUSCITIES_TOPIC_EXPIRY_MONTHS = [
     'neighborhoods' => 24, 'permits' => 6, 'utilities' => 12, 'hoa' => 12,
     'hazards' => 12, 'seasons' => 24, 'civic' => 24,
+    'climate_data' => 60, // official climate normals (1991-2020 period) barely move year to year
     'authority' => 12, 'problems' => 24, 'cost-drivers' => 12, 'options' => 24,
     'maintenance' => 24, 'urgent-steps' => 24, 'niche-table' => 12,
 ];

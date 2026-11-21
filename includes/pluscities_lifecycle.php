@@ -148,6 +148,15 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
         if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
         $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated", client_grounded = 1 WHERE id = ?')
            ->execute([json_encode($result['content']), json_encode($result['fact_ids']), $block_id]);
+    } elseif ($block['block_type'] === 'niche_data_table') {
+        // Niche-wide, not city-specific — the same reference table every
+        // client in this niche shares, so there's no per-city dataset to
+        // re-fetch, just the niche blueprint's own current content.
+        $niche  = pluscities_niche_resolved($client['niche_id'] ?? '') ?: [];
+        $result = pluscities_write_niche_data_table_block($niche);
+        if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
+        $db->prepare('UPDATE blocks SET content_json = ?, origin = "data" WHERE id = ?')
+           ->execute([json_encode($result['content']), $block_id]);
     } else { // automatic
         $refs    = json_decode($block['dataset_refs'], true) ?: [];
         $dataset = $refs ? pluscities_dataset_get($refs[0]['city_id'], $refs[0]['provider']) : null;

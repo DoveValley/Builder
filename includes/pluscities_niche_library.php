@@ -162,7 +162,7 @@ function pluscities_niche_defaults(): array
         'approved_sources_extra' => [],   // on top of the family baseline
         'research_topics'        => [],   // subset of the family's relevant topics this niche actually uses
         'custom_research_fields' => [],   // [{key, ask}] — same shape generate.py's niche_research_fields() already reads
-        'niche_table'            => null, // {columns:[...], source_topic: "..."} or null
+        'niche_table'            => null, // {columns:[...], rows:[[...]], source_topic: null} or null — one real reference table per niche, shared by every page (spec Section 5's "niche data table" service-pool block)
         'radius_minutes_override' => null,
         'compliance_preset_override' => null, // null = inherit the family's preset
 

@@ -22,10 +22,21 @@
 function pluscities_client_facts_for_writer(array $client): array
 {
     $licenses = array_map(fn($l) => ($l['trade'] ?? '') . ' license ' . ($l['number'] ?? '') . ' (' . ($l['state'] ?? '') . ')', $client['licenses'] ?? []);
+    $priceRanges = [];
+    foreach ($client['price_ranges'] ?? [] as $range) {
+        $priceRanges[] = is_array($range) ? implode(' ', $range) : (string) $range;
+    }
     return [
         'years_in_business' => $client['years_in_business'] ?? null,
         'licenses'          => $licenses ? implode('; ', $licenses) : null,
         'phone'             => $client['identity']['hubs'][0]['phone'] ?? null,
+        // Only a client fact when the client actually supplied one — the
+        // generic writer prompt already forbids stating anything outside
+        // this list, so cost_factors (the one block type that discusses
+        // pricing) naturally stays qualitative-only unless real figures
+        // exist here; pluscities_check_invented_prices() fails any other
+        // dollar amount regardless.
+        'price_ranges'      => $priceRanges ? implode('; ', $priceRanges) : null,
         '_banned_phrases'   => $client['banned_phrases'] ?? [],
     ];
 }
@@ -230,6 +241,27 @@ function pluscities_write_service_area_block(array $client, array $page, array $
 }
 
 /**
+ * Writes the niche data table block — Automatic, and unlike every other
+ * automatic block, not per-city at all: the niche blueprint's own
+ * niche_table (editorially authored once, shared by every client/city in the
+ * niche, same "research once, reuse everywhere" pattern as image_slots) IS
+ * the content. No AI call — there's no per-page variation to write, just the
+ * niche's current table.
+ */
+function pluscities_write_niche_data_table_block(array $niche): array
+{
+    $table = $niche['niche_table'] ?? null;
+    if (!$table || empty($table['rows'])) {
+        return ['ok' => false, 'msg' => 'No reference table is set up for this niche yet.', 'content' => null, 'fact_ids' => []];
+    }
+    return ['ok' => true, 'msg' => '', 'content' => [
+        'title'   => $table['title'] ?? '',
+        'columns' => $table['columns'] ?? [],
+        'rows'    => $table['rows'],
+    ], 'fact_ids' => []];
+}
+
+/**
  * Writes one Automatic (data-built) block. The "writer" here is a template
  * filling in real dataset values plus one short, non-specific AI intro
  * sentence — not a citation-heavy block, since there's no claim to cite, just
@@ -267,6 +299,20 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
                 . htmlspecialchars($rev['author']) . ' (' . (int) $rev['rating'] . '/5)</blockquote>';
         }
         return $html . '</section>';
+    }
+
+    if ($block_row['block_type'] === 'niche_data_table') {
+        $html = '<section class="lpc-niche-data-table">';
+        if (!empty($content['title'])) $html .= '<h3>' . htmlspecialchars($content['title']) . '</h3>';
+        $html .= '<table><thead><tr>';
+        foreach ($content['columns'] ?? [] as $col) $html .= '<th>' . htmlspecialchars($col) . '</th>';
+        $html .= '</tr></thead><tbody>';
+        foreach ($content['rows'] ?? [] as $row) {
+            $html .= '<tr>';
+            foreach ($row as $cell) $html .= '<td>' . htmlspecialchars($cell) . '</td>';
+            $html .= '</tr>';
+        }
+        return $html . '</tbody></table></section>';
     }
 
     if ($block_row['block_type'] === 'housing_stock') {

@@ -25,14 +25,64 @@
     "approved_sources_extra": [],
     "research_topics": [],
     "custom_research_fields": [],
-    "niche_table": null,
+    "niche_table": {
+        "title": "Common AC Problems: Cause & Urgency",
+        "columns": [
+            "Issue",
+            "Likely Cause",
+            "Urgency"
+        ],
+        "rows": [
+            [
+                "Warm air from the vents",
+                "Low refrigerant or a failing compressor",
+                "Same-day service recommended"
+            ],
+            [
+                "AC will not turn on at all",
+                "Electrical fault or thermostat issue",
+                "Same-day service recommended"
+            ],
+            [
+                "Weak or no airflow",
+                "Clogged filter or blocked ductwork",
+                "Within a few days"
+            ],
+            [
+                "Ice forming on the refrigerant lines",
+                "Low refrigerant or restricted airflow",
+                "Same-day service recommended"
+            ],
+            [
+                "Water pooling near the indoor unit",
+                "Clogged condensate drain line",
+                "Within a few days"
+            ],
+            [
+                "Loud or unusual noises",
+                "Loose or worn internal components",
+                "Schedule service soon"
+            ],
+            [
+                "System turns on and off rapidly",
+                "Thermostat or electrical issue",
+                "Schedule service soon"
+            ],
+            [
+                "Utility bills trending higher",
+                "Reduced system efficiency over time",
+                "Schedule service soon"
+            ]
+        ],
+        "source_topic": null
+    },
     "radius_minutes_override": null,
     "compliance_preset_override": null,
     "trust_bar_items": [],
     "blog_topics": [],
     "match_keywords": [],
     "niche_id": "hvac",
-    "updated_at": "2026-11-21T22:22:17+00:00",
+    "updated_at": "2026-11-21T22:44:50+00:00",
     "created_at": "2026-11-21T20:34:15+00:00",
     "image_slots": [
         {
