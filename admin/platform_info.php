@@ -21,9 +21,10 @@ if (lpc_current_actor_role() !== 'super_admin') {
 }
 
 $TABS = [
-    'who_logged_in' => "Who's Logged In",
-    'how_it_works'  => 'How This Works',
-    'roadmap'       => 'PlusCities Product Roadmap',
+    'who_logged_in'    => "Who's Logged In",
+    'how_it_works'     => 'How This Works',
+    'roadmap'          => 'PlusCities Product Roadmap',
+    'content_workflow' => 'Content Workflow',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -215,6 +216,120 @@ function platform_info_roadmap_data(): array {
     ];
 }
 
+/**
+ * The real content lifecycle, start to finish, as it actually works in the
+ * live code today — verified by reading client_wizard.php, client.php,
+ * page_editor.php, client_save.php, and includes/landing_page_clients_
+ * approvals.php directly (2026-11-21), not carried over from memory. Gaps
+ * (status 'needs_adding') are interleaved in the sequence at the point
+ * they'd actually happen, not listed separately, so the page reads as one
+ * real end-to-end flow rather than two disconnected lists.
+ */
+function platform_info_content_workflow_data(): array {
+    return [
+        [
+            'title' => 'A — Create & draft',
+            'rows' => [
+                ['step' => 'Create the client & define scope', 'status' => 'in_place',
+                 'what' => 'The onboarding wizard: business identity + niche, services offered, hub office(s), target cities per hub.',
+                 'who' => 'Owner, Agency Admin', 'where' => 'client_wizard.php (5 steps)'],
+                ['step' => 'Auto-draft every page', 'status' => 'in_place',
+                 'what' => "Finishing the wizard immediately AI-drafts a page for every city \u{d7} service combination (real AI cost per page). Nothing publishes yet.",
+                 'who' => 'System — triggered by finishing the wizard', 'where' => 'Automatic, part of the client_wizard.php submit'],
+                ['step' => 'Set the Content Profile', 'status' => 'in_place',
+                 'what' => "Tone, excluded services, and always-mention/never-mention guardrails — meant to be set before reviewing drafts. Missing fields: structured address, license numbers, hours, years-in-business (see the Product Roadmap tab's Client Setup section).",
+                 'who' => 'Owner, Agency Admin', 'where' => 'client.php → Content Profile tab'],
+                ['step' => 'Research a city', 'status' => 'in_place',
+                 'what' => 'Real Census population lookup — free, runs once per unique city among the pages checked.',
+                 'who' => 'Owner, Agency Admin', 'where' => 'client.php → Locations & Services tab → "Research Selected"'],
+            ],
+        ],
+        [
+            'title' => 'B — Edit, lock & regenerate',
+            'rows' => [
+                ['step' => 'Edit page content by hand', 'status' => 'in_place',
+                 'what' => 'A field editor per section (hero, intro, steps, FAQ, etc.) plus SEO title/meta/keywords. Editing an already-published page flips its status to "Needs Update" rather than silently leaving it shown as current.',
+                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php'],
+                ['step' => 'Regenerate a page with AI', 'status' => 'in_place',
+                 'what' => 'Reruns the fixed AI prompt template for one page, or "Generate / Refresh Selected" for many at once — with its own checkboxes for refresh hero image, re-fetch climate data ($), regenerate text ($), and skip locked pages.',
+                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php "Regenerate" button, or client.php → Locations & Services → "Generate / Refresh Selected"'],
+                ['step' => 'Steer a regenerate with an instruction ("make it shorter")', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — every regenerate reruns the identical fixed prompt, with no free-text instruction field.",
+                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would extend the existing Regenerate control in page_editor.php'],
+                ['step' => 'Lock a page', 'status' => 'in_place',
+                 'what' => 'Blocks Regenerate from touching that page. Whole-page only — locking a page locks every section in it.',
+                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php "Lock" toggle (also shown in the Locations & Services Status column)'],
+                ['step' => 'Lock one section within a page', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — there's no way to protect just the intro while regenerating the rest of the same page.",
+                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would extend page_editor.php'],
+                ['step' => 'Roll back to a previous version', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — every save overwrites in place. There's no version history and nothing to roll back to.",
+                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would be a new history/diff view on page_editor.php'],
+                ['step' => 'Validate content before it can be approved', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — nothing blocks a page with a banned phrase or a wrong phone number from being approved and published.",
+                 'who' => 'Would run automatically at submit/approve time', 'where' => 'Would live inside the approvals.php gate'],
+            ],
+        ],
+        [
+            'title' => 'C — Review & approve',
+            'rows' => [
+                ['step' => 'Submit for review', 'status' => 'in_place',
+                 'what' => "Clicking Publish. For Scott's own agency's clients this publishes immediately, no gate. For a real third-party agency's clients it instead enters a two-stage approval queue (approval_stage: pending_platform_review).",
+                 'who' => 'Owner, Agency Admin', 'where' => 'page_editor.php "Publish" button, or client.php → Locations & Services → "Publish Selected"'],
+                ['step' => 'Platform review — stage 1, real agencies only', 'status' => 'in_place',
+                 'what' => "Scott reviews what an agency submitted. \"Approve → Agency\" advances it to pending_agency_review; \"Reject\" sends it back with a note — the page's own content is untouched, just not live.",
+                 'who' => 'Platform Owner only', 'where' => 'approvals.php'],
+                ['step' => 'Agency review — stage 2, real agencies only', 'status' => 'in_place',
+                 'what' => '"Approve & Publish" both clears this stage and actually publishes the page in one step; "Reject" sends it back with a note.',
+                 'who' => 'Agency Admin', 'where' => 'approvals.php'],
+                ['step' => 'Client review / approval', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — the End Client has no role in approval today at all. The gate stops at the agency; the client never sees or signs off on a page before it goes live.",
+                 'who' => 'Would be: Client Approver', 'where' => 'Would be a new screen on client_portal.php'],
+                ['step' => 'Bulk-approve the review queue, or filter it by city/service', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — approvals.php is one row at a time, with no bulk action and no city/service filter.",
+                 'who' => 'Would be: Platform Owner, Agency Admin', 'where' => 'Would extend approvals.php'],
+            ],
+        ],
+        [
+            'title' => 'D — Publish & go live',
+            'rows' => [
+                ['step' => 'Page actually goes live', 'status' => 'in_place',
+                 'what' => "Writes the published page and pushes it to the delivery server the client's WordPress plugin fetches from, rendering inside the client's own theme header/footer.",
+                 'who' => 'System — triggered by Publish / Approve & Publish', 'where' => 'Automatic (delivery server)'],
+                ['step' => "Connect the client's WordPress site", 'status' => 'in_place',
+                 'what' => "Download the plugin zip and copy the API key (a built-in compose-email form). Once the client pastes the key into their plugin's settings, the Clients list badge flips to Connected.",
+                 'who' => 'Owner/Agency Admin send it; the client\'s own WP admin installs it', 'where' => 'client.php → Delivery tab; status shown on clients.php'],
+                ['step' => "Check what's actually live", 'status' => 'in_place',
+                 'what' => "Fetches each page's real public URL and compares it against what the data says it should be (hero image, area map, climate chart) — catches a stale CDN cache that a status badge alone would miss.",
+                 'who' => 'Owner, Agency Admin', 'where' => 'client.php → Locations & Services → "Check Live Selected"'],
+                ['step' => 'Take a single page down', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist as a per-page action — the only kill switch today deactivates the client's entire API key, taking every page down at once, not one.",
+                 'who' => 'Would be: Owner, Agency Admin', 'where' => 'Would extend page_editor.php / Locations & Services'],
+            ],
+        ],
+        [
+            'title' => 'E — Ongoing: monitor, update, cancel',
+            'rows' => [
+                ['step' => 'Track visitor engagement', 'status' => 'in_place',
+                 'what' => 'The plugin automatically counts taps on a page\'s phone number/CTA buttons ("Tried to Contact"), no setup required. It\'s an intent signal, not a confirmed lead.',
+                 'who' => 'Automatic (plugin)', 'where' => 'client.php → Reporting tab; totals on clients.php'],
+                ['step' => 'Connect Google Search Console', 'status' => 'in_place',
+                 'what' => 'The client adds a shared service-account email as a Restricted (read-only) user on their own GSC property by hand; an admin pastes the property URL in and a real 28-day click total per page starts showing. No impressions/CTR/position/trend yet.',
+                 'who' => 'Owner/Agency Admin paste the URL; the client grants access', 'where' => 'client.php → Reporting tab'],
+                ['step' => 'Refresh content on a schedule (quarterly/seasonal)', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — nothing regenerates content automatically; every refresh today is manually triggered.",
+                 'who' => 'Would be: System, on a schedule', 'where' => 'Would be a new scheduler'],
+                ['step' => 'Cancel a client properly', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist as designed — today \"cancel\" just disables the API key, but the plugin's own cache keeps serving the client's last-known-good pages indefinitely regardless. Disabling a client does NOT actually take their pages down.",
+                 'who' => 'Would be: Agency Admin', 'where' => 'Would extend client.php'],
+                ['step' => 'See a record of who did what, when', 'status' => 'needs_adding',
+                 'what' => "Doesn't exist — only impersonation start/stop is logged anywhere; content edits, publishes, and deletes leave no trail.",
+                 'who' => 'Would be: Agency Admin (read), Platform Owner', 'where' => 'Would be a new audit log'],
+            ],
+        ],
+    ];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -248,6 +363,12 @@ function platform_info_roadmap_data(): array {
 .lpc-roadmap-filters select { font-size:.82rem; padding:5px 8px; border-radius:8px; border:1px solid var(--pc-line); }
 .lpc-roadmap-filters .lpc-roadmap-count { font-size:.78rem; color:#6b7280; margin-left:auto; }
 .lpc-roadmap-section-empty { display:none; }
+.lpc-wf-table td { vertical-align:top; }
+.lpc-wf-step { font-weight:700; }
+.lpc-wf-step-n { color:#9ca3af; font-weight:400; margin-right:4px; }
+.lpc-wf-who, .lpc-wf-where { font-size:.78rem; color:#6b7280; }
+.lpc-wf-where code { font-size:.76rem; }
+.lpc-wf-what { font-size:.82rem; line-height:1.6; color:#374151; }
 </style>
 </head>
 <?php lpc_admin_open('platform_info', 'Platform Information'); ?>
@@ -569,6 +690,84 @@ function platform_info_roadmap_data(): array {
         document.getElementById('rm-filter-count').textContent = shown + ' of ' + total + ' rows shown';
     }
     lpcRoadmapFilter();
+    </script>
+<?php endif; ?>
+
+<?php if ($tab === 'content_workflow'): ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">The real content lifecycle, start to finish</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        Every step needed to take a page from "doesn't exist" to "live and being monitored" &mdash;
+        who does it and exactly where in the app, in the order it actually happens. Verified by
+        reading <code>client_wizard.php</code>, <code>client.php</code>, <code>page_editor.php</code>,
+        <code>client_save.php</code>, and <code>includes/landing_page_clients_approvals.php</code>
+        directly (2026-11-21), not carried over from memory. Gaps are interleaved at the point they'd
+        actually happen in the flow, each marked <strong>Needs to Be Added</strong> with what it would
+        take and who'd do it once built &mdash; so this reads as one real end-to-end flow, not a
+        built list and a separate wishlist.
+    </p>
+    <div class="lpc-roadmap-filters">
+        <span><label for="wf-filter-status">Status</label>
+            <select id="wf-filter-status" onchange="lpcWorkflowFilter()">
+                <option value="">All</option>
+                <option value="in_place">In Place</option>
+                <option value="needs_adding">Needs to Be Added</option>
+            </select>
+        </span>
+        <span class="lpc-roadmap-count" id="wf-filter-count"></span>
+    </div>
+    <?php $wfStepN = 0; ?>
+    <?php foreach (platform_info_content_workflow_data() as $section): ?>
+        <h4 class="lpc-wf-section" style="margin:22px 0 8px;font-family:'Space Grotesk',sans-serif;color:#1e3a5f;"><?= h($section['title']) ?></h4>
+        <table class="lpc-table lpc-wf-table" style="margin-bottom:8px;">
+            <thead><tr>
+                <th style="width:3%;">#</th>
+                <th style="width:20%;">Step</th>
+                <th style="width:9%;">Status</th>
+                <th style="width:30%;">What it is</th>
+                <th style="width:17%;">Who does it</th>
+                <th>Where in the app</th>
+            </tr></thead>
+            <tbody>
+            <?php foreach ($section['rows'] as $r): $wfStepN++; ?>
+                <tr data-status="<?= h($r['status']) ?>">
+                    <td class="lpc-wf-step-n"><?= $wfStepN ?></td>
+                    <td class="lpc-wf-step"><?= h($r['step']) ?></td>
+                    <td>
+                        <span class="lpc-roadmap-status lpc-roadmap-status-<?= $r['status'] === 'in_place' ? 'complete' : 'todo' ?>">
+                            <?= $r['status'] === 'in_place' ? 'In Place' : 'Needs to Be Added' ?>
+                        </span>
+                    </td>
+                    <td class="lpc-wf-what"><?= h($r['what']) ?></td>
+                    <td class="lpc-wf-who"><?= h($r['who']) ?></td>
+                    <td class="lpc-wf-where"><?= h($r['where']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endforeach; ?>
+    <script>
+    function lpcWorkflowFilter() {
+        var status = document.getElementById('wf-filter-status').value;
+        var tables = document.querySelectorAll('.lpc-wf-table');
+        var shown = 0, total = 0;
+        tables.forEach(function (table) {
+            var visibleRows = 0;
+            table.querySelectorAll('tbody tr').forEach(function (row) {
+                total++;
+                var match = !status || row.dataset.status === status;
+                row.style.display = match ? '' : 'none';
+                if (match) { visibleRows++; shown++; }
+            });
+            var heading = table.previousElementSibling;
+            var show = visibleRows > 0;
+            table.style.display = show ? '' : 'none';
+            if (heading && heading.classList.contains('lpc-wf-section')) {
+                heading.style.display = show ? '' : 'none';
+            }
+        });
+        document.getElementById('wf-filter-count').textContent = shown + ' of ' + total + ' steps shown';
+    }
+    lpcWorkflowFilter();
     </script>
 <?php endif; ?>
 
