@@ -1,10 +1,12 @@
 <?php
 /**
  * Two-stage content approval queue — the Platform Admin reviews first, then
- * the owning agency, before a page actually goes live. Applies uniformly to
- * every agency, including the platform's own house agency (agency_id
- * 'scotts-agency') — no exemptions. Every agency's pages go through the
- * same two stages before anything publishes.
+ * the owning agency, before a page actually goes live. Defaults to applying
+ * uniformly to every agency, including the platform's own house agency
+ * (agency_id 'scotts-agency') — but is a real per-agency on/off switch
+ * (agency.requires_approval_gate, admin/settings.php), not a hardcoded
+ * exemption for one agency. Platform-Admin-only; an agency can never flip
+ * its own switch off.
  *
  * The mechanical state-advance functions below (platform_approve/
  * agency_approve/reject) do NOT check who's calling — same boundary
@@ -17,7 +19,12 @@ function lpc_requires_approval_gate($client_id) {
     $client = lpc_load_client($client_id);
     if (!$client) return false;
     $agencyId = $client['agency_id'] ?? '';
-    return $agencyId !== '';
+    if ($agencyId === '') return false;
+    $agency = lpc_load_agency($agencyId);
+    // Unknown agency (e.g. a bad/stale reference) fails safe to gated,
+    // rather than silently publishing with no review.
+    if (!$agency) return true;
+    return !empty($agency['requires_approval_gate']);
 }
 
 /**

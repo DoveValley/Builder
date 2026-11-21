@@ -101,6 +101,13 @@ function lpc_default_agency_data() {
         'login' => [
             'username' => '',
         ],
+        // Platform-Admin-only control over whether this agency's pages go
+        // through the two-stage approval gate (lpc_requires_approval_gate()
+        // in landing_page_clients_approvals.php). Defaults to true so every
+        // existing and new agency keeps today's uniform behavior until
+        // Scott deliberately trusts a specific agency enough to flip it off
+        // — never agency self-service, set on admin/settings.php only.
+        'requires_approval_gate' => true,
     ];
 }
 

@@ -117,6 +117,20 @@ if ($action === 'toggle_status') {
     exit;
 }
 
+if ($action === 'toggle_approval_gate') {
+    $agency_id = trim($_POST['agency_id'] ?? '');
+    $agency = lpc_load_agency($agency_id);
+    if (!$agency) {
+        header('Location: settings.php?msg=error:Agency+not+found');
+        exit;
+    }
+    $agency['requires_approval_gate'] = empty($agency['requires_approval_gate']);
+    lpc_save_agency($agency_id, $agency);
+    $msg = $agency['requires_approval_gate'] ? 'success:Approval+gate+turned+on' : 'success:Approval+gate+turned+off';
+    header('Location: settings.php?msg=' . $msg);
+    exit;
+}
+
 if ($action === 'create_checkout') {
     $agency_id = trim($_POST['agency_id'] ?? '');
     $agency = lpc_load_agency($agency_id);
