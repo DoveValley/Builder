@@ -23,6 +23,7 @@ if (lpc_current_actor_role() !== 'super_admin') {
 $TABS = [
     'who_logged_in' => "Who's Logged In",
     'how_it_works'  => 'How This Works',
+    'roadmap'       => 'PlusCities Product Roadmap',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -32,6 +33,186 @@ function platform_info_fmt_duration(int $seconds): string {
     $h = intdiv($seconds, 3600);
     $m = intdiv($seconds % 3600, 60);
     return $h > 0 ? sprintf('%dh %dm', $h, $m) : sprintf('%dm', $m);
+}
+
+/**
+ * Gap analysis of the live LPC/PlusCities code against the feature/permissions
+ * spec Scott supplied 2026-11-20 (5-role model: Platform Owner, Agency Admin,
+ * Agency Editor, Client Approver, Client Viewer). Verified by direct code
+ * read, not guessed — a point-in-time snapshot, re-check against the code
+ * before trusting an old "Complete" after a big change in that area.
+ *
+ * Every "to be done" row also carries:
+ *   - gate:   'sell' (must-have before selling to a real agency), 'retain'
+ *             (matters for keeping agencies paying, not launch-blocking), or
+ *             'differentiate' (nice-to-have, can wait indefinitely).
+ *   - effort: 'quick' (config/copy/a field — hours), 'moderate' (a contained
+ *             new feature — days), or 'major' (architecture-level — the
+ *             longest pole, start it early even though it's hard).
+ * Both are a judgment call made 2026-11-20, not a measured estimate — re-rank
+ * if the underlying code shifts a row's actual difficulty.
+ */
+function platform_info_roadmap_data(): array {
+    return [
+        [
+            'title' => 'Role model & permissions',
+            'rows' => [
+                ['cap' => '5-role model (Owner / Agency Admin / Agency Editor / Client Approver / Client Viewer)', 'roles' => 'All', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                 'detail' => "Only 3 roles exist today: super_admin, agency_admin, end_client — no Agency Editor, no Approver/Viewer split. Needs a 4th/5th role plus a real multi-user invite-and-assign system; today each agency and each client has exactly one shared login, not per-person accounts."],
+                ['cap' => 'Self-Managed Client (client upgraded to Editor rights on own site)', 'roles' => 'Client Approver', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
+                 'detail' => 'No such flag exists in the client data model. Needs a self_managed toggle plus a scoped-to-one-client version of Editor permissions.'],
+                ['cap' => 'Server-side permission checks on every endpoint, not just hidden in the UI', 'roles' => 'All', 'status' => 'complete',
+                 'detail' => 'Client/agency scoping (lpc_load_client_for_current_actor, lpc_list_clients_for_current_actor) is applied consistently across the admin — verified in the code, not just assumed from what the UI hides.'],
+            ],
+        ],
+        [
+            'title' => 'Pages & content',
+            'rows' => [
+                ['cap' => 'View pages, including drafts', 'roles' => 'Owner, Agency Admin, Agency Editor, Client Approver, Client Viewer', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                 'detail' => "Complete for Owner/Agency Admin/Editor — full draft/published matrix in the client workspace. Not started for Client Approver/Viewer: the only End Client screen (client_portal.php) is a reporting rollup, not a page browser — there's nothing for a client to actually look at or approve."],
+                ['cap' => 'Generate pages (new city × service combos)', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                 'detail' => 'Adding a target city auto-drafts real AI content for every service at that city.'],
+                ['cap' => 'Edit section text, titles, meta', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                 'detail' => 'Full field editor per section type, plus SEO title/meta/keywords.'],
+                ['cap' => 'Lock / unlock sections or pages', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => "Whole-page lock exists and blocks Regenerate. No section-level lock — locking a page locks everything in it, so you can't protect just the intro while regenerating the rest."],
+                ['cap' => 'Regenerate with an instruction field ("make it shorter")', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'Regenerate (single page) and bulk refresh (checked pages) both exist, but neither takes a free-text instruction — every regenerate reruns the same fixed prompt template.'],
+                ['cap' => 'Roll back to a previous version (history + diff)', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                 'detail' => "No version history at all. Every save overwrites in place — there's nothing to roll back to."],
+                ['cap' => 'Swap / upload images with alt text', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                 'detail' => 'Manual upload or AI-generate per service, real alt-text fields, WebP output, lazy-loading below the fold.'],
+            ],
+        ],
+        [
+            'title' => 'Workflow',
+            'rows' => [
+                ['cap' => 'Agency approve step', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'complete',
+                 'detail' => 'Two-stage gate: pending_platform_review -> pending_agency_review -> approved.'],
+                ['cap' => 'Client approve / request-changes step (per-client toggle)', 'roles' => 'Client Approver', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'major',
+                 'detail' => "Doesn't exist — End Client has no approval role today at all. The existing approval gate is all-or-nothing per agency (Scott's own agency skips it, every other agency always goes through it), not a per-client toggle, and the client never participates in it."],
+                ['cap' => 'Publish / unpublish', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                 'detail' => "Publish exists. There's no per-page unpublish — only deactivating a client's entire API key, which takes every page down at once, not one."],
+                ['cap' => 'Bulk approve / publish / unpublish, by selection, city, service, or all', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'The page workspace has bulk publish/generate by checkbox selection. The Approvals queue itself is one row at a time — no bulk approve, and nothing filters by city or service.'],
+                ['cap' => 'Validator / override flags (banned phrases, NAP mismatch)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                 'detail' => "Doesn't exist anywhere in the product — nothing blocks a page from being approved for a banned phrase or a wrong phone number."],
+                ['cap' => 'Comment on pages', 'roles' => 'All', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
+                 'detail' => 'No comment feature anywhere in the product.'],
+            ],
+        ],
+        [
+            'title' => 'Client setup',
+            'rows' => [
+                ['cap' => 'Create / delete clients and sites', 'roles' => 'Owner, Agency Admin', 'status' => 'complete',
+                 'detail' => '5-step onboarding wizard; a delete action exists.'],
+                ['cap' => 'Client facts (NAP, licenses, hours, years in business, tone, brand terms)', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                 'detail' => 'Has phone, a free-text tone field, and always-mention/never-mention guardrails. Missing entirely: a structured address, license numbers, hours, years-in-business — none of these fields exist on a client yet.'],
+                ['cap' => 'Banned-phrases list + niche compliance presets (toggleable)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                 'detail' => "Doesn't exist. always_mention/never_mention is free text with no niche-default inheritance and no on/off toggle."],
+                ['cap' => 'Generate / rotate the API key', 'roles' => 'Owner, Agency Admin', 'status' => 'complete',
+                 'detail' => 'One-click regenerate.'],
+                ['cap' => 'Connect Google Search Console per site', 'roles' => 'Owner, Agency Admin, Client Approver', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                 'detail' => "Works, but isn't OAuth — it's a shared service-account key; the client adds that service-account email as a read-only user on their own GSC property by hand, then an admin pastes the property URL in."],
+                ['cap' => 'Connect call tracking (CallRail or agency\'s own number)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
+                 'detail' => "Doesn't exist. Pages just show the hub's real phone number as a tel: link — no CallRail integration, no per-client tracking-number pool."],
+            ],
+        ],
+        [
+            'title' => 'Reporting',
+            'rows' => [
+                ['cap' => 'View reports', 'roles' => 'All (own scope)', 'status' => 'complete',
+                 'detail' => 'Basic reporting tab (Owner/Agency) and a read-only portal (Client), both working.'],
+                ['cap' => 'Automated monthly white-labeled PDF reports, emailed', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'No PDF generation and no scheduled email report exist anywhere in the codebase.'],
+                ['cap' => 'View leads, by city and by service', 'roles' => 'Owner, Agency Admin, Agency Editor, Client Approver', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                 'detail' => '"Tried to Contact" is a raw click counter on tel:/CTA links — no name or contact info is ever captured, so there\'s no actual lead to list by city or service.'],
+                ['cap' => 'GSC dashboard: impressions, clicks, CTR, position, trend', 'roles' => 'All (own scope)', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'Only a 28-day click total per page is pulled today. No impressions, no CTR, no position, no trend over time, no "impressions but no clicks" view.'],
+            ],
+        ],
+        [
+            'title' => 'SEO essentials',
+            'rows' => [
+                ['cap' => 'JSON-LD schema (LocalBusiness/Service/FAQPage), canonical, sitemap', 'roles' => 'n/a (built-in to every page)', 'status' => 'complete',
+                 'detail' => 'Confirmed well-built: real schema per page, a self-served sitemap.xml linked via robots.txt, and real handling of the Yoast canonical-tag conflict.'],
+                ['cap' => 'Cannibalization check, near-duplicate check, slug pattern per site, breadcrumbs', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                 'detail' => "Not directly confirmed either way in this audit — no code reference to any of these four surfaced while checking everything else, so treat as most likely not built until checked directly, not as a confirmed gap."],
+            ],
+        ],
+        [
+            'title' => 'Agency admin',
+            'rows' => [
+                ['cap' => 'Invite / remove users, assign roles', 'roles' => 'Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                 'detail' => "Each agency has exactly one shared login. There's no per-person user list or invite flow at all."],
+                ['cap' => 'White-label: logo, colors, custom domain, plugin name — zero PlusCities/AI visible to a client', 'roles' => 'Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                 'detail' => "Highest-priority gap found in this whole audit. This admin supports a display name + logo for an agency — that part works. But the WordPress plugin shipped into every client's own site is hardcoded \"Landing Page Client\" / \"Site Factory\", can't be renamed, and its own in-admin info popup — visible to anyone with WP admin access on the CLIENT'S OWN SITE — literally says \"real AI content generation,\" \"AI-drafted pages,\" \"the Regenerate button is real now.\" This directly violates the \"never present as an AI product\" rule on the single most client-visible surface that exists. Mostly copy/branding-string edits, not new architecture — fix this before anything else on this page."],
+                ['cap' => 'Agency billing/plan/invoices + Stripe Connect rebilling to its own clients', 'roles' => 'Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'major',
+                 'detail' => 'Real Stripe billing exists per agency today — checkout, webhook signatures verified with real HMAC, failed-payment handling. Agency-rebills-its-own-clients via Stripe Connect is explicitly not built; deferred on purpose, noted in the code itself.'],
+                ['cap' => 'Cancel a client: 301-vs-410 choice, 14-day grace, plugin auto-handles, footer link removed', 'roles' => 'Agency Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'moderate',
+                 'detail' => "Doesn't exist as designed — and the current plugin cache actively works against it. Today \"cancel\" just disables a client's API key, but the plugin falls back to its last-known-good cached copy on any failed fetch and keeps serving those pages indefinitely. Disabling a client does NOT take their pages down. A real redirect/takedown mechanism needs to be built, not just wired to the existing toggle."],
+                ['cap' => 'Audit log (who did what, when — filterable/exportable)', 'roles' => 'Agency Admin (read)', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => "Doesn't exist. Only impersonation start/stop write to the server error log — nothing records edits, publishes, or deletes, and none of it is queryable or exportable."],
+            ],
+        ],
+        [
+            'title' => 'Platform only',
+            'rows' => [
+                ['cap' => 'Manage agencies, wholesale pricing, plans', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                 'detail' => "Can create agencies and set a fee, but there's no actual pricing-tier catalog — just a free-text plan field and a number."],
+                ['cap' => 'Edit niche presets / default banned phrases', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                 'detail' => 'Niche Profiles exist (tone, "AI guardrails" per niche) but there\'s no distinct "default banned phrases" concept separate from that free-text guardrail blob.'],
+                ['cap' => 'Impersonate any user — logged, visible banner', 'roles' => 'Owner', 'status' => 'complete',
+                 'detail' => 'One-hop-only (no stacking), orange banner always shown, every start/stop logged.'],
+                ['cap' => 'Suspend an agency/site or force-unpublish', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                 'detail' => "Agency suspend/reactivate exists. There's no platform-level per-site or per-page force-unpublish beyond what an agency can already do to itself."],
+                ['cap' => 'Global usage, health and revenue dashboard', 'roles' => 'Owner', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'This Platform Information page currently covers login history only. No fleet-wide view of plugin versions/themes/site health, and no revenue rollup beyond reading each agency\'s row individually.'],
+            ],
+        ],
+        [
+            'title' => 'Plugin (cross-cutting — affects every client site)',
+            'rows' => [
+                ['cap' => 'Pulls only live pages, via signed API-key requests', 'roles' => 'n/a', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'The "only published pages" guarantee is real and correct. "Signed" is not — it\'s a plain bearer token in a URL parameter, no HMAC signature, no replay protection.'],
+                ['cap' => 'Local cache + offline fallback if the server is down', 'roles' => 'n/a', 'status' => 'complete',
+                 'detail' => 'Poll-based (not webhook-based), but genuinely verified: pages kept rendering after the delivery server was shut off entirely during testing.'],
+                ['cap' => 'Reports health to server (version, theme, SEO plugin, last sync)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                 'detail' => "Only a last-checkin timestamp is sent today. Plugin version, active theme, and active SEO plugin are detected locally for rendering decisions but never phoned home — so there's no way to see from here which clients are running an outdated plugin."],
+                ['cap' => 'Clean uninstall (no orphan data left behind)', 'roles' => 'n/a', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'quick',
+                 'detail' => "No custom database tables, so no orphan-table risk — but there's also no uninstall hook at all. Removing the plugin leaves its option rows behind in the client's database forever."],
+            ],
+        ],
+        [
+            'title' => 'Positioning compliance — "never present as an AI product"',
+            'rows' => [
+                ['cap' => 'No AI/generate/regenerate/prompt language anywhere a client can see it', 'roles' => 'All', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                 'detail' => "Violated in several places today, worst inside the WP plugin's own in-admin popup — visible on the client's own WordPress install (see the White-label row above). Also present throughout the agency-facing admin (client.php, page_editor.php, client_save.php, client_wizard.php — buttons/labels/confirm dialogs saying \"AI\", \"Regenerate\", \"AI-generated\"). Genuinely clean today: the End Client's own portal and the actual page HTML a visitor sees — neither has ever shown AI language. Fix order: the plugin popup first (worst exposure, lives inside the client's own site), then a wording pass over the agency-facing screens toward the spec's own suggested phrase — \"Request an update\" instead of \"Regenerate.\""],
+            ],
+        ],
+        [
+            'title' => 'Tier 2 — retention',
+            'rows' => [
+                ['cap' => 'Lead-capture CTA form (city/service attached, emailed + webhook)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'major',
+                 'detail' => "Doesn't exist. Only tel:/CTA click counters exist today — no actual form, no email-on-submit, no webhook."],
+                ['cap' => 'Bulk expansion: "Add city" / "Add service" / CSV import', 'roles' => 'Owner, Agency Admin, Agency Editor', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => '"Add city" (draft every service for a new city) works and is genuinely complete. Whether "Add service" retroactively expands across every existing city was not confirmed either way in this audit — test directly before relying on it. CSV import of cities/services doesn\'t exist for this product (it exists only for the unrelated niche-fleet system).'],
+                ['cap' => 'Plan-limit enforcement, overage -> upgrade prompt', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'retain', 'effort' => 'moderate',
+                 'detail' => 'Billing today is a flat rate per location, not a page-count tier — there\'s no cap and no overage/upgrade-prompt logic.'],
+            ],
+        ],
+        [
+            'title' => 'Tier 3 — differentiators',
+            'rows' => [
+                ['cap' => 'Scheduled refresh (quarterly/seasonal regeneration)', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'major',
+                 'detail' => "Doesn't exist — the only scheduling that exists controls the plugin's own cache refresh interval, not server-side content regeneration."],
+                ['cap' => 'GSC-driven expansion suggestions', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'major', 'detail' => "Doesn't exist."],
+                ['cap' => 'Spanish /es/ version + hreflang', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate', 'detail' => "Doesn't exist for this product."],
+                ['cap' => 'Webhooks / Zapier outbound events', 'roles' => 'Owner, Agency Admin', 'status' => 'todo', 'gate' => 'differentiate', 'effort' => 'moderate',
+                 'detail' => 'Doesn\'t exist — the only webhook in the system is Stripe\'s inbound one.'],
+            ],
+        ],
+    ];
 }
 
 ?>
@@ -47,6 +228,26 @@ function platform_info_fmt_duration(int $seconds): string {
 <?php lpc_admin_head_assets(); ?>
 <style>
 .lpc-status-unknown { background:#f1f5f9; color:#64748b; }
+.lpc-roadmap-status { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 9px; border-radius:10px; white-space:nowrap; display:inline-block; }
+.lpc-roadmap-status-complete { background:#dcfce7; color:#166534; }
+.lpc-roadmap-status-todo { background:#fef3c7; color:#92400e; }
+.lpc-roadmap-table td { vertical-align:top; }
+.lpc-roadmap-cap { font-weight:700; }
+.lpc-roadmap-roles { font-size:.78rem; color:#6b7280; }
+.lpc-roadmap-detail { font-size:.82rem; line-height:1.6; color:#374151; }
+.lpc-roadmap-gate, .lpc-roadmap-effort { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 9px; border-radius:10px; white-space:nowrap; display:inline-block; }
+.lpc-roadmap-gate-sell { background:#fee2e2; color:#991b1b; }
+.lpc-roadmap-gate-retain { background:#dbeafe; color:#1e40af; }
+.lpc-roadmap-gate-differentiate { background:#f1f5f9; color:#64748b; }
+.lpc-roadmap-effort-quick { background:#dcfce7; color:#166534; }
+.lpc-roadmap-effort-moderate { background:#fef3c7; color:#92400e; }
+.lpc-roadmap-effort-major { background:#ede9fe; color:#5b21b6; }
+.lpc-roadmap-na { color:#9ca3af; font-size:.8rem; }
+.lpc-roadmap-filters { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin:14px 0 20px; padding:12px 16px; background:#fff; border:1px solid var(--pc-line); border-radius:12px; }
+.lpc-roadmap-filters label { font-size:.78rem; font-weight:700; color:#374151; margin-right:6px; }
+.lpc-roadmap-filters select { font-size:.82rem; padding:5px 8px; border-radius:8px; border:1px solid var(--pc-line); }
+.lpc-roadmap-filters .lpc-roadmap-count { font-size:.78rem; color:#6b7280; margin-left:auto; }
+.lpc-roadmap-section-empty { display:none; }
 </style>
 </head>
 <?php lpc_admin_open('platform_info', 'Platform Information'); ?>
@@ -254,6 +455,121 @@ function platform_info_fmt_duration(int $seconds): string {
     </ol>
     <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0;">Full step-by-step checklist:
         <code>docs/landing-page-clients-onboarding.md</code>.</p>
+<?php endif; ?>
+
+<?php if ($tab === 'roadmap'): ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Gap analysis: current code vs. the target feature spec</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        A role &times; capability matrix comparing what's actually built today against a full feature
+        and permissions spec Scott supplied (2026-11-20), which defines a 5-role model &mdash;
+        <strong>Platform Owner</strong>, <strong>Agency Admin</strong>, <strong>Agency Editor</strong>,
+        <strong>Client Approver</strong>, <strong>Client Viewer</strong> &mdash; against what the live
+        code today only implements as 3 roles (<code>super_admin</code>, <code>agency_admin</code>,
+        <code>end_client</code>). Every row below was verified by reading the actual current code, not
+        carried over from an earlier summary. Status is simplified to two states &mdash; a "To Be Done"
+        row may already be partially built; the detail column says exactly what's there and what's left.
+        This is a point-in-time snapshot: re-check a row against the code before trusting an old
+        "Complete" after a big change in that area.
+    </p>
+    <?php
+    $gateLabels   = ['sell' => 'Must-Have to Sell', 'retain' => 'Retention', 'differentiate' => 'Differentiator'];
+    $effortLabels = ['quick' => 'Quick', 'moderate' => 'Moderate', 'major' => 'Major'];
+    ?>
+    <div class="lpc-roadmap-filters">
+        <span><label for="rm-filter-gate">Launch gate</label>
+            <select id="rm-filter-gate" onchange="lpcRoadmapFilter()">
+                <option value="">All</option>
+                <?php foreach ($gateLabels as $k => $label): ?>
+                    <option value="<?= h($k) ?>"><?= h($label) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </span>
+        <span><label for="rm-filter-effort">Effort</label>
+            <select id="rm-filter-effort" onchange="lpcRoadmapFilter()">
+                <option value="">All</option>
+                <?php foreach ($effortLabels as $k => $label): ?>
+                    <option value="<?= h($k) ?>"><?= h($label) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </span>
+        <span><label for="rm-filter-status">Status</label>
+            <select id="rm-filter-status" onchange="lpcRoadmapFilter()">
+                <option value="">All</option>
+                <option value="todo">To Be Done</option>
+                <option value="complete">Complete</option>
+            </select>
+        </span>
+        <span class="lpc-roadmap-count" id="rm-filter-count"></span>
+    </div>
+    <?php foreach (platform_info_roadmap_data() as $section): ?>
+        <h4 class="lpc-roadmap-section" style="margin:22px 0 8px;font-family:'Space Grotesk',sans-serif;color:#1e3a5f;"><?= h($section['title']) ?></h4>
+        <table class="lpc-table lpc-roadmap-table" style="margin-bottom:8px;">
+            <thead><tr>
+                <th style="width:22%;">Capability</th>
+                <th style="width:14%;">Role(s)</th>
+                <th style="width:9%;">Status</th>
+                <th style="width:12%;">Launch gate</th>
+                <th style="width:9%;">Effort</th>
+                <th>What's needed</th>
+            </tr></thead>
+            <tbody>
+            <?php foreach ($section['rows'] as $r): ?>
+                <tr data-gate="<?= h($r['gate'] ?? '') ?>" data-effort="<?= h($r['effort'] ?? '') ?>" data-status="<?= h($r['status']) ?>">
+                    <td class="lpc-roadmap-cap"><?= h($r['cap']) ?></td>
+                    <td class="lpc-roadmap-roles"><?= h($r['roles']) ?></td>
+                    <td>
+                        <span class="lpc-roadmap-status lpc-roadmap-status-<?= $r['status'] ?>">
+                            <?= $r['status'] === 'complete' ? 'Complete' : 'To Be Done' ?>
+                        </span>
+                    </td>
+                    <td>
+                        <?php if (isset($r['gate'])): ?>
+                            <span class="lpc-roadmap-gate lpc-roadmap-gate-<?= h($r['gate']) ?>"><?= h($gateLabels[$r['gate']]) ?></span>
+                        <?php else: ?>
+                            <span class="lpc-roadmap-na">&mdash;</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if (isset($r['effort'])): ?>
+                            <span class="lpc-roadmap-effort lpc-roadmap-effort-<?= h($r['effort']) ?>"><?= h($effortLabels[$r['effort']]) ?></span>
+                        <?php else: ?>
+                            <span class="lpc-roadmap-na">&mdash;</span>
+                        <?php endif; ?>
+                    </td>
+                    <td class="lpc-roadmap-detail"><?= h($r['detail']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endforeach; ?>
+    <script>
+    function lpcRoadmapFilter() {
+        var gate = document.getElementById('rm-filter-gate').value;
+        var effort = document.getElementById('rm-filter-effort').value;
+        var status = document.getElementById('rm-filter-status').value;
+        var tables = document.querySelectorAll('.lpc-roadmap-table');
+        var shown = 0, total = 0;
+        tables.forEach(function (table) {
+            var visibleRows = 0;
+            table.querySelectorAll('tbody tr').forEach(function (row) {
+                total++;
+                var match = (!gate || row.dataset.gate === gate)
+                    && (!effort || row.dataset.effort === effort)
+                    && (!status || row.dataset.status === status);
+                row.style.display = match ? '' : 'none';
+                if (match) { visibleRows++; shown++; }
+            });
+            var heading = table.previousElementSibling;
+            var show = visibleRows > 0;
+            table.style.display = show ? '' : 'none';
+            if (heading && heading.classList.contains('lpc-roadmap-section')) {
+                heading.style.display = show ? '' : 'none';
+            }
+        });
+        document.getElementById('rm-filter-count').textContent = shown + ' of ' + total + ' rows shown';
+    }
+    lpcRoadmapFilter();
+    </script>
 <?php endif; ?>
 
 <?php lpc_admin_close(); ?>
