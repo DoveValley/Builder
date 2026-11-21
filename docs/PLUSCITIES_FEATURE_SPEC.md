@@ -444,13 +444,26 @@ Most of this slots into navigation that already exists (`admin/lpc_admin_layout.
 ## 11. UI by role
 
 **Operational roles (Platform Owner, Agency Admin, Agency Editor):** one row per page in a table, with
-checkbox bulk-select and a status column. Clicking the status opens a **popover** (not a full
-navigation) showing: content status, approval stage (only if the gate is on for this client), why it's
-blocked in plain language, facts-current flag, sync status, and quick actions (Approve, Override, link
-to revision history). Clicking the row itself opens that page's block list — same row pattern one level
-down — where each block row exposes Edit/Lock/Regenerate/Swap per the classification-based action
-matrix, "where it makes sense." Bulk actions (approve/publish/regenerate by selection, city, service,
-or all) use the same checkbox-row pattern throughout.
+checkbox bulk-select — modeled directly on the fleet's own Go-Live grid (`admin/rollout.php`), which
+already proves this pattern at scale: a dot-column per pipeline stage instead of one collapsed status,
+plus quick-filter buttons across the top (All / Ready / Needs Review / Live, mirroring that grid's
+All/Ready/Scheduled/Live/Not-ready-yet). Since PlusCities' pipeline is genuinely linear (research →
+written → validated → approved → published → live, spec Section 8), each stage gets its own dot:
+Researched, Written, Validated, Approved, Published, Live — scanning 50 pages to see exactly where
+things are stuck becomes instant, instead of opening 50 individual popovers.
+
+Most dots are plain — binary, nothing more to say. **Validated is the one exception**, since it isn't
+one thing but up to 12 checks (Section 7); that dot alone stays clickable, opening the same **popover**
+behavior as before: which specific check failed, in plain language, facts-current flag, sync status, and
+quick actions (Approve, Override, link to revision history). Matrix for fast scanning, click-through only
+where there's real sub-detail to see — not an either/or with the popover, both apply.
+
+Clicking the row itself opens that page's block list — same row pattern one level down — where each
+block row exposes Edit/Lock/Regenerate/Swap per the classification-based action matrix, "where it makes
+sense." Blocks don't get the dot-matrix treatment: a block doesn't move through a multi-stage pipeline
+the way a page does, it just has a locked/unlocked state and a classification, already compact as a text
+badge next to the row. Bulk actions (approve/publish/regenerate by selection, city, service, or all) use
+the same checkbox-row pattern throughout.
 
 **Client Viewer gets a different, lighter surface** — not the operational table. A simple list or card
 view of their own live pages, with engagement info where available (e.g. GSC clicks) and a "Request an
