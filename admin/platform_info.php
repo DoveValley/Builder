@@ -30,6 +30,7 @@ $TABS = [
     'spec_document'        => 'Spec Document',
     'city_page'            => 'City Page',
     'claude'               => 'Claude',
+    'use_cases'            => 'Use Cases',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -38,7 +39,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page', 'claude']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page', 'claude', 'use_cases']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1629,6 +1630,40 @@ function platform_info_content_flow_data(): array {
         <?php if ($docText === null): ?>
             <div class="lpc-empty"><h2>File not found</h2>
                 <p>Expected it at <code><?= h(str_replace(__DIR__ . '/../', '', $doc['path'])) ?></code>.</p></div>
+        <?php else: ?>
+            <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                        padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                        font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                        max-height:none;color:#1C2B45;"><?= h($docText) ?></div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'use_cases'):
+    $useCaseDocs = [
+        ['path' => __DIR__ . '/../docs/pluscities-use-case-tests.md',
+         'heading' => 'PlusCities — Use Case Test Suite',
+         'intro' => 'Long, real walkthroughs run against the live system to verify the system reference doc\'s claims, not just read them.'],
+    ];
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Use Case Test Suite</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        Same idea as the Claude tab, one step further: instead of describing what the system should do,
+        each use case is a real end-to-end run through the live admin, with the actual outcome recorded.
+        Scope being worked out with Scott before these are written.
+    </p>
+    <?php foreach ($useCaseDocs as $doc):
+        $docText = is_file($doc['path']) ? file_get_contents($doc['path']) : null;
+    ?>
+        <h4 style="color:#1e3a5f;margin:28px 0 4px;"><?= h($doc['heading']) ?></h4>
+        <p style="font-size:.88rem;line-height:1.7;">
+            <?= h($doc['intro']) ?> Source file:
+            <code><?= h(str_replace(__DIR__ . '/../', '', $doc['path'])) ?></code><?php if ($docText !== null): ?>,
+            last updated <?= h(date('Y-m-d H:i', filemtime($doc['path']))) ?><?php endif; ?>.
+        </p>
+        <?php if ($docText === null): ?>
+            <div class="lpc-empty"><h2>Not written yet</h2>
+                <p>Expected at <code><?= h(str_replace(__DIR__ . '/../', '', $doc['path'])) ?></code> once the use cases are scoped and run.</p></div>
         <?php else: ?>
             <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
                         padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
