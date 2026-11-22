@@ -8,7 +8,7 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **UC1-2 complete and verified 2026-11-22. UC3-5 not yet run.**
+Status: **UC1-3 complete and verified 2026-11-22. UC4-5 not yet run.**
 
 ---
 
@@ -102,12 +102,40 @@ content edit; this is the same mechanic showing up incidentally first.
 
 **Artifacts:** `QA Test Co` now has 2 live pages. `client.site_rev` at 2.
 
-## UC3 — Monthly maintenance — not yet run
+## UC3 — Monthly maintenance — ✅ PASS
 
-Planned: edit a block on an already-live page, confirm `approval_stage` resets to `none` while `status`
-stays `live` (proven live against this fixture, not just cited from the Meade example), confirm delivery
-is unchanged until republish, then re-validate/approve/publish and confirm the sync endpoint reflects the
-edit. Also exercise `pluscities_pages.php`'s bulk "regenerate unlocked blocks" action.
+**Goal:** prove the maintenance cycle (edit → re-approve → republish) is safe on an already-live page,
+and that the offline-cache-until-republish design claim is real, not just a comment in the code.
+
+**Steps taken (building on UC1/UC2's now-live pages):**
+1. Edited block 119 (`overview`, page 2) via the real Edit textarea, with a distinctive marker string.
+2. Checked the real WP-delivered page (`localhost:8099/service-area/mckinney-tx/furnace-repair/`) for the
+   marker **before** republishing.
+3. Re-ran Validate → Approve → Publish on page 2.
+4. Checked the real WP-delivered page again **after** republishing.
+5. Ran `pluscities_pages.php`'s bulk "Regenerate unlocked blocks" action across both QA Test Co pages via
+   the real checkboxes + button, having snapshotted every editable block's content first.
+
+**Verified:**
+- Immediately after the edit: `pages.status='live'` (unchanged) + `approval_stage='none'` (reset) +
+  client `site_rev` unchanged at 2 + block 119 auto-locked, `origin='edited'` — exactly matching
+  `pluscities_edit_block()`'s documented behavior.
+- The real delivered page showed **zero** occurrences of the marker text before republishing — the live
+  site is genuinely untouched by an edit until it's actually republished, not just theoretically.
+- After Validate→Approve→Publish: `site_rev` bumped 2→3, and the marker text now appears **exactly once**
+  on the real delivered page — the WP plugin's poll-on-next-request correctly picked up the fresh content
+  once `site_rev` advanced. This is the clearest possible proof of the reference doc's "no-expiry
+  transient IS the offline-cache fallback, `site_rev` is the only invalidation signal" claim — observed
+  directly, not inferred from code.
+- Bulk regenerate: every unlocked editable block sampled across both pages showed genuinely different,
+  freshly-generated content (new headings/body text, e.g. page 1's hero heading changed from "Professional
+  AC Repair in Plano, TX" to "AC Repair in Plano, TX"); block 119 — the one locked block — came out
+  **byte-for-byte identical**, confirming the bulk action correctly respects locks. Both pages landed back
+  at `status='live'` + `approval_stage='none'` afterward — the dual-axis mechanic observed a *third*
+  distinct way this session (single edit, swap, and now bulk regenerate all trigger the same reset).
+
+**Artifacts:** no new pages — both of QA Test Co's existing pages now carry freshly-regenerated content.
+`client.site_rev` at 3.
 
 ## UC4 — Reporting — not yet run
 
