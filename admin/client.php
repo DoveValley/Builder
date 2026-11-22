@@ -266,6 +266,37 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
             <p style="color:#6b7280;font-size:.8rem;margin:10px 0 0;"><?= $locations ?> location<?= $locations === 1 ? '' : 's' ?> &times; $<?= number_format((float)$client['billing']['monthly_fee_per_location'], 2) ?>/mo = $<?= number_format($mrr, 2) ?>/mo</p>
         </form>
 
+        <?php if (lpc_current_actor_role() === 'super_admin'): ?>
+        <h3 style="margin-top:32px;color:#b91c1c;">Danger Zone</h3>
+        <div class="card" style="border-color:#fca5a5;">
+            <strong style="font-size:.88rem;">Delete this client</strong>
+            <p style="color:#6b7280;font-size:.82rem;margin:6px 0 10px;">
+                Moves every page, draft, and setting into a quarantine folder — not a real wipe, but it
+                disappears from this list immediately and its WordPress plugin stops being able to fetch
+                anything. Type the business name exactly to confirm.
+            </p>
+            <form method="post" action="client_save.php" onsubmit="return lpcConfirmDeleteClient(this, <?= json_encode($client['identity']['business_name']) ?>);">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="delete_client">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <input type="hidden" name="confirm_name" value="">
+                <button type="submit" class="btn-sm-danger">Delete Client</button>
+            </form>
+        </div>
+        <script>
+        function lpcConfirmDeleteClient(form, expectedName) {
+            var typed = prompt('Type the exact business name to permanently remove this client:\n\n' + expectedName);
+            if (typed === null) return false;
+            if (typed !== expectedName) {
+                alert('Name did not match — nothing deleted.');
+                return false;
+            }
+            form.querySelector('input[name="confirm_name"]').value = typed;
+            return true;
+        }
+        </script>
+        <?php endif; ?>
+
     <?php elseif ($tab === 'locations'): ?>
 
         <?php

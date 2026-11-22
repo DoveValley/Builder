@@ -264,6 +264,35 @@ switch ($section) {
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=delivery&msg=success:Key+regenerated');
         exit;
 
+    /* ---- DELETE CLIENT (quarantine, not a real wipe — see lpc_delete_client()) ---- */
+    case 'delete_client':
+        // Platform-Admin-only — unlike every other case in this file, an
+        // agency should never be able to permanently (even if recoverable)
+        // remove its own client record without platform oversight.
+        if (lpc_current_actor_role() !== 'super_admin') {
+            header('Location: clients.php?msg=error:Not+authorized');
+            exit;
+        }
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        // Confirmation text must exactly match the business name — the same
+        // bar as approvals.php's reject() prompt, raised further here since
+        // this isn't reversible from the UI the way a rejection is.
+        $confirm = trim($_POST['confirm_name'] ?? '');
+        if ($confirm !== $client['identity']['business_name']) {
+            header('Location: client.php?id=' . urlencode($client_id) . '&msg=error:Name+did+not+match+-+nothing+deleted');
+            exit;
+        }
+
+        if (!lpc_delete_client($client_id)) {
+            header('Location: client.php?id=' . urlencode($client_id) . '&msg=error:Delete+failed');
+            exit;
+        }
+        header('Location: clients.php?msg=success:Client+deleted');
+        exit;
+
     /* ---- EMAIL TO CUSTOMER ---- */
     case 'email_to_customer':
         $client_id = $_POST['client_id'] ?? '';

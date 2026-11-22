@@ -383,6 +383,25 @@ function lpc_save_client($client_id, $data) {
     return lpc_atomic_write_json($file, $data);
 }
 
+/**
+ * Quarantine, not a real rm -rf — moves the client's whole directory (data,
+ * pages, secrets) out of CLIENTS_DIR into a sibling clients_deleted/ folder,
+ * timestamped so re-deleting a same-named client later can't collide. This
+ * is the one thing that makes it disappear from lpc_list_clients() (a plain
+ * glob over CLIENTS_DIR) and stop responding to its WordPress plugin (its
+ * api_key file moves with it), while staying recoverable by hand if someone
+ * deleted the wrong one — same "prefer reversible" reasoning as every other
+ * destructive action in this codebase.
+ */
+function lpc_delete_client($client_id) {
+    $dir = lpc_client_dir($client_id);
+    if ($dir === null || !is_dir($dir)) return false;
+    $quarantineRoot = BASE_DIR . '/clients_deleted';
+    if (!is_dir($quarantineRoot)) mkdir($quarantineRoot, 0700, true);
+    $dest = $quarantineRoot . '/' . $client_id . '-' . gmdate('Ymd\THis');
+    return rename($dir, $dest);
+}
+
 function lpc_load_page($client_id, $page_id) {
     $file = lpc_page_file($client_id, $page_id);
     if ($file === null || !file_exists($file)) return null;

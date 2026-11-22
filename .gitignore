@@ -214,3 +214,8 @@ data/gf_preload_cache.json
 # (who's online right now, login history), rewritten on every authenticated
 # request. Not meaningful to version, and it carries real IPs/session ids.
 .platform_login_sessions.json
+
+# Quarantined (soft-deleted) Landing Page Clients — lpc_delete_client() moves
+# clients/{id}/ here wholesale, secrets/api_key.txt included, so this needs
+# the same never-commit treatment as clients/*/secrets/ above.
+clients_deleted/
