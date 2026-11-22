@@ -81,7 +81,7 @@ foreach (lpc_list_agencies() as $id) {
     <?php endif; ?>
 
     <p style="color:#6b7280;font-size:.85rem;">
-        Each agency resells Landing Page Clients to its own customers, scoped to only the clients
+        Each agency resells PlusCities to its own customers, scoped to only the clients
         it created — creating one here IS the approval, there's no separate signup to review.
         Suspending an agency blocks its login AND its clients go into the grace-period/pause flow,
         not an immediate takedown.

@@ -69,7 +69,7 @@ $form = $editing ?: ($creatingNew ? niche_library_blank('') : null);
     <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
     <div>
         <a href="niche_profiles.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none; margin-right:16px;">LPC Niche Profiles</a>
-        <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
+        <a href="pluscities_clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; PlusCities</a>
     </div>
 </div>
 
