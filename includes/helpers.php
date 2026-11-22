@@ -222,11 +222,12 @@ function upload_image_indexed($fieldName, $index, $prefix) {
 /**
  * $uploadDir/$uploadUrl default to the active site's own constants (every
  * existing caller's exact prior behavior, unchanged) — only a caller that
- * explicitly needs a DIFFERENT destination (Landing Page Clients' per-client
- * image dir, which isn't part of the site-selection/ACTIVE_SITE_DIR model at
- * all) passes its own. Reuses this function's real validation/conversion
- * logic (size cap, MIME sniffing, WebP conversion, SVG sanitization) rather
- * than risking a second, drifting copy of security-relevant code.
+ * explicitly needs a DIFFERENT destination (the old LPC and real PlusCities
+ * admins' own per-client image dirs, neither part of the site-selection/
+ * ACTIVE_SITE_DIR model at all) passes its own. Reuses this function's real
+ * validation/conversion logic (size cap, MIME sniffing, WebP conversion, SVG
+ * sanitization) rather than risking a second, drifting copy of
+ * security-relevant code.
  */
 function save_uploaded_file($tmpPath, $prefix, $origName = '', $uploadDir = null, $uploadUrl = null) {
     $uploadDir ??= UPLOAD_DIR;
