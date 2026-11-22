@@ -10,10 +10,10 @@
  * is open, this does.
  *
  * $activeClientTab: one of overview/locations/branding/content_profile/
- *                   delivery/service_area_page/reporting. page_editor.php
- *                   has no tab query var of its own — callers pass
- *                   'locations' there, since editing a page's content IS
- *                   part of that tab's job.
+ *                   delivery/service_area_page/city_service_page/reporting.
+ *                   page_editor.php has no tab query var of its own —
+ *                   callers pass 'locations' there, since editing a page's
+ *                   content IS part of that tab's job.
  */
 function lpc_render_nav($client_id, $business_name, $activeClientTab) {
     echo '<p style="margin:0 0 10px;color:var(--pc-muted);font-size:.82rem;">' . h($business_name) . '</p>';
@@ -25,6 +25,7 @@ function lpc_render_nav($client_id, $business_name, $activeClientTab) {
         'content_profile'    => 'Content Profile',
         'delivery'           => 'Delivery',
         'service_area_page'  => 'Service Area Page',
+        'city_service_page'  => 'City Service Page',
         'reporting'          => 'Reporting',
     ] as $key => $label) {
         $cls = $activeClientTab === $key ? 'active' : '';

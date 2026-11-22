@@ -95,6 +95,31 @@ function lpc_default_client_data() {
             // 'custom') with {{city}}/{{services}} tokens substituted per city.
             'hub_city_format'         => 'simple',
             'hub_city_format_custom'  => '',
+            // City Service Page tab — which topics appear on every one of this
+            // client's city pages (the matrix-mappable city/service pool
+            // picks, NOT the always-on spine/platform-furniture sections,
+            // which have no picker at all). Empty = "use the platform's own
+            // best-chosen default pool," same blank-means-automatic-default
+            // convention hub_intro already uses — see lpc_default_block_picks().
+            'city_block_picks'          => [],
+            'service_block_picks'       => [],
+            // Deterministic per-city rotation (drop one approved city-pool +
+            // one approved service-pool item, chosen by a stable function of
+            // the city's own id) so a client's pages aren't all structurally
+            // identical — real anti-duplicate-content value for a fraction of
+            // the cost of a true overlap-percentage selection engine. ON by
+            // default (Scott's call, 2026-11-22): a hands-off agency should
+            // get real variety automatically, not just the platform default
+            // repeated unchanged on every page.
+            'vary_blocks_across_cities' => true,
+            // FAQ is a spine section (always-on, not a pick), so this isn't
+            // gated behind any City Service Page checkbox — a plain display
+            // choice. 'list' (default, today's existing behavior) | 'accordion'
+            // (native <details>/<summary>, Phase 3, 2026-11-22). FAQPage
+            // schema (lpc_rebuild_manifest() callers, landing_page_clients_
+            // publish.php) is unaffected either way — it's derived straight
+            // from the faq section's items, never from how they're displayed.
+            'faq_display_style'      => 'list',
             'active'                  => true,
             'last_checkin'            => 0,
             'last_emailed'            => '',
@@ -167,14 +192,15 @@ function lpc_default_page_data() {
             'primary_keyword'   => '',
             'secondary_keywords'=> [],
         ],
-        // 16 sections, up from the original 6 — real per-city research (census
-        // data) plus niche-injected framing needs room to breathe, matching the
-        // depth the niche fleet's own landing pages carry. Still only 14
-        // DELIVERY types (plugin contract): 'highlights' and 'steps' are two
-        // new plain <ul>/<ol> lists, 'comparison' is a new AI-authored two-
-        // column type, 'service_area'/'area_map'/'trust_bar'/'safety_toolkit'/
-        // 'data_chart' are five more auto-computed (never AI-authored)
-        // additions — every element used across all 14 types is exactly what
+        // Fixed sections here are deliberately fewer than they used to be —
+        // 'comparison', 'how_it_works', 'seasonal_calendar', and
+        // 'why_choose_us' moved out as of 2026-11-22 (City Service Page
+        // picker/bridge, see pluscities_lpc_bridge.php); a page's picked
+        // city/service-pool topics are appended to this fixed set at
+        // generation time, not baked in here. 'service_area'/'area_map'/
+        // 'trust_bar'/'safety_toolkit'/'data_chart' are auto-computed (never
+        // AI-authored) additions — every element used across every type is
+        // exactly what
         // WordPress's block editor already produces for an ordinary post
         // (plus one <img>), so it inherits any theme's own styling with zero
         // custom CSS, same principle as the original 6 (verified live against
@@ -191,25 +217,17 @@ function lpc_default_page_data() {
             // never AI-authored or per-city.
             ['type' => 'trust_bar', 'items' => []],
             ['type' => 'text',       'key' => 'city_intro',            'heading' => '', 'body' => ''],
-            // Educational two-column "this vs that" block (e.g. water
-            // restoration's "what survives a flood vs what doesn't",
-            // appliance repair's "worth repairing vs worth replacing") — what
-            // the two columns represent is niche-specific (content_slots.
-            // comparison), AI-authored like the other text/list slots, new
-            // section type since nothing existing models two parallel
-            // labeled lists.
-            ['type' => 'comparison', 'key' => 'comparison', 'heading' => '', 'intro' => '', 'label_a' => '', 'items_a' => [], 'label_b' => '', 'items_b' => []],
             ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => '', 'items' => []],
             ['type' => 'text',       'key' => 'local_relevance',       'heading' => '', 'body' => ''],
-            ['type' => 'steps',      'key' => 'how_it_works',          'heading' => '', 'items' => []],
-            // 4 season cards, not one paragraph — reuses the 'highlights' type
-            // (same card-grid as feature_columns_local), never a new delivery
-            // type of its own. lpc_apply_ai_sections()'s 'highlights'/'steps'/
-            // 'services_list'/'faq' case already handles any section matching
-            // by 'key', so changing this one key's shape needed no new code
-            // there, only a new AI prompt shape (see lpc_ai_user_prompt()).
-            ['type' => 'highlights', 'key' => 'seasonal_calendar',     'heading' => '', 'items' => []],
-            ['type' => 'text',       'key' => 'why_choose_us',         'heading' => '', 'body' => ''],
+            // 'comparison' (repair_vs_replace), 'how_it_works' (process), and
+            // 'seasonal_calendar' (seasonal_guide) were fixed, always-present
+            // sections here until 2026-11-22 — removed because they map
+            // directly onto City Service Page matrix picks and are now
+            // generated exclusively by the picker-driven bridge
+            // (includes/pluscities_lpc_bridge.php), present only when a
+            // client actually picks that topic. Same for 'why_choose_us'
+            // immediately below (service pool). See lpc_ai_user_prompt()'s
+            // own doc comment for the matching prompt-side removal.
             ['type' => 'services_list',  'heading'  => '', 'items' => []],
             ['type' => 'faq',            'heading'  => '', 'items' => []],
             // Auto-computed at publish time (lpc_safety_toolkit_items()) —
@@ -261,6 +279,112 @@ function lpc_default_page_data() {
         'rank_position'   => null,
         'rank_checked_at' => null,
     ];
+}
+
+/**
+ * Extracts the niche_id a client's content_profile actually points at (same
+ * extraction lpc_ai_niche_brief() already does — 'niche:water-damage-
+ * restoration' -> 'water-damage-restoration') without loading the AI content
+ * profile itself, since the City Service Page picker only needs the slug to
+ * resolve PlusCities' pool via pluscities_niche_resolved(), a completely
+ * separate loader (niche_blueprints/niche_families) from LPC's own niche
+ * profile system — the two happen to share the same niche_id string by
+ * convention (confirmed against the real Meade Restoration/
+ * water-damage-restoration data), not because they're the same underlying
+ * file or function.
+ */
+function lpc_client_niche_id($client) {
+    $source = $client['content_profile']['source'] ?? '';
+    return str_starts_with($source, 'niche:') ? substr($source, 6) : '';
+}
+
+/**
+ * The city-pool topic list the City Service Page picker offers — ONE fixed
+ * universal list, same simple-constant pattern PLUSCITIES_SERVICE_POOL
+ * already uses, not resolved per-niche. Originally this called
+ * pluscities_niche_resolved() to get a niche-specific pool, but checking
+ * showed PlusCities only has blueprints for 2 niches (hvac,
+ * water-damage-restoration) against LPC's 7 real active niches, and not one
+ * of LPC's real niche slugs matches either blueprint exactly (confirmed
+ * live against the real Meade Restoration client — its real niche,
+ * "water-restoration", isn't "water-damage-restoration") — so per-niche
+ * resolution would leave every real client with zero city-pool topics
+ * today. These 9 topics (the restoration family's own list) are generic
+ * local-business categories, not restoration-specific, so one universal
+ * list is simpler and correct rather than a fallback-when-missing special
+ * case (Scott's call, 2026-11-22 — keep this simple, don't build an
+ * exception path for a per-niche system that barely exists yet).
+ */
+function lpc_city_block_pool() {
+    return ['climate_data', 'housing_stock', 'neighborhoods', 'permits', 'utilities', 'hoa_rules', 'seasonal_guide', 'hazards', 'reviews_from_city'];
+}
+
+/**
+ * The platform's own best-chosen City Service Page default — used whenever a
+ * client's city_block_picks/service_block_picks are empty (the blank-means-
+ * automatic-default convention hub_intro already uses). Favors the real-
+ * data-grounded/fact-card items most likely to read as genuinely local
+ * rather than generic filler, so a client who never touches the tab still
+ * gets real distinctiveness, not just a safe-but-generic pick (Scott's call,
+ * 2026-11-22 — see project_city_service_page_block_matrix_scope.md). Picks
+ * are filtered against $pool before being capped, so a thin niche (fewer
+ * than 6 city-pool entries) never over-promises more than it actually has.
+ */
+function lpc_default_block_picks_for_pool($pool, $max) {
+    // Prefer picks matching this fixed priority order (data-grounded or
+    // already-proven-valuable items first); fall back to whatever's left in
+    // $pool, in its own order, to fill out the count.
+    $priority = [
+        'housing_stock', 'permits', 'hazards', 'climate_data', 'neighborhoods',
+        'seasonal_guide', 'utilities', 'hoa_rules', 'reviews_from_city',
+        'process', 'cost_factors', 'why_choose_us', 'common_problems',
+        'cited_expert_guidance', 'repair_vs_replace', 'maintenance',
+        'before_the_tech_arrives', 'niche_data_table',
+    ];
+    $ordered = array_values(array_intersect($priority, $pool));
+    $rest    = array_values(array_diff($pool, $ordered));
+    return array_slice(array_merge($ordered, $rest), 0, min($max, count($pool)));
+}
+
+/**
+ * Resolves the ACTUAL block picks to generate for one specific city's page —
+ * the client's approved pool (or the platform default if they've picked
+ * nothing), then the "Vary topics across cities" rotation if that's on.
+ * $cityPool/$servicePool are the real, current pools (niche-specific city
+ * pool + the fixed PLUSCITIES_SERVICE_POOL) — passed in rather than
+ * re-resolved here so a caller that already has them (the bridge, which also
+ * needs $niche for other reasons) isn't forced to resolve them twice.
+ *
+ * Deliberately filters the client's SAVED picks against the CURRENT pool
+ * before using them — a niche's pool can change after a client's picks were
+ * saved (blocks_off edited, a block type retired), and a stale saved slug
+ * must never reach the writer dispatch below.
+ */
+function lpc_resolve_block_picks_for_city($client, $city_id, $cityPool, $servicePool) {
+    $delivery = $client['delivery'] ?? [];
+
+    $cityPicks = array_values(array_intersect($delivery['city_block_picks'] ?? [], $cityPool));
+    if (!$cityPicks) $cityPicks = lpc_default_block_picks_for_pool($cityPool, 6);
+
+    $servicePicks = array_values(array_intersect($delivery['service_block_picks'] ?? [], $servicePool));
+    if (!$servicePicks) $servicePicks = lpc_default_block_picks_for_pool($servicePool, 4);
+
+    if (empty($delivery['vary_blocks_across_cities']) || !$city_id) {
+        return ['city' => $cityPicks, 'service' => $servicePicks];
+    }
+
+    // Deterministic, reproducible, no per-city state to store: a stable hash
+    // of the city's own id picks which single approved item THAT city drops,
+    // so neighboring cities differ without any overlap-percentage math.
+    if (count($cityPicks) > 1) {
+        $drop = crc32($city_id . ':city') % count($cityPicks);
+        $cityPicks = array_values(array_diff_key($cityPicks, [$drop => true]));
+    }
+    if (count($servicePicks) > 1) {
+        $drop = crc32($city_id . ':service') % count($servicePicks);
+        $servicePicks = array_values(array_diff_key($servicePicks, [$drop => true]));
+    }
+    return ['city' => $cityPicks, 'service' => $servicePicks];
 }
 
 /**

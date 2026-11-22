@@ -270,7 +270,7 @@ function lpc_handle_route() {
 	if ( $slug === '' ) {
 		lpc_render_hub_page( $manifest, $top_level );
 	} else {
-		lpc_render_single_page( $page, $top_level );
+		lpc_render_single_page( $page, $top_level, $manifest );
 	}
 	echo '</div>';
 	// No direct call here for the service-locations link — see
@@ -329,7 +329,7 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 		// published pages (restore-2's exact situation, 2026-11-15): a single
 		// stretched-full-width card and a wall of empty space below it, reading
 		// as broken rather than just "early."
-		echo '<p class="lpc-hub-intro">' . esc_html( $manifest['business_name'] ?? 'We' ) . ' proudly serves the following area' . ( count( $manifest['pages'] ) === 1 ? '' : 's' ) . ':</p>';
+		echo '<p class="lpc-hub-intro">' . esc_html( $manifest['business_name'] ?? 'We' ) . ' proudly serves the following areas:</p>';
 	}
 
 	// State > Hub Area > City > Services, not one flat grid of every
@@ -448,14 +448,19 @@ function lpc_render_hub_city_card( $cityName, $cityPages, $base, $format, $custo
 		. '</div>';
 }
 
-function lpc_render_single_page( $page, $top_level = 'h2' ) {
+function lpc_render_single_page( $page, $top_level = 'h2', $manifest = [] ) {
 	if ( empty( $page ) ) {
 		echo '<main><h2>Page not found</h2></main>';
 		return;
 	}
 
+	// 'list' (default) | 'accordion' — Phase 3, 2026-11-22. Lives on the
+	// manifest's settings block, same home hub_intro/hub_city_format already
+	// use, so it reaches here the same way those do.
+	$faq_style = $manifest['settings']['faq_display_style'] ?? 'list';
+
 	echo '<main>';
-	echo lpc_render_sections( $page['sections'] ?? [], $top_level ); // phpcs:ignore WordPress.Security.EscapeOutput -- section renderer escapes each field itself.
+	echo lpc_render_sections( $page['sections'] ?? [], $top_level, $faq_style ); // phpcs:ignore WordPress.Security.EscapeOutput -- section renderer escapes each field itself.
 	echo '</main>';
 	echo lpc_render_schema( $page['schema_jsonld'] ?? null ); // phpcs:ignore WordPress.Security.EscapeOutput -- JSON-LD, not HTML.
 	echo lpc_render_click_tracking_script( $page['page_id'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput -- builds its own escaped values, see function doc.

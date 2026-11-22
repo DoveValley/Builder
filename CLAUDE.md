@@ -16,6 +16,7 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 | Pic Drop (per-domain/per-template image management), or `includes/picdrop.php` | `docs/pic-drop-image-management.md` |
 | Onboarding a new Landing Page Clients customer, start to live handoff | `docs/landing-page-clients-onboarding.md` |
 | Deciding whether something belongs in LPC, the Site Factory, or both — shared `fleet.db`/API-key risk, block-renderer separation | `docs/lpc-vs-site-factory-boundary.md` |
+| Which topics appear on an LPC city page (City Service Page tab), the PlusCities-to-LPC content bridge, or `pluscities_lpc_bridge.php` | `docs/city-service-page-block-matrix.md` |
 
 ## Running locally
 

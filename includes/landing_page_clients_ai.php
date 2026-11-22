@@ -188,6 +188,17 @@ function lpc_default_primary_keyword($serviceLabel, $city, $state, $pattern = ''
  * matching niche profile) — lpc_ai_content_slot_prompt() already handles
  * that (falls back to its own generic instruction per slot), so this
  * function doesn't need its own null guard for it.
+ *
+ * `comparison`, `how_it_works`, `seasonal_calendar`, and `why_choose_us` were
+ * removed from this schema 2026-11-22 — they map directly onto City Service
+ * Page matrix picks (repair_vs_replace, process, seasonal_guide,
+ * why_choose_us) and are now generated exclusively by the picker-driven
+ * bridge (includes/pluscities_lpc_bridge.php) when a client actually picks
+ * them, present only if picked rather than unconditionally on every page.
+ * Leaving them here too would mean generating and paying for two versions of
+ * the same content, one always discarded. See lpc_default_page_data() —
+ * their fixed section entries were removed from there too, for the same
+ * reason.
  */
 function lpc_ai_user_prompt($business, $city, $state, $serviceLabel, $primaryKeyword, $secondaryKeywords, $research, $niche_brief) {
     $secondaryLine = '';
@@ -211,20 +222,9 @@ function lpc_ai_user_prompt($business, $city, $state, $serviceLabel, $primaryKey
         . "  \"hero\": {\"headline\": \"...\", \"subheading\": \"...\", \"cta_text\": \"...\"},\n"
         . "  \"meta_description\": \"... (max 155 characters, leads with the primary keyword, reads as a real search-result snippet)\",\n"
         . "  \"city_intro\": {\"heading\": \"...\", \"body\": \"2-3 sentences — what kind of place {$city} is, grounded in the real data above, not generic filler\"},\n"
-        . "  \"comparison\": {\"heading\": \"...\", \"intro\": \"1 sentence lead-in (optional, can be empty string)\", "
-        . "\"label_a\": \"short label for column A (2-4 words)\", \"items_a\": [\"short phrase\", \"short phrase\", \"short phrase\"], "
-        . "\"label_b\": \"short label for column B (2-4 words)\", \"items_b\": [\"short phrase\", \"short phrase\", \"short phrase\"] "
-        . "(" . $slot('comparison') . " — 3-5 short, concrete phrases per column, not full sentences)},\n"
         . "  \"feature_columns_local\": {\"heading\": \"...\", \"items\": [{\"title\": \"...\", \"text\": \"...\"}, {\"title\": \"...\", \"text\": \"...\"}, "
         . "{\"title\": \"...\", \"text\": \"...\"}] (" . $slot('feature_columns_local') . ")},\n"
         . "  \"local_relevance\": {\"heading\": \"...\", \"body\": \"2-3 sentences (" . $slot('local_relevance') . ")\"},\n"
-        . "  \"how_it_works\": {\"heading\": \"...\", \"items\": [{\"title\": \"Step 1 ...\", \"text\": \"...\"}, {\"title\": \"Step 2 ...\", \"text\": \"...\"}, "
-        . "{\"title\": \"Step 3 ...\", \"text\": \"...\"}] (" . $slot('how_it_works') . ")},\n"
-        . "  \"seasonal_calendar\": {\"heading\": \"...\", \"items\": [{\"title\": \"Spring\", \"text\": \"...\"}, "
-        . "{\"title\": \"Summer\", \"text\": \"...\"}, {\"title\": \"Fall\", \"text\": \"...\"}, {\"title\": \"Winter\", \"text\": \"...\"}] "
-        . "(exactly these 4 season titles; each 1-2 sentences on how THAT specific season affects " . $slot('seasonal_calendar') . " — "
-        . "skip a season only if it genuinely doesn't apply to this climate, e.g. no real winter risk, and say so briefly rather than inventing one)},\n"
-        . "  \"why_choose_us\": {\"heading\": \"...\", \"body\": \"2-3 sentences (" . $slot('why_choose_us') . ")\"},\n"
         . "  \"services_list\": {\"heading\": \"...\", \"items\": [{\"title\": \"...\", \"text\": \"...\"}, "
         . "{\"title\": \"...\", \"text\": \"...\"}, {\"title\": \"...\", \"text\": \"...\"}] (what this specific service includes)},\n"
         . "  \"faq\": {\"heading\": \"...\", \"items\": [{\"q\": \"...\", \"a\": \"...\"}, {\"q\": \"...\", \"a\": \"...\"}, "
@@ -390,6 +390,20 @@ function lpc_generate_page_content($client_id, $page_id) {
     lpc_fill_real_phone($page, $hub);
     lpc_fill_service_image($page, $client_id, $service, $page['seo']['primary_keyword']);
 
+    // City Service Page picker/bridge — the client's approved city/service-
+    // pool topics (or the platform default if they've picked nothing), with
+    // the per-city "Vary topics across cities" rotation already applied.
+    // Appended after the fixed sections above, never interleaved, per the
+    // Phase 1 plan — reordering is Phase 2+ scope once a preview exists to
+    // actually judge the effect of it. A niche with no PlusCities blueprint
+    // (every real LPC niche today, confirmed 2026-11-22) resolves to null
+    // here, which lpc_sync_and_generate_picked_blocks()'s niche_data_table
+    // handling already treats as a graceful skip, not an error.
+    $niche   = pluscities_niche_resolved(lpc_client_niche_id($client));
+    $picks   = lpc_resolve_block_picks_for_city($client, $city_id, lpc_city_block_pool(), PLUSCITIES_SERVICE_POOL);
+    $bridge  = lpc_sync_and_generate_picked_blocks($client, $page_id, $city_id, $service['label'], $niche, $picks, 'lpc_generate_page_content');
+    $page['sections'] = array_merge($page['sections'], $bridge['sections']);
+
     $page['page_id']    = $page_id;
     $page['created_at'] = $page['created_at'] ?: gmdate('c');
     $page['updated_at'] = gmdate('c');
@@ -401,7 +415,13 @@ function lpc_generate_page_content($client_id, $page_id) {
     }
 
     lpc_save_page($client_id, $page_id, $page);
-    return ['ok' => true, 'msg' => ''];
+    // Surface partial block failures rather than silently dropping them —
+    // the page still saves successfully (ok:true) since one failed topic
+    // out of several shouldn't block the rest, but the grid's progress log
+    // (lpcGenerateSequential() in admin/client.php) should show exactly
+    // what didn't generate rather than a bare success.
+    $msg = $bridge['errors'] ? (count($bridge['errors']) . ' topic(s) failed: ' . implode('; ', $bridge['errors'])) : '';
+    return ['ok' => true, 'msg' => $msg];
 }
 
 /**
@@ -583,7 +603,15 @@ function lpc_generate_and_verify_page($client_id, $page_id, $opts = []) {
         if (!$page) return ['ok' => false, 'skipped' => false, 'warnings' => ['Could not create page']];
     } elseif ($opts['regenerate_text']) {
         $r = lpc_generate_page_content($client_id, $page_id);
-        if (!$r['ok']) $warnings[] = 'Failed to regenerate text: ' . $r['msg'];
+        if (!$r['ok']) {
+            $warnings[] = 'Failed to regenerate text: ' . $r['msg'];
+        } elseif ($r['msg'] !== '') {
+            // ok:true but non-empty msg — a partial City Service Page bridge
+            // failure (most topics generated fine, a few didn't), not a
+            // total failure. Surfaced as a warning so the grid's progress
+            // log shows it instead of a bare, misleading success.
+            $warnings[] = $r['msg'];
+        }
         $page = lpc_load_page($client_id, $page_id);
     }
 

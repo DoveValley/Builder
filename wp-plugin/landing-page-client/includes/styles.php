@@ -169,6 +169,15 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-faq-item { background: <?php echo $accent_tint; ?>; border-radius: 10px; padding: 16px 20px; }
 		.lpc-page .lpc-faq-item h3 { margin: 0 0 6px; font-size: 1.05rem; }
 		.lpc-page .lpc-faq-item p { margin: 0; opacity: .85; }
+		/* Accordion variant (Phase 3, 2026-11-22) — native <details>/<summary>,
+		   same .lpc-faq-item background/radius/padding as the list variant
+		   above; only the disclosure marker itself needs replacing with a
+		   simple rotating indicator in the client's own accent color. */
+		.lpc-page .lpc-faq-item summary { margin: 0; font-size: 1.05rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+		.lpc-page .lpc-faq-item summary::-webkit-details-marker { display: none; }
+		.lpc-page .lpc-faq-item summary::after { content: '+'; color: var(--lpc-primary); font-size: 1.3rem; line-height: 1; flex-shrink: 0; transition: transform .15s ease; }
+		.lpc-page .lpc-faq-item[open] summary::after { transform: rotate(45deg); }
+		.lpc-page .lpc-faq-item[open] summary { margin-bottom: 6px; }
 		.lpc-page .lpc-cta { background: <?php echo $primary_tint; ?>; border-radius: 12px; padding: 36px 24px; text-align: center; }
 		.lpc-page .lpc-pill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
 		.lpc-page .lpc-pill { background: rgba(0,0,0,.05); border-radius: 999px; padding: 6px 14px; font-size: .85rem; text-decoration: none; color: #1a1a2e; } /* same missing-explicit-color bug as lpc-hub-item a, found in the same audit */

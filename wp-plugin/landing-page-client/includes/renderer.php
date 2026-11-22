@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function lpc_render_sections( $sections, $hero_level = 'h2' ) {
+function lpc_render_sections( $sections, $hero_level = 'h2', $faq_style = 'list' ) {
 	$html = '';
 	foreach ( (array) $sections as $section ) {
 		$type = $section['type'] ?? '';
@@ -53,7 +53,7 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 				$html .= lpc_render_steps( $section );
 				break;
 			case 'faq':
-				$html .= lpc_render_faq( $section );
+				$html .= lpc_render_faq( $section, $faq_style );
 				break;
 			case 'safety_toolkit':
 				$html .= lpc_render_safety_toolkit( $section );
@@ -186,7 +186,12 @@ function lpc_render_text( $s ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
 	if ( ! empty( $s['body'] ) ) {
-		$out .= '<p>' . esc_html( $s['body'] ) . '</p>';
+		// nl2br() added 2026-11-22 — City Service Page picked-topic bodies
+		// can carry real embedded line breaks (e.g. housing_stock's
+		// stat-per-line listing); escape first, then convert, so those
+		// render as actual line breaks instead of collapsing into one
+		// run-on paragraph.
+		$out .= '<p>' . nl2br( esc_html( $s['body'] ) ) . '</p>';
 	}
 	$out .= '</section>';
 	return $out;
@@ -230,17 +235,33 @@ function lpc_render_steps( $s ) {
 	return $out;
 }
 
-function lpc_render_faq( $s ) {
+/**
+ * $style: 'list' (default — plain h3/p pairs, original behavior) | 'accordion'
+ * (native <details>/<summary>, Phase 3, 2026-11-22 — not custom JS: content
+ * stays in the DOM regardless of open/closed state, so there's no
+ * crawlability risk, and it works with zero JavaScript). Same outer
+ * .lpc-faq-list/.lpc-faq-item classes either way, so styles.php's existing
+ * FAQ rules apply to both variants — only `<summary>` needs its own small
+ * addition there.
+ */
+function lpc_render_faq( $s, $style = 'list' ) {
 	$out  = '<section class="lpc-section">';
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
 	$out .= '<div class="lpc-faq-list">';
 	foreach ( (array) ( $s['items'] ?? [] ) as $item ) {
-		$out .= '<div class="lpc-faq-item">';
-		$out .= '<h3>' . esc_html( $item['q'] ?? '' ) . '</h3>';
-		$out .= '<p>' . esc_html( $item['a'] ?? '' ) . '</p>';
-		$out .= '</div>';
+		if ( 'accordion' === $style ) {
+			$out .= '<details class="lpc-faq-item">';
+			$out .= '<summary>' . esc_html( $item['q'] ?? '' ) . '</summary>';
+			$out .= '<p>' . esc_html( $item['a'] ?? '' ) . '</p>';
+			$out .= '</details>';
+		} else {
+			$out .= '<div class="lpc-faq-item">';
+			$out .= '<h3>' . esc_html( $item['q'] ?? '' ) . '</h3>';
+			$out .= '<p>' . esc_html( $item['a'] ?? '' ) . '</p>';
+			$out .= '</div>';
+		}
 	}
 	$out .= '</div></section>';
 	return $out;

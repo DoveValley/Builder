@@ -346,6 +346,82 @@ switch ($section) {
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=service_area_page&msg=success:Service+Area+page+text+saved');
         exit;
 
+    /* ---- CITY SERVICE PAGE (which topics appear on this client's city pages) ---- */
+    case 'city_service_page_settings':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client_for_current_actor($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        // Multiple separate forms post here (topic picks, FAQ display style
+        // — same multi-form-per-card pattern service_area_page_settings
+        // already uses above). array_key_exists, not a bare ?? default —
+        // a field absent from $_POST means a DIFFERENT card's form was
+        // submitted, not "clear this field." Without this guard, saving the
+        // FAQ display style alone (its own small form, no topic checkboxes
+        // in it at all) would silently wipe the client's saved topic picks
+        // back to empty — a real bug caught before shipping, 2026-11-22.
+        // 'topics_form' is an always-present hidden marker on that form,
+        // independent of checkbox state — checking for city_block_picks/
+        // service_block_picks presence directly would misfire if every
+        // checkbox in that form were unchecked (then neither key would be
+        // in $_POST at all, indistinguishable from the separate FAQ-style
+        // form submitting instead). Caught before shipping, 2026-11-22.
+        if (array_key_exists('topics_form', $_POST)) {
+            // Server-side is the authoritative gate — the picker's own JS
+            // disables further checkboxes once the max is hit, but that's
+            // only ever a convenience; a crafted request must still be
+            // rejected here. Whitelist-checked against the REAL pools (not
+            // trusted blindly), same reasoning lpc_resolve_block_picks_for_
+            // city() already applies when picks are actually used at
+            // generation time — a pool can shrink after picks were saved,
+            // so both save and use must re-check.
+            $cityPool    = lpc_city_block_pool();
+            $servicePool = PLUSCITIES_SERVICE_POOL;
+
+            $cityPicks = array_values(array_intersect((array) ($_POST['city_block_picks'] ?? []), $cityPool));
+            if (count($cityPicks) > min(6, count($cityPool))) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=city_service_page&msg=' . urlencode('error:Choose at most ' . min(6, count($cityPool)) . ' city topics'));
+                exit;
+            }
+            $servicePicks = array_values(array_intersect((array) ($_POST['service_block_picks'] ?? []), $servicePool));
+            if (count($servicePicks) > min(4, count($servicePool))) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=city_service_page&msg=' . urlencode('error:Choose at most ' . min(4, count($servicePool)) . ' service topics'));
+                exit;
+            }
+
+            $client['delivery']['city_block_picks']         = $cityPicks;
+            $client['delivery']['service_block_picks']      = $servicePicks;
+            $client['delivery']['vary_blocks_across_cities'] = isset($_POST['vary_blocks_across_cities']);
+        }
+        if (array_key_exists('faq_display_style', $_POST)) {
+            $faqStyle = $_POST['faq_display_style'];
+            $client['delivery']['faq_display_style'] = in_array($faqStyle, ['list', 'accordion'], true) ? $faqStyle : 'list';
+        }
+        lpc_save_client($client_id, $client);
+        // Save only — deliberately does NOT trigger any generation. Applying
+        // this to already-existing pages is the Cities & Services tab's own
+        // "Generate/Refresh Selected -> Regenerate text content" action,
+        // same real-cost-gated mechanism that already exists, not a new one.
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=city_service_page&msg=success:City+Service+Page+topics+saved');
+        exit;
+
+    /* ---- CITY SERVICE PAGE LIVE PREVIEW (AJAX, no save, no generation) ---- */
+    case 'city_service_page_preview':
+        header('Content-Type: application/json');
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client_for_current_actor($client_id);
+        if (!$client) { echo json_encode(['ok' => false, 'html' => '']); exit; }
+
+        // Same whitelist reasoning as the real save handler above — these
+        // are the CURRENTLY CHECKED boxes in the browser, not necessarily
+        // what's saved, so re-validate the same way regardless.
+        $cityPicks    = array_values(array_intersect((array) ($_POST['city_block_picks'] ?? []), lpc_city_block_pool()));
+        $servicePicks = array_values(array_intersect((array) ($_POST['service_block_picks'] ?? []), PLUSCITIES_SERVICE_POOL));
+
+        $sections = lpc_build_preview_sections($client_id, $cityPicks, $servicePicks);
+        echo json_encode(['ok' => true, 'html' => lpc_preview_render($sections)]);
+        exit;
+
     /* ---- FORCE REMOTE REFRESH (calls the client's own live WordPress site) ---- */
     case 'force_refresh':
         $client_id = $_POST['client_id'] ?? '';
@@ -737,13 +813,7 @@ switch ($section) {
             };
 
             $highlights = $buildItems($_POST['highlights_title'] ?? [], $_POST['highlights_text'] ?? []);
-            $steps      = $buildItems($_POST['steps_title'] ?? [], $_POST['steps_text'] ?? []);
             $services   = $buildItems($_POST['svc_title'] ?? [], $_POST['svc_text'] ?? []);
-            $seasonal   = $buildItems($_POST['seasonal_title'] ?? [], $_POST['seasonal_text'] ?? []);
-
-            $buildLines = fn($raw) => array_values(array_filter(array_map('trim', explode("\n", $raw ?? ''))));
-            $comparisonItemsA = $buildLines($_POST['comparison_items_a'] ?? '');
-            $comparisonItemsB = $buildLines($_POST['comparison_items_b'] ?? '');
 
             $faqQs = $_POST['faq_q'] ?? [];
             $faqAs = $_POST['faq_a'] ?? [];
@@ -785,6 +855,16 @@ switch ($section) {
             // real NOAA chart/table it carries) on the very next manual Save.
             $existingChartHeading = ''; $existingChartImage = ''; $existingChartAlt = '';
             $existingChartW = null; $existingChartH = null; $existingChartTableHtml = '';
+            // City Service Page picker/bridge sections (includes/
+            // pluscities_lpc_bridge.php) — this form has no fields for them
+            // at all (they're generated from real research, not hand-typed),
+            // so they must be carried forward unchanged, same "not touched
+            // here" rule every other auto-computed section above already
+            // follows. Identified by 'key' matching a known city/service-pool
+            // slug rather than by 'type' ('text'), since plenty of sections
+            // above are also 'text'-typed but ARE form-owned.
+            $pickedPoolSlugs = array_merge(lpc_city_block_pool(), PLUSCITIES_SERVICE_POOL);
+            $existingPickedSections = array_values(array_filter($page['sections'], fn($s) => in_array($s['key'] ?? '', $pickedPoolSlugs, true)));
             foreach ($page['sections'] as $s) {
                 if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; }
                 if (($s['type'] ?? '') === 'hero') { $existingImgW = $s['image_width'] ?? null; $existingImgH = $s['image_height'] ?? null; }
@@ -818,12 +898,8 @@ switch ($section) {
                 // auto-computed at publish time from the niche profile.
                 ['type' => 'trust_bar', 'items' => $existingTrustBarItems],
                 ['type' => 'text', 'key' => 'city_intro', 'heading' => trim($_POST['city_intro_heading'] ?? ''), 'body' => trim($_POST['city_intro_body'] ?? '')],
-                ['type' => 'comparison', 'key' => 'comparison', 'heading' => trim($_POST['comparison_heading'] ?? ''), 'intro' => trim($_POST['comparison_intro'] ?? ''), 'label_a' => trim($_POST['comparison_label_a'] ?? ''), 'items_a' => $comparisonItemsA, 'label_b' => trim($_POST['comparison_label_b'] ?? ''), 'items_b' => $comparisonItemsB],
                 ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => trim($_POST['highlights_heading'] ?? ''), 'items' => $highlights],
                 ['type' => 'text', 'key' => 'local_relevance', 'heading' => trim($_POST['local_relevance_heading'] ?? ''), 'body' => trim($_POST['local_relevance_body'] ?? '')],
-                ['type' => 'steps', 'key' => 'how_it_works', 'heading' => trim($_POST['steps_heading'] ?? ''), 'items' => $steps],
-                ['type' => 'highlights', 'key' => 'seasonal_calendar', 'heading' => trim($_POST['seasonal_heading'] ?? ''), 'items' => $seasonal],
-                ['type' => 'text', 'key' => 'why_choose_us', 'heading' => trim($_POST['why_choose_us_heading'] ?? ''), 'body' => trim($_POST['why_choose_us_body'] ?? '')],
                 ['type' => 'services_list', 'heading' => trim($_POST['services_heading'] ?? ''), 'items' => $services],
                 ['type' => 'faq', 'heading' => trim($_POST['faq_heading'] ?? ''), 'items' => $faqs],
                 // safety_toolkit, like trust_bar above, is auto-computed at
@@ -843,6 +919,9 @@ switch ($section) {
                 ['type' => 'service_area', 'heading' => 'Our Service Area', 'intro' => $existingServiceAreaIntro, 'state' => $existingServiceAreaState, 'office_city' => $existingOfficeCity, 'nearby_cities' => $existingNearbyCities],
                 ['type' => 'related_links', 'heading' => 'Related Services', 'links' => $existingLinks],
             ];
+            // Re-append City Service Page picker/bridge sections captured
+            // above, unchanged — see the capture comment for why.
+            array_push($page['sections'], ...$existingPickedSections);
 
             $page['created_at'] = $page['created_at'] ?: gmdate('c');
             $page['updated_at'] = gmdate('c');

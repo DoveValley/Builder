@@ -48,12 +48,14 @@ $sectionByKey = [];
 foreach ($page['sections'] as $s) { $sectionByKey[$s['key'] ?? $s['type']] = $s; }
 $hero            = $sectionByKey['hero'] ?? ['headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'cta_text' => '', 'phone' => ''];
 $cityIntro       = $sectionByKey['city_intro'] ?? ['heading' => '', 'body' => ''];
-$comparison      = $sectionByKey['comparison'] ?? ['heading' => '', 'intro' => '', 'label_a' => '', 'items_a' => [], 'label_b' => '', 'items_b' => []];
 $featureLocal    = $sectionByKey['feature_columns_local'] ?? ['heading' => '', 'items' => []];
 $localRelevance  = $sectionByKey['local_relevance'] ?? ['heading' => '', 'body' => ''];
-$howItWorks      = $sectionByKey['how_it_works'] ?? ['heading' => '', 'items' => []];
-$seasonal        = $sectionByKey['seasonal_calendar'] ?? ['heading' => '', 'items' => []];
-$whyChooseUs     = $sectionByKey['why_choose_us'] ?? ['heading' => '', 'body' => ''];
+// 'comparison'/'how_it_works'/'seasonal_calendar'/'why_choose_us' hand-
+// editable fields removed 2026-11-22 — that content now comes from the
+// City Service Page picker/bridge (real research/fact-cards), not free
+// text typed here. See client_save.php's save_content case for the
+// matching carry-forward-unchanged behavior for whichever of those a
+// client has actually picked.
 $servicesList = $sectionByKey['services_list'] ?? ['heading' => '', 'items' => []];
 $faq          = $sectionByKey['faq'] ?? ['heading' => '', 'items' => []];
 $cta          = $sectionByKey['cta'] ?? ['heading' => '', 'body' => '', 'phone' => '', 'button_text' => ''];
@@ -211,24 +213,6 @@ lpc_admin_open('clients', $page_id, $editorActions);
         </div>
 
         <div class="lpc-section">
-            <h3>Comparison Block <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(two-column "this vs that" — one short phrase per line in each column)</span></h3>
-            <div class="lpc-field"><label>Heading</label><input type="text" name="comparison_heading" value="<?= h($comparison['heading']) ?>"></div>
-            <div class="lpc-field"><label>Intro (optional)</label><input type="text" name="comparison_intro" value="<?= h($comparison['intro']) ?>"></div>
-            <div class="lpc-field-row" style="display:flex;gap:16px;">
-                <div class="lpc-field" style="flex:1;">
-                    <label>Column A Label</label><input type="text" name="comparison_label_a" value="<?= h($comparison['label_a']) ?>">
-                    <label style="margin-top:8px;display:block;">Column A Items</label>
-                    <textarea name="comparison_items_a" placeholder="One short phrase per line"><?= h(implode("\n", $comparison['items_a'])) ?></textarea>
-                </div>
-                <div class="lpc-field" style="flex:1;">
-                    <label>Column B Label</label><input type="text" name="comparison_label_b" value="<?= h($comparison['label_b']) ?>">
-                    <label style="margin-top:8px;display:block;">Column B Items</label>
-                    <textarea name="comparison_items_b" placeholder="One short phrase per line"><?= h(implode("\n", $comparison['items_b'])) ?></textarea>
-                </div>
-            </div>
-        </div>
-
-        <div class="lpc-section">
             <h3>Local Highlights <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(why/how this service matters in this city)</span></h3>
             <div class="lpc-field"><label>Heading</label><input type="text" name="highlights_heading" value="<?= h($featureLocal['heading']) ?>"></div>
             <div id="highlights-rows">
@@ -247,42 +231,6 @@ lpc_admin_open('clients', $page_id, $editorActions);
             <h3>Local Relevance <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(real local data — home age, value, housing stock)</span></h3>
             <div class="lpc-field"><label>Heading</label><input type="text" name="local_relevance_heading" value="<?= h($localRelevance['heading']) ?>"></div>
             <div class="lpc-field"><label>Body</label><textarea name="local_relevance_body"><?= h($localRelevance['body']) ?></textarea></div>
-        </div>
-
-        <div class="lpc-section">
-            <h3>How It Works <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(the real step-by-step process)</span></h3>
-            <div class="lpc-field"><label>Heading</label><input type="text" name="steps_heading" value="<?= h($howItWorks['heading']) ?>"></div>
-            <div id="steps-rows">
-                <?php foreach ($howItWorks['items'] as $item): ?>
-                <div class="lpc-repeat-row">
-                    <input type="text" name="steps_title[]" placeholder="Step title" value="<?= h($item['title']) ?>">
-                    <input type="text" name="steps_text[]" placeholder="Text" value="<?= h($item['text']) ?>">
-                    <button type="button" class="btn-sm-danger" onclick="this.parentElement.remove()">&times;</button>
-                </div>
-                <?php endforeach; ?>
-            </div>
-            <button type="button" class="btn-sm-outline" onclick="lpcAddRow('steps-rows','steps_title[]','Step title','steps_text[]','Text')">+ Add Step</button>
-        </div>
-
-        <div class="lpc-section">
-            <h3>Seasonal Calendar <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(4 season cards — when demand for this service peaks)</span></h3>
-            <div class="lpc-field"><label>Heading</label><input type="text" name="seasonal_heading" value="<?= h($seasonal['heading']) ?>"></div>
-            <div id="seasonal-rows">
-                <?php foreach ($seasonal['items'] as $item): ?>
-                <div class="lpc-repeat-row">
-                    <input type="text" name="seasonal_title[]" placeholder="Season" value="<?= h($item['title']) ?>">
-                    <input type="text" name="seasonal_text[]" placeholder="Text" value="<?= h($item['text']) ?>">
-                    <button type="button" class="btn-sm-danger" onclick="this.parentElement.remove()">&times;</button>
-                </div>
-                <?php endforeach; ?>
-            </div>
-            <button type="button" class="btn-sm-outline" onclick="lpcAddRow('seasonal-rows','seasonal_title[]','Season','seasonal_text[]','Text')">+ Add Season</button>
-        </div>
-
-        <div class="lpc-section">
-            <h3>Why Choose Us</h3>
-            <div class="lpc-field"><label>Heading</label><input type="text" name="why_choose_us_heading" value="<?= h($whyChooseUs['heading']) ?>"></div>
-            <div class="lpc-field"><label>Body</label><textarea name="why_choose_us_body"><?= h($whyChooseUs['body']) ?></textarea></div>
         </div>
 
         <div class="lpc-section">

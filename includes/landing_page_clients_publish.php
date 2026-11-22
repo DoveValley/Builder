@@ -247,7 +247,13 @@ function lpc_preview_render($sections) {
                 $out .= '</ul></section>';
                 break;
             case 'text':
-                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<p>' . h($s['body']) . '</p></section>';
+                // nl2br() added 2026-11-22 — City Service Page picked-topic
+                // bodies (lpc_build_picked_sections_from_pluscities()) can
+                // carry real embedded line breaks (e.g. housing_stock's
+                // stat-per-line listing); escape first, then convert, so
+                // those render as actual line breaks instead of collapsing
+                // into one run-on paragraph (HTML whitespace collapsing).
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<p>' . nl2br(h($s['body'])) . '</p></section>';
                 break;
             case 'comparison':
                 if (empty($s['items_a']) && empty($s['items_b'])) break;
@@ -428,6 +434,7 @@ function lpc_rebuild_manifest($client_id) {
             'hub_footer_text'          => $client['delivery']['hub_footer_text'] ?? '',
             'hub_city_format'          => $client['delivery']['hub_city_format'] ?? 'simple',
             'hub_city_format_custom'   => $client['delivery']['hub_city_format_custom'] ?? '',
+            'faq_display_style'        => $client['delivery']['faq_display_style'] ?? 'list',
         ],
         'pages' => $pages,
     ];

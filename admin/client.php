@@ -31,7 +31,7 @@ if (!$client) {
 }
 
 $tab = $_GET['tab'] ?? 'overview';
-if (!in_array($tab, ['overview', 'locations', 'branding', 'content_profile', 'delivery', 'service_area_page', 'reporting'], true)) {
+if (!in_array($tab, ['overview', 'locations', 'branding', 'content_profile', 'delivery', 'service_area_page', 'city_service_page', 'reporting'], true)) {
     $tab = 'overview';
 }
 
@@ -1275,6 +1275,167 @@ Thanks!</textarea></div>
                 <a href="https://<?= h($lpcDomain2) ?>/<?= h(trim($client['delivery']['base_path'] ?? '/locations', '/')) ?>/" target="_blank" rel="noopener">View the live page &#8599;</a>
             <?php endif; ?>
         </p>
+
+    <?php elseif ($tab === 'city_service_page'):
+        $cspCatalog = [];
+        foreach (platform_info_city_page_blocks_data() as $cspSection) {
+            foreach ($cspSection['rows'] as $cspRow) {
+                if (!empty($cspRow['slug'])) $cspCatalog[$cspRow['slug']] = $cspRow;
+            }
+        }
+        $cspSpineSlugs   = ['hero', 'overview', 'faq', 'service_area'];
+        $cspCityPool     = lpc_city_block_pool();
+        $cspServicePool  = PLUSCITIES_SERVICE_POOL;
+        $cspCityPicks    = $client['delivery']['city_block_picks'] ?: lpc_default_block_picks_for_pool($cspCityPool, 6);
+        $cspServicePicks = $client['delivery']['service_block_picks'] ?: lpc_default_block_picks_for_pool($cspServicePool, 4);
+        $cspVary         = $client['delivery']['vary_blocks_across_cities'] ?? true;
+        $cspFaqStyle     = $client['delivery']['faq_display_style'] ?? 'list';
+    ?>
+
+        <h3 style="margin-top:0;">City Service Page</h3>
+        <p style="color:#6b7280;font-size:.85rem;line-height:1.6;margin:0 0 14px;">
+            Every city page this client publishes is built from a set of topics. A few are always
+            included (below), and you choose the rest from two pools — real local facts about the city,
+            and real facts about the specific service. This only decides WHICH topics appear; the actual
+            writing happens separately, back on the Cities &amp; Services tab's "Generate/Refresh
+            Selected" action — saving here never generates anything by itself.
+        </p>
+
+        <button type="button" class="btn-sm-outline" onclick="toggleLpcCspPreview()" style="margin-bottom:10px;">Show Preview</button>
+        <p style="color:#6b7280;font-size:.78rem;margin:-6px 0 10px;">
+            Updates as you check/uncheck topics below — no Save needed. Shows real generated content where
+            this client already has some; everything else is a labeled example of what that topic covers.
+            Not the client's real theme — a plain content proof, same as elsewhere in this admin.
+        </p>
+        <div id="lpc-csp-preview" style="display:none;border:1px solid #e5e7eb;border-radius:10px;padding:20px;margin-bottom:20px;background:#fafafa;">
+            <div id="lpc-csp-preview-body">&hellip;</div>
+            <p id="lpc-csp-preview-vary-note" style="display:none;color:#6b7280;font-size:.78rem;margin:14px 0 0;border-top:1px dashed #d1d5db;padding-top:8px;">
+                Individual cities will each skip one of these topics — which one rotates per city.
+            </p>
+        </div>
+
+        <div class="card">
+            <strong style="font-size:.88rem;">Always included</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">Every page has these, regardless of anything you pick below.</p>
+            <?php foreach ($cspSpineSlugs as $cspSlug): $cspRow = $cspCatalog[$cspSlug] ?? null; if (!$cspRow) continue; ?>
+                <div style="padding:8px 0;border-bottom:1px solid #f1f5f9;">
+                    <strong style="font-size:.85rem;"><?= h($cspRow['block']) ?></strong>
+                    <span style="margin-left:8px;font-size:.72rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($cspRow['class'])) ?></span>
+                    <p style="color:#6b7280;font-size:.78rem;margin:4px 0 0;"><?= h($cspRow['what']) ?></p>
+                    <?php if ($cspSlug === 'faq'): ?>
+                        <form method="post" action="client_save.php" style="margin:8px 0 0;display:flex;align-items:center;gap:8px;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="city_service_page_settings">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <label style="font-size:.78rem;color:#6b7280;">Display as</label>
+                            <select name="faq_display_style" style="font-size:.82rem;">
+                                <option value="list" <?= $cspFaqStyle === 'list' ? 'selected' : '' ?>>List (default)</option>
+                                <option value="accordion" <?= $cspFaqStyle === 'accordion' ? 'selected' : '' ?>>Accordion</option>
+                            </select>
+                            <button type="submit" class="btn-sm-outline">Save</button>
+                        </form>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <form method="post" action="client_save.php">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="section" value="city_service_page_settings">
+            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+            <!-- Always-present marker, independent of checkbox state — an
+                 all-unchecked topics form would otherwise omit BOTH
+                 city_block_picks/service_block_picks from POST entirely,
+                 indistinguishable from the separate FAQ-style-only form
+                 above submitting instead. -->
+            <input type="hidden" name="topics_form" value="1">
+
+            <div class="card" style="margin-top:10px;">
+                <strong style="font-size:.88rem;">City topics — choose up to 6 of <?= count($cspCityPool) ?></strong>
+                <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">Real facts about each specific city.</p>
+                <div id="csp-city-group">
+                <?php foreach ($cspCityPool as $cspSlug): $cspRow = $cspCatalog[$cspSlug] ?? null; if (!$cspRow) continue; $cspChecked = in_array($cspSlug, $cspCityPicks, true); ?>
+                    <label style="display:block;padding:8px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+                        <input type="checkbox" class="csp-city-cb" name="city_block_picks[]" value="<?= h($cspSlug) ?>" <?= $cspChecked ? 'checked' : '' ?>>
+                        <strong style="font-size:.85rem;"><?= h($cspRow['block']) ?></strong>
+                        <span style="margin-left:8px;font-size:.72rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($cspRow['class'])) ?></span>
+                        <p style="color:#6b7280;font-size:.78rem;margin:4px 0 0 24px;"><?= h($cspRow['what']) ?></p>
+                    </label>
+                <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:10px;">
+                <strong style="font-size:.88rem;">Service topics — choose up to 4 of <?= count($cspServicePool) ?></strong>
+                <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">Real facts about the specific service being pitched on this page.</p>
+                <div id="csp-service-group">
+                <?php foreach ($cspServicePool as $cspSlug): $cspRow = $cspCatalog[$cspSlug] ?? null; if (!$cspRow) continue; $cspChecked = in_array($cspSlug, $cspServicePicks, true); ?>
+                    <label style="display:block;padding:8px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+                        <input type="checkbox" class="csp-service-cb" name="service_block_picks[]" value="<?= h($cspSlug) ?>" <?= $cspChecked ? 'checked' : '' ?>>
+                        <strong style="font-size:.85rem;"><?= h($cspRow['block']) ?></strong>
+                        <span style="margin-left:8px;font-size:.72rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($cspRow['class'])) ?></span>
+                        <p style="color:#6b7280;font-size:.78rem;margin:4px 0 0 24px;"><?= h($cspRow['what']) ?></p>
+                    </label>
+                <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:10px;">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                    <input type="checkbox" name="vary_blocks_across_cities" value="1" <?= $cspVary ? 'checked' : '' ?>>
+                    <strong style="font-size:.88rem;">Vary topics across cities</strong>
+                </label>
+                <p style="color:#6b7280;font-size:.8rem;margin:6px 0 0 26px;">
+                    When on, each city page covers most — but not quite all — of your chosen topics, with
+                    which one gets skipped rotating city to city. Keeps a fleet of pages from reading as
+                    identical copies of each other. Recommended on; leave it off only if you specifically
+                    want every page to carry the exact same topic list.
+                </p>
+            </div>
+
+            <button type="submit" class="btn-sm-outline" style="margin-top:10px;">Save</button>
+        </form>
+
+        <script>
+        function lpcCspEnforceMax(className, max) {
+            var boxes = document.querySelectorAll('.' + className);
+            function refresh() {
+                var checkedCount = 0;
+                boxes.forEach(function(b) { if (b.checked) checkedCount++; });
+                boxes.forEach(function(b) { if (!b.checked) b.disabled = (checkedCount >= max); });
+            }
+            boxes.forEach(function(b) { b.addEventListener('change', refresh); });
+            refresh();
+        }
+        lpcCspEnforceMax('csp-city-cb', <?= (int) min(6, count($cspCityPool)) ?>);
+        lpcCspEnforceMax('csp-service-cb', <?= (int) min(4, count($cspServicePool)) ?>);
+
+        function lpcCspUpdatePreview() {
+            var cityPicks = Array.from(document.querySelectorAll('.csp-city-cb:checked')).map(function(b) { return b.value; });
+            var servicePicks = Array.from(document.querySelectorAll('.csp-service-cb:checked')).map(function(b) { return b.value; });
+            var vary = document.querySelector('input[name="vary_blocks_across_cities"]').checked;
+            document.getElementById('lpc-csp-preview-vary-note').style.display = vary ? 'block' : 'none';
+
+            var body = new URLSearchParams();
+            body.append('csrf_token', <?= json_encode($csrf) ?>);
+            body.append('section', 'city_service_page_preview');
+            body.append('client_id', <?= json_encode($client_id) ?>);
+            cityPicks.forEach(function(v) { body.append('city_block_picks[]', v); });
+            servicePicks.forEach(function(v) { body.append('service_block_picks[]', v); });
+
+            fetch('client_save.php', { method: 'POST', body: body })
+                .then(function(r) { return r.json(); })
+                .then(function(r) { document.getElementById('lpc-csp-preview-body').innerHTML = r.html || '<em>No topics selected.</em>'; })
+                .catch(function() { document.getElementById('lpc-csp-preview-body').innerHTML = '<em>Preview failed to load.</em>'; });
+        }
+        function toggleLpcCspPreview() {
+            var el = document.getElementById('lpc-csp-preview');
+            el.style.display = (el.style.display === 'none') ? 'block' : 'none';
+            if (el.style.display === 'block') lpcCspUpdatePreview();
+        }
+        document.querySelectorAll('.csp-city-cb, .csp-service-cb').forEach(function(b) { b.addEventListener('change', lpcCspUpdatePreview); });
+        document.querySelector('input[name="vary_blocks_across_cities"]').addEventListener('change', lpcCspUpdatePreview);
+        </script>
 
     <?php elseif ($tab === 'reporting'): ?>
 
