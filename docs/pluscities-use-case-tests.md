@@ -8,7 +8,7 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **UC1 complete and verified 2026-11-22. UC2-5 not yet run.**
+Status: **UC1-2 complete and verified 2026-11-22. UC3-5 not yet run.**
 
 ---
 
@@ -61,11 +61,46 @@ test-WordPress install repointed to QA Test Co.
 
 ---
 
-## UC2 — Provisioning options — not yet run
+## UC2 — Provisioning options — ✅ PASS
 
-Planned: add a 2nd page (different city/service/block-pick combination), swap a block via the UI, lock a
-block and confirm Regenerate is refused, attempt a raw out-of-pool swap POST and confirm the
-pool-membership validation (added 2026-11-22) rejects it live.
+**Goal:** exercise the branches UC1's happy path skips — a second page with a different pick
+combination, Swap, Lock, and the negative paths (regenerating a locked block, swapping out of pool).
+
+**Steps taken (all via the real admin, building on UC1's `QA Test Co`):**
+1. Added a 2nd page via `admin/pluscities_page_add.php` — `mckinney-tx`, `furnace-repair`, city picks
+   `climate_data, housing_stock, utilities, seasonal_guide` / service picks `process, cost_factors,
+   repair_vs_replace` — deliberately the *other* half of the niche's pool vs. page 1's picks.
+2. Swapped block 114 (`why_choose_us`, service pool) on page 1 to `cost_factors` via the real Swap
+   dropdown.
+3. Locked block 114, confirmed the Regenerate button is disabled client-side, then sent a **raw POST**
+   directly to `pluscities_page_save.php` bypassing the disabled button — confirming the server-side
+   guard holds independently of the UI.
+4. Sent a raw POST attempting to swap block 113 (`niche_data_table`, service pool) to `permits` (a
+   city-pool type) — confirming the pool-membership validation (added earlier this session) rejects it.
+5. Unlocked block 114, validated/approved/published page 2.
+
+**Verified:**
+- Page 2's blocks in the DB exactly match the chosen picks, in correct spine/city/service order — a
+  genuinely different page from page 1, not a copy (proves the picker produces real variety).
+- `target_cities[]` on the client JSON gained `mckinney-tx` automatically.
+- Block 114 is now `block_type='cost_factors'`, `origin='generated'`, with real regenerated content
+  (`"AC Repair Cost Factors in Plano, TX"...`) — the swap's regenerate-immediately behavior confirmed.
+- Locked-block regenerate: UI disables the button (`disabled` attribute, confirmed via Playwright), AND
+  the raw POST was independently rejected — `302` redirect with
+  `error:This+block+is+locked+—+unlock+it+first.` Both layers hold, not just the UI.
+- Out-of-pool swap: raw POST rejected — `302` redirect with
+  `error:"permits"+is+not+in+this+block's+pool.` Block 113 confirmed unchanged afterward
+  (`niche_data_table`, unlocked) — the 2026-11-22 pool-membership fix holds live, not just in the CLI
+  test from when it was built.
+- Page 2 published cleanly: `status='live'`, `approval_stage='approved'`, 1 revision.
+
+**Bonus finding, not planned but real:** after the UC2 swap, page 1 now shows `status='live'` **and**
+`approval_stage='none'` simultaneously — the exact dual-axis mechanic `docs/pluscities-system-reference
+.md` §2.1 describes, now demonstrated live on this fixture by an ordinary provisioning action (a swap),
+not just the Meade example cited in the reference doc. UC3 will exercise this deliberately via a direct
+content edit; this is the same mechanic showing up incidentally first.
+
+**Artifacts:** `QA Test Co` now has 2 live pages. `client.site_rev` at 2.
 
 ## UC3 — Monthly maintenance — not yet run
 
