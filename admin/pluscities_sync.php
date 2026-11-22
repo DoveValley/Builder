@@ -191,4 +191,44 @@ if ($action === 'page') {
     exit;
 }
 
+if ($action === 'hub') {
+    $niche = pluscities_niche_resolved($client['niche_id']);
+    $businessName = $client['identity']['business_name'] ?? '';
+    $resolvedColors = pluscities_client_colors($client);
+    $brandColor = $resolvedColors['accent'];
+    $darkColor  = $resolvedColors['dark'];
+
+    // Deliberately a small, dedicated stylesheet — not the full page style
+    // string from `action=page`, which carries ~70 lines of FAQ/trust-bar/
+    // table CSS the hub never uses.
+    $style = '<style>'
+        . '.pluscities-page{max-width:1000px;margin:0 auto;}'
+        . '.pluscities-page h1{font-size:2.1rem;font-weight:800;color:' . htmlspecialchars($darkColor) . ';line-height:1.2;margin:0 0 14px;}'
+        . '.lpc-hub-intro{line-height:1.65;color:#334155;margin:0 0 20px;}'
+        . '.lpc-hub-empty{color:#6b7280;font-style:italic;}'
+        . '.lpc-hub-grid{display:grid;grid-template-columns:1fr;gap:16px;}'
+        . '@media(min-width:720px){.lpc-hub-grid{grid-template-columns:1fr 1fr 1fr;}}'
+        . '.lpc-hub-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px 22px;box-shadow:0 1px 3px rgba(0,0,0,.04);}'
+        . '.lpc-hub-card h3{font-size:1.1rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid ' . htmlspecialchars($brandColor) . ';}'
+        . '.lpc-hub-card ul{list-style:none;margin:0;padding:0;}'
+        . '.lpc-hub-card li{margin:0 0 6px;}'
+        . '.lpc-hub-card a{color:' . htmlspecialchars($brandColor) . ';font-weight:600;text-decoration:none;}'
+        . '.lpc-hub-footer{margin-top:24px;color:#52607a;font-size:.9rem;}'
+        . '</style>';
+
+    $basePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
+
+    echo json_encode([
+        'html'  => '<h1>Service Areas</h1>' . pluscities_render_hub_blocks($client, $niche),
+        'style' => $style,
+        'head'  => [
+            'title'            => 'Service Areas | ' . $businessName,
+            'meta_description' => $businessName . ' serves the following areas.',
+            'schema'           => [],
+            'canonical'        => 'https://' . $client['domain'] . $basePath,
+        ],
+    ]);
+    exit;
+}
+
 pluscities_sync_fail(400, 'Unknown action.');

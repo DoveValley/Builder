@@ -33,6 +33,28 @@ $clients  = pluscities_client_ids_for_current_actor();
 $agencies = lpc_current_actor_role() === 'super_admin' ? lpc_list_agencies() : [lpc_current_actor_agency_id()];
 $niches   = pluscities_niche_list();
 
+// Block Topics catalog — same single source platform_info.php's own
+// documentation page reads, so this real picker and that internal doc page
+// can never drift into describing a block differently (2026-11-22, moved
+// here from the old LPC admin's picker — see project_lpc_to_pluscities_
+// migration in memory for why).
+$pcCatalog = [];
+foreach (platform_info_city_page_blocks_data() as $pcCatSection) {
+    foreach ($pcCatSection['rows'] as $pcCatRow) {
+        if (!empty($pcCatRow['slug'])) $pcCatalog[$pcCatRow['slug']] = $pcCatRow;
+    }
+}
+// City pool is real per-niche data (varies by family) — the niche isn't
+// chosen until the agency picks it in the form below, so every real niche's
+// pool is resolved up front here (cheap at today's scale) and all of them
+// render as hidden groups; JS shows only the one matching the current
+// selection. Service pool is the one fixed, niche-independent constant.
+$pcNichePools = [];
+foreach ($niches as $pcNicheId) {
+    $pcNiche = pluscities_niche_resolved($pcNicheId);
+    if ($pcNiche) $pcNichePools[$pcNicheId] = $pcNiche['city_blocks'] ?? [];
+}
+
 lpc_admin_open('pluscities_clients', 'Clients');
 ?>
 <style>
@@ -61,6 +83,8 @@ lpc_admin_open('pluscities_clients', 'Clients');
             <div style="display:flex;gap:8px;">
                 <a href="pluscities_photos.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Photos</a>
                 <a href="pluscities_pages.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Pages</a>
+                <a href="pluscities_page_add.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">+ Add Page</a>
+                <a href="pluscities_hub_edit.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Service Area Page</a>
                 <a href="pluscities_plugin_download.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Download Plugin</a>
             </div>
         </div>
@@ -110,10 +134,82 @@ lpc_admin_open('pluscities_clients', 'Clients');
         <div class="fg"><label>Service radius (minutes)</label><input type="number" name="radius_minutes" min="0" value="30"></div>
         <div class="fg"><label>URL base path</label><input type="text" name="url_base_path" value="service-area"></div>
 
+        <div class="pc-section-label" style="flex-basis:100%;">Block Topics — the first page's content</div>
+        <div style="flex-basis:100%;font-size:.8rem;color:var(--pc-muted,#52607a);margin-bottom:8px;">
+            Pick the topics for this client's first page. City topics depend on the niche selected above —
+            choose a niche first.
+        </div>
+        <div style="flex-basis:100%;">
+            <?php foreach ($pcNichePools as $pcNicheId => $pcCityPool): ?>
+                <div class="pc-niche-topics" data-niche="<?= h($pcNicheId) ?>" style="display:none;">
+                    <strong style="font-size:.84rem;">City topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(6, count($pcCityPool)) ?> of <?= count($pcCityPool) ?></strong>
+                    <?php foreach ($pcCityPool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
+                        <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+                            <input type="checkbox" class="pc-city-cb" name="city_block_picks[]" value="<?= h($pcSlug) ?>" data-niche="<?= h($pcNicheId) ?>">
+                            <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
+                            <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
+                            <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+
+            <strong style="font-size:.84rem;">Service topics — choose up to <?= (int) min(4, count(PLUSCITIES_SERVICE_POOL)) ?> of <?= count(PLUSCITIES_SERVICE_POOL) ?></strong>
+            <?php foreach (PLUSCITIES_SERVICE_POOL as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
+                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+                    <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>">
+                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
+                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
+                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
+                </label>
+            <?php endforeach; ?>
+        </div>
+
         <div style="flex-basis:100%;">
             <button type="submit" class="btn-open">Create Client</button>
         </div>
     </form>
+    <script>
+    (function() {
+        var nicheSelect = document.querySelector('select[name="niche_id"]');
+        var nicheGroups = document.querySelectorAll('.pc-niche-topics');
+
+        function enforceMax(selector, max) {
+            var boxes = Array.prototype.slice.call(document.querySelectorAll(selector));
+            var checkedCount = boxes.filter(function(b) { return b.checked; }).length;
+            boxes.forEach(function(b) { if (!b.checked) b.disabled = (checkedCount >= max); });
+        }
+        function refreshCityEnforcement() {
+            var activeNiche = nicheSelect.value;
+            var visibleBoxes = document.querySelectorAll('.pc-city-cb[data-niche="' + activeNiche + '"]');
+            var max = Math.min(6, visibleBoxes.length);
+            enforceMax('.pc-city-cb[data-niche="' + activeNiche + '"]', max);
+        }
+        function onNicheChange() {
+            var activeNiche = nicheSelect.value;
+            // Clear every city checkbox first, not just the ones being hidden —
+            // switching niches must never let a different niche's stale picks
+            // ride along in the submission (a real bug caught before shipping:
+            // hiding a group doesn't uncheck its boxes on its own, and some
+            // block slugs exist in more than one niche's pool, so a stray
+            // checked box could silently survive the whitelist filter).
+            document.querySelectorAll('.pc-city-cb').forEach(function(b) { b.checked = false; b.disabled = false; });
+            nicheGroups.forEach(function(g) {
+                g.style.display = (g.getAttribute('data-niche') === activeNiche) ? 'block' : 'none';
+            });
+            refreshCityEnforcement();
+        }
+        nicheSelect.addEventListener('change', onNicheChange);
+        document.querySelectorAll('.pc-city-cb').forEach(function(b) { b.addEventListener('change', refreshCityEnforcement); });
+
+        var serviceBoxes = document.querySelectorAll('.pc-service-cb');
+        function refreshServiceEnforcement() { enforceMax('.pc-service-cb', Math.min(4, serviceBoxes.length)); }
+        serviceBoxes.forEach(function(b) { b.addEventListener('change', refreshServiceEnforcement); });
+
+        onNicheChange();
+        refreshServiceEnforcement();
+    })();
+    </script>
 </div>
 
 <?php lpc_admin_close(); ?>

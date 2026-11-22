@@ -101,6 +101,7 @@ if ($action === 'create') {
             'colors_detected_at' => null,
         ],
         'images'   => [],
+        'hub_content' => ['top_text' => '', 'footer_text' => ''],
     ];
     pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
 
@@ -109,14 +110,21 @@ if ($action === 'create') {
 
     pluscities_log_event($actor, 'create_client', 'client:' . $clientId, '');
 
-    // First page — one real service, a sensible default block mix (not every
-    // block in the pool; the real selection rules aren't enforced yet, see
-    // pluscities_swap_block()'s own comment, so this picks a reasonable fixed
-    // set rather than everything available).
+    // First page — real agency-chosen block picks, 2026-11-22 (previously a
+    // hardcoded array_slice with no human choice at all — see
+    // project_lpc_to_pluscities_migration in memory). Falls back to the old
+    // hardcoded slice ONLY if the form submitted zero picks (e.g. JS
+    // disabled) — client creation must never silently fail to produce a
+    // working first page just because the picker didn't run client-side.
     $firstService = $niche['services'][0]['slug'] ?? null;
     if ($firstService) {
-        $cityPicks    = array_slice($niche['city_blocks'] ?? [], 0, 6);
-        $servicePicks = array_slice(PLUSCITIES_SERVICE_POOL, 0, 4);
+        $picks = pluscities_validate_block_picks(
+            $niche,
+            (array) ($_POST['city_block_picks'] ?? []),
+            (array) ($_POST['service_block_picks'] ?? [])
+        );
+        $cityPicks    = $picks['city']    ?: array_slice($niche['city_blocks'] ?? [], 0, 6);
+        $servicePicks = $picks['service'] ?: array_slice(PLUSCITIES_SERVICE_POOL, 0, 4);
         $result = pluscities_create_page($clientId, $firstCityId, $firstService, $cityPicks, $servicePicks, $actor);
         if (!$result['ok']) {
             header('Location: pluscities_clients.php?msg=warning:' . urlencode('Client created, but the first page failed: ' . $result['msg'])); exit;

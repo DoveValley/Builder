@@ -294,6 +294,59 @@ function pluscities_render_cta_band(array $client): string
 }
 
 /**
+ * Renders the hub/listing page body: every one of this client's LIVE pages,
+ * grouped by city, linking out to each. This is a client-level aggregate (no
+ * page_id, no blocks table row of its own) — see project_lpc_to_pluscities_
+ * migration in memory for why this page didn't exist in PlusCities until now.
+ * A client with zero live pages yet (freshly onboarded) gets a "coming soon"
+ * state rather than an empty or broken page.
+ */
+function pluscities_render_hub_blocks(array $client, ?array $niche): string
+{
+    $hub = $client['hub_content'] ?? [];
+    $businessName = (string) ($client['identity']['business_name'] ?? '');
+    $topText    = str_replace('{{business_name}}', $businessName, (string) ($hub['top_text'] ?? ''));
+    $footerText = str_replace('{{business_name}}', $businessName, (string) ($hub['footer_text'] ?? ''));
+
+    $stmt = pluscities_db()->prepare(
+        'SELECT * FROM pages WHERE client_id = ? AND status = "live" ORDER BY city_id, service_key'
+    );
+    $stmt->execute([$client['client_id']]);
+    $pages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $serviceLabels = [];
+    foreach (($niche['services'] ?? []) as $svc) {
+        $serviceLabels[$svc['slug']] = $svc['label'] ?? $svc['slug'];
+    }
+
+    $byCity = [];
+    foreach ($pages as $p) {
+        $byCity[$p['city_id']][] = $p;
+    }
+
+    $html = '<section class="lpc-hub">';
+    if ($topText !== '') $html .= '<p class="lpc-hub-intro">' . nl2br(htmlspecialchars($topText)) . '</p>';
+
+    if (!$byCity) {
+        $html .= '<p class="lpc-hub-empty">Service areas coming soon.</p>';
+    } else {
+        $html .= '<div class="lpc-hub-grid">';
+        foreach ($byCity as $cityId => $cityPages) {
+            $html .= '<div class="lpc-hub-card"><h3>' . htmlspecialchars(pluscities_city_label($cityId)) . '</h3><ul>';
+            foreach ($cityPages as $p) {
+                $label = $serviceLabels[$p['service_key']] ?? $p['service_key'];
+                $html .= '<li><a href="' . htmlspecialchars($p['slug']) . '">' . htmlspecialchars($label) . '</a></li>';
+            }
+            $html .= '</ul></div>';
+        }
+        $html .= '</div>';
+    }
+
+    if ($footerText !== '') $html .= '<p class="lpc-hub-footer">' . nl2br(htmlspecialchars($footerText)) . '</p>';
+    return $html . '</section>';
+}
+
+/**
  * Writes one Automatic (data-built) block. The "writer" here is a template
  * filling in real dataset values plus one short, non-specific AI intro
  * sentence — not a citation-heavy block, since there's no claim to cite, just

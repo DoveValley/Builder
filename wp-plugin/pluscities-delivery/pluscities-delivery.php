@@ -54,12 +54,17 @@ function pluscities_delivery_add_rewrite_rules() {
         'index.php?pluscities_city=$matches[1]&pluscities_service=$matches[2]',
         'top'
     );
+    // Bare base path — the hub/listing page. No pattern overlap with the rule
+    // above (this one has zero path segments after $base), so order between
+    // them doesn't matter.
+    add_rewrite_rule('^' . $base . '/?$', 'index.php?pluscities_hub=1', 'top');
     add_rewrite_rule('^pluscities-sitemap\.xml$', 'index.php?pluscities_sitemap=1', 'top');
 }
 
 add_filter('query_vars', function ($vars) {
     $vars[] = 'pluscities_city';
     $vars[] = 'pluscities_service';
+    $vars[] = 'pluscities_hub';
     $vars[] = 'pluscities_sitemap';
     return $vars;
 });
@@ -263,6 +268,22 @@ function pluscities_delivery_sync_if_needed() {
         set_transient('pluscities_page_' . $cp['page_id'], $page, 0);
         update_option('pluscities_page_url_' . md5($cp['url']), $cp['page_id']);
     }
+
+    // The hub/listing page is a client-level aggregate, not one of the pages
+    // in changed_pages above — refetched once per sync pass (same trigger:
+    // only runs when the manifest shows the client's site_rev moved), rather
+    // than on a separate polling schedule of its own.
+    $hubResp = wp_remote_get(pluscities_delivery_base() . '?action=hub', [
+        'headers' => ['Authorization' => 'Bearer ' . $key],
+        'timeout' => 10,
+    ]);
+    if (!is_wp_error($hubResp)) {
+        $hub = json_decode(wp_remote_retrieve_body($hubResp), true);
+        if (is_array($hub) && !empty($hub['html'])) {
+            set_transient('pluscities_hub_content', $hub, 0);
+        }
+    }
+
     update_option('pluscities_site_rev_seen', (int) $manifest['site_rev']);
 }
 
@@ -311,6 +332,48 @@ add_action('template_redirect', function () {
         // the plugin's only job is placing it, same "thin plugin" rule as the
         // HTML itself. One <script> tag per schema object, not one array,
         // since that's the format Google's own rich-results tooling expects.
+        foreach ($page['head']['schema'] ?? [] as $schemaObject) {
+            echo '<script type="application/ld+json">' . wp_json_encode($schemaObject) . '</script>' . "\n";
+        }
+    });
+
+    get_header();
+    echo '<div class="pluscities-page">' . $page['html'] . '</div>';
+    get_footer();
+    exit;
+});
+
+// Separate closure, not folded into the one above — different query var, and
+// the existing closure's own early-return (`if (!$city || !$service) return;`)
+// would otherwise need restructuring, which risks the already-working page
+// route for no benefit.
+add_action('template_redirect', function () {
+    if (!get_query_var('pluscities_hub')) return;
+
+    pluscities_delivery_sync_if_needed();
+
+    $page = get_transient('pluscities_hub_content');
+
+    if (!$page) {
+        status_header(404);
+        get_header();
+        echo '<p>Page not found.</p>';
+        get_footer();
+        exit;
+    }
+
+    add_filter('document_title_parts', function ($parts) use ($page) {
+        $parts = ['title' => $page['head']['title'] ?? $parts['title']];
+        return $parts;
+    });
+    add_action('wp_head', function () use ($page) {
+        if (!empty($page['head']['meta_description'])) {
+            echo '<meta name="description" content="' . esc_attr($page['head']['meta_description']) . '">' . "\n";
+        }
+        if (!empty($page['head']['canonical'])) {
+            echo '<link rel="canonical" href="' . esc_url($page['head']['canonical']) . '">' . "\n";
+        }
+        if (!empty($page['style'])) echo $page['style'] . "\n";
         foreach ($page['head']['schema'] ?? [] as $schemaObject) {
             echo '<script type="application/ld+json">' . wp_json_encode($schemaObject) . '</script>' . "\n";
         }

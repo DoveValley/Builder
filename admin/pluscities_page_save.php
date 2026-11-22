@@ -53,6 +53,11 @@ if ($action === 'regenerate') {
     header('Location: ' . $back . '&msg=' . ($result['ok'] ? 'success:Regenerated' : 'error:' . urlencode($result['msg']))); exit;
 }
 
+if ($action === 'swap') {
+    $result = pluscities_swap_block((int) ($_POST['block_id'] ?? 0), (string) ($_POST['new_block_type'] ?? ''), $actor);
+    header('Location: ' . $back . '&msg=' . ($result['ok'] ? 'success:Swapped' : 'error:' . urlencode($result['msg']))); exit;
+}
+
 if ($action === 'validate') {
     pluscities_run_validator($pageId);
     header('Location: ' . $back . '&msg=success:Validation+run'); exit;

@@ -67,6 +67,32 @@ const PLUSCITIES_SERVICE_POOL = [
 ];
 
 /**
+ * Validates a caller's raw city/service block picks against a niche's real
+ * pools and caps each at the real count limit (5-6 of 9 city, 3-4 of 9
+ * service — here enforced as the upper bound, 6/4, same "agency picks the
+ * approved pool" convention the admin picker UI uses). Shared by every real
+ * caller that takes human-submitted picks (client creation's first page,
+ * the Add Page screen) so the whitelist-and-cap logic lives in exactly one
+ * place, not copy-pasted per form. Silently drops anything not in the pool
+ * rather than erroring — a stale/crafted pick is simply not honored, same
+ * "never trust client input blindly" rule every other save handler in this
+ * codebase follows.
+ */
+function pluscities_validate_block_picks(array $niche, array $cityPicksRaw, array $servicePicksRaw): array
+{
+    $cityPool    = $niche['city_blocks'] ?? [];
+    $servicePool = PLUSCITIES_SERVICE_POOL;
+
+    $cityPicks    = array_values(array_intersect($cityPicksRaw, $cityPool));
+    $servicePicks = array_values(array_intersect($servicePicksRaw, $servicePool));
+
+    return [
+        'city'    => array_slice($cityPicks, 0, min(6, count($cityPool))),
+        'service' => array_slice($servicePicks, 0, min(4, count($servicePool))),
+    ];
+}
+
+/**
  * Creates a new page with its full real block set — the 4 spine blocks
  * (always present) plus the caller's chosen city/service blocks — and
  * generates real content for every one via the same pluscities_regenerate_block()
@@ -286,17 +312,27 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
 }
 
 /** Swap: unlocked blocks only, changes block_type within the same pool.
- *  Phase 1 only checks the pool matches (the full pool-membership list is
- *  Phase 2 scope); regenerates content for the new type immediately so the
- *  block is never left showing stale content for a type it no longer is. */
+ *  Real pool-membership validation added 2026-11-22 — this previously had
+ *  NONE at all (the doc comment claimed "Phase 1 only checks the pool
+ *  matches," but the actual code never did; a real gap, not a stale
+ *  comment to just reword). Regenerates content for the new type
+ *  immediately so the block is never left showing stale content for a type
+ *  it no longer is. */
 function pluscities_swap_block(int $block_id, string $new_block_type, string $actor): array
 {
     $db = pluscities_db();
-    $st = $db->prepare('SELECT * FROM blocks WHERE id = ?');
+    $st = $db->prepare('SELECT b.*, p.client_id FROM blocks b JOIN pages p ON p.page_id = b.page_id WHERE b.id = ?');
     $st->execute([$block_id]);
     $block = $st->fetch(PDO::FETCH_ASSOC);
     if (!$block) return ['ok' => false, 'msg' => 'Block not found.'];
     if ((int) $block['locked'] === 1) return ['ok' => false, 'msg' => 'This block is locked — unlock it first.'];
+
+    $client = json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $block['client_id'] . '.json'), true) ?: [];
+    $niche  = pluscities_niche_resolved($client['niche_id'] ?? '') ?? [];
+    $pool   = $block['pool'] === 'service' ? PLUSCITIES_SERVICE_POOL : ($niche['city_blocks'] ?? []);
+    if (!in_array($new_block_type, $pool, true)) {
+        return ['ok' => false, 'msg' => '"' . $new_block_type . '" is not in this block\'s pool.'];
+    }
 
     $db->prepare('UPDATE blocks SET block_type = ? WHERE id = ?')->execute([$new_block_type, $block_id]);
     pluscities_log_event($actor, 'swap_block', 'block:' . $block_id, 'to ' . $new_block_type);

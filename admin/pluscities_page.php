@@ -8,6 +8,11 @@
  * (any authenticated actor except end_client), matching spec Section 10's
  * capability matrix rather than the niche-library screen's super_admin-only
  * gate, since Agency Admin/Editor both need to drive pages day to day.
+ *
+ * Swap UI added 2026-11-22 — the doc comment above already promised it since
+ * this file was first written, but no control for it existed anywhere until
+ * now (pluscities_swap_block() itself also had zero pool-membership
+ * validation before this same change — see includes/pluscities_lifecycle.php).
  */
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
@@ -34,6 +39,22 @@ $page = $st->fetch(PDO::FETCH_ASSOC);
 // the table listing, not a 403 that confirms the page_id was valid.
 if ($page && !pluscities_actor_can_access_client($page['client_id'])) {
     $page = null;
+}
+
+// Resolved once here, not per-block — every block's Swap dropdown needs its
+// own pool's real options, and $page carries the one client_id every block
+// on this page shares.
+$pcSwapPools = ['city' => [], 'service' => []];
+if ($page) {
+    $pcClient = json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $page['client_id'] . '.json'), true) ?: [];
+    $pcNiche  = pluscities_niche_resolved($pcClient['niche_id'] ?? '') ?: [];
+    $pcSwapPools = ['city' => $pcNiche['city_blocks'] ?? [], 'service' => PLUSCITIES_SERVICE_POOL];
+    $pcCatalog = [];
+    foreach (platform_info_city_page_blocks_data() as $pcCatSection) {
+        foreach ($pcCatSection['rows'] as $pcCatRow) {
+            if (!empty($pcCatRow['slug'])) $pcCatalog[$pcCatRow['slug']] = $pcCatRow;
+        }
+    }
 }
 
 $alert = null;
@@ -132,12 +153,31 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
                     (<?= h($b['classification']) ?>, <?= (int) $b['locked'] ? 'locked' : 'unlocked' ?><?= $factIds ? ', ' . count($factIds) . ' fact(s)' : '' ?>)
                 </span>
             </div>
-            <form method="post" action="pluscities_page_save.php" style="display:flex;gap:6px;">
+            <form method="post" action="pluscities_page_save.php" style="display:flex;gap:6px;align-items:center;">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                 <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
                 <input type="hidden" name="block_id" value="<?= (int) $b['id'] ?>">
                 <button type="submit" name="action" value="toggle_lock" class="btn-sm-outline"><?= (int) $b['locked'] ? 'Unlock' : 'Lock' ?></button>
                 <button type="submit" name="action" value="regenerate" class="btn-sm-outline" <?= (int) $b['locked'] || $b['classification'] === 'client-supplied' ? 'disabled' : '' ?>>Regenerate</button>
+                <?php
+                // Options come from the block's OWN pool only (city-pool
+                // blocks can only swap to another city-pool type, same for
+                // service) — pluscities_swap_block() enforces this
+                // server-side too, this just keeps the dropdown honest
+                // rather than offering choices it would reject anyway.
+                // Spine blocks ($b['pool'] === 'spine') have no entry in
+                // $pcSwapPools at all — always present, never swapped, per
+                // the matrix's own design — so no control renders for them.
+                $pcSwapOptions = $pcSwapPools[$b['pool']] ?? [];
+                ?>
+                <?php if ($pcSwapOptions): ?>
+                    <select name="new_block_type" style="font-size:.78rem;padding:4px 6px;" <?= (int) $b['locked'] || $b['classification'] === 'client-supplied' ? 'disabled' : '' ?>>
+                        <?php foreach ($pcSwapOptions as $pcOptSlug): ?>
+                            <option value="<?= h($pcOptSlug) ?>" <?= $pcOptSlug === $b['block_type'] ? 'selected' : '' ?>><?= h($pcCatalog[$pcOptSlug]['block'] ?? $pcOptSlug) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <button type="submit" name="action" value="swap" class="btn-sm-outline" <?= (int) $b['locked'] || $b['classification'] === 'client-supplied' ? 'disabled' : '' ?>>Swap</button>
+                <?php endif; ?>
             </form>
         </div>
         <?php if (isset($content['body'])): ?>

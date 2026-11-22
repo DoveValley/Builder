@@ -212,7 +212,7 @@ function fmt_date(string $iso): string {
             <a href="docs.php" target="_blank" class="btn-help" title="Open documentation" aria-label="Open documentation">?</a>
             <button class="btn-open" onclick="showNewSite()">+ New Site</button>
             <a href="infra/index.php?view=map" class="btn-sm-outline">&#128506; Map</a>
-            <a href="clients.php" class="btn-sm-outline">&#127970; Landing Page Clients</a>
+            <a href="pluscities_clients.php" class="btn-sm-outline">&#127970; PlusCities</a>
         </div>
     </div>
 
