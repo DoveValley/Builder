@@ -280,6 +280,31 @@ function pluscities_render_trust_bar(array $items): string
     return $html . '</ul></div>';
 }
 
+/** Mid-page CTA band — solid dark band, bold headline, pill-shaped call
+ *  button. Fixed position (right before the FAQ block) rather than a rhythm
+ *  engine deciding placement — matches the fleet's own reference sites. */
+function pluscities_render_cta_band(array $client): string
+{
+    $business = htmlspecialchars((string) ($client['identity']['business_name'] ?? ''));
+    $phone    = $client['identity']['hubs'][0]['phone'] ?? '';
+    if ($phone === '') return '';
+    $telHref  = preg_replace('/[^0-9+]/', '', $phone);
+    return '<section class="lpc-cta-band"><h2>Need ' . $business . '? Get fast, professional help.</h2>'
+        . '<a class="lpc-cta-band-button" href="tel:' . htmlspecialchars($telHref) . '">Call Now &mdash; ' . htmlspecialchars($phone) . '</a></section>';
+}
+
+/** Sticky bottom call bar — always reachable regardless of scroll position,
+ *  the single highest-leverage conversion element on the fleet's own
+ *  reference sites. Page-level, not a content block — appended once per
+ *  page render, never part of the block/position system. */
+function pluscities_render_sticky_bar(array $client): string
+{
+    $phone = $client['identity']['hubs'][0]['phone'] ?? '';
+    if ($phone === '') return '';
+    $telHref = preg_replace('/[^0-9+]/', '', $phone);
+    return '<div class="lpc-sticky-bar"><a href="tel:' . htmlspecialchars($telHref) . '">&#128222; 24/7 — Call Now: ' . htmlspecialchars($phone) . '</a></div>';
+}
+
 /**
  * Writes one Automatic (data-built) block. The "writer" here is a template
  * filling in real dataset values plus one short, non-specific AI intro
@@ -358,31 +383,55 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
     }
 
     if ($block_row['block_type'] === 'faq') {
-        $html = '<section class="lpc-faq"><h2>Frequently Asked Questions</h2>';
+        // <details>/<summary> — no JS required (design doc rule #5), answer
+        // text stays in the DOM even while collapsed so it's still present
+        // for schema/crawlers either way. First item open by default, same
+        // convention the design doc calls for. Two-column grid, matching the
+        // fleet's own reference sites (Bailey) rather than a single stacked
+        // list — reads as a distinct, designed section instead of more
+        // generic heading+paragraph blocks.
+        $html = '<section class="lpc-faq"><h2>Frequently Asked Questions</h2><div class="lpc-faq-grid">';
+        $i = 0;
         foreach ($content['faqs'] ?? [] as $faq) {
             $answer = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($faq['answer'] ?? ''));
-            $html .= '<div class="lpc-faq-item"><h3>' . htmlspecialchars((string) ($faq['question'] ?? '')) . '</h3>'
-                . '<p>' . htmlspecialchars($answer) . '</p></div>';
+            $open = $i === 0 ? ' open' : '';
+            $html .= '<details class="lpc-faq-item"' . $open . '><summary>' . htmlspecialchars((string) ($faq['question'] ?? '')) . '</summary>'
+                . '<p>' . htmlspecialchars($answer) . '</p></details>';
+            $i++;
         }
-        return $html . '</section>';
+        return $html . '</div></section>';
     }
 
     if ($block_row['block_type'] === 'service_area') {
-        $html = '<section class="lpc-service-area"><h3>Service Area</h3>';
+        // Full-width accent-colored band with pill-shaped white links —
+        // matches the fleet's own reference sites' "Related Services" band,
+        // not a plain bulleted list. Links that have nothing to point to
+        // (e.g. other_services_this_city with an empty label/url) are
+        // skipped rather than rendered as a blank pill.
+        $links = [];
+        if (!empty($content['main_service_url'])) {
+            $links[] = ['url' => $content['main_service_url'], 'label' => 'More About This Service'];
+        }
+        foreach ($content['other_services_this_city'] ?? [] as $link) {
+            if (empty($link['url']) || empty($link['label'])) continue;
+            $links[] = ['url' => $link['url'], 'label' => $link['label'] . ' in This City'];
+        }
+        if (!empty($content['service_area_url'])) {
+            $links[] = ['url' => $content['service_area_url'], 'label' => 'All Service Areas'];
+        }
+
+        $html = '<section class="lpc-service-area"><h2>Related Services</h2>';
         if (!empty($content['hub_address'])) {
             $html .= '<p>Serving this area' . (!empty($content['drive_minutes']) ? ' — about ' . (int) $content['drive_minutes'] . ' min from our ' . htmlspecialchars($content['hub_address']) . ' location' : '') . '.</p>';
         }
-        $html .= '<ul>';
-        if (!empty($content['main_service_url'])) {
-            $html .= '<li><a href="' . htmlspecialchars($content['main_service_url']) . '">More about this service</a></li>';
+        if ($links) {
+            $html .= '<div class="lpc-service-area-links">';
+            foreach ($links as $link) {
+                $html .= '<a href="' . htmlspecialchars($link['url']) . '">' . htmlspecialchars($link['label']) . '</a>';
+            }
+            $html .= '</div>';
         }
-        foreach ($content['other_services_this_city'] ?? [] as $link) {
-            $html .= '<li><a href="' . htmlspecialchars($link['url']) . '">' . htmlspecialchars($link['label']) . ' in this city</a></li>';
-        }
-        if (!empty($content['service_area_url'])) {
-            $html .= '<li><a href="' . htmlspecialchars($content['service_area_url']) . '">All service areas</a></li>';
-        }
-        return $html . '</ul></section>';
+        return $html . '</section>';
     }
 
     // Hero — a real two-column layout (text left, photo right), matching

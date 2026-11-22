@@ -35,8 +35,13 @@ if ($action === 'save_branding') {
         );
         if ($saved) $client['branding']['logo_url'] = $saved;
     }
-    $color = trim((string) ($_POST['brand_color'] ?? ''));
-    if (preg_match('/^#[0-9a-fA-F]{6}$/', $color)) $client['branding']['brand_color'] = $color;
+    // Saving a color here is always a manual override — it must win over
+    // whatever's detected from the client's own site, per
+    // pluscities_client_colors()'s resolution order.
+    $accent = trim((string) ($_POST['accent_color'] ?? ''));
+    if (preg_match('/^#[0-9a-fA-F]{6}$/', $accent)) $client['branding']['accent_override'] = $accent;
+    $dark = trim((string) ($_POST['dark_color'] ?? ''));
+    if (preg_match('/^#[0-9a-fA-F]{6}$/', $dark)) $client['branding']['dark_override'] = $dark;
 
     pluscities_atomic_write_json($clientFile, $client);
     pluscities_log_event($actor, 'save_branding', 'client:' . $clientId, '');
@@ -48,6 +53,31 @@ if ($action === 'save_branding') {
         pluscities_generate_branded_image($clientId, $niche, $slot['slot_id']);
     }
     header('Location: ' . $back . '&msg=success:Saved'); exit;
+}
+
+if ($action === 'detect_colors') {
+    $found = pluscities_detect_colors($client['domain']);
+    if ($found['accent'] !== null) $client['branding']['detected_accent'] = $found['accent'];
+    if ($found['dark'] !== null)   $client['branding']['detected_dark']   = $found['dark'];
+    $client['branding']['colors_detected_at'] = gmdate('c');
+    pluscities_atomic_write_json($clientFile, $client);
+    pluscities_log_event($actor, 'detect_colors', 'client:' . $clientId, '');
+
+    $msg = ($found['accent'] !== null || $found['dark'] !== null)
+        ? 'success:Found colors on your site'
+        : 'warning:Could+not+detect+colors+from+your+site+-+try+setting+them+manually';
+    header('Location: ' . $back . '&msg=' . $msg); exit;
+}
+
+if ($action === 'clear_color_override') {
+    // Doesn't re-detect — just drops back to whatever was last detected (or
+    // the fallback if nothing ever was), same "re-detect never erases an
+    // override, clearing an override never forces a re-detect" separation.
+    $client['branding']['accent_override'] = null;
+    $client['branding']['dark_override']   = null;
+    pluscities_atomic_write_json($clientFile, $client);
+    pluscities_log_event($actor, 'clear_color_override', 'client:' . $clientId, '');
+    header('Location: ' . $back . '&msg=success:Switched+to+your+site+colors'); exit;
 }
 
 if ($action === 'upload_photo') {

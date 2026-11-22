@@ -117,10 +117,14 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
     $position  = 0;
     $blockIds  = [];
 
-    foreach (['hero', 'overview', 'faq', 'service_area'] as $bt) {
-        $classification = $bt === 'service_area' ? 'automatic' : 'editable';
-        $origin = $bt === 'service_area' ? 'data' : 'generated'; // matches the regenerate branch that never rewrites origin for this one type
-        $ins->execute([$pageId, $bt, $position++, 'spine', $classification, '{}', '[]', '[]', 0, $origin]);
+    // Spine splits front/back — "faq"/"service_area" are a spine concept
+    // (always present) but render LAST, after every city/service block, per
+    // the design doc's rhythm rule #1 (hero, overview first; FAQ and service
+    // area + links last) and matching the fleet's own reference sites
+    // (Bailey/Wren/Gann), which answer objections and confirm service area
+    // right before the final CTA, not immediately after the opener.
+    foreach (['hero', 'overview'] as $bt) {
+        $ins->execute([$pageId, $bt, $position++, 'spine', 'editable', '{}', '[]', '[]', 0, 'generated']);
         $blockIds[] = (int) $db->lastInsertId();
     }
     foreach ($city_block_picks as $bt) {
@@ -138,6 +142,12 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
     foreach ($service_block_picks as $bt) {
         $classification = $bt === 'niche_data_table' ? 'automatic' : 'editable';
         $ins->execute([$pageId, $bt, $position++, 'service', $classification, '{}', '[]', '[]', 0, 'generated']);
+        $blockIds[] = (int) $db->lastInsertId();
+    }
+    foreach (['faq', 'service_area'] as $bt) {
+        $classification = $bt === 'service_area' ? 'automatic' : 'editable';
+        $origin = $bt === 'service_area' ? 'data' : 'generated'; // matches the regenerate branch that never rewrites origin for this one type
+        $ins->execute([$pageId, $bt, $position++, 'spine', $classification, '{}', '[]', '[]', 0, $origin]);
         $blockIds[] = (int) $db->lastInsertId();
     }
 

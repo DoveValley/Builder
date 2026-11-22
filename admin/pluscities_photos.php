@@ -79,7 +79,7 @@ lpc_admin_open('pluscities_photos', 'Photos');
 <div class="pc-card">
     <h3 style="margin-top:0;">Your Logo & Color</h3>
     <p style="color:var(--pc-muted,#52607a);font-size:.84rem;margin-top:-6px;">
-        We use these to make your photos look like yours.
+        We use these to make your photos — and your pages — look like yours.
     </p>
     <form method="post" action="pluscities_photos_save.php" enctype="multipart/form-data" class="pc-color-row">
         <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
@@ -91,11 +91,41 @@ lpc_admin_open('pluscities_photos', 'Photos');
         <label style="font-size:.82rem;">
             Logo<br><input type="file" name="logo_file" accept="image/png,image/jpeg,image/webp">
         </label>
+        <?php $colors = pluscities_client_colors($client); ?>
         <label style="font-size:.82rem;">
-            Brand color<br><input type="color" name="brand_color" value="<?= h($client['branding']['brand_color'] ?: '#1C2B45') ?>">
+            Accent color<br><input type="color" name="accent_color" value="<?= h($colors['accent']) ?>">
         </label>
-        <button type="submit" class="btn-open" style="align-self:flex-end;">Save</button>
+        <label style="font-size:.82rem;">
+            Dark color<br><input type="color" name="dark_color" value="<?= h($colors['dark']) ?>">
+        </label>
+        <button type="submit" class="btn-open" style="align-self:flex-end;">Save (override)</button>
     </form>
+    <p style="color:var(--pc-muted,#52607a);font-size:.8rem;margin:10px 0 0;">
+        <?php $b = $client['branding']; $hasOverride = !empty($b['accent_override']) || !empty($b['dark_override']); ?>
+        <?php if ($hasOverride): ?>
+            Using your manual colors above — they always win over your site's own colors.
+        <?php elseif (!empty($b['detected_accent']) || !empty($b['detected_dark'])): ?>
+            Using colors detected from your site<?= !empty($b['colors_detected_at']) ? ' (checked ' . h(date('M j', strtotime($b['colors_detected_at']))) . ')' : '' ?>.
+        <?php else: ?>
+            No colors detected yet from your site — showing the default until you detect or set your own.
+        <?php endif; ?>
+    </p>
+    <div style="display:flex;gap:8px;margin-top:8px;">
+        <form method="post" action="pluscities_photos_save.php">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
+            <input type="hidden" name="action" value="detect_colors">
+            <button type="submit" class="btn-sm-outline">&#128269; Use my site's colors</button>
+        </form>
+        <?php if ($hasOverride): ?>
+        <form method="post" action="pluscities_photos_save.php">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
+            <input type="hidden" name="action" value="clear_color_override">
+            <button type="submit" class="btn-sm-outline">Clear manual override</button>
+        </form>
+        <?php endif; ?>
+    </div>
 </div>
 
 <div class="pc-card">

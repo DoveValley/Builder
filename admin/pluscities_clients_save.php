@@ -86,7 +86,20 @@ if ($action === 'create') {
             'confirmed_by_client' => false,
         ]],
         'url_base_path' => trim((string) ($_POST['url_base_path'] ?? 'service-area')) ?: 'service-area',
-        'branding' => ['logo_url' => '', 'brand_color' => ''],
+        // accent/dark: resolved at render by pluscities_client_colors() —
+        // override wins if set, else detected_*, else the fixed fallback.
+        // Nothing here calls pluscities_detect_colors() yet — that only runs
+        // from the branding screen's explicit "Detect Now" action, same
+        // "never guess silently" rule as everything else in this engine.
+        'branding' => [
+            'logo_url'        => '',
+            'brand_color'     => '',
+            'accent_override' => null,
+            'dark_override'   => null,
+            'detected_accent' => null,
+            'detected_dark'   => null,
+            'colors_detected_at' => null,
+        ],
         'images'   => [],
     ];
     pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
