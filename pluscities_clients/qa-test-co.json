@@ -1,0 +1,63 @@
+{
+    "client_id": "qa-test-co",
+    "agency_id": "qa-test-agency",
+    "niche_id": "hvac",
+    "domain": "qa-test-co.example.com",
+    "site_rev": 1,
+    "plugin_rev": 0,
+    "plugin_version": "",
+    "last_seen_at": "",
+    "class_prefix": "lpc-qatestco",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "QA Test Co",
+        "hubs": [
+            {
+                "address": "100 QA Test Way, Plano, TX 75023",
+                "phone": "(972) 555-0199"
+            }
+        ]
+    },
+    "licenses": [],
+    "years_in_business": 8,
+    "hours": {
+        "mon_fri": "7:00-19:00",
+        "sat": "8:00-14:00",
+        "sun": "closed"
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": [],
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "approval_gate_override": null,
+    "services": [
+        "ac-repair",
+        "furnace-repair"
+    ],
+    "target_cities": [
+        {
+            "city_id": "plano-tx",
+            "drive_minutes": 10,
+            "confirmed_by_client": false
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": "",
+        "accent_override": null,
+        "dark_override": null,
+        "detected_accent": null,
+        "detected_dark": null,
+        "colors_detected_at": null
+    },
+    "images": [],
+    "hub_content": {
+        "top_text": "",
+        "footer_text": ""
+    }
+}
