@@ -14,8 +14,9 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 | Course data, the two schedule widgets, or the Schedule tab | `docs/course-schedule.md` |
 | A multisite master's Color Presets, or `ms_apply_theme_preset()` | `docs/color-presets.md` |
 | Pic Drop (per-domain/per-template image management), or `includes/picdrop.php` | `docs/pic-drop-image-management.md` |
-| Onboarding a new Landing Page Clients customer, start to live handoff | `docs/landing-page-clients-onboarding.md` |
-| Deciding whether something belongs in LPC, the Site Factory, or both — shared `fleet.db`/API-key risk, block-renderer separation | `docs/lpc-vs-site-factory-boundary.md` |
+| Understanding PlusCities (the current multi-tenant local-SEO platform) as-built: data model, lifecycle, roles, gaps | `docs/pluscities-system-reference.md` |
+| Onboarding a new customer on the OLD, being-phased-out LPC system specifically (not current PlusCities process) | `docs/landing-page-clients-onboarding.md` |
+| Deciding whether something belongs in the OLD LPC system, the Site Factory, or both — shared `fleet.db`/API-key risk, block-renderer separation | `docs/lpc-vs-site-factory-boundary.md` |
 | Which topics appear on an LPC city page (City Service Page tab), the PlusCities-to-LPC content bridge, or `pluscities_lpc_bridge.php` | `docs/city-service-page-block-matrix.md` |
 
 ## Running locally
