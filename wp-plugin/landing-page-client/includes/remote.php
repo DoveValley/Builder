@@ -39,7 +39,7 @@ function lpc_apply_remote_settings( $manifest ) {
 	update_option( 'lpc_support_phone', $settings['support_phone'] ?? '' );
 	update_option( 'lpc_support_message', $settings['support_message'] ?? '' );
 	update_option( 'lpc_nav_link_placement', $settings['nav_link_placement'] ?? 'footer' );
-	update_option( 'lpc_nav_link_label', $settings['nav_link_label'] ?? 'View Our Service Locations' );
+	update_option( 'lpc_nav_link_label', $settings['nav_link_label'] ?? 'Service Area' );
 	update_option( 'lpc_last_checkin', time() );
 
 	if ( $old_base_path !== get_option( 'lpc_base_path' ) ) {
@@ -101,6 +101,37 @@ function lpc_purge_all_page_caches( $manifest ) {
 		delete_transient( 'lpc_page_' . md5( $slug ) );
 		delete_option( 'lpc_page_cache_' . md5( $slug ) );
 	}
+}
+
+/**
+ * Lets the admin panel trigger the exact same thing "Save & Refresh now"
+ * already does on this settings page, remotely — without anyone needing to
+ * log into THIS site's own wp-admin. Everything here was pull-only before
+ * this: the plugin only ever reached OUT to the delivery server on its own
+ * schedule, nothing could reach IN. Authenticated the same way every other
+ * request already is (the same lpc_api_key this site already pasted in to
+ * connect in the first place) — not a new secret, not open to the public.
+ */
+add_action( 'rest_api_init', 'lpc_register_refresh_route' );
+function lpc_register_refresh_route() {
+	register_rest_route( 'lpc/v1', '/refresh', [
+		'methods'             => 'POST',
+		'callback'            => 'lpc_handle_remote_refresh',
+		'permission_callback' => '__return_true', // key checked inside, same pattern lpc_fetch_json()'s callers already use
+	] );
+}
+
+function lpc_handle_remote_refresh( $request ) {
+	$api_key = get_option( 'lpc_api_key', '' );
+	$given   = $request->get_param( 'key' );
+	if ( $api_key === '' || ! is_string( $given ) || ! hash_equals( $api_key, $given ) ) {
+		return new WP_REST_Response( [ 'ok' => false, 'error' => 'invalid key' ], 403 );
+	}
+
+	$manifest = lpc_get_manifest( true );
+	lpc_purge_all_page_caches( $manifest );
+
+	return new WP_REST_Response( [ 'ok' => true ], 200 );
 }
 
 function lpc_get_page( $slug ) {

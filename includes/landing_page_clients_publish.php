@@ -137,7 +137,7 @@ function lpc_compute_related_links($client, $page_id) {
 }
 
 /**
- * Plain facts about this page's service area — state, which hub office
+ * Plain facts about this page's service area — state, which hub metro
  * serves it, and which other target cities share that same hub ("nearby
  * cities"). Deliberately NOT links yet (parked per Scott, 2026-11-15 — come
  * back to cross-page internal linking later); this is display-only text,
@@ -423,7 +423,10 @@ function lpc_rebuild_manifest($client_id) {
             'support_phone'            => $client['delivery']['support_phone'] ?? '',
             'support_message'          => $client['delivery']['support_message'] ?? '',
             'nav_link_placement'       => $client['delivery']['nav_link_placement'] ?? 'footer',
-            'nav_link_label'           => $client['delivery']['nav_link_label'] ?? 'View Our Service Locations',
+            'nav_link_label'           => $client['delivery']['nav_link_label'] ?? 'Service Area',
+            'hub_heading'              => $client['delivery']['hub_heading'] ?? '',
+            'hub_intro'                => $client['delivery']['hub_intro'] ?? '',
+            'hub_footer_text'          => $client['delivery']['hub_footer_text'] ?? '',
         ],
         'pages' => $pages,
     ];
@@ -642,6 +645,49 @@ function lpc_check_live_page($client_id, $page_id) {
     lpc_save_client($client_id, $client);
 
     return $result;
+}
+
+/**
+ * Calls the client's own WordPress site directly — the one place in this
+ * codebase that reaches INTO a client's site rather than the other way
+ * around. Only works once that site is running a plugin build that actually
+ * registers wp-json/lpc/v1/refresh (2026-11-22 or later); older installs
+ * 404, which is reported as-is rather than guessed at.
+ */
+function lpc_trigger_remote_refresh($client_id) {
+    $client = lpc_load_client($client_id);
+    if (!$client) return ['ok' => false, 'msg' => 'Client not found'];
+
+    $domain = trim($client['identity']['domain'] ?? '');
+    if ($domain === '') return ['ok' => false, 'msg' => 'No domain set for this client'];
+
+    $key = lpc_get_client_api_key($client_id);
+    if ($key === '') return ['ok' => false, 'msg' => 'No API key set for this client'];
+
+    $url = 'https://' . $domain . '/wp-json/lpc/v1/refresh';
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 12,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => http_build_query(['key' => $key]),
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+    $body = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($body === false) {
+        return ['ok' => false, 'msg' => 'Could not reach the live site'];
+    }
+    if ($httpCode === 404) {
+        return ['ok' => false, 'msg' => 'This site is running an older plugin version that doesn\'t support remote refresh yet — redistribute the plugin zip from the Delivery tab'];
+    }
+    $data = json_decode($body, true);
+    if ($httpCode !== 200 || !is_array($data) || empty($data['ok'])) {
+        return ['ok' => false, 'msg' => 'The site rejected the request (HTTP ' . $httpCode . ')'];
+    }
+    return ['ok' => true, 'msg' => 'Refreshed'];
 }
 
 /**

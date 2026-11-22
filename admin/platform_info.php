@@ -28,6 +28,7 @@ $TABS = [
     'client_approval_stage'=> 'Client Approval Stage',
     'content_flow'         => 'Content Flow',
     'spec_document'        => 'Spec Document',
+    'city_page'            => 'City Page',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -36,7 +37,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -313,6 +314,119 @@ function platform_info_roadmap_data(): array {
 }
 
 /**
+ * Every block type a City Page can be built from, and its real classification
+ * (Editable / Automatic / Client-supplied) — verified by reading
+ * includes/pluscities_lifecycle.php's pluscities_create_page() (the actual
+ * per-block-type branching, not the spec's prose) plus the matching writer
+ * functions in includes/pluscities_writer.php and the fact-topic expiry table
+ * in includes/pluscities_research.php, 2026-11-22. Two real spec-vs-code
+ * disagreements found this way are flagged inline in their own row rather
+ * than silently resolved one way or the other — see 'note' on climate_data
+ * and reviews_from_city below.
+ */
+function platform_info_city_page_blocks_data(): array {
+    return [
+        [
+            'title' => 'Spine — always present, 4 of 4, never swapped',
+            'rows' => [
+                ['block' => 'Hero', 'class' => 'editable',
+                 'what' => "The top banner: business name/photo and the service + city headline with a call-to-action button.",
+                 'how' => "AI-written from the client's own profile facts only (name, phone, hub location) — nothing in it is a checkable claim, so no outside citation is needed.",
+                 'note' => ''],
+                ['block' => '"[Service] in [City]" overview', 'class' => 'editable',
+                 'what' => "A short intro paragraph tying the specific service to the specific city, linking back to the client's main service page.",
+                 'how' => 'Same generic AI-written path as Hero — drafted from client profile facts.',
+                 'note' => ''],
+                ['block' => 'FAQ', 'class' => 'editable',
+                 'what' => 'Question/answer pairs addressing what a prospective customer would actually ask, rendered as an accordion.',
+                 'how' => "Written from a real researched fact card (the city's \"permits\" research topic), not generic knowledge.",
+                 'note' => 'One of the 12 validator checks is FAQ completeness.'],
+                ['block' => 'Service area + links', 'class' => 'automatic',
+                 'what' => "A list of nearby cities / related service links for that hub, so visitors (and Google) can find a client's other pages.",
+                 'how' => "Built from a template using the client record + niche — no AI call at all, so there's nothing to \"regenerate\" beyond re-running the template.",
+                 'note' => 'Rendered as an accent-colored band with pill-shaped links (2026-11-22 visual upgrade).'],
+            ],
+        ],
+        [
+            'title' => 'City pool — pick 5 of 9, or 6 of 9',
+            'rows' => [
+                ['block' => 'Climate data', 'class' => 'editable',
+                 'what' => "The city's climate/weather patterns relevant to the service (e.g. humidity driving mold, freeze-thaw driving plumbing issues).",
+                 'how' => 'AI-written from a researched "climate_data" fact card, cached 60 months since climate normals barely move year to year.',
+                 'note' => '⚠ Spec/code disagree: the written spec\'s own worked example classifies this block Automatic, pulled from a NOAA dataset. No NOAA dataset provider is actually wired up for PlusCities — the shipped code treats it as a normal fact-card-grounded Editable block instead.'],
+                ['block' => 'Housing stock', 'class' => 'automatic',
+                 'what' => "Real stats about the city's homes — age, size, value — relevant to the service.",
+                 'how' => 'Pulled directly from Census ACS data via the shared dataset fetcher; carries a "Source: US Census ACS 5-Year Estimates" line. Only its intro, not the data, is ever rewritten.',
+                 'note' => ''],
+                ['block' => 'Neighborhoods guide', 'class' => 'editable',
+                 'what' => "A rundown of the city's notable neighborhoods/areas relevant to the service.",
+                 'how' => 'AI-written from a researched "neighborhoods" fact card, refreshed every 24 months.',
+                 'note' => ''],
+                ['block' => 'Permits / local rules', 'class' => 'editable',
+                 'what' => 'Local permitting or regulatory info relevant to the service in that city.',
+                 'how' => 'AI-written from a researched "permits" fact card, refreshed every 6 months — the fastest-expiring topic, since rules change most often.',
+                 'note' => 'Same fact topic the FAQ block also draws on.'],
+                ['block' => 'Utilities', 'class' => 'editable',
+                 'what' => "Info on the city's utility providers/setup relevant to the service.",
+                 'how' => 'AI-written from a researched "utilities" fact card, refreshed every 12 months.',
+                 'note' => ''],
+                ['block' => 'HOA rules', 'class' => 'editable',
+                 'what' => 'Homeowner-association rules relevant to the service in that city.',
+                 'how' => 'Meant to draw on a dedicated "hoa" fact topic (12-month refresh).',
+                 'note' => '⚠ A real slug-mismatch bug: the generic fact lookup uses the block\'s own type name as the topic key, which doesn\'t actually match "hoa" — flagged here, not yet fixed. Doesn\'t change the classification, just the fact it draws on.'],
+                ['block' => 'Seasonal guide', 'class' => 'editable',
+                 'what' => 'Season-by-season advice relevant to the service in that city.',
+                 'how' => 'Meant to draw on a dedicated "seasons" fact topic (24-month refresh).',
+                 'note' => 'Same slug-mismatch caveat as HOA rules above.'],
+                ['block' => 'Local hazards', 'class' => 'editable',
+                 'what' => 'Real local risk factors relevant to the service (flooding, wildfire, etc.).',
+                 'how' => 'AI-written from a researched "hazards" fact card, refreshed every 12 months.',
+                 'note' => ''],
+                ['block' => 'Reviews from city', 'class' => 'client',
+                 'what' => 'Real reviews the client has actually received from customers in that specific city.',
+                 'how' => "Pulled directly from the client's own stored reviews for that city — never touches the AI writer at all.",
+                 'note' => '⚠ Spec/code disagree: the spec\'s worked example shows this block locked by default (so a real review can\'t be accidentally overwritten). The shipped code does NOT lock it by default.'],
+            ],
+        ],
+        [
+            'title' => 'Service pool — pick 3 of 9, or 4 of 9',
+            'rows' => [
+                ['block' => 'Common problems', 'class' => 'editable',
+                 'what' => 'The typical problems customers in this service line actually run into.',
+                 'how' => 'AI-written from service-level research.', 'note' => ''],
+                ['block' => 'Cited expert guidance', 'class' => 'editable',
+                 'what' => 'Advice attributed to a real, citable expert source.',
+                 'how' => 'AI-written, grounded in a real cited source rather than general knowledge.',
+                 'note' => 'One of the places the "misquoted sources" validator check matters most.'],
+                ['block' => 'Niche data table', 'class' => 'automatic',
+                 'what' => 'A styled data table relevant to the niche (e.g. typical repair costs, timelines).',
+                 'how' => "Not AI-written at all — it's the niche's own pre-authored table, shared across every client and city in that niche.",
+                 'note' => 'The one block type that needed real new render code (a styled table), not just the generic text pipeline.'],
+                ['block' => 'Process', 'class' => 'editable',
+                 'what' => 'A step-by-step explanation of how the service is actually performed.',
+                 'how' => 'AI-written from service-level research.', 'note' => ''],
+                ['block' => 'Cost factors', 'class' => 'editable',
+                 'what' => "What drives price up or down for this service — not a specific quote.",
+                 'how' => "AI is explicitly restricted to the client's own supplied price ranges and qualitative language — never allowed to invent a dollar figure.",
+                 'note' => 'Checked by the "invented prices" validator rule.'],
+                ['block' => 'Why choose us', 'class' => 'editable',
+                 'what' => "The client's own differentiators / value proposition for this service.",
+                 'how' => "AI-written from the client's own profile facts.", 'note' => ''],
+                ['block' => 'Repair vs. replace', 'class' => 'editable',
+                 'what' => "Guidance on when to repair vs. fully replace, for services where that's a real decision.",
+                 'how' => 'AI-written from service-level research.', 'note' => ''],
+                ['block' => 'Maintenance', 'class' => 'editable',
+                 'what' => 'Upkeep/maintenance tips relevant to the service.',
+                 'how' => 'AI-written from service-level research.', 'note' => ''],
+                ['block' => 'Before the tech arrives', 'class' => 'editable',
+                 'what' => 'What a customer should do/expect before the appointment.',
+                 'how' => 'AI-written from service-level research.', 'note' => ''],
+            ],
+        ],
+    ];
+}
+
+/**
  * The real content lifecycle, start to finish, as it actually works in the
  * live code today — verified by reading client_wizard.php, client.php,
  * page_editor.php, client_save.php, and includes/landing_page_clients_
@@ -328,7 +442,7 @@ function platform_info_content_workflow_data(): array {
             'rows' => [
                 ['step' => 'Create the client & define scope', 'status' => 'in_place',
                  'simple' => 'This is where you set up a brand-new client in the system.',
-                 'what' => 'The onboarding wizard: business identity + niche, services offered, hub office(s), target cities per hub.',
+                 'what' => 'The onboarding wizard: business identity + niche, services offered, hub metro(s), target cities per hub.',
                  'who' => 'Platform Admin, Agency Admin', 'where' => 'client_wizard.php (5 steps)'],
                 ['step' => 'Auto-draft every page', 'status' => 'in_place',
                  'simple' => 'The system automatically writes a first draft of every page for you, the moment the client is created.',
@@ -341,7 +455,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Research a city', 'status' => 'in_place',
                  'simple' => "This pulls in real facts about a city so the content isn't generic.",
                  'what' => 'Real Census population lookup — free, runs once per unique city among the pages checked. Same as Content Profile: existing drafts only pick this up once you Regenerate (step 6).',
-                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client.php → Locations & Services tab → "Research Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client.php → Cities & Services tab → "Research Selected"'],
             ],
         ],
         [
@@ -354,7 +468,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Regenerate a page with AI', 'status' => 'in_place',
                  'simple' => "This tells the system to rewrite a page's content from scratch.",
                  'what' => 'Reruns the fixed AI prompt template for one page, or "Generate / Refresh Selected" for many at once — with its own checkboxes for refresh hero image, re-fetch climate data ($), regenerate text ($), and skip locked pages. Page-level, not block-level: its own confirm dialog says "replaces all current section content" (the code\'s own wording still says "section," not yet renamed) — every block on the page gets rewritten together, not one block in isolation.',
-                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Regenerate" button, or client.php → Locations & Services → "Generate / Refresh Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Regenerate" button, or client.php → Cities & Services → "Generate / Refresh Selected"'],
                 ['step' => 'Steer a page regenerate', 'status' => 'needs_adding',
                  'simple' => "This would let someone tell the system exactly how to change the rewrite, like \"make it shorter.\"",
                  'what' => "Doesn't exist — every regenerate reruns the identical fixed prompt, with no free-text instruction field. Would be page-level like regenerate itself is today, unless built block-by-block alongside block-level locking (see \"Lock one block within a page\" below).",
@@ -362,7 +476,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Lock a page', 'status' => 'in_place',
                  'simple' => "This protects a finished page so it can't be accidentally overwritten.",
                  'what' => 'Blocks Regenerate from touching that page. Page-level, not block-level — locking a page locks every block in it, there\'s no way to lock just one block.',
-                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Lock" toggle (also shown in the Locations & Services Status column)'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Lock" toggle (also shown in the Cities & Services Status column)'],
                 ['step' => 'Lock one block within a page', 'status' => 'needs_adding',
                  'simple' => 'This would let someone protect just one part of a page instead of the whole thing.',
                  'what' => "Doesn't exist — there's no way to protect just the intro while regenerating the rest of the same page.",
@@ -387,7 +501,7 @@ function platform_info_content_workflow_data(): array {
                 ['step' => 'Submit for review', 'status' => 'in_place',
                  'simple' => 'This sends a finished page off to be checked before it goes live.',
                  'what' => "Clicking Publish. Enters the same two-stage approval queue (approval_stage: pending_platform_review) — unless the Platform Admin has turned the gate off for that specific agency (see the row above).",
-                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Publish" button, or client.php → Locations & Services → "Publish Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'page_editor.php "Publish" button, or client.php → Cities & Services → "Publish Selected"'],
                 ['step' => 'Platform review — stage 1', 'status' => 'in_place',
                  'simple' => "This is the Platform Admin's first check on a page an agency submitted.",
                  'what' => "The Platform Admin reviews what an agency submitted. \"Approve → Agency\" advances it to pending_agency_review; \"Reject\" sends it back with a note — the page's own content is untouched, just not live. Only reached if that agency's gate is on (see the first row of this section).",
@@ -420,11 +534,11 @@ function platform_info_content_workflow_data(): array {
                 ['step' => "Check what's actually live", 'status' => 'in_place',
                  'simple' => "This double-checks that what's really showing on the client's site matches what it should.",
                  'what' => "Fetches each page's real public URL and compares it against what the data says it should be (hero image, area map, climate chart) — catches a stale CDN cache that a status badge alone would miss.",
-                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client.php → Locations & Services → "Check Live Selected"'],
+                 'who' => 'Platform Admin, Agency Admin', 'where' => 'client.php → Cities & Services → "Check Live Selected"'],
                 ['step' => 'Take a single page down', 'status' => 'needs_adding',
                  'simple' => 'This would let someone remove just one page without touching the rest of the site.',
                  'what' => "Doesn't exist as a per-page action — the only kill switch today deactivates the client's entire API key, taking every page down at once, not one.",
-                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would extend page_editor.php / Locations & Services'],
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => 'Would extend page_editor.php / Cities & Services'],
             ],
         ],
         [
@@ -680,7 +794,7 @@ function platform_info_content_flow_data(): array {
                 ['step' => "Check for cannibalization across one client's own pages", 'status' => 'needs_adding', 'gate' => 'sell', 'effort' => 'moderate',
                  'simple' => "This would catch two of the SAME client's pages competing for the same keyword, before both go live.",
                  'what' => "Doesn't exist for LPC — same confirmed gap as Site Factory's version (section C), but scoped to one client's own page set instead of a whole niche fleet, which makes it a much smaller, cheaper check (a handful of pages, not 30+).",
-                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => "Would extend client.php's Locations & Services tab, before Publish"],
+                 'who' => 'Would be: Platform Admin, Agency Admin', 'where' => "Would extend client.php's Cities & Services tab, before Publish"],
                 ['step' => 'Let a niche profile turn optional sections on/off per niche', 'status' => 'needs_adding', 'gate' => 'retain', 'effort' => 'moderate',
                  'simple' => 'This would stop giving every single LPC client the exact same page skeleton regardless of whether it actually fits that niche.',
                  'what' => "Site Factory has 39 block types + archetypes that change which blocks appear by page intent. LPC has a fixed set of sections that appear on every page, every niche, with no archetype concept at all — a plumbing client and a dog-walking client get an identical page skeleton today. Recommended as a lighter, scoped version of Site Factory's archetype idea (toggle comparison/steps/seasonal_calendar on or off per niche), not a full 39-type system — LPC's simpler one-client-at-a-time use case doesn't need that much variety.",
@@ -841,7 +955,7 @@ function platform_info_content_flow_data(): array {
     <h3 style="margin-top:0;color:#1e3a5f;">What this is, how it's built, how to use it</h3>
     <p style="font-size:.88rem;line-height:1.7;">
         <strong>This is a service that builds and sells local-SEO landing pages to other businesses,
-        either directly or through agencies.</strong> A multi-location landing-page service sold to
+        either directly or through agencies.</strong> A multi-city landing-page service sold to
         external businesses (plumbers, restoration companies, etc.) — each client gets one page per city
         &times; service combo (e.g. "Fire Damage Restoration in Plano, TX"), hosted on their own
         WordPress site via a small plugin we give them. Resold through agencies — an agency buys access
@@ -918,7 +1032,7 @@ function platform_info_content_flow_data(): array {
             published to a separate delivery server their WordPress plugin fetches from — a thin,
             stateless proxy that renders inside <strong>their own theme's header/footer</strong>, so it
             inherits their real site's look with no custom CSS to fight against. A small floating badge
-            the plugin injects site-wide links back to a public "Service Locations" hub page, grouped
+            the plugin injects site-wide links back to a public "Service Cities" hub page, grouped
             State &gt; Hub Area &gt; City &gt; Services, with real nearby-city cross-linking between
             pages.</li>
         <li><strong>Each industry has its own template for what a page should cover.</strong> A niche
@@ -929,13 +1043,13 @@ function platform_info_content_flow_data(): array {
     <ol style="margin:0;padding-left:20px;line-height:1.85;font-size:.88rem;">
         <li><strong>This is where you start: entering who the client actually is.</strong>
             <strong>+ New Client</strong> — the wizard: business identity, industry (matches a niche
-            profile), services offered, real hub office(s), target cities per hub.</li>
+            profile), services offered, real hub metro(s), target cities per hub.</li>
         <li><strong>The system immediately writes a first draft of every page for you.</strong> Finishing
             the wizard immediately AI-generates a draft page for every city &times; service
             combination (real cost per page) — nothing publishes yet.</li>
         <li><strong>This is the main screen where you manage everything about a client's pages.</strong>
             In the client's workspace: set Content Profile (tone/excluded services) <em>before</em>
-            reviewing drafts, then use <strong>Locations &amp; Services</strong> — a city-grouped matrix
+            reviewing drafts, then use <strong>Cities &amp; Services</strong> — a city-grouped matrix
             with a checkbox per page and four selection-based actions:
             <ul style="margin:4px 0 0;padding-left:18px;">
                 <li><strong>This pulls in real facts about a city.</strong>
@@ -978,6 +1092,138 @@ function platform_info_content_flow_data(): array {
     </ol>
     <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0;">Full step-by-step checklist:
         <code>docs/landing-page-clients-onboarding.md</code>.</p>
+<?php endif; ?>
+
+<?php if ($tab === 'city_page'): ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">What a City Page is, and how it's put together</h3>
+
+    <h4 style="margin-bottom:4px;">1. What it is</h4>
+    <p style="font-size:.88rem;line-height:1.7;">
+        <strong>A City Page is the one page a client gets for a single city &times; service combination</strong>
+        &mdash; e.g. "Water Damage Restoration in Plano, TX." It's not written as one block of text; it's
+        assembled from a fixed set of smaller, independent <strong>blocks</strong> (a hero, an FAQ, a cost
+        table, a neighborhoods guide, etc.), each one generated, edited, locked, and regenerated on its own.
+        Every page in a client's site is built from the same shared pool of block types, so a plumbing
+        client and a restoration client both get real, professional pages without either one needing
+        custom code.
+    </p>
+    <p style="font-size:.88rem;line-height:1.7;">
+        <strong>The one rule underneath all of it: nothing specific is ever made up.</strong> Any claim a
+        block makes that could actually be checked &mdash; a number, a place name, a rule, a quote, a
+        statistic &mdash; has to trace back to a real source: a researched fact about that city, a dataset
+        (like Census data), or the client's own profile. General, unverifiable statements don't need a
+        source. This is the same engine described on the Spec Document tab (Section 4, "Writer contract")
+        &mdash; this tab explains it in plain English; that tab has the full technical spec.
+    </p>
+
+    <h4 style="margin-bottom:4px;">2. How it works</h4>
+    <p style="font-size:.88rem;line-height:1.7;margin:0 0 8px;">
+        <strong>Every page is built from three groups of blocks, in a fixed arrangement:</strong>
+    </p>
+    <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
+        <li><strong>The spine &mdash; always the same 4 blocks, never swapped:</strong> Hero, a
+            "[Service] in [City]" overview, an FAQ, and a Service Area block. These exist on every page
+            because every page needs them, which also means they look the most similar page to page.</li>
+        <li><strong>The city pool &mdash; pick 5 or 6:</strong> things that are true about the
+            <em>city</em>, not the service &mdash; climate, housing stock, neighborhoods, local permits/
+            rules, utilities, HOA rules, the season, local hazards, and real reviews from that city if the
+            client has them. Only an actual 5-6 are used per page, chosen based on what real facts/data
+            are actually available for that city.</li>
+        <li><strong>The service pool &mdash; pick 3 or 4:</strong> things that are true about the
+            <em>service</em> &mdash; common problems, expert guidance, a data table, the process, cost
+            factors, why-choose-us, repair-vs-replace, maintenance tips, what-to-expect. These repeat
+            across a client's different cities for the same service, but no more than half the choices
+            repeat &mdash; they get rotated so the same service in two different cities doesn't read
+            identically.</li>
+    </ul>
+    <p style="font-size:.88rem;line-height:1.7;margin:0 0 8px;">
+        <strong>Those counts (5-6 and 3-4) are mandatory, not a suggestion</strong> &mdash; what varies is
+        <em>which specific blocks</em> get chosen, never how many. That's deliberate: the city- and
+        service-pool blocks are actually where most of a page's real, city-specific content lives &mdash;
+        the spine is necessarily similar everywhere since it's just structure. All together, a finished
+        page is 12-14 blocks and roughly 900-1,500 words.
+    </p>
+    <p style="font-size:.88rem;line-height:1.7;margin:0 0 8px;">
+        <strong>Each block is one of three types, which decides what you're allowed to do to it:</strong>
+    </p>
+    <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
+        <li><strong>Editable (AI-written)</strong> &mdash; can be fully hand-edited, and Regenerate rewrites
+            it from scratch using the real facts, in new wording every time (never locked phrasing).</li>
+        <li><strong>Automatic (data-built)</strong> &mdash; e.g. the Census housing-stock stats or the
+            niche's own pre-authored data table; you can edit its short intro text where it has one, but
+            Regenerate re-fetches the real data rather than rewriting prose.</li>
+        <li><strong>Client-supplied</strong> &mdash; content the client provided directly (like their own
+            reviews); fully editable, but there's nothing to "regenerate" since it was never AI-written.</li>
+    </ul>
+    <p style="font-size:.88rem;line-height:1.7;margin:0 0 8px;">
+        <strong>Locking a block freezes it completely</strong> &mdash; its content, and for a data block its
+        underlying data too &mdash; until someone manually unlocks it, so a Regenerate pass can touch the
+        rest of the page without disturbing a block that's already finished. Spine blocks can't be swapped
+        for anything else (there's no alternative to swap to); city- and service-pool blocks can be swapped
+        for a different block from the same pool as long as they're unlocked.
+    </p>
+    <p style="font-size:.88rem;line-height:1.7;margin:0;">
+        <strong>The page itself also carries real SEO and conversion plumbing</strong>: a configurable URL
+        pattern per client, schema markup (LocalBusiness/Service/FAQPage/breadcrumbs, plus real star-rating
+        schema if the client has real reviews), a hero image plus an interactive service-area map, and two
+        call-to-action banners offering both click-to-call and a short quote form. One real difference from
+        the written spec worth flagging: the spec (Spec Document tab, Section 5) calls for a sticky
+        mobile click-to-call bar, but it was built and then deliberately removed in the actual pages
+        &mdash; pages render inside the client's own WordPress theme, and Scott's rule is that a page should
+        only ever use whatever header/footer/call-to-action that theme already provides, not compete with
+        it. See the Product Roadmap tab's "Visual page design" row for the full reasoning.
+    </p>
+    <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0 0;">
+        Full technical spec (pools, writer contract, lock/edit/regenerate/swap table, page-frame details):
+        Spec Document tab, Sections 4-6 of <code>docs/PLUSCITIES_FEATURE_SPEC.md</code>. The visual/
+        component-level design (FAQ accordion, CTA band, stat tiles, etc.) lives in
+        <code>docs/PLUSCITIES_PAGE_DESIGN_SIMPLE.md</code> (not currently surfaced in this admin).
+    </p>
+
+    <h4 style="margin:28px 0 4px;">3. Every block, one row each</h4>
+    <p style="font-size:.88rem;line-height:1.7;margin:0 0 8px;">
+        All 22 block types (4 spine + 9 city-pool + 9 service-pool), verified directly against the shipped
+        code (<code>includes/pluscities_lifecycle.php</code>, <code>pluscities_writer.php</code>,
+        <code>pluscities_research.php</code>), not the spec's prose alone &mdash; two places where the two
+        actually disagree are called out in their own row's Notes column rather than silently picked one
+        way.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:#374151;margin:0 0 10px;">
+        <span><span class="lpc-city-block-pill lpc-city-block-editable">Editable</span> AI-written from facts</span>
+        <span><span class="lpc-city-block-pill lpc-city-block-automatic">Automatic</span> data-built, no AI</span>
+        <span><span class="lpc-city-block-pill lpc-city-block-client">Client-supplied</span> never AI-written</span>
+    </div>
+    <style>
+        .lpc-city-block-pill { display:inline-block; padding:2px 9px; border-radius:999px; font-size:.72rem; font-weight:600; }
+        .lpc-city-block-editable  { background:#e0e7ff; color:#3730a3; }
+        .lpc-city-block-automatic { background:#d1fae5; color:#065f46; }
+        .lpc-city-block-client    { background:#fde7f3; color:#9d174d; }
+    </style>
+    <?php
+    $classLabels = ['editable' => 'Editable', 'automatic' => 'Automatic', 'client' => 'Client-supplied'];
+    foreach (platform_info_city_page_blocks_data() as $section): ?>
+        <h4 class="lpc-roadmap-section" style="margin:22px 0 8px;font-family:'Space Grotesk',sans-serif;color:#1e3a5f;"><?= h($section['title']) ?></h4>
+        <table class="lpc-table" style="margin-bottom:8px;">
+            <thead><tr>
+                <th style="width:15%;">Block</th>
+                <th style="width:10%;">Classification</th>
+                <th style="width:22%;">What it is</th>
+                <th style="width:28%;">How it works</th>
+                <th style="width:25%;">Notes</th>
+            </tr></thead>
+            <tbody>
+            <?php foreach ($section['rows'] as $r): ?>
+                <tr>
+                    <td><strong><?= h($r['block']) ?></strong></td>
+                    <td><span class="lpc-city-block-pill lpc-city-block-<?= h($r['class']) ?>"><?= h($classLabels[$r['class']]) ?></span></td>
+                    <td><?= h($r['what']) ?></td>
+                    <td><?= h($r['how']) ?></td>
+                    <td><?= $r['note'] !== '' ? h($r['note']) : '<span style="color:#9ca3af;">&mdash;</span>' ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endforeach; ?>
 <?php endif; ?>
 
 <?php if ($tab === 'roadmap'): ?>

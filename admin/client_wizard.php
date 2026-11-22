@@ -50,7 +50,7 @@ if (!empty($_SESSION['lpc_wizard_notice'])) {
     $notice = $_SESSION['lpc_wizard_notice'];
     unset($_SESSION['lpc_wizard_notice']);
 }
-// Set by auto-detect (step 1) for step 3's "Add a hub office" form to pre-fill from —
+// Set by auto-detect (step 1) for step 3's "Add a hub metro" form to pre-fill from —
 // a suggestion to review, never written to the client record on its own.
 $detectedHub = $_SESSION['lpc_wizard_detected'] ?? null;
 
@@ -204,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         } elseif ($postedStep === 3 && $wizAction === 'next') {
             if (empty($w['hubs'])) {
-                $error = 'Add at least one hub office before continuing.';
+                $error = 'Add at least one hub metro before continuing.';
             } else {
                 header('Location: client_wizard.php?step=4');
                 exit;
@@ -482,7 +482,7 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
             <button type="submit" class="btn-sm-outline">+ Add Service</button>
         </form>
 
-        <h3 style="margin-top:28px;">Hub Offices</h3>
+        <h3 style="margin-top:28px;">Hub Metros</h3>
         <p style="color:#6b7280;font-size:.85rem;margin-top:0;">The business's real offices — feeds the LocalBusiness schema and the target-city suggestions in the next step.</p>
         <?php foreach ($w['hubs'] as $hub): ?>
             <div class="lpc-row">
@@ -508,7 +508,7 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="step" value="3">
             <input type="hidden" name="wiz_action" value="add_hub">
-            <strong style="font-size:.88rem;">Add a hub office</strong>
+            <strong style="font-size:.88rem;">Add a hub metro</strong>
             <?php if ($detectedHub): ?>
                 <p style="color:#166534;font-size:.78rem;">Pre-filled from the auto-detected site — double-check before adding.</p>
             <?php endif; ?>
@@ -637,7 +637,7 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
         <div class="card">
             <strong><?= h($w['identity']['business_name']) ?></strong>
             <p style="color:#6b7280;font-size:.85rem;"><?= h($w['identity']['domain']) ?: 'No domain' ?> &middot; <?= h($w['identity']['industry_category']) ?: 'No category' ?></p>
-            <p style="font-size:.85rem;"><?= count($w['hubs']) ?> hub office(s) &middot; <?= count($w['services']) ?> service(s) &middot; <?= count($w['target_cities']) ?> target location(s)</p>
+            <p style="font-size:.85rem;"><?= count($w['hubs']) ?> hub metro<?= count($w['hubs']) === 1 ? '' : 's' ?> &middot; <?= count($w['services']) ?> service(s) &middot; <?= count($w['target_cities']) ?> target cit<?= count($w['target_cities']) === 1 ? 'y' : 'ies' ?></p>
         </div>
         <p style="color:#6b7280;font-size:.82rem;">Creating this client immediately generates a real AI draft for every confirmed city/service combination (real cost per page, may take a minute for many pages).</p>
         <form method="post">

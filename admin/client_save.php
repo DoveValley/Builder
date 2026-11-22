@@ -217,23 +217,133 @@ switch ($section) {
         $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
-        $client['delivery']['support_phone']   = trim($_POST['support_phone'] ?? '');
-        $client['delivery']['support_message'] = trim($_POST['support_message'] ?? '');
-        $placement = $_POST['nav_link_placement'] ?? 'footer';
-        $client['delivery']['nav_link_placement'] = in_array($placement, ['off', 'footer', 'nav'], true) ? $placement : 'footer';
-        $client['delivery']['nav_link_label']     = trim($_POST['nav_link_label'] ?? '') ?: 'View Our Service Locations';
-        // Existed as a data field long before it had a UI control — every
-        // consumer (the manifest, the plugin's own transient TTL) already
-        // read whatever was here, so this just makes it an actual setting
-        // instead of something only editable by hand-editing client.json.
-        $refreshMinutes = (int) ($_POST['refresh_interval_minutes'] ?? 360);
-        $client['delivery']['refresh_interval_minutes'] = max(5, $refreshMinutes ?: 360);
+        // This section is posted to by THREE separate forms on the Delivery tab
+        // (Support Message, Page URL pattern, Link placement) — each submits only
+        // its own fields, not the other two cards'. array_key_exists, not ?? '',
+        // on every single one: a field genuinely absent from $_POST (a different
+        // card's form was submitted) must leave the existing stored value alone,
+        // not get silently reset to a hardcoded default. A real bug caught before
+        // it bit anyone live: the original version used `$_POST['x'] ?? default`
+        // for all five fields regardless of which form was actually submitted, so
+        // saving the Support Message card alone would have silently reset
+        // base_path back to '/locations' and re-triggered a full republish.
+        $oldBasePath = rtrim($client['delivery']['base_path'] ?: '/locations', '/');
+        $newBasePath = $oldBasePath;
+
+        if (array_key_exists('support_phone', $_POST)) {
+            $client['delivery']['support_phone'] = trim($_POST['support_phone']);
+        }
+        if (array_key_exists('support_message', $_POST)) {
+            $client['delivery']['support_message'] = trim($_POST['support_message']);
+        }
+        if (array_key_exists('nav_link_placement', $_POST)) {
+            $placement = $_POST['nav_link_placement'];
+            $client['delivery']['nav_link_placement'] = in_array($placement, ['off', 'footer', 'nav'], true) ? $placement : 'footer';
+        }
+        if (array_key_exists('nav_link_label', $_POST)) {
+            $client['delivery']['nav_link_label'] = trim($_POST['nav_link_label']) ?: 'Service Area';
+        }
+        if (array_key_exists('refresh_interval_minutes', $_POST)) {
+            // Existed as a data field long before it had a UI control — every
+            // consumer (the manifest, the plugin's own transient TTL) already
+            // read whatever was here, so this just makes it an actual setting
+            // instead of something only editable by hand-editing client.json.
+            $refreshMinutes = (int) $_POST['refresh_interval_minutes'];
+            $client['delivery']['refresh_interval_minutes'] = max(5, $refreshMinutes ?: 360);
+        }
+        if (array_key_exists('base_path', $_POST)) {
+            // base_path, like nav_link_label above, existed as a data field
+            // (default '/locations') long before it had a UI control — only ever
+            // set at onboarding or by hand-editing client.json. Slugified the
+            // same way a URL path segment should be: lowercase, spaces/
+            // underscores -> hyphens, anything else stripped, collapsed,
+            // trimmed of slashes.
+            $rawSlug = strtolower(trim($_POST['base_path'], " \t\n\r\0\x0B/"));
+            $rawSlug = preg_replace('/[\s_]+/', '-', $rawSlug);
+            $rawSlug = preg_replace('/[^a-z0-9-]+/', '', $rawSlug);
+            $rawSlug = trim(preg_replace('/-+/', '-', $rawSlug), '-');
+            $newBasePath = '/' . ($rawSlug ?: 'locations');
+            $client['delivery']['base_path'] = $newBasePath;
+        }
+
         lpc_save_client($client_id, $client);
+
+        // Changing the URL pattern doesn't rewrite anything already live on its
+        // own — lpc_rebuild_manifest() only rebuilds the page LIST, each page's
+        // own stored content (schema_jsonld's Service "url", related-page links,
+        // the service-area block's nearby-city links) was computed once at its
+        // own last Publish and otherwise sits stale. Republishing every already-
+        // published page closes that gap immediately rather than leaving stale
+        // old-path URLs baked into live schema markup until someone happens to
+        // touch that page again. Deliberately calls lpc_publish_page() directly,
+        // NOT the gated lpc_publish_page_gated() the normal Publish button uses:
+        // these pages are already approved and live — a gated agency would
+        // otherwise get bounced back to pending_platform_review by this, with
+        // nothing actually republished, just to pick up a settings change that
+        // has nothing to do with content needing re-review.
+        if ($newBasePath !== $oldBasePath) {
+            foreach ($client['target_cities'] ?? [] as $tc) {
+                foreach ($tc['services'] ?? [] as $serviceId) {
+                    $pageId = $tc['city_id'] . '__' . $serviceId;
+                    $page = lpc_load_page($client_id, $pageId);
+                    if ($page && $page['status'] === 'published') {
+                        lpc_publish_page($client_id, $pageId);
+                    }
+                }
+            }
+        }
+
         // Takes effect on the client's next scheduled check-in either way, but
         // rebuilding now means it's live immediately rather than waiting on an
         // unrelated page publish to happen to refresh the manifest.
         lpc_rebuild_manifest($client_id);
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=delivery&msg=success:Support+info+saved');
+        exit;
+
+    /* ---- SERVICE AREA PAGE (hub page heading/intro overrides) ---- */
+    case 'service_area_page_settings':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client_for_current_actor($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        // Two separate forms post here (Top Text, Bottom Text) — each submits
+        // only its own field(s). array_key_exists, not ?? '', same reasoning as
+        // delivery_settings above: a field absent from $_POST means a different
+        // card's form was submitted, not "clear this field."
+        if (array_key_exists('hub_heading', $_POST)) {
+            // Blank means "use the automatic default" (the literal string
+            // "Service Area"), not "render literally blank" — the WP plugin
+            // side only overrides its own hardcoded default when this is
+            // actually non-empty, same "empty means unset, not emptied" rule
+            // nav_link_label etc. use.
+            $client['delivery']['hub_heading'] = trim($_POST['hub_heading']);
+        }
+        if (array_key_exists('hub_intro', $_POST)) {
+            $client['delivery']['hub_intro'] = trim($_POST['hub_intro']);
+        }
+        if (array_key_exists('hub_footer_text', $_POST)) {
+            // Freeform — rendered as-is (one paragraph) at the bottom of the
+            // page, below the city grid. Blank = render nothing extra, there's
+            // no automatic default text for this one.
+            $client['delivery']['hub_footer_text'] = trim($_POST['hub_footer_text']);
+        }
+        lpc_save_client($client_id, $client);
+        // No per-page republish needed here (unlike base_path) — the hub page
+        // is rendered fresh from the manifest on every real request, never
+        // baked into an individual page's own stored content.
+        lpc_rebuild_manifest($client_id);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=service_area_page&msg=success:Service+Area+page+text+saved');
+        exit;
+
+    /* ---- FORCE REMOTE REFRESH (calls the client's own live WordPress site) ---- */
+    case 'force_refresh':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client_for_current_actor($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $result = lpc_trigger_remote_refresh($client_id);
+        $msg = $result['ok'] ? 'success:Live+site+refreshed' : 'error:' . urlencode($result['msg']);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=overview&msg=' . $msg);
         exit;
 
     /* ---- TOGGLE ACTIVE (disable / re-enable) ---- */

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Landing Page Client
  * Description: Displays location/service landing pages delivered by the Landing Page Clients backend. One setting: paste in your API key.
- * Version: 0.4.31
+ * Version: 0.4.32
  * Author: Site Factory
  */
 
@@ -37,7 +37,7 @@ function lpc_activate() {
 	add_option( 'lpc_support_phone', '' );
 	add_option( 'lpc_support_message', '' );
 	add_option( 'lpc_nav_link_placement', 'footer' );
-	add_option( 'lpc_nav_link_label', 'View Our Service Locations' );
+	add_option( 'lpc_nav_link_label', 'Service Area' );
 	add_option( 'lpc_last_checkin', 0 );
 	lpc_add_rewrite_rules();
 	flush_rewrite_rules();

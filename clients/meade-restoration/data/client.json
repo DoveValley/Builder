@@ -104,16 +104,19 @@
         }
     ],
     "delivery": {
-        "base_path": "/locations",
+        "base_path": "/service-area",
         "refresh_interval_minutes": 360,
         "support_phone": "",
         "support_message": "",
         "nav_link_placement": "footer",
-        "nav_link_label": "View Our Service Locations",
+        "nav_link_label": "Service Area",
         "active": true,
         "last_checkin": 0,
         "last_emailed": "",
-        "last_stale_alert_at": ""
+        "last_stale_alert_at": "",
+        "hub_heading": "",
+        "hub_intro": "",
+        "hub_footer_text": ""
     },
     "billing": {
         "setup_fee_per_location": 0,

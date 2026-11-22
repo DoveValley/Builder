@@ -287,7 +287,8 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	$top_level = in_array( $top_level, [ 'h1', 'h2' ], true ) ? $top_level : 'h2';
 
 	if ( empty( $manifest['pages'] ) ) {
-		echo '<main class="lpc-hub"><' . $top_level . '>' . esc_html( $manifest['business_name'] ?? '' ) . '</' . $top_level . '><p>No locations are published yet.</p></main>';
+		$emptyHeading = trim( $manifest['settings']['hub_heading'] ?? '' ) ?: 'Service Area';
+		echo '<main class="lpc-hub"><' . $top_level . '>' . esc_html( $emptyHeading ) . '</' . $top_level . '><p>No locations are published yet.</p></main>';
 		return;
 	}
 
@@ -297,14 +298,29 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	// equivalent wrapper at all, so it inherited the theme's full (often
 	// full-bleed) container width instead, reading as "all the way to the
 	// edge" next to every other page on the site.
+	// Both overridable from the admin's Service Area Page tab — blank means
+	// "use the automatic default" below, not "render literally blank." Default
+	// heading is the literal string "Service Area", not the business name —
+	// the business name already appears in the theme's own header on this
+	// page like every other.
+	$heading = trim( $manifest['settings']['hub_heading'] ?? '' );
+	if ( $heading === '' ) {
+		$heading = 'Service Area';
+	}
+	$introOverride = trim( $manifest['settings']['hub_intro'] ?? '' );
+
 	echo '<main class="lpc-hub">';
-	echo '<' . $top_level . '>' . esc_html( $manifest['business_name'] ?? 'Locations' ) . '</' . $top_level . '>';
+	echo '<' . $top_level . '>' . esc_html( $heading ) . '</' . $top_level . '>';
 	// Without this the page is just a heading and a bare list — fine with a
 	// full roster of cities, but a real, confirmed-bad look with only 1-2
 	// published pages (restore-2's exact situation, 2026-11-15): a single
 	// stretched-full-width card and a wall of empty space below it, reading
 	// as broken rather than just "early."
-	echo '<p class="lpc-hub-intro">' . esc_html( $manifest['business_name'] ?? 'We' ) . ' proudly serves the following service area' . ( count( $manifest['pages'] ) === 1 ? '' : 's' ) . ':</p>';
+	if ( $introOverride !== '' ) {
+		echo '<p class="lpc-hub-intro">' . esc_html( $introOverride ) . '</p>';
+	} else {
+		echo '<p class="lpc-hub-intro">' . esc_html( $manifest['business_name'] ?? 'We' ) . ' proudly serves the following area' . ( count( $manifest['pages'] ) === 1 ? '' : 's' ) . ':</p>';
+	}
 
 	// State > Hub Area > City > Services, not one flat grid of every
 	// city/service combination — real gap found live (2026-11-15): with 9
@@ -353,6 +369,14 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 			echo '</div>';
 		}
 	}
+
+	// Freeform, overridable from the admin's Service Area Page tab — no
+	// automatic default text, so blank genuinely means nothing renders here.
+	$footerText = trim( $manifest['settings']['hub_footer_text'] ?? '' );
+	if ( $footerText !== '' ) {
+		echo '<p class="lpc-hub-footer-text">' . esc_html( $footerText ) . '</p>';
+	}
+
 	echo '</main>';
 }
 

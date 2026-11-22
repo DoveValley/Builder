@@ -73,7 +73,16 @@ function lpc_default_client_data() {
             // with a menu actually assigned to that location. 'off' disables
             // this entirely.
             'nav_link_placement'     => 'footer', // 'off' | 'footer' | 'nav'
-            'nav_link_label'         => 'View Our Service Locations',
+            'nav_link_label'         => 'Service Area',
+            // Blank = use the hub page's own automatic default (the literal
+            // string "Service Area" / the standard "proudly serves..."
+            // sentence) — see the Service Area Page tab and
+            // lpc_render_hub_page() in the WP plugin.
+            'hub_heading'             => '',
+            'hub_intro'               => '',
+            // Freeform paragraph rendered at the bottom of the hub page, below
+            // the city grid. Blank = nothing extra rendered, no default text.
+            'hub_footer_text'         => '',
             'active'                  => true,
             'last_checkin'            => 0,
             'last_emailed'            => '',
@@ -507,7 +516,7 @@ function lpc_create_client($identity, $niche_id = '') {
 /**
  * Population-ranked candidate cities within a hub's service radius — free,
  * always available (no DataForSEO credit spent). Shared by the kickoff
- * wizard's Step 4 and the Locations & Services matrix's "Add a City" action,
+ * wizard's Step 4 and the Cities & Services matrix's "Add a City" action,
  * per the design doc's explicit instruction to reuse the same recommendation
  * screen rather than build it twice. Callers must require_once
  * admin/infra/lib/cities.php and includes/multisite/geocode.php first (not

@@ -40,7 +40,7 @@ function lpc_preview_status_label($status) {
 <?php if ($page_id === ''): ?>
 
     <div style="max-width:700px;margin:40px auto;padding:0 20px;">
-        <h1>Locations</h1>
+        <h1>Cities</h1>
         <ul>
             <?php foreach ($client['target_cities'] as $tc): foreach ($tc['services'] as $sid):
                 $pid = $tc['city_id'] . '__' . $sid;
@@ -65,13 +65,13 @@ function lpc_preview_status_label($status) {
     $service = $target ? lpc_find_by_id($client['services'], 'service_id', $service_id) : null;
 
     if (!$target || !$service) {
-        echo '<div style="max-width:700px;margin:40px auto;padding:0 20px;"><p>Not a confirmed target city/service. <a href="' . h($hubUrl) . '">&larr; Back to Locations</a></p></div>';
+        echo '<div style="max-width:700px;margin:40px auto;padding:0 20px;"><p>Not a confirmed target city/service. <a href="' . h($hubUrl) . '">&larr; Back to Cities</a></p></div>';
     } else {
         $page = lpc_load_page($client_id, $page_id);
         $status = $page['status'] ?? 'not_created';
         $siblings = lpc_preview_sibling_links($client, $page_id, $hubUrl);
         ?>
-        <p style="max-width:700px;margin:16px auto 0;padding:0 20px;"><a href="<?= h($hubUrl) ?>">&larr; Back to Locations</a> &middot; Status: <em><?= h(lpc_preview_status_label($status)) ?></em></p>
+        <p style="max-width:700px;margin:16px auto 0;padding:0 20px;"><a href="<?= h($hubUrl) ?>">&larr; Back to Cities</a> &middot; Status: <em><?= h(lpc_preview_status_label($status)) ?></em></p>
 
         <?php if (!$page): ?>
             <div style="max-width:700px;margin:20px auto;padding:0 20px;">

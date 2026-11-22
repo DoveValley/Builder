@@ -52,7 +52,7 @@ function lpc_render_footer_badge() {
 	if ( get_option( 'lpc_api_key', '' ) === '' || get_option( 'lpc_nav_link_placement', 'footer' ) !== 'footer' ) {
 		return;
 	}
-	$label = get_option( 'lpc_nav_link_label', 'View Our Service Locations' );
+	$label = get_option( 'lpc_nav_link_label', 'Service Area' );
 	echo '<a href="' . esc_url( lpc_service_locations_url() ) . '" style="position:fixed;right:16px;bottom:16px;z-index:999999;background:#1a1a2e;color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;line-height:1.2;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);">'
 		. esc_html( $label ) . '</a>';
 }
@@ -73,7 +73,7 @@ function lpc_inject_nav_menu_link( $items, $args ) {
 	$item              = new stdClass();
 	$item->ID          = 0;
 	$item->db_id       = 0;
-	$item->title       = get_option( 'lpc_nav_link_label', 'View Our Service Locations' );
+	$item->title       = get_option( 'lpc_nav_link_label', 'Service Area' );
 	$item->url         = lpc_service_locations_url();
 	$item->menu_item_parent = 0;
 	$item->object      = 'custom';

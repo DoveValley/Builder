@@ -31,7 +31,7 @@ if (!$client) {
 }
 
 $tab = $_GET['tab'] ?? 'overview';
-if (!in_array($tab, ['overview', 'locations', 'branding', 'content_profile', 'delivery', 'reporting'], true)) {
+if (!in_array($tab, ['overview', 'locations', 'branding', 'content_profile', 'delivery', 'service_area_page', 'reporting'], true)) {
     $tab = 'overview';
 }
 
@@ -104,7 +104,7 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
     <div id="lpc-how-it-works-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
         <h3 style="margin-top:0;color:#1e3a5f;">What this is, how it's built, how to use it</h3>
         <p style="font-size:.88rem;line-height:1.7;">
-            A multi-location landing-page service sold to external businesses (plumbers, restoration
+            A multi-city landing-page service sold to external businesses (plumbers, restoration
             companies, etc.) — each client gets one page per city &times; service combo (e.g. "Fire Damage
             Restoration in Plano, TX"), hosted on their own WordPress site via a small plugin we give them.
             Resold through agencies — an agency buys access and onboards its own clients, scoped to only
@@ -138,14 +138,14 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
                 published to a separate delivery server their WordPress plugin fetches from — a thin,
                 stateless proxy that renders inside <strong>their own theme's header/footer</strong>, so it
                 inherits their real site's look with no custom CSS to fight against. A small floating badge
-                the plugin injects site-wide links back to a public "Service Locations" hub page, grouped
+                the plugin injects site-wide links back to a public "Service Cities" hub page, grouped
                 State &gt; Hub Area &gt; City &gt; Services, with real nearby-city cross-linking between
                 pages.</li>
         </ul>
         <h4 style="margin-bottom:4px;">How to use it</h4>
         <ol style="margin:0;padding-left:20px;line-height:1.85;font-size:.88rem;">
             <li>Set Content Profile (tone/excluded services) <em>before</em> reviewing drafts, then use
-                <strong>Locations &amp; Services</strong> — a city-grouped matrix with a checkbox per page
+                <strong>Cities &amp; Services</strong> — a city-grouped matrix with a checkbox per page
                 and four selection-based actions:
                 <ul style="margin:4px 0 0;padding-left:18px;">
                     <li><strong>Research Selected</strong> — real Census population lookup, free, runs once
@@ -188,7 +188,7 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
 
     <div class="pcadmin-stats">
         <div class="pcadmin-stat"><div class="num"><?= $pagesLive ?> / <?= $pagesTotal ?></div><div class="label">Pages Live</div></div>
-        <div class="pcadmin-stat"><div class="num"><?= $locations ?></div><div class="label">Target Locations</div></div>
+        <div class="pcadmin-stat"><div class="num"><?= $locations ?></div><div class="label">Target Cities</div></div>
         <div class="pcadmin-stat"><div class="num">$<?= number_format($mrr, 0) ?>/mo</div><div class="label">MRR</div></div>
     </div>
 
@@ -196,7 +196,21 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
 
     <?php if ($tab === 'overview'): ?>
 
-        <h3 style="margin-top:0;">Identity</h3>
+        <h3 style="margin-top:0;">Refresh Live Site</h3>
+        <div class="card" style="margin-bottom:24px;">
+            <p style="color:#6b7280;font-size:.85rem;margin:0 0 10px;">
+                Forces this client's WordPress site to re-fetch its content right now instead of waiting
+                for its own scheduled check-in (up to the Refresh Interval set on the Delivery tab).
+            </p>
+            <form method="post" action="client_save.php">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="force_refresh">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <button type="submit" class="btn-sm-outline">Refresh Now</button>
+            </form>
+        </div>
+
+        <h3>Identity</h3>
         <form method="post" action="client_save.php" class="card">
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="section" value="identity">
@@ -215,9 +229,9 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
             <p style="color:#6b7280;font-size:.78rem;margin:10px 0 0;">Changing the business name here does not rewrite already-generated page content or an already-published manifest by itself — Regenerate affected pages and Publish again to push the correction live.</p>
         </form>
 
-        <h3 style="margin-top:28px;">Hub Offices</h3>
+        <h3 style="margin-top:28px;">Hub Metros</h3>
         <?php if (empty($client['hubs'])): ?>
-            <p style="color:#6b7280;font-size:.88rem;">No hub offices yet — add the business's real office locations below.</p>
+            <p style="color:#6b7280;font-size:.88rem;">No hub metros yet — add the business's real Metro locations below.</p>
         <?php else: foreach ($client['hubs'] as $hub): ?>
             <div class="lpc-hub-row">
                 <div>
@@ -240,7 +254,7 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
             <input type="hidden" name="section" value="hubs">
             <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
             <input type="hidden" name="hub_action" value="add">
-            <strong style="font-size:.88rem;">Add a hub office</strong>
+            <strong style="font-size:.88rem;">Add a hub metro</strong>
             <div class="lpc-form-row">
                 <div class="form-group"><label>Name</label><input type="text" name="name" required placeholder="e.g. Dallas Office"></div>
                 <div class="form-group"><label>Street</label><input type="text" name="street"></div>
@@ -258,12 +272,12 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
             <input type="hidden" name="section" value="billing">
             <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
             <div class="lpc-form-row">
-                <div class="form-group"><label>Setup Fee / Location</label><input type="number" step="0.01" name="setup_fee_per_location" value="<?= h($client['billing']['setup_fee_per_location']) ?>"></div>
-                <div class="form-group"><label>Monthly Fee / Location</label><input type="number" step="0.01" name="monthly_fee_per_location" value="<?= h($client['billing']['monthly_fee_per_location']) ?>"></div>
+                <div class="form-group"><label>Setup Fee / City</label><input type="number" step="0.01" name="setup_fee_per_location" value="<?= h($client['billing']['setup_fee_per_location']) ?>"></div>
+                <div class="form-group"><label>Monthly Fee / City</label><input type="number" step="0.01" name="monthly_fee_per_location" value="<?= h($client['billing']['monthly_fee_per_location']) ?>"></div>
                 <div class="form-group"><label>Start Date</label><input type="date" name="start_date" value="<?= h($client['billing']['start_date']) ?>"></div>
                 <button type="submit" class="btn-open">Save Billing</button>
             </div>
-            <p style="color:#6b7280;font-size:.8rem;margin:10px 0 0;"><?= $locations ?> location<?= $locations === 1 ? '' : 's' ?> &times; $<?= number_format((float)$client['billing']['monthly_fee_per_location'], 2) ?>/mo = $<?= number_format($mrr, 2) ?>/mo</p>
+            <p style="color:#6b7280;font-size:.8rem;margin:10px 0 0;"><?= $locations ?> cit<?= $locations === 1 ? 'y' : 'ies' ?> &times; $<?= number_format((float)$client['billing']['monthly_fee_per_location'], 2) ?>/mo = $<?= number_format($mrr, 2) ?>/mo</p>
         </form>
 
         <?php if (lpc_current_actor_role() === 'super_admin'): ?>
@@ -828,7 +842,7 @@ lpc_admin_open('clients', $client['identity']['business_name'] ?: $client_id,
             <strong style="font-size:.88rem;">Excluded Services</strong>
             <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">Checked services are left out of this client's content — e.g. a referral-only exclusion for a service handled by a separate licensed entity.</p>
             <?php if (empty($client['services'])): ?>
-                <p style="color:#6b7280;font-size:.85rem;">No services defined yet — add some on the Locations &amp; Services tab first.</p>
+                <p style="color:#6b7280;font-size:.85rem;">No services defined yet — add some on the Cities &amp; Services tab first.</p>
             <?php else: foreach ($client['services'] as $s): ?>
                 <label style="display:block;font-size:.85rem;margin-bottom:6px;">
                     <input type="checkbox" name="excluded_services[]" value="<?= h($s['service_id']) ?>" <?= in_array($s['service_id'], $client['content_profile']['excluded_services'], true) ? 'checked' : '' ?>>
@@ -926,13 +940,33 @@ Thanks!</textarea></div>
         </div>
 
         <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">Page URL pattern</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
+                Every page lives at <code>yoursite.com/{this}/{page-slug}</code> — e.g. "service-area" or
+                "locations". Changing this changes every live page's URL immediately on the client's next
+                check-in; it does not add a redirect from the old path, so anything that already links to
+                or has indexed the old URLs will 404 unless you handle that separately.
+            </p>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="delivery_settings">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group">
+                    <label>URL Slug</label>
+                    <input type="text" name="base_path" style="width:160px;" value="<?= h(trim($client['delivery']['base_path'] ?? '/locations', '/')) ?>" placeholder="locations">
+                </div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
             <strong style="font-size:.88rem;">Link to the Locations page on their site</strong>
             <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
                 Without this, their location pages exist but are undiscoverable from the rest of their
                 site. "Floating badge" (default) is a small fixed bottom-right pill that shows up on
                 every page regardless of theme — works everywhere. "Nav menu" looks more native but only
                 works on classic (non-block) themes with a menu already assigned to the primary
-                location — verify it actually shows up after switching. "Off" if the client would rather
+                city — verify it actually shows up after switching. "Off" if the client would rather
                 add their own link by hand.
             </p>
             <form method="post" action="client_save.php" class="lpc-form-row">
@@ -1008,6 +1042,78 @@ Thanks!</textarea></div>
                 <button type="submit" class="btn-sm-outline">Save</button>
             </form>
         </div>
+
+    <?php elseif ($tab === 'service_area_page'): ?>
+
+        <h3 style="margin-top:0;">Service Area page</h3>
+        <p style="color:#6b7280;font-size:.85rem;line-height:1.6;margin:0 0 14px;">
+            This is the single public hub page at <code><?= h(rtrim($client['identity']['domain'] ?: 'yoursite.com', '/')) ?>/<?= h(trim($client['delivery']['base_path'] ?? '/locations', '/')) ?>/</code>
+            that lists every one of this client's published pages, grouped State &rarr; Hub Area &rarr;
+            City &rarr; Services. It's the page the "Service Area" link/badge (Delivery tab) points at.
+            Until now this page's text was hardcoded in the WordPress plugin itself &mdash; there was no
+            admin control at all. Split into three sections: the top heading/intro, the per-city card
+            format (not built out yet), and a freeform block at the very bottom.
+        </p>
+
+        <div class="card">
+            <strong style="font-size:.88rem;">1. Top Text</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
+                Leave either field blank to keep the default shown as its placeholder &mdash; blank is not
+                the same as "no text," it means "use the automatic default," so an empty field never
+                renders as a literally blank heading.
+            </p>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="service_area_page_settings">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group" style="flex:1;min-width:240px;">
+                    <label>Page Heading</label>
+                    <input type="text" name="hub_heading" style="width:100%;"
+                           placeholder="Service Area (default)"
+                           value="<?= h($client['delivery']['hub_heading'] ?? '') ?>">
+                </div>
+                <div class="form-group" style="flex:2;min-width:320px;">
+                    <label>Intro Sentence</label>
+                    <input type="text" name="hub_intro" style="width:100%;"
+                           placeholder="<?= h($client['identity']['business_name'] ?: 'We') ?> proudly serves the following areas: (default)"
+                           value="<?= h($client['delivery']['hub_intro'] ?? '') ?>">
+                </div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">2. City Area Format</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 0;">
+                Not built out yet — this is where the per-city card grid's own format (what shows on each
+                city's card beyond its name and service links) will become configurable.
+            </p>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">3. Bottom Text</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
+                A freeform paragraph rendered below the city grid, at the very bottom of the page. Blank
+                means nothing renders here &mdash; there's no automatic default text for this one.
+            </p>
+            <form method="post" action="client_save.php">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="service_area_page_settings">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group" style="margin-bottom:10px;">
+                    <textarea name="hub_footer_text" rows="3" style="width:100%;" placeholder="(nothing — default)"><?= h($client['delivery']['hub_footer_text'] ?? '') ?></textarea>
+                </div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
+        <p style="color:#6b7280;font-size:.8rem;margin:14px 0 0;">
+            Takes effect on the client's next scheduled check-in, same as the other Delivery settings —
+            or immediately, via "Save & Refresh now" in the plugin's own WP Settings page.
+            <?php $lpcDomain2 = trim($client['identity']['domain'] ?? ''); if ($lpcDomain2 !== ''): ?>
+                <a href="https://<?= h($lpcDomain2) ?>/<?= h(trim($client['delivery']['base_path'] ?? '/locations', '/')) ?>/" target="_blank" rel="noopener">View the live page &#8599;</a>
+            <?php endif; ?>
+        </p>
 
     <?php elseif ($tab === 'reporting'): ?>
 

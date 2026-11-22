@@ -124,7 +124,7 @@ $pageStatus = $isNew ? 'not_created' : $page['status'];
 $badgeClass = $pageStatus === 'published' ? 'connected' : ($pageStatus === 'needs_update' ? 'stale' : 'never');
 $badgeText  = $pageStatus === 'not_created' ? 'Not Saved Yet' : ucfirst(str_replace('_', ' ', $pageStatus));
 $locked = !empty($page['locked']);
-$editorActions = '<a href="client.php?id=' . urlencode($client_id) . '&tab=locations" class="pc-btn pc-btn-outline-navy">&larr; Locations &amp; Services</a>'
+$editorActions = '<a href="client.php?id=' . urlencode($client_id) . '&tab=locations" class="pc-btn pc-btn-outline-navy">&larr; Cities &amp; Services</a>'
     . '<span class="lpc-badge lpc-badge-' . $badgeClass . '" style="align-self:center;">' . h($badgeText) . '</span>';
 if ($locked) {
     $editorActions .= '<span class="lpc-badge lpc-badge-stale" style="align-self:center;">&#128274; Locked</span>';
