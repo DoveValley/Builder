@@ -74,15 +74,27 @@ function lpc_default_client_data() {
             // this entirely.
             'nav_link_placement'     => 'footer', // 'off' | 'footer' | 'nav'
             'nav_link_label'         => 'Service Area',
-            // Blank = use the hub page's own automatic default (the literal
-            // string "Service Area" / the standard "proudly serves..."
-            // sentence) — see the Service Area Page tab and
-            // lpc_render_hub_page() in the WP plugin.
-            'hub_heading'             => '',
+            // "Top Text" — one combined box for the hub page's heading markup
+            // + intro sentence (merged from two separate fields into one,
+            // Scott's call, 2026-11-22). Blank = use the hub page's own
+            // automatic default (a plain "Service Area" heading + the
+            // standard "proudly serves..." sentence) — see the Service Area
+            // Page tab and lpc_render_hub_page() in the WP plugin.
             'hub_intro'               => '',
-            // Freeform paragraph rendered at the bottom of the hub page, below
-            // the city grid. Blank = nothing extra rendered, no default text.
-            'hub_footer_text'         => '',
+            // Freeform paragraph(s) rendered at the bottom of the hub page,
+            // below the city grid. Pre-seeded with 10 real spacer lines for a
+            // new client (Scott's call, 2026-11-22) — each a lone "&nbsp;"
+            // on its own line. A bare blank line has no visible height
+            // (wpautop() strips plain line breaks with nothing real in them),
+            // but "&nbsp;" is real content, so it survives and gives each
+            // line genuine vertical space on the live page — confirmed
+            // directly against the actual wpautop()/wp_kses_post() output.
+            'hub_footer_text'         => implode("\n\n", array_fill(0, 10, '&nbsp;')),
+            // 'simple' (original card layout) | 'compact' | 'detailed' | 'custom'.
+            // hub_city_format_custom is a raw HTML template (only used by
+            // 'custom') with {{city}}/{{services}} tokens substituted per city.
+            'hub_city_format'         => 'simple',
+            'hub_city_format_custom'  => '',
             'active'                  => true,
             'last_checkin'            => 0,
             'last_emailed'            => '',

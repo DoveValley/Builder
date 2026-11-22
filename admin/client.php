@@ -1052,31 +1052,110 @@ Thanks!</textarea></div>
             City &rarr; Services. It's the page the "Service Area" link/badge (Delivery tab) points at.
             Until now this page's text was hardcoded in the WordPress plugin itself &mdash; there was no
             admin control at all. Split into three sections: the top heading/intro, the per-city card
-            format (not built out yet), and a freeform block at the very bottom.
+            format, and a freeform block at the very bottom.
         </p>
+
+        <button type="button" class="btn-sm-outline" onclick="toggleLpcSapPreview()" style="margin-bottom:10px;">Show Live Preview</button>
+        <p style="color:#6b7280;font-size:.78rem;margin:-6px 0 10px;">
+            Updates instantly as you type below &mdash; no Save needed. This is NOT the client's real theme
+            (no real header/footer/CSS), just a quick check of your actual text and city format choice.
+        </p>
+        <div id="lpc-sap-preview" style="display:none;border:1px solid #e5e7eb;border-radius:10px;padding:20px;margin-bottom:20px;background:#fafafa;">
+            <p style="text-align:center;color:#9ca3af;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;margin:0 0 16px;border-top:1px dashed #d1d5db;padding-top:8px;">&mdash; Top of Page &mdash;</p>
+            <div id="lpc-sap-preview-top" style="margin:0 0 20px;"></div>
+            <div id="lpc-sap-preview-cities" style="display:flex;gap:16px;flex-wrap:wrap;margin:0 0 16px;">
+                <div id="lpc-sap-cityformat-simple" style="border:1px solid rgba(0,0,0,.1);border-left:4px solid #2563eb;border-radius:10px;padding:14px 16px;min-width:200px;">
+                    <div style="font-weight:600;margin:0 0 8px;">Example City</div>
+                    <div style="color:#2563eb;font-weight:600;font-size:.88rem;">Service One</div>
+                    <div style="color:#2563eb;font-weight:600;font-size:.88rem;margin-top:4px;">Service Two</div>
+                </div>
+                <div id="lpc-sap-cityformat-compact" style="display:none;border-bottom:1px solid rgba(0,0,0,.08);padding:8px 0;align-items:baseline;gap:10px;min-width:200px;">
+                    <span style="font-weight:600;">Example City</span>
+                    <span style="color:#2563eb;font-weight:600;font-size:.88rem;">Service One</span>
+                    <span style="color:#2563eb;font-weight:600;font-size:.88rem;">Service Two</span>
+                </div>
+                <div id="lpc-sap-cityformat-detailed" style="display:none;border:1px solid rgba(0,0,0,.1);border-left:4px solid #2563eb;border-radius:10px;padding:14px 16px;min-width:200px;">
+                    <div style="font-weight:600;margin:0 0 8px;">Example City</div>
+                    <div style="font-size:.78rem;opacity:.7;margin:0 0 8px;">2 services available</div>
+                    <div style="color:#2563eb;font-weight:600;font-size:.88rem;">Service One</div>
+                    <div style="color:#2563eb;font-weight:600;font-size:.88rem;margin-top:4px;">Service Two</div>
+                </div>
+                <div id="lpc-sap-cityformat-custom" style="display:none;min-width:200px;"></div>
+            </div>
+            <p style="text-align:center;color:#9ca3af;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;margin:0 0 16px;border-top:1px dashed #d1d5db;padding-top:8px;">&mdash; Bottom of Page &mdash;</p>
+            <div id="lpc-sap-preview-footer"></div>
+        </div>
+        <script>
+        function lpcSapFormatText(raw) {
+            if (!raw) return '';
+            // A paragraph that's only "&nbsp;" (a spacer line) renders as real
+            // but invisible height on the real live page — matched here by
+            // just leaving it out of the preview entirely, same as the real
+            // page shows nothing for it.
+            return raw.split(/\n\s*\n/)
+                .filter(function(p) { return p.trim() !== '&nbsp;'; })
+                .map(function(p) { return '<p>' + p.replace(/\n/g, '<br>') + '</p>'; })
+                .join('');
+        }
+        function lpcSapUpdatePreview() {
+            // Same token the real server substitutes (rewrite.php) — matches
+            // its behavior here so the preview doesn't show the literal
+            // "{{business_name}}" text admin-typed content might contain.
+            var businessName = <?= json_encode(h($client['identity']['business_name'] ?: 'We')) ?>;
+
+            var topRaw = document.getElementById('lpc-sap-intro').value.trim().split('{{business_name}}').join(businessName);
+            // Mirrors the real server default exactly (rewrite.php): a plain
+            // heading + sentence, NOT run through lpcSapFormatText — that
+            // function is for admin-typed content with real paragraph breaks,
+            // and would wrap this default heading in a stray <p> it doesn't
+            // get on the live page.
+            var topDefault = '<h2 style="font-size:1.6rem;margin:0 0 10px;">Service Area</h2><p>'
+                + businessName + ' proudly serves the following areas:</p>';
+            document.getElementById('lpc-sap-preview-top').innerHTML = topRaw ? lpcSapFormatText(topRaw) : topDefault;
+
+            var format = document.getElementById('lpc-sap-format').value;
+            ['simple', 'compact', 'detailed', 'custom'].forEach(function(f) {
+                var el = document.getElementById('lpc-sap-cityformat-' + f);
+                el.style.display = (f !== format) ? 'none' : (f === 'compact' ? 'flex' : 'block');
+            });
+            if (format === 'custom') {
+                var tpl = document.getElementById('lpc-sap-format-custom').value;
+                var filled = tpl.replace(/\{\{city\}\}/g, 'Example City').replace(/\{\{services\}\}/g, '<ul><li>Service One</li><li>Service Two</li></ul>');
+                document.getElementById('lpc-sap-cityformat-custom').innerHTML = filled || '<em>(blank &mdash; falls back to Simple List)</em>';
+            }
+
+            var footerRaw = document.getElementById('lpc-sap-footer').value.trim().split('{{business_name}}').join(businessName);
+            document.getElementById('lpc-sap-preview-footer').innerHTML = lpcSapFormatText(footerRaw);
+        }
+        function toggleLpcSapPreview() {
+            var el = document.getElementById('lpc-sap-preview');
+            el.style.display = (el.style.display === 'none') ? 'block' : 'none';
+            if (el.style.display === 'block') lpcSapUpdatePreview();
+        }
+        </script>
 
         <div class="card">
             <strong style="font-size:.88rem;">1. Top Text</strong>
             <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
-                Leave either field blank to keep the default shown as its placeholder &mdash; blank is not
-                the same as "no text," it means "use the automatic default," so an empty field never
-                renders as a literally blank heading.
+                One box for the whole top of the page &mdash; type real HTML directly. Put a heading tag
+                around your title to make it bold and sized like a real heading (<code>&lt;h2&gt;Service
+                Area&lt;/h2&gt;</code> is the safest choice &mdash; most themes already have their own
+                &lt;h1&gt;, and two on one page hurts SEO), then plain text below it for the normal
+                sentence. Leave a blank line between paragraphs for a real paragraph break. Other basic
+                tags work too: <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>,
+                <code>&lt;a href="..."&gt;</code>, <code>&lt;ul&gt;&lt;li&gt;</code>. Use
+                <code>{{business_name}}</code> instead of typing the business's name directly &mdash; it
+                always substitutes the current name, so your text never goes stale if the business is ever
+                renamed. Leave the whole box blank to keep the automatic default shown as its placeholder.
             </p>
-            <form method="post" action="client_save.php" class="lpc-form-row">
+            <form method="post" action="client_save.php">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                 <input type="hidden" name="section" value="service_area_page_settings">
                 <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                <div class="form-group" style="flex:1;min-width:240px;">
-                    <label>Page Heading</label>
-                    <input type="text" name="hub_heading" style="width:100%;"
-                           placeholder="Service Area (default)"
-                           value="<?= h($client['delivery']['hub_heading'] ?? '') ?>">
-                </div>
-                <div class="form-group" style="flex:2;min-width:320px;">
-                    <label>Intro Sentence</label>
-                    <input type="text" name="hub_intro" style="width:100%;"
-                           placeholder="<?= h($client['identity']['business_name'] ?: 'We') ?> proudly serves the following areas: (default)"
-                           value="<?= h($client['delivery']['hub_intro'] ?? '') ?>">
+                <div class="form-group" style="margin-bottom:10px;">
+                    <textarea id="lpc-sap-intro" name="hub_intro" rows="4" style="width:100%;font-family:monospace;font-size:.85rem;"
+                              placeholder="&lt;h2&gt;Service Area&lt;/h2&gt;&#10;&#10;{{business_name}} proudly serves the following areas: (default)"
+                    ><?= h($client['delivery']['hub_intro'] ?? '') ?></textarea>
                 </div>
                 <button type="submit" class="btn-sm-outline">Save</button>
             </form>
@@ -1084,28 +1163,110 @@ Thanks!</textarea></div>
 
         <div class="card" style="margin-top:10px;">
             <strong style="font-size:.88rem;">2. City Area Format</strong>
-            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 0;">
-                Not built out yet — this is where the per-city card grid's own format (what shows on each
-                city's card beyond its name and service links) will become configurable.
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
+                Controls how each city is shown in the grid below the intro text. <strong>Simple List</strong>
+                (the default, what every page has looked like until now) is a card per city with its name
+                and a plain list of service links. <strong>Compact Grid</strong> packs every city into a
+                single dense row instead of a card, with its services running inline &mdash; reads better
+                once there are a lot of cities. <strong>Detailed Card</strong> is the same card as Simple
+                List, plus a one-line "N services available" count above the links. <strong>Custom HTML</strong>
+                lets you write your own markup for the card instead of picking one of the three above.
             </p>
+            <button type="button" class="btn-sm-outline" onclick="toggleLpcCityFormatExamples()" style="margin-bottom:10px;">Show Format Examples</button>
+            <div id="lpc-city-format-examples" style="display:none;margin-bottom:14px;gap:16px;flex-wrap:wrap;">
+                <div style="flex:1;min-width:200px;">
+                    <p style="font-size:.75rem;font-weight:600;color:#374151;margin:0 0 6px;">Simple List</p>
+                    <div style="border:1px solid rgba(0,0,0,.1);border-left:4px solid #2563eb;border-radius:10px;padding:14px 16px;">
+                        <div style="font-weight:600;margin:0 0 8px;">Example City</div>
+                        <div style="color:#2563eb;font-weight:600;font-size:.88rem;">Service One</div>
+                        <div style="color:#2563eb;font-weight:600;font-size:.88rem;margin-top:4px;">Service Two</div>
+                    </div>
+                </div>
+                <div style="flex:1;min-width:200px;">
+                    <p style="font-size:.75rem;font-weight:600;color:#374151;margin:0 0 6px;">Compact Grid</p>
+                    <div style="border-bottom:1px solid rgba(0,0,0,.08);padding:8px 0;display:flex;align-items:baseline;gap:10px;">
+                        <span style="font-weight:600;">Example City</span>
+                        <span style="color:#2563eb;font-weight:600;font-size:.88rem;">Service One</span>
+                        <span style="color:#2563eb;font-weight:600;font-size:.88rem;">Service Two</span>
+                    </div>
+                </div>
+                <div style="flex:1;min-width:200px;">
+                    <p style="font-size:.75rem;font-weight:600;color:#374151;margin:0 0 6px;">Detailed Card</p>
+                    <div style="border:1px solid rgba(0,0,0,.1);border-left:4px solid #2563eb;border-radius:10px;padding:14px 16px;">
+                        <div style="font-weight:600;margin:0 0 8px;">Example City</div>
+                        <div style="font-size:.78rem;opacity:.7;margin:0 0 8px;">2 services available</div>
+                        <div style="color:#2563eb;font-weight:600;font-size:.88rem;">Service One</div>
+                        <div style="color:#2563eb;font-weight:600;font-size:.88rem;margin-top:4px;">Service Two</div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            function toggleLpcCityFormatExamples() {
+                const el = document.getElementById('lpc-city-format-examples');
+                el.style.display = (el.style.display === 'none') ? 'flex' : 'none';
+            }
+            </script>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="service_area_page_settings">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group">
+                    <label>Format</label>
+                    <?php $cityFormat = $client['delivery']['hub_city_format'] ?? 'simple'; ?>
+                    <select id="lpc-sap-format" name="hub_city_format">
+                        <?php foreach (['simple' => 'Simple List (default)', 'compact' => 'Compact Grid', 'detailed' => 'Detailed Card', 'custom' => 'Custom HTML'] as $val => $lbl): ?>
+                            <option value="<?= h($val) ?>" <?= $cityFormat === $val ? 'selected' : '' ?>><?= h($lbl) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group" style="flex:1;min-width:100%;margin-top:10px;">
+                    <label>Custom HTML (only used when "Custom HTML" is selected above)</label>
+                    <textarea id="lpc-sap-format-custom" name="hub_city_format_custom" rows="4" style="width:100%;font-family:monospace;font-size:.82rem;" placeholder="<div>{{city}}{{services}}</div>"><?= h($client['delivery']['hub_city_format_custom'] ?? '') ?></textarea>
+                    <p style="color:#6b7280;font-size:.78rem;margin:6px 0 0;">
+                        Write real HTML here. Two placeholders get swapped in for each city when the page
+                        renders: <code>{{city}}</code> becomes that city's name, and <code>{{services}}</code>
+                        becomes the ready-made list of service links (you don't have to build the links
+                        yourself &mdash; just put <code>{{services}}</code> wherever you want that list to
+                        appear). Left blank, Custom HTML falls back to the Simple List layout.
+                    </p>
+                </div>
+                <button type="submit" class="btn-sm-outline" style="margin-top:10px;">Save</button>
+            </form>
         </div>
 
         <div class="card" style="margin-top:10px;">
             <strong style="font-size:.88rem;">3. Bottom Text</strong>
             <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
-                A freeform paragraph rendered below the city grid, at the very bottom of the page. Blank
-                means nothing renders here &mdash; there's no automatic default text for this one.
+                Freeform text rendered below the city grid, at the very bottom of the page. Leave a blank
+                line between chunks of text for a real paragraph break, and the same basic tags as Top
+                Text work here too (<code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>,
+                <code>&lt;a href="..."&gt;</code>, <code>&lt;ul&gt;&lt;li&gt;</code>, and
+                <code>{{business_name}}</code> instead of typing the name directly) if you want them. A
+                plain blank line has no visible height on its own &mdash; if you actually want vertical
+                space here, put <code>&amp;nbsp;</code> on its own line instead of leaving it truly empty.
+                A new client starts with 10 of those spacer lines already in place, each with real visible
+                height on the live page &mdash; delete any you don't want, or add more the same way.
             </p>
             <form method="post" action="client_save.php">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                 <input type="hidden" name="section" value="service_area_page_settings">
                 <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
                 <div class="form-group" style="margin-bottom:10px;">
-                    <textarea name="hub_footer_text" rows="3" style="width:100%;" placeholder="(nothing — default)"><?= h($client['delivery']['hub_footer_text'] ?? '') ?></textarea>
+                    <textarea id="lpc-sap-footer" name="hub_footer_text" rows="8" style="width:100%;" placeholder="(nothing — default)"><?= h($client['delivery']['hub_footer_text'] ?? '') ?></textarea>
                 </div>
                 <button type="submit" class="btn-sm-outline">Save</button>
             </form>
         </div>
+
+        <script>
+        // Attached here, after every field above has actually been parsed into the
+        // DOM — this script sits below all three cards for that reason, even
+        // though the preview panel itself displays up near the top of the tab.
+        ['lpc-sap-intro', 'lpc-sap-format', 'lpc-sap-format-custom', 'lpc-sap-footer'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) { el.addEventListener('input', lpcSapUpdatePreview); el.addEventListener('change', lpcSapUpdatePreview); }
+        });
+        </script>
 
         <p style="color:#6b7280;font-size:.8rem;margin:14px 0 0;">
             Takes effect on the client's next scheduled check-in, same as the other Delivery settings —

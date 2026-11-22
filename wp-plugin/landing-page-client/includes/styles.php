@@ -221,6 +221,18 @@ function lpc_render_styles( $branding ) {
 			color: var(--lpc-primary);
 		}
 		.lpc-page .lpc-hub-service-list a:hover { text-decoration: underline; }
+
+		/* Compact format — a denser single row per city, no card border,
+		   services run inline instead of stacked. */
+		.lpc-page .lpc-hub-city-grid.lpc-format-compact { grid-template-columns: 1fr; gap: 4px; }
+		.lpc-page .lpc-hub-city-compact { display: flex; align-items: baseline; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,.08); }
+		.lpc-page .lpc-hub-city-compact .lpc-hub-city-name { margin: 0; font-size: .95rem; min-width: 140px; }
+		.lpc-page .lpc-hub-city-compact .lpc-hub-service-list { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+		.lpc-page .lpc-hub-city-compact .lpc-hub-service-list li { margin: 0; }
+
+		/* Detailed format — the same card as the default, plus a short
+		   "N services available" line above the link list. */
+		.lpc-page .lpc-hub-city-detailed-count { font-size: .8rem; opacity: .7; margin: 0 0 8px; }
 	</style>
 	<?php
 	return ob_get_clean();

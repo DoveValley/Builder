@@ -306,20 +306,31 @@ switch ($section) {
         $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
-        // Two separate forms post here (Top Text, Bottom Text) — each submits
-        // only its own field(s). array_key_exists, not ?? '', same reasoning as
-        // delivery_settings above: a field absent from $_POST means a different
-        // card's form was submitted, not "clear this field."
-        if (array_key_exists('hub_heading', $_POST)) {
-            // Blank means "use the automatic default" (the literal string
-            // "Service Area"), not "render literally blank" — the WP plugin
-            // side only overrides its own hardcoded default when this is
+        // Three separate forms post here (Top Text, City Area Format, Bottom
+        // Text) — each submits only its own field(s). array_key_exists, not
+        // ?? '', same reasoning as delivery_settings above: a field absent
+        // from $_POST means a different card's form was submitted, not
+        // "clear this field."
+        if (array_key_exists('hub_intro', $_POST)) {
+            // "Top Text" — one combined box (heading markup + body text),
+            // merged from two separate fields into one (Scott's call,
+            // 2026-11-22). Blank means "use the automatic default" (a plain
+            // "Service Area" heading + the standard sentence) — the WP
+            // plugin side only overrides its own default when this is
             // actually non-empty, same "empty means unset, not emptied" rule
             // nav_link_label etc. use.
-            $client['delivery']['hub_heading'] = trim($_POST['hub_heading']);
-        }
-        if (array_key_exists('hub_intro', $_POST)) {
             $client['delivery']['hub_intro'] = trim($_POST['hub_intro']);
+        }
+        if (array_key_exists('hub_city_format', $_POST)) {
+            $format = $_POST['hub_city_format'];
+            $client['delivery']['hub_city_format'] = in_array($format, ['simple', 'compact', 'detailed', 'custom'], true) ? $format : 'simple';
+        }
+        if (array_key_exists('hub_city_format_custom', $_POST)) {
+            // Raw HTML, intentionally not sanitized — this is Platform Admin/
+            // Agency Admin input only (same trust level as everything else on
+            // this screen), rendered unescaped by design so {{city}}/
+            // {{services}} tokens can sit inside real markup, not stripped.
+            $client['delivery']['hub_city_format_custom'] = $_POST['hub_city_format_custom'];
         }
         if (array_key_exists('hub_footer_text', $_POST)) {
             // Freeform — rendered as-is (one paragraph) at the bottom of the

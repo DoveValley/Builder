@@ -287,8 +287,7 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	$top_level = in_array( $top_level, [ 'h1', 'h2' ], true ) ? $top_level : 'h2';
 
 	if ( empty( $manifest['pages'] ) ) {
-		$emptyHeading = trim( $manifest['settings']['hub_heading'] ?? '' ) ?: 'Service Area';
-		echo '<main class="lpc-hub"><' . $top_level . '>' . esc_html( $emptyHeading ) . '</' . $top_level . '><p>No locations are published yet.</p></main>';
+		echo '<main class="lpc-hub"><' . $top_level . '>Service Area</' . $top_level . '><p>No locations are published yet.</p></main>';
 		return;
 	}
 
@@ -298,27 +297,38 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	// equivalent wrapper at all, so it inherited the theme's full (often
 	// full-bleed) container width instead, reading as "all the way to the
 	// edge" next to every other page on the site.
-	// Both overridable from the admin's Service Area Page tab — blank means
-	// "use the automatic default" below, not "render literally blank." Default
-	// heading is the literal string "Service Area", not the business name —
-	// the business name already appears in the theme's own header on this
-	// page like every other.
-	$heading = trim( $manifest['settings']['hub_heading'] ?? '' );
-	if ( $heading === '' ) {
-		$heading = 'Service Area';
-	}
-	$introOverride = trim( $manifest['settings']['hub_intro'] ?? '' );
+	// A single combined field (Top Text, admin's Service Area Page tab) —
+	// title and intro used to be two separate fields (hub_heading +
+	// hub_intro); merged into one so the admin types real markup for both in
+	// one place (Scott's call, 2026-11-22). Blank means "use the automatic
+	// default" below, not "render literally blank." The default heading uses
+	// $top_level (h1 only if the theme's own header has none — avoids two H1s
+	// on one page); a heading an admin types themselves is NOT auto-corrected
+	// this way — see the Top Text field's own help text.
+	$topTextOverride = trim( $manifest['settings']['hub_intro'] ?? '' );
 
 	echo '<main class="lpc-hub">';
-	echo '<' . $top_level . '>' . esc_html( $heading ) . '</' . $top_level . '>';
-	// Without this the page is just a heading and a bare list — fine with a
-	// full roster of cities, but a real, confirmed-bad look with only 1-2
-	// published pages (restore-2's exact situation, 2026-11-15): a single
-	// stretched-full-width card and a wall of empty space below it, reading
-	// as broken rather than just "early."
-	if ( $introOverride !== '' ) {
-		echo '<p class="lpc-hub-intro">' . esc_html( $introOverride ) . '</p>';
+	if ( $topTextOverride !== '' ) {
+		// {{business_name}} — same substitution-token pattern as {{city}}/
+		// {{services}} in the Custom HTML city format. Without this, typing
+		// the business's name directly into custom Top Text goes stale the
+		// moment that name ever changes; the blank-default case below already
+		// pulls it live on every render, so only admin-typed text needs the
+		// token. Substituted BEFORE kses/autop so it participates in normal
+		// paragraph/tag handling like any other text.
+		$topTextOverride = str_replace( '{{business_name}}', esc_html( $manifest['business_name'] ?? 'We' ), $topTextOverride );
+		// wp_kses_post() allows a small safe subset (headings/strong/em/a/
+		// ul/li/etc.), strips anything dangerous; wpautop() turns blank-line-
+		// separated text into real paragraphs, same as WordPress does for
+		// ordinary post content.
+		echo wpautop( wp_kses_post( $topTextOverride ) );
 	} else {
+		echo '<' . $top_level . '>Service Area</' . $top_level . '>';
+		// Without this the page is just a heading and a bare list — fine with a
+		// full roster of cities, but a real, confirmed-bad look with only 1-2
+		// published pages (restore-2's exact situation, 2026-11-15): a single
+		// stretched-full-width card and a wall of empty space below it, reading
+		// as broken rather than just "early."
 		echo '<p class="lpc-hub-intro">' . esc_html( $manifest['business_name'] ?? 'We' ) . ' proudly serves the following area' . ( count( $manifest['pages'] ) === 1 ? '' : 's' ) . ':</p>';
 	}
 
@@ -346,6 +356,15 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 		$byState[ $state ]['hubs'][ $hub ]['cities'][ $city ][] = $page;
 	}
 
+	// Overridable from the admin's Service Area Page tab, "City Area Format"
+	// section — 'simple' (default) is exactly the original markup, so every
+	// client who's never touched this setting renders identically to before.
+	$format = $manifest['settings']['hub_city_format'] ?? 'simple';
+	if ( ! in_array( $format, [ 'simple', 'compact', 'detailed', 'custom' ], true ) ) {
+		$format = 'simple';
+	}
+	$customTemplate = (string) ( $manifest['settings']['hub_city_format_custom'] ?? '' );
+
 	foreach ( $byState as $state ) {
 		if ( count( $byState ) > 1 && $state['label'] !== '' ) {
 			echo '<h2 class="lpc-hub-state">' . esc_html( $state['label'] ) . '</h2>';
@@ -354,17 +373,10 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 			if ( count( $state['hubs'] ) > 1 && $hub['label'] !== '' ) {
 				echo '<h3 class="lpc-hub-area">' . esc_html( $hub['label'] ) . ' Area</h3>';
 			}
-			echo '<div class="lpc-hub-city-grid">';
+			$gridClass = 'lpc-hub-city-grid' . ( $format === 'compact' ? ' lpc-format-compact' : '' );
+			echo '<div class="' . esc_attr( $gridClass ) . '">';
 			foreach ( $hub['cities'] as $cityName => $cityPages ) {
-				echo '<div class="lpc-hub-city-card">';
-				echo '<h4 class="lpc-hub-city-name">' . esc_html( $cityName ) . '</h4>';
-				echo '<ul class="lpc-hub-service-list">';
-				foreach ( $cityPages as $page ) {
-					$url = home_url( '/' . $base . '/' . rawurlencode( $page['slug'] ) );
-					echo '<li><a href="' . esc_url( $url ) . '">' . esc_html( $page['service'] ?? $page['title'] ?? $page['slug'] ) . '</a></li>';
-				}
-				echo '</ul>';
-				echo '</div>';
+				echo lpc_render_hub_city_card( $cityName, $cityPages, $base, $format, $customTemplate );
 			}
 			echo '</div>';
 		}
@@ -372,12 +384,68 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 
 	// Freeform, overridable from the admin's Service Area Page tab — no
 	// automatic default text, so blank genuinely means nothing renders here.
+	// A new client starts with 10 blank lines pre-filled as an editing
+	// template (see includes/landing_page_clients.php's default record) —
+	// trim() reduces that all-whitespace starting value to '', so it's
+	// indistinguishable from genuinely empty here, exactly as intended.
+	// Same wp_kses_post()+wpautop() treatment as the intro override above.
 	$footerText = trim( $manifest['settings']['hub_footer_text'] ?? '' );
 	if ( $footerText !== '' ) {
-		echo '<p class="lpc-hub-footer-text">' . esc_html( $footerText ) . '</p>';
+		// {{business_name}} supported here too, same reasoning as Top Text above.
+		$footerText = str_replace( '{{business_name}}', esc_html( $manifest['business_name'] ?? 'We' ), $footerText );
+		echo '<div class="lpc-hub-footer-text">' . wpautop( wp_kses_post( $footerText ) ) . '</div>';
 	}
 
 	echo '</main>';
+}
+
+/**
+ * One city's card in the Service Area page's grid, in whichever of the 4
+ * formats the admin's "City Area Format" section has selected. 'simple' is
+ * the ORIGINAL markup unchanged — every client who's never touched this
+ * setting (the default) renders exactly as before this feature existed.
+ * 'custom' is the one case that echoes admin-authored HTML unescaped — by
+ * design (that's the whole point of it), not an oversight; only {{city}}
+ * and {{services}} get substituted in, both already-escaped/safe by the
+ * time they're built.
+ */
+function lpc_render_hub_city_card( $cityName, $cityPages, $base, $format, $customTemplate ) {
+	$links = '';
+	foreach ( $cityPages as $page ) {
+		$url     = home_url( '/' . $base . '/' . rawurlencode( $page['slug'] ) );
+		$links  .= '<li><a href="' . esc_url( $url ) . '">' . esc_html( $page['service'] ?? $page['title'] ?? $page['slug'] ) . '</a></li>';
+	}
+	$serviceList = '<ul class="lpc-hub-service-list">' . $links . '</ul>';
+
+	if ( $format === 'compact' ) {
+		return '<div class="lpc-hub-city-compact">'
+			. '<h4 class="lpc-hub-city-name">' . esc_html( $cityName ) . '</h4>'
+			. $serviceList
+			. '</div>';
+	}
+
+	if ( $format === 'detailed' ) {
+		$count = count( $cityPages );
+		return '<div class="lpc-hub-city-card">'
+			. '<h4 class="lpc-hub-city-name">' . esc_html( $cityName ) . '</h4>'
+			. '<p class="lpc-hub-city-detailed-count">' . (int) $count . ' service' . ( $count === 1 ? '' : 's' ) . ' available</p>'
+			. $serviceList
+			. '</div>';
+	}
+
+	if ( $format === 'custom' && trim( $customTemplate ) !== '' ) {
+		return str_replace(
+			[ '{{city}}', '{{services}}' ],
+			[ esc_html( $cityName ), $serviceList ],
+			$customTemplate
+		);
+	}
+
+	// 'simple' (default), and 'custom' with no template actually entered yet.
+	return '<div class="lpc-hub-city-card">'
+		. '<h4 class="lpc-hub-city-name">' . esc_html( $cityName ) . '</h4>'
+		. $serviceList
+		. '</div>';
 }
 
 function lpc_render_single_page( $page, $top_level = 'h2' ) {

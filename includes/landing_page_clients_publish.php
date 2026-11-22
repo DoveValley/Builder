@@ -424,9 +424,10 @@ function lpc_rebuild_manifest($client_id) {
             'support_message'          => $client['delivery']['support_message'] ?? '',
             'nav_link_placement'       => $client['delivery']['nav_link_placement'] ?? 'footer',
             'nav_link_label'           => $client['delivery']['nav_link_label'] ?? 'Service Area',
-            'hub_heading'              => $client['delivery']['hub_heading'] ?? '',
             'hub_intro'                => $client['delivery']['hub_intro'] ?? '',
             'hub_footer_text'          => $client['delivery']['hub_footer_text'] ?? '',
+            'hub_city_format'          => $client['delivery']['hub_city_format'] ?? 'simple',
+            'hub_city_format_custom'   => $client['delivery']['hub_city_format_custom'] ?? '',
         ],
         'pages' => $pages,
     ];
