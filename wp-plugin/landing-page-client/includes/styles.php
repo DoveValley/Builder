@@ -76,14 +76,17 @@ function lpc_render_styles( $branding ) {
 			padding: 48px 24px;
 			border-radius: 12px;
 			/* Real bug, found live (2026-11-15): every other block on this page
-			   (.lpc-section below) is capped at 760px and centered — .lpc-hero
-			   was the one block with no max-width, so it stretched to the
-			   theme's full (much wider) content column. Splitting that extra
-			   width 1.1fr/1fr pushed the text flush left and blew the image up
-			   far larger than anything else on the page, reading as "too big,
-			   off to the side" — not a sizing bug in the image itself, a width
-			   mismatch against the rest of the page's own established column. */
-			max-width: 760px;
+			   (.lpc-section below) must match this block's own max-width and be
+			   centered — .lpc-hero was once the one block with no max-width, so
+			   it stretched to the theme's full (much wider) content column.
+			   Splitting that extra width 1.1fr/1fr pushed the text flush left
+			   and blew the image up far larger than anything else on the page,
+			   reading as "too big, off to the side" — not a sizing bug in the
+			   image itself, a width mismatch against the rest of the page's own
+			   established column. (2026-11-22: widened from 760px to 1100px —
+			   760 read as narrow compared to the fleet's own reference sites and
+			   PlusCities' pages; still kept identical across every block below.) */
+			max-width: 1100px;
 			margin: 0 auto 32px;
 			display: grid;
 			grid-template-columns: 1.1fr 1fr;
@@ -118,7 +121,7 @@ function lpc_render_styles( $branding ) {
 		   sizing at all. */
 		.lpc-page .lpc-hero-image { position: relative; overflow: hidden; border-radius: 10px; aspect-ratio: 4 / 3; }
 		.lpc-page .lpc-hero-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-		.lpc-page .lpc-trust-bar { background: #111827; max-width: 760px; margin: 0 auto 32px; padding: 14px 24px; border-radius: 10px; }
+		.lpc-page .lpc-trust-bar { background: #111827; max-width: 1100px; margin: 0 auto 32px; padding: 14px 24px; border-radius: 10px; }
 		.lpc-page .lpc-trust-bar ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; }
 		.lpc-page .lpc-trust-bar li { color: #fff; font-weight: 700; font-size: .92rem; white-space: nowrap; }
 		.lpc-page .lpc-safety-card { text-align: center; }
@@ -150,7 +153,7 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-btn:hover { opacity: .88; color: #fff; }
 		.lpc-page .lpc-btn-primary { background: var(--lpc-primary); }
 		.lpc-page .lpc-btn-accent { background: var(--lpc-accent); }
-		.lpc-page .lpc-section { max-width: 760px; margin: 0 auto 40px; }
+		.lpc-page .lpc-section { max-width: 1100px; margin: 0 auto 40px; }
 		.lpc-page .lpc-section h2 { font-size: 1.5rem; margin: 0 0 16px; border-left: 4px solid var(--lpc-primary); padding-left: 12px; }
 		.lpc-page .lpc-card-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 		.lpc-page .lpc-card { background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 18px 20px; }
