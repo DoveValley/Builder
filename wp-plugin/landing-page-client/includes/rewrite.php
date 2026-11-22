@@ -287,12 +287,17 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	$top_level = in_array( $top_level, [ 'h1', 'h2' ], true ) ? $top_level : 'h2';
 
 	if ( empty( $manifest['pages'] ) ) {
-		echo '<main><' . $top_level . '>' . esc_html( $manifest['business_name'] ?? '' ) . '</' . $top_level . '><p>No locations are published yet.</p></main>';
+		echo '<main class="lpc-hub"><' . $top_level . '>' . esc_html( $manifest['business_name'] ?? '' ) . '</' . $top_level . '><p>No locations are published yet.</p></main>';
 		return;
 	}
 
 	$base = trim( get_option( 'lpc_base_path', '/locations' ), '/' );
-	echo '<main>';
+	// Every single landing page wraps its blocks in .lpc-section, which caps
+	// them at the real theme content width — this hub listing had no
+	// equivalent wrapper at all, so it inherited the theme's full (often
+	// full-bleed) container width instead, reading as "all the way to the
+	// edge" next to every other page on the site.
+	echo '<main class="lpc-hub">';
 	echo '<' . $top_level . '>' . esc_html( $manifest['business_name'] ?? 'Locations' ) . '</' . $top_level . '>';
 	// Without this the page is just a heading and a bare list — fine with a
 	// full roster of cities, but a real, confirmed-bad look with only 1-2

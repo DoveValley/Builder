@@ -178,6 +178,11 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-fact-list dt { font-size: .76rem; text-transform: uppercase; letter-spacing: .03em; opacity: .65; margin: 0 0 4px; }
 		.lpc-page .lpc-fact-list dd { margin: 0; font-weight: 600; }
 		.lpc-page .lpc-fact-list dd a { color: var(--lpc-primary); text-decoration: underline; }
+		/* Same real content width every single landing page's .lpc-section
+		   uses (see that rule's own comment for how 1242px was verified) —
+		   the hub listing has no per-block wrapper to inherit it from
+		   otherwise, so it needs its own explicit cap here. */
+		.lpc-page .lpc-hub { max-width: 1242px; margin: 0 auto; }
 		.lpc-page .lpc-hub-intro { margin: 0 0 20px; opacity: .85; }
 		/* auto-fill + a capped max (not auto-fit + 1fr) so a single published
 		   page doesn't stretch its one card edge-to-edge into a bare full-width
