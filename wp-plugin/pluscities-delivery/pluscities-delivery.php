@@ -290,7 +290,13 @@ add_action('template_redirect', function () {
     // arrived already finished. Wrapped in the theme's own header/footer so
     // it inherits the client's real site chrome, per spec Section 9.
     add_filter('document_title_parts', function ($parts) use ($page) {
-        $parts['title'] = $page['head']['title'] ?? $parts['title'];
+        // Our own title is already a complete, self-contained title (service +
+        // city + business name) — WordPress's default behavior still appends
+        // " – {site name}" on top of it, which reads as a real duplicate
+        // whenever a client's blogname happens to be their own business name
+        // (not a coincidence specific to one client — any client could hit
+        // this). Clearing 'site'/'tagline' here, not just setting 'title'.
+        $parts = ['title' => $page['head']['title'] ?? $parts['title']];
         return $parts;
     });
     add_action('wp_head', function () use ($page) {
