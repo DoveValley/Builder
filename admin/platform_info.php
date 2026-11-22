@@ -29,6 +29,7 @@ $TABS = [
     'content_flow'         => 'Content Flow',
     'spec_document'        => 'Spec Document',
     'city_page'            => 'City Page',
+    'claude'               => 'Claude',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -37,7 +38,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page', 'claude']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1600,6 +1601,41 @@ function platform_info_content_flow_data(): array {
                     font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
                     max-height:none;color:#1C2B45;"><?= h($specText) ?></div>
     <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'claude'):
+    $claudeDocs = [
+        ['path' => __DIR__ . '/../docs/pluscities-system-reference.md',
+         'heading' => 'PlusCities — System Reference (as-built)',
+         'intro' => 'As-built ground truth for the current PlusCities system — data model, business logic, functional scope, and user roles/menu capability — verified directly against code, the live DB, and real client files. Written for a fresh Claude session to read first.'],
+    ];
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Documents for Claude</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        Reference material written specifically so a fresh Claude session can get oriented on PlusCities
+        quickly, without re-deriving it from scratch each time. Scott's plan: this tab also gets a set of
+        long, real use-case walkthroughs (verifying the claims below against the live system) once those
+        are written.
+    </p>
+    <?php foreach ($claudeDocs as $doc):
+        $docText = is_file($doc['path']) ? file_get_contents($doc['path']) : null;
+    ?>
+        <h4 style="color:#1e3a5f;margin:28px 0 4px;"><?= h($doc['heading']) ?></h4>
+        <p style="font-size:.88rem;line-height:1.7;">
+            <?= h($doc['intro']) ?> Source file:
+            <code><?= h(str_replace(__DIR__ . '/../', '', $doc['path'])) ?></code><?php if ($docText !== null): ?>,
+            last updated <?= h(date('Y-m-d H:i', filemtime($doc['path']))) ?><?php endif; ?>.
+        </p>
+        <?php if ($docText === null): ?>
+            <div class="lpc-empty"><h2>File not found</h2>
+                <p>Expected it at <code><?= h(str_replace(__DIR__ . '/../', '', $doc['path'])) ?></code>.</p></div>
+        <?php else: ?>
+            <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                        padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                        font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                        max-height:none;color:#1C2B45;"><?= h($docText) ?></div>
+        <?php endif; ?>
+    <?php endforeach; ?>
 <?php endif; ?>
 
 <?php lpc_admin_close(); ?>
