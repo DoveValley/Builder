@@ -90,7 +90,7 @@ $sites = lpc_demo_list_sites();
         <?php $hostsLine = LPC_DEMO_BOX_HOST . ' ' . $s['domain']; $hash = md5($s['domain']); ?>
         <div class="lpc-row" data-domain="<?= h($s['domain']) ?>">
             <div>
-                <strong><?= h($s['domain']) ?></strong>
+                <strong><a href="http://<?= h($s['domain']) ?>/" target="_blank" rel="noopener"><?= h($s['domain']) ?></a></strong>
                 <span class="lpc-status lpc-status-unknown" id="status-<?= h($hash) ?>">Not checked</span>
                 <div class="meta">
                     niche: <?= h(ucwords(str_replace('-', ' ', $s['niche']))) ?> &middot; theme: <span id="theme-<?= h($hash) ?>">&mdash;</span>

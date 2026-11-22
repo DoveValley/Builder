@@ -158,6 +158,10 @@ function lpc_admin_nav_items(): array {
     $items[] = ['key' => 'approvals', 'href' => 'approvals.php', 'label' => 'Approvals',
         'icon' => '<path d="M20 6 9 17l-5-5"/>', 'badge' => $pendingCount ?: null];
 
+    // Client create/list — the one piece of onboarding that had no panel
+    // screen until now; every client before this was hand-authored JSON.
+    $items[] = ['key' => 'pluscities_clients', 'href' => 'pluscities_clients.php', 'label' => 'PlusCities Clients',
+        'icon' => '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'];
     // The real table-of-pages UI, spec Section 11 — stage-dot matrix per row,
     // modeled on the fleet's Go-Live grid. Row click drills into
     // pluscities_page.php's block-level detail view.

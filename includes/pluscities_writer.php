@@ -264,6 +264,23 @@ function pluscities_write_niche_data_table_block(array $niche): array
 }
 
 /**
+ * Renders the trust bar strip, spec-adjacent polish matching the fleet's own
+ * reference sites' hero-adjacent checkmark row. Niche-level content
+ * (generically true for any real client in the niche, e.g. "Licensed &
+ * Insured") — never a specific number like years-in-business or a review
+ * count, since those vary per client and this one bar is shared by every
+ * client in the niche.
+ */
+function pluscities_render_trust_bar(array $items): string
+{
+    $html = '<div class="lpc-trust-bar"><ul>';
+    foreach ($items as $item) {
+        $html .= '<li>&#10003; ' . htmlspecialchars($item) . '</li>';
+    }
+    return $html . '</ul></div>';
+}
+
+/**
  * Writes one Automatic (data-built) block. The "writer" here is a template
  * filling in real dataset values plus one short, non-specific AI intro
  * sentence — not a citation-heavy block, since there's no claim to cite, just
@@ -368,28 +385,46 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
         return $html . '</ul></section>';
     }
 
-    // Editable blocks: strip [[fact_id]] tags, build the source line from the
-    // cards actually cited. Hero's heading is the page's real H1 — every
-    // other editable block is a sub-section (h3).
-    $body = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($content['body'] ?? ''));
-    $headingTag = $block_row['block_type'] === 'hero' ? 'h1' : 'h3';
-    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . '">';
-    // The hero's photo — resolved per spec (client's own upload > their branded
-    // niche default > the plain niche default), same function the Photos
-    // screen itself shows, so what the client picks there is exactly what
-    // renders here. $client/$niche are optional because most callers (e.g.
-    // the admin block-list preview) only need the text content.
-    if ($block_row['block_type'] === 'hero' && $client && $niche) {
-        $heroImg = pluscities_resolve_image_url($client, $niche, 'hero');
-        if ($heroImg) {
-            // Absolute — a client's WordPress site is a different origin than
-            // this platform, so the root-relative path pluscities_resolve_image_url()
-            // returns (correct for same-origin admin screens) would 404 there.
-            $html .= '<img class="lpc-hero-photo" src="' . htmlspecialchars(PLUSCITIES_PUBLIC_BASE . $heroImg) . '" alt="'
-                . htmlspecialchars((string) ($content['heading'] ?? '')) . '">';
+    // Hero — a real two-column layout (text left, photo right), matching
+    // the fleet's own proven reference sites (Bailey/Wren/Gann), not the
+    // generic stacked heading+paragraph+image every other editable block
+    // uses. Text comes first in the DOM (H1 before the image — better for
+    // accessibility/SEO) with CSS putting it visually on the left.
+    if ($block_row['block_type'] === 'hero') {
+        $heading = htmlspecialchars((string) ($content['heading'] ?? ''));
+        $body    = htmlspecialchars(preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($content['body'] ?? '')));
+        $phone   = $client['identity']['hubs'][0]['phone'] ?? '';
+        $html = '<section class="lpc-hero"><div class="lpc-hero-row"><div class="lpc-hero-text">'
+            . '<h1>' . $heading . '</h1><p>' . $body . '</p>';
+        if ($phone) {
+            $telHref = preg_replace('/[^0-9+]/', '', $phone);
+            $html .= '<a class="lpc-cta-button" href="tel:' . htmlspecialchars($telHref) . '">Call ' . htmlspecialchars($phone) . '</a>';
         }
+        $html .= '</div>';
+        // The hero's photo — resolved per spec (client's own upload > their
+        // branded niche default > the plain niche default), same function
+        // the Photos screen itself shows, so what the client picks there is
+        // exactly what renders here. $client/$niche are optional because
+        // most callers (e.g. the admin block-list preview) only need text.
+        if ($client && $niche) {
+            $heroImg = pluscities_resolve_image_url($client, $niche, 'hero');
+            if ($heroImg) {
+                // Absolute — a client's WordPress site is a different origin
+                // than this platform, so the root-relative path
+                // pluscities_resolve_image_url() returns (correct for
+                // same-origin admin screens) would 404 there.
+                $html .= '<div class="lpc-hero-media"><img class="lpc-hero-photo" src="'
+                    . htmlspecialchars(PLUSCITIES_PUBLIC_BASE . $heroImg) . '" alt="' . $heading . '"></div>';
+            }
+        }
+        return $html . '</div></section>';
     }
-    $html .= '<' . $headingTag . '>' . htmlspecialchars((string) ($content['heading'] ?? '')) . '</' . $headingTag . '>'
+
+    // Editable blocks: strip [[fact_id]] tags, build the source line from the
+    // cards actually cited.
+    $body = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($content['body'] ?? ''));
+    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . '">';
+    $html .= '<h3>' . htmlspecialchars((string) ($content['heading'] ?? '')) . '</h3>'
         . '<p>' . htmlspecialchars($body) . '</p>';
     if ($factIds) {
         $sources = [];

@@ -19,11 +19,19 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('PLUSCITIES_DELIVERY_BASE', 'http://localhost:8130/admin/pluscities_sync.php');
+// A real option, not a hardcoded constant — this plugin now runs on more than
+// one install (the local test-wordpress site AND a real remote client site),
+// and each needs a different address for the PlusCities server: the test
+// site reaches it via localhost, a real remote site needs the platform's own
+// real public address. Settable on this plugin's own settings page.
+function pluscities_delivery_base() {
+    return get_option('pluscities_delivery_base', 'http://localhost:8130/admin/pluscities_sync.php');
+}
 
 register_activation_hook(__FILE__, 'pluscities_delivery_activate');
 function pluscities_delivery_activate() {
     add_option('pluscities_api_key', '');
+    add_option('pluscities_delivery_base', 'http://localhost:8130/admin/pluscities_sync.php');
     add_option('pluscities_site_rev_seen', 0);
     // Per-client, agency-set at onboarding (spec Section 1/15) — same option
     // the old "Landing Page Client" plugin already has as lpc_base_path
@@ -68,7 +76,7 @@ add_filter('query_vars', function ($vars) {
 function pluscities_delivery_live_urls() {
     $key = get_option('pluscities_api_key', '');
     if ($key === '') return [];
-    $resp = wp_remote_get(PLUSCITIES_DELIVERY_BASE . '?action=manifest&site_rev=0', [
+    $resp = wp_remote_get(pluscities_delivery_base() . '?action=manifest&site_rev=0', [
         'headers' => ['Authorization' => 'Bearer ' . $key],
         'timeout' => 10,
     ]);
@@ -191,6 +199,8 @@ function pluscities_delivery_settings_page() {
             update_option('pluscities_base_path', $newBase);
             update_option('pluscities_rewrite_flush_needed', 1); // same pattern as the old plugin's lpc_rewrite_flush_needed
         }
+        $newDeliveryBase = esc_url_raw(trim((string) ($_POST['pluscities_delivery_base'] ?? '')));
+        if ($newDeliveryBase !== '') update_option('pluscities_delivery_base', $newDeliveryBase);
         echo '<div class="notice notice-success"><p>Saved.</p></div>';
     }
     if (get_option('pluscities_rewrite_flush_needed')) {
@@ -199,6 +209,7 @@ function pluscities_delivery_settings_page() {
     }
     $key  = get_option('pluscities_api_key', '');
     $base = get_option('pluscities_base_path', 'service-area');
+    $deliveryBase = pluscities_delivery_base();
     ?>
     <div class="wrap"><h1>PlusCities Delivery</h1>
     <form method="post">
@@ -210,6 +221,10 @@ function pluscities_delivery_settings_page() {
         <tr><th>URL Base Path</th>
             <td><input type="text" name="pluscities_base_path" value="<?php echo esc_attr($base); ?>" style="width:200px;">
             <p class="description">e.g. "service-area" or "locations" — set once per client at onboarding, matching the agency's choice.</p></td>
+        </tr>
+        <tr><th>Delivery Server Address</th>
+            <td><input type="text" name="pluscities_delivery_base" value="<?php echo esc_attr($deliveryBase); ?>" style="width:400px;">
+            <p class="description">The PlusCities platform's own sync endpoint — different per install (a local test site reaches it via localhost; a real remote site needs the platform's real public address).</p></td>
         </tr>
         </table>
         <?php submit_button(); ?>
@@ -226,7 +241,7 @@ function pluscities_delivery_sync_if_needed() {
     if ($key === '') return;
 
     $seenRev = (int) get_option('pluscities_site_rev_seen', 0);
-    $resp = wp_remote_get(PLUSCITIES_DELIVERY_BASE . '?action=manifest&site_rev=' . $seenRev, [
+    $resp = wp_remote_get(pluscities_delivery_base() . '?action=manifest&site_rev=' . $seenRev, [
         'headers' => ['Authorization' => 'Bearer ' . $key],
         'timeout' => 10,
     ]);
@@ -235,7 +250,7 @@ function pluscities_delivery_sync_if_needed() {
     if (!is_array($manifest) || empty($manifest['changed_pages'])) return;
 
     foreach ($manifest['changed_pages'] as $cp) {
-        $pageResp = wp_remote_get(PLUSCITIES_DELIVERY_BASE . '?action=page&page_id=' . urlencode($cp['page_id']), [
+        $pageResp = wp_remote_get(pluscities_delivery_base() . '?action=page&page_id=' . urlencode($cp['page_id']), [
             'headers' => ['Authorization' => 'Bearer ' . $key],
             'timeout' => 10,
         ]);

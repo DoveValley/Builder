@@ -1874,6 +1874,23 @@ function infra_reg_gandi_set_ns(string $domain, array $ns, array $cfg): array
                               : 'Gandi error: ' . $r['message']];
 }
 
+/**
+ * Point a domain's A record at an IP via Gandi's own LiveDNS — for a domain
+ * still on Gandi's default nameservers (never migrated to Cloudflare), this
+ * is the direct, minimal way to make it resolve somewhere real without an
+ * NS change + zone-activation wait. Not the fleet's usual path (the 20-box
+ * niche fleet proxies DNS through Cloudflare for SSL/CDN) — this is for a
+ * domain being pointed at a plain origin instead, e.g. an LPC demo site.
+ */
+function infra_reg_gandi_set_a_record(string $domain, string $ip, array $cfg, int $ttl = 300): array
+{
+    $r = infra_reg_gandi_call($cfg, 'PUT', '/v5/livedns/domains/' . rawurlencode($domain) . '/records/@/A',
+        ['rrset_values' => [$ip], 'rrset_ttl' => $ttl]);
+    return ['ok' => $r['ok'], 'message' => $r['ok']
+        ? 'Gandi: A record for ' . $domain . ' → ' . $ip
+        : 'Gandi error: ' . $r['message']];
+}
+
 /** Auto-renew on/off. PATCH only — a GET on this sub-resource 404s by design. */
 function infra_reg_gandi_set_autorenew(string $domain, bool $on, array $cfg): array
 {

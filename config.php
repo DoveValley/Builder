@@ -190,10 +190,16 @@ define('PLUSCITIES_UPLOADS_URL', '/pluscities_uploads/');
 // absolute: a client site is a different origin, so the root-relative paths
 // above resolve to nothing there, same reason BreadcrumbList schema builds
 // its own absolute URLs separately from the relative visible breadcrumb nav.
-// Literal host:port for now, matching PLUSCITIES_DELIVERY_BASE's own literal
-// host in wp-plugin/pluscities-delivery/pluscities-delivery.php — both need
-// to become the platform's real public domain at deploy time.
-define('PLUSCITIES_PUBLIC_BASE', 'http://localhost:8130');
+// This repo is the real Apache default vhost on port 80 (confirmed via
+// apache2ctl -S — homepage-builder.conf, ServerName _), so the box's own
+// public IP reaches it directly; update to a real domain once one exists for
+// this platform. The sibling constant in
+// wp-plugin/pluscities-delivery/pluscities-delivery.php (pluscities_delivery_base())
+// now a real per-install WP option instead of a hardcoded value, since a real
+// remote client site and the local test site need genuinely different
+// addresses — this one stays a single constant because every client site
+// fetches assets from the SAME one platform, never a per-client value.
+define('PLUSCITIES_PUBLIC_BASE', 'http://187.127.254.206');
 
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all

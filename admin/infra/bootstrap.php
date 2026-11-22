@@ -5,6 +5,17 @@
  * Everything else in admin/infra/ is self-contained.
  */
 require_once __DIR__ . '/../../config.php';   // session_start() + ADMIN_* constants
+// lpc_current_actor_role() below — added by commit 47cbb498 (Nov 20) to block
+// agency/end-client sessions from every fleet-only page — lives in this one
+// factory-domain file, not config.php. That commit's own 68-file sweep never
+// added this require here, so every real request has been a fatal "undefined
+// function" ever since; php -l (what the commit verified with) can't catch a
+// missing function at call time the way an actual request does. Requiring
+// just this one file, not includes/functions.php, keeps infra's own
+// deliberate self-containment (see this file's own doc comment) — the one
+// genuine new dependency the Nov 20 commit introduced, not a reason to pull
+// in the rest of the factory's include chain.
+require_once __DIR__ . '/../../includes/landing_page_clients_agencies.php';
 
 if (empty($_SESSION['admin_logged_in'])) {
     // Absolute path, not '../login.php' — this file is included from both

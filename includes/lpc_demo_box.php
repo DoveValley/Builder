@@ -73,16 +73,41 @@ function lpc_demo_box_domains(): array
  * lpc_demo_check_sites_status() — triggered by a button instead of every
  * page load.
  */
+/** Where a connected real domain's niche is remembered — 'demo-{niche}.q111.xyz'
+ *  can derive its niche from the domain string itself, but a real business
+ *  domain (meaderestoration.com) can't, so once a site's domain no longer
+ *  matches that pattern its niche has to come from somewhere durable instead. */
+function lpc_demo_niche_overrides_file(): string
+{
+    return BASE_DIR . '/.lpc_demo_niche_overrides.json';
+}
+
+function lpc_demo_niche_overrides(): array
+{
+    return json_decode((string) @file_get_contents(lpc_demo_niche_overrides_file()), true) ?: [];
+}
+
+function lpc_demo_set_niche_override(string $domain, string $niche): void
+{
+    $overrides = lpc_demo_niche_overrides();
+    $overrides[$domain] = $niche;
+    @file_put_contents(lpc_demo_niche_overrides_file(), json_encode($overrides, JSON_PRETTY_PRINT));
+}
+
 function lpc_demo_list_sites(): array
 {
     $siteUser = LPC_DEMO_BOX_SITE_USER;
     $domains = lpc_demo_box_domains();
+    $overrides = lpc_demo_niche_overrides();
 
     $sites = [];
     foreach ($domains as $d) {
+        $niche = preg_match('/^demo-/', $d)
+            ? preg_replace('/^demo-/', '', explode('.', $d)[0])
+            : ($overrides[$d] ?? explode('.', $d)[0]);
         $sites[] = [
             'domain'  => $d,
-            'niche'   => preg_replace('/^demo-/', '', explode('.', $d)[0]),
+            'niche'   => $niche,
             'theme'   => null,   // unknown until lpc_demo_check_sites_status() runs
             'running' => null,   // unknown until lpc_demo_check_sites_status() runs
             'docroot' => '/home/' . $siteUser . '/web/' . $d . '/public_html',

@@ -1,0 +1,54 @@
+{
+    "client_id": "first-call",
+    "agency_id": "coastal-marketing",
+    "niche_id": "water-damage-restoration",
+    "domain": "meaderestoration.com",
+    "site_rev": 1,
+    "plugin_rev": 0,
+    "plugin_version": "",
+    "last_seen_at": "",
+    "class_prefix": "lpc-firstcall",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "First Call",
+        "hubs": [
+            {
+                "address": "Bedford, TX",
+                "phone": "(214) 111-2222"
+            }
+        ]
+    },
+    "licenses": [],
+    "years_in_business": null,
+    "hours": {
+        "mon_fri": "",
+        "sat": "",
+        "sun": ""
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": [],
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "approval_gate_override": null,
+    "services": [
+        "water-damage-restoration",
+        "fire-damage-restoration"
+    ],
+    "target_cities": [
+        {
+            "city_id": "bedford-tx",
+            "drive_minutes": 15,
+            "confirmed_by_client": false
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": ""
+    },
+    "images": []
+}

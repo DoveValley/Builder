@@ -200,6 +200,10 @@ data/gf_preload_cache.json
 # Scott's yes/no verdicts on candidate premium templates — personal review state, not code.
 .lpc_template_review.json
 
+# Niche label for a demo site once it's connected to a real domain (can't be derived from
+# the domain string the way demo-{niche}.q111.xyz could) — per-environment state, not code.
+.lpc_demo_niche_overrides.json
+
 # WP Builder's site registry — the inputs each built site was created from, not code.
 .wp_builder_sites.json
 .pluscities_cf_token
