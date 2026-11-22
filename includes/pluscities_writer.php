@@ -293,18 +293,6 @@ function pluscities_render_cta_band(array $client): string
         . '<a class="lpc-cta-band-button" href="tel:' . htmlspecialchars($telHref) . '">Call Now &mdash; ' . htmlspecialchars($phone) . '</a></section>';
 }
 
-/** Sticky bottom call bar — always reachable regardless of scroll position,
- *  the single highest-leverage conversion element on the fleet's own
- *  reference sites. Page-level, not a content block — appended once per
- *  page render, never part of the block/position system. */
-function pluscities_render_sticky_bar(array $client): string
-{
-    $phone = $client['identity']['hubs'][0]['phone'] ?? '';
-    if ($phone === '') return '';
-    $telHref = preg_replace('/[^0-9+]/', '', $phone);
-    return '<div class="lpc-sticky-bar"><a href="tel:' . htmlspecialchars($telHref) . '">&#128222; 24/7 — Call Now: ' . htmlspecialchars($phone) . '</a></div>';
-}
-
 /**
  * Writes one Automatic (data-built) block. The "writer" here is a template
  * filling in real dataset values plus one short, non-specific AI intro

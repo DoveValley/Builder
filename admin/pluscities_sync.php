@@ -94,9 +94,6 @@ if ($action === 'page') {
             $html .= pluscities_render_trust_bar($niche['trust_bar_items']);
         }
     }
-    // Sticky call bar — page-level, always reachable, appended once per
-    // page regardless of block selection.
-    $html .= pluscities_render_sticky_bar($client);
 
     $businessName = $client['identity']['business_name'] ?? '';
     $serviceLabel = $page['service_key'];
@@ -166,10 +163,6 @@ if ($action === 'page') {
         . '.pluscities-page section.lpc-cta-band{background:' . htmlspecialchars($darkColor) . ';text-align:center;padding:36px 28px;}'
         . '.pluscities-page section.lpc-cta-band h2{color:#fff;border-bottom:none;padding-bottom:0;font-size:1.5rem;}'
         . '.lpc-cta-band-button{display:inline-block;background:transparent;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:999px;margin-top:8px;}'
-        // Sticky call bar — always reachable, fixed to the viewport bottom.
-        . '.lpc-sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:999;background:' . htmlspecialchars($brandColor) . ';text-align:center;padding:14px;}'
-        . '.lpc-sticky-bar a{color:#fff;font-weight:700;text-decoration:none;font-size:1rem;}'
-        . '.pluscities-page{padding-bottom:60px;}'
         // Niche data table — a real styled table instead of a bare browser
         // default: bordered cells, a tinted header row, alternating stripes.
         . '.pluscities-page table{width:100%;border-collapse:collapse;margin-top:4px;}'

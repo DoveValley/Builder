@@ -47,9 +47,11 @@ their site) is untouched by any of this, same as today.
 Each is a small addition to the existing `pluscities_render_block()` switch plus a bit more CSS in the
 one shared stylesheet. No new build pipeline, no new files per component, no per-site CSS output.
 
-1. **Sticky call bar** — new, page-level (not block-specific): a thin, always-visible bottom bar with
-   the client's phone as a `tel:` link. Highest single lever for conversion; was already scoped as
-   Phase 2 polish in the feature spec and never built. Build this first.
+1. **~~Sticky call bar~~ — decided against.** The page already renders inside the client's own theme
+   header/footer (`get_header()`/`get_footer()`, confirmed in the real plugin) — a separate PlusCities-
+   owned sticky bar competes with whatever the theme's own header/footer already does, and on a real
+   client site it's not ours to add on top of their existing layout. Use whatever call-to-action the
+   theme's own header/footer already provides instead of introducing a second one.
 2. **Trust bar placement** — no new code, just confirm it renders directly under the hero on every
    page (it already can; just needs to actually be wired into the page-create block list consistently).
 3. **FAQ accordion** — upgrade `faq`'s existing flat Q/A into real `<details>/<summary>` (no JS,
@@ -85,20 +87,19 @@ one shared stylesheet. No new build pipeline, no new files per component, no per
 
 ## Build order
 
-1. Sticky call bar (page-level, highest leverage, build first).
-2. FAQ accordion (`<details>/<summary>` upgrade to the existing `faq` render).
-3. CTA band (fixed mid-page + pre-FAQ placement).
-4. Card grid (`neighborhoods`, `hazards`, `cost_factors`, `why_choose_us`, `common_problems`).
-5. Callout box (`permits`, `hoa_rules`, `maintenance`, `before_the_tech_arrives`).
-6. Steps (`process`).
-7. Stat tiles reskin for `housing_stock` (real data already exists); hold `climate_data` until it has
+1. FAQ accordion (`<details>/<summary>` upgrade to the existing `faq` render).
+2. CTA band (fixed mid-page + pre-FAQ placement).
+3. Card grid (`neighborhoods`, `hazards`, `cost_factors`, `why_choose_us`, `common_problems`).
+4. Callout box (`permits`, `hoa_rules`, `maintenance`, `before_the_tech_arrives`).
+5. Steps (`process`).
+6. Stat tiles reskin for `housing_stock` (real data already exists); hold `climate_data` until it has
    a real dataset behind it.
-8. Review-card reskin for `reviews_from_city`.
+7. Review-card reskin for `reviews_from_city`.
 
 ## Done when
 
-A real client page (Meade Restoration, Southlake or Bedford) has a sticky call bar, a real FAQ
-accordion, at least one card-grid block, one callout, one steps block if the niche uses `process`, and
-two CTA bands — verified by an actual screenshot, compared side by side against Bailey/Wren/Gann, and
+A real client page (Meade Restoration, Southlake or Bedford) has a real FAQ accordion, at least one
+card-grid block, one callout, one steps block if the niche uses `process`, and one CTA band before the
+FAQ — verified by an actual screenshot, compared side by side against Bailey/Wren/Gann, and
 the honest answer to "would this make someone call" is yes. No new data model fields, no new plugin
 capability, no per-theme testing required to call it done.
