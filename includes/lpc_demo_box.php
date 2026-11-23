@@ -37,8 +37,7 @@ function lpc_demo_box_hestia_server(): array
 /**
  * Run one command on the demo box over the dedicated provisioning key.
  * Not exposed to any user input directly — every caller below builds $cmd from
- * escapeshellarg()'d pieces, same discipline as lpc_demo_sites_save.php always
- * used for the local (pre-migration) version of these actions.
+ * escapeshellarg()'d pieces.
  */
 function lpc_demo_box_ssh(string $remoteCmd): array
 {
