@@ -118,7 +118,11 @@
         "hub_intro": "&nbsp;\r\n&nbsp;\r\n\r\n<h2>Service Area</h2>\r\n\r\n{{business_name}} proudly serves the following areas:\r\n\r\n&nbsp;",
         "hub_footer_text": "&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;",
         "hub_city_format": "simple",
-        "hub_city_format_custom": ""
+        "hub_city_format_custom": "",
+        "city_block_picks": [],
+        "service_block_picks": [],
+        "vary_blocks_across_cities": true,
+        "faq_display_style": "accordion"
     },
     "billing": {
         "setup_fee_per_location": 0,

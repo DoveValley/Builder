@@ -223,9 +223,16 @@ function lpc_render_steps( $s ) {
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
-	$out .= '<ol class="lpc-card-grid">';
+	// Own class, not the generic lpc-card-grid/lpc-card every other card
+	// section shares -- a sequence of steps reads better with a numbered
+	// badge + connecting line (competitive finding, 2026-11-23) than as a
+	// set of otherwise-identical feature cards, which is all the shared
+	// class could express. Pure CSS counter, independent of whatever text
+	// is in $item['title'] -- works whether or not the AI-written title
+	// happens to also say "Step 1:", no writer/content change needed.
+	$out .= '<ol class="lpc-steps-grid">';
 	foreach ( (array) ( $s['items'] ?? [] ) as $item ) {
-		$out .= '<li class="lpc-card"><strong>' . esc_html( $item['title'] ?? '' ) . '</strong>';
+		$out .= '<li class="lpc-step-card"><strong>' . esc_html( $item['title'] ?? '' ) . '</strong>';
 		if ( ! empty( $item['text'] ) ) {
 			$out .= '<span>' . esc_html( $item['text'] ) . '</span>';
 		}

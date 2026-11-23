@@ -176,6 +176,36 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-card { background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 18px 20px; }
 		.lpc-page .lpc-card strong { display: block; margin-bottom: 6px; color: var(--lpc-primary); }
 		.lpc-page .lpc-card span { display: block; font-size: .92rem; opacity: .8; }
+		/* Steps get their own identity -- a numbered circle badge (pure CSS
+		   counter, independent of the item's own text) + a connecting line
+		   between badges on one row, competitive finding 2026-11-23. The
+		   line is a per-card ::after reaching toward the next card, hidden
+		   on the last card and on mobile (where cards stack to one column
+		   and a horizontal line between vertically-stacked cards would read
+		   as a layout bug, not a timeline). */
+		.lpc-page .lpc-steps-grid { list-style: none; margin: 0; padding: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+		.lpc-page .lpc-step-card { position: relative; background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 32px 20px 18px; text-align: center; }
+		.lpc-page .lpc-step-card strong { display: block; margin: 8px 0 6px; color: var(--lpc-primary); }
+		.lpc-page .lpc-step-card span { display: block; font-size: .92rem; opacity: .8; }
+		.lpc-page .lpc-step-card::before {
+			counter-increment: lpc-step; content: counter(lpc-step);
+			position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+			width: 36px; height: 36px; border-radius: 50%; z-index: 1;
+			background: var(--lpc-primary); color: #fff; font-weight: 700; font-size: 1rem;
+			display: flex; align-items: center; justify-content: center;
+			box-shadow: 0 2px 6px rgba(0,0,0,.2);
+		}
+		.lpc-page .lpc-steps-grid { counter-reset: lpc-step; }
+		.lpc-page .lpc-step-card:not(:last-child)::after {
+			content: ''; position: absolute; top: 0; left: calc(50% + 18px); right: calc(-50% + 18px);
+			height: 2px; background: var(--lpc-primary); opacity: .25;
+		}
+		/* Same source-order lesson as the FAQ grid fix above: placed right
+		   after the rule it overrides, not folded into an earlier media
+		   query block. */
+		@media (max-width: 760px) {
+			.lpc-page .lpc-step-card::after { content: none; }
+		}
 		.lpc-page .lpc-faq-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-items: start; }
 		/* Placed immediately after the base rule, not folded into the
 		   earlier hero media-query block — a real bug found testing this:
