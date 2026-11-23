@@ -8,9 +8,13 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 5 original use cases complete and verified. UC6-8 added to cover 3 real gaps in that
-coverage (validator override, rollback/unpublish, and a second real niche's full lifecycle — none of
-which any of UC1-5 exercised). Not yet run.**
+Status: **All 8 use cases complete and verified.** UC6-8 were added after UC1-5 to cover 3 real gaps in
+that original coverage (validator override, rollback/unpublish, and a second real niche's full
+lifecycle). Across the full suite: 1 use case (UC4) confirmed a real, honest pre-existing gap rather than
+a working feature; 2 real bugs were found and fixed (`pluscities_rollback_page()`'s dropped
+`client_grounded` column, 2 root-owned-directory permission blockers); 1 significant gap was found and
+documented but not yet fixed (Unpublish doesn't actually take content offline); and the session-long
+missing-sidebar-CSS bug across all 8 `pluscities_*.php` admin pages was caught and fixed.
 
 ---
 
@@ -331,12 +335,29 @@ Re-published page 1 afterward to leave the fixture fully live again.
 **Artifacts:** `includes/pluscities_lifecycle.php` fixed (rollback bug). No lasting bad state — page 1 is
 back to `status=live`/`approval_stage=approved`, page 2 likewise after its own rollback-and-republish.
 
-## UC8 — Second niche's full lifecycle — not yet run
+## UC8 — Second niche's full lifecycle — ✅ PASS (clean — no new bugs found)
 
-**Goal:** every prior use case ran against `hvac`. `QA Test Co B` (water-damage-restoration) already has
-one page sitting in `draft` from UC5's setup, never taken through the lifecycle — niche-specific code
-paths (schema_subtype, niche_table, research_topics) have never been exercised live this session.
+**Goal:** every prior use case ran against `hvac`. Confirm the `water-damage-restoration` niche's
+distinct code paths (schema subtype, niche data table, research topics) genuinely produce different,
+correct output — not `hvac`-shaped assumptions leaking through — by running a real page through the full
+lifecycle on that niche for the first time this session.
 
-Planned: Validate → Approve → Publish `pg_qatestcob_carrollton-tx_water-damage-restoration`, verify via
-the sync endpoint that the rendered schema/content is genuinely water-damage-restoration-specific (not
-hvac-shaped assumptions leaking through), confirm the hub route for `QA Test Co B` too.
+**Steps:** Validate → Approve → Publish `pg_qatestcob_carrollton-tx_water-damage-restoration` (`QA Test
+Co B`'s existing draft page from UC5's setup, default block picks, never previously touched).
+
+**Verified, with direct hvac-vs-restoration comparison:**
+- Schema type genuinely differs: `HomeAndConstructionBusiness` for the restoration niche vs. `HVACBusiness`
+  for hvac — confirms `pluscities_assemble_schema()` correctly resolves the niche's own
+  `schema_type_family`, not a hardcoded assumption.
+- The `niche_data_table` block's content is genuinely different and industry-real: *"IICRC Water Damage
+  Categories"* (Category / Water Source / Contamination Level — IICRC is the actual real-world
+  restoration-industry certification body) vs. hvac's *"Common AC Problems: Cause & Urgency"* — confirms
+  each niche blueprint's own hand-authored table is used correctly, not a shared/generic placeholder.
+- Title/meta/H1 all correctly reflect the real niche + city + business name:
+  *"Water Damage Restoration in Carrollton, TX | QA Test Co B."*
+- The hub route for `QA Test Co B` correctly lists its one live page (`Carrollton, TX`).
+
+**No new bugs found** — a clean, honest pass that's itself informative: the one real, fully-authored
+*other* niche blueprint behaves correctly end-to-end, same as `hvac` did across UC1-7.
+
+**Artifacts:** `QA Test Co B` now has 1 live page.
