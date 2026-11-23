@@ -450,7 +450,62 @@ system specifically — real and still accurate for what they describe (LPC's ow
 server, its own renderer, the old onboarding wizard), but **not** current PlusCities process. Read this
 doc for current state; read those two only when working on the old system itself.
 
-## 7. Appendix — source-of-truth file index
+## 7. Relationship to Site Factory
+
+Checked directly against the real code, 2026-11-23 — not assumed to mirror LPC's situation just because
+both share this repo.
+
+**Cleanly separate, confirmed in code:**
+- **Database.** `admin/infra/state/pluscities.db` is a deliberately separate SQLite file from the fleet's
+  own `fleet.db` — its own code comment in `admin/infra/lib/pluscities_db.php` says this split exists
+  specifically to avoid repeating LPC's shared-database mistake (§6, `docs/lpc-vs-site-factory-
+  boundary.md` §2). PlusCities got this right from day one; it didn't need a later fix.
+- **Delivery/rendering.** PlusCities' server-side-render-and-sync model (`admin/pluscities_sync.php` +
+  `wp-plugin/pluscities-delivery/`) vs. Site Factory's own in-house block renderer (`includes/blocks.php`)
+  and theme/color system. No shared rendering code, by design — same reasoning LPC's renderer split uses.
+- **Billing.** PlusCities touches no billing system at all (`includes/stripe_client.php` is LPC-only;
+  agency billing fields exist on `client_agencies/*.json` but nothing wires them to Stripe yet — see
+  `docs/pluscities-use-case-tests.md` UC14).
+- **Client records.** `pluscities_clients/*.json` vs. Site Factory's own site/client data — intentionally
+  never reconciled, same as LPC's `clients/*/data/client.json` split (§6).
+
+**Not actually separate — the real finding, same unresolved problem LPC has:**
+- **Anthropic API key.** One `.ai_key` file, one `ANTHROPIC_API_KEY` constant (`config.php`), used by Site
+  Factory's content pipeline, PlusCities' writer (`includes/pluscities_writer.php`) and research
+  (`includes/pluscities_research.php`), and LPC's own AI calls — all three businesses, one account, one
+  quota.
+- **OpenAI API key.** Same situation: one `.openai_key` file (`includes/openai_images.php`), shared by Site
+  Factory's image generation and PlusCities' image pipeline (`includes/pluscities_images.php`).
+- **DataForSEO.** Same situation again (`admin/infra/lib/keywords.php`) — and not hypothetical: PlusCities'
+  own UC11 test (`docs/pluscities-use-case-tests.md`) hit a real HTTP 402 Payment Required on a keyword
+  validation call, because Site Factory's own usage had drawn down the same shared account.
+
+**The fix, scoped the same way it's already scoped for LPC (`docs/lpc-vs-site-factory-boundary.md` §2):**
+give PlusCities (and LPC) their own Anthropic/OpenAI/DataForSEO credentials instead of sharing Site
+Factory's. Same module code stays — `includes/anthropic.php`, `includes/openai_images.php`,
+`admin/infra/lib/keywords.php` are reused correctly (see next point) — only the underlying account/key
+changes per business. Mechanically trivial once someone creates and funds the accounts; not yet done for
+either LPC or PlusCities.
+
+**Fine to share, not a violation:** the module code itself. Reusing one well-built API client
+(`includes/anthropic.php`, `includes/openai_images.php`, `admin/infra/lib/keywords.php`) across every
+business that needs that service is the correct, explicitly endorsed pattern this whole codebase follows
+(see CLAUDE.md's "API calls: one module per service, reused everywhere" rule and its own stated reasoning
+— duplicated clients drift into different ones). The violation above is sharing the **account/credential/
+quota** behind that module, not sharing the module. Also fine to share for the same reason: nav chrome
+(`admin/lpc_admin_layout.php`), generic helpers (`includes/helpers.php`), `admin/infra/lib/http.php`, and
+the image-rendering plugins (`plugins/image-data-chart/*`, `plugins/image-area-map/*`).
+
+**The one deliberate exception:** the niche library. The underlying facts about a niche — what services
+exist, seasonal/local relevance, research fields — are business-model-agnostic and should be written
+once, with each system's own framing layer (referral-network vs. direct-operator, same distinction
+`docs/lpc-vs-site-factory-boundary.md` §1 already draws for LPC) kept separately on top. This is the same
+planned-but-not-yet-built item flagged there (§4) for LPC vs. Site Factory; it applies identically to
+PlusCities' niche blueprints (`niche_blueprints/*.json`) vs. Site Factory's `niche_brief.json` — neither
+has been reconciled with the other yet, and neither should be merged outright given the framing
+difference, just eventually generated from one shared fact source.
+
+## 8. Appendix — source-of-truth file index
 
 | File | What it is |
 |---|---|
