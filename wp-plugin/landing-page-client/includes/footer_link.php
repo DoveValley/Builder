@@ -53,7 +53,19 @@ function lpc_render_footer_badge() {
 		return;
 	}
 	$label = get_option( 'lpc_nav_link_label', 'Service Area' );
-	echo '<a href="' . esc_url( lpc_service_locations_url() ) . '" style="position:fixed;right:16px;bottom:16px;z-index:999999;background:#1a1a2e;color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;line-height:1.2;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);">'
+	// On this plugin's own single-page routes, a mobile-only sticky call bar
+	// (renderer.php's lpc_render_sticky_call_bar()) occupies the bottom edge
+	// of the viewport under 760px -- real collision found live (2026-11-23):
+	// this badge's fixed bottom:16px put it floating on top of that bar's
+	// text instead of above it. Lifted only here, only under that same
+	// breakpoint, via a small self-contained <style> block (this file has no
+	// dependency on styles.php by design -- it must work on every page of
+	// the site, not just this plugin's own routes, so it can't rely on that
+	// stylesheet having been printed).
+	if ( get_query_var( 'lpc_route' ) ) {
+		echo '<style>@media (max-width:760px){.lpc-footer-badge{bottom:76px !important;}}</style>';
+	}
+	echo '<a href="' . esc_url( lpc_service_locations_url() ) . '" class="lpc-footer-badge" style="position:fixed;right:16px;bottom:16px;z-index:999999;background:#1a1a2e;color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;line-height:1.2;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);">'
 		. esc_html( $label ) . '</a>';
 }
 
