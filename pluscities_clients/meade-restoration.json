@@ -3,7 +3,7 @@
     "agency_id": "coastal-marketing",
     "niche_id": "water-damage-restoration",
     "domain": "meaderestoration.com",
-    "site_rev": 1,
+    "site_rev": 6,
     "plugin_rev": 0,
     "plugin_version": "",
     "last_seen_at": "",
@@ -36,11 +36,17 @@
     "approval_gate_override": null,
     "services": [
         "water-damage-restoration",
-        "fire-damage-restoration"
+        "fire-damage-restoration",
+        "smoke-damage-cleaning"
     ],
     "target_cities": [
         {
             "city_id": "bedford-tx",
+            "drive_minutes": 15,
+            "confirmed_by_client": false
+        },
+        {
+            "city_id": "southlake-tx",
             "drive_minutes": 15,
             "confirmed_by_client": false
         }
