@@ -198,7 +198,17 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-faq-item summary::after { content: '+'; color: var(--lpc-primary); font-size: 1.3rem; line-height: 1; flex-shrink: 0; transition: transform .15s ease; }
 		.lpc-page .lpc-faq-item[open] summary::after { transform: rotate(45deg); }
 		.lpc-page .lpc-faq-item[open] summary { margin-bottom: 6px; }
-		.lpc-page .lpc-cta { background: <?php echo $primary_tint; ?>; border-radius: 12px; padding: 36px 24px; text-align: center; }
+		/* Bold solid band, not the usual arbitrary-hex-safe pastel tint every
+		   other background on this page uses — a FIXED dark neutral, not
+		   derived from the client's own primary/accent color at all, so
+		   white text here is always safe regardless of which hex a client
+		   picked (the same risk the tint rule exists to avoid elsewhere,
+		   just solved by not depending on client color here instead of by
+		   staying pastel). Competitive finding, 2026-11-23: every tint on
+		   this page read as muted next to a real competitor's solid-color
+		   CTA banner; this is the one section where going bold is safe. */
+		.lpc-page .lpc-cta { background: #0f1b2d; color: #fff; border-radius: 12px; padding: 36px 24px; text-align: center; }
+		.lpc-page .lpc-cta p { opacity: .92; }
 		.lpc-page .lpc-pill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
 		.lpc-page .lpc-pill { background: rgba(0,0,0,.05); border-radius: 999px; padding: 6px 14px; font-size: .85rem; text-decoration: none; color: #1a1a2e; } /* same missing-explicit-color bug as lpc-hub-item a, found in the same audit */
 		.lpc-page .lpc-pill:hover { background: var(--lpc-primary); color: #fff; }
