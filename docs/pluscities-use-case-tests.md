@@ -23,6 +23,49 @@ Across UC1-8: 1 use case (UC4) confirmed a real, honest pre-existing gap rather 
 root-owned-directory permission blockers, and the Unpublish gap — fixed the same day it was found); and
 the session-long missing-sidebar-CSS bug across all 8 `pluscities_*.php` admin pages was caught and fixed.
 
+## Regression check, 2026-11-23 overnight — LPC Stage 3 retirement
+
+Scott asked for a full re-run of all 14 use cases after LPC Stage 3 (the old-LPC codebase retirement,
+`docs/lpc-stage3-retirement-scoping.md`) to catch anything it broke. Found:
+
+1. **The QA fixture itself had been accidentally deleted earlier the same night**, during Stage 3's own
+   demo-sites cleanup — `/opt/landing-page-clients/test-wordpress` (this doc's permanent fixture, line 8
+   above) was mistaken for leftover LPC-plugin dev/test cruft and removed along with it. Rebuilt from
+   scratch (fresh WordPress core + SQLite Database Integration + the real `pluscities-delivery` plugin,
+   re-registered under QA Test Co's existing API key) and re-verified against every URL this doc's UC1
+   documents (`/service-area/`, `/service-area/plano-tx/ac-repair/`, etc.) — all green again.
+2. **3 real, live-breaking bugs found while rebuilding the fixture — not hypothetical, confirmed hitting a
+   real visitor's session in Apache's error log in real time**: Stage 3's file-deletion step removed
+   `includes/landing_page_clients.php` without checking that `includes/agencies.php` (kept, the shared
+   billing/session engine) and `admin/agencies.php`/`agencies_save.php`/`impersonate.php` still called
+   several of its functions (`lpc_deep_merge_defaults`, `lpc_list_clients`, `lpc_load_client`,
+   `lpc_save_client`, `lpc_unique_client_id`, others) — fatal-erroring `includes/agencies.php` on every
+   single load. `CLIENTS_DIR` (deleted the same pass on an incorrect "zero remaining references" check)
+   needed restoring too. All fixed by moving the needed functions into `includes/agencies.php`/
+   `includes/helpers.php` verbatim — see commit `9470f13a`.
+3. **1 unrelated pre-existing bug, surfaced (not caused) by the fixture rebuild**: `admin/infra/lib/
+   cities.php` called `infra_kw_types()` without requiring `admin/infra/lib/keywords.php` itself, breaking
+   `admin/pluscities_sync.php`'s hub-render path the first time anything outside the infra console's own
+   bootstrap ever exercised it live. Fixed in the same commit.
+4. **UC4 and UC12's literal repro steps are no longer reproducible** (both walked through
+   `admin/client_login.php`/`client_portal.php`, deleted in Stage 3) — historical notes added inline at
+   each; their conclusions still hold.
+5. **Everything else (UC1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14) re-verified clean** — confirmed via a
+   diff of every file touched across all Stage 3 commits against what each use case actually exercises
+   (none of the core `pluscities_*.php` screens were touched except `cities.php`, fixed above), direct
+   function/DB spot-checks (UC1's page lifecycle state, UC5's cross-agency access function unmodified
+   since before Stage 3, UC14's `lpc_pause_agency_clients()` now callable without fatal-erroring), and a
+   full HTTP smoke test across every admin screen with zero new Apache error log entries afterward —
+   including confirming the real external user's own live session (impersonation, `pluscities_dashboard.php`)
+   succeeded cleanly after the fix, not just synthetic checks.
+
+**Real estate note, caught mid-investigation**: tonight's own write-up for this bug initially guessed
+`pluscities_actor_can_access_client()`'s signature wrong (passed a second array argument the real function
+doesn't take — it reads role/agency state from `$_SESSION` internally) during a quick CLI spot-check, which
+produced a false "cross-agency isolation broken" result. Caught by checking the function's real signature
+before reporting it — not a product bug, a reminder that CLI spot-checks of session-scoped functions need
+the session state actually set, not assumed.
+
 ---
 
 ## UC1 — Happy path, beginning to end — ✅ PASS
