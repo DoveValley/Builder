@@ -12,10 +12,9 @@ drifted from current code (see corrections below).
 engine for the entire admin app (PlusCities and Site Factory included). Stage 3 has a required refactor
 step before the bulk deletion, not just a file-removal pass.
 
-**Status, 2026-11-23: §1 answered (keep billing/sessions on the shared path, confirmed nothing to split
-out), §3's extraction DONE** (`includes/landing_page_clients_agencies.php` → `includes/agencies.php`,
-commits `511210ff`/`df288b2d`) — see §3 for what was actually verified. Remaining: §5 steps 3-6 (nav
-cleanup, bulk file deletion, data cleanup, infra decisions).
+**Status, 2026-11-23: §5 steps 1-3 done** (billing/session decision answered, agencies-file extracted,
+nav cleaned up — commits `511210ff`/`df288b2d`/`8a4ac987`). Remaining: §5 steps 4-6 (bulk file deletion,
+data cleanup, infra decisions).
 
 ---
 
@@ -175,11 +174,17 @@ Commits: `511210ff` (the rename itself), `df288b2d` (require-path + comment upda
 
 ## 5. Recommended sequence
 
-1. Answer §1 (billing/session coupling design).
-2. Do §3's agencies-file extraction, verified fleet-wide before moving on.
-3. Clean up `admin/lpc_admin_layout.php`'s nav (`clients.php`, `niche_profiles.php`, `lpc_demo_sites.php`,
-   etc. entries in `lpc_admin_nav_items()`) so nothing dead-links once their targets are gone.
-4. Delete §2.1's file list.
+1. ✅ Answer §1 (billing/session coupling design) — done, kept shared.
+2. ✅ Do §3's agencies-file extraction, verified fleet-wide before moving on — done, commits `511210ff`/
+   `df288b2d`.
+3. ✅ Clean up `admin/lpc_admin_layout.php`'s nav — done, commit `8a4ac987`. Removed "All Clients"/"New
+   Client"/"Approvals"/"Niche Profiles (old)"; deliberately left "Demo Sites" alone since its fate is
+   still the open §2.3 decision below, not resolved as a side effect of nav cleanup. Verified all 4 real
+   roles via direct CLI call to `lpc_admin_nav_items()` — super_admin's nav clean with no dead links,
+   every other role byte-for-byte unchanged. Caught a near-bug before shipping: first attempt pointed
+   super_admin at `pluscities_dashboard.php`, which explicitly rejects anyone but agency_admin/
+   agency_editor — checked before assuming, not after.
+4. **Next**: delete §2.1's file list.
 5. Explicit go-ahead, then delete §2.3's data (Meade's LPC record, quarantined test clients).
 6. Separately, decide and act on §2.3's infrastructure items (demo-sites box, standalone delivery
    service, its orphaned test-client directories) — not blocking on the code-repo deletion above.
