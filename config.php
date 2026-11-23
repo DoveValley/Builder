@@ -107,49 +107,23 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
 }
 unset($_activeSiteId, $_msBase);
 
-// Landing Page Clients feature data — deliberately NOT site-scoped like DATA_FILE
-// above (it's a standalone feature, not one of the niche-fleet sites), always at
-// the project root regardless of which site/multisite context is active.
-define('CLIENTS_DIR', BASE_DIR . '/clients/');
-
-// Local STAGING copy of the delivery data — the publish step writes here
-// first (same as always), then lpc_sync_delivery_to_remote() rsyncs this
-// whole tree to the real, dedicated delivery server (Box 1 — see
-// project_landing_page_clients_feature_design memory, 2026-11-15). Kept as
-// a local staging dir rather than writing directly over the network so a
-// sync hiccup never loses the source-of-truth copy.
-define('LPC_DELIVERY_DATA_DIR', '/opt/landing-page-clients/delivery/data/');
-
-// The dedicated delivery server — migrated 2026-11-18 off fleet Box 1 onto
-// its own dedicated box (2.24.196.58), set up alongside the LPC demo
-// WordPress sites, so it no longer shares hardware with the production
-// fleet. Still isolated the same way on its new host: its own unprivileged
-// system user (lpcdelivery, no sudo, confined to its own directory), its own
-// directory (/opt/standalone-lpc-delivery/), its own systemd service, its
-// own firewall rule. Synced to via a SEPARATE, narrowly-scoped SSH key
-// (.lpc_delivery_sync_key, gitignored) that only authenticates as
-// lpcdelivery — never any other key, so a compromise here can't reach
-// anything else.
-define('LPC_DELIVERY_REMOTE_HOST', '2.24.196.58');
-define('LPC_DELIVERY_REMOTE_USER', 'lpcdelivery');
-define('LPC_DELIVERY_REMOTE_PATH', '/opt/standalone-lpc-delivery/data/');
-define('LPC_DELIVERY_SYNC_KEY', BASE_DIR . '/.lpc_delivery_sync_key');
-
-// Public HTTP base for that same delivery server — the admin side calls this
-// (action=status) to read a client's REAL live check-in state, since the data
-// directory above is a local staging copy and is never the thing a client's
-// plugin actually checks in against once published.
-define('LPC_DELIVERY_PUBLIC_BASE', 'http://' . LPC_DELIVERY_REMOTE_HOST . ':8098/api.php');
+// CLIENTS_DIR and the LPC_DELIVERY_* constants that used to live here
+// (data dir, remote host/user/path, sync key, public status-check base)
+// were removed 2026-11-23 as part of LPC Stage 3 — their only consumers
+// (includes/landing_page_clients_publish.php's lpc_sync_delivery_to_remote()/
+// lpc_plugin_status(), tools/lpc_check_alerts.php) were deleted in the same
+// pass. See docs/lpc-stage3-retirement-scoping.md. LPC_DEMO_BOX_* below is
+// unrelated (a different box, kept — see that constant's own comment) and
+// LPC_ALERT_EMAIL further below is still used by tools/lpc_check_grace_
+// periods.php, also kept.
 
 // The LPC demo-sites box — the 12 rehearsal WordPress installs ("Demo Sites"
-// admin tab), a different box from the delivery server above and entirely
-// separate from the 20-box niche fleet. Reuses admin/infra/lib/hestia.php's
-// generic HestiaCP client (same module the fleet console uses) for domain
-// create/delete/restart over Hestia's own HTTP API — no SSH needed for that.
-// A separate, narrowly-scoped SSH key is used ONLY for the WordPress-specific
-// steps the API can't do (cloning the golden WP image into a new vhost,
-// running wp-cli, restarting php-fpm) — same "dedicated key per purpose"
-// discipline as LPC_DELIVERY_SYNC_KEY above, just for this one box.
+// admin tab), entirely separate from the 20-box niche fleet. Reuses
+// admin/infra/lib/hestia.php's generic HestiaCP client (same module the
+// fleet console uses) for domain create/delete/restart over Hestia's own
+// HTTP API — no SSH needed for that. A separate, narrowly-scoped SSH key is
+// used ONLY for the WordPress-specific steps the API can't do (cloning the
+// golden WP image into a new vhost, running wp-cli, restarting php-fpm).
 define('LPC_DEMO_BOX_HOST', '2.24.196.58');
 define('LPC_DEMO_BOX_HESTIA_USER', 'lpcadmin');
 define('LPC_DEMO_BOX_HESTIA_KEY_FILE', BASE_DIR . '/.lpc_demo_box_api_key.json');
@@ -157,12 +131,13 @@ define('LPC_DEMO_BOX_SITE_USER', 'demo'); // the one shared Hestia hosting user 
 define('LPC_DEMO_BOX_SSH_KEY', BASE_DIR . '/.lpc_demo_box_ssh_key');
 define('LPC_DEMO_BOX_SSH_USER', 'root'); // provisioning-only key, this box only — see comment above
 
-// PlusCities content-engine rewrite (docs/PLUSCITIES_FEATURE_SPEC.md) — a NEW
-// engine built alongside the LPC_* constants above, not replacing them in
-// place. Its own SQLite file (never fleet.db, per
-// docs/lpc-vs-site-factory-boundary.md §2) and its own JSON-per-entity
-// directories for the niche library and client records, kept separate from
-// CLIENTS_DIR/niche_library above so the old and new engines can't collide.
+// PlusCities content-engine rewrite (docs/PLUSCITIES_FEATURE_SPEC.md) — was
+// built alongside the old LPC engine, not replacing it in place (that old
+// engine is now retired, see docs/lpc-stage3-retirement-scoping.md). Its
+// own SQLite file (never fleet.db, per docs/lpc-vs-site-factory-boundary.md
+// §2) and its own JSON-per-entity directories for the niche library and
+// client records, kept separate from the old engine's equivalents so the
+// two never collided while both were live.
 define('PLUSCITIES_DB_FILE', BASE_DIR . '/admin/infra/state/pluscities.db');
 define('PLUSCITIES_NICHE_FAMILIES_DIR', BASE_DIR . '/niche_families/');
 define('PLUSCITIES_NICHE_BLUEPRINTS_DIR', BASE_DIR . '/niche_blueprints/');
