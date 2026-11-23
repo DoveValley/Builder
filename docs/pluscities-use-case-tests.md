@@ -527,15 +527,43 @@ all) — an honest, concrete finding about where the authoring tool's real cover
 wellness.json`, and a new `niche_blueprints/dental-practice.json` (left as real, permanent fixture
 content — not cleaned up, consistent with the rest of the QA fixture).
 
-## UC12 — Impersonation — not yet run
+## UC12 — Impersonation — ✅ PASS (confirms both a real structural gap and a real testing lesson)
 
 **Goal:** `admin/impersonate.php`'s `start`/`stop` actions are real, built, and tied directly to the role
 model UC5 already explored — never exercised live.
 
-Planned: as `super_admin`, impersonate `qa-test-agency` (confirm the session correctly scopes to that
-agency's clients only, same as a real `agency_admin` login would), then impersonate one of its clients
-as an `end_client` (confirm the appropriate restriction), then `stop` at each hop and confirm the
-original `super_admin` session is cleanly restored with no leaked `agency_id`/`client_id` state.
+**Found while reading the code, before any live test**: `impersonate.php`'s `type==='client'` path calls
+`lpc_load_client()` — the **old** LPC loader (`clients/*/data/client.json`) — not anything PlusCities-
+aware. This is the same structural gap UC4 found from a different angle (no PlusCities-native end-client
+login path exists at all): you literally cannot impersonate a PlusCities client (`qa-test-co`, etc.) as
+`end_client`, only an old-LPC one.
+
+**Steps + results:**
+
+1. As `super_admin`, impersonated `qa-test-agency` (`type=agency`) — confirmed the session correctly
+   scoped to exactly that agency's 2 clients (`QA Test Co`, `QA Test Co B`), excluded the other QA agency
+   and all 3 real production clients, and the real "Viewing as agency QA Test Agency" banner rendered
+   with the correct name.
+2. Attempted to impersonate a 2nd time while already impersonating — correctly refused:
+   `"Already impersonating - return to your own account first"` (no-stacking rule holds).
+3. Stopped via the real banner link, confirmed full `super_admin` access restored.
+4. Impersonated a **real old-LPC client** (`meade-restoration`, `type=client`) to prove the mechanism
+   genuinely works for what it's actually scoped to (since a PlusCities client can't be impersonated at
+   all, per the finding above) — landed correctly on `client_portal.php`, confirmed the restriction (an
+   end_client session attempting `pluscities_clients.php` was correctly redirected away).
+5. **Real testing-methodology lesson, caught and corrected before trusting a false result**: my first
+   attempt to stop this impersonation grabbed a CSRF token from `document.querySelector('input[name=
+   "csrf_token"]')` — but `client_portal.php` has no such bare form input anywhere on the page, so the
+   stop request silently failed CSRF validation and the session stayed impersonating. This produced an
+   alarming false signal (the next check showed the session had "lost" super_admin access) that looked
+   exactly like a broken restoration bug. Traced it, found the real cause, and retried using the actual
+   token-embedded "Return to your own account" link the banner renders — confirmed **full, clean
+   restoration**, no leaked `agency_id`/`client_id` state. Not a product bug; a reminder that a page
+   without a generic admin form can still carry its own real CSRF-protected action link, and tests should
+   use that real link rather than assume a bare input field exists everywhere.
+
+**Artifacts:** none — read-only investigation + impersonation sessions, immediately stopped, no lasting
+state change to any client.
 
 ## UC13 — Client-supplied reviews + a brand-new city's first dataset fetch — not yet run
 
