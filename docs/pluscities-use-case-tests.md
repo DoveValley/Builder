@@ -8,7 +8,7 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **UC1-3 complete and verified 2026-11-22. UC4-5 not yet run.**
+Status: **UC1-4 complete and verified. UC5 not yet run.**
 
 ---
 
@@ -137,11 +137,45 @@ and that the offline-cache-until-republish design claim is real, not just a comm
 **Artifacts:** no new pages — both of QA Test Co's existing pages now carry freshly-regenerated content.
 `client.site_rev` at 3.
 
-## UC4 — Reporting — not yet run
+## UC4 — Reporting — ✅ PASS (confirms a real, honest gap — not a feature pass)
 
-Planned: confirm the old `client_login.php`/`client_portal.php` path does not work for a PlusCities
-client (proving the documented gap concretely), and document `pluscities_pages.php`'s stage-dot matrix as
-the real admin-side reporting equivalent that exists today.
+**Goal:** find out what "reporting" actually means for a PlusCities client today, concretely, rather than
+assuming either "it works" or "it's missing" from reading code alone.
+
+**Steps taken:**
+1. Confirmed structurally that the PlusCities client JSON schema (`pluscities_clients/qa-test-co.json`)
+   has **no `login` field at all** — not a missing password, a structurally absent concept. Compare to
+   the old LPC schema, which has `client['login']['username']`.
+2. Called `lpc_find_client_by_username()` directly for `"qa-test-co"` and `"QA Test Co"` — both returned
+   `null`. Root cause confirmed in `config.php`: `CLIENTS_DIR` (`clients/`) and `PLUSCITIES_CLIENTS_DIR`
+   (`pluscities_clients/`) are genuinely different directories, and `lpc_list_clients()` — what every
+   client-login lookup walks — only ever globs the old one.
+3. Attempted a real login at `admin/client_login.php` with username `qa-test-co` — the single most
+   plausible real-world guess, matching this admin's own id-as-username convention elsewhere. Result:
+   `"Invalid username or password. (9 attempts remaining)"` — there is no credential that could ever
+   succeed here for a PlusCities client, by construction, not because one hasn't been set up yet.
+4. Loaded `admin/pluscities_pages.php` (the closest admin-side equivalent) to see what it actually shows
+   for QA Test Co.
+
+**Verified:**
+- The client-reporting gap is real and structural, confirmed three independent ways (schema, function
+  return value, and a live login attempt) — not a configuration gap that onboarding a password would fix.
+- `pluscities_pages.php`'s real columns: Page | Researched | Written | Validated | Approved | Published |
+  Live (stage-dot matrix, one row per page, across **every client a super_admin can see**).
+- **Additional finding, not previously documented**: this screen has **no per-client filter at all** —
+  `?client_id=qa-test-co` is silently ignored (the file never reads that GET param), so there's no way to
+  view just one client's pages; an agency scanning for one client's status has to visually find their
+  rows in a flat table listing every client's pages together. "Reporting," even on the admin side, is
+  thinner than the stage-dot matrix alone suggests.
+- Both QA Test Co rows correctly showed **"Validation is stale — content changed since it last ran"** —
+  an accurate, honest reflection of UC3's bulk regenerate having touched content after the last Validate
+  run. This is a genuinely useful signal, as far as it goes.
+
+**Honest conclusion:** there is no PlusCities-native client reporting portal today, by construction, and
+the admin-side stand-in lacks even basic per-client scoping. This use case exists to make that concrete
+and reproducible, not to pretend a passing test where none is warranted.
+
+**Artifacts:** none — read-only investigation, no state changed.
 
 ## UC5 — Roles & permissions boundary — not yet run
 
