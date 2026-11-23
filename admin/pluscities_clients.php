@@ -97,6 +97,7 @@ lpc_admin_open('pluscities_clients', 'Clients');
                 <a href="pluscities_pages.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Pages</a>
                 <a href="pluscities_page_add.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">+ Add Page</a>
                 <a href="pluscities_hub_edit.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Service Area Page</a>
+                <a href="pluscities_page_styling.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Page Styling</a>
                 <a href="pluscities_plugin_download.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Download Plugin</a>
             </div>
         </div>
