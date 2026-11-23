@@ -1,25 +1,30 @@
 # PlusCities — Test Coverage Audit (2026-11-23)
 
-What UC1-8 actually exercise, mapped against every real capability listed in
+What UC1-14 actually exercise, mapped against every real capability listed in
 `docs/pluscities-system-reference.md`, verified against the live DB/code — not assumed. Goal: know
 honestly what percentage of the system has been proven to work by *running* it, versus what's only ever
 been read from code.
 
-**Headline number, corrected 2026-11-23 against an exact row count** (the original write-up quoted ~58%,
-which didn't match this doc's own table — fixing that here rather than leaving an inconsistent number on
-record): of the **47 discrete rows** below, **20 are directly exercised by UC1-8 (~43%)**. The gaps are
-concentrated in three areas: the validator (only 2 of 12 checks ever deliberately triggered), 5 whole
-admin screens never touched at all, and the agency-business layer (billing, branding flow-through,
-suspend/approve).
+**Final headline, recounted 2026-11-23 row-by-row against this doc's own table** (the "47 total" figure
+quoted through the UC9-14 planning phase had drifted from the table itself — §4's heading claimed 19
+admin screens while only 13 were ever listed as rows; re-counting every section's actual rows rather than
+carrying the old total forward, same discipline as the earlier 58%→43% correction): the table below has
+**57 discrete rows**, of which **52 are now directly exercised by UC1-14 (~91%)**.
 
-**Scott's call: expand the next round to close everything realistically closable, not just the first
-narrow pass.** Two real gaps surfaced while projecting the original UC9-13 scope — `pluscities_hub_edit.
-php` (missed entirely) and fresh `census_acs` dataset fetch (cheap, just never scoped) — both folded in,
-plus a new UC14 for the agency billing/suspend-approve rows UC1/UC5 never touched. See "Recommended next
-use cases" below for the final scope. **Net effect: 42/47 (~89%)**, leaving only 5 rows genuinely out of
-reach without new infrastructure (Stripe, the SEO-plugin sitemap *hook* integration specifically, two
-structurally-unreachable-via-the-real-admin validator checks, and fresh fact-card research's real API
-cost).
+**All 14 use cases are complete.** UC9 closed 12 of the validator's 14 rows (including, for the first
+time, proof that a hard-exception override is actually *refused*, not just that soft overrides are
+*granted*). UC10 closed photos/branding/plugin-download/hub-edit plus the self-served sitemap and
+robots.txt line. UC11 closed real Niche Library authoring. UC12 closed impersonation. UC13 closed
+client-supplied reviews and a genuinely-fresh dataset fetch. UC14 closed agency billing fields and
+suspend/approve.
+
+**5 rows remain genuinely out of reach, deliberately not chased:** `quotes` (confirmed dead code — the
+writer never emits raw `quote` text), `cannibalization` (structurally blocked via the real admin —
+`page_id` is deterministic from client+city+service, so the normal create path can't produce a
+collision), the Yoast/RankMath/AIOSEO sitemap *hook* integration specifically (the self-served sitemap
+itself IS covered — this needs one of those plugins actually installed), Stripe `create_checkout` (needs
+real sandbox credentials), and fresh fact-card research for a genuinely new topic (a real, billed
+Anthropic API run each time — same discipline applied to every other paid-API call this session).
 
 ---
 
@@ -40,115 +45,113 @@ cost).
 
 **Fully covered** — every real state transition has been run for real at least once.
 
-## 2. The validator (`includes/pluscities_validator.php`) — 2/12 checks deliberately triggered
+## 2. The validator (`includes/pluscities_validator.php`) — 12/14 rows closed (UC9, UC13)
 
 | Check | Deliberately triggered? |
 |---|---|
 | `unsupported_claim` | ✅ UC7 (rollback's dropped `client_grounded` bug surfaced through this check) |
 | `banned_phrases` | ✅ UC6 (client-level list; override mechanism proven) |
-| `uniqueness` | ❌ never forced a failure — passes by default at this fixture's scale |
-| `service_radius` | ❌ never added an out-of-radius city to trigger it |
-| `wrong_city` | ❌ never cited a fact card scoped to the wrong city |
-| `client_facts` | ❌ never injected a phone/license mismatch |
-| `invented_prices` | ❌ never triggered — also a **hard exception**, never overridable |
-| `invented_reviews` | ❌ never triggered — hard exception |
-| `quotes` | ❌ never triggered — confirmed dead code in practice per the reference doc |
-| `stale_facts` | ❌ never triggered — would need manipulating `fact_cards.expires_at` |
-| `cannibalization` | ❌ never triggered — structurally near-impossible via the normal create path |
-| `faq` | ❌ always passed; never deliberately broken |
+| `uniqueness` | ✅ UC9 — attempted via a near-duplicate page with identical topic picks; **genuinely passed**, not forced. Honest result: the AI writer varies language enough per city that matching topics alone don't produce duplicate content. |
+| `service_radius` | ✅ UC9 — added an out-of-radius, unconfirmed city; failed exactly as expected. |
+| `wrong_city` | ✅ UC9 — cited a real fact card scoped to a different city (direct precondition write, no UI assigns fact_ids); failed correctly. |
+| `client_facts` | ✅ UC9 — injected a wrong phone number via the real Edit UI; failed correctly. |
+| `invented_prices` | ✅ UC9 — injected an unsupported price; failed, **and** the hard-exception override refusal was proven for the first time (UI renders no Override control at all; a raw POST attempt was refused server-side). |
+| `invented_reviews` | ✅ UC13 — real client reviews matched verbatim; passed correctly. |
+| `quotes` | ❌ **deliberately not attempted** — confirmed dead code in practice (the writer never injects raw `quote` text). |
+| `stale_facts` | ✅ UC9 — cited a real, correctly-scoped fact card then flipped its status to stale (direct precondition write, no UI sets this); failed correctly. |
+| `cannibalization` | ❌ **deliberately not attempted** — structurally near-impossible via the real admin (`page_id` is deterministic from client+city+service). |
+| `faq` | ✅ UC9 — found a real gap first: the Edit form's Save button is correctly `disabled` for FAQ blocks (content is shaped `{faqs:[...]}`, not `{body:...}`), so there's no admin path to fix one bad answer short of a full regenerate. Triggered the check via a direct content write to prove it works. |
 | **Override — soft check** | ✅ UC6 |
-| **Override — hard exception refusal** | ❌ never attempted overriding `invented_prices`/`invented_reviews`/etc. to confirm the refusal actually holds |
+| **Override — hard exception refusal** | ✅ UC9 — proven for the first time. |
 
-**Real gap.** The override mechanism's *grant* path is proven; its *refusal* path (hard exceptions) never
-has been. 10 of 12 individual checks have never been deliberately forced to fail even once.
-
-## 3. Block classifications / generation paths — 3/4 tested
+## 3. Block classifications / generation paths — 4/4 tested
 
 | Classification | Tested? |
 |---|---|
 | `editable` (AI-written, fact-grounded) | ✅ extensively — hero, overview, faq, permits, etc. |
-| `automatic`, dataset-templated (`housing_stock`) | ✅ UC1, UC2, UC8 |
+| `automatic`, dataset-templated (`housing_stock`) | ✅ UC1, UC2, UC8, UC13 (first-ever fresh fetch) |
 | `automatic`, niche-shared table (`niche_data_table`) | ✅ UC8 (hvac vs. restoration content compared directly) |
-| `client-supplied` (`reviews_from_city`) | ❌ **never exercised by any use case.** The 3 real `reviews_from_city` blocks in the live DB all belong to pre-existing production clients (`elite-air-hvac` ×2, `lonestar-restoration`) — none from the QA fixture. None of our QA clients' picks ever selected it, by coincidence of which slugs got chosen. |
+| `client-supplied` (`reviews_from_city`) | ✅ UC13 — added real `reviews_by_city` data, confirmed the block copies it verbatim (`origin='client'`), never touches the AI writer. |
 
-## 4. Admin screens — 14/19 touched, 5 completely untested
+## 4. Admin screens — 13/13 touched (0 completely untested)
 
 | Screen | Tested? |
 |---|---|
 | `pluscities_clients.php` / `_save.php` | ✅ UC1, UC5 |
-| `pluscities_page.php` / `_save.php` | ✅ UC1-3, UC6-8 |
-| `pluscities_page_add.php` / `_save.php` | ✅ UC2, UC5 |
+| `pluscities_page.php` / `_save.php` | ✅ UC1-3, UC6-9, UC13 |
+| `pluscities_page_add.php` / `_save.php` | ✅ UC2, UC5, UC9, UC13 |
 | `pluscities_pages.php` / `_save.php` | ✅ UC3 (bulk), UC4 |
 | `pluscities_team.php` / `_save.php` | ✅ UC5 |
 | `pluscities_sync.php` | ✅ throughout |
-| `pluscities_dashboard.php` | ✅ verified during build (2026-11-23), not yet as a formal use case |
-| `agencies.php` / `agency_login.php` | ✅ creation + login tested; suspend/approve/billing fields not (see §6) |
-| `pluscities_hub_edit.php` / `_save.php` | ❌ **never tested** — built in Project B, never exercised since |
-| `pluscities_photos.php` / `_save.php` | ❌ **never tested** — logo upload, brand color detection/override entirely unexercised |
-| `pluscities_plugin_download.php` | ❌ **never tested** — the actual artifact a real agency hands to a real client, never downloaded or inspected once |
-| `pluscities_niches.php` / `_save.php` | ❌ **never tested** — the real Niche Library (family/niche/compliance-preset CRUD, keyword validation) has zero use-case coverage, despite 4 of 6 families being known placeholder stubs that a real admin would need this screen to fix |
-| `admin/impersonate.php` | ❌ **never tested** — `start`/`stop` actions, directly relevant to the role model UC5 already explored |
+| `pluscities_dashboard.php` | ✅ verified during build + UC14's login flow |
+| `agencies.php` / `agency_login.php` | ✅ creation+login (UC1, UC5), billing+suspend/approve (UC14) |
+| `pluscities_hub_edit.php` / `_save.php` | ✅ UC10 |
+| `pluscities_photos.php` / `_save.php` | ✅ UC10 — found+fixed a root-owned-dir bug (`pluscities_uploads/`) along the way |
+| `pluscities_plugin_download.php` | ✅ UC10 — real branded zip downloaded+inspected, zero leftover "PlusCities" strings |
+| `pluscities_niches.php` / `_save.php` | ✅ UC11 — found+fixed 3 more root-owned dirs; a real niche authored end to end |
+| `admin/impersonate.php` | ✅ UC12 |
 
-## 5. Delivery protocol & plugin — core proven, auxiliary paths untested
+## 5. Delivery protocol & plugin — 4/5 (only the 3rd-party hook integration excluded)
 
 | Capability | Tested? |
 |---|---|
 | `action=manifest` / `action=page` / `action=hub` | ✅ extensively, including the Unpublish fix |
 | WP plugin poll/cache/reconcile | ✅ UC1, UC3, UC7, the Unpublish fix |
-| `pluscities-sitemap.xml` self-served sitemap | ❌ never hit |
-| Yoast/RankMath/AIOSEO sitemap hook integration | ❌ never exercised (would need one of those plugins active on the test WP install) |
-| `robots.txt` fallback line | ❌ never checked |
+| `pluscities-sitemap.xml` self-served sitemap | ✅ UC10 — needs zero 3rd-party plugin, confirmed it correctly lists only real live pages |
+| Yoast/RankMath/AIOSEO sitemap hook integration | ❌ **deliberately not attempted** — needs one of those plugins actually installed on the test WP box |
+| `robots.txt` fallback line | ✅ UC10 — confirmed the `Sitemap:` line appears additively alongside WordPress's own default |
 
-## 6. Agency business layer — creation only
+## 6. Agency business layer — 6/7 (only Stripe excluded)
 
 | Capability | Tested? |
 |---|---|
 | Agency creation | ✅ UC1, UC5 |
 | Agency login | ✅ UC1, UC5 |
 | `editor_can_publish` toggle | ✅ UC5 |
-| `spend_cap_usd` / `monthly_fee_usd` billing fields | ❌ never set or checked against anything |
-| Agency branding (`display_name`/`logo_url`) flowing into a downloaded plugin | ❌ never tested — ties directly to `pluscities_plugin_download.php` (§4), also untested |
-| Agency suspend/approve (`agencies.php`'s `toggle_status`) | ❌ never tested |
-| `create_checkout` (Stripe) action | ❌ never tested (and likely needs real Stripe sandbox creds — may not be practically testable here) |
+| `spend_cap_usd` / `monthly_fee_usd` billing fields | ✅ UC14 |
+| Agency branding (`display_name`/`logo_url`) flowing into a downloaded plugin | ✅ UC10 |
+| Agency suspend/approve (`agencies.php`'s `toggle_status`) | ✅ UC14 — confirmed the exact "credentials right, access wrong" message |
+| `create_checkout` (Stripe) action | ❌ **deliberately not attempted** — needs a real Stripe sandbox |
 
-## 7. Niche/content pipeline — resolution proven, authoring untested
+## 7. Niche/content pipeline — 3/4, only paid fresh research excluded
 
 | Capability | Tested? |
 |---|---|
 | Niche family/blueprint resolution (`pluscities_niche_resolved()`) | ✅ hvac + restoration, directly compared in UC8 |
-| Niche/family/preset CRUD via the real admin | ❌ never tested (ties to `pluscities_niches.php`, §4) |
-| Fresh fact-card research (`pluscities_research_run()`) for a brand-new topic/city | ❌ never triggered — every fact card used this session already existed from prior work |
-| Fresh dataset fetch (`census_acs`) for a city with no cached data | ❌ never triggered — `housing_stock` blocks this session all hit already-cached Census data |
+| Niche/family/preset CRUD via the real admin | ✅ UC11 — a real niche (dental-practice) + a new compliance preset authored end to end through `pluscities_niches.php` |
+| Fresh fact-card research (`pluscities_research_run()`) for a brand-new topic/city | ❌ **deliberately not attempted** — a real, billed Anthropic API run each time; same discipline as other paid-API runs this session |
+| Fresh dataset fetch (`census_acs`) for a city with no cached data | ✅ UC13 — provisioned a page for a city never used by any client/niche system-wide; confirmed a brand-new `datasets` row was created, not served from cache |
 
 ---
 
-## Recommended next use cases — final scope, Scott approved expanding to maximize coverage
+## How UC9-14 closed the gap — 20/57 → 52/57
 
-Full scope for each written into `docs/pluscities-use-case-tests.md` directly (not repeated here). Net
-effect of running all six as scoped: **42 of 47 rows closed (~89%)**, up from 20/47 (~43%) today.
+Full per-use-case detail lives in `docs/pluscities-use-case-tests.md` (not repeated here).
 
-1. **UC9 — Validator thoroughness.** Expanded beyond the original 3 checks to trigger `service_radius`,
-   `wrong_city`, `client_facts`, `uniqueness`, `stale_facts`, `faq`, and one hard exception + refusal
-   proof — 8 of the 10 untested validator-related rows, every one that's realistically triggerable
-   through the real admin.
-2. **UC10 — Photos, branding, plugin artifact, hub content, and self-served delivery extras.** Expanded
-   to also cover `pluscities_hub_edit.php` (missed in the first pass) and the self-served
-   `/pluscities-sitemap.xml` + `/robots.txt` (realized these need zero 3rd-party SEO plugin — only the
-   Yoast/RankMath/AIOSEO *hook* integration does, which stays excluded). Five real gaps closed together.
-3. **UC11 — Niche Library authoring.** Unchanged from the original proposal.
-4. **UC12 — Impersonation.** Unchanged from the original proposal.
-5. **UC13 — Client-supplied reviews + a brand-new city's first dataset fetch.** Expanded to also
-   provision a page for a city never used by any QA client, closing the "first datasets-table row for
-   this city" gap alongside the reviews-content gap — a natural pairing, not a separate use case.
-6. **UC14 — Agency billing fields + suspend/approve** (new, not in the original 5-item list). Closes 2
-   more real, no-external-dependency rows in the agency-business layer that UC1/UC5 only partially
-   touched (they tested creation, never billing fields or the suspend/approve lifecycle).
+1. **UC9 — Validator thoroughness.** Triggered `service_radius`, `wrong_city`, `client_facts`,
+   `uniqueness` (genuinely passed, not forced), `stale_facts`, `faq`, and proved the hard-exception
+   override *refusal* for the first time via `invented_prices`. Closed 10 validator rows in one use case.
+2. **UC10 — Photos, branding, plugin artifact, hub content, and self-served delivery extras.** Found and
+   fixed a root-owned-directory block on `pluscities_uploads/` along the way. Closed `pluscities_photos.
+   php`, `pluscities_hub_edit.php`, `pluscities_plugin_download.php`, agency branding flow-through, the
+   self-served sitemap, and the `robots.txt` line — 6 rows across 3 sections.
+3. **UC11 — Niche Library authoring.** Authored a real niche (dental-practice) plus a new compliance
+   preset end to end through `pluscities_niches.php`. Found and fixed 3 more root-owned directories along
+   the way; also surfaced a real UI gap (several niche-blueprint fields have no admin screen at all) now
+   recorded in `docs/pluscities-system-reference.md`.
+4. **UC12 — Impersonation.** Confirmed `admin/impersonate.php`'s start/stop/no-stacking behavior;
+   along the way, ruled out what first looked like a broken restoration as a test-script CSRF-token
+   mistake, not a product bug.
+5. **UC13 — Client-supplied reviews + a brand-new city's first dataset fetch.** Closed
+   `invented_reviews`, the `reviews_from_city` client-supplied classification, and a genuinely-fresh
+   `census_acs` dataset fetch (confirmed a brand-new `datasets` row, not a cache hit) in one page.
+6. **UC14 — Agency billing fields + suspend/approve.** Closed the 2 remaining agency-business rows
+   UC1/UC5 never touched — confirmed the exact "account currently suspended" message, distinct from a
+   generic bad-credentials error.
 
-**Only 5 rows remain genuinely out of reach without new infrastructure, deliberately not scoped as use
-cases:** Stripe checkout (needs real sandbox credentials), the Yoast/RankMath/AIOSEO sitemap *hook*
-integration specifically (needs those plugins actually installed — the self-served sitemap itself is
-covered by UC10), `quotes` (confirmed dead code — the writer never injects raw `quote` text, nothing to
-trigger), `cannibalization` (structurally blocked via the real admin — `page_id` is deterministic from
-client+city+service, the normal create path can't produce a duplicate), and fresh fact-card research for
-a genuinely new topic (expensive — spends real Anthropic API budget each time, same discipline this
-session already applied to the one real billed run in the City Service Page work).
+Across UC9-14: 5 more root-owned-directory permission bugs found and fixed (bringing the session total to
+6), 1 silent-failure correction (a UC10 claim about branded-image refresh that turned out wrong on
+re-check, corrected on the record rather than left standing), 2 durable UI gaps documented in the
+reference doc (FAQ-content editing, niche-authoring fields), 1 real account-funding issue surfaced
+(DataForSEO 402 on keyword validation — not a code bug), and 1 testing-methodology lesson (Playwright
+dialog auto-dismiss, hit twice; CSRF tokens aren't present on every page).

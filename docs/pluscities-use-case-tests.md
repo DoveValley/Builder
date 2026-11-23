@@ -8,12 +8,15 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **UC1-8 complete and verified.** UC9-14 scoped below (not yet run) — added after a coverage
-audit (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
-capabilities. UC9-14 are scoped specifically to close every realistically-closable gap the audit found,
-targeting ~89% (42/47) — the remaining 5 rows need external infrastructure this isn't worth building just
-to test (a real Stripe sandbox, real SEO plugins installed, or spending real Anthropic API budget on
-fresh research with nothing new to learn from it).
+Status: **All 14 use cases complete and verified.** UC9-14 were added after a coverage audit
+(`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
+capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
+mistake in this same doc: state the real recount, not an estimate). Across UC9-14: 6 more real bugs found
+(5 more root-owned-directory permission blockers — 2 of them caught my own earlier claims being wrong and
+corrected on the record — plus a real UI gap for editing FAQ content), 2 real UI-coverage gaps documented
+(no niche-authoring fields for `niche_table`/`trust_bar_items`/etc., no way to fix one FAQ answer), 1 real
+account-funding issue surfaced (DataForSEO 402, not a code bug), and 1 testing-methodology lesson (grab
+the real CSRF-protected link a page renders, don't assume a bare form input exists everywhere).
 
 Across UC1-8: 1 use case (UC4) confirmed a real, honest pre-existing gap rather than a working feature;
 3 real bugs were found and fixed (`pluscities_rollback_page()`'s dropped `client_grounded` column, 2
@@ -592,14 +595,31 @@ both gaps at once, no need for an entirely new city.
 **Artifacts:** `qa-test-co` gains a 3rd live page (`plano-tx`/`furnace-repair`), real `reviews_by_city`
 data for `plano-tx`, and the system's first-ever genuine `census_acs` fetch for that city.
 
-## UC14 — Agency billing fields + suspend/approve — not yet run
+## UC14 — Agency billing fields + suspend/approve — ✅ PASS (final use case — the full planned suite is
+now complete)
 
 **Goal:** `agencies.php`'s billing fields (`spend_cap_usd`, `monthly_fee_usd`) and the suspend/approve
 `toggle_status` action have real, no-external-dependency code paths that UC1/UC5 never touched (those
 only exercised agency *creation*).
 
-Planned: set a real `spend_cap_usd`/`monthly_fee_usd` on `QA Test Agency 2` and confirm it's saved
-correctly in the agency JSON. Then suspend it via the real `toggle_status` action, confirm its
-`agency_admin` can no longer log in and sees the correct "currently suspended" message (not a generic bad-
-login error), then reactivate it and confirm login works again — exercising the exact "credentials right,
-access wrong" shape `admin/agency_login.php`'s own code comment describes, never actually triggered live.
+**Steps + results:**
+
+1. Set real `spend_cap_usd=250.00` / `monthly_fee_usd=99.00` on `QA Test Agency 2` via the real Agencies
+   edit form — confirmed saved correctly in the agency JSON.
+2. Suspended it via the real `toggle_status` action (another `confirm()`-dialog button, same shape as
+   UC7's rollback control — needed a dialog-accept handler, not a product issue) — confirmed
+   `status='suspended'`.
+3. Attempted a real login as that agency's admin — correctly blocked with the exact specific message:
+   `"This agency account is currently suspended."` — not a generic bad-credentials error. Proves the
+   "credentials right, access wrong" shape `admin/agency_login.php`'s own code comment describes, which
+   had never actually been triggered live before this.
+4. Reactivated via the same action, confirmed login now succeeds and correctly lands on the agency
+   dashboard (built earlier this session) — both pieces of recent work confirmed working together.
+
+**Artifacts:** `QA Test Agency 2` now has real billing fields set; its suspend/reactivate cycle proven
+live.
+
+---
+
+**All 14 use cases (the original 5, plus UC6-14) are now complete.** See the coverage audit
+(`docs/pluscities-test-coverage-audit.md`) for the final tally against the full capability inventory.
