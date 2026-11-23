@@ -8,13 +8,17 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 8 use cases complete and verified.** UC6-8 were added after UC1-5 to cover 3 real gaps in
-that original coverage (validator override, rollback/unpublish, and a second real niche's full
-lifecycle). Across the full suite: 1 use case (UC4) confirmed a real, honest pre-existing gap rather than
-a working feature; 2 real bugs were found and fixed (`pluscities_rollback_page()`'s dropped
-`client_grounded` column, 2 root-owned-directory permission blockers); 1 significant gap was found and
-documented but not yet fixed (Unpublish doesn't actually take content offline); and the session-long
-missing-sidebar-CSS bug across all 8 `pluscities_*.php` admin pages was caught and fixed.
+Status: **UC1-8 complete and verified.** UC9-14 scoped below (not yet run) — added after a coverage
+audit (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
+capabilities. UC9-14 are scoped specifically to close every realistically-closable gap the audit found,
+targeting ~89% (42/47) — the remaining 5 rows need external infrastructure this isn't worth building just
+to test (a real Stripe sandbox, real SEO plugins installed, or spending real Anthropic API budget on
+fresh research with nothing new to learn from it).
+
+Across UC1-8: 1 use case (UC4) confirmed a real, honest pre-existing gap rather than a working feature;
+3 real bugs were found and fixed (`pluscities_rollback_page()`'s dropped `client_grounded` column, 2
+root-owned-directory permission blockers, and the Unpublish gap — fixed the same day it was found); and
+the session-long missing-sidebar-CSS bug across all 8 `pluscities_*.php` admin pages was caught and fixed.
 
 ---
 
@@ -376,3 +380,85 @@ Co B`'s existing draft page from UC5's setup, default block picks, never previou
 *other* niche blueprint behaves correctly end-to-end, same as `hvac` did across UC1-7.
 
 **Artifacts:** `QA Test Co B` now has 1 live page.
+
+---
+
+## UC9 — Validator thoroughness — not yet run
+
+**Goal:** 10 of 14 validator-related rows (12 checks + override-grant + override-refusal) were never
+deliberately triggered by UC1-8. Close every one that's realistically triggerable through the real admin.
+
+Planned: on a QA page, deliberately trigger — `service_radius` (add a city outside `radius_minutes` and
+not `confirmed_by_client`), `wrong_city` (edit a block to cite a fact card scoped to a different city),
+`client_facts` (edit a block to include a phone number that doesn't match the client's real one),
+`uniqueness` (create a near-duplicate page for the same service, confirm the shingle-Jaccard check
+fails), `stale_facts` (flip a cited fact card's `expires_at` into the past, confirm it fails), `faq`
+(blank out one FAQ answer). Also trigger one hard exception (`invented_prices` — add a `$` figure not in
+`price_ranges`) and confirm Approve is refused with no Override option offered for it (proving the
+hard-exception refusal, never tested in UC6). **Deliberately not attempting**: `quotes` (confirmed dead
+code — the writer never injects raw `quote` text) and `cannibalization` (structurally blocked via the
+real admin — `page_id` is deterministic from client+city+service, so the normal create path can't
+produce a duplicate).
+
+## UC10 — Photos, branding, the real plugin artifact, hub content, and self-served delivery extras —
+not yet run
+
+**Goal:** 5 real screens/paths with zero use-case coverage, naturally grouped — all client-facing
+delivery/branding surfaces an agency actually touches.
+
+Planned: upload a real logo + set/detect brand colors for a QA client via `pluscities_photos.php`;
+download that client's agency's branded plugin zip via `pluscities_plugin_download.php` and inspect it
+(confirm the agency's own `display_name`/`logo_url` appear in the plugin header, not "PlusCities");
+edit a QA client's hub/listing page text via `pluscities_hub_edit.php` (never touched since Project B)
+and confirm it renders through the real delivery chain; hit the real WordPress test install's
+self-served `/pluscities-sitemap.xml` and `/robots.txt` directly (both work with zero 3rd-party SEO
+plugin involved — only the Yoast/RankMath/AIOSEO *hook* integration needs those actually installed,
+which stays out of scope here) and confirm both reflect the real live page set.
+
+## UC11 — Niche Library authoring — not yet run
+
+**Goal:** 4 of 6 niche families are known placeholder stubs (`docs/pluscities-system-reference.md` §4) —
+prove whether the real authoring UI (`pluscities_niches.php`/`_save.php`) actually works, independent of
+what content currently exists, by using it for real rather than just reading that the stubs exist.
+
+Planned: use the real admin to flesh out one placeholder family (e.g. give `legal` a real display label,
+distinct `schema_type_family`, real `default_city_blocks`/`research_topics` instead of the copy-pasted
+`home-trades` defaults) or create a new compliance preset (the spec names a `medical` preset that's never
+existed on disk) — confirm the save handler's `validate_keyword` action and the real family/niche/preset
+CRUD all work end to end via the real forms.
+
+## UC12 — Impersonation — not yet run
+
+**Goal:** `admin/impersonate.php`'s `start`/`stop` actions are real, built, and tied directly to the role
+model UC5 already explored — never exercised live.
+
+Planned: as `super_admin`, impersonate `qa-test-agency` (confirm the session correctly scopes to that
+agency's clients only, same as a real `agency_admin` login would), then impersonate one of its clients
+as an `end_client` (confirm the appropriate restriction), then `stop` at each hop and confirm the
+original `super_admin` session is cleanly restored with no leaked `agency_id`/`client_id` state.
+
+## UC13 — Client-supplied reviews + a brand-new city's first dataset fetch — not yet run
+
+**Goal:** `reviews_from_city`/`client-supplied` classification has never been exercised by any use case —
+the 3 real rows in the live DB all predate this session's QA fixture. Separately, no use case has ever
+provisioned a page for a city with no existing `datasets` table row for `census_acs`, so the "first
+fetch" path has never been directly observed (as opposed to reading from an already-cached row).
+
+Planned: add real `reviews_by_city` entries to a QA client, provision a page that picks the
+`reviews_from_city` block, confirm its content is copied straight from the client record (`origin=
+'client'`, never touches the AI writer) and that the `invented_reviews` hard exception correctly passes
+when the text matches verbatim. Separately, provision a page for a real city never used by any QA client
+so far, confirm a new `(city_id, 'census_acs')` row appears in the `datasets` table for the first time
+(not just read from a pre-existing cache row).
+
+## UC14 — Agency billing fields + suspend/approve — not yet run
+
+**Goal:** `agencies.php`'s billing fields (`spend_cap_usd`, `monthly_fee_usd`) and the suspend/approve
+`toggle_status` action have real, no-external-dependency code paths that UC1/UC5 never touched (those
+only exercised agency *creation*).
+
+Planned: set a real `spend_cap_usd`/`monthly_fee_usd` on `QA Test Agency 2` and confirm it's saved
+correctly in the agency JSON. Then suspend it via the real `toggle_status` action, confirm its
+`agency_admin` can no longer log in and sees the correct "currently suspended" message (not a generic bad-
+login error), then reactivate it and confirm login works again — exercising the exact "credentials right,
+access wrong" shape `admin/agency_login.php`'s own code comment describes, never actually triggered live.

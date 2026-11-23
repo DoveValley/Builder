@@ -12,22 +12,14 @@ concentrated in three areas: the validator (only 2 of 12 checks ever deliberatel
 admin screens never touched at all, and the agency-business layer (billing, branding flow-through,
 suspend/approve).
 
-**If UC9-13 are run as scoped below: 33/47 (~70%).** Two real residual gaps surfaced while computing that
-projection, not covered by any of UC9-13 as currently scoped — worth folding in cheaply rather than
-leaving out by oversight:
-- **`pluscities_hub_edit.php`** (the hub/listing-page text editor, built in Project B) — missed entirely;
-  none of UC9-13 touch it.
-- **Fresh dataset fetch** (`census_acs`) for a city with no cached Census data — genuinely cheap to test
-  (unlike fresh fact-card research, which spends real Anthropic API budget per run), just never scoped.
-
-Even after UC9-13 plus those two (35/47, ~75%), a further handful is realistically testable with more
-effort — `uniqueness` (create a near-duplicate page), `stale_facts` (manipulate a fact card's
-`expires_at`), `faq` (blank out an answer), billing-field validation, and agency suspend/approve all have
-no external dependency, they're just not scoped yet. Only 4 rows are **genuinely** out of reach here:
-Stripe checkout (needs real sandbox creds), the SEO-plugin sitemap hooks (need Yoast/RankMath/AIOSEO
-actually installed), `quotes` (confirmed dead code in practice, nothing to trigger), and fresh fact-card
-research (costs real Anthropic API budget per run — same discipline already applied elsewhere this
-session). Realistic ceiling here is closer to **~90%+ (43/47)**, not 100%.
+**Scott's call: expand the next round to close everything realistically closable, not just the first
+narrow pass.** Two real gaps surfaced while projecting the original UC9-13 scope — `pluscities_hub_edit.
+php` (missed entirely) and fresh `census_acs` dataset fetch (cheap, just never scoped) — both folded in,
+plus a new UC14 for the agency billing/suspend-approve rows UC1/UC5 never touched. See "Recommended next
+use cases" below for the final scope. **Net effect: 42/47 (~89%)**, leaving only 5 rows genuinely out of
+reach without new infrastructure (Stripe, the SEO-plugin sitemap *hook* integration specifically, two
+structurally-unreachable-via-the-real-admin validator checks, and fresh fact-card research's real API
+cost).
 
 ---
 
@@ -130,26 +122,33 @@ has been. 10 of 12 individual checks have never been deliberately forced to fail
 
 ---
 
-## Recommended next use cases, ranked by value
+## Recommended next use cases — final scope, Scott approved expanding to maximize coverage
 
-1. **UC9 — Validator hard-exception + remaining checks.** Deliberately trigger `service_radius`,
-   `wrong_city`, `client_facts`, and one hard exception (`invented_prices` or `invented_reviews`) —
-   confirm each fails correctly AND confirm the hard exception genuinely refuses an override attempt
-   (never proven). Closes the single biggest gap (10 of 12 checks untested).
-2. **UC10 — Photos, branding, and the real plugin artifact.** Upload a logo, set/detect brand colors on
-   a QA client, then actually download that agency's branded plugin zip and inspect it (confirm the
-   agency's own name/logo appears, not "PlusCities"). Three untested screens closed by one real workflow.
-3. **UC11 — Niche Library authoring.** Use the real admin to flesh out one of the 4 placeholder-stub
-   families (or create a new compliance preset) rather than just reading that they're stubs — proves
-   whether the authoring UI itself works, independent of what content currently exists.
-4. **UC12 — Impersonation.** super_admin → agency_admin → one of its clients, confirm scope at each
-   hop, confirm "stop" cleanly restores the original session with no leaked state.
-5. **UC13 — client-supplied content + reviews.** Add `reviews_by_city` data to a QA client, pick
-   `reviews_from_city` as a block, confirm it bypasses the AI writer entirely and the `invented_reviews`
-   check correctly validates it matches verbatim.
+Full scope for each written into `docs/pluscities-use-case-tests.md` directly (not repeated here). Net
+effect of running all six as scoped: **42 of 47 rows closed (~89%)**, up from 20/47 (~43%) today.
 
-Not recommending as use cases (real but low-value or impractical to test here): Stripe checkout (needs
-real sandbox credentials), SEO-plugin sitemap hooks (needs Yoast/RankMath/AIOSEO actually installed on
-the test WP box), fresh fact-card research for a genuinely new topic (expensive — spends real Anthropic
-API budget each time, same discipline this session already applied to the one real billed run in the
-City Service Page work).
+1. **UC9 — Validator thoroughness.** Expanded beyond the original 3 checks to trigger `service_radius`,
+   `wrong_city`, `client_facts`, `uniqueness`, `stale_facts`, `faq`, and one hard exception + refusal
+   proof — 8 of the 10 untested validator-related rows, every one that's realistically triggerable
+   through the real admin.
+2. **UC10 — Photos, branding, plugin artifact, hub content, and self-served delivery extras.** Expanded
+   to also cover `pluscities_hub_edit.php` (missed in the first pass) and the self-served
+   `/pluscities-sitemap.xml` + `/robots.txt` (realized these need zero 3rd-party SEO plugin — only the
+   Yoast/RankMath/AIOSEO *hook* integration does, which stays excluded). Five real gaps closed together.
+3. **UC11 — Niche Library authoring.** Unchanged from the original proposal.
+4. **UC12 — Impersonation.** Unchanged from the original proposal.
+5. **UC13 — Client-supplied reviews + a brand-new city's first dataset fetch.** Expanded to also
+   provision a page for a city never used by any QA client, closing the "first datasets-table row for
+   this city" gap alongside the reviews-content gap — a natural pairing, not a separate use case.
+6. **UC14 — Agency billing fields + suspend/approve** (new, not in the original 5-item list). Closes 2
+   more real, no-external-dependency rows in the agency-business layer that UC1/UC5 only partially
+   touched (they tested creation, never billing fields or the suspend/approve lifecycle).
+
+**Only 5 rows remain genuinely out of reach without new infrastructure, deliberately not scoped as use
+cases:** Stripe checkout (needs real sandbox credentials), the Yoast/RankMath/AIOSEO sitemap *hook*
+integration specifically (needs those plugins actually installed — the self-served sitemap itself is
+covered by UC10), `quotes` (confirmed dead code — the writer never injects raw `quote` text, nothing to
+trigger), `cannibalization` (structurally blocked via the real admin — `page_id` is deterministic from
+client+city+service, the normal create path can't produce a duplicate), and fresh fact-card research for
+a genuinely new topic (expensive — spends real Anthropic API budget each time, same discipline this
+session already applied to the one real billed run in the City Service Page work).
