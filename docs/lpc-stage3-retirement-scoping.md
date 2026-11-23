@@ -12,6 +12,11 @@ drifted from current code (see corrections below).
 engine for the entire admin app (PlusCities and Site Factory included). Stage 3 has a required refactor
 step before the bulk deletion, not just a file-removal pass.
 
+**Status, 2026-11-23: §1 answered (keep billing/sessions on the shared path, confirmed nothing to split
+out), §3's extraction DONE** (`includes/landing_page_clients_agencies.php` → `includes/agencies.php`,
+commits `511210ff`/`df288b2d`) — see §3 for what was actually verified. Remaining: §5 steps 3-6 (nav
+cleanup, bulk file deletion, data cleanup, infra decisions).
+
 ---
 
 ## 1. The blocking decision — answer this before any code moves
@@ -73,10 +78,11 @@ calls into the agencies file, see §1/§3 — needs to move with it, not just va
 
 ### 2.2 Must keep — genuinely shared, confirmed by direct call-site tracing
 
-- **`includes/landing_page_clients_agencies.php`** — see §1/§3. `lpc_current_actor_role()` alone is
-  called from ~90 files including almost every `pluscities_*.php` screen and every Site Factory/infra
-  page. `admin/infra/bootstrap.php:18` requires this file directly for exactly that function, with a
-  comment noting a past production outage (commit `47cbb498`) from under-accounting this dependency.
+- **`includes/agencies.php`** (renamed 2026-11-23 from `includes/landing_page_clients_agencies.php`, see
+  §3 — this bullet already reflects the new name). `lpc_current_actor_role()` alone is called from ~90
+  files including almost every `pluscities_*.php` screen and every Site Factory/infra page.
+  `admin/infra/bootstrap.php` requires this file directly for exactly that function, with a comment
+  noting a past production outage (commit `47cbb498`) from under-accounting this dependency.
 - **`admin/agency_login.php`** — shared login for both legacy LPC agency passwords and new per-person
   PlusCities editor accounts (`pluscities_user_find_by_username()` tried first, falls back to
   `lpc_find_agency_by_username()`); both success paths redirect to `pluscities_dashboard.php`.
@@ -110,22 +116,34 @@ calls into the agencies file, see §1/§3 — needs to move with it, not just va
 
 ---
 
-## 3. The required refactor — extract before you delete
+## 3. The required refactor — extract before you delete — ✅ DONE 2026-11-23
 
-`includes/landing_page_clients_agencies.php` cannot simply move into the "delete" pile. Recommended
-approach, once §1's billing question is answered:
+`includes/landing_page_clients_agencies.php` could not simply move into the "delete" pile. §1 was
+answered first (keep billing/sessions on the shared path — `includes/stripe_client.php`,
+`admin/stripe_webhook.php`, `admin/agencies.php` needed no change at all, confirmed already agency-level,
+not LPC-specific).
 
-1. Rename/extract the file to shared infra, e.g. `includes/platform_actors.php` (or fold into
-   `includes/functions.php`'s existing bootstrap role — naming is a judgment call, not a correctness
-   one).
-2. Update every call site (~90 files) to require the new location. Mechanical, but wide — verify with a
-   full `grep -rl "landing_page_clients_agencies" --include=*.php` sweep before and after to confirm zero
-   stragglers, the same verification discipline used for the `pluscities_page_style_css()` extraction
-   earlier this session (byte-identical behavior, not just "it still runs").
-3. Smoke-test: every PlusCities screen, every Site Factory/infra screen, and `admin/infra/bootstrap.php`
-   specifically (the file with the documented prior-outage history) must still load correctly after the
-   rename — this is the one step where a mistake would be visible fleet-wide, not just to one client.
-4. Only after the rename is verified: proceed to §4's nav cleanup and §2.1's bulk deletion.
+**What was actually done**, matching the plan below:
+1. **Renamed** `includes/landing_page_clients_agencies.php` → `includes/agencies.php` via `git mv`
+   (history preserved), content unchanged.
+2. **Updated the real call sites** — a repo-wide grep *before* touching anything found only **2** direct
+   `require` sites, not ~90: `includes/functions.php` (the central loader everything else gets it
+   through) and `admin/infra/bootstrap.php` (its own direct require, by design — "deliberately
+   self-contained"). Both updated. The ~90 actual *callers* of `lpc_current_actor_role()` etc. needed
+   zero changes — they call functions by name, not by file path. (The "~90 files to update" framing
+   below, from the original scoping pass, overstated the mechanical blast radius — worth re-verifying
+   call-site counts before estimating effort next time rather than assuming every caller needs editing.)
+3. **Smoke-tested**: lint-clean on all 6 touched files; `lpc_current_actor_role()`/`lpc_load_agency()`
+   both callable after the rename; real HTTP requests against `admin/infra/index.php` (the documented
+   prior-outage page), `admin/pluscities_clients.php`, and `admin/client.php` (still-present LPC page)
+   all returned clean redirects with zero fatal-error output.
+4. Also updated 3 stale comment references to the old filename (`landing_page_clients.php`,
+   `pluscities_users.php`, `tools/lpc_check_grace_periods.php`) and the file's own header to explain why
+   it moved.
+
+Commits: `511210ff` (the rename itself), `df288b2d` (require-path + comment updates).
+
+**Next**: §5 steps 3-6 (nav cleanup, bulk file deletion, data cleanup, infra decisions) — not yet done.
 
 ---
 
