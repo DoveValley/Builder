@@ -477,17 +477,55 @@ delivery/branding surfaces an agency actually touches.
 **Artifacts:** `qa-test-co` now has a real logo, brand colors, and a hero photo upload; `qa-test-agency`
 now has real branding (`display_name`/`logo_url`) that flows correctly into its downloaded plugin.
 
-## UC11 — Niche Library authoring — not yet run
+## UC11 — Niche Library authoring — ✅ PASS (found + fixed 3 more root-owned dirs; real readiness checklist applied)
 
-**Goal:** 4 of 6 niche families are known placeholder stubs (`docs/pluscities-system-reference.md` §4) —
-prove whether the real authoring UI (`pluscities_niches.php`/`_save.php`) actually works, independent of
-what content currently exists, by using it for real rather than just reading that the stubs exist.
+**Goal:** 4 of 6 niche families are known placeholder stubs — prove whether the real authoring UI works,
+independent of what content currently exists, judged against a real readiness checklist (Scott's call,
+mid-use-case): **family-level** — real `label`, correct `schema_type_family`, distinct
+`default_city_blocks`/`research_topics` (not copy-pasted), a correctly-matched `compliance_preset`.
+**Niche-level** — real `schema_subtype`, `services[]` with actual keyword data, a real `niche_table`,
+sensible `trust_bar_items`/`blog_topics`.
 
-Planned: use the real admin to flesh out one placeholder family (e.g. give `legal` a real display label,
-distinct `schema_type_family`, real `default_city_blocks`/`research_topics` instead of the copy-pasted
-`home-trades` defaults) or create a new compliance preset (the spec names a `medical` preset that's never
-existed on disk) — confirm the save handler's `validate_keyword` action and the real family/niche/preset
-CRUD all work end to end via the real forms.
+**Found before any content work**: `compliance_presets/`, `niche_families/`, and `niche_blueprints/` were
+all **root-owned** — the very first save (a new compliance preset) reported `"Preset saved"` while
+nothing was actually written to disk (confirmed by the file never appearing). Same recurring bug class
+as UC1/UC5/UC10 — the 6th real instance this session. **Fixed** via targeted `chown` on all three
+directories.
+
+**Steps + results, against the checklist:**
+
+1. Created the real **`medical`** compliance preset the spec names but that never existed on disk
+   (`label`, 4 real banned phrases, `show_license` toggle) — ✅.
+2. Fleshed out the **`medical-wellness`** family: real label ("Medical & Wellness"), correct
+   `schema_type_family` ("MedicalBusiness", not inherited "LocalBusiness"), `compliance_preset` correctly
+   switched to the new `medical` preset (not defaulting to `contractor`), and a **genuinely distinct**
+   `default_city_blocks`/`research_topics` (dropped `permits`/`hoa_rules`/`seasonal_guide`/`hazards`/
+   `climate_data` — not relevant to a medical practice — kept `neighborhoods`/`housing_stock`/`utilities`/
+   `reviews_from_city`) — ✅ all 4 family-level checklist items.
+3. Authored a real new niche, **`dental-practice`**, under that family: real `schema_subtype` ("Dentist",
+   a genuine schema.org type), `service_noun`, `local_angle`, `seasonal_calendar`, and 2 real services
+   with primary keywords — ✅ schema_subtype + services exist.
+4. Ran the real `validate_keyword` action for one service — **genuine, single paid DataForSEO call, not
+   repeated**: the real account returned `402 Payment Required` (out of balance/over a budget cap, not a
+   code bug — flagged to Scott directly, worth checking outside this test). Confirmed the handler
+   correctly surfaced the real API error to the admin and left `primary_keyword_data` as `null` rather
+   than writing garbage on a failed call — the plumbing is proven correct even though the full keyword
+   data couldn't be fetched in this environment.
+5. **Confirmed a real, concrete limit of the authoring UI**: `pluscities_niches.php`'s save_niche form has
+   **no fields at all** for `niche_table`, `trust_bar_items`, `blog_topics`, `custom_research_fields`,
+   `approved_sources_extra`, or `image_slots` — every one of these stayed `null`/`[]` on the new niche
+   after using every field the real form offers. A niche authored entirely through the real admin today
+   cannot reach full "launch ready" status (especially `niche_table`, which the `niche_data_table` block
+   type needs to render anything meaningful) — would still need a direct JSON edit, the same "no UI for
+   this" shape as `banned_phrases` (UC6) and `radius_minutes` (UC9).
+
+**Readiness checklist result**: family-level fully closeable via the real UI (4/4). Niche-level partially
+closeable (`schema_subtype`/`services` yes; `niche_table`/`trust_bar_items`/`blog_topics` no UI path at
+all) — an honest, concrete finding about where the authoring tool's real coverage ends.
+
+**Artifacts:** `compliance_presets/medical.json`, a genuinely fleshed-out `niche_families/medical-
+wellness.json`, and a new `niche_blueprints/dental-practice.json` (left as real, permanent fixture
+content — not cleaned up, consistent with the rest of the QA fixture).
 
 ## UC12 — Impersonation — not yet run
 

@@ -322,6 +322,12 @@ Honest numbers, not aspirational ones:
     `{"faqs":[...]}` — the Save button is correctly `disabled` for them (no risk of a malformed write),
     but that also means there's no way to fix one bad answer without a full Regenerate, which calls the
     AI writer fresh rather than making a small correction.
+  - **The Niche Library's real `save_niche` form has no fields at all for `niche_table`,
+    `trust_bar_items`, `blog_topics`, `custom_research_fields`, `approved_sources_extra`, or
+    `image_slots`** (found 2026-11-23, UC11) — every one of these stays `null`/`[]` on a niche authored
+    entirely through the real admin, same "no UI exists, must hand-edit JSON" shape as `banned_phrases`
+    (UC6) and `radius_minutes` (UC9). Most consequential for `niche_table`, since the `niche_data_table`
+    block type can't render anything meaningful without one.
   - **`pluscities_rollback_page()` dropped `blocks.client_grounded` on restore** (fixed 2026-11-23, found
     via real use-case testing — see `docs/pluscities-use-case-tests.md` UC7): its INSERT statement omitted
     the column entirely, silently resetting it to 0 regardless of what the revision snapshot actually
