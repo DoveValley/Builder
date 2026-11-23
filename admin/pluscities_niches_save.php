@@ -110,6 +110,7 @@ if ($action === 'save_niche') {
         'trust_bar_items'            => $existing['trust_bar_items'] ?? [],
         'blog_topics'                => $existing['blog_topics'] ?? [],
         'match_keywords'             => $existing['match_keywords'] ?? [],
+        'image_slots'                => $existing['image_slots'] ?? [],
     ]);
     header('Location: pluscities_niches.php?msg=success:Niche+saved&edit_niche=' . urlencode($nicheId)); exit;
 }
