@@ -1644,13 +1644,15 @@ function platform_info_content_flow_data(): array {
         ['path' => __DIR__ . '/../docs/pluscities-use-case-tests.md',
          'heading' => 'PlusCities — Use Case Test Suite',
          'intro' => 'Long, real walkthroughs run against the live system to verify the system reference doc\'s claims, not just read them.'],
+        ['path' => __DIR__ . '/../docs/pluscities-test-coverage-audit.md',
+         'heading' => 'PlusCities — Test Coverage Audit',
+         'intro' => 'What percentage of the real system UC1-8 actually exercise, mapped capability by capability — and which use cases to run next to close the biggest gaps.'],
     ];
     ?>
     <h3 style="margin-top:0;color:#1e3a5f;">Use Case Test Suite</h3>
     <p style="font-size:.88rem;line-height:1.7;">
         Same idea as the Claude tab, one step further: instead of describing what the system should do,
         each use case is a real end-to-end run through the live admin, with the actual outcome recorded.
-        Scope being worked out with Scott before these are written.
     </p>
     <?php foreach ($useCaseDocs as $doc):
         $docText = is_file($doc['path']) ? file_get_contents($doc['path']) : null;
