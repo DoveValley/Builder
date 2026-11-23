@@ -462,6 +462,7 @@ function lpc_render_single_page( $page, $top_level = 'h2', $manifest = [] ) {
 	echo '<main>';
 	echo lpc_render_sections( $page['sections'] ?? [], $top_level, $faq_style ); // phpcs:ignore WordPress.Security.EscapeOutput -- section renderer escapes each field itself.
 	echo '</main>';
+	echo lpc_render_sticky_call_bar( $page['sections'] ?? [] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escapes its own fields, see function doc.
 	echo lpc_render_schema( $page['schema_jsonld'] ?? null ); // phpcs:ignore WordPress.Security.EscapeOutput -- JSON-LD, not HTML.
 	echo lpc_render_click_tracking_script( $page['page_id'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput -- builds its own escaped values, see function doc.
 }

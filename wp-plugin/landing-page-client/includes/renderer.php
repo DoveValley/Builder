@@ -432,6 +432,34 @@ function lpc_render_related_links( $s ) {
 	return $out;
 }
 
+/** Fixed-position mobile call bar, shown only under styles.php's 760px
+ *  breakpoint (desktop gets the hero/CTA buttons already on the page, which
+ *  don't need a persistent duplicate). Reads the phone straight off the
+ *  page's own hero section rather than adding a new manifest/client field —
+ *  every page already carries its own correctly-resolved phone number there,
+ *  no new plumbing needed. Returns '' (renders nothing) if the hero has no
+ *  phone, same "no data means nothing renders" rule every other
+ *  auto-computed section already follows. */
+function lpc_render_sticky_call_bar( $sections ) {
+	$phone = '';
+	foreach ( (array) $sections as $s ) {
+		if ( ( $s['type'] ?? '' ) === 'hero' && ! empty( $s['phone'] ) ) {
+			$phone = $s['phone'];
+			break;
+		}
+	}
+	if ( $phone === '' ) {
+		return '';
+	}
+	$tel = preg_replace( '/[^0-9+]/', '', $phone );
+	$out  = '<div class="lpc-sticky-call">';
+	$out .= '<a href="tel:' . esc_attr( $tel ) . '" data-lpc-track="tel">';
+	$out .= '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.6c0-.6.4-1 1-1H7.6c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>';
+	$out .= '<span>Call Now — ' . esc_html( $phone ) . '</span>';
+	$out .= '</a></div>';
+	return $out;
+}
+
 function lpc_render_schema( $schema_jsonld ) {
 	if ( empty( $schema_jsonld ) ) {
 		return '';

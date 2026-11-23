@@ -52,6 +52,12 @@ function lpc_render_styles( $branding ) {
 	// so an unavailable font name just falls back to the theme's own body
 	// font with zero visual harm, same as any missing-font browser fallback.
 	$font_decl = $font !== '' ? "'" . $font . "', " : '';
+	// Headings get a bold serif display face by default — distinct from the
+	// plain body font — for typographic contrast an unbranded client
+	// otherwise has none of. A client who HAS set their own font keeps using
+	// it for headings too (brand consistency wins over the default pairing),
+	// so this only ever changes anything for the common case of no font set.
+	$heading_font_decl = $font !== '' ? $font_decl : "Georgia, 'Times New Roman', ";
 
 	ob_start();
 	?>
@@ -70,6 +76,11 @@ function lpc_render_styles( $branding ) {
 			   inherited default to a light/white color, which against these
 			   same-family light backgrounds reads as text "disappearing"). */
 			color: #1a1a2e;
+		}
+		.lpc-page .lpc-hero-headline,
+		.lpc-page .lpc-section h2,
+		.lpc-page .lpc-cta h2 {
+			font-family: <?php echo $heading_font_decl; ?>serif;
 		}
 		.lpc-page .lpc-hero {
 			background: <?php echo $primary_tint; ?>;
@@ -165,7 +176,16 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-card { background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 18px 20px; }
 		.lpc-page .lpc-card strong { display: block; margin-bottom: 6px; color: var(--lpc-primary); }
 		.lpc-page .lpc-card span { display: block; font-size: .92rem; opacity: .8; }
-		.lpc-page .lpc-faq-list { display: flex; flex-direction: column; gap: 14px; }
+		.lpc-page .lpc-faq-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-items: start; }
+		/* Placed immediately after the base rule, not folded into the
+		   earlier hero media-query block — a real bug found testing this:
+		   two rules of equal specificity resolve by SOURCE ORDER regardless
+		   of which one sits in a (currently-true) media query, so the
+		   override has to come after the rule it overrides or it silently
+		   loses the cascade on every viewport, not just wide ones. */
+		@media (max-width: 760px) {
+			.lpc-page .lpc-faq-list { grid-template-columns: 1fr; }
+		}
 		.lpc-page .lpc-faq-item { background: <?php echo $accent_tint; ?>; border-radius: 10px; padding: 16px 20px; }
 		.lpc-page .lpc-faq-item h3 { margin: 0 0 6px; font-size: 1.05rem; }
 		.lpc-page .lpc-faq-item p { margin: 0; opacity: .85; }
@@ -242,6 +262,31 @@ function lpc_render_styles( $branding ) {
 		/* Detailed format — the same card as the default, plus a short
 		   "N services available" line above the link list. */
 		.lpc-page .lpc-hub-city-detailed-count { font-size: .8rem; opacity: .7; margin: 0 0 8px; }
+
+		/* Mobile-only persistent call bar (Bailey-style competitive finding,
+		   2026-11-23) — fixed to the viewport, not .lpc-page, since
+		   position:fixed is relative to the viewport regardless of DOM
+		   nesting; living inside .lpc-page is only so the existing scoped
+		   selector convention still applies. Hidden on desktop: the hero/CTA
+		   buttons already on-page cover that case there, a persistent
+		   duplicate would just be clutter. */
+		.lpc-sticky-call { display: none; }
+		@media (max-width: 760px) {
+			.lpc-sticky-call {
+				display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+				background: var(--lpc-primary); box-shadow: 0 -2px 10px rgba(0,0,0,.15);
+			}
+			.lpc-sticky-call a {
+				display: flex; align-items: center; justify-content: center; gap: 8px;
+				padding: 14px 20px; color: #fff; text-decoration: none; font-weight: 700;
+			}
+			/* Reserves the space the fixed bar occupies so it never covers the
+			   page's own last section — a small unconditional cost (also
+			   applied on the hub page, which never renders the bar) rather
+			   than a :has()-based conditional for a cosmetic amount of
+			   trailing whitespace. */
+			.lpc-page { padding-bottom: 60px; }
+		}
 	</style>
 	<?php
 	return ob_get_clean();
