@@ -764,6 +764,7 @@ function platform_info_content_flow_data(): array {
 .lpc-roadmap-filters select { font-size:.82rem; padding:5px 8px; border-radius:8px; border:1px solid var(--pc-line); }
 .lpc-roadmap-filters .lpc-roadmap-count { font-size:.78rem; color:#6b7280; margin-left:auto; }
 .lpc-roadmap-section-empty { display:none; }
+.lpc-roadmap-section-tag { display:block; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:#1e3a5f; margin-bottom:4px; }
 .lpc-wf-table td { vertical-align:top; }
 .lpc-wf-step { font-weight:700; }
 .lpc-wf-step-n { color:#9ca3af; font-weight:400; margin-right:4px; }
@@ -1191,8 +1192,25 @@ function platform_info_content_flow_data(): array {
                 <option value="complete">Complete</option>
             </select>
         </span>
+        <span><label for="rm-sort-mode">View</label>
+            <select id="rm-sort-mode" onchange="lpcRoadmapFilter()">
+                <option value="section">By section (as written)</option>
+                <option value="priority">By priority (sell-gated first, quick wins first)</option>
+            </select>
+        </span>
         <span class="lpc-roadmap-count" id="rm-filter-count"></span>
     </div>
+    <table class="lpc-table lpc-roadmap-table" id="rm-priority-table" style="display:none;margin-bottom:8px;">
+        <thead><tr>
+            <th style="width:22%;">Capability</th>
+            <th style="width:14%;">Role(s)</th>
+            <th style="width:9%;">Status</th>
+            <th style="width:12%;">Launch gate</th>
+            <th style="width:9%;">Effort</th>
+            <th>What's needed</th>
+        </tr></thead>
+        <tbody id="rm-priority-tbody"></tbody>
+    </table>
     <?php foreach (platform_info_roadmap_data() as $section): ?>
         <h4 class="lpc-roadmap-section" style="margin:22px 0 8px;font-family:'Space Grotesk',sans-serif;color:#1e3a5f;"><?= h($section['title']) ?></h4>
         <table class="lpc-table lpc-roadmap-table" style="margin-bottom:8px;">
@@ -1206,7 +1224,7 @@ function platform_info_content_flow_data(): array {
             </tr></thead>
             <tbody>
             <?php foreach ($section['rows'] as $r): ?>
-                <tr data-gate="<?= h($r['gate'] ?? '') ?>" data-effort="<?= h($r['effort'] ?? '') ?>" data-status="<?= h($r['status']) ?>">
+                <tr data-gate="<?= h($r['gate'] ?? '') ?>" data-effort="<?= h($r['effort'] ?? '') ?>" data-status="<?= h($r['status']) ?>" data-section="<?= h($section['title']) ?>">
                     <td class="lpc-roadmap-cap"><?= h($r['cap']) ?></td>
                     <td class="lpc-roadmap-roles"><?= h($r['roles']) ?></td>
                     <td>
@@ -1239,8 +1257,10 @@ function platform_info_content_flow_data(): array {
         var gate = document.getElementById('rm-filter-gate').value;
         var effort = document.getElementById('rm-filter-effort').value;
         var status = document.getElementById('rm-filter-status').value;
-        var tables = document.querySelectorAll('.lpc-roadmap-table');
+        var sortMode = document.getElementById('rm-sort-mode').value;
+        var tables = document.querySelectorAll('.lpc-roadmap-table:not(#rm-priority-table)');
         var shown = 0, total = 0;
+        var matchedRows = [];
         tables.forEach(function (table) {
             var visibleRows = 0;
             table.querySelectorAll('tbody tr').forEach(function (row) {
@@ -1248,16 +1268,49 @@ function platform_info_content_flow_data(): array {
                 var match = (!gate || row.dataset.gate === gate)
                     && (!effort || row.dataset.effort === effort)
                     && (!status || row.dataset.status === status);
-                row.style.display = match ? '' : 'none';
-                if (match) { visibleRows++; shown++; }
+                row.style.display = (sortMode === 'priority') ? 'none' : (match ? '' : 'none');
+                if (match) { visibleRows++; shown++; matchedRows.push(row); }
             });
             var heading = table.previousElementSibling;
-            var show = visibleRows > 0;
+            var show = (sortMode === 'section') && visibleRows > 0;
             table.style.display = show ? '' : 'none';
             if (heading && heading.classList.contains('lpc-roadmap-section')) {
                 heading.style.display = show ? '' : 'none';
             }
         });
+
+        var priorityTable = document.getElementById('rm-priority-table');
+        var priorityBody = document.getElementById('rm-priority-tbody');
+        if (sortMode === 'priority') {
+            // Lower rank = higher priority. No gate/effort set (e.g. a 'complete' row) sorts last.
+            var gateRank = { sell: 0, retain: 1, differentiate: 2 };
+            var effortRank = { quick: 0, moderate: 1, major: 2 };
+            matchedRows.sort(function (a, b) {
+                var ga = gateRank.hasOwnProperty(a.dataset.gate) ? gateRank[a.dataset.gate] : 3;
+                var gb = gateRank.hasOwnProperty(b.dataset.gate) ? gateRank[b.dataset.gate] : 3;
+                if (ga !== gb) return ga - gb;
+                var ea = effortRank.hasOwnProperty(a.dataset.effort) ? effortRank[a.dataset.effort] : 3;
+                var eb = effortRank.hasOwnProperty(b.dataset.effort) ? effortRank[b.dataset.effort] : 3;
+                return ea - eb;
+            });
+            priorityBody.innerHTML = '';
+            matchedRows.forEach(function (row, i) {
+                var clone = row.cloneNode(true);
+                clone.style.display = '';
+                var capCell = clone.querySelector('.lpc-roadmap-cap');
+                if (capCell) {
+                    var tag = document.createElement('span');
+                    tag.className = 'lpc-roadmap-section-tag';
+                    tag.textContent = '#' + (i + 1) + ' · ' + (row.dataset.section || '');
+                    capCell.insertBefore(tag, capCell.firstChild);
+                }
+                priorityBody.appendChild(clone);
+            });
+            priorityTable.style.display = matchedRows.length ? '' : 'none';
+        } else {
+            priorityTable.style.display = 'none';
+        }
+
         document.getElementById('rm-filter-count').textContent = shown + ' of ' + total + ' rows shown';
     }
     lpcRoadmapFilter();
