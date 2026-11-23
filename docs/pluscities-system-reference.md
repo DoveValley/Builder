@@ -317,6 +317,11 @@ Honest numbers, not aspirational ones:
   - `fact_cards.status` values `stale`/`rejected` are schema- and spec-documented, but the only function
     that can set them (`pluscities_fact_card_deactivate()`) has zero call sites — every live row is
     `active` in practice.
+  - **No admin UI path exists to correct a single FAQ answer** (found 2026-11-23, UC9): the generic Edit
+    form (`admin/pluscities_page.php`) edits `content_json['body']`, but FAQ blocks are shaped
+    `{"faqs":[...]}` — the Save button is correctly `disabled` for them (no risk of a malformed write),
+    but that also means there's no way to fix one bad answer without a full Regenerate, which calls the
+    AI writer fresh rather than making a small correction.
   - **`pluscities_rollback_page()` dropped `blocks.client_grounded` on restore** (fixed 2026-11-23, found
     via real use-case testing — see `docs/pluscities-use-case-tests.md` UC7): its INSERT statement omitted
     the column entirely, silently resetting it to 0 regardless of what the revision snapshot actually

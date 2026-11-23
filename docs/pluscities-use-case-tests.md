@@ -383,22 +383,57 @@ Co B`'s existing draft page from UC5's setup, default block picks, never previou
 
 ---
 
-## UC9 — Validator thoroughness — not yet run
+## UC9 — Validator thoroughness — ✅ PASS (6 of 7 triggered checks confirmed; 1 honest non-failure; 1 real UI gap found)
 
-**Goal:** 10 of 14 validator-related rows (12 checks + override-grant + override-refusal) were never
-deliberately triggered by UC1-8. Close every one that's realistically triggerable through the real admin.
+**Goal:** close every validator-related row realistically triggerable through the real admin — 10 of 14
+rows had never been deliberately triggered before this use case.
 
-Planned: on a QA page, deliberately trigger — `service_radius` (add a city outside `radius_minutes` and
-not `confirmed_by_client`), `wrong_city` (edit a block to cite a fact card scoped to a different city),
-`client_facts` (edit a block to include a phone number that doesn't match the client's real one),
-`uniqueness` (create a near-duplicate page for the same service, confirm the shingle-Jaccard check
-fails), `stale_facts` (flip a cited fact card's `expires_at` into the past, confirm it fails), `faq`
-(blank out one FAQ answer). Also trigger one hard exception (`invented_prices` — add a `$` figure not in
-`price_ranges`) and confirm Approve is refused with no Override option offered for it (proving the
-hard-exception refusal, never tested in UC6). **Deliberately not attempting**: `quotes` (confirmed dead
-code — the writer never injects raw `quote` text) and `cannibalization` (structurally blocked via the
-real admin — `page_id` is deterministic from client+city+service, so the normal create path can't
-produce a duplicate).
+**Steps + results, each isolated and reverted before moving to the next (same rigor as UC6):**
+
+1. **`service_radius` + `uniqueness`, together** — added a new page (`pg_qatestco_allen-tx_ac-repair`)
+   via the real Add Page form: `allen-tx`, 50 min drive (> the client's 30 min `radius_minutes`), not
+   confirmed, **same service and identical block picks as page 1** to maximize text similarity.
+   - `service_radius` → **✅ failed exactly as expected**: `"This city is 50 min away, outside the 30
+     min radius, and not confirmed by the client."`
+   - `uniqueness` → **passed, genuinely** — identical topic picks did not produce ≥50% shingle overlap.
+     A real, honest finding: the AI writer varies language enough per city (city name, specific phrasing)
+     that matching topic selection alone doesn't create duplicate content. Not a test failure — evidence
+     the content-diversity design goal actually holds.
+   - This page is left in `draft` (service_radius failing) as a realistic "needs attention" fixture page.
+2. **`client_facts`** — edited a block's body via the real Edit UI to include a phone number not matching
+   the client's real one → **✅ failed**: `"The 'climate_data' block shows a phone number that doesn't
+   match the client's real number."` Reverted.
+3. **`invented_prices` (hard exception) + override refusal** — edited a block to state a `$350` price not
+   in the client's `price_ranges` → **✅ failed**: `"...states a price ($350) the client never
+   supplied."` Confirmed the UI renders **no Override control at all** for this check, then sent a raw
+   POST attempting to override it anyway — **refused server-side**: `"This check can never be overridden
+   — the content needs to actually be fixed."` First time this refusal path has ever been proven (UC6
+   only proved the *grant* path, on a soft check). Reverted.
+4. **`wrong_city`** — found no block on any QA page currently cites any fact card at all (confirmed: zero
+   `fact_ids` populated anywhere in the fixture). No admin UI assigns a fact_id to a block manually (only
+   the AI writer does, based on what it actually cites) — set the precondition directly (cited a real
+   fact card scoped to `frisco-tx` on a `mckinney-tx` page block), same "no UI exists, document it
+   honestly" pattern UC6 used for `banned_phrases` → **✅ failed**: `"Fact fc_frisco-tx_permits_...
+   belongs to 'frisco-tx', not this page's city."` Reverted.
+5. **`stale_facts`** — same precondition pattern: cited a real, *correctly*-scoped fact card
+   (`fc_mckinney-tx_hazards_...`), then flipped its `status` to `stale` directly (no admin UI sets this
+   either — `pluscities_fact_card_deactivate()` has zero real call sites, confirmed in the reference doc)
+   → **✅ failed**: `"...is now 'stale' — needs re-research before this page should rely on it."`
+   Reverted both the citation and the status flip.
+6. **`faq`** — **real gap found before even triggering the check**: the generic Edit form's Save button
+   is `disabled` for FAQ blocks (confirmed in the UI), because FAQ content is shaped `{"faqs":[...]}`, not
+   `{"body":...}` like every other editable block — **there is no real admin path to fix a single bad FAQ
+   answer at all**, only full regeneration (which calls the AI writer fresh, not a small correction).
+   Blanked one answer via a direct content write to prove the check itself works → **✅ failed**:
+   `"One of the FAQ entries is missing a question or an answer."` Reverted.
+
+**Deliberately not attempted** (confirmed structurally blocked via the real admin, not worth forcing):
+`quotes` (confirmed dead code — the writer never injects raw `quote` text) and `cannibalization`
+(`page_id` is deterministic from client+city+service, so the normal create path can't produce a
+duplicate).
+
+**Artifacts:** `qa-test-co` gains a 3rd page (`allen-tx`/`ac-repair`, intentionally left in draft —
+failing `service_radius`). Pages 1-2 fully reverted and republished clean.
 
 ## UC10 — Photos, branding, the real plugin artifact, hub content, and self-served delivery extras —
 not yet run

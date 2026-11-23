@@ -3,7 +3,7 @@
     "agency_id": "qa-test-agency",
     "niche_id": "hvac",
     "domain": "qa-test-co.example.com",
-    "site_rev": 12,
+    "site_rev": 13,
     "plugin_rev": 0,
     "plugin_version": "",
     "last_seen_at": "",
@@ -49,6 +49,11 @@
         {
             "city_id": "mckinney-tx",
             "drive_minutes": 20,
+            "confirmed_by_client": false
+        },
+        {
+            "city_id": "allen-tx",
+            "drive_minutes": 50,
             "confirmed_by_client": false
         }
     ],
