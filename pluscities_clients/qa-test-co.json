@@ -3,7 +3,7 @@
     "agency_id": "qa-test-agency",
     "niche_id": "hvac",
     "domain": "qa-test-co.example.com",
-    "site_rev": 4,
+    "site_rev": 5,
     "plugin_rev": 0,
     "plugin_version": "",
     "last_seen_at": "",
@@ -25,7 +25,9 @@
         "sat": "8:00-14:00",
         "sun": "closed"
     },
-    "banned_phrases": [],
+    "banned_phrases": [
+        "lifetime guarantee"
+    ],
     "photos_by_city": [],
     "reviews_by_city": [],
     "price_ranges": null,

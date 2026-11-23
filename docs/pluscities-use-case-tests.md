@@ -8,7 +8,9 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 5 use cases complete and verified.**
+Status: **All 5 original use cases complete and verified. UC6-8 added to cover 3 real gaps in that
+coverage (validator override, rollback/unpublish, and a second real niche's full lifecycle — none of
+which any of UC1-5 exercised). Not yet run.**
 
 ---
 
@@ -232,3 +234,69 @@ read-scope gap had something real to reproduce against; an Agency Editor (`qa-ed
 
 **Artifacts:** `QA Test Agency 2` + `QA Test Co 2`, `QA Test Co B` (both under the original agency), one
 real Agency Editor account (`qa-editor`), `qa-test-agency.editor_can_publish` now `true`.
+
+---
+
+## UC6 — Validator failure + override — ✅ PASS (first real exercise of this mechanism, ever)
+
+**Goal:** the `overrides` table had 0 real rows this entire engagement before this use case — prove the
+override mechanism actually works, not just that it's built.
+
+**Finding before the test even started:** there is **no admin UI anywhere to edit a client's
+`banned_phrases` after creation** — only the create-client form writes the initial (always-empty) array.
+Set it directly via `pluscities_atomic_write_json()` for this test, same as a real admin would have to
+today absent a dedicated screen; noted as a real, separate minor gap.
+
+**Steps taken:**
+1. Set `qa-test-co.banned_phrases = ["lifetime guarantee"]`.
+2. Edited block 108 (`overview`) via the real Edit UI to include that exact phrase.
+3. Ran Validate, attempted Approve.
+4. Submitted the real Override form with a typed reason.
+5. Attempted Approve again.
+6. Edited a *different*, unrelated block (109) with a trivial change, re-validated, attempted Approve
+   again — to prove the override is tied to an exact `draft_hash`, not the page or the check generally.
+7. Removed the banned phrase, re-validated (clean), re-approved, re-published — left the fixture in a
+   genuinely compliant, live state, not sitting on overridden content afterward.
+
+**Verified:**
+- `validation_json` showed exactly one failing check — `banned_phrases` — with a specific, accurate
+  detail message: `'The "overview" block uses "lifetime guarantee" — on this client's own banned-phrase
+  list.'` Correctly attributed to the client's own list (not the niche's compliance preset), confirming
+  it's the overridable path.
+- Approve was refused (`"One or more checks are still failing."`) before the override.
+- The override form worked exactly as designed: `"Override recorded"`, then Approve immediately
+  succeeded.
+- **The `overrides` table's first-ever real row**: `page_id`, `check_name='banned_phrases'`, the real
+  typed reason, `actor='super_admin:admin'`, and a `draft_hash` matching the page's hash at that moment.
+- **The "tied to an exact draft_hash" claim proven live**: after the unrelated edit changed the page's
+  overall hash (the banned phrase was still present in block 108, untouched), Approve failed again with
+  the same generic failing-checks message — the override silently stopped applying, exactly as the
+  reference doc describes, with zero special-casing needed to make this happen.
+- After removing the phrase entirely, the page validated clean with **zero** failing checks and
+  published without needing any override at all.
+
+**Artifacts:** `qa-test-co.banned_phrases` now `["lifetime guarantee"]` (left in place — a realistic
+client-level denylist entry, not test debris). One permanent row in the `overrides` table (historical
+record, correctly never deleted even though it no longer applies to the current draft).
+
+## UC7 — Rollback + Unpublish — not yet run
+
+**Goal:** neither lifecycle verb has been touched by UC1-5. Page 2 (`pg_qatestco_mckinney-tx_furnace-
+repair`) already has 2 real revisions (from UC2's initial publish and UC3's post-edit republish) — enough
+to roll back between.
+
+Planned: `pluscities_rollback_page()` to revision 1, confirm content reverts to the pre-UC3-edit version
+and the page re-enters draft (`approval_stage` reset, `status` stays `live` — "never an instant revert,
+not even through history"), re-publish to restore. Then unpublish a page, confirm `status='unpublished'`,
+`site_rev` bumps, and the real WP-delivered page goes dark on next sync — then republish to leave the
+fixture fully live again afterward.
+
+## UC8 — Second niche's full lifecycle — not yet run
+
+**Goal:** every prior use case ran against `hvac`. `QA Test Co B` (water-damage-restoration) already has
+one page sitting in `draft` from UC5's setup, never taken through the lifecycle — niche-specific code
+paths (schema_subtype, niche_table, research_topics) have never been exercised live this session.
+
+Planned: Validate → Approve → Publish `pg_qatestcob_carrollton-tx_water-damage-restoration`, verify via
+the sync endpoint that the rendered schema/content is genuinely water-damage-restoration-specific (not
+hvac-shaped assumptions leaking through), confirm the hub route for `QA Test Co B` too.
