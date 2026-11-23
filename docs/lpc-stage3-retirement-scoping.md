@@ -12,10 +12,11 @@ drifted from current code (see corrections below).
 engine for the entire admin app (PlusCities and Site Factory included). Stage 3 has a required refactor
 step before the bulk deletion, not just a file-removal pass.
 
-**Status, 2026-11-23: §5 steps 1-4 done** (billing/session decision answered, agencies-file extracted,
-nav cleaned up, 27-file bulk deletion done — commits `511210ff`/`df288b2d`/`8a4ac987`/`8391774e`/
-`d34e76c5`). Remaining: §5 steps 5-6 (data cleanup — needs explicit go-ahead, irreversible — and the
-infra-side decisions: demo-sites box, standalone delivery service).
+**Status, 2026-11-23: §5 steps 1-5 done — every repo-level step is complete.** Billing/session decision
+answered, agencies-file extracted, nav cleaned up, 27-file bulk deletion done, client data deleted
+(commits `511210ff`/`df288b2d`/`8a4ac987`/`8391774e`/`d34e76c5`/`93a58e48`/`4e375bf9`). **Only step 6
+remains, and it's infrastructure, not a repo change**: deciding the fate of the demo-sites box and the
+standalone delivery service (see §4).
 
 ---
 
@@ -197,9 +198,16 @@ Commits: `511210ff` (the rename itself), `df288b2d` (require-path + comment upda
    returned clean 302s with zero fatal-error output. `CLAUDE.md`'s docs table updated to mark the two docs
    describing now-deleted code (`landing-page-clients-onboarding.md`, `city-service-page-block-matrix.md`)
    as historical-only, commit `d34e76c5`.
-5. Explicit go-ahead, then delete §2.3's data (Meade's LPC record, quarantined test clients).
+5. ✅ Explicit go-ahead given, data deleted — commit `4e375bf9`. `clients/meade-restoration/` (both the
+   tracked `data/` files and the gitignored `secrets/api_key.txt`), `clients_deleted/*` (both quarantined
+   test clients, gitignored, disk-only), `client_niche_profiles/*.json` (its only reader already
+   deleted). Also cleaned up `config.php`: removed `CLIENTS_DIR` and all 6 now-dead `LPC_DELIVERY_*`
+   constants (verified zero remaining references first) — `LPC_DEMO_BOX_*` and `LPC_ALERT_EMAIL`
+   deliberately kept (still used). Verified: `config.php` lints clean, full HTTP smoke test across every
+   core screen clean. **This is the last repo-level step** — everything else is infrastructure.
 6. Separately, decide and act on §2.3's infrastructure items (demo-sites box, standalone delivery
-   service, its orphaned test-client directories) — not blocking on the code-repo deletion above.
+   service, its orphaned test-client directories) — not blocking on the code-repo deletion above, and not
+   a repo change at all.
 
 **How to apply:** re-verify file/line references above before executing any step — this was scoped from a
 point-in-time read of the code on 2026-11-23; if time has passed, re-run the same grep/require-chain
