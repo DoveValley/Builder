@@ -23,6 +23,14 @@ require_once __DIR__ . '/state.php'; // infra_state_db() — bootstrap.php loads
                                       // path, but the CLI research_tick.php cron entrypoint
                                       // never touches bootstrap.php, so this file must be
                                       // self-sufficient rather than relying on the caller.
+require_once __DIR__ . '/keywords.php'; // infra_kw_types(), used unconditionally by
+                                         // infra_cn_cols() below. Found missing 2026-11-23:
+                                         // includes/pluscities_schema.php calls into this file
+                                         // directly (the documented cross-boundary pattern,
+                                         // CLAUDE.md "admin/infra/lib/* is deliberately
+                                         // self-contained") without ever loading keywords.php
+                                         // first — a real pre-existing gap, first actually
+                                         // triggered by a live pluscities_sync.php hub request.
 
 const INFRA_CITY_COLS  = ['id', 'rank', 'city', 'state', 'ss', 'population', 'lat', 'lng', 'area_codes', 'ac_source'];
 

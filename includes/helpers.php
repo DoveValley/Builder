@@ -857,3 +857,21 @@ function gf_preload_urls(string $cssHref, array $onlyWeights = []): array {
     }
     return array_map(fn($e) => $e['url'], $entries);
 }
+
+/**
+ * Deep-merge $defaults into $data for any key missing from $data, recursing into
+ * associative sub-arrays (not lists, so hubs[]/sections[]-style arrays are never
+ * merged item-by-item against a skeleton). Used by includes/agencies.php and
+ * includes/niche_library.php — moved here from includes/landing_page_clients.php
+ * (deleted 2026-11-23, LPC Stage 3) since it was never LPC-specific logic.
+ */
+function lpc_deep_merge_defaults($defaults, $data) {
+    foreach ($defaults as $key => $value) {
+        if (!array_key_exists($key, $data)) {
+            $data[$key] = $value;
+        } elseif (is_array($value) && is_array($data[$key]) && !isset($value[0])) {
+            $data[$key] = lpc_deep_merge_defaults($value, $data[$key]);
+        }
+    }
+    return $data;
+}

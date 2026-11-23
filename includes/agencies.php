@@ -499,8 +499,14 @@ function lpc_pause_agency_clients($agency_id) {
         if (!$client['delivery']['active']) continue; // already paused
         $client['delivery']['active'] = false;
         lpc_save_client($client_id, $client);
-        lpc_ensure_delivery_key($client_id);
-        lpc_rebuild_manifest($client_id);
+        // lpc_ensure_delivery_key()/lpc_rebuild_manifest() calls removed
+        // 2026-11-23 (LPC Stage 3) — both lived in the now-deleted
+        // includes/landing_page_clients_publish.php, which pushed the pause
+        // to the old standalone delivery server. That server is retired; no
+        // remote sync target remains to notify. In practice this whole loop
+        // body is unreachable today (clients/ is empty, and nothing can
+        // create a new old-LPC client anymore), but fixed properly rather
+        // than left as a landmine for if that ever changes.
         $paused++;
     }
     return $paused;
@@ -542,4 +548,142 @@ function lpc_verify_turnstile(string $token): bool {
 
     $body = json_decode($raw, true);
     return !empty($body['success']);
+}
+
+/**
+ * Old-LPC client-record accessors, restored 2026-11-23 — moved here verbatim
+ * from includes/landing_page_clients.php (deleted the same day, LPC Stage 3)
+ * after that deletion fatal-errored this file's own lpc_load_agency() (via
+ * lpc_deep_merge_defaults(), fixed separately in includes/helpers.php) and
+ * admin/agencies.php/agencies_save.php/impersonate.php, which still account
+ * for pre-PlusCities clients billed through an agency. clients/ itself is
+ * empty now (meade-restoration, its one real entry, was migrated to
+ * PlusCities and deleted in the same Stage 3 pass) — these correctly report
+ * zero old-LPC clients rather than erroring, not a revival of deleted data.
+ */
+function lpc_valid_client_id($client_id) {
+    return is_string($client_id) && preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $client_id) === 1;
+}
+
+function lpc_client_dir($client_id) {
+    if (!lpc_valid_client_id($client_id)) return null;
+    return CLIENTS_DIR . $client_id;
+}
+
+function lpc_client_file($client_id) {
+    $dir = lpc_client_dir($client_id);
+    return $dir === null ? null : $dir . '/data/client.json';
+}
+
+function lpc_client_secret_file($client_id) {
+    $dir = lpc_client_dir($client_id);
+    return $dir === null ? null : $dir . '/secrets/api_key.txt';
+}
+
+function lpc_default_client_data() {
+    return [
+        'client_id'   => '',
+        'agency_id'   => 'scotts-agency',
+        'created_at'  => '',
+        'updated_at'  => '',
+        'login' => [
+            'username' => '',
+        ],
+        'identity' => [
+            'business_name'    => '',
+            'domain'           => '',
+            'industry_category'=> '',
+            'contact_name'     => '',
+            'contact_email'    => '',
+            'contact_phone'    => '',
+        ],
+        'branding' => [
+            'logo_url'      => '',
+            'primary_color' => '',
+            'accent_color'  => '',
+            'font'          => '',
+        ],
+        'content_profile' => [
+            'source'            => '',
+            'excluded_services' => [],
+            'tone'              => 'professional',
+            'always_mention'    => [],
+            'never_mention'     => [],
+        ],
+        'hubs'            => [],
+        'services'        => [],
+        'target_cities'   => [],
+        'billing' => [
+            'setup_fee_per_location'  => 0,
+            'monthly_fee_per_location'=> 0,
+            'start_date'              => '',
+        ],
+        'reporting' => [
+            'gsc_property' => '',
+        ],
+        'integrations' => [
+            'ga_measurement_id'  => '',
+            'cloudflare_account' => '',
+        ],
+    ];
+}
+
+function lpc_load_client($client_id) {
+    $file = lpc_client_file($client_id);
+    if ($file === null || !file_exists($file)) return null;
+    $json = file_get_contents($file);
+    $data = json_decode($json, true);
+    if (!is_array($data)) {
+        error_log('agencies: ' . $file . ' failed to decode as JSON (' . json_last_error_msg() . ')');
+        return null;
+    }
+    return lpc_deep_merge_defaults(lpc_default_client_data(), $data);
+}
+
+function lpc_atomic_write_json($file, $data) {
+    $dir = dirname($file);
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    $tmp = $file . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json, LOCK_EX) === false) {
+        error_log('agencies: failed to write ' . $tmp);
+        return false;
+    }
+    if (!rename($tmp, $file)) {
+        error_log('agencies: failed to rename ' . $tmp . ' to ' . $file);
+        return false;
+    }
+    return true;
+}
+
+function lpc_save_client($client_id, $data) {
+    $file = lpc_client_file($client_id);
+    if ($file === null) return false;
+    $data['client_id']  = $client_id;
+    $data['updated_at'] = $data['updated_at'] ?? gmdate('c');
+    return lpc_atomic_write_json($file, $data);
+}
+
+function lpc_list_clients() {
+    if (!is_dir(CLIENTS_DIR)) return [];
+    $ids = [];
+    foreach (glob(CLIENTS_DIR . '*', GLOB_ONLYDIR) as $dir) {
+        if (file_exists($dir . '/data/client.json')) {
+            $ids[] = basename($dir);
+        }
+    }
+    sort($ids);
+    return $ids;
+}
+
+function lpc_unique_client_id($name) {
+    $base = slugify($name) ?: 'client';
+    if (!lpc_valid_client_id($base)) $base = 'client';
+    $id = $base;
+    $i = 2;
+    while (is_dir(lpc_client_dir($id) ?? '')) {
+        $id = $base . '-' . $i;
+        $i++;
+    }
+    return $id;
 }

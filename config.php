@@ -107,15 +107,29 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
 }
 unset($_activeSiteId, $_msBase);
 
-// CLIENTS_DIR and the LPC_DELIVERY_* constants that used to live here
-// (data dir, remote host/user/path, sync key, public status-check base)
-// were removed 2026-11-23 as part of LPC Stage 3 — their only consumers
-// (includes/landing_page_clients_publish.php's lpc_sync_delivery_to_remote()/
-// lpc_plugin_status(), tools/lpc_check_alerts.php) were deleted in the same
-// pass. See docs/lpc-stage3-retirement-scoping.md. LPC_DEMO_BOX_* below is
-// unrelated (a different box, kept — see that constant's own comment) and
-// LPC_ALERT_EMAIL further below is still used by tools/lpc_check_grace_
-// periods.php, also kept.
+// The LPC_DELIVERY_* constants that used to live here (remote host/user/path,
+// sync key, public status-check base) were removed 2026-11-23 as part of LPC
+// Stage 3 — their only consumers (includes/landing_page_clients_publish.php's
+// lpc_sync_delivery_to_remote()/lpc_plugin_status(), tools/lpc_check_alerts.php)
+// were deleted in the same pass. See docs/lpc-stage3-retirement-scoping.md.
+// LPC_DEMO_BOX_* below is unrelated (a different box, kept — see that
+// constant's own comment) and LPC_ALERT_EMAIL further below is still used by
+// tools/lpc_check_grace_periods.php, also kept.
+//
+// CLIENTS_DIR itself was wrongly removed in the same pass and restored the
+// same day — a real gap in that step's "verified zero remaining references"
+// check: includes/agencies.php (kept, the shared billing/session engine)
+// still calls lpc_list_clients()/lpc_load_client()/lpc_save_client() etc. to
+// account for pre-PlusCities clients billed through an agency. Those
+// functions (and the handful of others includes/agencies.php and
+// admin/agencies.php/agencies_save.php/impersonate.php still call) were
+// restored into includes/agencies.php itself, verbatim from the deleted
+// includes/landing_page_clients.php — this constant is what they resolve
+// against. The underlying clients/ directory is empty now (its one real
+// entry, meade-restoration, was migrated+deleted in the same Stage 3 pass),
+// so these functions correctly report zero old-LPC clients rather than
+// erroring.
+define('CLIENTS_DIR', BASE_DIR . '/clients/');
 
 // The LPC demo-sites box — the 12 rehearsal WordPress installs ("Demo Sites"
 // admin tab), entirely separate from the 20-box niche fleet. Reuses
