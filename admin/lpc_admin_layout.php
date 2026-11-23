@@ -148,15 +148,25 @@ function lpc_admin_nav_items(): array {
 
     $items = [];
 
-    $items[] = ['key' => 'clients', 'href' => 'clients.php', 'label' => 'All Clients',
-        'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/>'];
-    $items[] = ['key' => 'new_client', 'href' => 'client_wizard.php?restart=1', 'label' => 'New Client',
-        'icon' => '<path d="M12 5v14M5 12h14"/>'];
+    // Old-LPC screens stay reachable for super_admin only (whatever still
+    // depends on the old system), not shown to agencies — they'd otherwise
+    // see two "clients" screens with no way to tell which is the real one.
+    if ($role === 'super_admin') {
+        $items[] = ['key' => 'clients', 'href' => 'clients.php', 'label' => 'All Clients',
+            'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/>'];
+        $items[] = ['key' => 'new_client', 'href' => 'client_wizard.php?restart=1', 'label' => 'New Client',
+            'icon' => '<path d="M12 5v14M5 12h14"/>'];
 
-    $approvalStage = $role === 'super_admin' ? 'pending_platform_review' : 'pending_agency_review';
-    $pendingCount  = count(lpc_list_pages_by_approval_stage($approvalStage, lpc_list_clients_for_current_actor()));
-    $items[] = ['key' => 'approvals', 'href' => 'approvals.php', 'label' => 'Approvals',
-        'icon' => '<path d="M20 6 9 17l-5-5"/>', 'badge' => $pendingCount ?: null];
+        $pendingCount = count(lpc_list_pages_by_approval_stage('pending_platform_review', lpc_list_clients_for_current_actor()));
+        $items[] = ['key' => 'approvals', 'href' => 'approvals.php', 'label' => 'Approvals',
+            'icon' => '<path d="M20 6 9 17l-5-5"/>', 'badge' => $pendingCount ?: null];
+    } else {
+        // Agencies land on a real PlusCities-native home instead — a simple,
+        // genuinely useful capability (what needs attention right now)
+        // rather than one more flat list to scan.
+        $items[] = ['key' => 'dashboard', 'href' => 'pluscities_dashboard.php', 'label' => 'Dashboard',
+            'icon' => '<rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>'];
+    }
 
     // Client create/list — the one piece of onboarding that had no panel
     // screen until now; every client before this was hand-authored JSON.

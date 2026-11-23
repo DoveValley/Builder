@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['agency_id']           = $editorUser['agency_id'];
                 $_SESSION['pluscities_user_id']  = $editorUser['user_id'];
                 $_SESSION['csrf_token']          = bin2hex(random_bytes(32));
-                header('Location: clients.php');
+                header('Location: pluscities_dashboard.php');
                 exit;
             }
         } elseif ($agency && lpc_verify_agency_password($agency['agency_id'], $password)) {
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['agency_id']       = $agency['agency_id'];
                 $_SESSION['csrf_token']      = bin2hex(random_bytes(32));
                 unset($_SESSION['pluscities_user_id']); // no stale editor identity from a prior session
-                header('Location: clients.php');
+                header('Location: pluscities_dashboard.php');
                 exit;
             }
         } else {
