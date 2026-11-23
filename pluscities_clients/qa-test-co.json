@@ -3,7 +3,7 @@
     "agency_id": "qa-test-agency",
     "niche_id": "hvac",
     "domain": "qa-test-co.example.com",
-    "site_rev": 13,
+    "site_rev": 14,
     "plugin_rev": 0,
     "plugin_version": "",
     "last_seen_at": "",
@@ -59,17 +59,22 @@
     ],
     "url_base_path": "service-area",
     "branding": {
-        "logo_url": "",
+        "logo_url": "/pluscities_uploads/logos/qa-test-co_logo_qa-test-logo_1795395808_b3e013.webp",
         "brand_color": "",
-        "accent_override": null,
-        "dark_override": null,
+        "accent_override": "#8b1a1a",
+        "dark_override": "#0b1b33",
         "detected_accent": null,
         "detected_dark": null,
-        "colors_detected_at": null
+        "colors_detected_at": "2026-11-23T01:03:30+00:00"
     },
-    "images": [],
+    "images": {
+        "hero": {
+            "branded_cache_path": "branded/qa-test-co_hero_d49e9762.webp",
+            "uploaded_path": "/pluscities_uploads/photos/qa-test-co_hero_qa-test-logo_1795395809_831e7b.webp"
+        }
+    },
     "hub_content": {
-        "top_text": "",
-        "footer_text": ""
+        "top_text": "Proudly serving {{business_name}} customers across North Texas and beyond.",
+        "footer_text": "Can't find your city? Call {{business_name}} anyway -- we likely still cover your area."
     }
 }

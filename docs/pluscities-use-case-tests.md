@@ -436,19 +436,40 @@ duplicate).
 failing `service_radius`). Pages 1-2 fully reverted and republished clean.
 
 ## UC10 — Photos, branding, the real plugin artifact, hub content, and self-served delivery extras —
-not yet run
+✅ PASS (found + fixed 1 more root-owned-dir bug, same silent-failure shape as UC5)
 
 **Goal:** 5 real screens/paths with zero use-case coverage, naturally grouped — all client-facing
 delivery/branding surfaces an agency actually touches.
 
-Planned: upload a real logo + set/detect brand colors for a QA client via `pluscities_photos.php`;
-download that client's agency's branded plugin zip via `pluscities_plugin_download.php` and inspect it
-(confirm the agency's own `display_name`/`logo_url` appear in the plugin header, not "PlusCities");
-edit a QA client's hub/listing page text via `pluscities_hub_edit.php` (never touched since Project B)
-and confirm it renders through the real delivery chain; hit the real WordPress test install's
-self-served `/pluscities-sitemap.xml` and `/robots.txt` directly (both work with zero 3rd-party SEO
-plugin involved — only the Yoast/RankMath/AIOSEO *hook* integration needs those actually installed,
-which stays out of scope here) and confirm both reflect the real live page set.
+**Steps + results:**
+
+1. **Photos — logo upload, accent/dark colors, a photo-slot upload.** First attempt: the branding save
+   reported `"Saved"`, but the logo never actually persisted (`logo_url` empty on disk) — same silent-
+   failure shape as UC5's team-save finding, root-caused to `pluscities_uploads/` being **root-owned**,
+   blocking www-data (same recurring bug class as UC1/UC5). **Fixed** via targeted `chown` (consistent
+   with the standing policy — fix the specific blocking path, not a blanket sweep). Retried: logo, accent
+   `#8b1a1a`, dark `#0b1b33`, and a hero photo-slot upload **all genuinely persisted** — confirmed real
+   files on disk and `client['branding']`/`client['images']` correctly updated, including the "refresh
+   every slot's branded image right away" behavior firing automatically.
+2. **Color detection** against the client's (fake, non-live) domain — failed gracefully with
+   `"Could not detect colors from your site - try setting them manually"`, not a crash. A correct
+   negative-path result, not a bug.
+3. **The real branded plugin artifact.** Set `QA Test Agency`'s own `display_name`
+   ("Lone Star Digital Marketing") and `logo_url` via the real Agencies edit form, downloaded the real
+   zip via `pluscities_plugin_download.php`, extracted it, and confirmed: the plugin header reads
+   `Plugin Name: Lone Star Digital Marketing Delivery` / a matching Description, the folder is literally
+   named `lone-star-digital-marketing-delivery/`, and **zero occurrences of the literal string
+   "PlusCities" remain anywhere in the delivered file** — a clean, thorough pass.
+4. **Hub content** (`pluscities_hub_edit.php`) — saved new top/footer text with the `{{business_name}}`
+   token, triggered a real sync, confirmed the live delivered hub page
+   (`localhost:8099/service-area/`) shows the token correctly resolved to `"QA Test Co"`.
+5. **Self-served delivery extras** — hit `/pluscities-sitemap.xml` directly: 200, correctly lists exactly
+   the 2 real live pages (correctly excludes UC9's draft `allen-tx` page). Hit `/robots.txt`: correctly
+   includes `Sitemap: .../pluscities-sitemap.xml` alongside WordPress's own default sitemap line —
+   confirms the "additive, not exclusive" design claim from the reference doc, observed live.
+
+**Artifacts:** `qa-test-co` now has a real logo, brand colors, and a hero photo upload; `qa-test-agency`
+now has real branding (`display_name`/`logo_url`) that flows correctly into its downloaded plugin.
 
 ## UC11 — Niche Library authoring — not yet run
 

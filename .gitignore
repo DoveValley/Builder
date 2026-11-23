@@ -32,6 +32,7 @@ config/gsc_service_account.json
 # stay tracked — only this per-client derived/uploaded content is excluded.
 pluscities_uploads/branded/
 pluscities_uploads/photos/
+pluscities_uploads/logos/
 
 # Dedicated SSH key: www-data (this box) -> lpcdelivery (LPC box), scoped to
 # syncing the delivery data tree only. Real credential, never commit.
