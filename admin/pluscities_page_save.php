@@ -39,6 +39,23 @@ if ($action === 'edit') {
     header('Location: ' . $back . '&msg=success:Block+saved+and+locked'); exit;
 }
 
+if ($action === 'edit_faq') {
+    $blockId = (int) ($_POST['block_id'] ?? 0);
+    $db = pluscities_db();
+    $st = $db->prepare('SELECT content_json FROM blocks WHERE id = ?');
+    $st->execute([$blockId]);
+    $content = json_decode($st->fetchColumn() ?: '{}', true) ?: [];
+    $questions = $_POST['faq_question'] ?? [];
+    $answers   = $_POST['faq_answer'] ?? [];
+    $faqs = [];
+    foreach ($questions as $i => $q) {
+        $faqs[] = ['question' => trim((string) $q), 'answer' => trim((string) ($answers[$i] ?? ''))];
+    }
+    $content['faqs'] = $faqs;
+    pluscities_edit_block($blockId, $content, $actor);
+    header('Location: ' . $back . '&msg=success:FAQ+saved+and+locked'); exit;
+}
+
 if ($action === 'toggle_lock') {
     $blockId = (int) ($_POST['block_id'] ?? 0);
     $st = pluscities_db()->prepare('SELECT locked FROM blocks WHERE id = ?');

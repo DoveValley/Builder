@@ -199,6 +199,21 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
         <?php elseif (isset($content['reviews'])): ?>
             <p style="font-size:.84rem;margin:8px 0 0;"><?= count($content['reviews']) ?> client-supplied review(s).</p>
         <?php endif; ?>
+        <?php if (isset($content['faqs'])): ?>
+        <form method="post" action="pluscities_page_save.php">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
+            <input type="hidden" name="block_id" value="<?= (int) $b['id'] ?>">
+            <input type="hidden" name="action" value="edit_faq">
+            <?php foreach ($content['faqs'] as $faq): ?>
+                <div style="margin:8px 0;padding:8px;border:1px solid var(--pc-line,#e2e8f2);border-radius:6px;">
+                    <input type="text" name="faq_question[]" value="<?= h($faq['question'] ?? '') ?>" placeholder="Question" style="width:100%;margin-bottom:6px;font-size:.84rem;padding:4px 6px;">
+                    <textarea name="faq_answer[]" class="pc-edit" placeholder="Answer"><?= h($faq['answer'] ?? '') ?></textarea>
+                </div>
+            <?php endforeach; ?>
+            <button type="submit" class="btn-sm-outline" style="margin-top:6px;">Save FAQ Edits (auto-locks)</button>
+        </form>
+        <?php else: ?>
         <form method="post" action="pluscities_page_save.php">
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
@@ -207,6 +222,7 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
             <textarea class="pc-edit" name="body"><?= h($content['body'] ?? '') ?></textarea>
             <button type="submit" class="btn-sm-outline" style="margin-top:6px;" <?= isset($content['body']) ? '' : 'disabled' ?>>Save Edit (auto-locks)</button>
         </form>
+        <?php endif; ?>
     </div>
     <?php endforeach; ?>
 </div>
