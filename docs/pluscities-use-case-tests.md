@@ -152,6 +152,12 @@ and that the offline-cache-until-republish design claim is real, not just a comm
 
 ## UC4 — Reporting — ✅ PASS (confirms a real, honest gap — not a feature pass)
 
+> **Historical note, 2026-11-23:** step 3 below logged into `admin/client_login.php`, which was deleted
+> the same day as LPC Stage 3 retirement — not reproducible as written anymore. The conclusion still
+> holds, and more strongly: there is now no `end_client` login path at all, for PlusCities or old-LPC
+> clients, where before only the PlusCities side was missing it. See
+> `docs/pluscities-system-reference.md` §5.5.
+
 **Goal:** find out what "reporting" actually means for a PlusCities client today, concretely, rather than
 assuming either "it works" or "it's missing" from reading code alone.
 
@@ -531,6 +537,15 @@ wellness.json`, and a new `niche_blueprints/dental-practice.json` (left as real,
 content — not cleaned up, consistent with the rest of the QA fixture).
 
 ## UC12 — Impersonation — ✅ PASS (confirms both a real structural gap and a real testing lesson)
+
+> **Historical note, 2026-11-23:** step 4 below impersonated `meade-restoration` as an old-LPC
+> `type=client` and landed on `client_portal.php`. Both the client record it impersonated
+> (`clients/meade-restoration/`) and `client_portal.php` itself were deleted the same day as LPC Stage 3
+> retirement — this exact repro is no longer possible, and the `type=client` impersonation path in
+> `admin/impersonate.php` now has no client record left anywhere it could ever successfully load. The
+> structural-gap finding (no way to impersonate a PlusCities client as `end_client`) still holds, and the
+> CSRF-token testing lesson in step 5 remains a generally applicable lesson regardless. Steps 1-3
+> (agency impersonation) are unaffected and still fully reproducible.
 
 **Goal:** `admin/impersonate.php`'s `start`/`stop` actions are real, built, and tied directly to the role
 model UC5 already explored — never exercised live.

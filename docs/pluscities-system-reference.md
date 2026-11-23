@@ -299,8 +299,10 @@ Honest numbers, not aspirational ones:
 - **Real clients: 3** (`elite-air-hvac`, `lonestar-restoration`, `meade-restoration`).
 - **Validator: 12 of 14 spec'd checks built**; block-mix and Sources checks deferred by design, not debt.
 - **Two-stage approval gate**: schema-reserved (`pending_platform_review`/`pending_agency_review`), **zero
-  code ever sets these values** — `pluscities_approve_page()` always takes the direct no-gate path. Fully
-  exists in the *old* LPC system (`includes/landing_page_clients_approvals.php`) but not ported.
+  code ever sets these values** — `pluscities_approve_page()` always takes the direct no-gate path. Used
+  to exist in the old LPC system (`includes/landing_page_clients_approvals.php`), but that file was
+  deleted 2026-11-23 (LPC Stage 3 retirement) without ever being ported — the two-stage gate is now simply
+  unbuilt everywhere, not "exists elsewhere, not here."
 - **Manifest diffing**: whole-client, not true per-page revision diffing yet (Phase 2).
 - **Dataset providers**: only Census (`census_acs`) wired. NOAA/FEMA named in the spec as remaining work,
   not built — concretely, the `climate_data` block type is spec'd as Automatic/NOAA-sourced but is
@@ -366,10 +368,10 @@ whenever unset, which is every session started via the platform operator's own `
 
 | Role | Set by | Scope | Can / can't |
 |---|---|---|---|
-| `super_admin` | Default whenever `actor_role` is unset (`login.php`) | Everything | Full access to every PlusCities + platform-only screen (Agencies, Niche Library, Settings, Platform Info, Demo Sites, WP Builder, Site Factory). Only role that can impersonate. **Cannot** access `pluscities_team.php` directly (agency_admin-only) except by impersonating that agency. |
+| `super_admin` | Default whenever `actor_role` is unset (`login.php`) | Everything | Full access to every PlusCities + platform-only screen (Agencies, Niche Library, Settings, Platform Info, WP Builder, Site Factory). Only role that can impersonate. **Cannot** access `pluscities_team.php` directly (agency_admin-only) except by impersonating that agency. |
 | `agency_admin` | `agency_login.php` | Own `agency_id` | Create/manage own agency's clients, pages, photos, hub text, branding, team roster (`editor_can_publish` toggle). Blocked from every platform-only screen. |
 | `agency_editor` | `agency_login.php`, real per-person account (`includes/pluscities_users.php`) | Same agency, further narrowed by `assigned_client_ids` (empty = sees all of agency's clients) | Edit/lock/regenerate/swap/approve freely. **Publish is conditionally blocked** unless the agency's `editor_can_publish` flag is on (off by default) — enforced inside `pluscities_publish_page()` itself, not just the UI. |
-| `end_client` | `client_login.php` | Exactly one client | Excluded from every `pluscities_*.php` screen. Only reaches `client_portal.php` (read-only reporting) — **and that portal is 100% wired to the OLD LPC client schema, not PlusCities** (see §5.5). |
+| `end_client` | ~~`client_login.php`~~ **No login path exists at all, as of 2026-11-23.** | N/A | Excluded from every `pluscities_*.php` screen, same as always. `client_login.php`/`client_portal.php` (the old-LPC files this role was built for) were deleted in LPC Stage 3 retirement — there is now no way for *anyone* to ever hold this role. The exclusion checks are dead code, not a working restriction (see §5.5). |
 
 Impersonation (`admin/impersonate.php`) overlays role/agency/client without touching the real login flag:
 `super_admin` → any agency (as its admin) or any client (as end_client); `agency_admin` → one of its own
@@ -394,16 +396,18 @@ clients. One hop only, no stacking.
 
 Shared by LPC + PlusCities admin pages (not the ~80-page Site Factory, which has its own separate chrome).
 
-- `end_client` sees exactly one item: Reporting → `client_portal.php`.
-- Everyone else sees, in order: All Clients (old-LPC, shared) → New Client (old-LPC, shared) → Approvals
-  (old-LPC, shared) → **PlusCities Clients** → **PlusCities Pages** → **Photos** → *(agency_admin only:
-  My Branding, Team)* → *(super_admin only, "Platform" section: Agencies, Niche Profiles "(old)", Niche
-  Library, Demo Sites, WP Builder, Platform Information, Settings, ← Site Factory)*.
+- `end_client` has no nav at all now — its one item (Reporting → `client_portal.php`) was deleted along
+  with the rest of old LPC. Moot anyway, since nothing can hold this role anymore (see §5.1).
+- Everyone else sees, in order: **PlusCities Clients** → **PlusCities Pages** → **Photos** →
+  *(agency_admin only: My Branding, Team)* → *(super_admin only — split into two sections, "Platform
+  Ops" and "Build Tools": Agencies, Niche Library, Platform Information, Settings; WP Builder,
+  ← Site Factory)*. The old-LPC items (All Clients, New Client, Approvals, Niche Profiles "(old)", Demo
+  Sites) were removed across LPC Stage 3's retirement (nav cleanup 2026-11-23, with Demo Sites removed in
+  the final step the same day) — none of them exist anymore, in the nav or on disk.
 
-**Two deliberately parallel niche systems exist simultaneously**: `niche_profiles.php` (old engine,
-labeled "(old)" in the nav itself, kept alive because `landing_page_clients_ai.php` still reads it) and
-`pluscities_niches.php` (the real PlusCities Niche Library). This is intentional during migration, not
-drift — but a fresh reader needs to know both exist.
+**The "two parallel niche systems" situation this section used to describe no longer applies.**
+`niche_profiles.php` (the old engine) and its reader `landing_page_clients_ai.php` were both deleted in
+Stage 3. `pluscities_niches.php` (the real PlusCities Niche Library) is now the only niche system.
 
 Not in the nav at all (reached only via links from other pages): `pluscities_hub_edit.php`,
 `pluscities_page_add.php`, `pluscities_page.php`, `pluscities_plugin_download.php`.
@@ -413,19 +417,20 @@ Not in the nav at all (reached only via links from other pages): `pluscities_hub
 | File | Who | Redirects to |
 |---|---|---|
 | `admin/login.php` | Platform operator | `sites.php` (Site Factory) |
-| `admin/agency_login.php` | Agency Admin or Agency Editor | `clients.php` (old-LPC shared list) |
-| `admin/client_login.php` | End client of an **old-LPC** client | `client_portal.php` |
+| `admin/agency_login.php` | Agency Admin or Agency Editor | `pluscities_dashboard.php` on successful login (corrected from an earlier version of this doc, which said `clients.php` — that's only the "already logged in" pre-check redirect at the top of the file; `clients.php` itself wasn't deleted in Stage 3, its old client-list content was replaced with a thin redirect stub to `pluscities_clients.php`, since ~19 other files still redirect to it) |
+| ~~`admin/client_login.php`~~ | Deleted 2026-11-23 (LPC Stage 3) | N/A — `end_client` has no login path at all now |
 
-**None of the three staff-facing logins land directly on a PlusCities-native screen** — worth knowing
-before assuming a login flow needs fixing; this is a real, already-present inconsistency, not new.
+`admin/login.php`'s target (`sites.php`, Site Factory) remains the one staff-facing login that doesn't
+land on a PlusCities-native screen — a real, already-present inconsistency worth knowing about, not new.
 
 ### 5.5 Known gaps (real, not hypothetical — found via direct code read)
 
-1. **No PlusCities-native `end_client` login path exists.** `client_login.php`/`client_portal.php` are
-   100% scoped to the old `lpc_client_dir()` tree, not `PLUSCITIES_CLIENTS_DIR`. Every `pluscities_*.php`
-   file dutifully excludes `role === 'end_client'`, but there's currently no way for a PlusCities client
-   to ever obtain that role in the first place — a real client-facing reporting portal for PlusCities
-   clients is effectively unbuilt.
+1. **No `end_client` login path exists for anyone, PlusCities or otherwise.** Originally this gap meant
+   `client_login.php`/`client_portal.php` existed but were 100% scoped to the old `lpc_client_dir()` tree,
+   not `PLUSCITIES_CLIENTS_DIR` — so a PlusCities client could never obtain the role. As of 2026-11-23 (LPC
+   Stage 3) those two files are deleted entirely, so the gap is now total: every `pluscities_*.php` file
+   still dutifully excludes `role === 'end_client'`, but nothing in the codebase can ever set that role. A
+   real client-facing reporting portal remains unbuilt, for either system.
 2. **Agency Editor's `assigned_client_ids` restriction is enforced on writes but not consistently on
    reads.** `pluscities_clients.php` (client list) and `pluscities_pages.php` (pages table) only apply
    agency-level scoping, not the per-editor restriction — an editor sees every client/page in the agency
@@ -433,22 +438,35 @@ before assuming a login flow needs fixing; this is a real, already-present incon
    `_save.php` handlers DO check per-client access, so this is within-agency over-exposure on reads, not a
    cross-agency leak or a write-path hole.
 
-## 6. Relationship to the old LPC system
+## 6. Relationship to the old LPC system — RETIRED 2026-11-23 (historical section)
 
-Genuinely shared: `admin/lpc_admin_layout.php` (nav/chrome for both), `includes/helpers.php`-style
-utilities (`h()`, `sanitize_url()`, `slugify()`, CSRF pattern), `admin/infra/lib/http.php`, the image
-plugins (`plugins/image-data-chart/*`, `plugins/image-area-map/*`), and `niche_profiles.php`'s library
-(still read by `landing_page_clients_ai.php`, kept alive deliberately).
+**The old LPC system no longer exists.** Everything below describes the relationship as it stood before
+LPC Stage 3 retirement (`docs/lpc-stage3-retirement-scoping.md`) — kept here as history, since §7 below
+still refers back to the shared-database lesson it taught, not because any of it is still live.
 
-Fully separate: delivery mechanism (LPC's own standalone server + WordPress renderer vs. PlusCities'
-server-side-render-and-sync model), the database (`fleet.db`/LPC vs. `pluscities.db`), billing
-(`stripe_client.php` is LPC-only), the whole admin client-record shape (`clients/*/data/client.json` vs.
-`pluscities_clients/*.json` — intentionally never reconciled).
+What was genuinely shared, and what happened to each piece at retirement: `admin/lpc_admin_layout.php`
+(nav/chrome) — **kept**, now serves PlusCities + Site Factory only, all old-LPC nav items removed.
+`includes/helpers.php`-style utilities, `admin/infra/lib/http.php`, the image plugins
+(`plugins/image-data-chart/*`, `plugins/image-area-map/*`) — **kept**, were never LPC-specific to begin
+with, just co-used. `includes/landing_page_clients_agencies.php` (billing/session engine) — **kept**,
+renamed to `includes/agencies.php`, now PlusCities' own. `niche_profiles.php` and its reader
+`landing_page_clients_ai.php` — **deleted**, not ported; `pluscities_niches.php` is now the only niche
+system.
 
-`docs/lpc-vs-site-factory-boundary.md` and `docs/landing-page-clients-onboarding.md` describe the old
-system specifically — real and still accurate for what they describe (LPC's own separate delivery
-server, its own renderer, the old onboarding wizard), but **not** current PlusCities process. Read this
-doc for current state; read those two only when working on the old system itself.
+What was fully separate, and what happened: LPC's own standalone delivery server + WordPress renderer —
+**deleted** (`wp-plugin/landing-page-client/`, the standalone delivery service on `2.24.196.58`, and its
+data); PlusCities' server-side-render-and-sync model is unaffected and was never coupled to it. The
+database (`fleet.db`-adjacent LPC state vs. `pluscities.db`) — moot, LPC's side is gone. Billing
+(`stripe_client.php`) — was LPC-only at the time this was written, is **now PlusCities'** (via the
+renamed `agencies.php`, kept shared on purpose, see the Stage 3 doc §1). The admin client-record shape —
+`clients/*/data/client.json` (old-LPC) was **deleted** along with the real client it held
+(`meade-restoration`, migrated to `pluscities_clients/meade-restoration.json` first); `pluscities_clients/
+*.json` is now the only client-record shape.
+
+`docs/lpc-vs-site-factory-boundary.md` and `docs/landing-page-clients-onboarding.md` — **both now
+historical-only** per `CLAUDE.md`'s docs table; the code they describe (LPC's own delivery server, its
+own renderer, the old onboarding wizard) has been deleted. Read `docs/lpc-stage3-retirement-scoping.md`
+for what was retired and why; read this doc for current PlusCities state.
 
 ## 7. Relationship to Site Factory
 
@@ -522,7 +540,7 @@ difference, just eventually generated from one shared fact source.
 | `admin/pluscities_sync.php` | The public delivery API (manifest/page/hub) |
 | `wp-plugin/pluscities-delivery/pluscities-delivery.php` | The WP plugin (fetch/cache/place) |
 | `admin/lpc_admin_layout.php` | Shared nav/chrome + role-driven menu |
-| `admin/login.php` / `agency_login.php` / `client_login.php` | The three auth entry points |
+| `admin/login.php` / `agency_login.php` | The two remaining auth entry points (`client_login.php` deleted 2026-11-23, LPC Stage 3) |
 | `admin/pluscities_clients.php` / `_save.php` | Client creation + first-page picker |
 | `admin/pluscities_page.php` / `_save.php` | Single-page block editor + lifecycle actions |
 | `admin/pluscities_pages.php` / `_save.php` | Bulk page table |
