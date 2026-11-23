@@ -29,6 +29,7 @@ $TABS = [
     'content_flow'         => 'Content Flow',
     'spec_document'        => 'Spec Document',
     'city_page'            => 'City Page',
+    'page_styling'         => 'Page Styling',
     'claude'               => 'Claude',
     'use_cases'            => 'Use Cases',
 ];
@@ -39,9 +40,75 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page', 'claude', 'use_cases']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page', 'page_styling', 'claude', 'use_cases']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
+
+/**
+ * Synthetic client/niche context for the Page Styling preview — no real
+ * client, so empty branding falls through to pluscities_client_colors()'s own
+ * real default (#1C2B45), same as an unbranded real client would get. Not
+ * reused anywhere outside this one preview screen.
+ */
+function platform_info_preview_client(): array {
+    return [
+        'class_prefix' => 'preview',
+        'identity' => [
+            'business_name' => 'Example Restoration Co.',
+            'hubs' => [['address' => '123 Main St, Example City, TX', 'phone' => '(555) 123-4567']],
+        ],
+        'branding' => [],
+    ];
+}
+
+/**
+ * One realistic example $block_row per real block slug (platform_info_city_
+ * page_blocks_data()'s own 'slug'/'block' fields, not re-typed here) — enough
+ * to preview pluscities_render_block()'s actual visual treatment for every
+ * block type, not just the 6 it special-cases. Clearly placeholder content,
+ * not meant to look like real approved copy.
+ */
+function platform_info_preview_block_row(string $slug, string $label): array {
+    $common = ['block_type' => $slug, 'fact_ids' => '[]'];
+    switch ($slug) {
+        case 'hero':
+            return $common + ['content_json' => json_encode([
+                'heading' => 'Water Damage Restoration in Example City, TX',
+                'body' => 'When water damage strikes your Example City home, Example Restoration Co. provides fast, professional restoration to help you recover and rebuild.',
+            ])];
+        case 'faq':
+            return $common + ['content_json' => json_encode(['faqs' => [
+                ['question' => 'How quickly can you respond to a water damage emergency?', 'answer' => 'Example Restoration Co. offers 24/7 emergency response, typically arriving within 60-90 minutes of your call.'],
+                ['question' => 'Will my homeowners insurance cover this?', 'answer' => 'Most policies cover sudden water damage. We provide documentation to support your claim, though final coverage decisions rest with your insurer.'],
+            ]])];
+        case 'service_area':
+            return $common + ['content_json' => json_encode([
+                'main_service_url' => '#', 'service_area_url' => '#',
+                'other_services_this_city' => [['url' => '#', 'label' => 'Fire Damage Restoration']],
+                'hub_address' => '123 Main St, Example City, TX', 'drive_minutes' => 15,
+            ])];
+        case 'housing_stock':
+            return $common + ['content_json' => json_encode([
+                'intro' => "Example City's housing stock shapes how water damage typically unfolds in local homes.",
+                'dataset_values' => ['income_median' => 81393, 'home_value_median' => 322300, 'year_built_median' => 1983, 'homeownership_pct' => 51.5],
+            ])];
+        case 'niche_data_table':
+            return $common + ['content_json' => json_encode([
+                'title' => 'Typical Water Damage Restoration Costs',
+                'columns' => ['Damage Category', 'Typical Range'],
+                'rows' => [['Water extraction', '$300 - $600'], ['Structural drying', '$500 - $1,500'], ['Mold remediation', '$1,000 - $3,500']],
+            ])];
+        case 'reviews_from_city':
+            return $common + ['content_json' => json_encode(['reviews' => [
+                ['text' => 'Fast response and kept us informed the whole time.', 'author' => 'J. Martinez', 'rating' => 5],
+            ]])];
+        default:
+            return $common + ['content_json' => json_encode([
+                'heading' => $label,
+                'body' => "Example body copy for the \"$label\" block — real pages generate this from researched facts about the city and service, not placeholder text like this.",
+            ])];
+    }
+}
 
 function platform_info_fmt_duration(int $seconds): string {
     if ($seconds < 60) return $seconds . 's';
@@ -1118,6 +1185,67 @@ function platform_info_content_flow_data(): array {
             </tbody>
         </table>
     <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'page_styling'):
+    require_once __DIR__ . '/../includes/pluscities_writer.php';
+    require_once __DIR__ . '/../includes/pluscities_color_detect.php';
+    $catalog = platform_info_city_page_blocks_data();
+    $selectedSlug = $_GET['block'] ?? 'hero';
+    $selectedLabel = 'Hero';
+    foreach ($catalog as $section) {
+        foreach ($section['rows'] as $r) {
+            if ($r['slug'] === $selectedSlug) { $selectedLabel = $r['block']; break 2; }
+        }
+    }
+    $previewClient = platform_info_preview_client();
+    $blockRow = platform_info_preview_block_row($selectedSlug, $selectedLabel);
+    $previewHtml = '';
+    if ($selectedSlug === 'trust_bar') {
+        $previewHtml = pluscities_render_trust_bar(['Fast Local Response', '24/7 Emergency Line', 'Licensed & Insured']);
+    } elseif ($selectedSlug === 'cta_band') {
+        $previewHtml = pluscities_render_cta_band($previewClient);
+    } else {
+        $previewHtml = pluscities_render_block($blockRow, $previewClient, null);
+    }
+    $previewCss = pluscities_page_style_css($previewClient);
+    $previewDoc = '<!DOCTYPE html><html><head><meta charset="utf-8">' . $previewCss
+        . '<style>body{margin:0;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}</style>'
+        . '</head><body><div class="pluscities-page">' . $previewHtml . '</div></body></html>';
+?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Preview each block's real styling</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        Renders a real block through the exact same functions production uses
+        (<code>pluscities_render_block()</code> + <code>pluscities_page_style_css()</code>,
+        <code>includes/pluscities_writer.php</code>) with placeholder example content — what you see here
+        is byte-identical CSS to what a real client's live page gets, just with a synthetic client (no
+        branding set, so colors fall back to the same default an unbranded real client would show).
+        This is a style <strong>preview</strong> only today, not a picker — every block has exactly one
+        style right now. Once a block has more than one real style built, picking between them belongs
+        here next.
+    </p>
+    <form method="get" style="margin:0 0 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <input type="hidden" name="tab" value="page_styling">
+        <label style="font-size:.85rem;font-weight:600;color:#374151;">Block type:
+            <select name="block" onchange="this.form.submit()" style="margin-left:8px;padding:6px 10px;border-radius:6px;border:1px solid #d1d5db;font-size:.85rem;">
+                <?php foreach ($catalog as $section): ?>
+                    <optgroup label="<?= h($section['title']) ?>">
+                        <?php foreach ($section['rows'] as $r): ?>
+                            <option value="<?= h($r['slug']) ?>" <?= $r['slug'] === $selectedSlug ? 'selected' : '' ?>><?= h($r['block']) ?></option>
+                        <?php endforeach; ?>
+                    </optgroup>
+                <?php endforeach; ?>
+                <optgroup label="Platform furniture — always-on, not part of the pick-N pools">
+                    <option value="trust_bar" <?= $selectedSlug === 'trust_bar' ? 'selected' : '' ?>>Trust bar</option>
+                    <option value="cta_band" <?= $selectedSlug === 'cta_band' ? 'selected' : '' ?>>CTA band</option>
+                </optgroup>
+            </select>
+        </label>
+        <noscript><button type="submit" class="pc-btn">Preview</button></noscript>
+    </form>
+    <div style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;background:#f8fafc;">
+        <iframe srcdoc="<?= htmlspecialchars($previewDoc) ?>" style="width:100%;height:600px;border:0;display:block;background:#fff;"></iframe>
+    </div>
 <?php endif; ?>
 
 <?php if ($tab === 'roadmap'): ?>

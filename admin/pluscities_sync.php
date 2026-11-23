@@ -110,72 +110,10 @@ if ($action === 'page') {
     // anyone (spec Section 5's Title/H1/schema all need the real name).
     $cityLabel = pluscities_city_label($page['city_id']);
 
-    // The small, theme-independent stylesheet from Section 9 — brand colors
-    // and the breadcrumb nav for now; the sticky call bar / quote-form CSS is
-    // further Phase 2 polish. Every page block already renders as
-    // <section class="lpc-{block_type}">, so one attribute-prefix selector
-    // styles every current and future block type — no per-type CSS to keep
-    // adding as the pool grows.
-    // Resolved per pluscities_client_colors()'s own precedence (manual
-    // override > detected from the client's live site > fixed fallback) —
-    // the one function both this and the branding screen call, so "which
-    // color wins" lives in exactly one place.
-    $resolvedColors = pluscities_client_colors($client);
-    $brandColor = $resolvedColors['accent'];
-    $darkColor  = $resolvedColors['dark'];
-    $style = '<style>.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:' . htmlspecialchars($darkColor) . ';}'
-        . '.lpc-breadcrumbs{font-size:.82rem;color:#52607a;margin:0 0 14px;}'
-        . '.lpc-breadcrumbs a{color:#52607a;}'
-        . '.lpc-hero-photo{width:100%;max-width:100%;height:auto;border-radius:10px;display:block;}'
-        . '.pluscities-page{max-width:1000px;margin:0 auto;}'
-        . '.pluscities-page section[class^="lpc-"]{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px 28px;margin:0 0 20px;box-shadow:0 1px 3px rgba(0,0,0,.04);}'
-        . '.pluscities-page section.lpc-hero{background:transparent;border:none;box-shadow:none;padding:0 0 8px;}'
-        // Hero: text left, photo right — matches the fleet's own reference
-        // sites (Bailey/Wren/Gann). Stacks on narrow screens since this is a
-        // thin plugin bundle with no separate mobile breakpoint system of
-        // its own yet; flex-wrap is the simplest thing that degrades safely.
-        . '.lpc-hero-row{display:flex;flex-wrap:wrap;gap:36px;align-items:center;}'
-        . '.lpc-hero-text{flex:1 1 360px;}'
-        . '.lpc-hero-media{flex:1 1 360px;}'
-        . '.lpc-cta-button{display:inline-block;background:' . htmlspecialchars($brandColor) . ';color:#fff;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:8px;margin-top:8px;}'
-        . '.pluscities-page h1{font-size:2.1rem;font-weight:800;color:' . htmlspecialchars($darkColor) . ';line-height:1.2;margin:0 0 14px;}'
-        // Trust bar — a full-width strip right under the hero, same spot as
-        // the fleet's own reference sites' checkmark row. Dark, not a card,
-        // so it reads as a distinct banner rather than another content block.
-        . '.lpc-trust-bar{background:' . htmlspecialchars($darkColor) . ';border-radius:12px;margin:0 0 20px;padding:18px 24px;}'
-        . '.lpc-trust-bar ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:center;}'
-        . '.lpc-trust-bar li{color:#fff;font-weight:600;font-size:.92rem;white-space:nowrap;}'
-        . '.pluscities-page section[class^="lpc-"] h2,.pluscities-page section[class^="lpc-"] h3{font-size:1.25rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid ' . htmlspecialchars($brandColor) . ';display:inline-block;}'
-        . '.pluscities-page section[class^="lpc-"] p{line-height:1.65;color:#334155;margin:0 0 12px;}'
-        . '.pluscities-page section[class^="lpc-"] ul{padding-left:20px;line-height:1.7;color:#334155;}'
-        // FAQ — a two-column grid of rounded, tinted boxes, native
-        // <details>/<summary> accordion (no JS), matching the fleet's own
-        // reference sites rather than a plain left-accent-bar list.
-        . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
-        . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
-        . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'
-        . '.pluscities-page .lpc-faq-item summary{font-size:1.02rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';cursor:pointer;list-style:none;}'
-        . '.pluscities-page .lpc-faq-item summary::-webkit-details-marker{display:none;}'
-        . '.pluscities-page .lpc-faq-item summary::before{content:"+";display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:' . htmlspecialchars($brandColor) . ';color:#fff;font-weight:700;margin-right:10px;}'
-        . '.pluscities-page .lpc-faq-item[open] summary::before{content:"\\2212";}'
-        . '.pluscities-page .lpc-faq-item p{margin:10px 0 0 32px;}'
-        // Related Services — full-width accent band, white pill-shaped links.
-        . '.pluscities-page section.lpc-service-area{background:' . htmlspecialchars($brandColor) . ';text-align:center;}'
-        . '.pluscities-page section.lpc-service-area h2{color:#fff;border-bottom:none;padding-bottom:0;}'
-        . '.pluscities-page section.lpc-service-area p{color:#fff;opacity:.9;}'
-        . '.lpc-service-area-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px;}'
-        . '.lpc-service-area-links a{background:#fff;color:' . htmlspecialchars($brandColor) . ';font-weight:700;text-decoration:none;padding:10px 20px;border-radius:999px;font-size:.9rem;}'
-        // CTA band — solid dark, right before FAQ.
-        . '.pluscities-page section.lpc-cta-band{background:' . htmlspecialchars($darkColor) . ';text-align:center;padding:36px 28px;}'
-        . '.pluscities-page section.lpc-cta-band h2{color:#fff;border-bottom:none;padding-bottom:0;font-size:1.5rem;}'
-        . '.lpc-cta-band-button{display:inline-block;background:transparent;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:999px;margin-top:8px;}'
-        // Niche data table — a real styled table instead of a bare browser
-        // default: bordered cells, a tinted header row, alternating stripes.
-        . '.pluscities-page table{width:100%;border-collapse:collapse;margin-top:4px;}'
-        . '.pluscities-page table th,.pluscities-page table td{padding:10px 14px;border:1px solid #e5e7eb;text-align:left;font-size:.92rem;}'
-        . '.pluscities-page table th{background:#f8fafc;font-weight:700;color:' . htmlspecialchars($darkColor) . ';}'
-        . '.pluscities-page table tbody tr:nth-child(even){background:#fafbfc;}'
-        . '</style>';
+    // Factored into pluscities_page_style_css() (includes/pluscities_writer.
+    // php, 2026-11-23) so this endpoint and any admin-side preview render
+    // from the exact same CSS, not a drifting second copy.
+    $style = pluscities_page_style_css($client);
 
     $schema = pluscities_assemble_schema($page, $client, $niche, $blocks, $page['slug']);
     $breadcrumbHtml = pluscities_breadcrumb_nav_html($page, $client, $cityLabel, $serviceLabel);
