@@ -190,9 +190,15 @@ function lpc_admin_nav_items(): array {
     }
 
     if ($role === 'super_admin') {
-        $items[] = ['section' => 'Platform'];
+        $items[] = ['section' => 'Platform Ops'];
         $items[] = ['key' => 'agencies', 'href' => 'agencies.php', 'label' => 'Agencies',
             'icon' => '<path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/>'];
+        $items[] = ['key' => 'platform_info', 'href' => 'platform_info.php', 'label' => 'Platform Information',
+            'icon' => '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'];
+        $items[] = ['key' => 'settings', 'href' => 'settings.php', 'label' => 'Settings',
+            'icon' => '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>'];
+
+        $items[] = ['section' => 'Build Tools'];
         $items[] = ['key' => 'niche_profiles', 'href' => 'niche_profiles.php', 'label' => 'Niche Profiles (old)',
             'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/>'];
         // The real niche library from docs/PLUSCITIES_FEATURE_SPEC.md Section 2 —
@@ -207,10 +213,6 @@ function lpc_admin_nav_items(): array {
             'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>'];
         $items[] = ['key' => 'wp_builder', 'href' => 'wp_builder.php', 'label' => 'WP Builder',
             'icon' => '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'];
-        $items[] = ['key' => 'platform_info', 'href' => 'platform_info.php', 'label' => 'Platform Information',
-            'icon' => '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'];
-        $items[] = ['key' => 'settings', 'href' => 'settings.php', 'label' => 'Settings',
-            'icon' => '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>'];
         $items[] = ['key' => 'sites', 'href' => 'sites.php', 'label' => '&larr; Site Factory',
             'icon' => '<path d="M3 12h18M3 6h18M3 18h18"/>'];
     }
