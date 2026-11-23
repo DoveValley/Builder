@@ -322,14 +322,19 @@ Honest numbers, not aspirational ones:
     the column entirely, silently resetting it to 0 regardless of what the revision snapshot actually
     stored, which could fail a hero/overview block's `unsupported_claim` check after any rollback even
     though the content was valid before. Fixed by adding the column to the restore statement.
-  - **"Unpublish" does not take content offline on the real delivered site** (found via live testing, not
-    yet fixed — see UC7): the manifest only ever returns `status='live'` pages, so an unpublished page
-    simply stops appearing in future manifest responses — but nothing ever signals the WP plugin to delete
-    its already-cached, no-expiry transient for that specific page. Confirmed live: a real visitor hitting
-    the actual URL keeps seeing the old content indefinitely after Unpublish, with no mechanism to ever
-    stop short of manually clearing options/transients on the client's own WordPress site. Fixing this
-    properly means adding a real deletion signal to the manifest/sync protocol — a genuine next-priority
-    item, not a one-line fix.
+  - **"Unpublish" didn't take content offline on the real delivered site — fixed 2026-11-23** (found via
+    live testing — see `docs/pluscities-use-case-tests.md` UC7): the manifest only ever returned
+    `status='live'` pages, so an unpublished page simply stopped appearing in future manifest responses —
+    but nothing signaled the WP plugin to delete its already-cached, no-expiry transient. Confirmed live
+    before the fix: a real visitor hitting the actual URL kept seeing the old content indefinitely.
+    **Fixed** by adding `live_page_ids` (the full current live set) to the manifest response, and having
+    the plugin's `pluscities_delivery_sync_if_needed()` reconcile its cached pages against it, deleting
+    anything no longer live. Also fixed the function's gate (was keyed on `changed_pages` being non-empty,
+    which skipped reconciliation entirely when a client's *last* live page was unpublished). Verified live
+    both ways (one-of-several unpublished, and last-remaining-page unpublished) with the other page
+    confirmed unaffected. **Deployment note**: this plugin is already installed on real client sites — the
+    fix only reaches a site once it re-downloads the plugin zip; no auto-update mechanism exists, so
+    already-running installs won't get this automatically.
 - **Deferred by design, not debt** (explicitly Phase 3/4 per the spec): Stripe Connect/rebilling, custom
   dashboard domain, CSV bulk import, GSC indexing-status monitoring, white-labeled PDF reports, call
   tracking, a Client Approver role, scheduled fact-card refresh, Spanish pages, webhooks, audit-log UI,

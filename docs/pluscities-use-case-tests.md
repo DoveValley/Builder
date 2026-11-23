@@ -312,7 +312,7 @@ that flag rather than a `fact_id`.
 Re-ran the rollback after the fix: `client_grounded` correctly restored to `1`, and the page validated,
 approved, and published cleanly with zero manual workaround.
 
-### Unpublish — real, undocumented gap found
+### Unpublish — real gap found, then fixed (2026-11-23)
 
 **Steps:** unpublished page 1, confirmed `status='unpublished'` and `site_rev` bumped in the DB, then
 checked the real delivered route.
@@ -322,15 +322,30 @@ checked the real delivered route.
 the new `site_rev`). Root cause: the manifest action only ever returns `status='live'` pages — an
 unpublished page simply stops appearing in future manifest responses, but **nothing ever tells the plugin
 to delete its already-cached copy**. The cached transient has no expiry by design (that's what makes the
-offline-fallback work for still-live pages) — but for an unpublished page specifically, this means the
-real site keeps serving it to real visitors **indefinitely**, with no mechanism to ever stop, short of
-manually clearing WordPress options/transients on the client's own site. "Unpublish" does not actually
-take content offline today. This is a real, previously-undocumented gap, not something either the feature
-spec or the system reference doc's existing gap list called out — flagged here, and added to the
-reference doc's own gap list, rather than fixed in this pass (fixing it properly means designing a real
-deletion-signal in the manifest protocol — bigger than a one-line fix, a genuine next-priority item).
+offline-fallback work for still-live pages) — but for an unpublished page specifically, this meant the
+real site kept serving it to real visitors indefinitely.
 
-Re-published page 1 afterward to leave the fixture fully live again.
+**Fix shipped the same day**: `admin/pluscities_sync.php`'s `action=manifest` now also returns
+`live_page_ids` — the full current live set, built from the same query that already populates
+`changed_pages`, zero extra DB cost. The plugin's `pluscities_delivery_sync_if_needed()` now reconciles
+against that ground truth: enumerates its own cached `pluscities_page_url_*` options, and deletes any
+whose page_id isn't in the fresh live set (plus the matching transient). Also fixed the function's gate —
+it was keyed on `changed_pages` being non-empty, which meant unpublishing a client's *last* remaining live
+page (where `changed_pages` legitimately comes back empty even though `site_rev` advanced) would skip
+`site_rev_seen` updates AND the reconciliation entirely, leaking that page forever even under a naive
+fix. Re-gated on `site_rev` advancing instead.
+
+**Verified live, both scenarios**: unpublished page 1 (of 2 live pages) — confirmed its specific cached
+option+transient were deleted, its route now 404s, and **page 2 was completely untouched** (still cached,
+still 200). Then unpublished page 2 as well (client now has zero live pages) — confirmed `site_rev_seen`
+still advanced (9→10) despite `changed_pages` being empty, and page 2's cache was correctly cleared too.
+Re-published both afterward, confirmed both routes work again from a clean fetch — reconciliation doesn't
+poison a page against coming back later.
+
+**Deployment note**: this plugin is already installed on real client sites; the fix only reaches a site
+once it re-downloads the plugin zip (`admin/pluscities_plugin_download.php` always zips current source) —
+it does not retroactively patch already-running installs. No auto-update mechanism exists for this plugin
+today; out of scope to build here.
 
 **Artifacts:** `includes/pluscities_lifecycle.php` fixed (rollback bug). No lasting bad state — page 1 is
 back to `status=live`/`approval_stage=approved`, page 2 likewise after its own rollback-and-republish.

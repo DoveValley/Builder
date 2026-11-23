@@ -252,9 +252,15 @@ function pluscities_delivery_sync_if_needed() {
     ]);
     if (is_wp_error($resp)) return; // offline — serve whatever's already cached, per the fallback below
     $manifest = json_decode(wp_remote_retrieve_body($resp), true);
-    if (!is_array($manifest) || empty($manifest['changed_pages'])) return;
+    if (!is_array($manifest) || !isset($manifest['site_rev'])) return;
+    // Gate on site_rev advancing, not on changed_pages being non-empty —
+    // if a client unpublishes their LAST remaining live page, changed_pages
+    // comes back empty even though site_rev genuinely moved; gating on
+    // changed_pages would skip updating site_rev_seen forever AND skip the
+    // reconciliation below, leaking that page's cache indefinitely.
+    if ((int) $manifest['site_rev'] <= $seenRev) return;
 
-    foreach ($manifest['changed_pages'] as $cp) {
+    foreach ($manifest['changed_pages'] ?? [] as $cp) {
         $pageResp = wp_remote_get(pluscities_delivery_base() . '?action=page&page_id=' . urlencode($cp['page_id']), [
             'headers' => ['Authorization' => 'Bearer ' . $key],
             'timeout' => 10,
@@ -267,6 +273,26 @@ function pluscities_delivery_sync_if_needed() {
         // indefinitely if the server later becomes unreachable.
         set_transient('pluscities_page_' . $cp['page_id'], $page, 0);
         update_option('pluscities_page_url_' . md5($cp['url']), $cp['page_id']);
+    }
+
+    // Reconciliation — delete anything cached earlier that's no longer in the
+    // manifest's live set (e.g. a page that got unpublished). live_page_ids is
+    // the full current truth, not just what changed, so anything cached that
+    // ISN'T in it is stale and safe to remove. The no-expiry transient above
+    // is deliberate for still-live pages (the offline fallback); without this
+    // step an unpublished page would otherwise keep serving forever, since
+    // nothing else in this protocol ever signals a removal.
+    global $wpdb;
+    $liveSet = array_flip($manifest['live_page_ids'] ?? []);
+    $cachedUrlOptions = $wpdb->get_results(
+        "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE 'pluscities_page_url_%'"
+    );
+    foreach ($cachedUrlOptions as $opt) {
+        $cachedPageId = $opt->option_value;
+        if (!isset($liveSet[$cachedPageId])) {
+            delete_option($opt->option_name);
+            delete_transient('pluscities_page_' . $cachedPageId);
+        }
     }
 
     // The hub/listing page is a client-level aggregate, not one of the pages

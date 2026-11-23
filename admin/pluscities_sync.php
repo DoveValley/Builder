@@ -51,6 +51,7 @@ $db     = pluscities_db();
 if ($action === 'manifest') {
     $sinceRev = (int) ($_GET['site_rev'] ?? 0);
     $changed  = [];
+    $livePageIds = [];
     // Phase 1 has one client/page, so "changed since rev N" is simply "is the
     // client's current site_rev ahead of what the plugin already has" — the
     // real per-page diff (Phase 2) would instead track which revision each
@@ -60,9 +61,14 @@ if ($action === 'manifest') {
         $st->execute([$client['client_id']]);
         foreach ($st->fetchAll(PDO::FETCH_ASSOC) as $p) {
             $changed[] = ['page_id' => $p['page_id'], 'revision' => (int) $p['live_revision_id'], 'url' => $p['slug']];
+            $livePageIds[] = $p['page_id'];
         }
     }
-    echo json_encode(['site_rev' => (int) $client['site_rev'], 'changed_pages' => $changed]);
+    // live_page_ids is the full current live set (not just what changed) --
+    // the plugin's ground truth for reconciling away anything it cached
+    // earlier that's no longer live (e.g. unpublished), since nothing else
+    // in this protocol ever signals a removal.
+    echo json_encode(['site_rev' => (int) $client['site_rev'], 'changed_pages' => $changed, 'live_page_ids' => $livePageIds]);
     exit;
 }
 
