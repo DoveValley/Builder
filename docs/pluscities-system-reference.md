@@ -317,6 +317,19 @@ Honest numbers, not aspirational ones:
   - `fact_cards.status` values `stale`/`rejected` are schema- and spec-documented, but the only function
     that can set them (`pluscities_fact_card_deactivate()`) has zero call sites — every live row is
     `active` in practice.
+  - **`pluscities_rollback_page()` dropped `blocks.client_grounded` on restore** (fixed 2026-11-23, found
+    via real use-case testing — see `docs/pluscities-use-case-tests.md` UC7): its INSERT statement omitted
+    the column entirely, silently resetting it to 0 regardless of what the revision snapshot actually
+    stored, which could fail a hero/overview block's `unsupported_claim` check after any rollback even
+    though the content was valid before. Fixed by adding the column to the restore statement.
+  - **"Unpublish" does not take content offline on the real delivered site** (found via live testing, not
+    yet fixed — see UC7): the manifest only ever returns `status='live'` pages, so an unpublished page
+    simply stops appearing in future manifest responses — but nothing ever signals the WP plugin to delete
+    its already-cached, no-expiry transient for that specific page. Confirmed live: a real visitor hitting
+    the actual URL keeps seeing the old content indefinitely after Unpublish, with no mechanism to ever
+    stop short of manually clearing options/transients on the client's own WordPress site. Fixing this
+    properly means adding a real deletion signal to the manifest/sync protocol — a genuine next-priority
+    item, not a one-line fix.
 - **Deferred by design, not debt** (explicitly Phase 3/4 per the spec): Stripe Connect/rebilling, custom
   dashboard domain, CSV bulk import, GSC indexing-status monitoring, white-labeled PDF reports, call
   tracking, a Client Approver role, scheduled fact-card refresh, Spanish pages, webhooks, audit-log UI,

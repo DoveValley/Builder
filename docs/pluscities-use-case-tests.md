@@ -279,17 +279,57 @@ today absent a dedicated screen; noted as a real, separate minor gap.
 client-level denylist entry, not test debris). One permanent row in the `overrides` table (historical
 record, correctly never deleted even though it no longer applies to the current draft).
 
-## UC7 — Rollback + Unpublish — not yet run
+## UC7 — Rollback + Unpublish — ✅ PASS (found + fixed 1 real bug, found + documented 1 real gap)
 
-**Goal:** neither lifecycle verb has been touched by UC1-5. Page 2 (`pg_qatestco_mckinney-tx_furnace-
-repair`) already has 2 real revisions (from UC2's initial publish and UC3's post-edit republish) — enough
-to roll back between.
+**Goal:** neither lifecycle verb had been touched by UC1-6. Page 2 had 2 real revisions (UC2's initial
+publish, UC3's post-edit republish) — enough to roll back between.
 
-Planned: `pluscities_rollback_page()` to revision 1, confirm content reverts to the pre-UC3-edit version
-and the page re-enters draft (`approval_stage` reset, `status` stays `live` — "never an instant revert,
-not even through history"), re-publish to restore. Then unpublish a page, confirm `status='unpublished'`,
-`site_rev` bumps, and the real WP-delivered page goes dark on next sync — then republish to leave the
-fixture fully live again afterward.
+### Rollback — real bug found and fixed
+
+**Steps:** rolled back page 2 to revision 1 via the real "Roll back to this" button (note: this button
+has a JS `confirm()` dialog — Playwright auto-dismisses dialogs by default, so the first attempt silently
+did nothing; needed an explicit dialog-accept handler).
+
+**Found:** content correctly reverted to the pre-edit (pre-UC3) text, and the dual-axis mechanic held
+(`status` stayed `live`, `approval_stage` reset to `none`) — but attempting to re-approve afterward
+**failed** with `unsupported_claim` on the `hero` block, which had passed validation before the rollback.
+
+**Root cause, confirmed by reading the code**: `pluscities_rollback_page()`
+(`includes/pluscities_lifecycle.php`) restores blocks from the revision snapshot via an explicit
+`INSERT INTO blocks (page_id, block_type, position, pool, classification, content_json, fact_ids,
+dataset_refs, locked, origin)` — **`client_grounded` is missing from that column list**, even though the
+snapshot (built via `SELECT *` in `pluscities_publish_page()`) correctly captures it. Every rollback
+silently resets `client_grounded` to 0 for every block, regardless of what the snapshot actually stored —
+which breaks the `unsupported_claim` check for any client-fact-only block (hero/overview) that relies on
+that flag rather than a `fact_id`.
+
+**Fixed**: added `client_grounded` to both the column list and the bound parameters (reading
+`$b['client_grounded'] ?? 0` from the snapshot, defensively, for any older snapshot predating the column).
+Re-ran the rollback after the fix: `client_grounded` correctly restored to `1`, and the page validated,
+approved, and published cleanly with zero manual workaround.
+
+### Unpublish — real, undocumented gap found
+
+**Steps:** unpublished page 1, confirmed `status='unpublished'` and `site_rev` bumped in the DB, then
+checked the real delivered route.
+
+**Found**: the real delivered page (`localhost:8099/service-area/plano-tx/ac-repair/`) **kept returning
+200 with the full old content**, even after forcing a fresh sync (`site_rev_seen` confirmed caught up to
+the new `site_rev`). Root cause: the manifest action only ever returns `status='live'` pages — an
+unpublished page simply stops appearing in future manifest responses, but **nothing ever tells the plugin
+to delete its already-cached copy**. The cached transient has no expiry by design (that's what makes the
+offline-fallback work for still-live pages) — but for an unpublished page specifically, this means the
+real site keeps serving it to real visitors **indefinitely**, with no mechanism to ever stop, short of
+manually clearing WordPress options/transients on the client's own site. "Unpublish" does not actually
+take content offline today. This is a real, previously-undocumented gap, not something either the feature
+spec or the system reference doc's existing gap list called out — flagged here, and added to the
+reference doc's own gap list, rather than fixed in this pass (fixing it properly means designing a real
+deletion-signal in the manifest protocol — bigger than a one-line fix, a genuine next-priority item).
+
+Re-published page 1 afterward to leave the fixture fully live again.
+
+**Artifacts:** `includes/pluscities_lifecycle.php` fixed (rollback bug). No lasting bad state — page 1 is
+back to `status=live`/`approval_stage=approved`, page 2 likewise after its own rollback-and-republish.
 
 ## UC8 — Second niche's full lifecycle — not yet run
 

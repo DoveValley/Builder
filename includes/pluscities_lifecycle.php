@@ -448,10 +448,10 @@ function pluscities_rollback_page(string $page_id, int $revision_number, string 
 
     $snapshot = json_decode($snapshotJson, true);
     $db->prepare('DELETE FROM blocks WHERE page_id = ?')->execute([$page_id]);
-    $ins = $db->prepare('INSERT INTO blocks (page_id, block_type, position, pool, classification, content_json, fact_ids, dataset_refs, locked, origin) VALUES (?,?,?,?,?,?,?,?,?,?)');
+    $ins = $db->prepare('INSERT INTO blocks (page_id, block_type, position, pool, classification, content_json, fact_ids, dataset_refs, locked, origin, client_grounded) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
     foreach ($snapshot['blocks'] as $b) {
         $ins->execute([$page_id, $b['block_type'], $b['position'], $b['pool'], $b['classification'],
-            $b['content_json'], $b['fact_ids'], $b['dataset_refs'], $b['locked'], 'edited']);
+            $b['content_json'], $b['fact_ids'], $b['dataset_refs'], $b['locked'], 'edited', $b['client_grounded'] ?? 0]);
     }
     pluscities_touch_page($page_id);
     pluscities_log_event($actor, 'rollback_page', 'page:' . $page_id, 'to revision ' . $revision_number);
