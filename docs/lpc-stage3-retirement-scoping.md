@@ -12,9 +12,10 @@ drifted from current code (see corrections below).
 engine for the entire admin app (PlusCities and Site Factory included). Stage 3 has a required refactor
 step before the bulk deletion, not just a file-removal pass.
 
-**Status, 2026-11-23: §5 steps 1-3 done** (billing/session decision answered, agencies-file extracted,
-nav cleaned up — commits `511210ff`/`df288b2d`/`8a4ac987`). Remaining: §5 steps 4-6 (bulk file deletion,
-data cleanup, infra decisions).
+**Status, 2026-11-23: §5 steps 1-4 done** (billing/session decision answered, agencies-file extracted,
+nav cleaned up, 27-file bulk deletion done — commits `511210ff`/`df288b2d`/`8a4ac987`/`8391774e`/
+`d34e76c5`). Remaining: §5 steps 5-6 (data cleanup — needs explicit go-ahead, irreversible — and the
+infra-side decisions: demo-sites box, standalone delivery service).
 
 ---
 
@@ -184,7 +185,18 @@ Commits: `511210ff` (the rename itself), `df288b2d` (require-path + comment upda
    every other role byte-for-byte unchanged. Caught a near-bug before shipping: first attempt pointed
    super_admin at `pluscities_dashboard.php`, which explicitly rejects anyone but agency_admin/
    agency_editor — checked before assuming, not after.
-4. **Next**: delete §2.1's file list.
+4. ✅ Delete §2.1's file list — done, commit `8391774e`. Found and fixed a real gap in this doc's own
+   §2.1 before deleting: it only traced require/include chains, not `header('Location: ...')` redirect
+   targets. ~19 other admin files (`impersonate.php` alone has 5) redirect to `clients.php` as a generic
+   error/auth-failure fallback — deleting it outright would have 404'd every one. Replaced it with a thin
+   redirect stub to `pluscities_clients.php` instead of deleting (preserves `?msg=...` query-string
+   passthrough). Also found `admin/approvals_save.php` was missing from §2.1's inventory entirely and
+   included it in the batch. Verified: full repo-wide `php -l` sweep clean; a final require-chain grep for
+   all 25 deleted filenames found zero remaining references; full HTTP smoke test against every PlusCities
+   screen, Site Factory/infra, the new `clients.php` stub, and the still-kept `lpc_demo_sites.php` all
+   returned clean 302s with zero fatal-error output. `CLAUDE.md`'s docs table updated to mark the two docs
+   describing now-deleted code (`landing-page-clients-onboarding.md`, `city-service-page-block-matrix.md`)
+   as historical-only, commit `d34e76c5`.
 5. Explicit go-ahead, then delete §2.3's data (Meade's LPC record, quarantined test clients).
 6. Separately, decide and act on §2.3's infrastructure items (demo-sites box, standalone delivery
    service, its orphaned test-client directories) — not blocking on the code-repo deletion above.
