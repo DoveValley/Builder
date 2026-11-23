@@ -5,10 +5,29 @@ What UC1-8 actually exercise, mapped against every real capability listed in
 honestly what percentage of the system has been proven to work by *running* it, versus what's only ever
 been read from code.
 
-**Headline number:** of the ~45 discrete capabilities inventoried below, **26 are directly exercised**
-by UC1-8 (~58%). The gaps are concentrated in three areas: the validator (only 2 of 12 checks ever
-deliberately triggered), 5 whole admin screens never touched at all, and the agency-business layer
-(billing, branding flow-through, suspend/approve).
+**Headline number, corrected 2026-11-23 against an exact row count** (the original write-up quoted ~58%,
+which didn't match this doc's own table — fixing that here rather than leaving an inconsistent number on
+record): of the **47 discrete rows** below, **20 are directly exercised by UC1-8 (~43%)**. The gaps are
+concentrated in three areas: the validator (only 2 of 12 checks ever deliberately triggered), 5 whole
+admin screens never touched at all, and the agency-business layer (billing, branding flow-through,
+suspend/approve).
+
+**If UC9-13 are run as scoped below: 33/47 (~70%).** Two real residual gaps surfaced while computing that
+projection, not covered by any of UC9-13 as currently scoped — worth folding in cheaply rather than
+leaving out by oversight:
+- **`pluscities_hub_edit.php`** (the hub/listing-page text editor, built in Project B) — missed entirely;
+  none of UC9-13 touch it.
+- **Fresh dataset fetch** (`census_acs`) for a city with no cached Census data — genuinely cheap to test
+  (unlike fresh fact-card research, which spends real Anthropic API budget per run), just never scoped.
+
+Even after UC9-13 plus those two (35/47, ~75%), a further handful is realistically testable with more
+effort — `uniqueness` (create a near-duplicate page), `stale_facts` (manipulate a fact card's
+`expires_at`), `faq` (blank out an answer), billing-field validation, and agency suspend/approve all have
+no external dependency, they're just not scoped yet. Only 4 rows are **genuinely** out of reach here:
+Stripe checkout (needs real sandbox creds), the SEO-plugin sitemap hooks (need Yoast/RankMath/AIOSEO
+actually installed), `quotes` (confirmed dead code in practice, nothing to trigger), and fresh fact-card
+research (costs real Anthropic API budget per run — same discipline already applied elsewhere this
+session). Realistic ceiling here is closer to **~90%+ (43/47)**, not 100%.
 
 ---
 
