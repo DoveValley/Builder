@@ -9,7 +9,7 @@
  * "grace period, then pause" offboarding decision, an agency's live CLIENT
  * SITES don't go down immediately — they get GRACE_DAYS to resolve it
  * first. lpc_agency_grace_period_expired()/lpc_pause_agency_clients()
- * (includes/landing_page_clients_agencies.php) were built and verified
+ * (includes/agencies.php) were built and verified
  * this session but never wired to anything automatic — this is that wiring.
  *
  * Usage: php tools/lpc_check_grace_periods.php

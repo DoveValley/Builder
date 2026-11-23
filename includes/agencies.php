@@ -1,9 +1,17 @@
 <?php
 /**
- * Agencies — the reseller layer above Landing Page Clients' existing
- * client/niche-profile model. Same shape as landing_page_clients_niches.php
- * on purpose: one JSON file per entity, default_*()/load/save/list, same
- * validation pattern lpc_valid_client_id() already uses.
+ * Agencies — the reseller layer, originally built above Landing Page
+ * Clients' client/niche-profile model (same shape as landing_page_clients_
+ * niches.php on purpose: one JSON file per entity, default_*()/load/save/
+ * list, same validation pattern lpc_valid_client_id() already uses) but
+ * since grown into shared platform infrastructure: lpc_current_actor_role()
+ * and friends are now the role/session engine for the WHOLE admin app, not
+ * just LPC — called from ~90 files including almost every PlusCities screen
+ * and Site Factory/infra page (admin/infra/bootstrap.php requires this file
+ * directly for exactly that reason). Renamed from includes/landing_page_
+ * clients_agencies.php to includes/agencies.php (2026-11-23, LPC Stage 3
+ * retirement scoping) to stop the filename implying an LPC-only scope it
+ * no longer has — see docs/lpc-stage3-retirement-scoping.md.
  *
  * An agency buys access to this platform and resells finished pages to its
  * own customers — every existing `client.json` gets an `agency_id` (see

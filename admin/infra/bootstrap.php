@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../config.php';   // session_start() + ADMIN_* const
 // deliberate self-containment (see this file's own doc comment) — the one
 // genuine new dependency the Nov 20 commit introduced, not a reason to pull
 // in the rest of the factory's include chain.
-require_once __DIR__ . '/../../includes/landing_page_clients_agencies.php';
+require_once __DIR__ . '/../../includes/agencies.php';
 
 if (empty($_SESSION['admin_logged_in'])) {
     // Absolute path, not '../login.php' — this file is included from both

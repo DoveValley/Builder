@@ -5,7 +5,7 @@
  * shared login per agency" with real Agency Editor accounts.
  *
  * Deliberately EXTENDS the existing auth mechanism
- * (includes/landing_page_clients_agencies.php's $_SESSION['agency_logged_in']
+ * (includes/agencies.php's $_SESSION['agency_logged_in']
  * / actor_role / agency_id) rather than building a parallel login system —
  * auth is shared infrastructure between the old and new engines, unlike
  * rendering/content, which stay deliberately separate. An Agency Editor logs

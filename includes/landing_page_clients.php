@@ -16,7 +16,7 @@ function lpc_default_client_data() {
     return [
         'client_id'   => '',
         // Every client belongs to exactly one agency — defaults to
-        // 'scotts-agency' (see includes/landing_page_clients_agencies.php)
+        // 'scotts-agency' (see includes/agencies.php)
         // so every client created before agencies existed keeps working
         // unchanged via this same deep-merge-defaults mechanism, and Scott
         // selling direct runs through his own agency row rather than a

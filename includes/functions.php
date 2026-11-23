@@ -19,7 +19,7 @@ require_once __DIR__ . '/editor.php';
 require_once __DIR__ . '/models.php';
 require_once __DIR__ . '/schema.php';
 require_once __DIR__ . '/landing_page_clients.php';
-require_once __DIR__ . '/landing_page_clients_agencies.php';
+require_once __DIR__ . '/agencies.php';
 require_once __DIR__ . '/landing_page_clients_publish.php';
 require_once __DIR__ . '/landing_page_clients_approvals.php';
 require_once __DIR__ . '/landing_page_clients_clicks.php';
