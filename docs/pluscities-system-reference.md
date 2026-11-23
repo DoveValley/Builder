@@ -317,11 +317,12 @@ Honest numbers, not aspirational ones:
   - `fact_cards.status` values `stale`/`rejected` are schema- and spec-documented, but the only function
     that can set them (`pluscities_fact_card_deactivate()`) has zero call sites — every live row is
     `active` in practice.
-  - **No admin UI path exists to correct a single FAQ answer** (found 2026-11-23, UC9): the generic Edit
-    form (`admin/pluscities_page.php`) edits `content_json['body']`, but FAQ blocks are shaped
-    `{"faqs":[...]}` — the Save button is correctly `disabled` for them (no risk of a malformed write),
-    but that also means there's no way to fix one bad answer without a full Regenerate, which calls the
-    AI writer fresh rather than making a small correction.
+  - ~~No admin UI path exists to correct a single FAQ answer~~ (found 2026-11-23, UC9; **fixed
+    2026-11-23**): `admin/pluscities_page.php` now renders a per-question editor for FAQ blocks (one
+    question input + one answer textarea per entry) instead of a disabled generic Save button; a new
+    `edit_faq` action in `admin/pluscities_page_save.php` rebuilds the `faqs` array and reuses
+    `pluscities_edit_block()` unchanged, so the auto-lock/`origin=edited`/`client_grounded=1` behavior is
+    identical to every other manual edit. Verified directly against a real FAQ block.
   - **The Niche Library's real `save_niche` form has no fields at all for `niche_table`,
     `trust_bar_items`, `blog_topics`, `custom_research_fields`, `approved_sources_extra`, or
     `image_slots`** (found 2026-11-23, UC11) — every one of these stays `null`/`[]` on a niche authored
