@@ -3,7 +3,7 @@
     "agency_id": "qa-test-agency",
     "niche_id": "hvac",
     "domain": "qa-test-co.example.com",
-    "site_rev": 14,
+    "site_rev": 15,
     "plugin_rev": 0,
     "plugin_version": "",
     "last_seen_at": "",
@@ -29,7 +29,20 @@
         "lifetime guarantee"
     ],
     "photos_by_city": [],
-    "reviews_by_city": [],
+    "reviews_by_city": {
+        "plano-tx": [
+            {
+                "author": "Marcus T.",
+                "rating": 5,
+                "text": "Had our AC fixed same-day during a brutal Texas summer. Fair price, no upsell pressure."
+            },
+            {
+                "author": "Jenna K.",
+                "rating": 5,
+                "text": "Professional team, cleaned up after themselves, furnace has run perfectly since."
+            }
+        ]
+    },
     "price_ranges": null,
     "billing": {
         "tier": "50",

@@ -565,19 +565,32 @@ login path exists at all): you literally cannot impersonate a PlusCities client 
 **Artifacts:** none — read-only investigation + impersonation sessions, immediately stopped, no lasting
 state change to any client.
 
-## UC13 — Client-supplied reviews + a brand-new city's first dataset fetch — not yet run
+## UC13 — Client-supplied reviews + a brand-new city's first dataset fetch — ✅ PASS (both gaps closed
+with a single new page)
 
-**Goal:** `reviews_from_city`/`client-supplied` classification has never been exercised by any use case —
-the 3 real rows in the live DB all predate this session's QA fixture. Separately, no use case has ever
-provisioned a page for a city with no existing `datasets` table row for `census_acs`, so the "first
-fetch" path has never been directly observed (as opposed to reading from an already-cached row).
+**Goal:** `reviews_from_city`/`client-supplied` classification had never been exercised by any use case.
+Separately, no use case had ever provisioned a page for a city with no existing `datasets` row, so the
+"first fetch" path had never been directly observed.
 
-Planned: add real `reviews_by_city` entries to a QA client, provision a page that picks the
-`reviews_from_city` block, confirm its content is copied straight from the client record (`origin=
-'client'`, never touches the AI writer) and that the `invented_reviews` hard exception correctly passes
-when the text matches verbatim. Separately, provision a page for a real city never used by any QA client
-so far, confirm a new `(city_id, 'census_acs')` row appears in the `datasets` table for the first time
-(not just read from a pre-existing cache row).
+**Efficient pairing found**: `plano-tx` (page 1's own city) had never triggered a `housing_stock` fetch —
+none of its existing picks included that block type — so a single new page for `plano-tx` could close
+both gaps at once, no need for an entirely new city.
+
+**Steps + results:**
+
+1. Added real `reviews_by_city.plano-tx` entries to `qa-test-co` (2 real reviews — no admin UI exists for
+   this field, same "direct write, documented honestly" pattern as UC6/UC9).
+2. Added a new page via the real Add Page form — `plano-tx` / `furnace-repair` (a legitimate new page_id,
+   different service than page 1, no collision), picking `housing_stock` and `reviews_from_city`.
+3. **Confirmed**: a genuinely new `(plano-tx, census_acs)` row appeared in the `datasets` table for the
+   first time, with real Census values (`income_median: 108649`, etc.) — not a pre-existing cache hit.
+4. **Confirmed**: the `reviews_from_city` block's content was copied **verbatim** from the client record
+   (`origin='client'`, `fact_ids=[]`) — never touched the AI writer at all.
+5. Validated, approved, published — `invented_reviews` specifically confirmed `pass` (the real text
+   matches the client's own data exactly), **zero failures total**.
+
+**Artifacts:** `qa-test-co` gains a 3rd live page (`plano-tx`/`furnace-repair`), real `reviews_by_city`
+data for `plano-tx`, and the system's first-ever genuine `census_acs` fetch for that city.
 
 ## UC14 — Agency billing fields + suspend/approve — not yet run
 
