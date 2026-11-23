@@ -327,7 +327,11 @@ Honest numbers, not aspirational ones:
     `image_slots`** (found 2026-11-23, UC11) — every one of these stays `null`/`[]` on a niche authored
     entirely through the real admin, same "no UI exists, must hand-edit JSON" shape as `banned_phrases`
     (UC6) and `radius_minutes` (UC9). Most consequential for `niche_table`, since the `niche_data_table`
-    block type can't render anything meaningful without one.
+    block type can't render anything meaningful without one. **Note:** `image_slots` was additionally a
+    live data-loss bug, not just a missing field — `admin/pluscities_niches_save.php` preserved the other
+    5 unexposed fields via an `$existing[...] ?? ...` fallback but omitted `image_slots` from that list
+    entirely, so every save through this screen silently wiped it to `[]`. Fixed 2026-11-23 (one-line
+    fallback added, matching the existing pattern); the missing-form-fields gap itself remains open.
   - **`pluscities_rollback_page()` dropped `blocks.client_grounded` on restore** (fixed 2026-11-23, found
     via real use-case testing — see `docs/pluscities-use-case-tests.md` UC7): its INSERT statement omitted
     the column entirely, silently resetting it to 0 regardless of what the revision snapshot actually
