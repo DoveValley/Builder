@@ -3,20 +3,21 @@
 **Why this doc exists:** Meade Restoration (the one real LPC client) was fully cut over to PlusCities on
 2026-11-23 — all 6 pages live, old `landing-page-client` WordPress plugin deactivated, hub page verified
 working (see memory `project_current_state.md` v487 for the full cutover story). This is the scoping pass
-for what comes next: actually retiring the old LPC codebase. **Nothing has been deleted yet** — this is
-the map, verified against the real code (grep/require-chain tracing) and the real infrastructure (SSH),
-not assumed from `docs/lpc-vs-site-factory-boundary.md`'s original design intent, which has partially
-drifted from current code (see corrections below).
+for what comes next: actually retiring the old LPC codebase. This doc started as a scoping pass before
+anything was deleted; **as of 2026-11-23 it also records what was actually done** — every step below
+verified against the real code (grep/require-chain tracing) and the real infrastructure (SSH), not
+assumed from `docs/lpc-vs-site-factory-boundary.md`'s original design intent, which had partially
+drifted from current code (see corrections below). Stage 3 is now fully complete — see the status line
+below.
 
 **Headline finding: this is not a clean deletion.** One LPC-named file has quietly become the role/session
 engine for the entire admin app (PlusCities and Site Factory included). Stage 3 has a required refactor
 step before the bulk deletion, not just a file-removal pass.
 
-**Status, 2026-11-23: §5 steps 1-5 done — every repo-level step is complete.** Billing/session decision
+**Status, 2026-11-23: Stage 3 is fully complete, §5 steps 1-6 all done.** Billing/session decision
 answered, agencies-file extracted, nav cleaned up, 27-file bulk deletion done, client data deleted
-(commits `511210ff`/`df288b2d`/`8a4ac987`/`8391774e`/`d34e76c5`/`93a58e48`/`4e375bf9`). **Only step 6
-remains, and it's infrastructure, not a repo change**: deciding the fate of the demo-sites box and the
-standalone delivery service (see §4).
+(commits `511210ff`/`df288b2d`/`8a4ac987`/`8391774e`/`d34e76c5`/`93a58e48`/`4e375bf9`), and step 6's
+infrastructure decision executed (box/delivery service — see §4 and §5.6).
 
 ---
 
@@ -205,9 +206,36 @@ Commits: `511210ff` (the rename itself), `df288b2d` (require-path + comment upda
    constants (verified zero remaining references first) — `LPC_DEMO_BOX_*` and `LPC_ALERT_EMAIL`
    deliberately kept (still used). Verified: `config.php` lints clean, full HTTP smoke test across every
    core screen clean. **This is the last repo-level step** — everything else is infrastructure.
-6. Separately, decide and act on §2.3's infrastructure items (demo-sites box, standalone delivery
-   service, its orphaned test-client directories) — not blocking on the code-repo deletion above, and not
-   a repo change at all.
+6. ✅ §2.3's infrastructure items decided and executed, 2026-11-23 — commits `9db14c7b`/`58b35b87` for the
+   repo-side pieces, plus direct infra changes on two boxes (no repo commit, by nature). Three-way split:
+   - **Kept**: the demo-sites box (`2.24.196.58`) itself, its 12 WordPress installs, Hestia, and
+     `includes/lpc_demo_box.php`'s SSH/API plumbing — confirmed genuinely shared with WP Builder
+     (~15 real call sites). Verified Hestia still answers (`v-list-web-domains` style check via
+     `curl https://localhost:8083/` → 302, service `running`) after everything else below was removed.
+   - **Deleted (repo)**: `admin/lpc_demo_sites.php`, `lpc_demo_sites_save.php`, `lpc_demo_sites_status.php`
+     — only ever rehearsed the old LPC delivery mechanism; nothing else referenced them except the nav
+     entry and each other. Nav entry removed from `admin/lpc_admin_layout.php`.
+     `wp-plugin/demo-site-back-link/demo-site-back-link.php`'s badge pointed at the now-deleted
+     `lpc_demo_sites.php` — repointed to `sites.php`; also dropped a dead CSS override gated on a query
+     var (`lpc_route`) nothing sets anymore since the LPC plugin itself is gone.
+   - **Retired (infra, not a repo change)**: the standalone delivery service on `2.24.196.58`
+     (`standalone-lpc-delivery.service`) — stopped, disabled, unit file removed, data directory renamed to
+     `/opt/standalone-lpc-delivery.retired-2026-11-23` (moved rather than `rm -rf`'d, so it's recoverable
+     if anything surfaces later). **Real finding before touching it**: the service was still getting live
+     traffic (`click_summary`/`status` calls every ~15 min) — traced to `wptest-landing-clients.service`,
+     a persistent local test WordPress install on *this* box (port 8099) still running the deleted
+     `landing-page-client` plugin via its own wp-cron, left over from building/testing that plugin earlier
+     this session. Not a real client dependency. Stopped+disabled that service and
+     `landing-page-delivery.service` (an already-inactive sibling unit on this box), removed both unit
+     files, and moved `/opt/landing-page-clients/` aside to
+     `/opt/landing-page-clients.retired-2026-11-23`. Confirmed the remote service went fully quiet
+     (`journalctl --since '5 minutes ago'` → no entries) before stopping it for real. Client data in the
+     retired delivery dir matched the expected list exactly: 5 orphaned QA fixtures
+     (`client-for-grace-test-c`, `mr-test-restore`, `restore-2`, `test-approval-client`,
+     `test-billing-client`) plus the already-migrated `meade-restoration`.
+   - Verified after all of the above: full local `php -l` sweep clean on every touched file, HTTP smoke
+     test (`wp_builder.php`, `pluscities_clients.php`, `sites.php`, `login.php`) all clean redirects/200,
+     `lpc_demo_sites.php` now correctly 404s.
 
 **How to apply:** re-verify file/line references above before executing any step — this was scoped from a
 point-in-time read of the code on 2026-11-23; if time has passed, re-run the same grep/require-chain
