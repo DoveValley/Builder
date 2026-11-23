@@ -449,8 +449,14 @@ delivery/branding surfaces an agency actually touches.
    blocking www-data (same recurring bug class as UC1/UC5). **Fixed** via targeted `chown` (consistent
    with the standing policy — fix the specific blocking path, not a blanket sweep). Retried: logo, accent
    `#8b1a1a`, dark `#0b1b33`, and a hero photo-slot upload **all genuinely persisted** — confirmed real
-   files on disk and `client['branding']`/`client['images']` correctly updated, including the "refresh
-   every slot's branded image right away" behavior firing automatically.
+   files on disk and `client['branding']`/`client['images']` correctly updated.
+   **Correction, found during UC11**: the "refresh every slot's branded image right away" step had
+   *also* silently failed — `client['images']['hero']['branded_cache_path']` was set in the JSON, but
+   the actual file never existed on disk, because `pluscities_uploads/branded/` is a *separate*
+   subdirectory that was **also** root-owned (chowning the parent `pluscities_uploads/` doesn't cascade
+   to a pre-existing root-owned child). The original write-up above only checked the JSON field, not the
+   real file — a mistake, corrected here rather than left standing. Fixed via the same targeted `chown`;
+   regenerated the branded image directly and confirmed the file now genuinely exists on disk.
 2. **Color detection** against the client's (fake, non-live) domain — failed gracefully with
    `"Could not detect colors from your site - try setting them manually"`, not a crash. A correct
    negative-path result, not a bug.
