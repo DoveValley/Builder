@@ -18,6 +18,7 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 | Onboarding a new customer on the OLD, being-phased-out LPC system specifically (not current PlusCities process) | `docs/landing-page-clients-onboarding.md` |
 | Deciding whether something belongs in the OLD LPC system, the Site Factory, or both — shared `fleet.db`/API-key risk, block-renderer separation | `docs/lpc-vs-site-factory-boundary.md` |
 | Which topics appear on an LPC city page (City Service Page tab), the PlusCities-to-LPC content bridge, or `pluscities_lpc_bridge.php` | `docs/city-service-page-block-matrix.md` |
+| Actually retiring the OLD LPC codebase (Stage 3): what's safe to delete, what's shared and must stay, the required agencies-file extraction | `docs/lpc-stage3-retirement-scoping.md` |
 
 ## Running locally
 
