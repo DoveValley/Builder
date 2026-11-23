@@ -1,0 +1,63 @@
+{
+    "client_id": "qa-test-co-2",
+    "agency_id": "qa-test-agency-2",
+    "niche_id": "water-damage-restoration",
+    "domain": "qa-test-co-2.example.com",
+    "site_rev": 0,
+    "plugin_rev": 0,
+    "plugin_version": "",
+    "last_seen_at": "",
+    "class_prefix": "lpc-qatestco2",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "QA Test Co 2",
+        "hubs": [
+            {
+                "address": "200 QA Test Way, Allen, TX 75013",
+                "phone": "(972) 555-0200"
+            }
+        ]
+    },
+    "licenses": [],
+    "years_in_business": null,
+    "hours": {
+        "mon_fri": "",
+        "sat": "",
+        "sun": ""
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": [],
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "approval_gate_override": null,
+    "services": [
+        "water-damage-restoration",
+        "fire-damage-restoration"
+    ],
+    "target_cities": [
+        {
+            "city_id": "allen-tx",
+            "drive_minutes": 15,
+            "confirmed_by_client": false
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": "",
+        "accent_override": null,
+        "dark_override": null,
+        "detected_accent": null,
+        "detected_dark": null,
+        "colors_detected_at": null
+    },
+    "images": [],
+    "hub_content": {
+        "top_text": "",
+        "footer_text": ""
+    }
+}

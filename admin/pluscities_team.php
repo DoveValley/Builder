@@ -34,7 +34,19 @@ if (!empty($_GET['msg'])) {
 $editing = !empty($_GET['edit']) ? pluscities_user_load($_GET['edit']) : null;
 $users = pluscities_users_for_agency($agencyId);
 $clients = pluscities_client_ids_for_current_actor(); // agency_admin => every one of the agency's own clients
-
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team — <?= h(SITE_TITLE) ?></title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
+<link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
+</head>
+<?php
 lpc_admin_open('pluscities_team', 'Team');
 ?>
 <style>

@@ -8,7 +8,7 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **UC1-4 complete and verified. UC5 not yet run.**
+Status: **All 5 use cases complete and verified.**
 
 ---
 
@@ -177,8 +177,58 @@ and reproducible, not to pretend a passing test where none is warranted.
 
 **Artifacts:** none — read-only investigation, no state changed.
 
-## UC5 — Roles & permissions boundary — not yet run
+## UC5 — Roles & permissions boundary — ✅ PASS
 
-Planned: a 2nd QA agency for cross-agency isolation proof, an Agency Editor scoped to QA Test Co only with
-publishing off by default, confirm the publish gate holds server-side, then flip it on. Reproduce the
-documented read-scope gap (editor's list views show more than `assigned_client_ids` permits) live.
+**Goal:** prove the role model's real boundaries hold — cross-agency isolation, the Agency Editor publish
+gate — and reproduce the already-documented read-scope gap live rather than citing it from code alone.
+
+**Fixture additions:** `QA Test Agency 2` (+ `QA Test Co 2`, a separate agency entirely) for cross-agency
+isolation; `QA Test Co B` under the *original* `qa-test-agency` (a 2nd client in the same agency) so the
+read-scope gap had something real to reproduce against; an Agency Editor (`qa-editor`) under
+`qa-test-agency`, `assigned_client_ids=['qa-test-co']` only — deliberately excluding `QA Test Co B`.
+
+**Steps taken (all via the real admin, real separate logins):**
+1. Logged in as `qa-test-agency`'s agency_admin — checked `pluscities_clients.php`.
+2. Created the Agency Editor via the real Team screen, scoped to one client only.
+3. Logged in as that editor — checked `pluscities_clients.php` and `pluscities_pages.php`, then attempted
+   Validate → Approve → Publish on a `qa-test-co` page.
+4. Logged back in as the agency_admin, flipped the "Agency Editors can publish" toggle on.
+5. Logged back in as the editor, attempted Publish again.
+
+**Verified:**
+- **Cross-agency isolation holds**: the agency_admin and the editor both saw only `qa-test-agency`'s own
+  2 clients (`QA Test Co`, `QA Test Co B`) — never `QA Test Co 2` (the other agency) and never any of the
+  3 real production clients.
+- **The publish gate holds server-side**, cleanly isolated from the "not yet approved" case: with
+  `editor_can_publish` off, Validate/Approve succeeded for the editor but Publish was refused with the
+  specific message `"This agency hasn't enabled Editor publishing — ask an Agency Admin to publish this
+  page."` — not just a generic denial.
+- Flipping the toggle on as the agency_admin, then publishing as the *same* editor session, succeeded
+  immediately (`"Published"`) — the gate is live-checked per request, not cached at login.
+- **The documented read-scope gap reproduced live, exactly as predicted**: despite being assigned only to
+  `qa-test-co`, the editor's `pluscities_clients.php` and `pluscities_pages.php` both showed `QA Test Co
+  B` too. This confirms it's a real, reproducible over-exposure (not just a code-reading inference) —
+  still bounded to the editor's own agency, not a cross-agency leak.
+
+**Real bugs found and fixed along the way, not scripted:**
+1. **Every PlusCities-native admin page's sidebar/nav had zero CSS styling, full session, flagged live by
+   Scott.** Root cause: `lpc_admin_head_assets()` — the function defining every shared color variable and
+   the entire `.pcadmin-sidebar`/`.pcadmin-nav` stylesheet — is called by every old-LPC admin page
+   (`clients.php`, `agencies.php`, etc.) but was never called by any of the 8 `pluscities_*.php` view
+   files (`pluscities_clients.php`, `_hub_edit.php`, `_niches.php`, `_page.php`, `_page_add.php`,
+   `_pages.php`, `_photos.php`, `_team.php`). None of them even had a `<!DOCTYPE html>`/`<head>` wrapper at
+   all — PHP output went straight from server-side logic into `<body>`. Fixed by adding the same
+   DOCTYPE/head/`lpc_admin_head_assets()` block every old-LPC file already uses, to all 8 files. This had
+   been present since these files were first written — nothing in this session's own testing would have
+   caught it, since every check so far used `textContent()`/DB state, never a visual screenshot of the
+   chrome itself.
+2. **`pluscities_agency_users/` was root-owned**, same bug class as UC1's 2 instances — silently blocked
+   the Agency Editor account's save. Worse: `pluscities_team_save.php`'s "save" action doesn't check
+   `pluscities_atomic_write_json()`'s own return value, so the UI reported **"Saved" even though nothing
+   was written** — confirmed by the missing file on disk despite the success message. Fixed the directory
+   ownership (same targeted-chown approach as before); the silent-failure-on-write-error gap in the save
+   handler itself is noted here but not fixed — out of scope for this use case, a real but separate
+   robustness gap.
+
+**Artifacts:** `QA Test Agency 2` + `QA Test Co 2`, `QA Test Co B` (both under the original agency), one
+real Agency Editor account (`qa-editor`), `qa-test-agency.editor_can_publish` now `true`.

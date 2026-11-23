@@ -65,7 +65,19 @@ if (!empty($_GET['msg'])) {
         if (in_array($type, ['success', 'error', 'warning'], true)) $alert = ['type' => $type, 'text' => $text];
     }
 }
-
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page — <?= h(SITE_TITLE) ?></title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
+<link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+<?php lpc_admin_head_assets(); ?>
+</head>
+<?php
 lpc_admin_open('pluscities_page', 'Page — ' . h($pageId));
 ?>
 <style>
