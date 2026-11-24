@@ -118,7 +118,7 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
             <button type="submit" name="action" value="approve" class="btn-sm-outline">Approve</button>
             <button type="submit" name="action" value="publish" class="btn-open">Publish</button>
             <?php if ($page['status'] === 'live'): ?>
-                <button type="submit" name="action" value="unpublish" class="btn-sm-danger">Unpublish</button>
+                <button type="submit" name="action" value="unpublish" class="btn-sm-danger" onclick="return confirm('Unpublish this page? It will stop showing on the client\'s live site immediately. You can republish it later.');">Unpublish</button>
             <?php endif; ?>
         </form>
     </div>

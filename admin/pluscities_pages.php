@@ -75,6 +75,7 @@ if ($clients) {
                 'approved'   => $page['approval_stage'] === 'approved',
                 'published'  => $page['live_revision_id'] !== null,
                 'live'       => $page['status'] === 'live',
+                'unpublished' => $page['status'] === 'unpublished',
             ],
             'validation' => $validation,
             'validation_current' => $validationCurrent,
@@ -110,6 +111,7 @@ lpc_admin_open('pluscities_pages', 'PlusCities Pages');
 .pc-dot-btn{background:none;border:none;padding:4px;cursor:pointer;}
 .pc-page-link{font-weight:700;color:var(--pc-ink,#1c2b45);text-decoration:none;}
 .pc-page-link:hover{text-decoration:underline;}
+.pc-unpublished-pill{display:inline-block;margin-left:8px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em;padding:2px 8px;border-radius:10px;background:#fee2e2;color:#991b1b;}
 .pc-popover{display:none;position:absolute;z-index:50;background:#fff;border:1px solid var(--pc-line,#e2e8f2);border-radius:10px;box-shadow:0 8px 24px rgba(11,27,51,.15);padding:12px 14px;min-width:280px;text-align:left;font-size:.8rem;}
 .pc-popover.open{display:block;}
 .pc-popover .pc-check-row{display:flex;gap:6px;padding:3px 0;}
@@ -153,6 +155,7 @@ if ($downloadAgencyId): ?>
         <td><input type="checkbox" name="page_ids[]" value="<?= h($p['page_id']) ?>" class="pc-row-check"></td>
         <td class="pc-td-left">
             <a class="pc-page-link" href="pluscities_page.php?page_id=<?= h($p['page_id']) ?>"><?= h($r['client']['identity']['business_name'] ?? $p['client_id']) ?> — <?= h($p['city_id']) ?> / <?= h($p['service_key']) ?></a>
+            <?php if ($d['unpublished']): ?><span class="pc-unpublished-pill">Unpublished</span><?php endif; ?>
         </td>
         <td><span class="pc-dot <?= $d['researched'] ? 'on' : '' ?>"></span></td>
         <td><span class="pc-dot <?= $d['written'] ? 'on' : '' ?>"></span></td>
@@ -180,7 +183,7 @@ if ($downloadAgencyId): ?>
         </td>
         <td><span class="pc-dot <?= $d['approved'] ? 'on' : '' ?>"></span></td>
         <td><span class="pc-dot <?= $d['published'] ? 'on' : '' ?>"></span></td>
-        <td><span class="pc-dot <?= $d['live'] ? 'on' : '' ?>"></span></td>
+        <td><span class="pc-dot <?= $d['live'] ? 'on' : ($d['unpublished'] ? 'fail' : '') ?>" <?= $d['unpublished'] ? 'title="Unpublished — was live, pulled down"' : '' ?>></span></td>
     </tr>
 <?php endforeach; ?>
 </tbody>
