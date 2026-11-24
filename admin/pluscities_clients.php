@@ -131,6 +131,9 @@ lpc_admin_open('pluscities_clients', 'Clients');
                             <?= $daysLeft > 0 ? 'Cancelled — ' . $daysLeft . ' day(s) left in grace period' : 'Cancelled — grace period ended, redirecting now' ?>
                         </strong>
                     <?php endif; ?>
+                    <?php if (!empty($c['site_suspended'])): ?>
+                        &middot; <strong style="color:#991b1b;">Suspended by platform admin</strong>
+                    <?php endif; ?>
                 </div>
             </div>
             <div style="display:flex;gap:8px;">
@@ -160,6 +163,14 @@ lpc_admin_open('pluscities_clients', 'Clients');
                     <input type="hidden" name="action" value="<?= $isCanceled ? 'reactivate' : 'cancel' ?>">
                     <input type="hidden" name="client_id" value="<?= h($cid) ?>">
                     <button type="submit" class="<?= $isCanceled ? 'btn-sm-outline' : 'btn-sm-danger' ?>"><?= $isCanceled ? 'Reactivate' : 'Cancel Client' ?></button>
+                </form>
+                <?php endif; ?>
+                <?php if (lpc_current_actor_role() === 'super_admin'): $isSuspended = !empty($c['site_suspended']); ?>
+                <form method="post" action="pluscities_clients_save.php" style="margin:0;" onsubmit="return confirm('<?= $isSuspended ? 'Un-suspend this site? Pages stay unpublished until manually republished from the Pages screen.' : 'Suspend this site immediately? Every live page for this client is unpublished right away, no grace period.' ?>');">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="action" value="<?= $isSuspended ? 'unsuspend_site' : 'suspend_site' ?>">
+                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
+                    <button type="submit" class="<?= $isSuspended ? 'btn-sm-outline' : 'btn-sm-danger' ?>"><?= $isSuspended ? 'Un-suspend Site' : 'Suspend Site' ?></button>
                 </form>
                 <?php endif; ?>
             </div>

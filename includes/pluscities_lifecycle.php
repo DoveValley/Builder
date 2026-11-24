@@ -474,9 +474,16 @@ function pluscities_publish_page(string $page_id, string $actor, string $actor_r
     if (!$page) return ['ok' => false, 'msg' => 'Page not found.'];
     if ($page['approval_stage'] !== 'approved') return ['ok' => false, 'msg' => 'This page hasn\'t been approved yet.'];
 
+    // Checked for every role, including super_admin — "suspended" means
+    // nothing goes live until a Platform Admin explicitly un-suspends, not a
+    // soft block an agency (or the same admin, mid-incident) can route
+    // around by publishing again. Added 2026-11-24 alongside "Suspend Site".
+    $client = pluscities_client_load($page['client_id']);
+    if ($client && !empty($client['site_suspended'])) {
+        return ['ok' => false, 'msg' => 'This client\'s site has been suspended by the platform admin — un-suspend it before publishing.'];
+    }
+
     if ($actor_role === 'agency_editor') {
-        $clientFile = PLUSCITIES_CLIENTS_DIR . $page['client_id'] . '.json';
-        $client = json_decode((string) @file_get_contents($clientFile), true) ?: [];
         $agency = lpc_load_agency($client['agency_id'] ?? '');
         if (!$agency || empty($agency['editor_can_publish'])) {
             return ['ok' => false, 'msg' => 'This agency hasn\'t enabled Editor publishing — ask an Agency Admin to publish this page.'];

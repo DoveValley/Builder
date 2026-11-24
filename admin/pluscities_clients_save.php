@@ -195,4 +195,41 @@ if ($action === 'cancel' || $action === 'reactivate') {
     exit;
 }
 
+if ($action === 'suspend_site' || $action === 'unsuspend_site') {
+    // Platform Admin only, deliberately — unlike Cancel (an agency's own
+    // business decision about its client), this is the platform's kill
+    // switch for abuse/non-payment and has no grace period: pages go dark
+    // immediately. Added 2026-11-24.
+    if (lpc_current_actor_role() !== 'super_admin') {
+        header('Location: pluscities_clients.php?msg=error:Not+authorized'); exit;
+    }
+    $clientId = trim((string) ($_POST['client_id'] ?? ''));
+    $client = pluscities_client_load($clientId);
+    if (!$client) {
+        header('Location: pluscities_clients.php?msg=error:Client+not+found'); exit;
+    }
+    if ($action === 'suspend_site') {
+        $client['site_suspended'] = true;
+        $client['site_suspended_at'] = gmdate('c');
+        pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
+
+        $db = pluscities_db();
+        $st = $db->prepare('SELECT page_id FROM pages WHERE client_id = ? AND status = "live"');
+        $st->execute([$clientId]);
+        $count = 0;
+        foreach ($st->fetchAll(PDO::FETCH_COLUMN) as $pageId) {
+            pluscities_unpublish_page($pageId, $actor);
+            $count++;
+        }
+        pluscities_log_event($actor, 'suspend_site', 'client:' . $clientId, $count . ' page(s) unpublished');
+        header('Location: pluscities_clients.php?msg=' . urlencode('success:Site suspended — ' . $count . ' page(s) unpublished')); exit;
+    } else {
+        $client['site_suspended'] = false;
+        $client['site_suspended_at'] = null;
+        pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
+        pluscities_log_event($actor, 'unsuspend_site', 'client:' . $clientId, '');
+        header('Location: pluscities_clients.php?msg=' . urlencode('success:Site un-suspended — republish pages from the Pages screen to bring them back live')); exit;
+    }
+}
+
 header('Location: pluscities_clients.php?msg=error:Unknown+action');
