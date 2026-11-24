@@ -235,12 +235,15 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
     <?php foreach ($revisions as $r): ?>
         <div class="pc-row" style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--pc-line,#e2e8f2);">
             <span>#<?= (int) $r['number'] ?> by <?= h($r['author']) ?> at <?= h($r['created_at']) ?></span>
-            <form method="post" action="pluscities_page_save.php" onsubmit="return confirm('Roll back to revision <?= (int) $r['number'] ?>? Still needs to be re-approved and re-published.');">
-                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
-                <input type="hidden" name="revision_number" value="<?= (int) $r['number'] ?>">
-                <button type="submit" name="action" value="rollback" class="btn-sm-outline">Roll back to this</button>
-            </form>
+            <div style="display:flex;gap:8px;">
+                <a class="btn-sm-outline" href="pluscities_page_diff.php?page_id=<?= h($pageId) ?>&revision_number=<?= (int) $r['number'] ?>">Compare to current</a>
+                <form method="post" action="pluscities_page_save.php" onsubmit="return confirm('Roll back to revision <?= (int) $r['number'] ?>? Still needs to be re-approved and re-published.');">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
+                    <input type="hidden" name="revision_number" value="<?= (int) $r['number'] ?>">
+                    <button type="submit" name="action" value="rollback" class="btn-sm-outline">Roll back to this</button>
+                </form>
+            </div>
         </div>
     <?php endforeach; ?>
 </div>
