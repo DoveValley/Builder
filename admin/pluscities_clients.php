@@ -99,6 +99,15 @@ lpc_admin_open('pluscities_clients', 'Clients');
                 <a href="pluscities_hub_edit.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Service Area Page</a>
                 <a href="pluscities_page_styling.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Page Styling</a>
                 <a href="pluscities_plugin_download.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Download Plugin</a>
+                <?php if (in_array(lpc_current_actor_role(), ['super_admin', 'agency_admin'], true)): ?>
+                <form method="post" action="impersonate.php" style="margin:0;">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="action" value="start">
+                    <input type="hidden" name="type" value="client">
+                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
+                    <button type="submit" class="btn-sm-outline">Log in as</button>
+                </form>
+                <?php endif; ?>
             </div>
         </div>
     <?php endforeach; ?>

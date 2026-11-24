@@ -1,0 +1,74 @@
+{
+    "client_id": "lone-star-comfort-heating-air-2",
+    "agency_id": "northstar-digital-marketing-demo",
+    "niche_id": "hvac",
+    "domain": "lonestarcomfortair.com",
+    "site_rev": 2,
+    "plugin_rev": 0,
+    "plugin_version": "",
+    "last_seen_at": "",
+    "class_prefix": "lpc-lonestarcomfortheatingair2",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "Lone Star Comfort Heating & Air",
+        "hubs": [
+            {
+                "address": "123 Lamar Blvd, Austin, TX 78701",
+                "phone": "(512) 555-0142"
+            }
+        ]
+    },
+    "licenses": [
+        {
+            "number": "TACLA12345C",
+            "state": "TX",
+            "trade": "HVAC Contractor"
+        }
+    ],
+    "years_in_business": 12,
+    "hours": {
+        "mon_fri": "7:00-19:00",
+        "sat": "8:00-14:00",
+        "sun": "closed"
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": [],
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "approval_gate_override": null,
+    "services": [
+        "ac-repair",
+        "furnace-repair"
+    ],
+    "target_cities": [
+        {
+            "city_id": "austin-tx",
+            "drive_minutes": 5,
+            "confirmed_by_client": false
+        },
+        {
+            "city_id": "round-rock-tx",
+            "drive_minutes": 20,
+            "confirmed_by_client": false
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": "",
+        "accent_override": null,
+        "dark_override": null,
+        "detected_accent": null,
+        "detected_dark": null,
+        "colors_detected_at": null
+    },
+    "images": [],
+    "hub_content": {
+        "top_text": "",
+        "footer_text": ""
+    }
+}

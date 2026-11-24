@@ -25,6 +25,7 @@ require_once __DIR__ . '/pluscities_niche_library.php';
 require_once __DIR__ . '/../admin/infra/lib/pluscities_db.php';
 require_once __DIR__ . '/../admin/infra/lib/http.php';
 require_once __DIR__ . '/../admin/infra/lib/census.php';
+require_once __DIR__ . '/anthropic.php';
 require_once __DIR__ . '/pluscities_color_detect.php';
 require_once __DIR__ . '/pluscities_research.php';
 require_once __DIR__ . '/pluscities_images.php';

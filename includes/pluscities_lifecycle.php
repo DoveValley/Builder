@@ -13,6 +13,23 @@
  */
 
 /**
+ * Load one pluscities_clients/*.json record by id, with no actor-scoping —
+ * callers that already know which client they want (impersonation, the
+ * portal the impersonated session lands on) just need the record, not the
+ * filtered list. Every other reader of this directory inlines this same
+ * json_decode(file_get_contents(...)) one-off; pulled out here so the two
+ * new 2026-11-24 callers (admin/impersonate.php, admin/client_portal.php)
+ * share one copy instead of adding a third inline version.
+ */
+function pluscities_client_load(string $client_id): ?array
+{
+    $file = PLUSCITIES_CLIENTS_DIR . $client_id . '.json';
+    if (!file_exists($file)) return null;
+    $data = json_decode((string) file_get_contents($file), true);
+    return is_array($data) ? $data : null;
+}
+
+/**
  * Which pluscities_clients/*.json ids the current actor may see — Platform
  * Owner sees all, Agency Admin/Editor see only their own agency's. Shared by
  * admin/pluscities_pages.php (listing) and admin/pluscities_pages_save.php

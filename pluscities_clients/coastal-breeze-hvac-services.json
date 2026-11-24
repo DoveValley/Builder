@@ -1,0 +1,74 @@
+{
+    "client_id": "coastal-breeze-hvac-services",
+    "agency_id": "northstar-digital-marketing-demo",
+    "niche_id": "hvac",
+    "domain": "coastalbreezehvac.com",
+    "site_rev": 2,
+    "plugin_rev": 0,
+    "plugin_version": "",
+    "last_seen_at": "",
+    "class_prefix": "lpc-coastalbreezehvacservices",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "Coastal Breeze HVAC Services",
+        "hubs": [
+            {
+                "address": "456 Bayshore Blvd, Tampa, FL 33606",
+                "phone": "(813) 555-0198"
+            }
+        ]
+    },
+    "licenses": [
+        {
+            "number": "CAC1234567",
+            "state": "FL",
+            "trade": "HVAC Contractor"
+        }
+    ],
+    "years_in_business": 8,
+    "hours": {
+        "mon_fri": "7:00-19:00",
+        "sat": "8:00-14:00",
+        "sun": "closed"
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": [],
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "approval_gate_override": null,
+    "services": [
+        "ac-repair",
+        "furnace-repair"
+    ],
+    "target_cities": [
+        {
+            "city_id": "tampa-fl",
+            "drive_minutes": 5,
+            "confirmed_by_client": false
+        },
+        {
+            "city_id": "st-petersburg-fl",
+            "drive_minutes": 25,
+            "confirmed_by_client": false
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": "",
+        "accent_override": null,
+        "dark_override": null,
+        "detected_accent": null,
+        "detected_dark": null,
+        "colors_detected_at": null
+    },
+    "images": [],
+    "hub_content": {
+        "top_text": "",
+        "footer_text": ""
+    }
+}

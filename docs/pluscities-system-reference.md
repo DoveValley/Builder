@@ -371,7 +371,7 @@ whenever unset, which is every session started via the platform operator's own `
 | `super_admin` | Default whenever `actor_role` is unset (`login.php`) | Everything | Full access to every PlusCities + platform-only screen (Agencies, Niche Library, Settings, Platform Info, WP Builder, Site Factory). Only role that can impersonate. **Cannot** access `pluscities_team.php` directly (agency_admin-only) except by impersonating that agency. |
 | `agency_admin` | `agency_login.php` | Own `agency_id` | Create/manage own agency's clients, pages, photos, hub text, branding, team roster (`editor_can_publish` toggle). Blocked from every platform-only screen. |
 | `agency_editor` | `agency_login.php`, real per-person account (`includes/pluscities_users.php`) | Same agency, further narrowed by `assigned_client_ids` (empty = sees all of agency's clients) | Edit/lock/regenerate/swap/approve freely. **Publish is conditionally blocked** unless the agency's `editor_can_publish` flag is on (off by default) — enforced inside `pluscities_publish_page()` itself, not just the UI. |
-| `end_client` | ~~`client_login.php`~~ **No login path exists at all, as of 2026-11-23.** | N/A | Excluded from every `pluscities_*.php` screen, same as always. `client_login.php`/`client_portal.php` (the old-LPC files this role was built for) were deleted in LPC Stage 3 retirement — there is now no way for *anyone* to ever hold this role. The exclusion checks are dead code, not a working restriction (see §5.5). |
+| `end_client` | **Impersonation only, as of 2026-11-24** — `admin/impersonate.php`'s `type=client` path, reachable via a "Log in as" button on `pluscities_clients.php` (super_admin/agency_admin only). No self-service login exists — a real business owner cannot log in with their own credentials; only a platform/agency operator can view the role's one screen on their behalf. | N/A | Excluded from every other `pluscities_*.php` screen, same as always. `admin/client_portal.php` was rebuilt 2026-11-24 against the current PlusCities data model (`pluscities_clients/*.json` + `pluscities.db`) — the old-LPC version of this file, deleted in Stage 3, would not have worked even if restored as-is. `admin/impersonate.php` itself was also broken until the same fix: it called `lpc_load_client()` against the old (now-empty) LPC client store, so impersonating ANY client — not just reaching the destination page — failed with "Client not found" for every PlusCities client. `client_login.php` (a genuine self-service login) remains deleted and unbuilt — see §5.5. |
 
 Impersonation (`admin/impersonate.php`) overlays role/agency/client without touching the real login flag:
 `super_admin` → any agency (as its admin) or any client (as end_client); `agency_admin` → one of its own
@@ -396,8 +396,10 @@ clients. One hop only, no stacking.
 
 Shared by LPC + PlusCities admin pages (not the ~80-page Site Factory, which has its own separate chrome).
 
-- `end_client` has no nav at all now — its one item (Reporting → `client_portal.php`) was deleted along
-  with the rest of old LPC. Moot anyway, since nothing can hold this role anymore (see §5.1).
+- `end_client` has one nav item — Reporting → `client_portal.php`. This item itself was never removed in
+  Stage 3 (correcting an earlier version of this doc that claimed it was) — it kept pointing at a file
+  that *was* deleted, a real 404 for anyone who ever reached this role, found and fixed 2026-11-24 (see
+  §5.1 and §5.5).
 - Everyone else sees, in order: **PlusCities Clients** → **PlusCities Pages** → **Photos** →
   *(agency_admin only: My Branding, Team)* → *(super_admin only — split into two sections, "Platform
   Ops" and "Build Tools": Agencies, Niche Library, Platform Information, Settings; WP Builder,
@@ -418,19 +420,26 @@ Not in the nav at all (reached only via links from other pages): `pluscities_hub
 |---|---|---|
 | `admin/login.php` | Platform operator | `sites.php` (Site Factory) |
 | `admin/agency_login.php` | Agency Admin or Agency Editor | `pluscities_dashboard.php` on successful login (corrected from an earlier version of this doc, which said `clients.php` — that's only the "already logged in" pre-check redirect at the top of the file; `clients.php` itself wasn't deleted in Stage 3, its old client-list content was replaced with a thin redirect stub to `pluscities_clients.php`, since ~19 other files still redirect to it) |
-| ~~`admin/client_login.php`~~ | Deleted 2026-11-23 (LPC Stage 3) | N/A — `end_client` has no login path at all now |
+| ~~`admin/client_login.php`~~ | Deleted 2026-11-23 (LPC Stage 3) | N/A — no self-service `end_client` login exists; the role is only reachable via `admin/impersonate.php` (see §5.1) |
 
 `admin/login.php`'s target (`sites.php`, Site Factory) remains the one staff-facing login that doesn't
 land on a PlusCities-native screen — a real, already-present inconsistency worth knowing about, not new.
 
 ### 5.5 Known gaps (real, not hypothetical — found via direct code read)
 
-1. **No `end_client` login path exists for anyone, PlusCities or otherwise.** Originally this gap meant
-   `client_login.php`/`client_portal.php` existed but were 100% scoped to the old `lpc_client_dir()` tree,
-   not `PLUSCITIES_CLIENTS_DIR` — so a PlusCities client could never obtain the role. As of 2026-11-23 (LPC
-   Stage 3) those two files are deleted entirely, so the gap is now total: every `pluscities_*.php` file
-   still dutifully excludes `role === 'end_client'`, but nothing in the codebase can ever set that role. A
-   real client-facing reporting portal remains unbuilt, for either system.
+1. **No self-service `end_client` login exists — only operator-driven impersonation.** Originally (pre
+   Stage 3) this gap meant `client_login.php`/`client_portal.php` existed but were 100% scoped to the old
+   `lpc_client_dir()` tree, not `PLUSCITIES_CLIENTS_DIR` — so a PlusCities client could never obtain the
+   role. Stage 3 (2026-11-23) then deleted both files entirely, breaking impersonation's destination too —
+   confirmed live-broken (every client impersonation attempt failed with "Client not found," because
+   `admin/impersonate.php` still called `lpc_load_client()` against the by-then-empty old client store).
+   Fixed 2026-11-24: `admin/impersonate.php` now loads PlusCities clients correctly, `admin/client_portal.php`
+   was rebuilt against the current data model (real page list, city/service/status, live-pages only), and
+   a "Log in as" button was added to `pluscities_clients.php` (super_admin/agency_admin only — no button
+   existed anywhere before this). **What's still missing**: a genuine self-service login — a real business
+   owner cannot log into their own reporting with their own credentials today; the role is only reachable
+   by an operator choosing to view it on their behalf. Building real `end_client` credentials + a login
+   form remains unbuilt, for either system.
 2. **Agency Editor's `assigned_client_ids` restriction is enforced on writes but not consistently on
    reads.** `pluscities_clients.php` (client list) and `pluscities_pages.php` (pages table) only apply
    agency-level scoping, not the per-editor restriction — an editor sees every client/page in the agency

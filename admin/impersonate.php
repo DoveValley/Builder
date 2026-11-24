@@ -58,21 +58,25 @@ if ($action === 'start') {
     }
 
     if ($type === 'client') {
+        // PlusCities clients (pluscities_clients/*.json), not the old LPC
+        // client store (clients/) — that directory is empty post-retirement,
+        // confirmed 2026-11-24 before switching this over, so there's no old
+        // client this would stop finding.
         $clientId = trim($_POST['client_id'] ?? '');
-        $client = lpc_load_client($clientId);
+        $client = pluscities_client_load($clientId);
         if (!$client) {
-            header('Location: clients.php?msg=error:Client+not+found');
+            header('Location: pluscities_clients.php?msg=error:Client+not+found');
             exit;
         }
         if ($realRole === 'super_admin') {
             // unrestricted
         } elseif ($realRole === 'agency_admin') {
             if (($client['agency_id'] ?? '') !== lpc_current_actor_agency_id()) {
-                header('Location: clients.php?msg=error:Not+authorized');
+                header('Location: pluscities_clients.php?msg=error:Not+authorized');
                 exit;
             }
         } else {
-            header('Location: clients.php?msg=error:Not+authorized');
+            header('Location: pluscities_clients.php?msg=error:Not+authorized');
             exit;
         }
         lpc_start_impersonation('end_client', $client['agency_id'] ?? null, $clientId);
