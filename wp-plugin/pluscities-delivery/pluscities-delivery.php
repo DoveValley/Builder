@@ -2,9 +2,9 @@
 /**
  * Plugin Name: PlusCities Delivery
  * Description: Fetches, caches, and places PlusCities-generated pages inside this site's own theme. Does no rendering of its own — see docs/PLUSCITIES_FEATURE_SPEC.md Section 9 ("thin plugin, server renders").
- * Version: 0.2.0 (adds real client cancellation: a finite cache expiry
- * instead of forever, and a redirect-to-homepage once a cancelled client's
- * grace period ends — 2026-11-24)
+ * Version: 0.3.0 (reports its own version, active theme, and active SEO
+ * plugin back to the server on every manifest check-in, so the Platform
+ * Admin can see which clients are running an outdated plugin — 2026-11-24)
  *
  * Deliberately a NEW plugin, not a patch to the old "Landing Page Client"
  * plugin — Section 9 changes the plugin's fundamental job from renderer (the
@@ -20,6 +20,11 @@
  */
 
 if (!defined('ABSPATH')) exit;
+
+// Kept in sync with the "Version:" header above by hand — a real constant so
+// the health check-in below can report it, rather than parsing our own
+// docblock at runtime.
+const PLUSCITIES_DELIVERY_VERSION = '0.3.0';
 
 // A real option, not a hardcoded constant — this plugin now runs on more than
 // one install (the local test-wordpress site AND a real remote client site),
@@ -129,6 +134,17 @@ add_action('template_redirect', function () {
 function pluscities_delivery_sitemap_index_links() {
     if (!pluscities_delivery_live_urls()) return [];
     return [['loc' => home_url('/pluscities-sitemap.xml'), 'lastmod' => gmdate('c'), 'mod' => gmdate('c')]];
+}
+
+/** Same defined() checks the sitemap registration above already uses to tell
+ *  SEO plugins apart, reused here for the health check-in rather than
+ *  duplicating the detection logic. Safe to call anytime after plugins_loaded
+ *  (always true by the time a front-end request reaches template_redirect). */
+function pluscities_delivery_detected_seo_plugin() {
+    if (defined('WPSEO_VERSION')) return 'Yoast SEO';
+    if (defined('RANK_MATH_VERSION')) return 'Rank Math';
+    if (defined('AIOSEO_VERSION')) return 'All in One SEO';
+    return 'none';
 }
 
 // Deferred to plugins_loaded, not run at top-level file-load time — plugins
@@ -248,7 +264,13 @@ function pluscities_delivery_sync_if_needed() {
     if ($key === '') return;
 
     $seenRev = (int) get_option('pluscities_site_rev_seen', 0);
-    $resp = wp_remote_get(pluscities_delivery_base() . '?action=manifest&site_rev=' . $seenRev, [
+    // Health info appended here, not on pluscities_delivery_live_urls()'s own
+    // manifest call — this is the one real recurring heartbeat (spec Section
+    // 9's poll-based contract), the other is a one-off sitemap-building fetch.
+    $resp = wp_remote_get(pluscities_delivery_base() . '?action=manifest&site_rev=' . $seenRev
+        . '&plugin_version=' . urlencode(PLUSCITIES_DELIVERY_VERSION)
+        . '&theme=' . urlencode(wp_get_theme()->get('Name'))
+        . '&seo_plugin=' . urlencode(pluscities_delivery_detected_seo_plugin()), [
         'headers' => ['Authorization' => 'Bearer ' . $key],
         'timeout' => 10,
     ]);

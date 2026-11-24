@@ -62,6 +62,26 @@ $action = $_GET['action'] ?? '';
 $db     = pluscities_db();
 
 if ($action === 'manifest') {
+    // Health check-in, added 2026-11-24 — the plugin now reports its own
+    // version, active theme, and active SEO plugin on every manifest call.
+    // Only written to disk when something changed or an hour has passed,
+    // since this runs on every single front-end page view (see
+    // pluscities_delivery_sync_if_needed()), not on a slower poll schedule.
+    $healthNow = [
+        'plugin_version' => (string) ($_GET['plugin_version'] ?? ''),
+        'theme'          => (string) ($_GET['theme'] ?? ''),
+        'seo_plugin'     => (string) ($_GET['seo_plugin'] ?? ''),
+    ];
+    $healthChanged = $healthNow['plugin_version'] !== ($client['plugin_version'] ?? '')
+        || $healthNow['theme'] !== ($client['theme'] ?? '')
+        || $healthNow['seo_plugin'] !== ($client['seo_plugin'] ?? '')
+        || empty($client['last_seen_at'])
+        || (time() - strtotime($client['last_seen_at'])) > 3600;
+    if ($healthChanged) {
+        $client = array_merge($client, $healthNow, ['last_seen_at' => gmdate('c')]);
+        pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $client['client_id'] . '.json', $client);
+    }
+
     if ($cancelledPastGrace) {
         // Empty live_page_ids reuses the plugin's EXISTING cache-reconciliation
         // logic (already deletes anything cached that isn't in this list) to

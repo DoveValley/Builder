@@ -135,6 +135,17 @@ lpc_admin_open('pluscities_clients', 'Clients');
                         &middot; <strong style="color:#991b1b;">Suspended by platform admin</strong>
                     <?php endif; ?>
                 </div>
+                <?php if (!empty($c['last_seen_at'])):
+                    $secsAgo = max(0, time() - strtotime($c['last_seen_at']));
+                    $agoText = $secsAgo < 3600 ? max(1, (int) ($secsAgo / 60)) . 'm ago'
+                        : ($secsAgo < 86400 ? (int) ($secsAgo / 3600) . 'h ago' : (int) ($secsAgo / 86400) . 'd ago');
+                ?>
+                <div style="font-size:.76rem;color:var(--pc-muted,#52607a);margin-top:2px;">
+                    Plugin <?= h($c['plugin_version'] ?: '?') ?> &middot; Theme: <?= h($c['theme'] ?: '?') ?> &middot; SEO: <?= h($c['seo_plugin'] ?: 'none') ?> &middot; last synced <?= h($agoText) ?>
+                </div>
+                <?php else: ?>
+                <div style="font-size:.76rem;color:var(--pc-muted,#52607a);margin-top:2px;">Plugin never synced yet</div>
+                <?php endif; ?>
             </div>
             <div style="display:flex;gap:8px;">
                 <a href="pluscities_photos.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Photos</a>
