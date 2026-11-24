@@ -216,11 +216,16 @@ function lpc_admin_nav_items(): array {
 
 function lpc_admin_sidebar(string $activeKey): void {
     $who = lpc_current_actor_identity();
+    $brand = lpc_actor_branding();
     ?>
     <aside class="pcadmin-sidebar" id="pcadmin-sidebar">
         <div class="pcadmin-brand">
-            <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 1C7.9 1 3 5.9 3 12c0 7.8 11 15 11 15s11-7.2 11-15c0-6.1-4.9-11-11-11z" fill="#C8F55A"/><rect x="11" y="5" width="6" height="16" rx="1" fill="#0B1B33"/><rect x="7" y="10" width="14" height="6" rx="1" fill="#0B1B33"/></svg>
-            PlusCities
+            <?php if ($brand['logo_url'] !== ''): ?>
+                <img src="<?= h($brand['logo_url']) ?>" alt="" style="height:22px;width:auto;display:block;">
+            <?php else: ?>
+                <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 1C7.9 1 3 5.9 3 12c0 7.8 11 15 11 15s11-7.2 11-15c0-6.1-4.9-11-11-11z" fill="#C8F55A"/><rect x="11" y="5" width="6" height="16" rx="1" fill="#0B1B33"/><rect x="7" y="10" width="14" height="6" rx="1" fill="#0B1B33"/></svg>
+            <?php endif; ?>
+            <?= h($brand['name']) ?>
         </div>
         <div class="pcadmin-whoami">
             <div class="role"><?= h($who['role_label']) ?></div>

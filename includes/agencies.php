@@ -283,7 +283,11 @@ function lpc_actor_branding() {
     $default = ['name' => 'PlusCities', 'logo_url' => ''];
     $role = lpc_current_actor_role();
 
-    if ($role === 'agency_admin') {
+    // agency_editor included alongside agency_admin, fixed 2026-11-24 — an
+    // Editor is still part of the agency and should see the agency's own
+    // brand too, not fall through to the platform default just because they
+    // aren't the Admin.
+    if ($role === 'agency_admin' || $role === 'agency_editor') {
         $agency = lpc_load_agency(lpc_current_actor_agency_id());
         if ($agency) {
             return [
@@ -295,8 +299,10 @@ function lpc_actor_branding() {
         // An end client's portal has always shown their OWN business name here
         // (never "Site Factory" or their reselling agency's name) — preserved
         // as-is when client_portal.php moved onto the shared sidebar, not a
-        // new behavior.
-        $client = lpc_load_client(lpc_current_actor_client_id());
+        // new behavior. pluscities_client_load(), not lpc_load_client() —
+        // fixed 2026-11-24, same dead-old-LPC-store bug found elsewhere
+        // today (see lpc_actor_identity_label() a few lines down).
+        $client = pluscities_client_load(lpc_current_actor_client_id());
         if ($client) {
             return ['name' => $client['identity']['business_name'] ?: lpc_current_actor_client_id(), 'logo_url' => ''];
         }
