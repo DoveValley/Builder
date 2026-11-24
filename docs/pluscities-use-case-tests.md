@@ -8,7 +8,9 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 14 use cases complete and verified.** UC9-14 were added after a coverage audit
+Status: **All 17 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-17, added 2026-11-24, against the demo-sales fixture instead — see that section for why). UC9-14
+were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
 mistake in this same doc: state the real recount, not an estimate). Across UC9-14: 6 more real bugs found
@@ -681,3 +683,112 @@ live.
 
 **All 14 use cases (the original 5, plus UC6-14) are now complete.** See the coverage audit
 (`docs/pluscities-test-coverage-audit.md`) for the final tally against the full capability inventory.
+
+## UC15-17, 2026-11-24 — production-readiness build, run against the demo fixture
+
+Added after a full day of production-launch work (domain/SSL, a real approval workflow, real client
+cancellation, white-label branding) — see the Product Roadmap tab's "Go-live operations" section and the
+rows it corrected for the full day's scope. These three run against the **demo fixture**
+(`northstar-digital-marketing-demo` agency, clients `lone-star-comfort-heating-air-2` and
+`clearwater-restoration-pros`), not `qa-test-co` — a deliberate deviation from this suite's usual
+convention, since these tests needed to manipulate timestamps (backdating a cancellation) and toggle
+settings in ways that would have disrupted the permanent QA fixture's steady state. Worth re-running
+against `qa-test-co` in a future pass for full consistency with the rest of this suite.
+
+### UC15 — Real agency + client approval workflow — ✅ PASS
+
+**Goal:** prove the two new approval gates (agency-level: Editor can't self-approve; client-level: a page
+needs the actual client's sign-off before publish) are both independently enforced, and that the client's
+own portal actually lets them review and approve real content.
+
+**Steps taken (all via the real admin, no CLI shortcuts):**
+1. Turned on `requires_client_approval` for `lone-star-comfort-heating-air-2` via the real toggle button
+   on `pluscities_clients.php`.
+2. Added a new page (`san-marcos-tx`/`ac-repair`), deliberately 35 minutes from the hub (outside the
+   default 30-minute radius) to also exercise a real validator failure + override along the way.
+3. Validate → got a real `service_radius` failure → used the real Override form with a typed reason →
+   re-validated clean → Approve.
+4. **Confirmed**: `pages.approval_stage` became `pending_client_review`, not `approved` — the new gate
+   routing correctly.
+5. Attempted Publish — **correctly rejected**: `"This page hasn't been approved yet."`
+6. Confirmed the agency-side page screen's Approval label reads "waiting on client," not the raw
+   `approval_stage` string.
+7. Impersonated the client (`admin/impersonate.php`, `type=client`) — confirmed `client_portal.php` shows
+   a "Needs Your Approval" pill on this exact page, sorted to the top of the list, and that the sidebar
+   "who am I" now shows the real business name (a separate bug found and fixed along the way — see UC17).
+8. Opened the page in `client_portal_page.php` — confirmed the real page content renders (hero, overview,
+   etc.) plus an "Approve" banner with the real content visible above it, not a blind approve.
+9. Submitted Approve as the client. **Confirmed**: `approval_stage` became `approved`.
+10. **Negative test 1**: re-submitted Approve on the same page — correctly rejected, `"This page isn't
+    waiting on your approval."`
+11. **Negative test 2**: while still impersonating this client, attempted to approve a *different* demo
+    client's page (`coastal-breeze-hvac-services`'s Tampa page) by editing the `page_id` in the request —
+    correctly redirected away before the approve logic ever ran; the other client's page was confirmed
+    unaffected.
+12. Stopped impersonation, published the page as super_admin — **succeeded** this time.
+13. Separately confirmed the agency-level gate's logic by direct code read (not a live Editor login this
+    session): `pluscities_approve_page()` checks `agency.requires_approval_gate` and refuses an
+    `agency_editor` actor exactly the same way `pluscities_publish_page()` already does for
+    `editor_can_publish` — same proven shape, not a new untested pattern.
+
+**Artifacts:** `lone-star-comfort-heating-air-2` gains a real 3rd live page
+(`san-marcos-tx`/`ac-repair`), a real validator override on record, and `requires_client_approval=true`
+left on intentionally as a standing demo asset (shows well to a prospect).
+
+### UC16 — Real client cancellation — ✅ PASS
+
+**Goal:** prove a cancelled client's pages actually stop being servable after a configurable grace period
+— the real gap this replaced: before today, no cancellation mechanism of any kind existed, and the WP
+plugin's cache was hardcoded to never expire, so even a hypothetical key-revoke wouldn't have taken a
+client's pages down.
+
+**Steps taken:**
+1. Set platform settings to easy-to-test values: grace period 3 days, plugin cache lifetime 2 hours (via
+   the real form on `admin/settings.php`).
+2. Cancelled `clearwater-restoration-pros` via the real Cancel button (confirm dialog accepted).
+   **Confirmed**: `client.status='canceled'`, `canceled_at` set to the real current timestamp.
+3. Hit `pluscities_sync.php?action=manifest` with the client's real API key, immediately after
+   cancelling (within the 3-day grace period). **Confirmed**: behaves completely normally —
+   `cancelled:false`, both real pages still listed, `cache_ttl_seconds:7200` present.
+4. Backdated `canceled_at` to 4 days ago (past the 3-day grace) directly in the client JSON, to simulate
+   the grace period elapsing without waiting 3 real days.
+5. Re-hit the manifest endpoint. **Confirmed**: `cancelled:true`, `redirect_to:
+   "https://clearwaterrestorationpros.com/"`, `live_page_ids:[]` (empty — deliberately reuses the
+   plugin's existing cache-reconciliation logic to wipe every cached page, no separate mechanism needed).
+6. Hit `pluscities_sync.php?action=page` directly for one of this client's real pages. **Confirmed**: a
+   plain 404, not the page content.
+7. Confirmed the admin UI (`pluscities_clients.php`) shows "Cancelled — grace period ended, redirecting
+   now" on this client's row.
+8. Reactivated via the real button. **Confirmed**: manifest immediately returns to normal, both pages
+   listed again, `cancelled:false`.
+9. Restored platform settings to sensible real-world defaults (14 days / 24 hours) after testing.
+
+**Not independently verified this session**: the WordPress plugin's own side of the redirect (reading
+`cancelled`/`redirect_to` off the manifest and actually issuing the 301) — no live WP install was
+exercised for this specific use case; the plugin code was read and reasoned through but not run. Real
+limitation on record either way: this only protects clients running the *updated* plugin — the 3 real
+clients (`elite-air-hvac`, `lonestar-restoration`, `meade-restoration`) are on the pre-2026-11-24 plugin
+version and won't get this protection until reinstalled.
+
+**Artifacts:** `clearwater-restoration-pros` restored to `status='active'`, both pages confirmed live
+again. Platform settings file (`pluscities_platform_settings.json`) left at real-world defaults.
+
+### UC17 — Agency white-label branding in the shared sidebar — ✅ PASS
+
+**Goal:** prove an agency's own saved branding (display name, logo) actually appears in their own admin
+experience, instead of the hardcoded "PlusCities" text found during the day's roadmap audit.
+
+**Steps taken:**
+1. Impersonated `northstar-digital-marketing-demo` as its own Agency Admin.
+2. **Confirmed**: the sidebar brand mark reads "Northstar Digital Marketing" (this agency's real
+   `branding.display_name`), with the stock icon shown since this demo agency has no logo_url set.
+3. Stopped impersonation. **Confirmed**: the sidebar correctly reverts to "PlusCities" for the Platform
+   Admin's own session — the fix is role-conditional, not a global replacement.
+4. Found and fixed 2 adjacent bugs while verifying this: `lpc_actor_branding()`'s `end_client` branch
+   called the dead old-LPC `lpc_load_client()` (same bug class as UC1's regression-check section found in
+   `admin/impersonate.php`) — fixed to `pluscities_client_load()`; and `agency_editor` was missing from
+   the branding check entirely (would have fallen through to "PlusCities" even though an Agency Admin at
+   the same agency saw it correctly) — added.
+
+**Artifacts:** none beyond the code fix itself — no data changed, this is a pure display-logic
+correction.
