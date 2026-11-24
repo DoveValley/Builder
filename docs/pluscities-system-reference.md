@@ -133,7 +133,9 @@ suite's fixtures: `lone-star-comfort-heating-air-2.json`, `coastal-breeze-hvac-s
 | `niche_id` | → `niche_blueprints/<niche_id>.json` | resolved via `pluscities_niche_resolved()` |
 | `domain` | production domain | used to build canonical/service URLs |
 | `site_rev` | bump counter | the **sole** signal the WP plugin's manifest poll compares against |
-| `plugin_rev`, `plugin_version`, `last_seen_at` | delivery-plugin handshake state | |
+| `plugin_rev`, `plugin_version`, `last_seen_at` | delivery-plugin handshake state | `plugin_version`/`last_seen_at` are real as of 2026-11-24 — see §3.5's health check-in |
+| `theme`, `seo_plugin` | delivery-plugin health, added 2026-11-24 | Active WP theme name and detected SEO plugin (`Yoast SEO`/`Rank Math`/`All in One SEO`/`none`), reported alongside `plugin_version`/`last_seen_at` on every manifest check-in — see §3.5 |
+| `site_suspended`, `site_suspended_at` | platform-level kill switch, added 2026-11-24 | Set by Platform Admin's "Suspend Site" action (`admin/pluscities_clients_save.php`); when `site_suspended` is true, `pluscities_publish_page()` refuses to publish for *any* actor role, including `super_admin`, until explicitly un-suspended. Distinct from `status`/`canceled_at` — no grace period, immediate unpublish of every live page. See §3.2/§3.7. |
 | `class_prefix` | CSS/asset namespace, `lpc-<slug>` | delivery plugin |
 | `radius_minutes` | default service radius | overridable per niche |
 | `identity.business_name`, `identity.hubs[]` | NAP data | **only `hubs[0]` is ever read anywhere** — multi-hub is modeled, not consumed |
@@ -250,7 +252,8 @@ again, regardless of how many times it cleared them before.
 | `pluscities_edit_block()` | Human edit; auto-locks, sets `origin='edited'`, `client_grounded=1` unconditionally | `blocks` | — |
 | `pluscities_approve_page()` | `draft→approved`, or `draft→pending_client_review` if the client's gate is on (never regresses a live page) | `pages` | Validation must be re-run since the last edit (`hash_checked_against` must match current `draft_hash`); all validator checks must pass-or-be-overridden; refuses an `agency_editor` actor if `agency.requires_approval_gate` is on (added 2026-11-24) |
 | `pluscities_client_approve_page()` | `pending_client_review→approved` | `pages` | Added 2026-11-24. Re-checks both `client_id` match and that the page is actually `pending_client_review` server-side — doesn't trust the portal UI's button visibility as the real guard |
-| `pluscities_publish_page()` | Snapshots `blocks` into `revisions`, sets `live_revision_id`, `status='live'`, bumps client `site_rev` | `pages`, `revisions`, client JSON | Requires `approval_stage='approved'` exactly (so `pending_client_review` blocks it automatically — no separate check added); an `agency_editor` additionally needs the agency's `editor_can_publish` flag — enforced **inside this function**, not just the UI |
+| `pluscities_publish_page()` | Snapshots `blocks` into `revisions`, sets `live_revision_id`, `status='live'`, bumps client `site_rev` | `pages`, `revisions`, client JSON | Requires `approval_stage='approved'` exactly (so `pending_client_review` blocks it automatically — no separate check added); an `agency_editor` additionally needs the agency's `editor_can_publish` flag — enforced **inside this function**, not just the UI; **refuses publish for every role, including `super_admin`, if the client's `site_suspended` is set (added 2026-11-24)** — a platform-level suspension can't be routed around mid-incident by anyone, not even the admin who could lift it |
+| `pluscities_set_block_lock()` loop (no dedicated function) | "Lock All"/"Unlock All" on a page, added 2026-11-24 | `blocks` | Convenience wrapper in `admin/pluscities_page_save.php`'s `lock_all`/`unlock_all` actions — loops the same `pluscities_set_block_lock()` above over every block on a page, not new locking architecture |
 | `pluscities_rollback_page()` | Restores an old revision's blocks into the live table | `blocks` | Then re-enters draft via `touch_page()` — **never an instant revert**; must go through Validate→Approve→Publish again, "not even through history" |
 | `pluscities_unpublish_page()` | `*→unpublished`, bumps `site_rev` | `pages`, client JSON | Returns bool (inconsistent with the `{ok,msg}` shape everything else uses) |
 
@@ -304,6 +307,14 @@ authenticating as the wrong client).
   cancelled, cache_ttl_seconds}`. Phase 1 simplification: "changed since N" just means "is `client.site_rev`
   > N" — if so, returns **every** currently-live page, not a true per-page diff (Phase 2 item).
   `cache_ttl_seconds` and `cancelled`/`redirect_to` added 2026-11-24 — see §3.6.
+- **Health check-in, added 2026-11-24**: the plugin appends `plugin_version`, `theme`, `seo_plugin` as GET
+  params on every manifest request (its own `PLUSCITIES_DELIVERY_VERSION` constant, `wp_get_theme()`'s
+  name, and the already-detected SEO plugin reused from the sitemap-registration logic below). The server
+  merges these plus a real `last_seen_at` onto the client JSON — but **only writes to disk when something
+  changed or an hour has passed**, since this request fires on every single front-end page view (via
+  `template_redirect` below), not a slow poll; writing on every hit would be wasteful disk I/O for no
+  benefit. Surfaced on `admin/pluscities_clients.php` as a line: plugin version, theme, SEO plugin, last
+  synced (or "Plugin never synced yet").
 - **`action=page&page_id=X`** → `{html, style, head}`, fully server-rendered (breadcrumbs + blocks, CTA
   band injected before FAQ, trust bar injected after hero — fixed positions, not a rhythm engine).
 - **`action=hub`** → the client-level aggregate listing page (every live page grouped by city), smaller
@@ -317,6 +328,12 @@ transient as of 2026-11-24** — see §3.6 for why; defaults to `0`/forever only
 response omits the field). A URL miss (never synced, or expired) 404s. **Invalidation is entirely
 `client.site_rev`-driven** for normal unpublish — there's no invalidation finer than "whole client" today —
 plus the separate cancellation-driven wipe described in §3.6.
+
+Plugin is currently `0.3.0` (`PLUSCITIES_DELIVERY_VERSION` constant). `wp-plugin/pluscities-delivery/uninstall.php`
+(added 2026-11-24) is the WordPress-standard file that runs automatically, and only, when a user deletes the
+plugin from the Plugins screen (never on deactivate) — deletes every option the plugin created plus the
+dynamic `pluscities_page_url_*` options and their matching transients, verified live against a loaded WP
+test install.
 
 ### 3.6 Client cancellation — added 2026-11-24
 
@@ -457,12 +474,13 @@ clients. One hop only, no stacking.
 
 | File | Screen | Role gate |
 |---|---|---|
-| `pluscities_clients.php` / `_save.php` | Client list + "New Client" (identity, hub, licenses, hours, first-page block picker). As of 2026-11-24 also: "Log in as" (impersonate), per-client approval toggle, Cancel/Reactivate (§3.6) | Auth + role ≠ end_client; the 3 new action buttons are super_admin/agency_admin only |
+| `pluscities_clients.php` / `_save.php` | Client list + "New Client" (identity, hub, licenses, hours, first-page block picker). As of 2026-11-24 also: "Log in as" (impersonate), per-client approval toggle, Cancel/Reactivate (§3.6), platform-level Suspend/Un-suspend Site kill switch (super_admin only, §3.2/§3.7), a live Site: Live/Down/SSL-issue badge (uncached `infra_site_check()`), and a plugin health line (version/theme/SEO plugin/last synced, §3.5) | Auth + role ≠ end_client; Suspend/Un-suspend is super_admin only, the other new action buttons are super_admin/agency_admin only |
 | `client_portal.php` / `client_portal_page.php` | End Client's own screens — page list (all statuses) + single-page read-only content view with a conditional Approve button | `end_client` only (reached via impersonation, not direct login — §5.4) |
-| `pluscities_page.php` / `_save.php` | Single-page block editor — Edit/Lock/Regenerate/Swap/Validate/Override/Approve/Publish/Rollback | + `pluscities_actor_can_access_client()` on the page's client |
+| `pluscities_page.php` / `_save.php` | Single-page block editor — Edit/Lock/Regenerate/Swap/Validate/Override/Approve/Publish/Rollback/Lock All/Unlock All (added 2026-11-24, loops the existing per-block lock), plus a "Compare to current" link per revision opening `pluscities_page_diff.php` | + `pluscities_actor_can_access_client()` on the page's client |
+| `pluscities_page_diff.php` | Read-only revision compare view, added 2026-11-24 — shows unchanged/changed/added/removed per block between an old revision's snapshot and the page's current content | + `pluscities_actor_can_access_client()` on the page's client; not in the nav, reached only from `pluscities_page.php` |
 | `pluscities_page_add.php` / `_save.php` | Add a city/service page to an existing client | + access check |
-| `pluscities_pages.php` / `_save.php` | Table of all pages — stage-dot matrix, bulk approve/publish/regenerate | Agency-level scope only on the list (see §5.5 gap) |
-| `pluscities_photos.php` / `_save.php` | Logo + brand color + per-slot photo upload | List view agency-level only (see §5.5 gap); save handler does check per-client access |
+| `pluscities_pages.php` / `_save.php` | Table of all pages — stage-dot matrix, bulk approve/publish/unpublish (unpublish added 2026-11-24)/regenerate, plus City/Service filter dropdowns (added 2026-11-24, server-side via GET params). Bulk Approve had a real gate-bypass bug until 2026-11-24 — it never passed the actor's role into `pluscities_approve_page()`, so it silently skipped the `agency_editor` approval gate (§3.2) that the single-page Approve button already enforced; now passes `lpc_current_actor_role()` the same way | **Fixed 2026-11-24** — now filters through `pluscities_actor_can_access_client()` per client, not just agency-level scoping (see §5.5) |
+| `pluscities_photos.php` / `_save.php` | Logo + brand color + per-slot photo upload | **Fixed 2026-11-24** — list view now filters through `pluscities_actor_can_access_client()` per client, not just agency-level scoping (see §5.5); save handler already checked per-client access |
 | `pluscities_hub_edit.php` / `_save.php` | Edit a client's hub/listing page text | + access check |
 | `pluscities_plugin_download.php` | Zips the delivery plugin, text-substitutes agency branding | Auth only, no role exclusion |
 | `pluscities_sync.php` | **Public API endpoint** for the WP plugin | No session/role gate at all — Bearer API-key auth, by design, outside the actor-role system entirely |
@@ -489,7 +507,7 @@ Shared by LPC + PlusCities admin pages (not the ~80-page Site Factory, which has
 Stage 3. `pluscities_niches.php` (the real PlusCities Niche Library) is now the only niche system.
 
 Not in the nav at all (reached only via links from other pages): `pluscities_hub_edit.php`,
-`pluscities_page_add.php`, `pluscities_page.php`, `pluscities_plugin_download.php`.
+`pluscities_page_add.php`, `pluscities_page.php`, `pluscities_page_diff.php`, `pluscities_plugin_download.php`.
 
 ### 5.4 Auth entry points
 
@@ -517,12 +535,20 @@ land on a PlusCities-native screen — a real, already-present inconsistency wor
    owner cannot log into their own reporting with their own credentials today; the role is only reachable
    by an operator choosing to view it on their behalf. Building real `end_client` credentials + a login
    form remains unbuilt, for either system.
-2. **Agency Editor's `assigned_client_ids` restriction is enforced on writes but not consistently on
-   reads.** `pluscities_clients.php` (client list) and `pluscities_pages.php` (pages table) only apply
-   agency-level scoping, not the per-editor restriction — an editor sees every client/page in the agency
-   even if assigned to only some. `pluscities_photos.php`'s list view has the same gap. The corresponding
-   `_save.php` handlers DO check per-client access, so this is within-agency over-exposure on reads, not a
-   cross-agency leak or a write-path hole.
+2. **Fixed 2026-11-24** — Agency Editor's `assigned_client_ids` restriction was enforced on writes but not
+   consistently on reads. `pluscities_clients.php`, `pluscities_pages.php`, and `pluscities_photos.php`'s
+   list views previously applied only agency-level scoping, not the per-editor restriction — an editor
+   could see every client/page in the agency even if assigned to only some (the corresponding `_save.php`
+   handlers already checked per-client access, so this was within-agency over-exposure on reads, never a
+   cross-agency leak or a write-path hole). All three now filter through `pluscities_actor_can_access_client()`
+   per client, same as the write handlers — verified live with a real restricted Agency Editor account
+   (created, logged in directly, confirmed scoping, tested a URL-manipulation negative case, then deleted).
+3. **No admin UI for the audit log.** A real append-only log (`events` table, `pluscities_log_event()`)
+   already records ~20 distinct actions platform-wide (page/block lifecycle, client create/suspend/cancel,
+   branding, hub edits, validator overrides) — but nothing anywhere queries or displays it, so it's
+   write-only today. Separately, `admin/impersonate.php` writes nothing at all when an impersonation
+   session starts or ends — not even an error-log line — a real gap in exactly the action most worth
+   logging.
 
 ## 6. Relationship to the old LPC system — RETIRED 2026-11-23 (historical section)
 
@@ -624,13 +650,15 @@ difference, just eventually generated from one shared fact source.
 | `includes/pluscities_images.php` | Photo slot model |
 | `includes/pluscities_users.php` | Agency Editor accounts |
 | `admin/pluscities_sync.php` | The public delivery API (manifest/page/hub) |
-| `wp-plugin/pluscities-delivery/pluscities-delivery.php` | The WP plugin (fetch/cache/place) |
+| `wp-plugin/pluscities-delivery/pluscities-delivery.php` | The WP plugin (fetch/cache/place), v0.3.0 — now also self-reports version/theme/SEO plugin |
+| `wp-plugin/pluscities-delivery/uninstall.php` | Clean-uninstall cleanup, added 2026-11-24 — deletes every option/transient the plugin ever created |
 | `admin/lpc_admin_layout.php` | Shared nav/chrome + role-driven menu |
 | `admin/login.php` / `agency_login.php` | The two remaining auth entry points (`client_login.php` deleted 2026-11-23, LPC Stage 3) |
-| `admin/pluscities_clients.php` / `_save.php` | Client creation, first-page picker, impersonate/approval-toggle/cancel actions |
+| `admin/pluscities_clients.php` / `_save.php` | Client creation, first-page picker, impersonate/approval-toggle/cancel/suspend-site actions, site-live badge, plugin health line |
 | `admin/client_portal.php` / `client_portal_page.php` | End Client's own screens, added/rebuilt 2026-11-24 |
-| `admin/pluscities_page.php` / `_save.php` | Single-page block editor + lifecycle actions |
-| `admin/pluscities_pages.php` / `_save.php` | Bulk page table |
+| `admin/pluscities_page.php` / `_save.php` | Single-page block editor + lifecycle actions, Lock All/Unlock All |
+| `admin/pluscities_page_diff.php` | Read-only revision compare view, added 2026-11-24 |
+| `admin/pluscities_pages.php` / `_save.php` | Bulk page table — approve/publish/unpublish/regenerate, city/service filters |
 | `admin/settings.php` / `platform_settings_save.php` | Platform-wide settings — approval-gate toggles, cancellation grace period, plugin cache TTL |
 | `config.php` | All `PLUSCITIES_*` path/dir constants |
 | `pluscities_platform_settings.json` | The actual stored values for the Settings-page toggles above |

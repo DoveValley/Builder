@@ -8,8 +8,8 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 17 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
-UC15-17, added 2026-11-24, against the demo-sales fixture instead — see that section for why). UC9-14
+Status: **All 18 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why). UC9-14
 were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
@@ -273,6 +273,15 @@ read-scope gap had something real to reproduce against; an Agency Editor (`qa-ed
   `qa-test-co`, the editor's `pluscities_clients.php` and `pluscities_pages.php` both showed `QA Test Co
   B` too. This confirms it's a real, reproducible over-exposure (not just a code-reading inference) —
   still bounded to the editor's own agency, not a cross-agency leak.
+- **Fixed and re-verified live, 2026-11-24**: `pluscities_clients.php`, `pluscities_pages.php`, and
+  `pluscities_photos.php` now filter through `pluscities_actor_can_access_client()` per client. Re-ran
+  this exact scenario against the same `qa-editor` fixture (password reset via the real Team screen to
+  get a fresh direct login, not impersonation): `QA Test Co B` no longer appears on `pluscities_clients.php`
+  or `pluscities_pages.php`; `pluscities_photos.php` now auto-selects `qa-test-co` directly (only one
+  client visible, where it previously would have shown a chooser between two) and renders its real
+  branding; a new negative test — `pluscities_photos.php?client_id=qa-test-co-b` typed directly into the
+  URL — correctly falls back to "Choose a client" instead of exposing `QA Test Co B`'s data, the same
+  "not found" handling a genuinely invalid id gets.
 
 **Real bugs found and fixed along the way, not scripted:**
 1. **Every PlusCities-native admin page's sidebar/nav had zero CSS styling, full session, flagged live by
@@ -295,7 +304,9 @@ read-scope gap had something real to reproduce against; an Agency Editor (`qa-ed
    robustness gap.
 
 **Artifacts:** `QA Test Agency 2` + `QA Test Co 2`, `QA Test Co B` (both under the original agency), one
-real Agency Editor account (`qa-editor`), `qa-test-agency.editor_can_publish` now `true`.
+real Agency Editor account (`qa-editor`), `qa-test-agency.editor_can_publish` now `true`. `qa-editor`'s
+password was reset 2026-11-24 (via the real Team screen, to `QaTemp2026!`) to get a fresh direct login for
+the read-scope re-verification above — record this here so a future run doesn't need to reset it blind.
 
 ---
 
@@ -792,3 +803,57 @@ experience, instead of the hardcoded "PlusCities" text found during the day's ro
 
 **Artifacts:** none beyond the code fix itself — no data changed, this is a pure display-logic
 correction.
+
+## UC18, 2026-11-24 — admin safety & ops features, run against the demo fixture
+
+Covers the remaining items from the same day's "Quick effort" roadmap walkthrough (see the Product Roadmap
+tab), run against the demo fixture (`northstar-digital-marketing-demo` agency, client
+`clearwater-restoration-pros`) for the same reason UC15-17 did — these needed to manipulate live/suspended
+state in ways the permanent `qa-test-co` fixture shouldn't absorb. Grouped into one use case per this
+suite's own convention (UC15 covered 13 steps under one roof) rather than one UC per small admin button —
+a filter dropdown or a read-only compare view doesn't need its own entry.
+
+**Goal:** prove the day's remaining admin-safety/ops features actually work end-to-end, not just that they
+render — especially the one with real security weight (the bulk-approve role-gate fix) and the one with
+real blast-radius (the Suspend Site kill switch).
+
+**Steps taken:**
+1. **Lock All / Unlock All**: on a real 13-block demo page, Lock All correctly locked all 13 rows in the
+   `blocks` table; Unlock All correctly unlocked all 13; a bad `page_id` was correctly rejected by the
+   same access check every other page action already uses.
+2. **Revision compare/diff view**: with no changes since revision #1, all 13 blocks showed "unchanged" on
+   the new compare screen; after editing one block's body text, 12 stayed unchanged and the edited block
+   correctly showed "Changed" with the real old and new content side by side; the test edit was rolled
+   back and re-approved afterward.
+3. **Bulk Unpublish + city/service filters**: filtering the pages table by city correctly narrowed 23 rows
+   to 1; bulk-unpublished a real demo page via the new "Unpublish selected" button and confirmed its
+   status flipped; republished it afterward.
+4. **Bulk-approve role-gate fix — the one with real security weight**: directly exercised the fixed
+   `pluscities_approve_page()` call as `agency_editor` against a real draft page under the gated test
+   agency (`coastal-marketing`, `requires_approval_gate` on) — correctly blocked (`"This agency requires
+   an Agency Admin to approve"`); same call as `super_admin` — correctly approved. This is the exact gate
+   bulk Approve previously bypassed silently; now routes through the same check as the single-page button.
+5. **Suspend Site kill switch — both roles, not just one**: suspended `clearwater-restoration-pros` as
+   `super_admin` — both its live pages unpublished immediately, `site_suspended=true` set. A direct
+   publish attempt was then correctly blocked for **both** `super_admin` (own function call) and
+   `agency_admin` (via real impersonation of the owning agency, through the actual HTTP save endpoint) —
+   confirming the suspension isn't bypassable by the one role that could lift it, nor by the agency that
+   owns the client. Un-suspending left both pages unpublished (no auto-republish, by design); both were
+   then manually republished to restore the clean demo state.
+6. **Plugin health reporting**: a simulated manifest check-in with `plugin_version`/`theme`/`seo_plugin`
+   params wrote all three fields plus a real `last_seen_at` onto the client record; an identical repeat
+   call within the same hour correctly skipped the write (timestamp unchanged — confirms the throttle);
+   a changed plugin version correctly forced an immediate write regardless of the throttle. The Clients
+   screen showed the real health line for this client and "Plugin never synced yet" for every other
+   untouched demo client.
+7. **Clean uninstall**: already verified for real against a loaded WordPress environment as part of
+   building it, not re-run here — seeded the plugin's known option/transient shapes (16 rows), ran the new
+   `uninstall.php` through `wp-load.php`, confirmed all 16 gone, which also cleaned up 3 genuinely orphaned
+   transients already sitting in that install from earlier unrelated testing.
+8. **Agency Editor read-scope fix — regression-checked against UC5's original fixture**, not the demo
+   fixture: see the addendum added to UC5 above (`qa-editor`'s password reset to get a fresh direct login,
+   `QA Test Co B` confirmed gone from all three screens, plus a new URL-manipulation negative test).
+
+**Artifacts:** `clearwater-restoration-pros` restored to 2 live pages, `site_suspended=false`. Gated test
+agency `coastal-marketing` unchanged (read-only exercise of its existing gate). No other fixture state
+left behind.
