@@ -88,7 +88,7 @@ if ($action === 'override') {
 }
 
 if ($action === 'approve') {
-    $result = pluscities_approve_page($pageId, $actor);
+    $result = pluscities_approve_page($pageId, $actor, lpc_current_actor_role());
     header('Location: ' . $back . '&msg=' . ($result['ok'] ? 'success:Approved' : 'error:' . urlencode($result['msg']))); exit;
 }
 

@@ -7,9 +7,14 @@
  * was built against the old LPC client record shape and would not have
  * worked here even if restored as-is.
  *
- * Only shows pages with status 'live' — an End Client has no approval role
- * today (see the Workflow section of the Product Roadmap), so a draft or
- * pending page isn't theirs to see yet.
+ * Shows every page regardless of status (draft/approved/live/unpublished),
+ * added 2026-11-24 — previously only showed 'live' pages, which meant a
+ * Client Viewer had nothing to look at before a page went live, defeating
+ * the point of a review step. The actual Approve action lives on
+ * client_portal_page.php, not here — this list just needs to surface which
+ * pages are waiting on this client (approval_stage = pending_client_review,
+ * only possible when client.requires_client_approval is on for this
+ * client) so they know to click in.
  */
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
@@ -31,9 +36,12 @@ if (!$client) {
 }
 
 $db = pluscities_db();
-$st = $db->prepare("SELECT * FROM pages WHERE client_id = ? AND status = 'live' ORDER BY city_id, service_key");
+$st = $db->prepare("SELECT * FROM pages WHERE client_id = ? ORDER BY approval_stage = 'pending_client_review' DESC, status = 'live' DESC, city_id, service_key");
 $st->execute([$clientId]);
 $pages = $st->fetchAll(PDO::FETCH_ASSOC);
+
+$statusLabels = ['draft' => 'Draft', 'approved' => 'Approved — not live yet', 'live' => 'Live', 'unpublished' => 'Unpublished'];
+$statusPillClass = ['draft' => 'pc-status-pill-draft', 'approved' => 'pc-status-pill-approved', 'live' => 'pc-status-pill-live', 'unpublished' => 'pc-status-pill-unpublished'];
 
 $businessName = $client['identity']['business_name'] ?? $clientId;
 ?>
@@ -54,23 +62,39 @@ $businessName = $client['identity']['business_name'] ?? $clientId;
 .pc-report-table{width:100%;border-collapse:collapse;}
 .pc-report-table th{text-align:left;font-size:.74rem;color:var(--pc-muted,#52607a);background:#f9fafb;padding:8px 12px;}
 .pc-report-table td{padding:8px 12px;font-size:.85rem;border-top:1px solid var(--pc-line,#e2e8f2);}
-.pc-status-pill{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em;padding:2px 9px;border-radius:10px;background:#dcfce7;color:#166534;display:inline-block;}
+.pc-status-pill{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em;padding:2px 9px;border-radius:10px;display:inline-block;}
+.pc-status-pill-draft{background:#f1f5f9;color:#52607a;}
+.pc-status-pill-approved{background:#dbeafe;color:#1e40af;}
+.pc-status-pill-live{background:#dcfce7;color:#166534;}
+.pc-status-pill-unpublished{background:#fee2e2;color:#991b1b;}
+.pc-status-pill-needs-approval{background:#fef3c7;color:#92400e;}
+.pc-view-link{font-size:.8rem;font-weight:600;color:var(--pc-accent,#1e40af);text-decoration:none;}
+.pc-view-link:hover{text-decoration:underline;}
 </style>
 
 <div class="pc-card">
     <h3 style="margin-top:0;"><?= h($businessName) ?></h3>
     <p style="color:var(--pc-muted,#52607a);font-size:.84rem;">
-        Your live pages, read-only. Reach out to your agency for anything you'd like changed.
+        All your pages, read-only, including ones still being worked on. Reach out to your agency for
+        anything you'd like changed.
     </p>
     <table class="pc-report-table">
-        <tr><th>City</th><th>Service</th><th>Status</th></tr>
+        <tr><th>City</th><th>Service</th><th>Status</th><th></th></tr>
         <?php if (!$pages): ?>
-        <tr><td colspan="3" style="color:var(--pc-muted,#52607a);text-align:center;padding:16px 12px;">No live pages yet.</td></tr>
+        <tr><td colspan="4" style="color:var(--pc-muted,#52607a);text-align:center;padding:16px 12px;">No pages yet.</td></tr>
         <?php else: foreach ($pages as $p): ?>
         <tr>
             <td><?= h(pluscities_city_label($p['city_id'])) ?></td>
             <td><?= h(ucwords(str_replace('-', ' ', $p['service_key']))) ?></td>
-            <td><span class="pc-status-pill">Live</span></td>
+            <?php $needsApproval = $p['approval_stage'] === 'pending_client_review'; ?>
+            <td>
+                <?php if ($needsApproval): ?>
+                    <span class="pc-status-pill pc-status-pill-needs-approval">Needs Your Approval</span>
+                <?php else: ?>
+                    <span class="pc-status-pill <?= h($statusPillClass[$p['status']] ?? '') ?>"><?= h($statusLabels[$p['status']] ?? ucfirst($p['status'])) ?></span>
+                <?php endif; ?>
+            </td>
+            <td><a class="pc-view-link" href="client_portal_page.php?page_id=<?= h($p['page_id']) ?>"><?= $needsApproval ? 'Review &amp; Approve' : 'View' ?> &rarr;</a></td>
         </tr>
         <?php endforeach; endif; ?>
     </table>

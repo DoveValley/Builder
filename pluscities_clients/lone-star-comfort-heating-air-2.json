@@ -3,7 +3,7 @@
     "agency_id": "northstar-digital-marketing-demo",
     "niche_id": "hvac",
     "domain": "lonestarcomfortair.com",
-    "site_rev": 5,
+    "site_rev": 6,
     "plugin_rev": 0,
     "plugin_version": "",
     "last_seen_at": "",
@@ -54,6 +54,11 @@
             "city_id": "round-rock-tx",
             "drive_minutes": 20,
             "confirmed_by_client": false
+        },
+        {
+            "city_id": "san-marcos-tx",
+            "drive_minutes": 35,
+            "confirmed_by_client": false
         }
     ],
     "url_base_path": "service-area",
@@ -70,5 +75,6 @@
     "hub_content": {
         "top_text": "",
         "footer_text": ""
-    }
+    },
+    "requires_client_approval": true
 }

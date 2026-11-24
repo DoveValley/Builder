@@ -108,7 +108,7 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
     <div class="pc-block-head">
         <div>
             <strong>Status:</strong> <?= h($page['status']) ?> &nbsp;
-            <strong>Approval:</strong> <?= h($page['approval_stage']) ?> &nbsp;
+            <strong>Approval:</strong> <?= h(['none' => 'none', 'pending_client_review' => 'waiting on client', 'approved' => 'approved'][$page['approval_stage']] ?? $page['approval_stage']) ?> &nbsp;
             <strong>Validation:</strong> <?= $validationCurrent ? h(pluscities_validation_all_pass($validation) ? 'current, all pass' : 'current, failing') : 'stale — re-run' ?>
         </div>
         <form method="post" action="pluscities_page_save.php" style="display:flex;gap:8px;">

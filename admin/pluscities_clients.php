@@ -90,6 +90,7 @@ lpc_admin_open('pluscities_clients', 'Clients');
                 <strong><?= h($c['identity']['business_name'] ?? $cid) ?></strong>
                 <div style="font-size:.78rem;color:var(--pc-muted,#52607a);">
                     <?= h($c['domain']) ?> &middot; <?= h($c['niche_id']) ?> &middot; <?= (int) count($c['target_cities'] ?? []) ?> cit(y/ies)
+                    &middot; Client approval: <?= !empty($c['requires_client_approval']) ? '<strong>On</strong>' : 'Off' ?>
                 </div>
             </div>
             <div style="display:flex;gap:8px;">
@@ -106,6 +107,12 @@ lpc_admin_open('pluscities_clients', 'Clients');
                     <input type="hidden" name="type" value="client">
                     <input type="hidden" name="client_id" value="<?= h($cid) ?>">
                     <button type="submit" class="btn-sm-outline">Log in as</button>
+                </form>
+                <form method="post" action="pluscities_clients_save.php" style="margin:0;">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="action" value="toggle_client_approval">
+                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
+                    <button type="submit" class="btn-sm-outline"><?= !empty($c['requires_client_approval']) ? 'Turn Off' : 'Turn On' ?> Client Approval</button>
                 </form>
                 <?php endif; ?>
             </div>

@@ -78,7 +78,7 @@ if ($action === 'create') {
         'reviews_by_city' => [],
         'price_ranges'    => null,
         'billing'         => ['tier' => '50', 'custom_override' => null],
-        'approval_gate_override' => null,
+        'requires_client_approval' => false,
         'services' => array_column($niche['services'] ?? [], 'slug'),
         'target_cities' => [[
             'city_id' => $firstCityId,
@@ -133,6 +133,31 @@ if ($action === 'create') {
     }
 
     header('Location: pluscities_clients.php?msg=success:' . urlencode('Client "' . $businessName . '" created (no services on this niche yet — add a page manually)'));
+    exit;
+}
+
+if ($action === 'toggle_client_approval') {
+    // Agency Admin territory, not Agency Editor — this is a trust-level
+    // decision about how much the client is involved, same spirit as other
+    // agency-level settings (editor_can_publish) living one role up from
+    // Editor. pluscities_actor_can_access_client() still applies underneath,
+    // so an Agency Admin can only flip this for their own agency's clients.
+    if (!in_array(lpc_current_actor_role(), ['super_admin', 'agency_admin'], true)) {
+        header('Location: pluscities_clients.php?msg=error:Not+authorized'); exit;
+    }
+    $clientId = trim((string) ($_POST['client_id'] ?? ''));
+    if (!pluscities_actor_can_access_client($clientId)) {
+        header('Location: pluscities_clients.php?msg=error:Not+authorized'); exit;
+    }
+    $client = pluscities_client_load($clientId);
+    if (!$client) {
+        header('Location: pluscities_clients.php?msg=error:Client+not+found'); exit;
+    }
+    $client['requires_client_approval'] = empty($client['requires_client_approval']);
+    pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
+    pluscities_log_event($actor, 'toggle_client_approval', 'client:' . $clientId, $client['requires_client_approval'] ? 'on' : 'off');
+    $msg = $client['requires_client_approval'] ? 'success:Client+approval+turned+on' : 'success:Client+approval+turned+off';
+    header('Location: pluscities_clients.php?msg=' . $msg);
     exit;
 }
 

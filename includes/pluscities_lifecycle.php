@@ -366,18 +366,39 @@ function pluscities_set_block_lock(int $block_id, bool $locked, string $actor): 
 
 /**
  * Approve: requires validation current (checked against the page's current
- * draft_hash) and all checks passing. Phase 1 has no agency/approval-gate
- * record yet, so it always takes the no-gate path (approval_stage -> approved
- * directly) — the pending_platform_review/pending_agency_review sequence is
- * Phase 2 scope once a real agency record exists to read the gate from.
+ * draft_hash) and all checks passing. Two independent, optional gates, added
+ * 2026-11-24 — each off by default so no existing agency/client's workflow
+ * changes unless explicitly turned on:
+ *
+ * - Agency-level (agency.requires_approval_gate — the switch already existed
+ *   on Settings but was never actually read anywhere until now): when on, an
+ *   agency_editor cannot approve their own page, same shape as the existing
+ *   editor_can_publish gate on pluscities_publish_page() below.
+ * - Client-level (client.requires_client_approval, per-client not
+ *   per-agency, since different clients of the same agency can have
+ *   different trust levels): when on, approving doesn't go straight to
+ *   "approved" — it goes to the new pending_client_review stage first, which
+ *   pluscities_publish_page() already refuses to publish from (it only
+ *   checks for the literal string "approved"), so this blocks publish for
+ *   free without touching that function. The client approves their own way,
+ *   via pluscities_client_approve_page() below.
  */
-function pluscities_approve_page(string $page_id, string $actor): array
+function pluscities_approve_page(string $page_id, string $actor, string $actor_role = 'super_admin'): array
 {
     $db = pluscities_db();
     $st = $db->prepare('SELECT * FROM pages WHERE page_id = ?');
     $st->execute([$page_id]);
     $page = $st->fetch(PDO::FETCH_ASSOC);
     if (!$page) return ['ok' => false, 'msg' => 'Page not found.'];
+
+    $client = pluscities_client_load($page['client_id']) ?? [];
+
+    if ($actor_role === 'agency_editor') {
+        $agency = lpc_load_agency($client['agency_id'] ?? '');
+        if ($agency && !empty($agency['requires_approval_gate'])) {
+            return ['ok' => false, 'msg' => 'This agency requires an Agency Admin to approve — ask one to approve this page.'];
+        }
+    }
 
     $validation = json_decode($page['validation_json'] ?: '[]', true) ?: [];
     if (($validation['hash_checked_against'] ?? null) !== $page['draft_hash']) {
@@ -387,9 +408,33 @@ function pluscities_approve_page(string $page_id, string $actor): array
         return ['ok' => false, 'msg' => 'One or more checks are still failing.'];
     }
 
-    $db->prepare('UPDATE pages SET status = CASE WHEN status = "draft" THEN "approved" ELSE status END, approval_stage = "approved" WHERE page_id = ?')
-       ->execute([$page_id]);
-    pluscities_log_event($actor, 'approve_page', 'page:' . $page_id, '');
+    $nextStage = !empty($client['requires_client_approval']) ? 'pending_client_review' : 'approved';
+    $db->prepare('UPDATE pages SET status = CASE WHEN status = "draft" THEN "approved" ELSE status END, approval_stage = ? WHERE page_id = ?')
+       ->execute([$nextStage, $page_id]);
+    pluscities_log_event($actor, 'approve_page', 'page:' . $page_id, $nextStage === 'pending_client_review' ? 'sent to client for review' : '');
+    return ['ok' => true, 'msg' => '', 'stage' => $nextStage];
+}
+
+/**
+ * Client approves their own page — the one write action on the otherwise
+ * read-only End Client portal. Only moves a page that's genuinely waiting
+ * on this specific client (pending_client_review AND the right client_id,
+ * checked by the caller before this is reached) — a client can't approve a
+ * page that isn't theirs or that isn't actually waiting on them.
+ */
+function pluscities_client_approve_page(string $page_id, string $client_id, string $actor): array
+{
+    $db = pluscities_db();
+    $st = $db->prepare('SELECT * FROM pages WHERE page_id = ? AND client_id = ?');
+    $st->execute([$page_id, $client_id]);
+    $page = $st->fetch(PDO::FETCH_ASSOC);
+    if (!$page) return ['ok' => false, 'msg' => 'Page not found.'];
+    if ($page['approval_stage'] !== 'pending_client_review') {
+        return ['ok' => false, 'msg' => 'This page isn\'t waiting on your approval.'];
+    }
+
+    $db->prepare('UPDATE pages SET approval_stage = "approved" WHERE page_id = ?')->execute([$page_id]);
+    pluscities_log_event($actor, 'client_approve_page', 'page:' . $page_id, '');
     return ['ok' => true, 'msg' => ''];
 }
 

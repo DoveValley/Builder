@@ -332,8 +332,13 @@ function lpc_actor_identity_label(string $role, ?string $agencyId, ?string $clie
     }
 
     if ($role === 'end_client') {
-        $client = $clientId ? lpc_load_client($clientId) : null;
-        $name = $client ? ($client['login']['username'] ?: $client['identity']['business_name']) : $clientId;
+        // pluscities_client_load(), not lpc_load_client() — fixed 2026-11-24.
+        // The old call read from the LPC client store (clients/), which is
+        // empty post-retirement, so every End Client's name silently fell
+        // back to their raw client_id slug instead of their real business
+        // name, everywhere this label is shown (the admin sidebar, here).
+        $client = $clientId ? pluscities_client_load($clientId) : null;
+        $name = $client['identity']['business_name'] ?? $clientId;
         return ['role_label' => 'Client', 'name' => $name ?: 'Client'];
     }
 
