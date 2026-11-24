@@ -91,6 +91,28 @@ if ($clients) {
         ];
     }
 }
+
+// Filter dropdowns added 2026-11-24 — options built from the full unfiltered
+// $rows before narrowing, so the dropdowns always offer every city/service
+// actually present for this actor, not just what's currently shown.
+$cityOptions = [];
+$serviceOptions = [];
+foreach ($rows as $r) {
+    $cityOptions[$r['page']['city_id']] = true;
+    $serviceOptions[$r['page']['service_key']] = true;
+}
+ksort($cityOptions);
+ksort($serviceOptions);
+
+$filterCity = trim((string) ($_GET['city'] ?? ''));
+$filterService = trim((string) ($_GET['service'] ?? ''));
+if ($filterCity !== '' || $filterService !== '') {
+    $rows = array_values(array_filter($rows, function ($r) use ($filterCity, $filterService) {
+        if ($filterCity !== '' && $r['page']['city_id'] !== $filterCity) return false;
+        if ($filterService !== '' && $r['page']['service_key'] !== $filterService) return false;
+        return true;
+    }));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -140,8 +162,34 @@ if ($downloadAgencyId): ?>
     <p style="margin:0 0 14px;"><a class="btn-sm-outline" href="pluscities_plugin_download.php?agency_id=<?= h($downloadAgencyId) ?>">Download Delivery Plugin</a></p>
 <?php endif; ?>
 
-<?php if (!$rows): ?>
+<?php if (!$cityOptions): ?>
     <div class="lpc-empty"><h2>No pages yet</h2><p>Pages appear here once a client has cities and services added.</p></div>
+<?php else: ?>
+
+<form method="get" action="pluscities_pages.php" class="pc-bulk-bar" style="margin-bottom:10px;">
+    <label style="font-size:.8rem;">City
+        <select name="city" onchange="this.form.submit()">
+            <option value="">All cities</option>
+            <?php foreach (array_keys($cityOptions) as $cid): ?>
+                <option value="<?= h($cid) ?>" <?= $filterCity === $cid ? 'selected' : '' ?>><?= h($cid) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </label>
+    <label style="font-size:.8rem;">Service
+        <select name="service" onchange="this.form.submit()">
+            <option value="">All services</option>
+            <?php foreach (array_keys($serviceOptions) as $svc): ?>
+                <option value="<?= h($svc) ?>" <?= $filterService === $svc ? 'selected' : '' ?>><?= h($svc) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </label>
+    <?php if ($filterCity !== '' || $filterService !== ''): ?>
+        <a href="pluscities_pages.php" style="font-size:.8rem;">Clear filter</a>
+    <?php endif; ?>
+</form>
+
+<?php if (!$rows): ?>
+    <div class="lpc-empty"><h2>No pages match this filter</h2><p><a href="pluscities_pages.php">Clear the filter</a> to see all pages.</p></div>
 <?php else: ?>
 
 <form method="post" action="pluscities_pages_save.php" id="pc-pages-form">
@@ -149,6 +197,7 @@ if ($downloadAgencyId): ?>
 <div class="pc-bulk-bar">
     <button type="submit" name="action" value="approve" class="btn-sm-outline">Approve selected</button>
     <button type="submit" name="action" value="publish" class="btn-open">Publish selected</button>
+    <button type="submit" name="action" value="unpublish" class="btn-sm-danger" onclick="return confirm('Unpublish all selected pages? They will stop showing on their live sites immediately.');">Unpublish selected</button>
     <button type="submit" name="action" value="regenerate_unlocked" class="btn-sm-outline">Regenerate unlocked blocks</button>
 </div>
 
@@ -199,5 +248,6 @@ if ($downloadAgencyId): ?>
 </table>
 </form>
 
+<?php endif; ?>
 <?php endif; ?>
 <?php lpc_admin_close(); ?>

@@ -43,11 +43,17 @@ foreach ($pageIds as $pageId) {
     if (!$clientId || !pluscities_actor_can_access_client($clientId)) continue;
 
     if ($action === 'approve') {
-        $r = pluscities_approve_page($pageId, $actor);
+        // Was missing the actor's role, fixed 2026-11-24 — meant bulk
+        // approve silently skipped the "Agency Editor needs an Agency Admin"
+        // gate that the single-page Approve button already respects.
+        $r = pluscities_approve_page($pageId, $actor, lpc_current_actor_role());
         if ($r['ok']) $okCount++; else $failMsgs[] = "$pageId: {$r['msg']}";
     } elseif ($action === 'publish') {
         $r = pluscities_publish_page($pageId, $actor, lpc_current_actor_role());
         if ($r['ok']) $okCount++; else $failMsgs[] = "$pageId: {$r['msg']}";
+    } elseif ($action === 'unpublish') {
+        $ok = pluscities_unpublish_page($pageId, $actor);
+        if ($ok) $okCount++; else $failMsgs[] = "$pageId: not found";
     } elseif ($action === 'regenerate_unlocked') {
         $blocksStmt = $db->prepare('SELECT id FROM blocks WHERE page_id = ? AND locked = 0');
         $blocksStmt->execute([$pageId]);
