@@ -79,6 +79,8 @@ if ($action === 'create') {
         'price_ranges'    => null,
         'billing'         => ['tier' => '50', 'custom_override' => null],
         'requires_client_approval' => false,
+        'status'      => 'active',
+        'canceled_at' => null,
         'services' => array_column($niche['services'] ?? [], 'slug'),
         'target_cities' => [[
             'city_id' => $firstCityId,
@@ -157,6 +159,38 @@ if ($action === 'toggle_client_approval') {
     pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
     pluscities_log_event($actor, 'toggle_client_approval', 'client:' . $clientId, $client['requires_client_approval'] ? 'on' : 'off');
     $msg = $client['requires_client_approval'] ? 'success:Client+approval+turned+on' : 'success:Client+approval+turned+off';
+    header('Location: pluscities_clients.php?msg=' . $msg);
+    exit;
+}
+
+if ($action === 'cancel' || $action === 'reactivate') {
+    // Agency Admin territory, same as toggle_client_approval — a real
+    // business decision about an agency's own client relationship, not
+    // something an Agency Editor should be able to trigger.
+    if (!in_array(lpc_current_actor_role(), ['super_admin', 'agency_admin'], true)) {
+        header('Location: pluscities_clients.php?msg=error:Not+authorized'); exit;
+    }
+    $clientId = trim((string) ($_POST['client_id'] ?? ''));
+    if (!pluscities_actor_can_access_client($clientId)) {
+        header('Location: pluscities_clients.php?msg=error:Not+authorized'); exit;
+    }
+    $client = pluscities_client_load($clientId);
+    if (!$client) {
+        header('Location: pluscities_clients.php?msg=error:Client+not+found'); exit;
+    }
+    if ($action === 'cancel') {
+        $client['status'] = 'canceled';
+        $client['canceled_at'] = gmdate('c');
+        $logAction = 'cancel_client';
+        $msg = 'success:Client+cancelled+-+pages+will+redirect+to+their+homepage+after+the+grace+period';
+    } else {
+        $client['status'] = 'active';
+        $client['canceled_at'] = null;
+        $logAction = 'reactivate_client';
+        $msg = 'success:Client+reactivated';
+    }
+    pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
+    pluscities_log_event($actor, $logAction, 'client:' . $clientId, '');
     header('Location: pluscities_clients.php?msg=' . $msg);
     exit;
 }

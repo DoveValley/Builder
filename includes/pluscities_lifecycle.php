@@ -21,6 +21,22 @@
  * new 2026-11-24 callers (admin/impersonate.php, admin/client_portal.php)
  * share one copy instead of adding a third inline version.
  */
+/**
+ * Platform-wide settings (grace period before a cancelled client's pages
+ * actually redirect; how long the WP plugin's cache lives) — Platform-Admin-
+ * only, not per-agency or per-client, added 2026-11-24 for real client
+ * cancellation. Defaults apply whenever the file doesn't exist yet or is
+ * missing a key, same "never crash on a field that isn't there yet" pattern
+ * as every other optional setting in this engine.
+ */
+function pluscities_platform_settings(): array
+{
+    $defaults = ['cancellation_grace_days' => 14, 'plugin_cache_ttl_hours' => 24];
+    if (!file_exists(PLUSCITIES_PLATFORM_SETTINGS_FILE)) return $defaults;
+    $saved = json_decode((string) file_get_contents(PLUSCITIES_PLATFORM_SETTINGS_FILE), true);
+    return array_merge($defaults, is_array($saved) ? $saved : []);
+}
+
 function pluscities_client_load(string $client_id): ?array
 {
     $file = PLUSCITIES_CLIENTS_DIR . $client_id . '.json';

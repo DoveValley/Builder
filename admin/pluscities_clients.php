@@ -32,6 +32,7 @@ if (!empty($_GET['msg'])) {
 $clients  = pluscities_client_ids_for_current_actor();
 $agencies = lpc_current_actor_role() === 'super_admin' ? lpc_list_agencies() : [lpc_current_actor_agency_id()];
 $niches   = pluscities_niche_list();
+$graceDays = pluscities_platform_settings()['cancellation_grace_days'];
 
 // Block Topics catalog — same single source platform_info.php's own
 // documentation page reads, so this real picker and that internal doc page
@@ -91,6 +92,13 @@ lpc_admin_open('pluscities_clients', 'Clients');
                 <div style="font-size:.78rem;color:var(--pc-muted,#52607a);">
                     <?= h($c['domain']) ?> &middot; <?= h($c['niche_id']) ?> &middot; <?= (int) count($c['target_cities'] ?? []) ?> cit(y/ies)
                     &middot; Client approval: <?= !empty($c['requires_client_approval']) ? '<strong>On</strong>' : 'Off' ?>
+                    <?php if (($c['status'] ?? 'active') === 'canceled'):
+                        $daysLeft = $graceDays - (int) floor((time() - strtotime($c['canceled_at'])) / 86400);
+                    ?>
+                        &middot; <strong style="color:#991b1b;">
+                            <?= $daysLeft > 0 ? 'Cancelled — ' . $daysLeft . ' day(s) left in grace period' : 'Cancelled — grace period ended, redirecting now' ?>
+                        </strong>
+                    <?php endif; ?>
                 </div>
             </div>
             <div style="display:flex;gap:8px;">
@@ -113,6 +121,13 @@ lpc_admin_open('pluscities_clients', 'Clients');
                     <input type="hidden" name="action" value="toggle_client_approval">
                     <input type="hidden" name="client_id" value="<?= h($cid) ?>">
                     <button type="submit" class="btn-sm-outline"><?= !empty($c['requires_client_approval']) ? 'Turn Off' : 'Turn On' ?> Client Approval</button>
+                </form>
+                <?php $isCanceled = ($c['status'] ?? 'active') === 'canceled'; ?>
+                <form method="post" action="pluscities_clients_save.php" style="margin:0;" onsubmit="return confirm('<?= $isCanceled ? 'Reactivate this client? Their pages will stop redirecting and serve normally again.' : 'Cancel this client? After the ' . $graceDays . '-day grace period, all their pages will redirect to their own homepage instead of serving content.' ?>');">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="action" value="<?= $isCanceled ? 'reactivate' : 'cancel' ?>">
+                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
+                    <button type="submit" class="<?= $isCanceled ? 'btn-sm-outline' : 'btn-sm-danger' ?>"><?= $isCanceled ? 'Reactivate' : 'Cancel Client' ?></button>
                 </form>
                 <?php endif; ?>
             </div>

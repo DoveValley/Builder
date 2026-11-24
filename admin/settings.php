@@ -34,6 +34,7 @@ foreach (lpc_list_agencies() as $id) {
     $a = lpc_load_agency($id);
     if ($a) $agencies[] = $a;
 }
+$platformSettings = pluscities_platform_settings();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,10 +63,9 @@ foreach (lpc_list_agencies() as $id) {
 
     <h3 style="margin-top:0;">Approval Gate</h3>
     <p style="color:#6b7280;font-size:.85rem;">
-        Whether an agency's pages go through the two-stage review (Platform review, then agency
-        review) before publishing. Defaults on for every agency — this is the Platform Admin
-        deciding how much oversight a given agency needs, not something an agency can set for
-        itself.
+        Whether an Agency Editor can approve their own pages, or only an Agency Admin can. Defaults
+        on for every agency — this is the Platform Admin deciding how much oversight a given
+        agency needs, not something an agency can set for itself.
     </p>
 
     <?php foreach ($agencies as $a): $gated = !empty($a['requires_approval_gate']); ?>
@@ -90,5 +90,28 @@ foreach (lpc_list_agencies() as $id) {
     <?php if (!$agencies): ?>
         <p class="meta">No agencies yet.</p>
     <?php endif; ?>
+
+    <h3 style="margin-top:28px;">Client Cancellation</h3>
+    <p style="color:#6b7280;font-size:.85rem;">
+        Platform-wide, not per-agency — one predictable policy for every cancelled client.
+    </p>
+    <form method="post" action="platform_settings_save.php" class="lpc-row" style="flex-direction:column;align-items:stretch;">
+        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+            <div class="fg">
+                <label style="font-size:.8rem;font-weight:600;display:block;margin-bottom:4px;">Grace period (days)</label>
+                <input type="number" name="cancellation_grace_days" min="0" value="<?= (int) $platformSettings['cancellation_grace_days'] ?>" style="width:100px;padding:6px 8px;border:1px solid #d1d5db;border-radius:6px;">
+                <div class="meta">How long a cancelled client's pages keep working before they redirect to the client's own homepage.</div>
+            </div>
+            <div class="fg">
+                <label style="font-size:.8rem;font-weight:600;display:block;margin-bottom:4px;">Plugin cache lifetime (hours)</label>
+                <input type="number" name="plugin_cache_ttl_hours" min="1" value="<?= (int) $platformSettings['plugin_cache_ttl_hours'] ?>" style="width:100px;padding:6px 8px;border:1px solid #d1d5db;border-radius:6px;">
+                <div class="meta">How long the WordPress plugin keeps showing a page without checking in. Previously never expired at all — a shorter value here is what actually makes cancellation able to take effect.</div>
+            </div>
+        </div>
+        <div style="margin-top:12px;">
+            <button type="submit" class="btn-open">Save</button>
+        </div>
+    </form>
 
 <?php lpc_admin_close(); ?>

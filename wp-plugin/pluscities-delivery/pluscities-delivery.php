@@ -2,7 +2,9 @@
 /**
  * Plugin Name: PlusCities Delivery
  * Description: Fetches, caches, and places PlusCities-generated pages inside this site's own theme. Does no rendering of its own — see docs/PLUSCITIES_FEATURE_SPEC.md Section 9 ("thin plugin, server renders").
- * Version: 0.1.0 (Phase 1)
+ * Version: 0.2.0 (adds real client cancellation: a finite cache expiry
+ * instead of forever, and a redirect-to-homepage once a cancelled client's
+ * grace period ends — 2026-11-24)
  *
  * Deliberately a NEW plugin, not a patch to the old "Landing Page Client"
  * plugin — Section 9 changes the plugin's fundamental job from renderer (the
@@ -253,12 +255,29 @@ function pluscities_delivery_sync_if_needed() {
     if (is_wp_error($resp)) return; // offline — serve whatever's already cached, per the fallback below
     $manifest = json_decode(wp_remote_retrieve_body($resp), true);
     if (!is_array($manifest) || !isset($manifest['site_rev'])) return;
+
+    // Cancellation, added 2026-11-24 — checked before the site_rev gate
+    // below, since a cancelled-past-grace manifest always reports
+    // site_rev=0/unchanged live_page_ids but still needs the redirect flag
+    // to take effect every single request, not just the next time something
+    // changes. Clearing the option on an un-cancelled manifest handles
+    // reactivation the same way.
+    if (!empty($manifest['cancelled'])) {
+        update_option('pluscities_cancelled_redirect', $manifest['redirect_to'] ?? '');
+    } else {
+        delete_option('pluscities_cancelled_redirect');
+    }
+
     // Gate on site_rev advancing, not on changed_pages being non-empty —
     // if a client unpublishes their LAST remaining live page, changed_pages
     // comes back empty even though site_rev genuinely moved; gating on
     // changed_pages would skip updating site_rev_seen forever AND skip the
-    // reconciliation below, leaking that page's cache indefinitely.
-    if ((int) $manifest['site_rev'] <= $seenRev) return;
+    // reconciliation below, leaking that page's cache indefinitely. Also
+    // never short-circuit here while cancelled — site_rev alone wouldn't
+    // move just because the grace period ended, but the reconciliation
+    // below (wiping every cached page via an empty live_page_ids) still
+    // needs to run every single check-in until this client is reactivated.
+    if ((int) $manifest['site_rev'] <= $seenRev && empty($manifest['cancelled'])) return;
 
     foreach ($manifest['changed_pages'] ?? [] as $cp) {
         $pageResp = wp_remote_get(pluscities_delivery_base() . '?action=page&page_id=' . urlencode($cp['page_id']), [
@@ -268,10 +287,14 @@ function pluscities_delivery_sync_if_needed() {
         if (is_wp_error($pageResp)) continue;
         $page = json_decode(wp_remote_retrieve_body($pageResp), true);
         if (!is_array($page) || empty($page['html'])) continue;
-        // No expiry — this transient IS the offline-cache fallback (spec
-        // Section 9): it keeps serving the last-known-good content
-        // indefinitely if the server later becomes unreachable.
-        set_transient('pluscities_page_' . $cp['page_id'], $page, 0);
+        // Real expiry as of 2026-11-24 (platform setting, sent as
+        // cache_ttl_seconds on every manifest — defaults to 0/forever only
+        // if an old server response doesn't include it). This transient is
+        // still the offline-cache fallback (spec Section 9) for however long
+        // it lives, but it no longer lives forever by default — a finite
+        // expiry is what actually lets a cancelled client's content stop
+        // being servable even if this specific check-in is somehow missed.
+        set_transient('pluscities_page_' . $cp['page_id'], $page, (int) ($manifest['cache_ttl_seconds'] ?? 0));
         update_option('pluscities_page_url_' . md5($cp['url']), $cp['page_id']);
     }
 
@@ -319,6 +342,17 @@ add_action('template_redirect', function () {
     if (!$city || !$service) return;
 
     pluscities_delivery_sync_if_needed();
+
+    // Cancellation redirect, added 2026-11-24 — checked on every request for
+    // a PlusCities URL, not just when the cache happens to be empty, so a
+    // cancelled client's pages actually stop being reachable rather than
+    // relying on the cache wipe alone (belt and suspenders: the cache gets
+    // wiped too, via pluscities_delivery_sync_if_needed()'s reconciliation).
+    $cancelledRedirect = get_option('pluscities_cancelled_redirect', '');
+    if ($cancelledRedirect !== '') {
+        wp_redirect($cancelledRedirect, 301);
+        exit;
+    }
 
     $base   = trim(get_option('pluscities_base_path', 'service-area'), '/');
     $url    = '/' . $base . '/' . $city . '/' . $service . '/';

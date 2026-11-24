@@ -45,10 +45,35 @@ foreach (glob(PLUSCITIES_CLIENTS_DIR . '*.json') as $f) {
 }
 if ($client === null) pluscities_sync_fail(401, 'Invalid API key.');
 
+// Cancellation, added 2026-11-24. Kept here, before either action, so both
+// "manifest" and "page" agree on the same cancelled state instead of
+// duplicating this check. Past the grace period, the plugin is told to
+// redirect everything to the client's own homepage rather than served
+// normal content — see wp-plugin/pluscities-delivery/pluscities-delivery.php
+// for the side that actually acts on this.
+$platformSettings = pluscities_platform_settings();
+$cancelledPastGrace = false;
+if (($client['status'] ?? 'active') === 'canceled' && !empty($client['canceled_at'])) {
+    $graceSeconds = $platformSettings['cancellation_grace_days'] * 86400;
+    $cancelledPastGrace = (time() - strtotime($client['canceled_at'])) > $graceSeconds;
+}
+
 $action = $_GET['action'] ?? '';
 $db     = pluscities_db();
 
 if ($action === 'manifest') {
+    if ($cancelledPastGrace) {
+        // Empty live_page_ids reuses the plugin's EXISTING cache-reconciliation
+        // logic (already deletes anything cached that isn't in this list) to
+        // wipe every cached page, no separate cache-clearing mechanism needed.
+        echo json_encode([
+            'site_rev' => (int) $client['site_rev'], 'changed_pages' => [], 'live_page_ids' => [],
+            'cancelled' => true, 'redirect_to' => 'https://' . $client['domain'] . '/',
+            'cache_ttl_seconds' => $platformSettings['plugin_cache_ttl_hours'] * 3600,
+        ]);
+        exit;
+    }
+
     $sinceRev = (int) ($_GET['site_rev'] ?? 0);
     $changed  = [];
     $livePageIds = [];
@@ -68,11 +93,16 @@ if ($action === 'manifest') {
     // the plugin's ground truth for reconciling away anything it cached
     // earlier that's no longer live (e.g. unpublished), since nothing else
     // in this protocol ever signals a removal.
-    echo json_encode(['site_rev' => (int) $client['site_rev'], 'changed_pages' => $changed, 'live_page_ids' => $livePageIds]);
+    echo json_encode([
+        'site_rev' => (int) $client['site_rev'], 'changed_pages' => $changed, 'live_page_ids' => $livePageIds,
+        'cancelled' => false,
+        'cache_ttl_seconds' => $platformSettings['plugin_cache_ttl_hours'] * 3600,
+    ]);
     exit;
 }
 
 if ($action === 'page') {
+    if ($cancelledPastGrace) pluscities_sync_fail(404, 'This client has been cancelled.');
     $pageId = $_GET['page_id'] ?? '';
     $st = $db->prepare('SELECT * FROM pages WHERE page_id = ? AND client_id = ? AND status = "live"');
     $st->execute([$pageId, $client['client_id']]);

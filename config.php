@@ -160,6 +160,12 @@ define('PLUSCITIES_NICHE_FAMILIES_DIR', BASE_DIR . '/niche_families/');
 define('PLUSCITIES_NICHE_BLUEPRINTS_DIR', BASE_DIR . '/niche_blueprints/');
 define('PLUSCITIES_COMPLIANCE_PRESETS_DIR', BASE_DIR . '/compliance_presets/');
 define('PLUSCITIES_CLIENTS_DIR', BASE_DIR . '/pluscities_clients/');
+// Platform-wide, Platform-Admin-only settings — not per-agency or per-client
+// (see admin/settings.php). Added 2026-11-24 for client cancellation: the
+// grace period before a cancellation actually redirects a client's pages,
+// and how long the WP plugin's cache lives (previously hardcoded to never
+// expire, which is exactly why cancellation couldn't work before).
+define('PLUSCITIES_PLATFORM_SETTINGS_FILE', BASE_DIR . '/pluscities_platform_settings.json');
 // API keys live outside the client JSON on purpose — same reasoning as the
 // old engine's clients/*/secrets/ and client_agencies_secrets/: a plaintext
 // secret has no business in version control even though the client record
