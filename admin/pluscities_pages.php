@@ -39,8 +39,17 @@ if (!empty($_GET['msg'])) {
 
 // pluscities_client_ids_for_current_actor() lives in
 // includes/pluscities_lifecycle.php — shared with pluscities_pages_save.php
-// so the scoping rule exists exactly once.
-$clients = pluscities_client_ids_for_current_actor();
+// so the scoping rule exists exactly once. Further filtered through
+// pluscities_actor_can_access_client(), fixed 2026-11-24 — an Agency Editor
+// with a real assigned_client_ids list was seeing every page in the agency
+// here, not just their assigned clients'; the SQL below only ever queries
+// $clients' keys, so narrowing this array also narrows the query itself,
+// not just what's displayed afterward.
+$allClients = pluscities_client_ids_for_current_actor();
+$clients = [];
+foreach ($allClients as $cid => $c) {
+    if (pluscities_actor_can_access_client($cid)) $clients[$cid] = $c;
+}
 $db = pluscities_db();
 
 $rows = [];

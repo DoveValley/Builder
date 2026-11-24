@@ -120,6 +120,8 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
             <?php if ($page['status'] === 'live'): ?>
                 <button type="submit" name="action" value="unpublish" class="btn-sm-danger" onclick="return confirm('Unpublish this page? It will stop showing on the client\'s live site immediately. You can republish it later.');">Unpublish</button>
             <?php endif; ?>
+            <button type="submit" name="action" value="lock_all" class="btn-sm-outline" onclick="return confirm('Lock every block on this page? Locked blocks are skipped by Regenerate and future batch rewrites.');">Lock All</button>
+            <button type="submit" name="action" value="unlock_all" class="btn-sm-outline" onclick="return confirm('Unlock every block on this page?');">Unlock All</button>
         </form>
     </div>
     <?php if ($validation['results'] ?? null): ?>

@@ -10,6 +10,13 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/lpc_admin_layout.php';
+// Self-contained lib, safe to require directly per CLAUDE.md's infra/lib/*
+// convention — only infra_site_check()/infra_site_verdict() are used below
+// (the live, uncached checks), deliberately NOT infra_site_check_cached(),
+// which stores results in Site Factory's fleet.db. A live check per page
+// load keeps PlusCities' own data out of that database, same separation
+// principle pluscities.db itself was already built around.
+require_once __DIR__ . '/infra/lib/uptime.php';
 
 if (!lpc_actor_is_authenticated() || lpc_current_actor_role() === 'end_client') {
     header('Location: login.php');
@@ -29,7 +36,17 @@ if (!empty($_GET['msg'])) {
     }
 }
 
-$clients  = pluscities_client_ids_for_current_actor();
+// Filtered through pluscities_actor_can_access_client(), not just the
+// agency-level list, fixed 2026-11-24 — an Agency Editor with a real
+// assigned_client_ids list was seeing every client in the agency here, not
+// just their own, even though every write action already correctly blocked
+// them from touching the ones they weren't assigned. Same pattern already
+// proven correct on pluscities_dashboard.php since it was first built.
+$allClients = pluscities_client_ids_for_current_actor();
+$clients = [];
+foreach ($allClients as $cid => $c) {
+    if (pluscities_actor_can_access_client($cid)) $clients[$cid] = $c;
+}
 $agencies = lpc_current_actor_role() === 'super_admin' ? lpc_list_agencies() : [lpc_current_actor_agency_id()];
 $niches   = pluscities_niche_list();
 $graceDays = pluscities_platform_settings()['cancellation_grace_days'];
@@ -79,6 +96,10 @@ lpc_admin_open('pluscities_clients', 'Clients');
 .pc-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--pc-line,#e2e8f2);}
 .pc-row:last-child{border-bottom:none;}
 .pc-section-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--pc-muted,#52607a);margin:18px 0 2px;}
+.pc-site-badge{display:inline-block;margin-left:8px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em;padding:2px 8px;border-radius:10px;}
+.pc-site-badge-live{background:#dcfce7;color:#166534;}
+.pc-site-badge-warn{background:#fef3c7;color:#92400e;}
+.pc-site-badge-down{background:#fee2e2;color:#991b1b;}
 </style>
 
 <?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
@@ -89,6 +110,17 @@ lpc_admin_open('pluscities_clients', 'Clients');
         <div class="pc-row">
             <div>
                 <strong><?= h($c['identity']['business_name'] ?? $cid) ?></strong>
+                <?php
+                $siteCheck = infra_site_check($c['domain'] ?? '');
+                if (!empty($siteCheck['up']) && !empty($siteCheck['cert_ok'])) {
+                    $siteBadgeClass = 'pc-site-badge-live'; $siteBadgeText = 'Site: Live';
+                } elseif (!empty($siteCheck['up'])) {
+                    $siteBadgeClass = 'pc-site-badge-warn'; $siteBadgeText = 'Site: Live (SSL issue)';
+                } else {
+                    $siteBadgeClass = 'pc-site-badge-down'; $siteBadgeText = 'Site: Down';
+                }
+                ?>
+                <span class="pc-site-badge <?= $siteBadgeClass ?>" title="<?= h($siteCheck['error'] ?: ('HTTP ' . $siteCheck['code'])) ?>"><?= h($siteBadgeText) ?></span>
                 <div style="font-size:.78rem;color:var(--pc-muted,#52607a);">
                     <?= h($c['domain']) ?> &middot; <?= h($c['niche_id']) ?> &middot; <?= (int) count($c['target_cities'] ?? []) ?> cit(y/ies)
                     &middot; Client approval: <?= !empty($c['requires_client_approval']) ? '<strong>On</strong>' : 'Off' ?>

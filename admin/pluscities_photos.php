@@ -26,7 +26,17 @@ if (empty($_SESSION['csrf_token'])) {
 }
 $csrf = $_SESSION['csrf_token'];
 
-$clients = pluscities_client_ids_for_current_actor();
+// Filtered through pluscities_actor_can_access_client(), fixed 2026-11-24 —
+// an Agency Editor with a real assigned_client_ids list was seeing every
+// client in the dropdown here, and could reach a non-assigned client's
+// photos directly via ?client_id= in the URL (the $client lookup below
+// correctly resolves to null for an id outside this filtered array, same
+// "not found" handling as a genuinely bad id, not a new code path).
+$allClients = pluscities_client_ids_for_current_actor();
+$clients = [];
+foreach ($allClients as $cid => $c) {
+    if (pluscities_actor_can_access_client($cid)) $clients[$cid] = $c;
+}
 $clientId = $_GET['client_id'] ?? (count($clients) === 1 ? array_key_first($clients) : '');
 $client = ($clientId && isset($clients[$clientId])) ? $clients[$clientId] : null;
 

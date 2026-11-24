@@ -65,6 +65,20 @@ if ($action === 'toggle_lock') {
     header('Location: ' . $back . '&msg=success:Lock+toggled'); exit;
 }
 
+if ($action === 'lock_all' || $action === 'unlock_all') {
+    // A convenience wrapper, not new locking architecture — added 2026-11-24.
+    // Block-level lock already existed and worked; whole-page lock was
+    // missing entirely, so this just loops the same proven per-block
+    // function instead of clicking Lock on every block one at a time.
+    $lock = $action === 'lock_all';
+    $blockIds = pluscities_db()->prepare('SELECT id FROM blocks WHERE page_id = ?');
+    $blockIds->execute([$pageId]);
+    foreach ($blockIds->fetchAll(PDO::FETCH_COLUMN) as $blockId) {
+        pluscities_set_block_lock((int) $blockId, $lock, $actor);
+    }
+    header('Location: ' . $back . '&msg=success:' . ($lock ? 'All+blocks+locked' : 'All+blocks+unlocked')); exit;
+}
+
 if ($action === 'regenerate') {
     $result = pluscities_regenerate_block((int) ($_POST['block_id'] ?? 0), $actor);
     header('Location: ' . $back . '&msg=' . ($result['ok'] ? 'success:Regenerated' : 'error:' . urlencode($result['msg']))); exit;
