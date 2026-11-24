@@ -104,9 +104,9 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Go-live operations — not a product capability, but blocks launching this at all (assembled 2026-11-23)',
             'rows' => [
-                ['cap' => 'Stripe webhook secret provisioned in production', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
-                 'simple' => 'This is the missing piece that actually lets a real payment turn a subscription on.',
-                 'detail' => "The webhook code itself is correct, confirmed by reading it directly: stripe_verify_webhook_signature() (includes/stripe_client.php) does real HMAC verification with a timestamp replay window, and admin/stripe_webhook.php wires it to activate/suspend agencies on checkout.session.completed and failed-payment events. But STRIPE_WEBHOOK_SECRET (config.php) resolves to an empty string because .stripe_webhook_secret was never created on disk — confirmed directly, only .stripe_secret_key exists. The verifier fails safe on an empty secret (returns false rather than falling through), so this isn't a security hole — it means every real Stripe webhook is being rejected with HTTP 400 right now, so a real customer's checkout would never actually flip their agency to active. The fix is operational, not code: register the production endpoint in the Stripe dashboard and drop the signing secret it gives you into .stripe_webhook_secret."],
+                ['cap' => 'Stripe webhook secret provisioned in production', 'roles' => 'Platform Admin', 'status' => 'deferred',
+                 'simple' => 'This is the missing piece that would let a real payment automatically turn a subscription on, instead of you doing it by hand.',
+                 'detail' => "DEFERRED ON PURPOSE, 2026-11-24 — Scott: wants this added later, explicitly not now. Reasoning on record: doesn't want automated billing business logic (auto-suspend on a failed payment, auto-reactivate, auto-suspend on cancellation) tied to Stripe yet. The webhook code for all of that already exists and is correct (stripe_verify_webhook_signature() in includes/stripe_client.php does real HMAC verification; admin/stripe_webhook.php wires 4 events — checkout completed activates an agency, failed/succeeded invoices auto-suspend/reactivate, a canceled subscription auto-suspends), it's just not switched on: STRIPE_WEBHOOK_SECRET (config.php) is empty because .stripe_webhook_secret was never created (only the test-mode .stripe_secret_key, sk_test_, exists), so the verifier fails safe and rejects every webhook today. The near-term need, \"let someone pay,\" is solved without any of this: a Stripe Payment Link created directly in the Stripe dashboard, paid manually, agency flipped to active by hand. Revisit this row once manual activation/suspension stops scaling — at that point it also needs a live-mode secret key, not just a live webhook."],
                 ['cap' => 'Admin panel reachable only by raw IP — no domain, no real SSL', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
                  'simple' => 'The login screen for this whole product doesn\'t have a real web address yet — just a raw IP number.',
                  'detail' => "Confirmed directly: no domain/BASE_URL constant anywhere in config.php, reachable only at this box's raw public IPv4. The self-signed cert currently installed is even issued under a leftover niche site's name, not this product. Already called out as owed in the product's own feature spec (docs/PLUSCITIES_FEATURE_SPEC.md §14: \"a custom dashboard domain for the agency's own internal admin login\"). Cheapest, most visible fix on this whole list. Note: pluscities.com itself is a separate, already-live WordPress marketing site behind Cloudflare — this row is the admin dashboard's own domain, not the marketing site."],
@@ -125,9 +125,9 @@ function platform_info_roadmap_data(): array {
                 ['cap' => 'Demo agency + clients built specifically for showing a prospect', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
                  'simple' => "There's currently nothing ready to actually show someone when pitching this — only Scott's own working test data.",
                  'detail' => "No seed data exists today that's demo-safe: the only populated agency/client records are either real pilot clients (Elite Air HVAC, Lonestar Restoration) or Scott's own QA fixtures — one of which was accidentally deleted and had to be rebuilt mid-session on 2026-11-23, a reminder these aren't meant to double as demo material. Needs its own agency plus a handful of clients with populated pages, kept separate from both the real pilots and the QA suite's fixtures."],
-                ['cap' => 'Secrets/config hygiene: stale docs, placeholder values', 'roles' => 'Platform Admin', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
-                 'simple' => 'A couple of small leftover placeholder settings should get cleaned up before a real customer is anywhere near this.',
-                 'detail' => "config.php's own comment block still documents the shipped default password (admin123) as the current login — misleading, since the live ADMIN_PASSWORD_HASH has actually already been changed (confirmed directly via password_verify(), it no longer matches admin123) — the stale comment should just be corrected so nobody re-reads it as current. CONTACT_EMAIL is still the placeholder hello@yoursite.com. Both are quick, no-risk fixes."],
+                ['cap' => 'Secrets/config hygiene: stale docs, placeholder values', 'roles' => 'Platform Admin', 'status' => 'complete',
+                 'simple' => 'A couple of small leftover placeholder settings got cleaned up.',
+                 'detail' => "Fixed 2026-11-24: config.php's comment block no longer claims admin123 is the current password — it now says the login has already been changed, with instructions for setting a new one, without asserting what the current value is. CONTACT_EMAIL deliberately left as the hello@yoursite.com placeholder: confirmed this box's own root site.json is demo/placeholder content (fake phone number, no contact_form block present), not a real live site, so nothing here actually depends on it. Each deployed fleet site has its own separate config.php — this fix doesn't touch those; whichever ones are actually live with a contact form in use should be checked individually."],
             ],
         ],
         [
@@ -307,9 +307,9 @@ function platform_info_roadmap_data(): array {
         [
             'title' => 'Positioning compliance — "never present as an AI product"',
             'rows' => [
-                ['cap' => 'No AI/generate/regenerate/prompt language anywhere a client can see it', 'roles' => 'All', 'status' => 'todo', 'gate' => 'sell', 'effort' => 'quick',
+                ['cap' => 'No AI/generate/regenerate/prompt language anywhere a client can see it', 'roles' => 'All', 'status' => 'wontdo',
                  'simple' => 'This means a client never sees the word "AI" or "generate" anywhere in the product.',
-                 'detail' => "Violated in several places today, worst inside the WP plugin's own in-admin popup — visible on the client's own WordPress install (see the White-label row above). Also present throughout the agency-facing admin (client.php, page_editor.php, client_save.php, client_wizard.php — buttons/labels/confirm dialogs saying \"AI\", \"Regenerate\", \"AI-generated\"). Genuinely clean today: the End Client's own portal and the actual page HTML a visitor sees — neither has ever shown AI language. Fix order: the plugin popup first (worst exposure, lives inside the client's own site), then a wording pass over the agency-facing screens toward the spec's own suggested phrase — \"Request an update\" instead of \"Regenerate.\" Must-have to sell: this directly contradicts the core sales pitch — \"never looks like AI\" — the moment an agency or their client actually looks."],
+                 'detail' => "Re-checked 2026-11-23 and found largely stale: the worst exposure this row originally described — the WP plugin's own in-admin popup, visible on the client's own WordPress install, saying \"real AI content generation\"/\"AI-drafted pages\" — lived in wp-plugin/landing-page-client/, which was deleted outright as a side effect of the same day's unrelated LPC retirement cleanup; the current replacement plugin (wp-plugin/pluscities-delivery/) never had that popup. client.php/page_editor.php/client_save.php/client_wizard.php, also named in this row, were deleted in the same pass. What's actually left: 4 user-visible \"Regenerate\" labels in the current pluscities_*.php agency admin screens (a button, a bulk-action label, a flash message, one Settings sentence) — but those only appear inside the agency's own admin panel, not anywhere an end client ever logs in, so they're not the client-facing risk this row was written to track. Decided not to pursue: cosmetic word choice for agency staff who already know this is an AI-assisted platform isn't a sale-blocker. One real residual risk this doesn't close: any client WordPress site that already had the old plugin installed before today's deletion may still be showing that popup live — unverified, would need checking actual client installs, not this repo, to know for sure."],
             ],
         ],
         [
@@ -747,6 +747,8 @@ function platform_info_content_flow_data(): array {
 .lpc-roadmap-status { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 9px; border-radius:10px; white-space:nowrap; display:inline-block; }
 .lpc-roadmap-status-complete { background:#dcfce7; color:#166534; }
 .lpc-roadmap-status-todo { background:#fef3c7; color:#92400e; }
+.lpc-roadmap-status-wontdo { background:#f1f5f9; color:#64748b; }
+.lpc-roadmap-status-deferred { background:#dbeafe; color:#1e40af; }
 .lpc-roadmap-table td { vertical-align:top; }
 .lpc-roadmap-cap { font-weight:700; }
 .lpc-roadmap-roles { font-size:.78rem; color:#6b7280; }
@@ -1190,6 +1192,8 @@ function platform_info_content_flow_data(): array {
                 <option value="">All</option>
                 <option value="todo">To Be Done</option>
                 <option value="complete">Complete</option>
+                <option value="wontdo">Not Doing</option>
+                <option value="deferred">Deferred</option>
             </select>
         </span>
         <span><label for="rm-sort-mode">View</label>
@@ -1229,7 +1233,10 @@ function platform_info_content_flow_data(): array {
                     <td class="lpc-roadmap-roles"><?= h($r['roles']) ?></td>
                     <td>
                         <span class="lpc-roadmap-status lpc-roadmap-status-<?= $r['status'] ?>">
-                            <?= $r['status'] === 'complete' ? 'Complete' : 'To Be Done' ?>
+                            <?php
+                            $statusLabels = ['complete' => 'Complete', 'wontdo' => 'Not Doing', 'deferred' => 'Deferred'];
+                            echo h($statusLabels[$r['status']] ?? 'To Be Done');
+                            ?>
                         </span>
                     </td>
                     <td>

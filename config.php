@@ -2,19 +2,16 @@
 /**
  * Configuration file
  * --------------------------------------------------
- * Change ADMIN_USERNAME and ADMIN_PASSWORD_HASH to set
- * your own admin login.
+ * ADMIN_USERNAME and ADMIN_PASSWORD_HASH below have already been changed
+ * from this file's shipped defaults (admin / admin123) — do not assume
+ * that login still works.
  *
- * Default login is:
- *   username: admin
- *   password: admin123
- *
- * To generate a new password hash, run this on your server
- * (e.g. via a temporary PHP file or the command line):
+ * To set a new password, run this on your server (e.g. via a temporary
+ * PHP file or the command line):
  *
  *   <?php echo password_hash('your-new-password', PASSWORD_DEFAULT);
  *
- * Then paste the result below.
+ * Then paste the result into ADMIN_PASSWORD_HASH below.
  */
 
 session_start();
@@ -27,6 +24,12 @@ define('SITE_TITLE', 'Elk Pest Pros');
 
 // Email address where contact form submissions are delivered
 define('CONTACT_EMAIL', 'hello@yoursite.com');
+
+// This admin panel's own real domain (set up 2026-11-23: app.pluscities.com,
+// proxied through Cloudflare, Full (strict) SSL with an Origin CA cert on
+// this server — see /etc/ssl/pluscities/). Used to build absolute URLs for
+// things that can't be relative (e.g. a Stripe webhook registration).
+define('PLATFORM_BASE_URL', 'https://app.pluscities.com');
 
 // Where Landing Page Clients' stale-plugin alert cron (tools/lpc_check_alerts.php)
 // sends its email — deliberately separate from CONTACT_EMAIL above (that's the
