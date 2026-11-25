@@ -29,11 +29,6 @@ if (!empty($_GET['msg'])) {
     }
 }
 
-$editing = null;
-if (!empty($_GET['edit'])) {
-    $editing = lpc_load_agency($_GET['edit']);
-}
-
 // Client counts per agency — same cost class as clients.php's own per-client
 // page-count loop; fine at this scale, no index needed.
 $clientCounts = [];
@@ -55,7 +50,7 @@ foreach (lpc_list_agencies() as $id) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agencies — <?= h(SITE_TITLE) ?></title>
+<title>Agencies — PlusCities</title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
@@ -72,6 +67,8 @@ foreach (lpc_list_agencies() as $id) {
 .lpc-status-active   { background:var(--pc-lime-soft); color:var(--pc-lime-ink); }
 .lpc-status-suspended{ background:#fee2e2; color:#991b1b; }
 .lpc-status-pending_approval { background:#fef3c7; color:#92400e; }
+.pc-client-name{font-weight:700;color:var(--pc-ink,#1c2b45);text-decoration:none;font-size:.95rem;}
+.pc-client-name:hover{color:var(--pc-lime-ink,#3d6b0e);text-decoration:underline;}
 </style>
 </head>
 <?php lpc_admin_open('agencies', 'Agencies'); ?>
@@ -90,7 +87,7 @@ foreach (lpc_list_agencies() as $id) {
     <?php foreach ($agencies as $a): ?>
         <div class="lpc-row">
             <div>
-                <strong><?= h($a['name'] ?: $a['agency_id']) ?></strong>
+                <a href="agency_overview.php?agency_id=<?= h($a['agency_id']) ?>" class="pc-client-name"><?= h($a['name'] ?: $a['agency_id']) ?></a>
                 <span class="lpc-status lpc-status-<?= h($a['status']) ?>"><?= h(str_replace('_', ' ', $a['status'])) ?></span>
                 <div class="meta">
                     username: <?= h($a['login']['username'] ?: '—') ?>
@@ -99,65 +96,28 @@ foreach (lpc_list_agencies() as $id) {
                         &middot; $<?= number_format((float) $a['billing']['monthly_fee_usd'], 2) ?>/mo
                         <?= $a['billing']['stripe_subscription_id'] ? '(active subscription)' : '(not yet paid)' ?>
                     <?php endif; ?>
-                    <?php if ($a['agency_id'] === 'scotts-agency'): ?>&middot; Scott's own direct-sale agency<?php endif; ?>
                 </div>
-                <?php if (!empty($a['billing']['last_checkout_url']) && !$a['billing']['stripe_subscription_id']): ?>
-                <div class="meta" style="margin-top:4px;">
-                    <a href="<?= h($a['billing']['last_checkout_url']) ?>" target="_blank" rel="noopener">Billing link ready — click to send/pay</a>
-                </div>
-                <?php endif; ?>
             </div>
-            <div style="display:flex;gap:8px;">
-                <a href="?edit=<?= h($a['agency_id']) ?>" class="btn-sm-outline">Edit</a>
-                <form method="post" action="impersonate.php" style="margin:0;">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                    <input type="hidden" name="action" value="start">
-                    <input type="hidden" name="type" value="agency">
-                    <input type="hidden" name="agency_id" value="<?= h($a['agency_id']) ?>">
-                    <button type="submit" class="btn-sm-outline">Log in as</button>
-                </form>
-                <?php if ($a['agency_id'] !== 'scotts-agency' && (float) ($a['billing']['monthly_fee_usd'] ?? 0) > 0 && !$a['billing']['stripe_subscription_id']): ?>
-                <form method="post" action="agencies_save.php" style="margin:0;">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                    <input type="hidden" name="action" value="create_checkout">
-                    <input type="hidden" name="agency_id" value="<?= h($a['agency_id']) ?>">
-                    <button type="submit" class="btn-sm-outline">Get Billing Link</button>
-                </form>
-                <?php endif; ?>
-                <?php if ($a['agency_id'] !== 'scotts-agency'): ?>
-                <form method="post" action="agencies_save.php" style="margin:0;">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                    <input type="hidden" name="action" value="toggle_status">
-                    <input type="hidden" name="agency_id" value="<?= h($a['agency_id']) ?>">
-                    <?php if ($a['status'] === 'suspended'): ?>
-                    <button type="submit" class="btn-sm-outline">Reactivate</button>
-                    <?php else: ?>
-                    <button type="submit" class="btn-sm-danger" onclick="return confirm('Suspend this agency? Its login is blocked immediately; its clients enter the grace-period/pause flow.');">Suspend</button>
-                    <?php endif; ?>
-                </form>
-                <?php endif; ?>
+            <div>
+                <a href="agency_overview.php?agency_id=<?= h($a['agency_id']) ?>" class="btn-open">Open &rarr;</a>
             </div>
         </div>
     <?php endforeach; ?>
 
-    <h3 style="margin-top:28px;"><?= $editing ? 'Edit' : 'Add an' ?> Agency</h3>
+    <h3 style="margin-top:28px;">Add an Agency</h3>
     <form method="post" action="agencies_save.php" class="card">
         <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
         <input type="hidden" name="action" value="save">
-        <?php if ($editing): ?><input type="hidden" name="existing_agency_id" value="<?= h($editing['agency_id']) ?>"><?php endif; ?>
         <div class="lpc-form-row">
-            <div class="form-group"><label>Agency Name</label><input type="text" name="name" required placeholder="e.g. Acme Marketing" value="<?= h($editing['name'] ?? '') ?>"></div>
-            <div class="form-group"><label>Login Username</label><input type="text" name="username" required autocomplete="off" value="<?= h($editing['login']['username'] ?? '') ?>"></div>
+            <div class="form-group"><label>Agency Name</label><input type="text" name="name" required placeholder="e.g. Acme Marketing"></div>
+            <div class="form-group"><label>Login Username</label><input type="text" name="username" required autocomplete="off"></div>
         </div>
         <div class="lpc-form-row">
-            <div class="form-group">
-                <label>Password <?= $editing ? '<span style="font-weight:400;color:#6b7280;">(leave blank to keep the current one)</span>' : '' ?></label>
-                <input type="password" name="password" autocomplete="new-password" <?= $editing ? '' : 'required' ?>>
-            </div>
-            <div class="form-group"><label>Monthly Spend Cap (USD) <span style="font-weight:400;color:#6b7280;">(paid API calls — rank checks, keyword lookups, regenerations; 0 = no cap enforced)</span></label><input type="number" step="0.01" min="0" name="spend_cap_usd" value="<?= h((string) ($editing['billing']['spend_cap_usd'] ?? 0)) ?>"></div>
+            <div class="form-group"><label>Password</label><input type="password" name="password" autocomplete="new-password" required></div>
+            <div class="form-group"><label>Monthly Spend Cap (USD) <span style="font-weight:400;color:#6b7280;">(paid API calls — rank checks, keyword lookups, regenerations; 0 = no cap enforced)</span></label><input type="number" step="0.01" min="0" name="spend_cap_usd" value="0"></div>
         </div>
         <div class="lpc-form-row">
-            <div class="form-group"><label>Monthly Platform Fee (USD) <span style="font-weight:400;color:#6b7280;">(what this agency pays you — if they already have an active subscription, changing this updates its real price on save; otherwise it's used the next time you create a billing link)</span></label><input type="number" step="0.01" min="0" name="monthly_fee_usd" value="<?= h((string) ($editing['billing']['monthly_fee_usd'] ?? 0)) ?>"></div>
+            <div class="form-group"><label>Monthly Platform Fee (USD) <span style="font-weight:400;color:#6b7280;">(what this agency pays you)</span></label><input type="number" step="0.01" min="0" name="monthly_fee_usd" value="0"></div>
         </div>
 
         <h4 style="margin-top:18px;margin-bottom:4px;">White-Labeling</h4>
@@ -166,11 +126,10 @@ foreach (lpc_list_agencies() as $id) {
             branding when this agency is logged in. No color theming, no custom domain.
         </p>
         <div class="lpc-form-row">
-            <div class="form-group"><label>Display Name</label><input type="text" name="display_name" placeholder="shown in place of &quot;PlusCities&quot;" value="<?= h($editing['branding']['display_name'] ?? '') ?>"></div>
-            <div class="form-group"><label>Logo URL</label><input type="text" name="logo_url" value="<?= h($editing['branding']['logo_url'] ?? '') ?>"></div>
+            <div class="form-group"><label>Display Name</label><input type="text" name="display_name" placeholder="shown in place of &quot;PlusCities&quot;"></div>
+            <div class="form-group"><label>Logo URL</label><input type="text" name="logo_url"></div>
         </div>
 
-        <button type="submit" class="pc-btn pc-btn-lime" style="margin-top:10px;"><?= $editing ? 'Save Changes' : 'Create Agency' ?></button>
-        <?php if ($editing): ?><a href="agencies.php" class="pc-btn pc-btn-outline-navy" style="margin-top:10px;margin-left:8px;">Cancel</a><?php endif; ?>
+        <button type="submit" class="pc-btn pc-btn-lime" style="margin-top:10px;">Create Agency</button>
     </form>
 <?php lpc_admin_close(); ?>

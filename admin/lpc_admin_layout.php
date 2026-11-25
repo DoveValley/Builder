@@ -310,6 +310,28 @@ function pluscities_client_subtabs(string $clientId, string $activeKey): void {
     echo '</div>';
 }
 
+/**
+ * Per-agency sub-tab bar, same pattern/reasoning as pluscities_client_
+ * subtabs() above — added 2026-11-25 after Scott asked for the same
+ * click-into-it-first workspace for agencies.php's rows. Platform-Admin-only
+ * (agencies.php itself is super_admin-only), so unlike the client version
+ * there's no "the agency views its own tabs" case to worry about.
+ */
+function pluscities_agency_subtabs(string $agencyId, string $activeKey): void {
+    $tabs = [
+        'overview' => ['agency_overview.php', 'Overview'],
+        'clients'  => ['pluscities_clients.php', 'Clients'],
+        'team'     => ['pluscities_team.php', 'Team'],
+        'billing'  => ['agency_billing.php', 'Billing'],
+    ];
+    echo '<div class="pcadmin-subtabs">';
+    foreach ($tabs as $key => [$href, $label]) {
+        $class = $key === $activeKey ? ' class="active"' : '';
+        echo '<a href="' . h($href) . '?agency_id=' . h($agencyId) . '"' . $class . '>' . h($label) . '</a>';
+    }
+    echo '</div>';
+}
+
 function lpc_admin_close(): void {
     ?>
     </div>

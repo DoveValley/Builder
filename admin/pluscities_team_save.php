@@ -3,7 +3,10 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-if (!lpc_actor_is_authenticated() || lpc_current_actor_role() !== 'agency_admin') {
+// Same super_admin-OR-agency_admin gate as pluscities_team.php — kept in
+// sync, see that file's doc comment for why super_admin was added 2026-11-25.
+$isSuperAdmin = lpc_current_actor_role() === 'super_admin';
+if (!lpc_actor_is_authenticated() || !($isSuperAdmin || lpc_current_actor_role() === 'agency_admin')) {
     header('Location: clients.php?msg=error:Team+management+is+for+Agency+Admins+only');
     exit;
 }
@@ -14,14 +17,15 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
     header('Location: pluscities_team.php?msg=error:Invalid+request+token'); exit;
 }
 
-$agencyId = lpc_current_actor_agency_id();
+$agencyId = $isSuperAdmin ? trim((string) ($_POST['agency_id'] ?? '')) : lpc_current_actor_agency_id();
 $action   = $_POST['action'] ?? '';
+$back     = 'pluscities_team.php?agency_id=' . urlencode($agencyId);
 
 if ($action === 'toggle_editor_publish') {
     $agency = lpc_load_agency($agencyId);
     $agency['editor_can_publish'] = !empty($_POST['editor_can_publish']);
     lpc_save_agency($agencyId, $agency);
-    header('Location: pluscities_team.php?msg=success:Saved'); exit;
+    header('Location: ' . $back . '&msg=success:Saved'); exit;
 }
 
 if ($action === 'save') {
@@ -33,10 +37,10 @@ if ($action === 'save') {
     $isNew = $existingId === '';
 
     if ($name === '' || $username === '') {
-        header('Location: pluscities_team.php?msg=error:Name+and+username+are+required'); exit;
+        header('Location: ' . $back . '&msg=error:Name+and+username+are+required'); exit;
     }
     if ($isNew && $password === '') {
-        header('Location: pluscities_team.php?msg=error:A+password+is+required+for+a+new+team+member'); exit;
+        header('Location: ' . $back . '&msg=error:A+password+is+required+for+a+new+team+member'); exit;
     }
 
     // A username must be unique across BOTH agency logins and team-member
@@ -44,10 +48,10 @@ if ($action === 'save') {
     // constraint lpc_find_agency_by_username() already has for agencies).
     $existingUser = pluscities_user_find_by_username($username);
     if ($existingUser && $existingUser['user_id'] !== $existingId) {
-        header('Location: pluscities_team.php?msg=error:That+username+is+already+in+use'); exit;
+        header('Location: ' . $back . '&msg=error:That+username+is+already+in+use'); exit;
     }
     if (lpc_find_agency_by_username($username)) {
-        header('Location: pluscities_team.php?msg=error:That+username+is+already+in+use'); exit;
+        header('Location: ' . $back . '&msg=error:That+username+is+already+in+use'); exit;
     }
 
     $userId = $isNew ? pluscities_user_unique_id($agencyId, $name) : $existingId;
@@ -55,7 +59,9 @@ if ($action === 'save') {
     // filtering here, not trusting whatever ids the form posted, matches the
     // same "never trust client input for scope" rule the page/bulk-action
     // handlers already apply.
-    $allowedClientIds = array_keys(pluscities_client_ids_for_current_actor());
+    $allowedClientIds = array_keys(array_filter(pluscities_client_ids_for_current_actor(), function ($c) use ($agencyId) {
+        return ($c['agency_id'] ?? '') === $agencyId;
+    }));
     $assigned = array_values(array_intersect($_POST['assigned_client_ids'] ?? [], $allowedClientIds));
 
     pluscities_user_save($userId, [
@@ -68,7 +74,7 @@ if ($action === 'save') {
     ]);
     if ($password !== '') pluscities_user_set_password($userId, $password);
 
-    header('Location: pluscities_team.php?msg=success:Saved'); exit;
+    header('Location: ' . $back . '&msg=success:Saved'); exit;
 }
 
 if ($action === 'delete') {
@@ -80,7 +86,7 @@ if ($action === 'delete') {
     if ($user && $user['agency_id'] === $agencyId) {
         pluscities_user_delete($userId);
     }
-    header('Location: pluscities_team.php?msg=success:Removed'); exit;
+    header('Location: ' . $back . '&msg=success:Removed'); exit;
 }
 
-header('Location: pluscities_team.php?msg=error:Unknown+action');
+header('Location: ' . $back . '&msg=error:Unknown+action');

@@ -92,7 +92,13 @@ if ($action === 'save') {
     $msg = $priceUpdateError !== ''
         ? 'error:Agency+saved,+but+updating+the+live+Stripe+price+failed:+' . urlencode($priceUpdateError)
         : 'success:Agency+saved';
-    header('Location: agencies.php?msg=' . $msg);
+    // A brand-new agency lands straight in its own Overview (same parity as
+    // client creation's redirect into the new client's first page) — editing
+    // an existing one returns to whichever tab's form was actually submitted
+    // (Overview vs Billing both post here), defaulting to Overview if that
+    // hidden field is somehow missing.
+    $returnTo = $isNew ? 'agency_overview.php' : (in_array($_POST['return_to'] ?? '', ['agency_overview.php', 'agency_billing.php'], true) ? $_POST['return_to'] : 'agency_overview.php');
+    header('Location: ' . $returnTo . '?agency_id=' . urlencode($agency_id) . '&msg=' . $msg);
     exit;
 }
 
@@ -100,9 +106,10 @@ if ($action === 'toggle_status') {
     $agency_id = trim($_POST['agency_id'] ?? '');
     if ($agency_id === 'scotts-agency') {
         // Scott operates through this agency himself — suspending it would
-        // lock him out of his own direct-sale clients, same reasoning the
-        // UI already hides the button for this one row.
-        header('Location: agencies.php?msg=error:Cannot+suspend+Scotts+own+agency');
+        // lock him out of his own direct-sale clients. The button itself is
+        // NOT hidden for this agency (no UI special-casing, 2026-11-25) --
+        // this is the one real guard left, so it still needs to exist here.
+        header('Location: agency_overview.php?agency_id=scotts-agency&msg=error:Cannot+suspend+Scotts+own+agency');
         exit;
     }
     $agency = lpc_load_agency($agency_id);
@@ -113,7 +120,8 @@ if ($action === 'toggle_status') {
     $agency['status'] = $agency['status'] === 'suspended' ? 'active' : 'suspended';
     lpc_save_agency($agency_id, $agency);
     $msg = $agency['status'] === 'suspended' ? 'success:Agency+suspended' : 'success:Agency+reactivated';
-    header('Location: agencies.php?msg=' . $msg);
+    $returnTo = in_array($_POST['return_to'] ?? '', ['agency_overview.php', 'agency_billing.php'], true) ? $_POST['return_to'] : 'agency_overview.php';
+    header('Location: ' . $returnTo . '?agency_id=' . urlencode($agency_id) . '&msg=' . $msg);
     exit;
 }
 
@@ -140,7 +148,7 @@ if ($action === 'create_checkout') {
     }
     $fee = (float) ($agency['billing']['monthly_fee_usd'] ?? 0);
     if ($fee <= 0) {
-        header('Location: agencies.php?msg=error:Set+a+monthly+fee+before+creating+a+billing+link');
+        header('Location: agency_billing.php?agency_id=' . urlencode($agency_id) . '&msg=error:Set+a+monthly+fee+before+creating+a+billing+link');
         exit;
     }
     $scheme  = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
@@ -148,16 +156,16 @@ if ($action === 'create_checkout') {
     $r = stripe_create_checkout_session(
         $agency,
         $fee,
-        $baseUrl . '/agencies.php?checkout=success',
-        $baseUrl . '/agencies.php?checkout=cancelled'
+        $baseUrl . '/agency_billing.php?agency_id=' . urlencode($agency_id) . '&checkout=success',
+        $baseUrl . '/agency_billing.php?agency_id=' . urlencode($agency_id) . '&checkout=cancelled'
     );
     if (!$r['ok']) {
-        header('Location: agencies.php?msg=error:' . urlencode($r['error']));
+        header('Location: agency_billing.php?agency_id=' . urlencode($agency_id) . '&msg=error:' . urlencode($r['error']));
         exit;
     }
     $agency['billing']['last_checkout_url'] = $r['data']['url'];
     lpc_save_agency($agency_id, $agency);
-    header('Location: agencies.php?msg=success:Billing+link+created');
+    header('Location: agency_billing.php?agency_id=' . urlencode($agency_id) . '&msg=success:Billing+link+created');
     exit;
 }
 

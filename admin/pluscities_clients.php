@@ -47,6 +47,20 @@ $clients = [];
 foreach ($allClients as $cid => $c) {
     if (pluscities_actor_can_access_client($cid)) $clients[$cid] = $c;
 }
+
+// Optional single-agency view, reached via the agency workspace's Clients
+// tab (pluscities_agency_subtabs() in lpc_admin_layout.php) — super_admin
+// only, since an agency_admin/editor is already scoped to their own agency
+// regardless. Absent entirely, behaves exactly as before.
+$agencyIdFilter = lpc_current_actor_role() === 'super_admin' ? trim((string) ($_GET['agency_id'] ?? '')) : '';
+$filterAgency = null;
+if ($agencyIdFilter !== '') {
+    $filterAgency = lpc_load_agency($agencyIdFilter);
+    $clients = array_filter($clients, function ($c) use ($agencyIdFilter) {
+        return ($c['agency_id'] ?? '') === $agencyIdFilter;
+    });
+}
+
 $agencies = lpc_current_actor_role() === 'super_admin' ? lpc_list_agencies() : [lpc_current_actor_agency_id()];
 $niches   = pluscities_niche_list();
 $graceDays = pluscities_platform_settings()['cancellation_grace_days'];
@@ -78,14 +92,14 @@ foreach ($niches as $pcNicheId) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clients — PlusCities</title>
+<title><?= $filterAgency ? h('Clients — ' . ($filterAgency['name'] ?: $agencyIdFilter)) : 'Clients — PlusCities' ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
 <?php lpc_admin_head_assets(); ?>
 </head>
 <?php
-lpc_admin_open('pluscities_clients', 'Clients');
+lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
 ?>
 <style>
 .pc-card{background:#fff;border:1px solid var(--pc-line,#e2e8f2);border-radius:14px;padding:18px 20px;margin-bottom:16px;}
@@ -106,8 +120,10 @@ lpc_admin_open('pluscities_clients', 'Clients');
 
 <?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
 
+<?php if ($filterAgency): pluscities_agency_subtabs($agencyIdFilter, 'clients'); endif; ?>
+
 <div class="pc-card">
-    <h3 style="margin-top:0;">Clients</h3>
+    <h3 style="margin-top:0;"><?= $filterAgency ? h('Clients — ' . ($filterAgency['name'] ?: $agencyIdFilter)) : 'Clients' ?></h3>
     <?php foreach ($clients as $cid => $c): ?>
         <div class="pc-row">
             <div>
@@ -168,7 +184,7 @@ lpc_admin_open('pluscities_clients', 'Clients');
         <div class="fg"><label>Domain (their real site)</label><input type="text" name="domain" placeholder="example.com" required></div>
         <div class="fg"><label>Agency</label>
             <select name="agency_id" required>
-                <?php foreach ($agencies as $aid): ?><option value="<?= h($aid) ?>"><?= h($aid) ?></option><?php endforeach; ?>
+                <?php foreach ($agencies as $aid): ?><option value="<?= h($aid) ?>" <?= $agencyIdFilter === $aid ? 'selected' : '' ?>><?= h($aid) ?></option><?php endforeach; ?>
             </select>
         </div>
         <div class="fg"><label>Niche</label>
