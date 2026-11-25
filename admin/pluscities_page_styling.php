@@ -30,6 +30,10 @@ if (!lpc_actor_is_authenticated() || lpc_current_actor_role() === 'end_client') 
     header('Location: login.php');
     exit;
 }
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+$csrf = $_SESSION['csrf_token'];
 
 $clientId = $_GET['client_id'] ?? '';
 $clients  = pluscities_client_ids_for_current_actor();
@@ -236,10 +240,10 @@ lpc_admin_open('pluscities_clients', 'Page Styling');
         <strong>this client's own real brand colors</strong> — byte-identical CSS to what
         <?= h($client['domain'] ?? 'this client\'s site') ?>'s live pages actually get. Pick one of this
         client's real pages below to see exactly what's live/draft for them, or the demo page if none
-        exist yet. Still a style <strong>preview</strong> only — every block has exactly one style right
-        now. Once a block has more than one real style built, picking between them belongs here next.
+        exist yet. Still a style <strong>preview</strong> for most blocks — only Hero has more than one
+        real style so far; picking between the rest belongs here once they're built too.
     </p>
-    <form method="get" style="margin:0 0 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+    <form method="get" style="margin:0 0 10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
         <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
         <label style="font-size:.85rem;font-weight:600;color:#374151;">Page:
             <select name="page_id" onchange="this.form.submit()" style="margin-left:8px;padding:6px 10px;border-radius:6px;border:1px solid #d1d5db;font-size:.85rem;">
@@ -253,6 +257,20 @@ lpc_admin_open('pluscities_clients', 'Page Styling');
         </label>
         <span style="font-size:.84rem;color:#52607a;"><?= h($heading) ?></span>
         <noscript><button type="submit" class="btn-open">Preview</button></noscript>
+    </form>
+    <form method="post" action="pluscities_page_styling_save.php" style="margin:0 0 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+        <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
+        <?php if ($selectedPage): ?><input type="hidden" name="page_id" value="<?= h($selectedPage['page_id']) ?>"><?php endif; ?>
+        <label style="font-size:.85rem;font-weight:600;color:#374151;">Hero style:
+            <?php $heroStyle = $client['block_styles']['hero'] ?? 'two_column'; ?>
+            <select name="hero_style" onchange="this.form.submit()" style="margin-left:8px;padding:6px 10px;border-radius:6px;border:1px solid #d1d5db;font-size:.85rem;">
+                <option value="two_column" <?= $heroStyle === 'two_column' ? 'selected' : '' ?>>Two-column (text + photo)</option>
+                <option value="full_bleed" <?= $heroStyle === 'full_bleed' ? 'selected' : '' ?>>Full-bleed (photo background)</option>
+            </select>
+        </label>
+        <span style="font-size:.78rem;color:#52607a;">Applies to every page this client has — style isn't picked per-page.</span>
+        <noscript><button type="submit" class="btn-open">Save</button></noscript>
     </form>
     <div style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;background:#f8fafc;">
         <iframe srcdoc="<?= htmlspecialchars($previewDoc) ?>" style="width:100%;height:80vh;border:0;display:block;background:#fff;"></iframe>

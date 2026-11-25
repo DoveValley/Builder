@@ -474,6 +474,12 @@ function pluscities_page_style_css(array $client): string
     $resolvedColors = pluscities_client_colors($client);
     $brandColor = $resolvedColors['accent'];
     $darkColor  = $resolvedColors['dark'];
+    // Hex -> "r,g,b" for the full-bleed Hero's overlay gradient, which needs
+    // alpha stops (rgba) built from the client's own dark color rather than a
+    // fixed black, so the overlay still reads as "this client's brand" even
+    // on a photo-heavy hero.
+    $darkRgb = sscanf(ltrim($darkColor, '#'), '%02x%02x%02x') ?: [31, 31, 37];
+    $darkRgbCsv = implode(',', array_map('intval', $darkRgb));
     return '<style>.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:' . htmlspecialchars($darkColor) . ';}'
         . '.lpc-breadcrumbs{font-size:.82rem;color:#52607a;margin:0 0 14px;}'
         . '.lpc-breadcrumbs a{color:#52607a;}'
@@ -481,6 +487,25 @@ function pluscities_page_style_css(array $client): string
         . '.pluscities-page{max-width:1000px;margin:0 auto;}'
         . '.pluscities-page section[class^="lpc-"]{background:#fff;border:1px solid #9ca3af;border-radius:12px;padding:24px 28px;margin:0 0 20px;box-shadow:0 1px 3px rgba(0,0,0,.04);}'
         . '.pluscities-page section.lpc-hero{background:transparent;border:none;box-shadow:none;padding:0 0 8px;}'
+        . '.pluscities-page section.lpc-hero-fullbleed{position:relative;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:14px;overflow:hidden;min-height:420px;display:flex;align-items:center;padding:0;}'
+        // A directional gradient alone depends on each photo happening to be
+        // dark where the text sits — real fleet photos won't reliably
+        // cooperate (confirmed live: with this client's actual photo, body
+        // text drifted into a light area and became unreadable). A solid
+        // card behind the text guarantees contrast regardless of what's in
+        // the photo; the light overall wash keeps the rest of the photo
+        // still readable as a photo instead of fully darkened.
+        . '.lpc-hero-overlay{position:absolute;inset:0;background:rgba(' . $darkRgbCsv . ',.25);}'
+        . '.lpc-hero-fb-text{position:relative;z-index:1;margin:32px;padding:32px 36px;max-width:520px;background:rgba(' . $darkRgbCsv . ',.74);border-radius:14px;}'
+        // Matches BOTH classes the real element carries (class="lpc-hero
+        // lpc-hero-fullbleed"), not just one, so this is strictly MORE
+        // specific than the generic ".pluscities-page section[class^="lpc-"]
+        // p" paragraph-color rule below (tied specificity + later source
+        // order was silently winning and reverting this text back to dark
+        // gray on a dark card — found by pixel-sampling a live render, not
+        // visible from the markup alone).
+        . '.pluscities-page section.lpc-hero.lpc-hero-fullbleed h1{color:#fff;}'
+        . '.pluscities-page section.lpc-hero.lpc-hero-fullbleed p{color:#e2e8f2;}'
         . '.lpc-hero-row{display:flex;flex-wrap:wrap;gap:36px;align-items:center;}'
         . '.lpc-hero-text{flex:1 1 360px;}'
         . '.lpc-hero-media{flex:1 1 360px;}'
@@ -651,28 +676,45 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
         $heading = htmlspecialchars((string) ($content['heading'] ?? ''));
         $body    = htmlspecialchars(preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($content['body'] ?? '')));
         $phone   = $client['identity']['hubs'][0]['phone'] ?? '';
-        $html = '<section class="lpc-hero"><div class="lpc-hero-row"><div class="lpc-hero-text">'
-            . '<h1>' . $heading . '</h1><p>' . $body . '</p>';
+        $ctaHtml = '';
         if ($phone) {
             $telHref = preg_replace('/[^0-9+]/', '', $phone);
-            $html .= '<a class="lpc-cta-button" href="tel:' . htmlspecialchars($telHref) . '">Call ' . htmlspecialchars($phone) . '</a>';
+            $ctaHtml = '<a class="lpc-cta-button" href="tel:' . htmlspecialchars($telHref) . '">Call ' . htmlspecialchars($phone) . '</a>';
         }
-        $html .= '</div>';
         // The hero's photo — resolved per spec (client's own upload > their
         // branded niche default > the plain niche default), same function
         // the Photos screen itself shows, so what the client picks there is
         // exactly what renders here. $client/$niche are optional because
         // most callers (e.g. the admin block-list preview) only need text.
-        if ($client && $niche) {
-            $heroImg = pluscities_resolve_image_url($client, $niche, 'hero');
-            if ($heroImg) {
-                // Absolute — a client's WordPress site is a different origin
-                // than this platform, so the root-relative path
-                // pluscities_resolve_image_url() returns (correct for
-                // same-origin admin screens) would 404 there.
-                $html .= '<div class="lpc-hero-media"><img class="lpc-hero-photo" src="'
-                    . htmlspecialchars(PLUSCITIES_PUBLIC_BASE . $heroImg) . '" alt="' . $heading . '"></div>';
-            }
+        $heroImg = ($client && $niche) ? pluscities_resolve_image_url($client, $niche, 'hero') : null;
+
+        // One of two Hero styles (Page Styling screen, 2026-11-25) — a
+        // CLIENT-level setting, not a per-page one: nothing about a block's
+        // STYLE varies by city or service in this engine, only its content
+        // does (same reasoning as color/logo). Falls back to the two-column
+        // layout if full_bleed is picked but no photo actually resolved — a
+        // full-bleed hero with no photo is just an empty dark box.
+        $heroStyle = 'two_column';
+        if (is_array($client) && !empty($client['block_styles']['hero'])) {
+            $heroStyle = $client['block_styles']['hero'];
+        }
+        if ($heroStyle === 'full_bleed' && $heroImg) {
+            // Absolute — a client's WordPress site is a different origin
+            // than this platform, so the root-relative path
+            // pluscities_resolve_image_url() returns (correct for
+            // same-origin admin screens) would 404 there.
+            return '<section class="lpc-hero lpc-hero-fullbleed" style="background-image:url(\''
+                . htmlspecialchars(PLUSCITIES_PUBLIC_BASE . $heroImg) . '\')">'
+                . '<div class="lpc-hero-overlay"></div>'
+                . '<div class="lpc-hero-fb-text"><h1>' . $heading . '</h1><p>' . $body . '</p>' . $ctaHtml . '</div>'
+                . '</section>';
+        }
+
+        $html = '<section class="lpc-hero"><div class="lpc-hero-row"><div class="lpc-hero-text">'
+            . '<h1>' . $heading . '</h1><p>' . $body . '</p>' . $ctaHtml . '</div>';
+        if ($heroImg) {
+            $html .= '<div class="lpc-hero-media"><img class="lpc-hero-photo" src="'
+                . htmlspecialchars(PLUSCITIES_PUBLIC_BASE . $heroImg) . '" alt="' . $heading . '"></div>';
         }
         return $html . '</div></section>';
     }
