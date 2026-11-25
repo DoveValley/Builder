@@ -61,7 +61,10 @@ if ($action === 'start') {
             exit;
         }
         lpc_start_impersonation('agency_admin', $agencyId, null);
-        header('Location: clients.php');
+        // Matches where a real agency login (agency_login.php) actually lands
+        // — pluscities_clients.php was a stale redirect target left over from
+        // before pluscities_dashboard.php existed as the agency home screen.
+        header('Location: pluscities_dashboard.php');
         exit;
     }
 
