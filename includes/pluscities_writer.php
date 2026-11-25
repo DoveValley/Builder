@@ -480,6 +480,11 @@ function pluscities_page_style_css(array $client): string
     // on a photo-heavy hero.
     $darkRgb = sscanf(ltrim($darkColor, '#'), '%02x%02x%02x') ?: [31, 31, 37];
     $darkRgbCsv = implode(',', array_map('intval', $darkRgb));
+    // Same conversion, for the alternating-band tint below — a light wash of
+    // the client's own accent color, not a fixed gray, so the banding still
+    // reads as "this client's brand" (same reasoning as the Hero overlay).
+    $brandRgb = sscanf(ltrim($brandColor, '#'), '%02x%02x%02x') ?: [20, 32, 178];
+    $brandRgbCsv = implode(',', array_map('intval', $brandRgb));
     return '<style>.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:' . htmlspecialchars($darkColor) . ';}'
         . '.lpc-breadcrumbs{font-size:.82rem;color:#52607a;margin:0 0 14px;}'
         . '.lpc-breadcrumbs a{color:#52607a;}'
@@ -517,6 +522,25 @@ function pluscities_page_style_css(array $client): string
         . '.pluscities-page section[class^="lpc-"] h2,.pluscities-page section[class^="lpc-"] h3{font-size:1.25rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid ' . htmlspecialchars($brandColor) . ';display:inline-block;}'
         . '.pluscities-page section[class^="lpc-"] p{line-height:1.65;color:#334155;margin:0 0 12px;}'
         . '.pluscities-page section[class^="lpc-"] ul{padding-left:20px;line-height:1.7;color:#334155;}'
+        // Found while reading this function: the citation line had no
+        // dedicated rule at all, so it rendered identical to normal body
+        // text — selector matches the generic paragraph rule's own
+        // specificity plus one class so it reliably wins (the lesson from
+        // the Hero specificity bug earlier this session: a plain ".lpc-
+        // source" rule here would lose to the rule above on specificity,
+        // regardless of source order).
+        . '.pluscities-page section[class^="lpc-"] p.lpc-source{font-size:.82rem;font-style:italic;color:#64748b;margin-top:-4px;}'
+        // Every block that falls through to the generic card look (reviews,
+        // housing stock, the niche data table, and the ~16 plain editable
+        // block types) reads as a wall of identical bordered boxes once a
+        // real page stacks 8-10 of them — confirmed against this fleet's own
+        // reference sites (wrenappliancerepair.com, baileyrestoration.com,
+        // gannmoldremediation.com), none of which box a single block of text
+        // at all. Alternating bands instead, no border/shadow — Hero/Trust
+        // bar/FAQ/CTA band/Service area already have their own more-specific
+        // rules above and are untouched by this.
+        . '.pluscities-page section.lpc-alt-0{background:transparent;border:none;box-shadow:none;}'
+        . '.pluscities-page section.lpc-alt-1{background:rgba(' . $brandRgbCsv . ',.06);border:none;box-shadow:none;border-radius:14px;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'
@@ -546,13 +570,19 @@ function pluscities_page_style_css(array $client): string
  * publish and any preview screen call (spec Section 4's "fact references are
  * removed at render" rule, kept in one place).
  */
-function pluscities_render_block(array $block_row, ?array $client = null, ?array $niche = null): string
+function pluscities_render_block(array $block_row, ?array $client = null, ?array $niche = null, int $altIndex = 0): string
 {
+    // Which of 2 background bands this block gets (see pluscities_page_
+    // style_css()'s ".lpc-alt-0"/".lpc-alt-1" rules) — a caller rendering a
+    // real page in sequence passes its own running position; any caller that
+    // doesn't care (single-block previews, diffs) gets the default 0, same
+    // look every time, no regression.
+    $altClass = ' lpc-alt-' . ($altIndex % 2);
     $content = json_decode($block_row['content_json'], true) ?: [];
     $factIds = json_decode($block_row['fact_ids'], true) ?: [];
 
     if ($block_row['block_type'] === 'reviews_from_city') {
-        $html = '<section class="lpc-reviews"><h3>What Clients Are Saying</h3>';
+        $html = '<section class="lpc-reviews' . $altClass . '"><h3>What Clients Are Saying</h3>';
         foreach ($content['reviews'] ?? [] as $rev) {
             $html .= '<blockquote>"' . htmlspecialchars($rev['text']) . '" &mdash; '
                 . htmlspecialchars($rev['author']) . ' (' . (int) $rev['rating'] . '/5)</blockquote>';
@@ -561,7 +591,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
     }
 
     if ($block_row['block_type'] === 'niche_data_table') {
-        $html = '<section class="lpc-niche-data-table">';
+        $html = '<section class="lpc-niche-data-table' . $altClass . '">';
         if (!empty($content['title'])) $html .= '<h3>' . htmlspecialchars($content['title']) . '</h3>';
         $html .= '<table><thead><tr>';
         foreach ($content['columns'] ?? [] as $col) $html .= '<th>' . htmlspecialchars($col) . '</th>';
@@ -584,7 +614,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             'year_built_median' => 'Median year homes were built',
             'homeownership_pct' => 'Homeownership rate',
         ];
-        $html = '<section class="lpc-housing-stock"><h3>Local Housing Stock</h3>';
+        $html = '<section class="lpc-housing-stock' . $altClass . '"><h3>Local Housing Stock</h3>';
         if (!empty($content['intro'])) $html .= '<p>' . htmlspecialchars($content['intro']) . '</p>';
         $html .= '<ul>';
         foreach ($content['dataset_values'] ?? [] as $k => $v) {
@@ -722,7 +752,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
     // Editable blocks: strip [[fact_id]] tags, build the source line from the
     // cards actually cited.
     $body = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($content['body'] ?? ''));
-    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . '">';
+    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . $altClass . '">';
     $html .= '<h3>' . htmlspecialchars((string) ($content['heading'] ?? '')) . '</h3>'
         . '<p>' . htmlspecialchars($body) . '</p>';
     if ($factIds) {

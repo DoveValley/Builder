@@ -106,7 +106,7 @@ function pluscities_page_styling_build_sections(array $blockRows, array $client,
             $sections[] = ['id' => 'blk-' . $i++, 'label' => 'CTA band', 'html' => pluscities_render_cta_band($client)];
         }
         $label = $slugLabels[$row['block_type']] ?? ucwords(str_replace('_', ' ', $row['block_type']));
-        $sections[] = ['id' => 'blk-' . $i++, 'label' => $label, 'html' => pluscities_render_block($row, $client, $niche)];
+        $sections[] = ['id' => 'blk-' . $i++, 'label' => $label, 'html' => pluscities_render_block($row, $client, $niche, $i)];
         if ($row['block_type'] === 'hero' && !empty($niche['trust_bar_items'])) {
             $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Trust bar', 'html' => pluscities_render_trust_bar($niche['trust_bar_items'])];
         }

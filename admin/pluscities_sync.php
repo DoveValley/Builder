@@ -135,13 +135,13 @@ if ($action === 'page') {
     $blocksStmt->execute([$pageId]);
     $blocks = $blocksStmt->fetchAll(PDO::FETCH_ASSOC);
     $html = '';
-    foreach ($blocks as $b) {
+    foreach ($blocks as $i => $b) {
         // CTA band sits right before FAQ — design doc rhythm rule, fixed
         // position rather than a rhythm engine deciding where to put it.
         if ($b['block_type'] === 'faq') {
             $html .= pluscities_render_cta_band($client);
         }
-        $html .= pluscities_render_block($b, $client, $niche);
+        $html .= pluscities_render_block($b, $client, $niche, $i);
         // Trust bar sits right under the hero, same position as the fleet's
         // own reference sites (Bailey/Wren/Gann) — niche-level content
         // (generically true for any real client in the niche), not a page
