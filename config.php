@@ -197,7 +197,14 @@ define('PLUSCITIES_UPLOADS_URL', '/pluscities_uploads/');
 // remote client site and the local test site need genuinely different
 // addresses — this one stays a single constant because every client site
 // fetches assets from the SAME one platform, never a per-client value.
-define('PLUSCITIES_PUBLIC_BASE', 'http://187.127.254.206');
+// Was the bare box IP over plain HTTP — real clients' HTTPS pages auto-
+// upgrade an http:// image request to https:// on the SAME host first
+// (standard mixed-content behavior), which hit this box's cert (only valid
+// for app.pluscities.com, not the raw IP) and got blocked outright, breaking
+// every hero photo fleet-wide. The real domain already receives the same
+// content (confirmed: the old IP-based URL 301-redirected to this exact
+// domain anyway) and has a real, validating certificate.
+define('PLUSCITIES_PUBLIC_BASE', 'https://app.pluscities.com');
 
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all
