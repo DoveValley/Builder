@@ -35,7 +35,18 @@ $due = infra_golive_due();
 // count against the cap: it never went anywhere, and letting it eat a slot would
 // quietly shrink the day's release run. It stays due, and says so every morning
 // until somebody either uploads the site or overrides deliberately from the grid.
-$released = 0; $gated = 0;
+//
+// Same exemption for a 'manual' result (found live 2026-11-25 — see
+// infra_registrar_set_ns()'s default case): the domain's registrar isn't one of
+// the auto-wired ones, so a human has to click "set nameservers" at the registrar
+// by hand. Retrying it every tick can never succeed on its own, and until this
+// fix it STILL counted against the cap exactly like a real release — so a
+// handful of stuck manual-NS domains could permanently monopolize every cap slot,
+// forever starving every genuinely-automatable domain due behind them in the
+// queue. Reproduced live: the exact same 20 domains were logged as "released"
+// on every 5-minute tick for hours, none of them ever actually going live, while
+// 33+ other due domains (an entire appliance batch) sat starved behind them.
+$released = 0; $gated = 0; $manualHeld = 0;
 foreach ($due as $domain => $rec) {
     if ($released >= $cap) break;
     // Locked the same way an interactive Go Live click is (infra_pipeline_do()'s
@@ -45,6 +56,11 @@ foreach ($due as $domain => $rec) {
     if (!empty($r['gated'])) {
         $gated++;
         echo "{$ts} HELD {$domain}: {$r['message']}\n";
+        continue;
+    }
+    if (!empty($r['manual'])) {
+        $manualHeld++;
+        echo "{$ts} HELD {$domain} (manual nameserver change required): {$r['message']}\n";
         continue;
     }
     echo "{$ts} release {$domain}: {$r['message']}\n";
@@ -61,14 +77,20 @@ $post = infra_golive_refresh_live();
 $freshened = infra_golive_freshen_run_due(3);
 foreach ($freshened as $fDom => $fMsg) echo "{$ts} freshen {$fDom}: {$fMsg}\n";
 
-$remaining = max(0, count($due) - $released - $gated);
+$remaining = max(0, count($due) - $released - $gated - $manualHeld);
 echo "{$ts} tick done — newly-live: " . ($pre + $post) . ", released: {$released}/{$cap}"
    . ($gated ? ", held: {$gated} (nothing uploaded)" : '')
+   . ($manualHeld ? ", held: {$manualHeld} (manual nameserver change required)" : '')
    . ($freshened ? ', freshened: ' . count($freshened) : '') . ", still-due: {$remaining}\n";
 
 // A run that leaves a footprint is a run you can ask about later. The grid reads this
 // to say when the tick last ran — a scheduler that has silently stopped is worse than
 // no scheduler, and until this line existed there was no way to tell the difference.
 @file_put_contents(dirname(__DIR__) . '/state/golive_tick.json', json_encode([
-    'at' => time(), 'due' => count($due), 'released' => $released, 'held' => $gated, 'cap' => $cap,
+    // 'held' stays the combined total ($gated + $manualHeld) since existing readers
+    // (_batch_golive.php, _pipeline_grid.php) already display it as one "N held"
+    // figure — previously undercounted since manual-NS domains weren't in it at
+    // all. 'manual_held' broken out separately for anyone who wants the split.
+    'at' => time(), 'due' => count($due), 'released' => $released,
+    'held' => $gated + $manualHeld, 'manual_held' => $manualHeld, 'cap' => $cap,
 ], JSON_PRETTY_PRINT));
