@@ -479,7 +479,7 @@ function pluscities_page_style_css(array $client): string
         . '.lpc-breadcrumbs a{color:#52607a;}'
         . '.lpc-hero-photo{width:100%;max-width:100%;height:auto;border-radius:10px;display:block;}'
         . '.pluscities-page{max-width:1000px;margin:0 auto;}'
-        . '.pluscities-page section[class^="lpc-"]{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px 28px;margin:0 0 20px;box-shadow:0 1px 3px rgba(0,0,0,.04);}'
+        . '.pluscities-page section[class^="lpc-"]{background:#fff;border:1px solid #9ca3af;border-radius:12px;padding:24px 28px;margin:0 0 20px;box-shadow:0 1px 3px rgba(0,0,0,.04);}'
         . '.pluscities-page section.lpc-hero{background:transparent;border:none;box-shadow:none;padding:0 0 8px;}'
         . '.lpc-hero-row{display:flex;flex-wrap:wrap;gap:36px;align-items:center;}'
         . '.lpc-hero-text{flex:1 1 360px;}'
