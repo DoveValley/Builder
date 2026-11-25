@@ -41,7 +41,7 @@ if (!empty($_GET['msg'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Page — <?= h(SITE_TITLE) ?></title>
+<title>Add Page — <?= h($client['identity']['business_name'] ?? 'PlusCities') ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">

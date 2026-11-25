@@ -87,7 +87,7 @@ function pluscities_page_styling_sample_block_row(string $slug, string $label, a
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Page Styling — <?= h(SITE_TITLE) ?></title>
+<title>Page Styling — <?= h($client['identity']['business_name'] ?? 'PlusCities') ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">

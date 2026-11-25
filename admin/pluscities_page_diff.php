@@ -34,6 +34,8 @@ $revStmt = $db->prepare('SELECT snapshot_json, author, created_at FROM revisions
 $revStmt->execute([$pageId, $revisionNumber]);
 $revision = $revStmt->fetch(PDO::FETCH_ASSOC);
 
+$pcClient = $page ? (json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $page['client_id'] . '.json'), true) ?: null) : null;
+
 $rows = [];
 if ($page && $revision) {
     $oldBlocks = json_decode($revision['snapshot_json'], true)['blocks'] ?? [];
@@ -61,7 +63,7 @@ if ($page && $revision) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Compare Revision — <?= h(SITE_TITLE) ?></title>
+<title>Compare Revision — <?= h($pcClient['identity']['business_name'] ?? 'PlusCities') ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">

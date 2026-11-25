@@ -42,7 +42,7 @@ if (!empty($_GET['msg'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Service Area Page — <?= h(SITE_TITLE) ?></title>
+<title>Service Area Page — <?= h($client['identity']['business_name'] ?? 'PlusCities') ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
@@ -80,7 +80,12 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
     $pillEnabled   = $hub['pill_enabled'] ?? true;
     $pillTextVal   = (string) ($hub['pill_text'] ?? '');
     $urlBasePath   = (string) ($client['url_base_path'] ?? 'service-area');
+    $liveUrl       = 'https://' . trim((string) ($client['domain'] ?? '')) . '/' . trim($urlBasePath, '/') . '/';
 ?>
+<form method="post" action="pluscities_hub_edit_save.php">
+<input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+<input type="hidden" name="client_id" value="<?= h($clientId) ?>">
+
 <div class="pc-card">
     <strong style="font-size:.88rem;">Page Settings</strong>
     <p style="color:var(--pc-muted,#52607a);font-size:.8rem;margin:4px 0 10px;">
@@ -88,14 +93,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
         page off also stops showing the pill link below (nothing left to send visitors to); the pill link
         itself can also be turned off independently while keeping the page live.
     </p>
-    <form method="post" action="pluscities_hub_edit_save.php" class="pc-form-row">
-        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-        <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
-        <input type="hidden" name="top_text" value="<?= h($hub['top_text'] ?? '') ?>">
-        <input type="hidden" name="footer_text" value="<?= h($hub['footer_text'] ?? '') ?>">
-        <input type="hidden" name="hub_city_format" value="<?= h($cityFormat) ?>">
-        <input type="hidden" name="hub_city_format_custom" value="<?= h($cityFormatCustomVal) ?>">
-
+    <div class="pc-form-row">
         <div class="fg" style="min-width:260px;">
             <label>
                 <input type="hidden" name="enabled" value="0">
@@ -131,11 +129,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
             <label>Pill text</label>
             <input type="text" name="pill_text" value="<?= h($pillTextVal) ?>" placeholder="All Service Areas (default)" style="padding:8px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.84rem;width:100%;">
         </div>
-
-        <div style="flex-basis:100%;">
-            <button type="submit" class="btn-open">Save</button>
-        </div>
-    </form>
+    </div>
 </div>
 
 <div class="pc-card">
@@ -149,6 +143,14 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
                 echo '<em>none yet</em>';
             }
         ?>
+        &middot;
+        <?php if (!$enabled): ?>
+            <strong style="color:#991b1b;">Page is currently disabled</strong>
+        <?php elseif (trim((string) ($client['domain'] ?? '')) !== ''): ?>
+            <a href="<?= h($liveUrl) ?>" target="_blank" rel="noopener">View the live page &#8599;</a>
+        <?php else: ?>
+            <em>No domain set for this client yet</em>
+        <?php endif; ?>
     </p>
 
     <button type="button" class="btn-sm-outline" onclick="pcHubTogglePreview()" style="margin-bottom:10px;">Show Live Preview</button>
@@ -195,23 +197,11 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
         business name instead of going stale if it's ever renamed. Leave the whole box blank to keep the
         automatic default shown as its placeholder.
     </p>
-    <form method="post" action="pluscities_hub_edit_save.php">
-        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-        <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
-        <input type="hidden" name="footer_text" value="<?= h($hub['footer_text'] ?? '') ?>">
-        <input type="hidden" name="hub_city_format" value="<?= h($cityFormat) ?>">
-        <input type="hidden" name="hub_city_format_custom" value="<?= h($cityFormatCustomVal) ?>">
-        <input type="hidden" name="enabled" value="<?= $enabled ? '1' : '0' ?>">
-        <input type="hidden" name="url_base_path" value="<?= h($urlBasePath) ?>">
-        <input type="hidden" name="pill_enabled" value="<?= $pillEnabled ? '1' : '0' ?>">
-        <input type="hidden" name="pill_text" value="<?= h($pillTextVal) ?>">
-        <div class="form-group" style="margin-bottom:10px;">
-            <textarea id="pc-hub-top-text" name="top_text" rows="4" style="width:100%;font-family:inherit;font-size:.85rem;"
-                      placeholder="<?= h("<h2>Service Area</h2>\n\n{{business_name}} proudly serves the following areas: (default)") ?>"
-            ><?= h($topTextVal) ?></textarea>
-        </div>
-        <button type="submit" class="btn-sm-outline">Save</button>
-    </form>
+    <div class="form-group" style="margin-bottom:10px;">
+        <textarea id="pc-hub-top-text" name="top_text" rows="4" style="width:100%;font-family:inherit;font-size:.85rem;"
+                  placeholder="<?= h("<h2>Service Area</h2>\n\n{{business_name}} proudly serves the following areas: (default)") ?>"
+        ><?= h($topTextVal) ?></textarea>
+    </div>
 </div>
 
 <div class="pc-card">
@@ -255,15 +245,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
         </div>
     </div>
 
-    <form method="post" action="pluscities_hub_edit_save.php" class="pc-form-row">
-        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-        <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
-        <input type="hidden" name="top_text" value="<?= h($hub['top_text'] ?? '') ?>">
-        <input type="hidden" name="footer_text" value="<?= h($hub['footer_text'] ?? '') ?>">
-        <input type="hidden" name="enabled" value="<?= $enabled ? '1' : '0' ?>">
-        <input type="hidden" name="url_base_path" value="<?= h($urlBasePath) ?>">
-        <input type="hidden" name="pill_enabled" value="<?= $pillEnabled ? '1' : '0' ?>">
-        <input type="hidden" name="pill_text" value="<?= h($pillTextVal) ?>">
+    <div class="pc-form-row">
         <div class="form-group">
             <label>Format</label>
             <select id="pc-hub-format" name="hub_city_format" style="padding:8px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.84rem;">
@@ -283,8 +265,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
                 falls back to the Simple List layout.
             </p>
         </div>
-        <button type="submit" class="btn-sm-outline" style="margin-top:10px;">Save</button>
-    </form>
+    </div>
 </div>
 
 <div class="pc-card">
@@ -300,22 +281,15 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
         place, each with real visible height on the live page — delete any you don't want, or add more the
         same way.
     </p>
-    <form method="post" action="pluscities_hub_edit_save.php">
-        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-        <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
-        <input type="hidden" name="top_text" value="<?= h($hub['top_text'] ?? '') ?>">
-        <input type="hidden" name="hub_city_format" value="<?= h($cityFormat) ?>">
-        <input type="hidden" name="hub_city_format_custom" value="<?= h($cityFormatCustomVal) ?>">
-        <input type="hidden" name="enabled" value="<?= $enabled ? '1' : '0' ?>">
-        <input type="hidden" name="url_base_path" value="<?= h($urlBasePath) ?>">
-        <input type="hidden" name="pill_enabled" value="<?= $pillEnabled ? '1' : '0' ?>">
-        <input type="hidden" name="pill_text" value="<?= h($pillTextVal) ?>">
-        <div class="form-group" style="margin-bottom:10px;">
-            <textarea id="pc-hub-footer-text" name="footer_text" rows="8" style="width:100%;font-family:inherit;"><?= h($footerTextVal) ?></textarea>
-        </div>
-        <button type="submit" class="btn-sm-outline">Save</button>
-    </form>
+    <div class="form-group" style="margin-bottom:10px;">
+        <textarea id="pc-hub-footer-text" name="footer_text" rows="8" style="width:100%;font-family:inherit;"><?= h($footerTextVal) ?></textarea>
+    </div>
 </div>
+
+<div class="pc-card">
+    <button type="submit" class="btn-open">Save</button>
+</div>
+</form>
 
 <script>
 function pcHubToggleExamples() {
