@@ -115,6 +115,78 @@ if ($action === 'save_niche') {
     header('Location: pluscities_niches.php?msg=success:Niche+saved&edit_niche=' . urlencode($nicheId)); exit;
 }
 
+if ($action === 'upload_niche_image') {
+    $nicheId = trim((string) ($_POST['niche_id'] ?? ''));
+    $slotId  = (string) ($_POST['slot_id'] ?? '');
+    $niche   = pluscities_niche_load($nicheId);
+    if (!$niche) { header('Location: pluscities_niches.php?msg=error:Niche+not+found'); exit; }
+    if (empty($_FILES['image_file']['tmp_name']) || !is_uploaded_file($_FILES['image_file']['tmp_name'])) {
+        header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=error:No+image+selected'); exit;
+    }
+
+    // Same helper admin/pluscities_photos_save.php's upload_photo action uses
+    // for a client's own images — one level up, same mechanics (validate,
+    // resize, convert to WebP), just a different destination directory and no
+    // client record to touch.
+    $saved = save_uploaded_file(
+        $_FILES['image_file']['tmp_name'], $nicheId . '_' . $slotId, $_FILES['image_file']['name'],
+        BASE_DIR . '/niche_default_images/' . $nicheId . '/', 'niche_default_images/' . $nicheId . '/'
+    );
+    if (!$saved) {
+        header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=error:Could+not+save+that+image'); exit;
+    }
+
+    $found = false;
+    foreach ($niche['image_slots'] as &$slot) {
+        if ($slot['slot_id'] === $slotId) { $slot['default_image_path'] = $saved; $found = true; break; }
+    }
+    unset($slot);
+    if (!$found) {
+        header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=error:Slot+not+found'); exit;
+    }
+
+    pluscities_niche_save($nicheId, $niche);
+    pluscities_log_event(lpc_current_actor_role() . ':' . (lpc_current_actor_identity()['name'] ?? 'unknown'), 'upload_niche_image', 'niche:' . $nicheId . ' / ' . $slotId, '');
+    header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=success:Image+saved'); exit;
+}
+
+if ($action === 'add_image_slot') {
+    $nicheId = trim((string) ($_POST['niche_id'] ?? ''));
+    $niche   = pluscities_niche_load($nicheId);
+    if (!$niche) { header('Location: pluscities_niches.php?msg=error:Niche+not+found'); exit; }
+
+    $slotId = trim((string) ($_POST['slot_id'] ?? ''));
+    // slot_id must be a REAL block type, not an arbitrary name — a slot only
+    // ever gets used because some block's render code looks up its own
+    // block_type as the slot_id (pluscities_resolve_image_url()), so the
+    // label is derived from the same shared catalog the picker itself reads
+    // from rather than trusted from the form, and anything not in that
+    // catalog is rejected outright.
+    $label = null;
+    foreach (platform_info_city_page_blocks_data() as $section) {
+        foreach ($section['rows'] as $r) {
+            if ($r['slug'] === $slotId) { $label = $r['block']; break 2; }
+        }
+    }
+    if ($label === null) {
+        header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=error:Unknown+block+type'); exit;
+    }
+    foreach ($niche['image_slots'] as $slot) {
+        if ($slot['slot_id'] === $slotId) {
+            header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=error:That+slot+ID+already+exists'); exit;
+        }
+    }
+
+    // Fixed 1536x1024 — matches every image slot built so far; not something
+    // worth asking an admin to pick pixel dimensions for.
+    $niche['image_slots'][] = [
+        'slot_id' => $slotId, 'label' => $label, 'width' => 1536, 'height' => 1024, 'default_image_path' => '',
+    ];
+    pluscities_niche_save($nicheId, $niche);
+    pluscities_log_event(lpc_current_actor_role() . ':' . (lpc_current_actor_identity()['name'] ?? 'unknown'), 'add_image_slot', 'niche:' . $nicheId . ' / ' . $slotId, '');
+    header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=success:Slot+added'); exit;
+}
+
 if ($action === 'validate_keyword') {
     $nicheId = trim($_POST['niche_id'] ?? '');
     $slug    = trim($_POST['service_slug'] ?? '');

@@ -68,6 +68,10 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
 .pc-form-row input,.pc-form-row select,.pc-form-row textarea{width:100%;padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.84rem;font-family:inherit;}
 .pc-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--pc-line,#e2e8f2);}
 .pc-row:last-child{border-bottom:none;}
+.pc-photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+.pc-photo-tile img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;border:1px solid var(--pc-line,#e2e8f2);background:var(--pc-mist,#f4f7fb);}
+.pc-photo-tile .caption{font-size:.78rem;color:var(--pc-muted,#52607a);margin:8px 0 6px;}
+.pc-photo-tile .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 </style>
 
 <?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
@@ -198,6 +202,67 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
     </form>
 
     <?php if ($editingNiche): ?>
+        <h4 style="margin-top:18px;">Images</h4>
+        <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:0 0 8px;">
+            The default photo every client in this niche gets until they upload their own (see
+            <code>pluscities_resolve_image_url()</code>) — same slot concept as a client's own Photos screen,
+            one level up.
+        </p>
+        <?php if (!$editingNiche['image_slots']): ?>
+            <p style="font-size:.84rem;color:var(--pc-muted,#52607a);">No image slots yet — add one below.</p>
+        <?php else: ?>
+        <div class="pc-photo-grid" style="margin-bottom:14px;">
+            <?php foreach ($editingNiche['image_slots'] as $slot):
+                $imgPath = $slot['default_image_path'] ?? '';
+                $imgUrl  = $imgPath ? '/' . ltrim($imgPath, '/') : '';
+            ?>
+            <div class="pc-photo-tile">
+                <?php if ($imgUrl): ?><img src="<?= h($imgUrl) ?>" alt="<?= h($slot['label']) ?>"><?php endif; ?>
+                <div class="caption"><strong><?= h($slot['label']) ?></strong> — <?= $imgUrl ? 'default set' : 'no image yet' ?></div>
+                <div class="actions">
+                    <form method="post" action="pluscities_niches_save.php" enctype="multipart/form-data" style="display:flex;gap:6px;">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="action" value="upload_niche_image">
+                        <input type="hidden" name="niche_id" value="<?= h($editingNiche['niche_id']) ?>">
+                        <input type="hidden" name="slot_id" value="<?= h($slot['slot_id']) ?>">
+                        <input type="file" name="image_file" accept="image/png,image/jpeg,image/webp" required style="font-size:.76rem;max-width:140px;">
+                        <button type="submit" class="btn-sm-outline">Upload</button>
+                    </form>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+        <?php
+            // Tied to a real block type, not a free-text name — a slot only
+            // ever gets used by pluscities_resolve_image_url() because some
+            // block's render code looks up its own block_type as the slot_id
+            // (today, only Hero does), so "add a slot" really means "pick
+            // which block this niche's clients will get a default photo for."
+            $usedSlotIds  = array_column($editingNiche['image_slots'], 'slot_id');
+            $blockOptions = [];
+            foreach (platform_info_city_page_blocks_data() as $section) {
+                foreach ($section['rows'] as $r) {
+                    if (!in_array($r['slug'], $usedSlotIds, true)) $blockOptions[$r['slug']] = $r['block'];
+                }
+            }
+        ?>
+        <?php if ($blockOptions): ?>
+        <form method="post" action="pluscities_niches_save.php" class="pc-form-row">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="action" value="add_image_slot">
+            <input type="hidden" name="niche_id" value="<?= h($editingNiche['niche_id']) ?>">
+            <div class="fg"><label>Add a default photo for block</label>
+                <select name="slot_id" required>
+                    <?php foreach ($blockOptions as $slug => $label): ?>
+                        <option value="<?= h($slug) ?>"><?= h($label) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div style="align-self:flex-end;"><button type="submit" class="btn-sm-outline">Add Image Slot</button></div>
+        </form>
+        <?php endif; ?>
+
         <h4 style="margin-top:18px;">Validate a service's keyword</h4>
         <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:0 0 8px;">
             Runs once, against real search data, using the same shared keyword-scoring module the fleet
