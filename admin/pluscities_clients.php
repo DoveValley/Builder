@@ -116,6 +116,17 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
 .pc-site-badge-down{background:#fee2e2;color:#991b1b;}
 .pc-client-name{font-weight:700;color:var(--pc-ink,#1c2b45);text-decoration:none;font-size:.95rem;}
 .pc-client-name:hover{color:var(--pc-lime-ink,#3d6b0e);text-decoration:underline;}
+.pc-steps{display:flex;gap:4px;margin-bottom:18px;flex-wrap:wrap;}
+.pc-step-pill{flex:1;min-width:120px;text-align:center;padding:8px 6px;border-radius:8px;font-size:.76rem;font-weight:700;color:var(--pc-muted,#52607a);background:var(--pc-mist,#f4f7fb);border:1px solid var(--pc-line,#e2e8f2);}
+.pc-step-pill.is-active{background:var(--pc-lime,#c8f55a);color:var(--pc-navy,#0b1b33);border-color:var(--pc-lime,#c8f55a);}
+.pc-step-pill.is-done{background:#fff;border-color:var(--pc-lime-ink,#3d6b0e);color:var(--pc-lime-ink,#3d6b0e);}
+.pc-step-panel{display:none;}
+.pc-step-panel.is-active{display:block;}
+.pc-step-nav{display:flex;justify-content:space-between;margin-top:18px;flex-basis:100%;}
+.pc-review-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--pc-line,#e2e8f2);font-size:.85rem;}
+.pc-review-row:last-child{border-bottom:none;}
+.pc-review-row span:first-child{color:var(--pc-muted,#52607a);}
+.pc-review-row span:last-child{font-weight:600;text-align:right;}
 </style>
 
 <?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
@@ -175,83 +186,120 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
 
 <div class="pc-card">
     <h3 style="margin-top:0;">+ New Client</h3>
-    <form method="post" action="pluscities_clients_save.php" class="pc-form-row">
+    <div class="pc-steps">
+        <div class="pc-step-pill is-active" data-step-pill="1">1. Business &amp; Niche</div>
+        <div class="pc-step-pill" data-step-pill="2">2. Hub &amp; Hours</div>
+        <div class="pc-step-pill" data-step-pill="3">3. First Page &amp; Topics</div>
+        <div class="pc-step-pill" data-step-pill="4">4. Review &amp; Create</div>
+    </div>
+    <form method="post" action="pluscities_clients_save.php" id="pc-new-client-form">
         <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
         <input type="hidden" name="action" value="create">
 
-        <div class="pc-section-label" style="flex-basis:100%;">Identity</div>
-        <div class="fg"><label>Business name</label><input type="text" name="business_name" required></div>
-        <div class="fg"><label>Domain (their real site)</label><input type="text" name="domain" placeholder="example.com" required></div>
-        <div class="fg"><label>Agency</label>
-            <select name="agency_id" required>
-                <?php foreach ($agencies as $aid): ?><option value="<?= h($aid) ?>" <?= $agencyIdFilter === $aid ? 'selected' : '' ?>><?= h($aid) ?></option><?php endforeach; ?>
-            </select>
+        <div class="pc-step-panel is-active" data-step-panel="1">
+            <div class="pc-form-row">
+                <div class="pc-section-label" style="flex-basis:100%;">Identity</div>
+                <div class="fg"><label>Business name</label><input type="text" name="business_name" required></div>
+                <div class="fg"><label>Domain (their real site)</label><input type="text" name="domain" placeholder="example.com" required></div>
+                <div class="fg"><label>Agency</label>
+                    <select name="agency_id" required>
+                        <?php foreach ($agencies as $aid): ?><option value="<?= h($aid) ?>" <?= $agencyIdFilter === $aid ? 'selected' : '' ?>><?= h($aid) ?></option><?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="fg"><label>Niche</label>
+                    <select name="niche_id" required>
+                        <option value="">— choose —</option>
+                        <?php foreach ($niches as $nid): ?><option value="<?= h($nid) ?>"><?= h($nid) ?></option><?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pc-step-nav">
+                <span></span>
+                <button type="button" class="btn-open" data-step-next>Next &rarr;</button>
+            </div>
         </div>
-        <div class="fg"><label>Niche</label>
-            <select name="niche_id" required>
-                <option value="">— choose —</option>
-                <?php foreach ($niches as $nid): ?><option value="<?= h($nid) ?>"><?= h($nid) ?></option><?php endforeach; ?>
-            </select>
+
+        <div class="pc-step-panel" data-step-panel="2">
+            <div class="pc-form-row">
+                <div class="pc-section-label" style="flex-basis:100%;">Hub location</div>
+                <div class="fg"><label>Address</label><input type="text" name="hub_address" required placeholder="123 Main St, City, ST 00000"></div>
+                <div class="fg"><label>Phone</label><input type="text" name="hub_phone" required placeholder="(555) 555-0100"></div>
+
+                <div class="pc-section-label" style="flex-basis:100%;">Credentials &amp; history</div>
+                <div class="fg"><label>License number</label><input type="text" name="license_number"></div>
+                <div class="fg"><label>License state</label><input type="text" name="license_state" maxlength="2" placeholder="TX"></div>
+                <div class="fg"><label>License trade</label><input type="text" name="license_trade" placeholder="General Contractor"></div>
+                <div class="fg"><label>Years in business</label><input type="number" name="years_in_business" min="0"></div>
+
+                <div class="pc-section-label" style="flex-basis:100%;">Hours</div>
+                <div class="fg"><label>Mon–Fri</label><input type="text" name="hours_mon_fri" placeholder="7:00-19:00"></div>
+                <div class="fg"><label>Sat</label><input type="text" name="hours_sat" placeholder="8:00-14:00"></div>
+                <div class="fg"><label>Sun</label><input type="text" name="hours_sun" placeholder="closed"></div>
+            </div>
+            <div class="pc-step-nav">
+                <button type="button" class="btn-sm-outline" data-step-back>&larr; Back</button>
+                <button type="button" class="btn-open" data-step-next>Next &rarr;</button>
+            </div>
         </div>
 
-        <div class="pc-section-label" style="flex-basis:100%;">Hub location</div>
-        <div class="fg"><label>Address</label><input type="text" name="hub_address" required placeholder="123 Main St, City, ST 00000"></div>
-        <div class="fg"><label>Phone</label><input type="text" name="hub_phone" required placeholder="(555) 555-0100"></div>
+        <div class="pc-step-panel" data-step-panel="3">
+            <div class="pc-form-row">
+                <div class="pc-section-label" style="flex-basis:100%;">First page</div>
+                <div class="fg"><label>City ID (from the cities table, e.g. "dallas-tx")</label><input type="text" name="first_city_id" required></div>
+                <div class="fg"><label>Drive minutes from hub</label><input type="number" name="first_city_drive_minutes" min="0" value="15"></div>
+                <div class="fg"><label>Service radius (minutes)</label><input type="number" name="radius_minutes" min="0" value="30"></div>
+                <div class="fg"><label>URL base path</label><input type="text" name="url_base_path" value="service-area"></div>
 
-        <div class="pc-section-label" style="flex-basis:100%;">Credentials &amp; history</div>
-        <div class="fg"><label>License number</label><input type="text" name="license_number"></div>
-        <div class="fg"><label>License state</label><input type="text" name="license_state" maxlength="2" placeholder="TX"></div>
-        <div class="fg"><label>License trade</label><input type="text" name="license_trade" placeholder="General Contractor"></div>
-        <div class="fg"><label>Years in business</label><input type="number" name="years_in_business" min="0"></div>
+                <div class="pc-section-label" style="flex-basis:100%;">Block Topics — the first page's content</div>
+                <div style="flex-basis:100%;font-size:.8rem;color:var(--pc-muted,#52607a);margin-bottom:8px;" id="pc-topics-niche-hint">
+                    City topics for the niche picked in step 1.
+                </div>
+                <div style="flex-basis:100%;">
+                    <?php foreach ($pcNichePools as $pcNicheId => $pcCityPool): ?>
+                        <div class="pc-niche-topics" data-niche="<?= h($pcNicheId) ?>" style="display:none;">
+                            <strong style="font-size:.84rem;">City topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(6, count($pcCityPool)) ?> of <?= count($pcCityPool) ?></strong>
+                            <?php foreach ($pcCityPool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
+                                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+                                    <input type="checkbox" class="pc-city-cb" name="city_block_picks[]" value="<?= h($pcSlug) ?>" data-niche="<?= h($pcNicheId) ?>">
+                                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
+                                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
+                                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endforeach; ?>
 
-        <div class="pc-section-label" style="flex-basis:100%;">Hours</div>
-        <div class="fg"><label>Mon–Fri</label><input type="text" name="hours_mon_fri" placeholder="7:00-19:00"></div>
-        <div class="fg"><label>Sat</label><input type="text" name="hours_sat" placeholder="8:00-14:00"></div>
-        <div class="fg"><label>Sun</label><input type="text" name="hours_sun" placeholder="closed"></div>
-
-        <div class="pc-section-label" style="flex-basis:100%;">First page</div>
-        <div class="fg"><label>City ID (from the cities table, e.g. "dallas-tx")</label><input type="text" name="first_city_id" required></div>
-        <div class="fg"><label>Drive minutes from hub</label><input type="number" name="first_city_drive_minutes" min="0" value="15"></div>
-        <div class="fg"><label>Service radius (minutes)</label><input type="number" name="radius_minutes" min="0" value="30"></div>
-        <div class="fg"><label>URL base path</label><input type="text" name="url_base_path" value="service-area"></div>
-
-        <div class="pc-section-label" style="flex-basis:100%;">Block Topics — the first page's content</div>
-        <div style="flex-basis:100%;font-size:.8rem;color:var(--pc-muted,#52607a);margin-bottom:8px;">
-            Pick the topics for this client's first page. City topics depend on the niche selected above —
-            choose a niche first.
-        </div>
-        <div style="flex-basis:100%;">
-            <?php foreach ($pcNichePools as $pcNicheId => $pcCityPool): ?>
-                <div class="pc-niche-topics" data-niche="<?= h($pcNicheId) ?>" style="display:none;">
-                    <strong style="font-size:.84rem;">City topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(6, count($pcCityPool)) ?> of <?= count($pcCityPool) ?></strong>
-                    <?php foreach ($pcCityPool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
+                    <strong style="font-size:.84rem;">Service topics — choose up to <?= (int) min(4, count(PLUSCITIES_SERVICE_POOL)) ?> of <?= count(PLUSCITIES_SERVICE_POOL) ?></strong>
+                    <?php foreach (PLUSCITIES_SERVICE_POOL as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
                         <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
-                            <input type="checkbox" class="pc-city-cb" name="city_block_picks[]" value="<?= h($pcSlug) ?>" data-niche="<?= h($pcNicheId) ?>">
+                            <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>">
                             <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
                             <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
                             <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
                         </label>
                     <?php endforeach; ?>
                 </div>
-            <?php endforeach; ?>
-
-            <strong style="font-size:.84rem;">Service topics — choose up to <?= (int) min(4, count(PLUSCITIES_SERVICE_POOL)) ?> of <?= count(PLUSCITIES_SERVICE_POOL) ?></strong>
-            <?php foreach (PLUSCITIES_SERVICE_POOL as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
-                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
-                    <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>">
-                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
-                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
-                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
-                </label>
-            <?php endforeach; ?>
+            </div>
+            <div class="pc-step-nav">
+                <button type="button" class="btn-sm-outline" data-step-back>&larr; Back</button>
+                <button type="button" class="btn-open" data-step-next>Next &rarr;</button>
+            </div>
         </div>
 
-        <div style="flex-basis:100%;">
-            <button type="submit" class="btn-open">Create Client</button>
+        <div class="pc-step-panel" data-step-panel="4">
+            <div class="pc-card" style="margin:0 0 14px;">
+                <h4 style="margin-top:0;">Review</h4>
+                <div id="pc-review-body"></div>
+            </div>
+            <div class="pc-step-nav">
+                <button type="button" class="btn-sm-outline" data-step-back>&larr; Back</button>
+                <button type="submit" class="btn-open">Create Client</button>
+            </div>
         </div>
     </form>
     <script>
     (function() {
+        var form = document.getElementById('pc-new-client-form');
         var nicheSelect = document.querySelector('select[name="niche_id"]');
         var nicheGroups = document.querySelectorAll('.pc-niche-topics');
 
@@ -289,6 +337,67 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
 
         onNicheChange();
         refreshServiceEnforcement();
+
+        // Step UI — purely client-side, one plain form submitted once (same
+        // backend as before). No session state to go stale, no server round
+        // trips between steps — just show/hide + native reportValidity() for
+        // per-step gating, reusing the browser's own validation UI instead of
+        // hand-rolled error messages.
+        var panels = Array.prototype.slice.call(document.querySelectorAll('.pc-step-panel'));
+        var pills  = Array.prototype.slice.call(document.querySelectorAll('.pc-step-pill'));
+        var currentStep = 1;
+
+        function escapeHtml(s) {
+            var d = document.createElement('div');
+            d.textContent = s;
+            return d.innerHTML;
+        }
+        function showStep(n) {
+            currentStep = n;
+            panels.forEach(function(p) { p.classList.toggle('is-active', p.getAttribute('data-step-panel') === String(n)); });
+            pills.forEach(function(p) {
+                var s = parseInt(p.getAttribute('data-step-pill'), 10);
+                p.classList.toggle('is-active', s === n);
+                p.classList.toggle('is-done', s < n);
+            });
+            if (n === 3) {
+                var nicheLabel = nicheSelect.value || '(none picked in step 1)';
+                document.getElementById('pc-topics-niche-hint').textContent = 'City topics for "' + nicheLabel + '" (picked in step 1).';
+            }
+            if (n === 4) buildReview();
+            form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        function validateStep(n) {
+            var panel = document.querySelector('.pc-step-panel[data-step-panel="' + n + '"]');
+            var fields = Array.prototype.slice.call(panel.querySelectorAll('input, select'));
+            for (var i = 0; i < fields.length; i++) {
+                if (!fields[i].reportValidity()) return false;
+            }
+            return true;
+        }
+        function buildReview() {
+            var rows = [
+                ['Business name', form.querySelector('[name="business_name"]').value],
+                ['Domain', form.querySelector('[name="domain"]').value],
+                ['Agency', form.querySelector('[name="agency_id"]').value],
+                ['Niche', form.querySelector('[name="niche_id"]').value],
+                ['First city', form.querySelector('[name="first_city_id"]').value],
+                ['City topics picked', String(document.querySelectorAll('.pc-city-cb:checked').length)],
+                ['Service topics picked', String(document.querySelectorAll('.pc-service-cb:checked').length)],
+            ];
+            document.getElementById('pc-review-body').innerHTML = rows.map(function(r) {
+                return '<div class="pc-review-row"><span>' + escapeHtml(r[0]) + '</span><span>' + escapeHtml(r[1] || '—') + '</span></div>';
+            }).join('');
+        }
+        document.querySelectorAll('[data-step-next]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (!validateStep(currentStep)) return;
+                showStep(currentStep + 1);
+            });
+        });
+        document.querySelectorAll('[data-step-back]').forEach(function(btn) {
+            btn.addEventListener('click', function() { showStep(currentStep - 1); });
+        });
     })();
     </script>
 </div>
