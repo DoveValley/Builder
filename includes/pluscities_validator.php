@@ -184,6 +184,9 @@ function pluscities_block_body_text(array $b): string
     if (isset($content['faqs'])) {
         return implode(' ', array_map(fn($f) => ($f['question'] ?? '') . ' ' . ($f['answer'] ?? ''), $content['faqs']));
     }
+    if (isset($content['items'])) {
+        return implode(' ', array_map(fn($i) => ($i['heading'] ?? '') . ' ' . ($i['body'] ?? ''), $content['items']));
+    }
     return (string) ($content['body'] ?? $content['intro'] ?? '');
 }
 
@@ -351,6 +354,26 @@ function pluscities_check_faq(array $blocks): array
     return ['check' => 'faq', 'result' => 'pass', 'detail' => ''];
 }
 
+/** Same shape of check as pluscities_check_faq() above, for why_choose_us's
+ *  "items" list — a regenerated block missing a heading or body on any item
+ *  would render as a blank grid cell. An un-regenerated block (still the old
+ *  {heading, body} shape, no "items" key at all) has nothing for this check
+ *  to look at and passes trivially — that's the generic editable-block path,
+ *  already covered by the body-text checks elsewhere. */
+function pluscities_check_items(array $blocks): array
+{
+    foreach ($blocks as $b) {
+        if ($b['block_type'] !== 'why_choose_us') continue;
+        $content = json_decode($b['content_json'], true) ?: [];
+        foreach ($content['items'] ?? [] as $item) {
+            if (trim((string) ($item['heading'] ?? '')) === '' || trim((string) ($item['body'] ?? '')) === '') {
+                return ['check' => 'items', 'result' => 'fail', 'detail' => 'One of the "why choose us" items is missing a heading or a body.'];
+            }
+        }
+    }
+    return ['check' => 'items', 'result' => 'pass', 'detail' => ''];
+}
+
 /**
  * Runs all Phase 1 checks and writes the combined result into
  * pages.validation_json, keyed against the page's current draft_hash — any
@@ -400,6 +423,7 @@ function pluscities_run_validator(string $page_id): array
         pluscities_check_stale_facts($blocks, $db),
         pluscities_check_cannibalization($page, $db),
         pluscities_check_faq($blocks),
+        pluscities_check_items($blocks),
     ];
 
     // Annotate any failing, overridable check with an override already on

@@ -151,6 +151,73 @@ function pluscities_write_editable_block(string $block_type, string $heading_hin
 }
 
 /**
+ * Writes "why choose us" as a list of {heading, body} items, not one
+ * heading+body — the fleet's own reference sites render this as a 3-4
+ * column grid of short, distinct reasons, which needs real discrete items to
+ * render, not one paragraph split visually. Same shape/validation pattern as
+ * pluscities_write_faq_block() below ("items" instead of "faqs"), just the
+ * first block type built this way besides FAQ — not yet a generic "items"
+ * writer for every block type, see the render side's old-shape fallback for
+ * why that matters.
+ */
+function pluscities_write_items_block(array $fact_cards, array $client_facts, array $context): array
+{
+    $factList = '';
+    foreach ($fact_cards as $fc) $factList .= '- [[' . $fc['id'] . ']]: ' . $fc['claim'] . "\n";
+    $clientFactList = '';
+    foreach ($client_facts as $label => $value) {
+        if ($label === '_banned_phrases' || $value === '' || $value === null) continue;
+        $clientFactList .= "- $label: $value\n";
+    }
+    $bannedList = $client_facts['_banned_phrases'] ?? [];
+
+    $prompt = "Write 3-4 short, distinct reasons a customer should choose this business, for a "
+        . "local-service landing page's \"Why choose us\" section. Each reason needs its own short "
+        . "heading (2-5 words) and a 1-2 sentence body. "
+        . "City: {$context['city_label']}. Service: {$context['service_label']}. Business: {$context['business_name']}.\n\n"
+        . "Two kinds of facts are available, used differently:\n"
+        . "1) Externally-sourced facts — EVERY specific claim (a number, a rule, a name, a date, a "
+        . "requirement) you state from these must be immediately followed by its [[fact_id]] tag, copied "
+        . "exactly as shown:\n$factList\n"
+        . "2) The client's own facts about themselves — state these directly, in plain text, NEVER inside "
+        . "[[ ]] brackets (that bracket syntax is reserved only for the externally-sourced fact_ids in "
+        . "list 1 above, nothing else — do not bracket a license number, a phone number, or any other "
+        . "client fact):\n$clientFactList\n"
+        . "Do not state any specific fact that isn't in one of these two lists — if something relevant "
+        . "isn't in either list, leave it out entirely rather than adding a plausible-sounding fact of "
+        . "your own. Only tag ids copied exactly from the list above are ever accepted; a tag naming "
+        . "anything else fails this generation outright. General, non-specific sentences (e.g. \"our "
+        . "technicians can help\") need no tag."
+        . ($bannedList ? ' Never use these exact phrases: ' . implode(', ', $bannedList) . '.' : '') . "\n\n"
+        . ($fact_cards
+            ? "Reply as JSON only, no markdown fences: {\"items\": [{\"heading\": \"...\", \"body\": \"... [[an id copied from list 1]] ...\"}]}"
+            : "Reply as JSON only, no markdown fences: {\"items\": [{\"heading\": \"...\", \"body\": \"...\"}]} — no [[ ]] brackets at all, there's nothing to cite.");
+
+    $validIds = array_column($fact_cards, 'id');
+    for ($attempt = 1; $attempt <= 2; $attempt++) {
+        $res = anthropic_message($prompt, ['max_tokens' => 600]);
+        if (!($res['ok'] ?? false)) return ['ok' => false, 'msg' => $res['error'] ?? 'Writer call failed.', 'content' => null, 'fact_ids' => []];
+        $raw  = preg_replace('/^```(?:json)?\s*|\s*```$/i', '', trim((string) $res['text']));
+        $json = json_decode(trim($raw), true);
+        if (!is_array($json) || empty($json['items'])) return ['ok' => false, 'msg' => 'Writer did not return usable content.', 'content' => null, 'fact_ids' => []];
+
+        $invented = null;
+        foreach ($json['items'] as $item) {
+            $invented = pluscities_find_invented_tag((string) ($item['body'] ?? ''), $validIds);
+            if ($invented !== null) break;
+        }
+        if ($invented === null) {
+            $allFactIds = [];
+            foreach ($json['items'] as $item) {
+                $allFactIds = array_merge($allFactIds, array_intersect(pluscities_extract_fact_ids((string) ($item['body'] ?? '')), $validIds));
+            }
+            return ['ok' => true, 'msg' => '', 'content' => ['items' => $json['items']], 'fact_ids' => array_values(array_unique($allFactIds))];
+        }
+    }
+    return ['ok' => false, 'msg' => 'The writer cited a fact it was never given (' . $invented . ') twice in a row — refusing to accept it rather than silently dropping the claim.', 'content' => null, 'fact_ids' => []];
+}
+
+/**
  * Writes the FAQ spine block — a list of {question, answer, fact_ids}, not
  * heading+body, since its schema (FAQPage JSON-LD) needs discrete Q&A pairs.
  * Spec's own spine description: answers in HTML, match schema, at least half
@@ -576,6 +643,18 @@ function pluscities_page_style_css(array $client): string
         . '.pluscities-page section.lpc-alt-0{background:transparent;border:none;box-shadow:none;}'
         . '.pluscities-page section.lpc-alt-1{background:rgba(' . $brandRgbCsv . ',.06);border:none;box-shadow:none;}'
         . '.lpc-alt-0 .lpc-band-inner,.lpc-alt-1 .lpc-band-inner{padding:24px 28px;}'
+        // Whitespace separates grid items, not a border per cell — matches
+        // the fleet's own reference sites, where "why choose us" reads as
+        // columns of plain text, not boxed tiles.
+        . '.lpc-why-choose-us-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:4px;}'
+        . '.lpc-why-choose-us-grid h4{font-size:1.05rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 8px;}'
+        // Qualified with the section class too (not just the grid class), so
+        // this ties-or-beats the generic ".pluscities-page section[class^=
+        // lpc-] p" paragraph rule's own specificity on their one shared
+        // property (margin) — same fix as the Hero specificity bug earlier
+        // this session, applied up front this time instead of after finding
+        // it live.
+        . '.pluscities-page section.lpc-why-choose-us .lpc-why-choose-us-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'
@@ -784,6 +863,23 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
                 . htmlspecialchars(PLUSCITIES_PUBLIC_BASE . $heroImg) . '" alt="' . $heading . '"></div>';
         }
         return $html . '</div></section>';
+    }
+
+    // Why choose us — a 3-4 column grid of short reasons (Tier 2 pilot,
+    // 2026-11-25), matching the fleet's own reference sites instead of one
+    // stacked paragraph. Only renders the grid if this block has actually
+    // been regenerated since the shape changed — a real client's
+    // not-yet-regenerated why_choose_us block is still the OLD {heading,
+    // body} shape in the database, and falls through to the exact same
+    // generic rendering every other editable block uses below, unchanged.
+    if ($block_row['block_type'] === 'why_choose_us' && !empty($content['items'])) {
+        $html = '<section class="lpc-why-choose-us' . $altClass . '"><div class="lpc-band-inner"><h3>Why Choose Us</h3><div class="lpc-why-choose-us-grid">';
+        foreach ($content['items'] as $item) {
+            $itemBody = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($item['body'] ?? ''));
+            $html .= '<div><h4>' . htmlspecialchars((string) ($item['heading'] ?? '')) . '</h4>'
+                . '<p>' . htmlspecialchars($itemBody) . '</p></div>';
+        }
+        return $html . '</div></div></section>';
     }
 
     // Editable blocks: strip [[fact_id]] tags, build the source line from the

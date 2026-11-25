@@ -313,6 +313,22 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
         return ['ok' => true, 'msg' => ''];
     }
 
+    if ($block['block_type'] === 'why_choose_us') {
+        // Tier 2 pilot (2026-11-25): a list of {heading, body} reasons, not
+        // one heading+body — same shape/validation pattern as FAQ above,
+        // "items" instead of "faqs". Same fact-sourcing call every other
+        // editable city block already uses — only the writer and the
+        // returned shape change, not where its facts come from.
+        $facts  = pluscities_fact_card_get_active('city', $block['city_id'], 'why_choose_us');
+        $result = pluscities_write_items_block($facts, $clientFacts, $context);
+        if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
+        $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated", client_grounded = 1 WHERE id = ?')
+           ->execute([json_encode($result['content']), json_encode($result['fact_ids']), $block_id]);
+        pluscities_touch_page($block['page_id']);
+        pluscities_log_event($actor, 'regenerate_block', 'block:' . $block_id, '');
+        return ['ok' => true, 'msg' => ''];
+    }
+
     if ($block['classification'] === 'editable') {
         // hero/overview make no externally-sourced claims (client facts
         // only); permits-style city blocks are grounded in the matching
