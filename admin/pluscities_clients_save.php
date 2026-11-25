@@ -103,7 +103,14 @@ if ($action === 'create') {
             'colors_detected_at' => null,
         ],
         'images'   => [],
-        'hub_content' => ['top_text' => '', 'footer_text' => ''],
+        // Both top_text and footer_text fall back to a runtime default when
+        // blank (pluscities_render_hub_blocks()) — nothing to pre-fill here.
+        'hub_content' => [
+            'top_text'               => '',
+            'footer_text'            => '',
+            'hub_city_format'        => 'simple',
+            'hub_city_format_custom' => '',
+        ],
     ];
     pluscities_atomic_write_json(PLUSCITIES_CLIENTS_DIR . $clientId . '.json', $client);
 

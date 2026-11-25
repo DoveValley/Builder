@@ -294,6 +294,50 @@ function pluscities_render_cta_band(array $client): string
 }
 
 /**
+ * Mirrors what WordPress's wpautop()/wp_kses_post() did for the old hub page's
+ * Top/Bottom text fields, without needing WordPress: a blank line marks a real
+ * paragraph break, a single newline becomes <br>, and a line containing only
+ * "&nbsp;" is a deliberate spacer (real visible height) rather than collapsing
+ * to nothing the way a genuinely blank line does. Runs through
+ * sanitize_rich_html() first since this is admin-typed HTML, same trust level
+ * as the Custom HTML city format.
+ */
+function pluscities_hub_format_text(string $raw): string
+{
+    $raw = trim($raw);
+    if ($raw === '') return '';
+    $clean = sanitize_rich_html($raw);
+
+    $html = '';
+    foreach (preg_split('/\n\s*\n/', $clean) as $chunk) {
+        $chunk = trim($chunk);
+        if ($chunk === '') continue;
+        if (strcasecmp($chunk, '&nbsp;') === 0) {
+            $html .= '<p>&nbsp;</p>';
+        } elseif (preg_match('/^<(h2|h3|ul|ol|blockquote)\b/i', $chunk)) {
+            // Already a block-level element the admin typed on purpose —
+            // don't nest it inside a <p>.
+            $html .= $chunk;
+        } else {
+            $html .= '<p>' . nl2br($chunk) . '</p>';
+        }
+    }
+    return $html;
+}
+
+/**
+ * 10 real spacer lines, blank-line-separated so each becomes its own
+ * <p>&nbsp;</p> under pluscities_hub_format_text(). A genuinely blank footer
+ * has no visible height on the live page, so this is the runtime default for
+ * every client that hasn't typed footer text of its own — not just a
+ * one-time prefill at client creation.
+ */
+function pluscities_hub_default_footer_text(): string
+{
+    return implode("\n\n", array_fill(0, 10, '&nbsp;'));
+}
+
+/**
  * Renders the hub/listing page body: every one of this client's LIVE pages,
  * grouped by city, linking out to each. This is a client-level aggregate (no
  * page_id, no blocks table row of its own) — see project_lpc_to_pluscities_
@@ -305,8 +349,21 @@ function pluscities_render_hub_blocks(array $client, ?array $niche): string
 {
     $hub = $client['hub_content'] ?? [];
     $businessName = (string) ($client['identity']['business_name'] ?? '');
-    $topText    = str_replace('{{business_name}}', $businessName, (string) ($hub['top_text'] ?? ''));
-    $footerText = str_replace('{{business_name}}', $businessName, (string) ($hub['footer_text'] ?? ''));
+    $topTextRaw = trim((string) ($hub['top_text'] ?? ''));
+    // <h2>Service Area</h2> is this page's one and only heading — there's no
+    // separate page-level <h1> (admin/pluscities_sync.php deliberately
+    // doesn't print one), so this default isn't competing with anything.
+    if ($topTextRaw === '') $topTextRaw = "<h2>Service Area</h2>\n\n{{business_name}} proudly serves the following areas:";
+    $topText    = pluscities_hub_format_text(str_replace('{{business_name}}', $businessName, $topTextRaw));
+    $footerTextRaw = trim((string) ($hub['footer_text'] ?? ''));
+    if ($footerTextRaw === '') $footerTextRaw = pluscities_hub_default_footer_text();
+    $footerText = pluscities_hub_format_text(str_replace('{{business_name}}', $businessName, $footerTextRaw));
+    $cityFormat = (string) ($hub['hub_city_format'] ?? 'simple');
+    if (!in_array($cityFormat, ['simple', 'compact', 'detailed', 'custom'], true)) $cityFormat = 'simple';
+    $cityFormatCustom = (string) ($hub['hub_city_format_custom'] ?? '');
+    // Custom with nothing typed falls back to Simple List rather than
+    // rendering an empty per-city block.
+    if ($cityFormat === 'custom' && trim($cityFormatCustom) === '') $cityFormat = 'simple';
 
     $stmt = pluscities_db()->prepare(
         'SELECT * FROM pages WHERE client_id = ? AND status = "live" ORDER BY city_id, service_key'
@@ -325,24 +382,44 @@ function pluscities_render_hub_blocks(array $client, ?array $niche): string
     }
 
     $html = '<section class="lpc-hub">';
-    if ($topText !== '') $html .= '<p class="lpc-hub-intro">' . nl2br(htmlspecialchars($topText)) . '</p>';
+    if ($topText !== '') $html .= '<div class="lpc-hub-intro">' . $topText . '</div>';
 
     if (!$byCity) {
         $html .= '<p class="lpc-hub-empty">Service areas coming soon.</p>';
     } else {
-        $html .= '<div class="lpc-hub-grid">';
+        $html .= $cityFormat === 'compact' ? '<div class="lpc-hub-compact-list">' : '<div class="lpc-hub-grid">';
         foreach ($byCity as $cityId => $cityPages) {
-            $html .= '<div class="lpc-hub-card"><h3>' . htmlspecialchars(pluscities_city_label($cityId)) . '</h3><ul>';
+            $cityLabel = htmlspecialchars(pluscities_city_label($cityId));
+            $links = [];
             foreach ($cityPages as $p) {
                 $label = $serviceLabels[$p['service_key']] ?? $p['service_key'];
-                $html .= '<li><a href="' . htmlspecialchars($p['slug']) . '">' . htmlspecialchars($label) . '</a></li>';
+                $links[] = '<a href="' . htmlspecialchars($p['slug']) . '">' . htmlspecialchars($label) . '</a>';
             }
-            $html .= '</ul></div>';
+            $servicesList = '<ul><li>' . implode('</li><li>', $links) . '</li></ul>';
+
+            switch ($cityFormat) {
+                case 'compact':
+                    $html .= '<div class="lpc-hub-compact-row"><span class="lpc-hub-compact-city">' . $cityLabel
+                        . '</span><span class="lpc-hub-compact-services">' . implode(' &nbsp;&middot;&nbsp; ', $links) . '</span></div>';
+                    break;
+                case 'detailed':
+                    $count = count($cityPages);
+                    $html .= '<div class="lpc-hub-card"><h3>' . $cityLabel . '</h3>'
+                        . '<p class="lpc-hub-card-count">' . $count . ' service' . ($count === 1 ? '' : 's') . ' available</p>'
+                        . $servicesList . '</div>';
+                    break;
+                case 'custom':
+                    $filled = str_replace(['{{city}}', '{{services}}'], [$cityLabel, $servicesList], $cityFormatCustom);
+                    $html .= '<div class="lpc-hub-custom">' . $filled . '</div>';
+                    break;
+                default: // simple
+                    $html .= '<div class="lpc-hub-card"><h3>' . $cityLabel . '</h3>' . $servicesList . '</div>';
+            }
         }
         $html .= '</div>';
     }
 
-    if ($footerText !== '') $html .= '<p class="lpc-hub-footer">' . nl2br(htmlspecialchars($footerText)) . '</p>';
+    if ($footerText !== '') $html .= '<div class="lpc-hub-footer">' . $footerText . '</div>';
     return $html . '</section>';
 }
 
@@ -512,7 +589,25 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             if (empty($link['url']) || empty($link['label'])) continue;
             $links[] = ['url' => $link['url'], 'label' => $link['label'] . ' in This City'];
         }
-        if (!empty($content['service_area_url'])) {
+        // Whether this link shows at all, its URL, and its label are all
+        // decided fresh here from the client's LIVE settings — not from
+        // $content['service_area_url'], which was only ever a snapshot of
+        // url_base_path at generation time. Doing it this way means turning
+        // the Service Area Page on/off, changing its slug, or editing the
+        // pill text all take effect on every already-live page immediately,
+        // with no regenerate/republish step needed.
+        if (!empty($content['service_area_url']) && $client) {
+            $hub = $client['hub_content'] ?? [];
+            $hubEnabled  = $hub['enabled'] ?? true;
+            $pillEnabled = $hub['pill_enabled'] ?? true;
+            if ($hubEnabled && $pillEnabled) {
+                $pillText = trim((string) ($hub['pill_text'] ?? ''));
+                $livePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
+                $links[] = ['url' => $livePath, 'label' => $pillText !== '' ? $pillText : 'All Service Areas'];
+            }
+        } elseif (!empty($content['service_area_url'])) {
+            // No $client in scope (shouldn't happen on a real render — kept
+            // as a safe fallback for any future caller that omits it).
             $links[] = ['url' => $content['service_area_url'], 'label' => 'All Service Areas'];
         }
 

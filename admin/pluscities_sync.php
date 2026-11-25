@@ -186,6 +186,9 @@ if ($action === 'page') {
 }
 
 if ($action === 'hub') {
+    if (!($client['hub_content']['enabled'] ?? true)) {
+        pluscities_sync_fail(404, 'Service area page is disabled.');
+    }
     $niche = pluscities_niche_resolved($client['niche_id']);
     $businessName = $client['identity']['business_name'] ?? '';
     $resolvedColors = pluscities_client_colors($client);
@@ -197,8 +200,10 @@ if ($action === 'hub') {
     // table CSS the hub never uses.
     $style = '<style>'
         . '.pluscities-page{max-width:1000px;margin:0 auto;}'
-        . '.pluscities-page h1{font-size:2.1rem;font-weight:800;color:' . htmlspecialchars($darkColor) . ';line-height:1.2;margin:0 0 14px;}'
+        . '.lpc-hub-intro h2{font-size:1.6rem;font-weight:800;color:' . htmlspecialchars($darkColor) . ';line-height:1.2;margin:0 0 14px;}'
         . '.lpc-hub-intro{line-height:1.65;color:#334155;margin:0 0 20px;}'
+        . '.lpc-hub-intro p,.lpc-hub-footer p{margin:0 0 14px;}'
+        . '.lpc-hub-intro p:last-child,.lpc-hub-footer p:last-child{margin-bottom:0;}'
         . '.lpc-hub-empty{color:#6b7280;font-style:italic;}'
         . '.lpc-hub-grid{display:grid;grid-template-columns:1fr;gap:16px;}'
         . '@media(min-width:720px){.lpc-hub-grid{grid-template-columns:1fr 1fr 1fr;}}'
@@ -207,13 +212,21 @@ if ($action === 'hub') {
         . '.lpc-hub-card ul{list-style:none;margin:0;padding:0;}'
         . '.lpc-hub-card li{margin:0 0 6px;}'
         . '.lpc-hub-card a{color:' . htmlspecialchars($brandColor) . ';font-weight:600;text-decoration:none;}'
+        . '.lpc-hub-card-count{font-size:.78rem;opacity:.7;margin:0 0 8px;}'
+        . '.lpc-hub-compact-list{display:flex;flex-direction:column;}'
+        . '.lpc-hub-compact-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px solid #e5e7eb;}'
+        . '.lpc-hub-compact-city{font-weight:600;}'
+        . '.lpc-hub-compact-services a{color:' . htmlspecialchars($brandColor) . ';font-weight:600;text-decoration:none;margin-right:4px;}'
         . '.lpc-hub-footer{margin-top:24px;color:#52607a;font-size:.9rem;}'
         . '</style>';
 
     $basePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
 
     echo json_encode([
-        'html'  => '<h1>Service Areas</h1>' . pluscities_render_hub_blocks($client, $niche),
+        // No page-level <h1> of its own — the hub's Top Text default
+        // (<h2>Service Area</h2>) is the page's one and only heading, same as
+        // the old system; the plugin's own theme header supplies site chrome.
+        'html'  => pluscities_render_hub_blocks($client, $niche),
         'style' => $style,
         'head'  => [
             'title'            => 'Service Areas | ' . $businessName,

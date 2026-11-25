@@ -21,10 +21,24 @@ if (!pluscities_actor_can_access_client($clientId)) {
 $clients = pluscities_client_ids_for_current_actor();
 $client  = $clients[$clientId];
 
+$cityFormat = (string) ($_POST['hub_city_format'] ?? 'simple');
+if (!in_array($cityFormat, ['simple', 'compact', 'detailed', 'custom'], true)) $cityFormat = 'simple';
+
+// enabled/pill_enabled arrive as '0'/'1' from a hidden+checkbox pair (every
+// form on the page includes both, not just the Page Settings one) so an
+// unchecked box is still distinguishable from "this form didn't touch it" —
+// same ambiguity the city_service_page_settings topics-form bug hit before.
 $client['hub_content'] = [
-    'top_text'    => (string) ($_POST['top_text'] ?? ''),
-    'footer_text' => (string) ($_POST['footer_text'] ?? ''),
+    'top_text'               => (string) ($_POST['top_text'] ?? ''),
+    'footer_text'            => (string) ($_POST['footer_text'] ?? ''),
+    'hub_city_format'        => $cityFormat,
+    'hub_city_format_custom' => (string) ($_POST['hub_city_format_custom'] ?? ''),
+    'enabled'                => ($_POST['enabled'] ?? '1') === '1',
+    'pill_enabled'           => ($_POST['pill_enabled'] ?? '1') === '1',
+    'pill_text'              => (string) ($_POST['pill_text'] ?? ''),
 ];
+
+$client['url_base_path'] = trim((string) ($_POST['url_base_path'] ?? 'service-area')) ?: 'service-area';
 
 // Bump site_rev — same signal pluscities_publish_page()/unpublish_page() use
 // (includes/pluscities_lifecycle.php) to tell the delivery plugin's poll loop

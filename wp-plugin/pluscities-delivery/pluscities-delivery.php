@@ -2,9 +2,11 @@
 /**
  * Plugin Name: PlusCities Delivery
  * Description: Fetches, caches, and places PlusCities-generated pages inside this site's own theme. Does no rendering of its own — see docs/PLUSCITIES_FEATURE_SPEC.md Section 9 ("thin plugin, server renders").
- * Version: 0.3.0 (reports its own version, active theme, and active SEO
- * plugin back to the server on every manifest check-in, so the Platform
- * Admin can see which clients are running an outdated plugin — 2026-11-24)
+ * Version: 0.3.1 (hub cache now clears on a disabled/failed fetch instead of
+ * serving a stale cached copy forever — 2026-11-25; 0.3.0 reports its own
+ * version, active theme, and active SEO plugin back to the server on every
+ * manifest check-in, so the Platform Admin can see which clients are running
+ * an outdated plugin — 2026-11-24)
  *
  * Deliberately a NEW plugin, not a patch to the old "Landing Page Client"
  * plugin — Section 9 changes the plugin's fundamental job from renderer (the
@@ -24,7 +26,7 @@ if (!defined('ABSPATH')) exit;
 // Kept in sync with the "Version:" header above by hand — a real constant so
 // the health check-in below can report it, rather than parsing our own
 // docblock at runtime.
-const PLUSCITIES_DELIVERY_VERSION = '0.3.0';
+const PLUSCITIES_DELIVERY_VERSION = '0.3.1';
 
 // A real option, not a hardcoded constant — this plugin now runs on more than
 // one install (the local test-wordpress site AND a real remote client site),
@@ -352,6 +354,12 @@ function pluscities_delivery_sync_if_needed() {
         $hub = json_decode(wp_remote_retrieve_body($hubResp), true);
         if (is_array($hub) && !empty($hub['html'])) {
             set_transient('pluscities_hub_content', $hub, 0);
+        } else {
+            // The hub page was turned off (or the fetch errored) server-side.
+            // This transient has no TTL (0 = never expires), so without this
+            // the route would keep serving whatever was cached before,
+            // forever — explicitly clear it so the route starts 404ing.
+            delete_transient('pluscities_hub_content');
         }
     }
 

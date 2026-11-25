@@ -29,6 +29,7 @@ foreach ($allClients as $cid => $c) {
 
 $db = pluscities_db();
 $liveCount = 0;
+$cityIds = [];
 $needsAttention = [];
 
 if ($clients) {
@@ -37,6 +38,7 @@ if ($clients) {
     $st->execute(array_keys($clients));
     foreach ($st->fetchAll(PDO::FETCH_ASSOC) as $p) {
         if ($p['status'] === 'live') $liveCount++;
+        $cityIds[$p['city_id']] = true;
 
         $validation = json_decode($p['validation_json'] ?: '{}', true) ?: [];
         $validationCurrent = ($validation['hash_checked_against'] ?? null) === $p['draft_hash'];
@@ -81,6 +83,7 @@ lpc_admin_open('dashboard', 'Dashboard');
 
 <div class="pc-stat-row" style="margin-bottom:16px;">
     <div class="pc-stat-tile"><div class="num"><?= count($clients) ?></div><div class="label">Clients</div></div>
+    <div class="pc-stat-tile"><div class="num"><?= count($cityIds) ?></div><div class="label">Cities</div></div>
     <div class="pc-stat-tile"><div class="num"><?= $liveCount ?></div><div class="label">Live pages</div></div>
     <div class="pc-stat-tile"><div class="num"><?= count($needsAttention) ?></div><div class="label">Needs attention</div></div>
 </div>
