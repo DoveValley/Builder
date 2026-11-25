@@ -72,7 +72,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
     $stmt->execute([$clientId]);
     $liveCities = array_column($stmt->fetchAll(PDO::FETCH_ASSOC), 'city_id');
 
-    $topTextVal    = (string) ($hub['top_text'] ?? '');
+    $topTextVal    = trim((string) ($hub['top_text'] ?? '')) !== '' ? $hub['top_text'] : pluscities_hub_default_top_text();
     $footerTextVal = trim((string) ($hub['footer_text'] ?? '')) !== '' ? $hub['footer_text'] : pluscities_hub_default_footer_text();
     $cityFormat    = $hub['hub_city_format'] ?? 'simple';
     $cityFormatCustomVal = (string) ($hub['hub_city_format_custom'] ?? '');
@@ -191,16 +191,17 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
     <p style="color:var(--pc-muted,#52607a);font-size:.8rem;margin:4px 0 10px;">
         One box for the whole top of the page — type real HTML directly. This page has no heading of its
         own, so put a heading tag around your title to make it bold and sized like a real one
-        (<code>&lt;h2&gt;Service Area&lt;/h2&gt;</code> is the default). Leave a blank line between it and
-        the sentence below for a real paragraph break. Other basic tags work too
+        (<code>&lt;h2&gt;Service Area&lt;/h2&gt;</code> is the default). Leave a blank line between chunks
+        for a real paragraph break, and the same basic tags as Footer Text work here too
         (<code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;a href="..."&gt;</code>,
         <code>&lt;ul&gt;&lt;li&gt;</code>), and <code>{{business_name}}</code> always substitutes the current
-        business name instead of going stale if it's ever renamed. Leave the whole box blank to keep the
-        automatic default shown as its placeholder.
+        business name instead of going stale if it's ever renamed. A plain blank line has no visible height
+        on its own — put <code>&amp;nbsp;</code> on its own line instead if you want real vertical space. A
+        client with no top text of its own starts with the heading plus a spacer line above and below it,
+        already filled in — delete or edit any part of it, same as Footer Text.
     </p>
     <div class="form-group" style="margin-bottom:10px;">
-        <textarea id="pc-hub-top-text" name="top_text" rows="4" style="width:100%;font-family:inherit;font-size:.85rem;"
-                  placeholder="<?= h("<h2>Service Area</h2>\n\n{{business_name}} proudly serves the following areas: (default)") ?>"
+        <textarea id="pc-hub-top-text" name="top_text" rows="6" style="width:100%;font-family:inherit;font-size:.85rem;"
         ><?= h($topTextVal) ?></textarea>
     </div>
 </div>
@@ -320,17 +321,8 @@ function pcHubUpdatePreview() {
     var businessName = <?= json_encode(h($businessName)) ?>;
 
     var topRaw = document.getElementById('pc-hub-top-text').value.trim();
-    if (topRaw) {
-        document.getElementById('pc-hub-preview-top').innerHTML = pcHubFormatText(topRaw.split('{{business_name}}').join(businessName));
-    } else {
-        // Mirrors the real server default exactly (pluscities_render_hub_blocks)
-        // — NOT run through pcHubFormatText, which is for admin-typed content
-        // and would wrap this default heading in a stray <p> it doesn't get on
-        // the live page. Inline-styled here only because this admin preview
-        // panel doesn't load the live site's own stylesheet.
-        document.getElementById('pc-hub-preview-top').innerHTML = '<h2 style="font-size:1.6rem;margin:0 0 10px;">Service Area</h2><p>'
-            + businessName + ' proudly serves the following areas:</p>';
-    }
+    if (!topRaw) topRaw = <?= json_encode(pluscities_hub_default_top_text()) ?>;
+    document.getElementById('pc-hub-preview-top').innerHTML = pcHubFormatText(topRaw.split('{{business_name}}').join(businessName));
 
     var format = document.getElementById('pc-hub-format').value;
     ['simple', 'compact', 'detailed', 'custom'].forEach(function (f) {

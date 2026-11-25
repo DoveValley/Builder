@@ -338,6 +338,26 @@ function pluscities_hub_default_footer_text(): string
 }
 
 /**
+ * <h2>Service Area</h2> is this page's one and only heading — there's no
+ * separate page-level <h1> (admin/pluscities_sync.php deliberately doesn't
+ * print one). A spacer line above and below gives it real breathing room on
+ * the live page without the admin having to add that themselves. Same
+ * runtime-default pattern as pluscities_hub_default_footer_text() — applies
+ * to every client with no top text of its own, pre-filled into the editable
+ * textarea rather than just an invisible fallback, so it's a real starting
+ * point to edit, not a hidden assumption.
+ */
+function pluscities_hub_default_top_text(): string
+{
+    return implode("\n\n", [
+        '&nbsp;',
+        '<h2>Service Area</h2>',
+        '{{business_name}} proudly serves the following areas:',
+        '&nbsp;',
+    ]);
+}
+
+/**
  * Renders the hub/listing page body: every one of this client's LIVE pages,
  * grouped by city, linking out to each. This is a client-level aggregate (no
  * page_id, no blocks table row of its own) — see project_lpc_to_pluscities_
@@ -350,10 +370,7 @@ function pluscities_render_hub_blocks(array $client, ?array $niche): string
     $hub = $client['hub_content'] ?? [];
     $businessName = (string) ($client['identity']['business_name'] ?? '');
     $topTextRaw = trim((string) ($hub['top_text'] ?? ''));
-    // <h2>Service Area</h2> is this page's one and only heading — there's no
-    // separate page-level <h1> (admin/pluscities_sync.php deliberately
-    // doesn't print one), so this default isn't competing with anything.
-    if ($topTextRaw === '') $topTextRaw = "<h2>Service Area</h2>\n\n{{business_name}} proudly serves the following areas:";
+    if ($topTextRaw === '') $topTextRaw = pluscities_hub_default_top_text();
     $topText    = pluscities_hub_format_text(str_replace('{{business_name}}', $businessName, $topTextRaw));
     $footerTextRaw = trim((string) ($hub['footer_text'] ?? ''));
     if ($footerTextRaw === '') $footerTextRaw = pluscities_hub_default_footer_text();
