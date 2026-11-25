@@ -31,7 +31,15 @@ if ($action === 'start') {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: clients.php'); exit; }
 
     if (lpc_is_impersonating()) {
-        header('Location: clients.php?msg=error:Already+impersonating+-+return+to+your+own+account+first');
+        // Real bug, reproduced live 2026-11-25: `clients.php` forwards to
+        // `pluscities_clients.php`, which explicitly excludes `end_client` —
+        // an end_client impersonator landed there, got bounced to login.php,
+        // which (still admin_logged_in) bounced to index.php, a
+        // super_admin-only Site Factory page — surfacing as an unrelated
+        // "Forbidden: platform-operator access only" instead of a sane
+        // message. Route by the CURRENTLY impersonated role instead.
+        $landing = lpc_current_actor_role() === 'end_client' ? 'client_portal.php' : 'pluscities_clients.php';
+        header('Location: ' . $landing . '?msg=error:Already+impersonating+-+return+to+your+own+account+first');
         exit;
     }
 

@@ -44,6 +44,15 @@ $statusLabels = ['draft' => 'Draft', 'approved' => 'Approved — not live yet', 
 $statusPillClass = ['draft' => 'pc-status-pill-draft', 'approved' => 'pc-status-pill-approved', 'live' => 'pc-status-pill-live', 'unpublished' => 'pc-status-pill-unpublished'];
 
 $businessName = $client['identity']['business_name'] ?? $clientId;
+
+$alert = null;
+if (!empty($_GET['msg'])) {
+    $raw = $_GET['msg'];
+    if (strpos($raw, ':') !== false) {
+        [$type, $text] = explode(':', $raw, 2);
+        if (in_array($type, ['success', 'error', 'warning'], true)) $alert = ['type' => $type, 'text' => $text];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,6 +80,8 @@ $businessName = $client['identity']['business_name'] ?? $clientId;
 .pc-view-link{font-size:.8rem;font-weight:600;color:var(--pc-accent,#1e40af);text-decoration:none;}
 .pc-view-link:hover{text-decoration:underline;}
 </style>
+
+<?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
 
 <div class="pc-card">
     <h3 style="margin-top:0;"><?= h($businessName) ?></h3>
