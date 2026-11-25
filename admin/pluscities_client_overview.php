@@ -82,6 +82,10 @@ lpc_admin_open('pluscities_clients', 'Overview');
     $isSuperAdmin = lpc_current_actor_role() === 'super_admin';
     $isCanceled  = ($client['status'] ?? 'active') === 'canceled';
     $isSuspended = !empty($client['site_suspended']);
+    $domain      = trim((string) ($client['domain'] ?? ''));
+    $hubEnabled  = $client['hub_content']['enabled'] ?? true;
+    $urlBasePath = (string) ($client['url_base_path'] ?? 'service-area');
+    $serviceAreaUrl = 'https://' . $domain . '/' . trim($urlBasePath, '/') . '/';
 ?>
 <div class="pc-card">
     <h3 style="margin-top:0;">
@@ -89,7 +93,18 @@ lpc_admin_open('pluscities_clients', 'Overview');
         <span class="pc-site-badge <?= $siteBadgeClass ?>" title="<?= h($siteCheck['error'] ?: ('HTTP ' . $siteCheck['code'])) ?>"><?= h($siteBadgeText) ?></span>
     </h3>
     <div style="font-size:.84rem;color:var(--pc-muted,#52607a);">
-        <?= h($client['domain']) ?> &middot; <?= h($client['niche_id']) ?> &middot; <?= (int) count($client['target_cities'] ?? []) ?> cit(y/ies)
+        <?php if ($domain !== ''): ?>
+            <a href="https://<?= h($domain) ?>" target="_blank" rel="noopener"><?= h($domain) ?></a>
+            &middot;
+            <?php if ($hubEnabled): ?>
+                <a href="<?= h($serviceAreaUrl) ?>" target="_blank" rel="noopener">Service Area Page &#8599;</a>
+            <?php else: ?>
+                <em>Service Area Page (disabled)</em>
+            <?php endif; ?>
+        <?php else: ?>
+            <em>No domain set</em>
+        <?php endif; ?>
+        &middot; <?= h($client['niche_id']) ?> &middot; <?= (int) count($client['target_cities'] ?? []) ?> cit(y/ies)
         &middot; Client approval: <?= !empty($client['requires_client_approval']) ? '<strong>On</strong>' : 'Off' ?>
         <?php if ($isCanceled):
             $daysLeft = $graceDays - (int) floor((time() - strtotime($client['canceled_at'])) / 86400);
