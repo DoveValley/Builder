@@ -172,8 +172,11 @@ function lpc_admin_nav_items(): array {
     // pluscities_page.php's block-level detail view.
     $items[] = ['key' => 'pluscities_pages', 'href' => 'pluscities_pages.php',
         'label' => 'PlusCities Pages', 'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>'];
-    $items[] = ['key' => 'pluscities_photos', 'href' => 'pluscities_photos.php', 'label' => 'Photos',
-        'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>'];
+    // Photos deliberately has no top-level sidebar entry (removed 2026-11-25)
+    // — with no client selected it only ever showed a "choose a client"
+    // picker, so it was a pure duplicate of Clients -> pick a client ->
+    // Photos tab (pluscities_client_subtabs() below), never a real
+    // agency-wide view the way Pages' bulk-action table is.
 
     if ($role === 'agency_admin') {
         $items[] = ['key' => 'branding', 'href' => 'agency_branding.php', 'label' => 'My Branding',
