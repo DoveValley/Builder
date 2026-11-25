@@ -81,6 +81,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
     $pillTextVal   = (string) ($hub['pill_text'] ?? '');
     $urlBasePath   = (string) ($client['url_base_path'] ?? 'service-area');
     $liveUrl       = 'https://' . trim((string) ($client['domain'] ?? '')) . '/' . trim($urlBasePath, '/') . '/';
+    pluscities_client_subtabs($clientId, 'hub_edit');
 ?>
 <form method="post" action="pluscities_hub_edit_save.php">
 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">

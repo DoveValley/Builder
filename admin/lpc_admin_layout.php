@@ -278,6 +278,35 @@ function lpc_admin_open(string $activeKey, string $title, string $actionsHtml = 
     <?php
 }
 
+/**
+ * Per-client sub-tab bar, reusing the `.pcadmin-subtabs` CSS rule that's
+ * existed since this file was written for the old (now-deleted) client.php/
+ * page_editor.php's own tab row but had no PlusCities-native caller until
+ * 2026-11-25 — every PlusCities client-scoped screen was its own separate
+ * full page with no shared navigation between them, which is what pushed
+ * every action onto pluscities_clients.php's list row as inline buttons
+ * instead. "Download Plugin" is deliberately NOT a tab here — it's a direct
+ * file download, not a page, and it's actually agency-scoped (one branded
+ * ZIP per agency, not per client) despite living on the per-client list row
+ * historically; it stays a plain action link on the Overview tab instead.
+ */
+function pluscities_client_subtabs(string $clientId, string $activeKey): void {
+    $tabs = [
+        'overview'    => ['pluscities_client_overview.php', 'Overview'],
+        'photos'      => ['pluscities_photos.php', 'Photos'],
+        'pages'       => ['pluscities_pages.php', 'Pages'],
+        'page_add'    => ['pluscities_page_add.php', '+ Add Page'],
+        'hub_edit'    => ['pluscities_hub_edit.php', 'Service Area Page'],
+        'page_styling'=> ['pluscities_page_styling.php', 'Page Styling'],
+    ];
+    echo '<div class="pcadmin-subtabs">';
+    foreach ($tabs as $key => [$href, $label]) {
+        $class = $key === $activeKey ? ' class="active"' : '';
+        echo '<a href="' . h($href) . '?client_id=' . h($clientId) . '"' . $class . '>' . h($label) . '</a>';
+    }
+    echo '</div>';
+}
+
 function lpc_admin_close(): void {
     ?>
     </div>

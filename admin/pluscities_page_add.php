@@ -80,6 +80,7 @@ lpc_admin_open('pluscities_clients', 'Add Page');
         }
     }
 ?>
+<?php pluscities_client_subtabs($clientId, 'page_add'); ?>
 <div class="pc-card">
     <h3 style="margin-top:0;">Add Page — <?= h($client['identity']['business_name'] ?? $clientId) ?></h3>
     <p style="color:var(--pc-muted,#52607a);font-size:.84rem;">Niche: <?= h($client['niche_id']) ?></p>

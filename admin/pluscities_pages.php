@@ -50,6 +50,18 @@ $clients = [];
 foreach ($allClients as $cid => $c) {
     if (pluscities_actor_can_access_client($cid)) $clients[$cid] = $c;
 }
+
+// Optional single-client view, reached via the per-client sub-tab bar
+// (pluscities_client_subtabs() in lpc_admin_layout.php) — narrows the SQL
+// query itself, not just what's displayed, same principle the agency-level
+// scoping above already uses. Absent entirely, behaves exactly as before
+// (every page across every accessible client).
+$clientIdFilter = trim((string) ($_GET['client_id'] ?? ''));
+if ($clientIdFilter !== '') {
+    $clients = isset($clients[$clientIdFilter]) ? [$clientIdFilter => $clients[$clientIdFilter]] : [];
+}
+$filterClient = $clientIdFilter !== '' && isset($clients[$clientIdFilter]) ? $clients[$clientIdFilter] : null;
+
 $db = pluscities_db();
 
 $rows = [];
@@ -119,14 +131,14 @@ if ($filterCity !== '' || $filterService !== '') {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PlusCities Pages — PlusCities</title>
+<title><?= $filterClient ? h('Pages — ' . ($filterClient['identity']['business_name'] ?? $clientIdFilter)) : 'PlusCities Pages — PlusCities' ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
 <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
 <?php lpc_admin_head_assets(); ?>
 </head>
 <?php
-lpc_admin_open('pluscities_pages', 'PlusCities Pages');
+lpc_admin_open($filterClient ? 'pluscities_clients' : 'pluscities_pages', $filterClient ? 'Pages' : 'PlusCities Pages');
 ?>
 <style>
 .pc-pages-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--pc-line,#e2e8f2);border-radius:14px;overflow:hidden;}
@@ -151,6 +163,8 @@ lpc_admin_open('pluscities_pages', 'PlusCities Pages');
 
 <?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
 
+<?php if ($filterClient): pluscities_client_subtabs($clientIdFilter, 'pages'); endif; ?>
+
 <?php
 // Plugin download — per-agency branded copy (spec Section 14: the client's
 // own WP admin must show the agency's name, never "PlusCities"). Agency
@@ -167,6 +181,7 @@ if ($downloadAgencyId): ?>
 <?php else: ?>
 
 <form method="get" action="pluscities_pages.php" class="pc-bulk-bar" style="margin-bottom:10px;">
+    <input type="hidden" name="client_id" value="<?= h($clientIdFilter) ?>">
     <label style="font-size:.8rem;">City
         <select name="city" onchange="this.form.submit()">
             <option value="">All cities</option>
@@ -184,12 +199,12 @@ if ($downloadAgencyId): ?>
         </select>
     </label>
     <?php if ($filterCity !== '' || $filterService !== ''): ?>
-        <a href="pluscities_pages.php" style="font-size:.8rem;">Clear filter</a>
+        <a href="pluscities_pages.php<?= $clientIdFilter !== '' ? '?client_id=' . h($clientIdFilter) : '' ?>" style="font-size:.8rem;">Clear filter</a>
     <?php endif; ?>
 </form>
 
 <?php if (!$rows): ?>
-    <div class="lpc-empty"><h2>No pages match this filter</h2><p><a href="pluscities_pages.php">Clear the filter</a> to see all pages.</p></div>
+    <div class="lpc-empty"><h2>No pages match this filter</h2><p><a href="pluscities_pages.php<?= $clientIdFilter !== '' ? '?client_id=' . h($clientIdFilter) : '' ?>">Clear the filter</a> to see all pages.</p></div>
 <?php else: ?>
 
 <form method="post" action="pluscities_pages_save.php" id="pc-pages-form">

@@ -124,6 +124,7 @@ lpc_admin_open('pluscities_clients', 'Page Styling');
         . '<style>body{margin:0;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}</style>'
         . '</head><body><div class="pluscities-page">' . $previewHtml . '</div></body></html>';
 ?>
+<?php pluscities_client_subtabs($clientId, 'page_styling'); ?>
 <div class="pc-card">
     <h3 style="margin-top:0;">Page Styling — <?= h($client['identity']['business_name'] ?? $clientId) ?></h3>
     <p style="color:var(--pc-muted,#52607a);font-size:.84rem;">

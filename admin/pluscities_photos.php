@@ -61,7 +61,7 @@ if (!empty($_GET['msg'])) {
 <?php lpc_admin_head_assets(); ?>
 </head>
 <?php
-lpc_admin_open('pluscities_photos', 'Photos');
+lpc_admin_open($client ? 'pluscities_clients' : 'pluscities_photos', 'Photos');
 ?>
 <style>
 .pc-card{background:#fff;border:1px solid var(--pc-line,#e2e8f2);border-radius:14px;padding:18px 20px;margin-bottom:16px;}
@@ -92,6 +92,7 @@ lpc_admin_open('pluscities_photos', 'Photos');
 <?php else:
     $niche = pluscities_niche_resolved($client['niche_id']);
     $slots = $niche['image_slots'] ?? [];
+    pluscities_client_subtabs($clientId, 'photos');
 ?>
 
 <?php if (count($clients) > 1): ?>

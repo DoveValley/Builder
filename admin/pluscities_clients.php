@@ -100,6 +100,8 @@ lpc_admin_open('pluscities_clients', 'Clients');
 .pc-site-badge-live{background:#dcfce7;color:#166534;}
 .pc-site-badge-warn{background:#fef3c7;color:#92400e;}
 .pc-site-badge-down{background:#fee2e2;color:#991b1b;}
+.pc-client-name{font-weight:700;color:var(--pc-ink,#1c2b45);text-decoration:none;font-size:.95rem;}
+.pc-client-name:hover{color:var(--pc-lime-ink,#3d6b0e);text-decoration:underline;}
 </style>
 
 <?php if ($alert): ?><div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div><?php endif; ?>
@@ -109,7 +111,7 @@ lpc_admin_open('pluscities_clients', 'Clients');
     <?php foreach ($clients as $cid => $c): ?>
         <div class="pc-row">
             <div>
-                <strong><?= h($c['identity']['business_name'] ?? $cid) ?></strong>
+                <a href="pluscities_client_overview.php?client_id=<?= h($cid) ?>" class="pc-client-name"><?= h($c['identity']['business_name'] ?? $cid) ?></a>
                 <?php
                 $siteCheck = infra_site_check($c['domain'] ?? '');
                 if (!empty($siteCheck['up']) && !empty($siteCheck['cert_ok'])) {
@@ -147,43 +149,8 @@ lpc_admin_open('pluscities_clients', 'Clients');
                 <div style="font-size:.76rem;color:var(--pc-muted,#52607a);margin-top:2px;">Plugin never synced yet</div>
                 <?php endif; ?>
             </div>
-            <div style="display:flex;gap:8px;">
-                <a href="pluscities_photos.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Photos</a>
-                <a href="pluscities_pages.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Pages</a>
-                <a href="pluscities_page_add.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">+ Add Page</a>
-                <a href="pluscities_hub_edit.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Service Area Page</a>
-                <a href="pluscities_page_styling.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Page Styling</a>
-                <a href="pluscities_plugin_download.php?client_id=<?= h($cid) ?>" class="btn-sm-outline">Download Plugin</a>
-                <?php if (in_array(lpc_current_actor_role(), ['super_admin', 'agency_admin'], true)): ?>
-                <form method="post" action="impersonate.php" style="margin:0;">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                    <input type="hidden" name="action" value="start">
-                    <input type="hidden" name="type" value="client">
-                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
-                    <button type="submit" class="btn-sm-outline">Log in as</button>
-                </form>
-                <form method="post" action="pluscities_clients_save.php" style="margin:0;">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                    <input type="hidden" name="action" value="toggle_client_approval">
-                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
-                    <button type="submit" class="btn-sm-outline"><?= !empty($c['requires_client_approval']) ? 'Turn Off' : 'Turn On' ?> Client Approval</button>
-                </form>
-                <?php $isCanceled = ($c['status'] ?? 'active') === 'canceled'; ?>
-                <form method="post" action="pluscities_clients_save.php" style="margin:0;" onsubmit="return confirm('<?= $isCanceled ? 'Reactivate this client? Their pages will stop redirecting and serve normally again.' : 'Cancel this client? After the ' . $graceDays . '-day grace period, all their pages will redirect to their own homepage instead of serving content.' ?>');">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                    <input type="hidden" name="action" value="<?= $isCanceled ? 'reactivate' : 'cancel' ?>">
-                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
-                    <button type="submit" class="<?= $isCanceled ? 'btn-sm-outline' : 'btn-sm-danger' ?>"><?= $isCanceled ? 'Reactivate' : 'Cancel Client' ?></button>
-                </form>
-                <?php endif; ?>
-                <?php if (lpc_current_actor_role() === 'super_admin'): $isSuspended = !empty($c['site_suspended']); ?>
-                <form method="post" action="pluscities_clients_save.php" style="margin:0;" onsubmit="return confirm('<?= $isSuspended ? 'Un-suspend this site? Pages stay unpublished until manually republished from the Pages screen.' : 'Suspend this site immediately? Every live page for this client is unpublished right away, no grace period.' ?>');">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                    <input type="hidden" name="action" value="<?= $isSuspended ? 'unsuspend_site' : 'suspend_site' ?>">
-                    <input type="hidden" name="client_id" value="<?= h($cid) ?>">
-                    <button type="submit" class="<?= $isSuspended ? 'btn-sm-outline' : 'btn-sm-danger' ?>"><?= $isSuspended ? 'Un-suspend Site' : 'Suspend Site' ?></button>
-                </form>
-                <?php endif; ?>
+            <div>
+                <a href="pluscities_client_overview.php?client_id=<?= h($cid) ?>" class="btn-open">Open &rarr;</a>
             </div>
         </div>
     <?php endforeach; ?>
