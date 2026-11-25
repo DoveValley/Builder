@@ -273,11 +273,11 @@ function pluscities_write_niche_data_table_block(array $niche): array
  */
 function pluscities_render_trust_bar(array $items): string
 {
-    $html = '<div class="lpc-trust-bar"><ul>';
+    $html = '<div class="lpc-trust-bar lpc-fullbleed"><div class="lpc-band-inner"><ul>';
     foreach ($items as $item) {
         $html .= '<li>&#10003; ' . htmlspecialchars($item) . '</li>';
     }
-    return $html . '</ul></div>';
+    return $html . '</ul></div></div>';
 }
 
 /** Mid-page CTA band — solid dark band, bold headline, pill-shaped call
@@ -289,8 +289,8 @@ function pluscities_render_cta_band(array $client): string
     $phone    = $client['identity']['hubs'][0]['phone'] ?? '';
     if ($phone === '') return '';
     $telHref  = preg_replace('/[^0-9+]/', '', $phone);
-    return '<section class="lpc-cta-band"><h2>Need ' . $business . '? Get fast, professional help.</h2>'
-        . '<a class="lpc-cta-band-button" href="tel:' . htmlspecialchars($telHref) . '">Call Now &mdash; ' . htmlspecialchars($phone) . '</a></section>';
+    return '<section class="lpc-cta-band lpc-fullbleed"><div class="lpc-band-inner"><h2>Need ' . $business . '? Get fast, professional help.</h2>'
+        . '<a class="lpc-cta-band-button" href="tel:' . htmlspecialchars($telHref) . '">Call Now &mdash; ' . htmlspecialchars($phone) . '</a></div></section>';
 }
 
 /**
@@ -485,7 +485,15 @@ function pluscities_page_style_css(array $client): string
     // reads as "this client's brand" (same reasoning as the Hero overlay).
     $brandRgb = sscanf(ltrim($brandColor, '#'), '%02x%02x%02x') ?: [20, 32, 178];
     $brandRgbCsv = implode(',', array_map('intval', $brandRgb));
-    return '<style>.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:' . htmlspecialchars($darkColor) . ';}'
+    return '<style>'
+        // Safety net for the full-bleed bands below: breaking an element out
+        // to 100vw can overflow by a few pixels on some browsers (100vw
+        // includes the scrollbar's own width, a well-known quirk) — hidden
+        // horizontal overflow at the body level is harmless and standard
+        // practice, whereas overflow-x:hidden on .pluscities-page itself
+        // would clip the intentional breakout and defeat the whole feature.
+        . 'body{overflow-x:hidden;}'
+        . '.lpc-' . htmlspecialchars($client['class_prefix']) . '{color:' . htmlspecialchars($darkColor) . ';}'
         . '.lpc-breadcrumbs{font-size:.82rem;color:#52607a;margin:0 0 14px;}'
         . '.lpc-breadcrumbs a{color:#52607a;}'
         . '.lpc-hero-photo{width:100%;max-width:100%;height:auto;border-radius:10px;display:block;}'
@@ -516,7 +524,33 @@ function pluscities_page_style_css(array $client): string
         . '.lpc-hero-media{flex:1 1 360px;}'
         . '.lpc-cta-button{display:inline-block;background:' . htmlspecialchars($brandColor) . ';color:#fff;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:8px;margin-top:8px;}'
         . '.pluscities-page h1{font-size:2.1rem;font-weight:800;color:' . htmlspecialchars($darkColor) . ';line-height:1.2;margin:0 0 14px;}'
-        . '.lpc-trust-bar{background:' . htmlspecialchars($darkColor) . ';border-radius:12px;margin:0 0 20px;padding:18px 24px;}'
+        // Bleeds edge-to-edge (Scott's call, 2026-11-25 — matches the fleet's
+        // own reference sites, where every band-style section runs full
+        // browser width, not just text blocks) via the classic breakout:
+        // left:50%/margin-left:-50vw re-centers a 100vw-wide box regardless
+        // of how deep it sits inside the client's real WP theme markup,
+        // without needing to know that theme's container width. padding/
+        // border-radius are forced to 0 with !important so this utility
+        // always wins regardless of how a specific band's own rule orders
+        // relative to it — the lesson from the Hero specificity bug earlier
+        // this session, applied up front instead of after finding the bug
+        // live. The actual visual padding/max-width lives on the inner
+        // ".lpc-band-inner" wrapper instead, one level in.
+        // Confirmed broken on the real live theme (not just caught in
+        // preview this time): "position:relative;left:50%;margin-left:-50vw"
+        // mixes two different reference frames — "left" resolves against the
+        // PARENT's width, "-50vw" against the true viewport width. Those only
+        // agree when the parent happens to BE the viewport's full width;
+        // Meade's real theme content column is narrower, so the band rendered
+        // shifted right with text overflowing off-screen. Margin-only
+        // (calc(50% - 50vw) on both sides, no position/left/right at all)
+        // keeps every value in ONE consistent frame — percentages here and
+        // vw there are combined inside the same calc() per side instead of
+        // fighting each other as two separate properties.
+        . '.pluscities-page .lpc-fullbleed{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-radius:0 !important;padding:0 !important;}'
+        . '.lpc-band-inner{max-width:1000px;margin:0 auto;}'
+        . '.lpc-trust-bar .lpc-band-inner{padding:18px 24px;}'
+        . '.lpc-trust-bar{background:' . htmlspecialchars($darkColor) . ';margin:0 0 20px;}'
         . '.lpc-trust-bar ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:center;}'
         . '.lpc-trust-bar li{color:#fff;font-weight:600;font-size:.92rem;white-space:nowrap;}'
         . '.pluscities-page section[class^="lpc-"] h2,.pluscities-page section[class^="lpc-"] h3{font-size:1.25rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid ' . htmlspecialchars($brandColor) . ';display:inline-block;}'
@@ -540,7 +574,8 @@ function pluscities_page_style_css(array $client): string
         // bar/FAQ/CTA band/Service area already have their own more-specific
         // rules above and are untouched by this.
         . '.pluscities-page section.lpc-alt-0{background:transparent;border:none;box-shadow:none;}'
-        . '.pluscities-page section.lpc-alt-1{background:rgba(' . $brandRgbCsv . ',.06);border:none;box-shadow:none;border-radius:14px;}'
+        . '.pluscities-page section.lpc-alt-1{background:rgba(' . $brandRgbCsv . ',.06);border:none;box-shadow:none;}'
+        . '.lpc-alt-0 .lpc-band-inner,.lpc-alt-1 .lpc-band-inner{padding:24px 28px;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'
@@ -550,11 +585,13 @@ function pluscities_page_style_css(array $client): string
         . '.pluscities-page .lpc-faq-item[open] summary::before{content:"\\2212";}'
         . '.pluscities-page .lpc-faq-item p{margin:10px 0 0 32px;}'
         . '.pluscities-page section.lpc-service-area{background:' . htmlspecialchars($brandColor) . ';text-align:center;}'
+        . '.lpc-service-area .lpc-band-inner{padding:24px 28px;}'
         . '.pluscities-page section.lpc-service-area h2{color:#fff;border-bottom:none;padding-bottom:0;}'
         . '.pluscities-page section.lpc-service-area p{color:#fff;opacity:.9;}'
         . '.lpc-service-area-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px;}'
         . '.lpc-service-area-links a{background:#fff;color:' . htmlspecialchars($brandColor) . ';font-weight:700;text-decoration:none;padding:10px 20px;border-radius:999px;font-size:.9rem;}'
-        . '.pluscities-page section.lpc-cta-band{background:' . htmlspecialchars($darkColor) . ';text-align:center;padding:36px 28px;}'
+        . '.pluscities-page section.lpc-cta-band{background:' . htmlspecialchars($darkColor) . ';text-align:center;}'
+        . '.lpc-cta-band .lpc-band-inner{padding:36px 28px;}'
         . '.pluscities-page section.lpc-cta-band h2{color:#fff;border-bottom:none;padding-bottom:0;font-size:1.5rem;}'
         . '.lpc-cta-band-button{display:inline-block;background:transparent;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:999px;margin-top:8px;}'
         . '.pluscities-page table{width:100%;border-collapse:collapse;margin-top:4px;}'
@@ -577,21 +614,21 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
     // real page in sequence passes its own running position; any caller that
     // doesn't care (single-block previews, diffs) gets the default 0, same
     // look every time, no regression.
-    $altClass = ' lpc-alt-' . ($altIndex % 2);
+    $altClass = ' lpc-alt-' . ($altIndex % 2) . ' lpc-fullbleed';
     $content = json_decode($block_row['content_json'], true) ?: [];
     $factIds = json_decode($block_row['fact_ids'], true) ?: [];
 
     if ($block_row['block_type'] === 'reviews_from_city') {
-        $html = '<section class="lpc-reviews' . $altClass . '"><h3>What Clients Are Saying</h3>';
+        $html = '<section class="lpc-reviews' . $altClass . '"><div class="lpc-band-inner"><h3>What Clients Are Saying</h3>';
         foreach ($content['reviews'] ?? [] as $rev) {
             $html .= '<blockquote>"' . htmlspecialchars($rev['text']) . '" &mdash; '
                 . htmlspecialchars($rev['author']) . ' (' . (int) $rev['rating'] . '/5)</blockquote>';
         }
-        return $html . '</section>';
+        return $html . '</div></section>';
     }
 
     if ($block_row['block_type'] === 'niche_data_table') {
-        $html = '<section class="lpc-niche-data-table' . $altClass . '">';
+        $html = '<section class="lpc-niche-data-table' . $altClass . '"><div class="lpc-band-inner">';
         if (!empty($content['title'])) $html .= '<h3>' . htmlspecialchars($content['title']) . '</h3>';
         $html .= '<table><thead><tr>';
         foreach ($content['columns'] ?? [] as $col) $html .= '<th>' . htmlspecialchars($col) . '</th>';
@@ -601,7 +638,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             foreach ($row as $cell) $html .= '<td>' . htmlspecialchars($cell) . '</td>';
             $html .= '</tr>';
         }
-        return $html . '</tbody></table></section>';
+        return $html . '</tbody></table></div></section>';
     }
 
     if ($block_row['block_type'] === 'housing_stock') {
@@ -614,7 +651,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             'year_built_median' => 'Median year homes were built',
             'homeownership_pct' => 'Homeownership rate',
         ];
-        $html = '<section class="lpc-housing-stock' . $altClass . '"><h3>Local Housing Stock</h3>';
+        $html = '<section class="lpc-housing-stock' . $altClass . '"><div class="lpc-band-inner"><h3>Local Housing Stock</h3>';
         if (!empty($content['intro'])) $html .= '<p>' . htmlspecialchars($content['intro']) . '</p>';
         $html .= '<ul>';
         foreach ($content['dataset_values'] ?? [] as $k => $v) {
@@ -624,7 +661,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
                 : ($k === 'homeownership_pct' ? number_format((float) $v, 1) . '%' : (string) $v);
             $html .= '<li>' . htmlspecialchars($label) . ': ' . htmlspecialchars($display) . '</li>';
         }
-        return $html . '</ul><p class="lpc-source">Source: US Census ACS 5-Year Estimates</p></section>';
+        return $html . '</ul><p class="lpc-source">Source: US Census ACS 5-Year Estimates</p></div></section>';
     }
 
     if ($block_row['block_type'] === 'faq') {
@@ -683,7 +720,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             $links[] = ['url' => $content['service_area_url'], 'label' => 'All Service Areas'];
         }
 
-        $html = '<section class="lpc-service-area"><h2>Related Services</h2>';
+        $html = '<section class="lpc-service-area lpc-fullbleed"><div class="lpc-band-inner"><h2>Related Services</h2>';
         if (!empty($content['hub_address'])) {
             $html .= '<p>Serving this area' . (!empty($content['drive_minutes']) ? ' — about ' . (int) $content['drive_minutes'] . ' min from our ' . htmlspecialchars($content['hub_address']) . ' location' : '') . '.</p>';
         }
@@ -694,7 +731,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             }
             $html .= '</div>';
         }
-        return $html . '</section>';
+        return $html . '</div></section>';
     }
 
     // Hero — a real two-column layout (text left, photo right), matching
@@ -752,7 +789,7 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
     // Editable blocks: strip [[fact_id]] tags, build the source line from the
     // cards actually cited.
     $body = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($content['body'] ?? ''));
-    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . $altClass . '">';
+    $html = '<section class="lpc-' . htmlspecialchars($block_row['block_type']) . $altClass . '"><div class="lpc-band-inner">';
     $html .= '<h3>' . htmlspecialchars((string) ($content['heading'] ?? '')) . '</h3>'
         . '<p>' . htmlspecialchars($body) . '</p>';
     if ($factIds) {
@@ -774,5 +811,5 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             $html .= implode(', ', $parts) . '</p>';
         }
     }
-    return $html . '</section>';
+    return $html . '</div></section>';
 }
