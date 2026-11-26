@@ -1,0 +1,36 @@
+{
+  "id": "avg_temp_monthly",
+  "name": "Average temperature by month",
+  "type": "bars",
+  "data_key": "avg_temp_monthly",
+  "source_key": "avg_temp_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "°F",
+  "title": "Average temperature by month in {city}, {SS}",
+  "alt": "Chart of the average temperature each month in {city}, {SS}, in degrees Fahrenheit. {summary}",
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-TAVG-NORMAL"
+  },
+  "captions": [
+    "{city} swings from {low_value} in {low} to {peak_value} in {peak} across the year. That range is what drives the two ends of water damage season: hard freezes crack supply lines in the cold months, and warm, humid stretches are when a slow leak turns into mould.",
+    "Average temperatures in {city}, {SS} run from {low_value} in {low} up to {peak_value} in {peak}. Pipes, seals and foundations all expand and contract with that swing, and it is the swing itself, not just the extremes, that works materials loose over time.",
+    "{city} sees a yearly range from {low_value} to {peak_value}, coldest in {low} and warmest in {peak}. Knowing where a given month sits on that curve is a quick way to judge whether a water issue is more likely freeze-related or humidity-related."
+  ],
+  "groups": [
+    "seasonal"
+  ]
+}

@@ -377,32 +377,26 @@ function pluscities_climate_chart_svg(string $title, array $series, array $def):
 }
 
 /**
- * Generates (or refreshes) one city's climate chart for one niche and
- * caches it. Called from pluscities_create_page() and a one-time backfill —
- * NEVER from the public sync endpoint. Graceful no-op (same "no data means
- * no image" rule as everywhere else) if: the niche has no climate_chart_id
- * configured, the old chart definition is missing, NOAA has no station data
- * for this city, or there's no SVG converter on this box.
+ * Generates (or refreshes) ONE specific chart for one city. Internal helper
+ * — pluscities_ensure_climate_chart() loops this over every chart_id a
+ * niche configures, so a niche can carry more than one climate chart (e.g.
+ * a rainfall comparison AND a monthly temperature curve) sharing the same
+ * already-fetched NOAA dataset.
  *
  * @return array{ok:bool,drawn:bool}
  */
-function pluscities_ensure_climate_chart(string $city_id, string $niche_id, bool $force = false): array
+function pluscities_ensure_one_climate_chart(string $city_id, string $old_slug, string $chart_id, bool $force): array
 {
-    $oldSlug = PLUSCITIES_CLIMATE_CHART_NICHE_SLUGS[$niche_id] ?? null;
-    if (!$oldSlug) return ['ok' => false, 'drawn' => false];
-
-    $niche = pluscities_niche_resolved($niche_id);
-    $chartId = trim((string) ($niche['climate_chart_id'] ?? ''));
-    if ($chartId === '' || !preg_match('/^[a-z][a-z0-9_]*$/', $chartId)) return ['ok' => false, 'drawn' => false];
+    if (!preg_match('/^[a-z][a-z0-9_]*$/', $chart_id)) return ['ok' => false, 'drawn' => false];
 
     $city = infra_city_get($city_id);
     if (!$city) return ['ok' => false, 'drawn' => false];
 
-    $defPath = BASE_DIR . "/plugins/image-data-chart/niches/{$oldSlug}/{$chartId}.json";
+    $defPath = BASE_DIR . "/plugins/image-data-chart/niches/{$old_slug}/{$chart_id}.json";
     $def = json_decode((string) @file_get_contents($defPath), true);
     if (!is_array($def)) return ['ok' => false, 'drawn' => false];
 
-    $dataset = pluscities_dataset_get($city_id, 'noaa_climate:' . $oldSlug);
+    $dataset = pluscities_dataset_get($city_id, 'noaa_climate:' . $old_slug, $force);
     if (!$dataset) return ['ok' => false, 'drawn' => false];
 
     // charts.php's pure functions expect one flat row (city/SS/state plus
@@ -426,7 +420,7 @@ function pluscities_ensure_climate_chart(string $city_id, string $niche_id, bool
     $svg = pluscities_climate_chart_svg($title, $series, $def);
     if ($svg === '') return ['ok' => false, 'drawn' => false];
 
-    $p = pluscities_climate_chart_paths($city_id, $chartId);
+    $p = pluscities_climate_chart_paths($city_id, $chart_id);
     if (!$force && is_file($p['webp']) && is_file($p['svg']) && @file_get_contents($p['svg']) === $svg) {
         return ['ok' => true, 'drawn' => false];
     }
@@ -451,26 +445,64 @@ function pluscities_ensure_climate_chart(string $city_id, string $niche_id, bool
 }
 
 /**
- * Renders the climate chart image — cache READ only, never triggers
- * generation (same split as every other chart this engine draws). Returns
- * '' if this (city, niche) combination hasn't been generated yet.
+ * Generates (or refreshes) every climate chart a niche configures for one
+ * city. Called from pluscities_create_page() and a one-time backfill —
+ * NEVER from the public sync endpoint. Graceful no-op (same "no data means
+ * no image" rule as everywhere else) if the niche has no climate_chart_ids
+ * configured at all; each individual chart_id degrades independently
+ * (one chart failing — no station data, bad definition — never blocks the
+ * others).
+ *
+ * @return array{ok:bool,drawn:bool} ok=true if at least one chart
+ *   succeeded; drawn=true if at least one was freshly (re)drawn.
+ */
+function pluscities_ensure_climate_chart(string $city_id, string $niche_id, bool $force = false): array
+{
+    $oldSlug = PLUSCITIES_CLIMATE_CHART_NICHE_SLUGS[$niche_id] ?? null;
+    if (!$oldSlug) return ['ok' => false, 'drawn' => false];
+    $niche = pluscities_niche_resolved($niche_id);
+    $chartIds = array_filter((array) ($niche['climate_chart_ids'] ?? []));
+    if (!$chartIds) return ['ok' => false, 'drawn' => false];
+
+    $anyOk = false; $anyDrawn = false;
+    foreach ($chartIds as $chartId) {
+        $r = pluscities_ensure_one_climate_chart($city_id, $oldSlug, trim((string) $chartId), $force);
+        if ($r['ok']) $anyOk = true;
+        if ($r['drawn']) $anyDrawn = true;
+    }
+    return ['ok' => $anyOk, 'drawn' => $anyDrawn];
+}
+
+/**
+ * Renders every configured climate chart for a city as one shared section —
+ * cache READ only, never triggers generation (same split as every other
+ * chart this engine draws). Each chart_id degrades independently; returns
+ * '' only if NONE of them have been generated yet.
  */
 function pluscities_render_climate_chart(string $city_id, string $niche_id, string $domain = ''): string
 {
     $oldSlug = PLUSCITIES_CLIMATE_CHART_NICHE_SLUGS[$niche_id] ?? null;
     if (!$oldSlug) return '';
     $niche = pluscities_niche_resolved($niche_id);
-    $chartId = trim((string) ($niche['climate_chart_id'] ?? ''));
-    if ($chartId === '') return '';
+    $chartIds = array_filter((array) ($niche['climate_chart_ids'] ?? []));
+    if (!$chartIds) return '';
 
-    $p = pluscities_climate_chart_paths($city_id, $chartId);
-    if (!is_file($p['webp']) || !is_file($p['json'])) return '';
-    $meta = json_decode((string) @file_get_contents($p['json']), true);
-    if (!is_array($meta)) return '';
+    $images = '';
+    foreach ($chartIds as $chartId) {
+        $chartId = trim((string) $chartId);
+        if ($chartId === '') continue;
+        $p = pluscities_climate_chart_paths($city_id, $chartId);
+        if (!is_file($p['webp']) || !is_file($p['json'])) continue;
+        $meta = json_decode((string) @file_get_contents($p['json']), true);
+        if (!is_array($meta)) continue;
+        $imgUrl = PLUSCITIES_PUBLIC_BASE . $p['url'] . '.webp?v=' . filemtime($p['webp']);
+        $images .= '<img class="lpc-climate-chart-img" src="' . htmlspecialchars($imgUrl) . '" alt="'
+            . htmlspecialchars((string) ($meta['alt'] ?? '')) . '" loading="lazy">';
+    }
+    if ($images === '') return '';
 
-    $imgUrl = PLUSCITIES_PUBLIC_BASE . $p['url'] . '.webp?v=' . filemtime($p['webp']);
     return '<section class="lpc-climate-chart lpc-fullbleed"><div class="lpc-band-inner">'
         . '<p class="lpc-eyebrow">Local Climate Data</p>'
-        . '<img class="lpc-climate-chart-img" src="' . htmlspecialchars($imgUrl) . '" alt="' . htmlspecialchars((string) ($meta['alt'] ?? '')) . '" loading="lazy">'
+        . '<div class="lpc-climate-chart-grid">' . $images . '</div>'
         . '</div></section>';
 }

@@ -1,0 +1,37 @@
+{
+  "id": "avg_temp_monthly",
+  "name": "Average temperature by month",
+  "type": "bars",
+  "data_key": "avg_temp_monthly",
+  "source_key": "avg_temp_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "°F",
+  "title": "Average temperature by month in {city}, {SS}",
+  "alt": "Chart of the average temperature each month in {city}, {SS}, in degrees Fahrenheit. {summary}",
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-TAVG-NORMAL"
+  },
+  "captions": [
+    "{city} averages {low_value} in {low} and {peak_value} in {peak} — a gap of real degrees an HVAC system has to close every day, not just on the worst afternoon. The wider that gap, the longer a compressor or furnace runs to hold an indoor setpoint.",
+    "Temperatures in {city}, {SS} range from {low_value} in {low} to {peak_value} in {peak}. That spread is the actual workload: a system sized for mild shoulder months still has to carry the full swing in {low} and {peak}, which is when components wear fastest.",
+    "{city}'s year runs {low_value} to {peak_value}, bottoming out in {low} and peaking in {peak}. Heating and cooling demand track that curve directly — the farther a month sits from a comfortable indoor temperature, the harder the system works to get there."
+  ],
+  "groups": [
+    "cooling",
+    "heating"
+  ]
+}

@@ -762,7 +762,14 @@ function pluscities_page_style_css(array $client): string
         // drawn into the SVG itself, includes/pluscities_climate_chart.php),
         // so this just styles the eyebrow and centers the image.
         . '.pluscities-page section.lpc-climate-chart .lpc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:' . htmlspecialchars($brandColor) . ';margin:0 0 6px;}'
-        . '.lpc-climate-chart-img{width:100%;max-width:100%;height:auto;border-radius:12px;display:block;margin-top:4px;}'
+        // Multiple climate charts (e.g. rainfall comparison + monthly
+        // temperature curve) stack full-width on mobile, side by side on
+        // wider screens — each image is already a complete, self-captioned
+        // card (title/figures/source drawn into the SVG itself), so this
+        // just lays them out.
+        . '.lpc-climate-chart-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:4px;}'
+        . '@media(min-width:900px){.lpc-climate-chart-grid{grid-template-columns:repeat(auto-fit,minmax(380px,1fr));}}'
+        . '.lpc-climate-chart-img{width:100%;max-width:100%;height:auto;border-radius:12px;display:block;}'
         // City Info — photo left, narrative right on wider screens (same
         // 2-column split Area Map already uses), stacks on mobile.
         . '.lpc-city-info-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:4px;align-items:start;}'

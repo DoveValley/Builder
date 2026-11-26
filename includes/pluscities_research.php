@@ -18,16 +18,24 @@
  * data is already backfilled for ~43,900 cities (infra_census_lookup()), so
  * this just copies it into the new shape instead of re-fetching.
  */
-function pluscities_dataset_get(string $city_id, string $provider): ?array
+function pluscities_dataset_get(string $city_id, string $provider, bool $force = false): ?array
 {
     $db = pluscities_db();
-    $st = $db->prepare('SELECT * FROM datasets WHERE city_id = ? AND provider = ?');
-    $st->execute([$city_id, $provider]);
-    $row = $st->fetch(PDO::FETCH_ASSOC);
-    if ($row) {
-        return ['city_id' => $row['city_id'], 'provider' => $row['provider'],
-            'fetched_at' => $row['fetched_at'], 'values' => json_decode($row['values_json'], true) ?: []];
+    if (!$force) {
+        $st = $db->prepare('SELECT * FROM datasets WHERE city_id = ? AND provider = ?');
+        $st->execute([$city_id, $provider]);
+        $row = $st->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            return ['city_id' => $row['city_id'], 'provider' => $row['provider'],
+                'fetched_at' => $row['fetched_at'], 'values' => json_decode($row['values_json'], true) ?: []];
+        }
     }
+    // $force bypasses the cache-hit path above and re-fetches — needed when
+    // a provider's own source gains a new field after a city was already
+    // cached (confirmed live: adding avg_temp_monthly to an existing niche
+    // folder left already-cached cities without it, since chart_fetch_
+    // decls() only returns what the niche folder declared AT FETCH TIME).
+    // The INSERT below's ON CONFLICT already overwrites the row either way.
 
     $values = null;
     if ($provider === 'census_acs') {
