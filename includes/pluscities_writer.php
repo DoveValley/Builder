@@ -151,16 +151,18 @@ function pluscities_write_editable_block(string $block_type, string $heading_hin
 }
 
 /**
- * Writes "why choose us" as a list of {heading, body} items, not one
- * heading+body — the fleet's own reference sites render this as a 3-4
- * column grid of short, distinct reasons, which needs real discrete items to
- * render, not one paragraph split visually. Same shape/validation pattern as
- * pluscities_write_faq_block() below ("items" instead of "faqs"), just the
- * first block type built this way besides FAQ — not yet a generic "items"
- * writer for every block type, see the render side's old-shape fallback for
- * why that matters.
+ * Writes a block as a list of {heading, body} items, not one heading+body —
+ * the fleet's own reference sites render several sections this way (a 3-4
+ * column grid of reasons, a numbered list of process steps, a grid of common
+ * problems), which needs real discrete items to render, not one paragraph
+ * split visually. Same shape/validation pattern as pluscities_write_faq_
+ * block() below ("items" instead of "faqs"). $items_instruction is the one
+ * thing that differs per block type — what the items ARE (reasons, steps,
+ * problems) — everything else (fact-citation rules, retry-on-invented-tag)
+ * is shared, so a new items-shaped block type is one new instruction string,
+ * not a new writer function.
  */
-function pluscities_write_items_block(array $fact_cards, array $client_facts, array $context): array
+function pluscities_write_items_block(string $items_instruction, array $fact_cards, array $client_facts, array $context): array
 {
     $factList = '';
     foreach ($fact_cards as $fc) $factList .= '- [[' . $fc['id'] . ']]: ' . $fc['claim'] . "\n";
@@ -171,9 +173,7 @@ function pluscities_write_items_block(array $fact_cards, array $client_facts, ar
     }
     $bannedList = $client_facts['_banned_phrases'] ?? [];
 
-    $prompt = "Write 3-4 short, distinct reasons a customer should choose this business, for a "
-        . "local-service landing page's \"Why choose us\" section. Each reason needs its own short "
-        . "heading (2-5 words) and a 1-2 sentence body. "
+    $prompt = "$items_instruction "
         . "City: {$context['city_label']}. Service: {$context['service_label']}. Business: {$context['business_name']}.\n\n"
         . "Two kinds of facts are available, used differently:\n"
         . "1) Externally-sourced facts — EVERY specific claim (a number, a rule, a name, a date, a "
@@ -709,6 +709,24 @@ function pluscities_page_style_css(array $client): string
         // this session, applied up front this time instead of after finding
         // it live.
         . '.pluscities-page section.lpc-why-choose-us .lpc-why-choose-us-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0;}'
+        // Process — a vertical connected step list: a continuous line behind
+        // the number badges (the ::before on the list itself, positioned
+        // through the badge column) so the steps read as one sequence, not a
+        // set of separate cards like why-choose-us/common-problems.
+        . '.lpc-process-list{list-style:none;margin:4px 0 0;padding:0;position:relative;}'
+        . '.lpc-process-list li{display:flex;gap:20px;padding-bottom:28px;position:relative;}'
+        . '.lpc-process-list li:last-child{padding-bottom:0;}'
+        . '.lpc-process-list li:not(:last-child)::after{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:' . htmlspecialchars($brandColor) . ';opacity:.25;}'
+        . '.lpc-process-num{flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:' . htmlspecialchars($brandColor) . ';color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;z-index:1;}'
+        . '.lpc-process-list h4{font-size:1.05rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:6px 0 6px;}'
+        . '.pluscities-page section.lpc-process .lpc-process-list p{font-size:.92rem;line-height:1.6;color:#334155;margin:0;}'
+        // Common problems — same card-grid pattern as Safety Toolkit, minus
+        // the outbound link button (there's nothing to link to here).
+        . '.lpc-common-problems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:4px;}'
+        . '.lpc-common-problems-icon{width:40px;height:40px;border-radius:10px;background:' . htmlspecialchars($brandColor) . ';display:flex;align-items:center;justify-content:center;margin-bottom:10px;}'
+        . '.lpc-common-problems-icon svg{width:20px;height:20px;stroke:#fff;}'
+        . '.lpc-common-problems-grid h4{font-size:1.05rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 8px;}'
+        . '.pluscities-page section.lpc-common-problems .lpc-common-problems-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0;}'
         // Safety Toolkit — same grid shape as why-choose-us, plus an icon
         // badge and an outbound verification-link button per card (matching
         // the reference sites' own treatment, not a bare text grid).
@@ -956,6 +974,36 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
         foreach ($content['items'] as $item) {
             $itemBody = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($item['body'] ?? ''));
             $html .= '<div><h4>' . htmlspecialchars((string) ($item['heading'] ?? '')) . '</h4>'
+                . '<p>' . htmlspecialchars($itemBody) . '</p></div>';
+        }
+        return $html . '</div></div></section>';
+    }
+
+    // Process — a numbered, connected step list (Tier 2, 2026-11-26), matching
+    // the fleet's own reference sites instead of one stacked paragraph
+    // describing steps a reader can't visually follow. Same not-yet-
+    // regenerated-block fallback as why_choose_us above.
+    if ($block_row['block_type'] === 'process' && !empty($content['items'])) {
+        $html = '<section class="lpc-process' . $altClass . '"><div class="lpc-band-inner"><h3>Our Process</h3><ol class="lpc-process-list">';
+        foreach ($content['items'] as $i => $item) {
+            $itemBody = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($item['body'] ?? ''));
+            $html .= '<li><span class="lpc-process-num">' . ($i + 1) . '</span><div><h4>'
+                . htmlspecialchars((string) ($item['heading'] ?? '')) . '</h4>'
+                . '<p>' . htmlspecialchars($itemBody) . '</p></div></li>';
+        }
+        return $html . '</ol></div></section>';
+    }
+
+    // Common problems — an icon grid (Tier 2, 2026-11-26), same card pattern
+    // as Safety Toolkit's trust-org cards. Same not-yet-regenerated-block
+    // fallback as why_choose_us above.
+    if ($block_row['block_type'] === 'common_problems' && !empty($content['items'])) {
+        $html = '<section class="lpc-common-problems' . $altClass . '"><div class="lpc-band-inner"><h3>Common Problems</h3><div class="lpc-common-problems-grid">';
+        foreach ($content['items'] as $item) {
+            $itemBody = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($item['body'] ?? ''));
+            $html .= '<div><div class="lpc-common-problems-icon">'
+                . '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                . '</div><h4>' . htmlspecialchars((string) ($item['heading'] ?? '')) . '</h4>'
                 . '<p>' . htmlspecialchars($itemBody) . '</p></div>';
         }
         return $html . '</div></div></section>';

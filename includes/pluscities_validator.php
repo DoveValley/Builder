@@ -354,20 +354,23 @@ function pluscities_check_faq(array $blocks): array
     return ['check' => 'faq', 'result' => 'pass', 'detail' => ''];
 }
 
-/** Same shape of check as pluscities_check_faq() above, for why_choose_us's
- *  "items" list — a regenerated block missing a heading or body on any item
- *  would render as a blank grid cell. An un-regenerated block (still the old
- *  {heading, body} shape, no "items" key at all) has nothing for this check
- *  to look at and passes trivially — that's the generic editable-block path,
- *  already covered by the body-text checks elsewhere. */
+/** Same shape of check as pluscities_check_faq() above, for every items-
+ *  shaped block type's "items" list (why_choose_us, process, common_problems
+ *  — all written by pluscities_write_items_block()) — a regenerated block
+ *  missing a heading or body on any item would render as a blank grid cell
+ *  or step. An un-regenerated block (still the old {heading, body} shape, no
+ *  "items" key at all) has nothing for this check to look at and passes
+ *  trivially — that's the generic editable-block path, already covered by
+ *  the body-text checks elsewhere. */
 function pluscities_check_items(array $blocks): array
 {
+    $itemsShapedTypes = ['why_choose_us', 'process', 'common_problems'];
     foreach ($blocks as $b) {
-        if ($b['block_type'] !== 'why_choose_us') continue;
+        if (!in_array($b['block_type'], $itemsShapedTypes, true)) continue;
         $content = json_decode($b['content_json'], true) ?: [];
         foreach ($content['items'] ?? [] as $item) {
             if (trim((string) ($item['heading'] ?? '')) === '' || trim((string) ($item['body'] ?? '')) === '') {
-                return ['check' => 'items', 'result' => 'fail', 'detail' => 'One of the "why choose us" items is missing a heading or a body.'];
+                return ['check' => 'items', 'result' => 'fail', 'detail' => 'One of the "' . $b['block_type'] . '" items is missing a heading or a body.'];
             }
         }
     }

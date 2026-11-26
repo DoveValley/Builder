@@ -324,14 +324,28 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
         return ['ok' => true, 'msg' => ''];
     }
 
-    if ($block['block_type'] === 'why_choose_us') {
-        // Tier 2 pilot (2026-11-25): a list of {heading, body} reasons, not
-        // one heading+body — same shape/validation pattern as FAQ above,
-        // "items" instead of "faqs". Same fact-sourcing call every other
-        // editable city block already uses — only the writer and the
-        // returned shape change, not where its facts come from.
-        $facts  = pluscities_fact_card_get_active('city', $block['city_id'], 'why_choose_us');
-        $result = pluscities_write_items_block($facts, $clientFacts, $context);
+    // Items-shaped blocks (Tier 2, 2026-11-25/26): a list of {heading, body}
+    // items instead of one heading+body — why_choose_us was the pilot;
+    // process (numbered steps) and common_problems (an icon grid) are the
+    // same shape/validation pattern, just a different instruction to
+    // pluscities_write_items_block(). Same fact-sourcing call every other
+    // editable city block already uses — only the writer and the returned
+    // shape change, not where its facts come from.
+    $itemsInstructions = [
+        'why_choose_us' => 'Write 3-4 short, distinct reasons a customer should choose this business, for a '
+            . 'local-service landing page\'s "Why choose us" section. Each reason needs its own short '
+            . 'heading (2-5 words) and a 1-2 sentence body.',
+        'process' => 'Write 3-5 sequential steps describing what actually happens when this business comes '
+            . 'to do the work, in the order they happen (e.g. inspection, then the work itself, then '
+            . 'follow-up), for a local-service landing page\'s "Our Process" section. Each step needs its '
+            . 'own short heading (2-4 words, e.g. "Initial Inspection") and a 1-2 sentence body.',
+        'common_problems' => 'Write 3-4 distinct, common problems or issues this service addresses, for a '
+            . 'local-service landing page\'s "Common Problems" section. Each problem needs its own short '
+            . 'heading (2-5 words naming the problem) and a 1-2 sentence body describing it.',
+    ];
+    if (isset($itemsInstructions[$block['block_type']])) {
+        $facts  = pluscities_fact_card_get_active('city', $block['city_id'], $block['block_type']);
+        $result = pluscities_write_items_block($itemsInstructions[$block['block_type']], $facts, $clientFacts, $context);
         if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
         $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated", client_grounded = 1 WHERE id = ?')
            ->execute([json_encode($result['content']), json_encode($result['fact_ids']), $block_id]);
