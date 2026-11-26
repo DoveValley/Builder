@@ -6,7 +6,17 @@
  * half was retired 2026-11-23 (LPC Stage 3) — just the list, not the wizard,
  * since WP Builder (admin/wp_builder.php) is the real site-creation tool now.
  * Read-only: edit/delete a WP-Builder-created site from WP Builder itself;
- * this screen only answers "what's actually out there and is it up."
+ * this screen only answers "what's actually out there."
+ *
+ * Deliberately does NOT call lpc_demo_check_sites_status() by default — that
+ * function runs a real SSH + wp-cli + network check against EVERY site on
+ * the box (27 of them as of 2026-11-26), ~50 seconds end to end, found the
+ * hard way: the first version of this screen called it on every page load,
+ * which is exactly the "real resource contention on this 2-vCPU box" that
+ * function's OWN docblock already warns the fleet console hit once before.
+ * It also slowed pluscities.com itself, since that site is hosted on this
+ * same shared box. Status is now opt-in (one button, one explicit request),
+ * never automatic.
  */
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
@@ -20,8 +30,10 @@ if (lpc_current_actor_role() !== 'super_admin') {
     exit;
 }
 
-$status = lpc_demo_check_sites_status();
+$domains = lpc_demo_box_domains();
 $registry = wpb_registry();
+$checkStatus = !empty($_GET['check_status']);
+$status = $checkStatus ? lpc_demo_check_sites_status() : [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,25 +57,33 @@ $registry = wpb_registry();
 </style>
 
 <div class="pc-card">
-    <h3 style="margin-top:0;">Every site on the demo box (<?= count($status) ?>)</h3>
+    <h3 style="margin-top:0;">Every site on the demo box (<?= count($domains) ?>)</h3>
     <p style="font-size:.84rem;color:#6b7280;margin:0 0 10px;">
-        Built via <a href="wp_builder.php">WP Builder</a> or an older rehearsal site that predates it — whatever's
-        actually live on the box, real status (theme + reachability) checked just now, not cached.
+        Built via <a href="wp_builder.php">WP Builder</a> or an older rehearsal site that predates it.
+        <?php if (!$checkStatus): ?>
+            Live theme + up/down status is a real SSH check against every site, ~1 minute — click only if you need it, not loaded automatically (it shares this box's resources with every real site on it, including pluscities.com itself).
+            <a href="?check_status=1" class="btn-sm-outline" style="margin-left:6px;">Check live status (~1 min)</a>
+        <?php else: ?>
+            Live status checked just now. <a href="site_demos.php">Hide status</a>
+        <?php endif; ?>
     </p>
-    <?php foreach ($status as $domain => $info):
+    <?php foreach ($domains as $domain):
         $profile = $registry[$domain]['profile'] ?? null;
+        $info = $status[$domain] ?? null;
     ?>
         <div class="pc-demo-row">
             <div>
                 <a href="http://<?= h($domain) ?>/" target="_blank" rel="noopener"><strong><?= h($domain) ?></strong></a>
                 <?php if ($profile): ?><span style="color:#6b7280;"> — <?= h(wpb_profiles()[$profile] ?? $profile) ?></span><?php endif; ?>
-                <div style="font-size:.76rem;color:#6b7280;">theme: <?= h($info['theme']) ?></div>
+                <?php if ($info): ?><div style="font-size:.76rem;color:#6b7280;">theme: <?= h($info['theme']) ?></div><?php endif; ?>
             </div>
-            <span class="pc-demo-badge <?= $info['running'] ? 'pc-demo-up' : 'pc-demo-down' ?>">
-                <?= $info['running'] ? 'Up' : 'Down' ?>
-            </span>
+            <?php if ($info): ?>
+                <span class="pc-demo-badge <?= $info['running'] ? 'pc-demo-up' : 'pc-demo-down' ?>">
+                    <?= $info['running'] ? 'Up' : 'Down' ?>
+                </span>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
-    <?php if (!$status): ?><p style="color:#6b7280;font-size:.84rem;">No sites on the box yet.</p><?php endif; ?>
+    <?php if (!$domains): ?><p style="color:#6b7280;font-size:.84rem;">No sites on the box yet.</p><?php endif; ?>
 </div>
 <?php lpc_admin_close(); ?>
