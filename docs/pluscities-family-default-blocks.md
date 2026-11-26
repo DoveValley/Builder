@@ -12,7 +12,10 @@ worked through, not all at once.
 `pluscities_niche_resolved()` — every real niche under a family inherits them automatically, no
 per-niche setup. The Niche Library admin screen can edit all 4 buckets (Always/Default/Optional/
 Excluded) per family with real save-time validation, and the Add Page / New Client pickers pre-check
-the Default picks under a "Recommended" heading, "Optional" below. Everything in this section is now
+the Default picks under a "Recommended" heading, "Optional" below. A third consumer joined 2026-11-26:
+the New Client wizard's "Multiple pages" bulk-create mode applies a service's happy-path picks to
+every page it creates automatically, with no inline picker at all — see `docs/pluscities-system-
+reference.md` §3.2a. Everything in this section is now
 the real behavior, not a target to build toward. This is the one section to build against — everything
 below it in this doc is the rationale/history that produced these numbers, kept for context, not a
 second source of truth. "Default" means ships on every new page automatically (spine + always-on +

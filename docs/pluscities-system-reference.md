@@ -537,15 +537,54 @@ again, regardless of how many times it cleared them before.
 | `pluscities_rollback_page()` | Restores an old revision's blocks into the live table | `blocks` | Then re-enters draft via `touch_page()` — **never an instant revert**; must go through Validate→Approve→Publish again, "not even through history" |
 | `pluscities_unpublish_page()` | `*→unpublished`, bumps `site_rev` | `pages`, client JSON | Returns bool (inconsistent with the `{ok,msg}` shape everything else uses) |
 
+### 3.2a Bulk page creation — a detached background job (added 2026-11-26)
+
+The New Client wizard's "Multiple pages" mode: pick several cities + several services at once
+(`admin/pluscities_clients.php`), every resulting page uses its service's family happy-path blocks
+automatically (§2.3c) — no per-combo block picker, keeps the bulk path simple. Runs as a real detached
+CLI job, not inline in the HTTP request, since each combo is a full `pluscities_create_page()` call
+(real AI generation + furniture) and a batch can take minutes.
+
+Reuses the multisite fleet's own proven background-job mechanism (`includes/multisite/batch.php`:
+`ms_launch_job_now()`, `ms_detach_prefix()`, `ms_with_launch_lock()`, `ms_active_run()`, `ms_pid_alive()`)
+rather than rebuilding a second detach/liveness system — confirmed fully generic (no multisite-specific
+coupling) before reusing it. That mechanism already solved the hard bugs this needed solved too: a
+`systemd-run --user --scope` detach so an `apache2.service` restart's cgroup `KillMode=control-group`
+can't SIGKILL the job mid-run, and comparing `/proc/$pid/stat`'s start-time (not just PID existence) so
+a reused PID never misreads as "still our job."
+
+| Piece | File | Role |
+|---|---|---|
+| `pluscities_bulk_create_pages_launch()` | `includes/pluscities_lifecycle.php` | Launches the detached worker, one job at a time per client (`ms_with_launch_lock()`-guarded) |
+| `pluscities_bulk_job_status()` | `includes/pluscities_lifecycle.php` | Liveness-corrected status read (`ms_read_run()` downgrades a dead `running` to `stale`) |
+| `pluscities_bulk_pages_cli.php` | `includes/` | The detached worker — loops city×service combos, calls `pluscities_create_page()` once per combo, writes its own run-status JSON **after every single combo**, not just at the end, so a multi-minute run shows live progress throughout; also registers each new city on the client's own `target_cities[]`, same as `pluscities_page_add_save.php` already does for one page |
+| `pluscities_bulk_progress.php` / `_status.php` | `admin/` | Polling progress screen + its thin JSON endpoint |
+| `PLUSCITIES_BULK_RUNS_DIR` | `config.php` | One subfolder per client for run-status JSON + raw job logs — gitignored, ephemeral |
+
+**Known gap, not yet built:** the "Multiple pages" mode's only UI entry point is the New Client wizard
+(brand-new clients only) — there's no bulk-add-pages action for an *already-existing* client. Found
+2026-11-26 trying to rebuild a real client's pages with it; worked around by calling
+`pluscities_bulk_create_pages_launch()` directly, same function the wizard calls, just with no button
+for it yet on an existing client's own screens.
+
+**Proven live, not just unit-tested**: used to rebuild `meade-restoration`'s pages from scratch (2
+cities × 2 services), then every one of those 4 pages was carried through `pluscities_run_validator()`
+(all passed clean) → `pluscities_approve_page()` → `pluscities_publish_page()` → confirmed genuinely
+live on `meaderestoration.com`, a real external production WordPress site running the real delivery
+plugin (not the local `test-wordpress` QA fixture) — screenshotted directly, real theme/nav/branding,
+real furniture (Housing Snapshot, Local Housing Stock) alongside the happy-path content blocks.
+
 ### 3.3 The validator — `includes/pluscities_validator.php`
 
 Entry point `pluscities_run_validator($page_id)` runs all built checks every time, writes the combined
 result to `pages.validation_json` keyed against the page's *current* `draft_hash`.
 
-**12 built checks:** unsupported_claim, uniqueness (shingle-Jaccard vs. this client's other pages for the
+**13 built checks:** unsupported_claim, uniqueness (shingle-Jaccard vs. this client's other pages for the
 same service, ≥50% overlap fails), service_radius, wrong_city, client_facts, banned_phrases (niche preset
 = never overridable, client's own list = overridable — the flag is per-result, not per-check-name),
-invented_prices, invented_reviews, quotes, stale_facts, cannibalization, faq.
+invented_prices, invented_reviews, quotes, stale_facts, cannibalization, faq, items (corrected
+2026-11-26 — this doc had said 12 and missed `items`, found while verifying all 4 pages from the first
+real bulk-created batch pass validation cleanly, see §3.2a).
 
 **2 deferred, not built:** block-mix ratio check, Sources check (spec's own "small, deferred per design
 rule #1" tier).
@@ -784,6 +823,7 @@ clients. One hop only, no stacking.
 | `pluscities_page.php` / `_save.php` | Single-page block editor — Edit/Lock/Regenerate/Swap/Validate/Override/Approve/Publish/Rollback/Lock All/Unlock All (added 2026-11-24, loops the existing per-block lock), plus a "Compare to current" link per revision opening `pluscities_page_diff.php` | + `pluscities_actor_can_access_client()` on the page's client |
 | `pluscities_page_diff.php` | Read-only revision compare view, added 2026-11-24 — shows unchanged/changed/added/removed per block between an old revision's snapshot and the page's current content | + `pluscities_actor_can_access_client()` on the page's client; not in the nav, reached only from `pluscities_page.php` |
 | `pluscities_page_add.php` / `_save.php` | Add a city/service page to an existing client | + access check |
+| `pluscities_bulk_progress.php` / `_status.php` | Polling progress screen for a "Multiple pages" wizard job (§3.2a) — state, X of Y done, per-combo results | + access check (`pluscities_actor_can_access_client()`) |
 | `pluscities_pages.php` / `_save.php` | Table of all pages — stage-dot matrix, bulk approve/publish/unpublish (unpublish added 2026-11-24)/regenerate, plus City/Service filter dropdowns (added 2026-11-24, server-side via GET params). Bulk Approve had a real gate-bypass bug until 2026-11-24 — it never passed the actor's role into `pluscities_approve_page()`, so it silently skipped the `agency_editor` approval gate (§3.2) that the single-page Approve button already enforced; now passes `lpc_current_actor_role()` the same way | **Fixed 2026-11-24** — now filters through `pluscities_actor_can_access_client()` per client, not just agency-level scoping (see §5.5) |
 | `pluscities_photos.php` / `_save.php` | Logo + brand color + per-slot photo upload | **Fixed 2026-11-24** — list view now filters through `pluscities_actor_can_access_client()` per client, not just agency-level scoping (see §5.5); save handler already checked per-client access |
 | `pluscities_hub_edit.php` / `_save.php` | Edit a client's hub/listing page text | + access check |
@@ -1067,8 +1107,9 @@ difference, just eventually generated from one shared fact source.
 | `includes/pluscities_lifecycle.php` | Page/block state machine, all lifecycle verbs |
 | `includes/pluscities_writer.php` | Content generation per block classification |
 | `includes/pluscities_research.php` | Fact-card research + dataset fetch |
-| `includes/pluscities_validator.php` | The 12 compliance/quality checks |
-| `includes/pluscities_niche_library.php` | Niche family/blueprint/preset resolution, incl. `always_city_blocks`/`climate_chart_ids` (§2.3a) |
+| `includes/pluscities_validator.php` | The 13 compliance/quality checks |
+| `includes/pluscities_niche_library.php` | Niche family/blueprint/preset resolution, incl. `always_city_blocks`/`happy_path_*_blocks` (§2.3a/§2.3c) |
+| `includes/pluscities_bulk_pages_cli.php` | Detached worker for "Multiple pages" bulk creation (§3.2a) |
 | `includes/pluscities_schema.php` | JSON-LD assembly, city-label resolution |
 | `includes/pluscities_color_detect.php` | Brand color resolution precedence |
 | `includes/pluscities_images.php` | Photo slot model |
@@ -1086,6 +1127,7 @@ difference, just eventually generated from one shared fact source.
 | `admin/client_portal.php` / `client_portal_page.php` | End Client's own screens, added/rebuilt 2026-11-24 |
 | `admin/pluscities_page.php` / `_save.php` | Single-page block editor + lifecycle actions, Lock All/Unlock All |
 | `admin/pluscities_page_diff.php` | Read-only revision compare view, added 2026-11-24 |
+| `admin/pluscities_bulk_progress.php` / `_status.php` | Bulk page-creation progress screen + polling endpoint (§3.2a) |
 | `admin/pluscities_pages.php` / `_save.php` | Bulk page table — approve/publish/unpublish/regenerate, city/service filters |
 | `admin/settings.php` / `platform_settings_save.php` | Platform-wide settings — approval-gate toggles, cancellation grace period, plugin cache TTL |
 | `config.php` | All `PLUSCITIES_*` path/dir constants |

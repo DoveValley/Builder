@@ -1353,3 +1353,103 @@ medical-wellness).
 **Artifacts:** 6 PHP files changed, 4 `niche_families/*.json` seeded via the real save path, this
 entry. Deliberately still deferred, unchanged from UC25: the deterministic per-city variance picker and
 any per-niche happy-path override.
+
+## UC27, 2026-11-26 — bulk "multiple cities x multiple services" page creation, real background job,
+keyword validation bug fixed, New Client wizard service picker fixed — ✅ PASS
+
+Scott: wanted to prove one real niche end-to-end before building more, picked home-trades/
+`water-damage-restoration` (most mature, real clients, proven WP delivery). Asked to look at a real
+competitor (baileyrestoration.com) for more service/keyword ideas, explicitly asked for a mix of
+higher-volume and deliberately lower-volume/lower-competition picks ("the competition will be less"),
+then asked for a bulk-create tool — scoped down in conversation from a more complex per-city/per-page
+design to a simpler one ("keep it simple and modular... let's build this").
+
+**Niche expansion**: `water-damage-restoration` grew from 3 to 11 real services — `mold-remediation`,
+`sewage-cleanup`, `basement-waterproofing`, `storm-damage-restoration` (higher-volume, picked for being
+genuinely distinct services, not near-duplicates of the existing 3) plus `burst-pipe-cleanup`,
+`water-damage-inspection`, `toilet-overflow-cleanup`, `crawl-space-encapsulation` (deliberately
+lower-volume/near-zero-competition long-tail picks, acknowledged tradeoff: these sit closer to
+`water-damage-restoration` itself and need real content work to stay distinct). All real Ahrefs data
+(DataForSEO's account balance is negative, `-$0.09` — flagged, unusable right now).
+
+**Real bug found and fixed**: `pluscities_validate_service_keyword()` had never actually worked for
+either keyword provider — it read `$result['rows'][0]`, but both provider adapters
+(`admin/infra/lib/keywords.php`) key their results by the lowercased keyword phrase string, never a
+numeric index. That's the actual reason none of this niche's 3 original services had validated keyword
+data despite working credentials the whole time. Fixed; all 11 services now carry real `score`/
+`volume`/`kd`/`cpc` data.
+
+**Wizard gap found and fixed**: the New Client wizard's first page had its service hardcoded to
+`niche.services[0]`, zero agency choice — invisible with 3 services, a real limitation with 11. Added
+a real Service/Page `<select>`, rebuilt per-niche via JS from the same data `pluscities_niche_resolved()`
+already exposes, validated server-side against the real service list (falls back safely on an invalid/
+missing selection, never silently fails).
+
+**Bulk creation, built and verified end-to-end through the real admin UI** (not just backend functions
+directly): new wizard mode toggle (Single page / Multiple pages) — cities textarea + services
+checkboxes, no inline block picker (every combo auto-uses its service's family happy-path blocks,
+§UC25/UC26). Runs as a real detached background job — researched existing job infrastructure first
+(`includes/multisite/batch.php`) via an Explore-style subagent, confirmed `ms_launch_job_now()`/
+`ms_detach_prefix()`/`ms_with_launch_lock()`/`ms_active_run()`/`ms_pid_alive()` are fully generic (no
+multisite-specific coupling), reused directly rather than rebuilt — that mechanism already solved an
+apache2-restart cgroup-kill bug and a PID-reuse false-positive bug. New
+`includes/pluscities_bulk_pages_cli.php` (the detached worker — loops combos, calls the existing
+`pluscities_create_page()` once per combo, writes a structured run-status JSON **after every single
+combo**, not just at the end, per Scott's explicit "progress feedback all the way through" ask);
+`pluscities_bulk_create_pages_launch()`/`pluscities_bulk_job_status()` in
+`includes/pluscities_lifecycle.php`; `admin/pluscities_bulk_progress.php` + `_status.php` (polling
+progress screen). **Real gap caught and fixed while building, not after**: the CLI worker wasn't
+registering new cities on the client's own `target_cities[]` the way
+`admin/pluscities_page_add_save.php` already does for one page — fixed before it shipped.
+
+**Verified live**: direct backend test (launch → poll → `done`, both pages created with correct
+happy-path blocks); specifically verified the liveness check (`kill -9` a running job mid-flight →
+status correctly reads `stale`, not stuck "running" forever) and that a new launch isn't blocked by a
+stale one; full real admin UI pass (wizard → real POST → client created → job launched → progress
+screen → status polling through to `done`). Test client (`qa-bulk-test-co`) deleted afterward through
+the real delete path.
+
+**Artifacts:** 3 new files (`pluscities_bulk_pages_cli.php`, `pluscities_bulk_progress.php`,
+`pluscities_bulk_status.php`), 4 modified (`pluscities_lifecycle.php`, `pluscities_clients.php`,
+`pluscities_clients_save.php`, `config.php`), 1 new gitignored runs directory, this entry. Known gap,
+not built this pass: no bulk-add-pages UI for an *existing* client (wizard-only entry point).
+
+## UC28, 2026-11-26 — Milestone 1: one real niche proven genuinely LIVE on a real production site,
+start to finish — ✅ PASS
+
+Scott: "can I see this on the Mead restoration site" → "how about if I delete all the cities and
+service pages on Mead and created from scratch using our new application" → "i want to see them live
+on the site."
+
+**Wiped Meade's pages on purpose**: deleted all 11 existing pages (7 pre-existing *live* pages that
+predate this session + 4 from UC27's own testing) directly from the `pages`/`blocks`/`revisions`/
+`overrides` tables and cleared `target_cities` — a deliberate one-off cleanup on the standing test
+client, not a new feature (no delete-page function exists in this codebase, same gap class as before
+client/niche delete got built). Rebuilt 2 cities (`bedford-tx`, `southlake-tx`) × 2 services
+(`water-damage-restoration`, `mold-remediation`) = 4 fresh pages via
+`pluscities_bulk_create_pages_launch()` called directly, since (per UC27's own known gap) the bulk
+wizard only fires at new-client creation, not for an existing client like Meade.
+
+**Proved the preview mechanism** (`admin/pluscities_page_styling.php`) with a real screenshot before
+touching production — hit and solved a real snap-chromium confinement quirk along the way (headless
+Chrome's `--screenshot` silently writes into a private `/tmp` mount
+(`/tmp/snap-private-tmp/snap.chromium/tmp/`), and only tolerates writing directly to `/tmp/`, not a
+subdirectory — "N bytes written" with the file then missing from a plain `ls` was the tell).
+
+**Then ran the real lifecycle for real**: `pluscities_run_validator()` on all 4 pages (all passed
+clean — the first time any page in this niche has been validated against the real 13-check validator),
+`pluscities_approve_page()`, `pluscities_publish_page()` — all 4, real function calls, not shortcuts.
+Confirmed `meaderestoration.com` is a real, DNS-resolvable, publicly-reachable production WordPress
+site (`2.24.196.58`, a different box than the local `test-wordpress` QA fixture), running the real
+`pluscities-delivery` plugin. Screenshotted the live URL directly: real theme/nav/branding ("First Call
+Restoration Pros"), real breadcrumbs, real furniture (Housing Snapshot chart + Local Housing Stock
+Census stats) rendering correctly alongside the happy-path content blocks — genuinely live, not a
+preview render.
+
+**This is the first time this session's own new tooling has been followed all the way from niche
+definition through to a real visitor-facing URL** — closing the loop CLAUDE.md's docs only described
+in the abstract ("published pages are served... through a thin WordPress plugin... polling API").
+
+**Artifacts:** no code changes (pure verification + real lifecycle actions on real data), this entry.
+Milestone 1 (one real niche, end to end, on a real WP site) is DONE. Milestone 2 (review all 4
+families' rendered page quality/SEO) not started.

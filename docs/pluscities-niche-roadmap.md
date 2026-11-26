@@ -96,6 +96,13 @@ general retail store.
    universal demand.
 3. **Mold remediation** — basically free; `water-damage-restoration` already proved the
    restoration-flavored content works, and it's now the same family as `hvac`.
+   **Partially overtaken, 2026-11-26**: `mold-remediation` was added as one of 8 new *services*
+   inside the existing `water-damage-restoration` niche (keyword-validated, real Ahrefs data — see
+   `docs/pluscities-system-reference.md` §3.2a), not a standalone niche. That may be enough — a
+   restoration company that already does water damage plausibly also does mold — or a genuinely
+   mold-only business might still want its own niche (different compliance framing, a narrower
+   `niche_table`). Flagging the question rather than deciding it: is a dedicated `mold-remediation`
+   niche still worth building, or does the service-level addition already cover the real demand here?
 4. **Dental practice's siblings** (chiropractic, physical therapy) — proves medical-wellness works
    for more than one specialty before leaning on it harder.
 5. Everything else in Tier 2/3, medical, legal, professional-services, roughly in the order listed

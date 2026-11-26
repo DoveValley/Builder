@@ -172,6 +172,10 @@ roadmap; UC25 (same doc, 2026-11-26) completes the Family to Default Blocks desi
 families reviewed, a family×block matrix added, a real ranking mistake found and fixed on a second
 pass over legal); UC26 (same doc, 2026-11-26) builds it for real — 2 new family fields, an admin form
 with real validation, Recommended/Optional pickers, one real wizard bug fixed, all 4 families seeded
-live — all capabilities/fixes added *after* this audit's row set was fixed to the
+live; UC27 (same doc, 2026-11-26) ships bulk "multiple cities x multiple services" page creation as a
+real background job, expands water-damage-restoration to 11 real services, fixes a real keyword-
+validation bug; UC28 (same doc, 2026-11-26) proves Milestone 1 — one real niche built via the bulk
+tool, validated/approved/published, confirmed genuinely live on a real production WordPress site —
+all capabilities/fixes added *after* this audit's row set was fixed to the
 2026-11-23 system reference, not part of the original spec being measured here. See
-`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-26 for how it was verified.
+`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-28 for how it was verified.

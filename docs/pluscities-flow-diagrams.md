@@ -138,6 +138,10 @@ STEP 5 — KEYWORD RESOLUTION
                               ▼
 STEP 6 — pluscities_create_page($client_id, $city_id, $service_key, …)
   includes/pluscities_lifecycle.php
+  3 real callers as of 2026-11-26: Add Page (1 page), the wizard's Single-page mode (1 page), and
+  the wizard's Multiple-pages mode — includes/pluscities_bulk_pages_cli.php, a DETACHED background
+  job looping every city x service combo, each one calling this SAME function with happy_path_*_
+  blocks[] (no inline picker in bulk mode) — see docs/pluscities-system-reference.md §3.2a
   assembles the page's block list, IN ORDER:
     a) SPINE (hardcoded, every niche)        hero, overview … faq, service_area
     b) ALWAYS-BLOCKS merged in               niche.always_city_blocks + niche.always_service_blocks
