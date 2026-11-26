@@ -75,37 +75,39 @@ general retail store.
 
 ## Legal
 
-**Expanded 2026-11-26** from 4 to 15 — one niche per distinct legal practice area, not a handful of
-broad catch-alls. Splitting these out matters here more than it did for home-trades: a personal
-injury search and a traffic-ticket search share almost no real content (different local facts,
-different compliance framing, different client fact set), unlike two home-trades niches which often
-share a genuinely similar relevance pattern. Ranked by real-world legal-marketing demand/CPC, not
-build convenience — personal injury is the highest-value, most commonly agency-bought legal vertical
-by a wide margin, which is why it was already item 1 here before this expansion.
+**Corrected 2026-11-26** (same day as the expansion it corrects): the 15 legal practice areas below
+are NOT 15 separate niches — they're the planned **service list for one single niche**, the same
+pattern `water-damage-restoration` already proved with its own 11 real services (personal injury and
+a traffic ticket are as different in content/compliance framing from each other as mold remediation
+is from sewage cleanup, but that difference lives at the *service* level, not the niche level — one
+niche, many services, same as every other family). There is one real legal niche to build —
+**"Lawyer" / general legal practice** — not 15.
 
-43. Personal injury attorney — *(already listed, kept at #1)*
-44. DUI attorney
-45. Criminal defense attorney — split out from "DUI / criminal defense" (2026-11-26) — distinct
-    enough in practice to deserve its own niche rather than being folded into DUI
-46. Family law attorney
-47. Divorce attorney — distinct, high-volume search term from general family law despite the overlap
-48. Traffic ticket / moving violations attorney
-49. Real estate attorney
-50. Estate planning attorney
-51. Bankruptcy attorney
-52. Immigration attorney
-53. Workers' compensation attorney
-54. Employment law attorney
-55. Business / corporate attorney
-56. Civil litigation attorney
-57. Tax attorney
+43. **Lawyer / general legal practice** — one niche, planned services (ranked by real-world
+    legal-marketing demand/CPC, not build convenience — personal injury is the highest-value, most
+    commonly agency-bought legal vertical by a wide margin):
+    1. Personal injury
+    2. DUI
+    3. Criminal defense — distinct enough in practice from DUI to be its own service, not folded in
+    4. Family law
+    5. Divorce — distinct, high-volume search term from general family law despite the overlap
+    6. Traffic tickets / moving violations
+    7. Real estate law
+    8. Estate planning
+    9. Bankruptcy
+    10. Immigration
+    11. Workers' compensation
+    12. Employment law
+    13. Business / corporate law
+    14. Civil litigation
+    15. Tax law
 
 ## Professional-services
 
-58. Accounting / CPA
-59. Financial advisor
-60. Insurance agency
-61. Real estate agent / team
+44. Accounting / CPA
+45. Financial advisor
+46. Insurance agency
+47. Real estate agent / team
 
 ## Build-first order (not family-by-family)
 
