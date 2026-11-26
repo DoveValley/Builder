@@ -1225,6 +1225,16 @@ the Niche Library for now — PlusCities' whole content model (hub + radius + pe
 built for service-area businesses; a single-location storefront business would get thin/duplicate
 synthetic city pages under the current architecture, a separate roadmap item, not a family.
 
-**Artifacts:** 1 code file, 1 niche record, 2 quarantined family files, 5 docs kept in sync
-(`pluscities-family-niche-blocks.md`, `pluscities-flow-diagrams.md`, `pluscities-system-reference.md`
-§2.3/§2.3b/§4, `admin/platform_info.php`'s Claude tab, this entry), 1 new roadmap doc.
+**Then given its own tab**: Scott asked for a new "Niche to Family" tab, right of Family to Niche Blocks,
+to hold the roadmap. Wired the same doc-dump pattern every sibling tab already uses (Flow Diagrams,
+Users, Family to Niche Blocks itself) rather than inventing a structured-HTML view — consistency with
+the existing tab family mattered more than prettier rendering for a markdown table. While wiring it,
+caught one more stale "6 fixed families" reference the UC24 doc sweep had missed — the Family to Niche
+Blocks tab's own intro paragraph in `admin/platform_info.php` — fixed in the same pass. Verified live:
+both tabs render 200 under a forged `www-data` admin session, new tab's content confirmed present, old
+tab's intro confirmed now says "4 fixed families."
+
+**Artifacts:** 1 code file, 1 niche record, 2 quarantined family files, 6 docs kept in sync
+(`pluscities-family-niche-blocks.md` ×2 passes, `pluscities-flow-diagrams.md`, `pluscities-system-
+reference.md` §2.3/§2.3b/§4, `admin/platform_info.php`'s Claude tab + new tab + missed intro fix, this
+entry), 1 new roadmap doc, 1 new admin tab.

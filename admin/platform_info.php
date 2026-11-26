@@ -34,6 +34,7 @@ $TABS = [
     'flow_diagrams'        => 'Flow Diagrams',
     'users'                => 'Users',
     'family_niche_blocks'  => 'Family to Niche Blocks',
+    'niche_to_family'      => 'Niche to Family',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -42,7 +43,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users', 'family_niche_blocks']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users', 'family_niche_blocks', 'niche_to_family']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1888,7 +1889,7 @@ function platform_info_content_flow_data(): array {
     ?>
     <h3 style="margin-top:0;color:#1e3a5f;">Family to Niche Blocks</h3>
     <p style="font-size:.88rem;line-height:1.7;">
-        How the 6 fixed families and the niches inside them actually decide what's on a page — the
+        How the 4 fixed families and the niches inside them actually decide what's on a page — the
         4 layers (spine, always-on, pickable pool, furniture), the real current data for every family,
         and exactly where that decision stops being the Niche Library's job and starts being a
         client's (it never does — a client only ever picks from a pool the Niche Library already
@@ -1906,6 +1907,33 @@ function platform_info_content_flow_data(): array {
                     padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
                     font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
                     max-height:none;color:#1C2B45;"><?= h($fnbText) ?></div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'niche_to_family'):
+    $roadmapPath = __DIR__ . '/../docs/pluscities-niche-roadmap.md';
+    $roadmapText = is_file($roadmapPath) ? file_get_contents($roadmapPath) : null;
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Niche to Family</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        The locked ~50-niche buildout list (2026-11-26) — ranked by real agency purchase-demand, not
+        build convenience — mapped to the 4 families on the Family to Niche Blocks tab, with an explicit
+        build-first order. 3 are already real (<code>hvac</code>, <code>water-damage-restoration</code>,
+        <code>dental-practice</code>); the other 47 are planning only, not yet authored as real
+        <code>niche_blueprints/*.json</code> files.
+    </p>
+    <?php if ($roadmapText === null): ?>
+        <div class="lpc-empty"><h2>File not found</h2>
+            <p>Expected it at <code>docs/pluscities-niche-roadmap.md</code>.</p></div>
+    <?php else: ?>
+        <p style="font-size:.88rem;line-height:1.7;">
+            Source file: <code>docs/pluscities-niche-roadmap.md</code>, last updated
+            <?= h(date('Y-m-d H:i', filemtime($roadmapPath))) ?>.
+        </p>
+        <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                    padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                    font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                    max-height:none;color:#1C2B45;"><?= h($roadmapText) ?></div>
     <?php endif; ?>
 <?php endif; ?>
 
