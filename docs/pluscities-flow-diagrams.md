@@ -21,8 +21,10 @@ input.*
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│  NICHE FAMILY (6, hand-authored — home-trades, restoration,           │
-│  outdoor-cleaning, legal, medical-wellness, professional-services)    │
+│  NICHE FAMILY (4, hand-authored — home-trades, legal,                 │
+│  medical-wellness, professional-services; consolidated 2026-11-26     │
+│  from 6 — outdoor-cleaning/restoration were byte-identical to         │
+│  home-trades, see pluscities-family-niche-blocks.md)                  │
 │  niche_families/{family_id}.json                                      │
 │                                                                        │
 │  Sets the BASELINE every niche in this family inherits:                │

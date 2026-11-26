@@ -170,11 +170,15 @@ new field, which gets added the first time that client's approval toggle is touc
 
 ### 2.3 Niche blueprint model — three-level hierarchy
 
-- **`niche_families/`** — 6 files (`home-trades`, `restoration`, `legal`, `medical-wellness`,
-  `outdoor-cleaning`, `professional-services`), fixed and hand-authored, not user-creatable.
+- **`niche_families/`** — **4 files** (`home-trades`, `legal`, `medical-wellness`,
+  `professional-services`), fixed and hand-authored, not user-creatable. Consolidated 2026-11-26 from
+  an original 6 — `restoration` and `outdoor-cleaning` were byte-identical to `home-trades` in every
+  field but `schema_type_family` (dead — never read by any renderer) and `default_radius_minutes`
+  (already expressible per-niche via `radius_minutes_override`); see §2.3b below.
 - **`niche_blueprints/`** — **only 3 real files exist**: `hvac.json` (family: home-trades),
-  `water-damage-restoration.json` (family: restoration), `dental-practice.json` (family:
-  medical-wellness, authored in UC11 testing).
+  `water-damage-restoration.json` (family: home-trades, repointed from `restoration` 2026-11-26, radius
+  preserved via `radius_minutes_override: 45`), `dental-practice.json` (family: medical-wellness,
+  authored in UC11 testing).
 - **`compliance_presets/`** — **only 1 file**: `contractor.json`.
 
 Both pools are per-family (as of 2026-11-26 — see §2.3a for the fix): `family.default_city_blocks`
@@ -393,6 +397,44 @@ fleet-wide regeneration to apply a separate city-label prompt fix (the AI writer
 slug, "bedford-tx", instead of "Bedford, TX," fixed at the one shared context-building call site) to
 already-generated content was flagged and left to Scott's judgment, not done.
 
+### 2.3b Family consolidation: 6 → 4 (2026-11-26)
+
+A direct review of the 6 families (prompted by Scott noticing `restoration` looked a lot like
+`home-trades`, and `professional-services` a lot like `legal`) found the two pairs were different in
+kind, not just degree:
+
+- **`home-trades`, `restoration`, `outdoor-cleaning` were true duplication.** A field-by-field diff of
+  the raw JSON showed `outdoor-cleaning` was byte-identical to `home-trades` (only `label`/`family_id`
+  differed), and `restoration` differed from `home-trades` by exactly two fields:
+  `default_radius_minutes` (45 vs 25) and `schema_type_family` (`HomeAndConstructionBusiness` vs
+  `LocalBusiness`). The second of those turned out to be dead code — resolved into
+  `pluscities_niche_resolved()`'s output but never read by anything that builds real JSON-LD; the actual
+  `@type` comes from the niche-level `schema_subtype` field (`includes/pluscities_schema.php:58`), which
+  `water-damage-restoration.json` already sets correctly and independently of family. The radius
+  difference is a one-number override already supported per-niche. Neither family had a principled
+  reason to stay separate, and `outdoor-cleaning` had never had a real niche in it at all. **Folded both
+  into `home-trades`.**
+- **`legal`/`professional-services` were judged NOT the same kind of duplicate**, despite having an
+  identical config today — same conclusion §4 already drew at the raw-data level. Neither has a real
+  niche built in it yet, so nothing has ever forced them to diverge. A real law-firm niche (case results,
+  practice areas, bar-admission disclaimers) and a real accounting/consulting niche (services offered,
+  certifications, fiduciary language) plausibly need genuinely different content once built — unlike
+  home-trades/restoration, there's a real business-shape argument for keeping these separate, just not
+  yet evidence either way. **Kept as two families**, flagged as untested stubs rather than merged.
+
+**What changed, mechanically:** `PLUSCITIES_FAMILY_IDS` (`includes/pluscities_niche_library.php`)
+dropped from 6 entries to 4. `water-damage-restoration.json`'s `family_id` was repointed from
+`restoration` to `home-trades` via the real `pluscities_niche_save()` path (not a hand-edited file), with
+`radius_minutes_override` set to `45` so its effective behavior doesn't change. The two orphaned family
+files were quarantined to `niche_families_deleted/` (hand-rolled, since families have no delete feature
+by design — config.php's own comment at the `PLUSCITIES_NICHE_BLUEPRINTS_DELETED_DIR` definition already
+states this is a hardcoded-constant change, not a data delete). Verified `pluscities_niche_resolved
+('water-damage-restoration')` returns identical `city_blocks`/`service_blocks`/`always_*_blocks` to
+before the merge, with only `radius_minutes` unchanged at 45 — zero content or behavior impact on the 3
+real clients in this niche (`lonestar-restoration`, `meade-restoration`, `clearwater-restoration-pros`).
+See `docs/pluscities-family-niche-blocks.md` for the full family definitions post-consolidation, and
+`docs/pluscities-niche-roadmap.md` for the ~50-niche buildout list this review fed into.
+
 ### 2.4 Block `content_json` shapes, by classification
 
 **`editable`** (AI-written, fact-grounded) — real `overview` example:
@@ -582,13 +624,16 @@ clients going forward, not retroactively.
 
 Honest numbers, not aspirational ones:
 
-- **Niche families: 2 of 6 are real.** `home-trades` and `restoration` have genuine, distinct defaults.
-  `legal`, `medical-wellness`, `outdoor-cleaning`, `professional-services` are byte-identical placeholder
-  stubs — even `label` is the raw family_id (e.g. `"label": "medical-wellness"`, not "Medical &
-  Wellness"), and all 6 families reference the single `contractor` compliance preset, including
-  `medical-wellness`, even though the spec's own text names a `medical` preset that doesn't exist on disk.
-- **Niche blueprints: 2 real** (`hvac`, `water-damage-restoration`).
-- **Compliance presets: 1 real** (`contractor`).
+- **Niche families: 4 total (consolidated from 6, 2026-11-26), 2 with a real distinct shape.**
+  `home-trades` (now also covering what `restoration`/`outdoor-cleaning` used to be — they were
+  byte-identical to it, folded in) and `medical-wellness` have genuine, distinct defaults and real
+  labels. `legal` and `professional-services` are still byte-identical placeholder stubs to each
+  other — real `label`s now, but no live niche has forced either to actually diverge yet. This
+  paragraph's earlier claim that all families shared one `contractor` preset is stale: `medical-wellness`
+  has used its own `medical` preset for a while now (§2.3a's medical-wellness divergence work), it just
+  hadn't been reflected here.
+- **Niche blueprints: 3 real** (`hvac`, `water-damage-restoration`, `dental-practice`).
+- **Compliance presets: 2 real** (`contractor`, `medical`).
 - **Real clients: 3** (`elite-air-hvac`, `lonestar-restoration`, `meade-restoration`), plus 3 demo-only
   clients built 2026-11-24 for sales demos (see §2.2) — never counted as additional proof-at-scale, kept
   deliberately separate.

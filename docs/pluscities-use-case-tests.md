@@ -8,17 +8,18 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 23 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
-UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-23,
+Status: **All 24 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-24,
 added 2026-11-25/26, against real live clients/config directly — a build-and-verify pass for 5 new
 page-furniture pieces plus a block-architecture rework (UC19), a family/niche-level mismatch sweep that
 made the service pool family-customizable and fixed 4 real content-fit issues (UC20), a deliberate
 5-session panel-completeness walkthrough that found+fixed 3 more real bugs live, shipped 3 new admin
 surfaces (Niche Blueprint fields, Business Info tab, per-page SEO + Danger Zone), and published one
 brand-new real client entirely through the panel (UC21), extended real delete-with-safety-checks to
-niches and compliance presets (UC22), then found the root cause behind the whole "silently broken write
+niches and compliance presets (UC22), found the root cause behind the whole "silently broken write
 access" bug class and fixed 4 more real PlusCities files plus the client-delete feature's own quarantine
-directory (UC23) — none of these a scripted fixture walkthrough, see those sections for why). UC9-14
+directory (UC23), then consolidated the niche family taxonomy from 6 to 4 and locked in a ~50-niche
+buildout roadmap (UC24) — none of these a scripted fixture walkthrough, see those sections for why). UC9-14
 were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
@@ -1185,3 +1186,45 @@ memory (`project_pluscities_service_area_page_build`), not repeated here.
 **Artifacts:** 4 real PlusCities files + 1 quarantine directory re-owned to `www-data`; the dev server
 itself restarted as `www-data` (fixing the actual recurring cause, not just this incident). No PlusCities
 data content changed — purely an ownership/infrastructure fix.
+
+## UC24, 2026-11-26 — family consolidation (6 → 4) + the ~50-niche buildout roadmap — ✅ PASS
+
+Scott: pressure-tested the 6 families directly ("restoration seems very similar to home services...
+professional services seems similar to legal"), asked for a recommendation, then "lock it in and do the
+home-trades consolidation first."
+
+**Verified via a field-by-field diff of the raw `niche_families/*.json`** (not eyeballing the doc table):
+`outdoor-cleaning` was byte-identical to `home-trades`; `restoration` differed by exactly two fields
+(`default_radius_minutes`, and a `schema_type_family` field confirmed dead — resolved into
+`pluscities_niche_resolved()`'s output but never read by any renderer, since the real JSON-LD `@type`
+comes from the niche-level `schema_subtype` instead); `legal`/`professional-services` were also
+byte-identical to each other. Judged the two pairs differently: home-trades/restoration/outdoor-cleaning
+merged (true duplication, no principled reason to stay separate); legal/professional-services kept apart
+(untested stubs, not yet forced to diverge, but a real business-shape argument that they should once a
+real niche lands in either).
+
+**Executed as `www-data`, not root** (the exact discipline UC23 just fixed the dev server to make safe
+again): `PLUSCITIES_FAMILY_IDS` dropped from 6 to 4 (`includes/pluscities_niche_library.php`);
+`water-damage-restoration.json`'s `family_id` repointed from `restoration` to `home-trades` through the
+real `pluscities_niche_save()` path (not a hand-edited file), `radius_minutes_override` set to `45` to
+preserve its effective behavior; the two orphaned family files quarantined to `niche_families_deleted/`
+(hand-rolled — families have no delete feature by design, per `config.php`'s own comment on
+`PLUSCITIES_NICHE_BLUEPRINTS_DELETED_DIR`).
+
+**Verified**: `php -l` on every touched file; `pluscities_niche_resolved('water-damage-restoration')`
+returns identical `city_blocks`/`service_blocks`/`always_*_blocks` before and after the repoint, with
+`radius_minutes` unchanged at 45 — zero content/behavior impact on the 3 real clients in this niche
+(`lonestar-restoration`, `meade-restoration`, `clearwater-restoration-pros`); forged a `www-data` admin
+session and confirmed both `admin/pluscities_niches.php` and the Family-to-Niche-Blocks tab render 200
+with exactly the 4 families listed, no stray `outdoor-cleaning`/`restoration` family left on-screen.
+
+**Also locked in**: a ~50-niche buildout roadmap (`docs/pluscities-niche-roadmap.md`), ranked by real
+agency purchase-demand rather than build convenience, mapped to the new 4-family model, with an explicit
+build-first order. Restaurants/retail/nurseries/national product companies were explicitly scoped OUT of
+the Niche Library for now — PlusCities' whole content model (hub + radius + per-nearby-city pages) is
+built for service-area businesses; a single-location storefront business would get thin/duplicate
+synthetic city pages under the current architecture, a separate roadmap item, not a family.
+
+**Artifacts:** 1 code file, 1 niche record, 2 quarantined family files, 5 docs kept in sync
+(`pluscities-family-niche-blocks.md`, `pluscities-flow-diagrams.md`, `pluscities-system-reference.md`
+§2.3/§2.3b/§4, `admin/platform_info.php`'s Claude tab, this entry), 1 new roadmap doc.

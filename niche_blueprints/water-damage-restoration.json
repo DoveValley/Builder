@@ -1,11 +1,12 @@
 {
-    "family_id": "restoration",
+    "family_id": "home-trades",
     "label": "Water Damage Restoration",
     "schema_subtype": "HomeAndConstructionBusiness",
     "service_noun": "water damage restoration technician",
     "local_angle": "Heavy rainfall, flash flooding, and burst pipes drive year-round water damage restoration demand",
     "seasonal_calendar": "Spring storms and hurricane season drive the heaviest call volume; winter brings burst-pipe emergencies",
     "blocks_off": [],
+    "service_blocks_off": [],
     "services": [
         {
             "slug": "water-damage-restoration",
@@ -78,7 +79,7 @@
         ],
         "source_topic": null
     },
-    "radius_minutes_override": null,
+    "radius_minutes_override": 45,
     "compliance_preset_override": null,
     "trust_bar_items": [
         "Licensed & Insured",
@@ -97,9 +98,6 @@
             "default_image_path": "niche_default_images/water-damage-restoration/hero.png"
         }
     ],
-    "niche_id": "water-damage-restoration",
-    "updated_at": "2026-11-26T03:51:50+00:00",
-    "created_at": "2026-11-21T22:53:29+00:00",
     "safety_toolkit_items": [
         {
             "id": "iicrc",
@@ -150,5 +148,7 @@
         "heavy_rain_days",
         "flood_decades"
     ],
-    "service_blocks_off": []
+    "niche_id": "water-damage-restoration",
+    "updated_at": "2026-11-26T14:14:09+00:00",
+    "created_at": "2026-11-21T22:53:29+00:00"
 }

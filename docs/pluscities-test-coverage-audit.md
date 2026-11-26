@@ -166,7 +166,8 @@ Business Info tab, per-page SEO + the Danger Zone client-delete rebuild), and on
 built, published, and deleted/restored entirely through the panel; UC22 (same doc, 2026-11-26) extends
 real delete-with-safety-checks to niches and compliance presets; UC23 (same doc, 2026-11-26) finds the
 root cause behind every "silently broken write access" bug this session (a root-owned dev server) and
-fixes 4 more real PlusCities files plus the client-delete feature's own quarantine directory — all
-capabilities/fixes added *after* this audit's row set was fixed to the 2026-11-23 system reference, not
-part of the original spec being measured here. See `docs/pluscities-system-reference.md` §5.5 for what's
-there and UC19-23 for how it was verified.
+fixes 4 more real PlusCities files plus the client-delete feature's own quarantine directory; UC24 (same
+doc, 2026-11-26) consolidates the niche family taxonomy from 6 to 4 and locks in a ~50-niche buildout
+roadmap — all capabilities/fixes added *after* this audit's row set was fixed to the 2026-11-23 system
+reference, not part of the original spec being measured here. See `docs/pluscities-system-reference.md`
+§5.5 for what's there and UC19-24 for how it was verified.

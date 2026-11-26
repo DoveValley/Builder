@@ -26,6 +26,10 @@ pluscities_clients_deleted/
 # something source control needs to track.
 niche_blueprints_deleted/
 compliance_presets_deleted/
+# Same pattern again, 2026-11-26, for the 2 families folded into home-trades
+# during the 6→4 consolidation (hand-rolled quarantine — families have no
+# delete feature via the admin panel by design).
+niche_families_deleted/
 
 # Same reasoning, for real per-person Agency Editor account passwords —
 # pluscities_agency_users/*.json is tracked source; the password hash lives

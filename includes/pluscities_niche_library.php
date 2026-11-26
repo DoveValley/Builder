@@ -68,10 +68,19 @@ function pluscities_quarantine_move(string $src_file, string $dest_dir, string $
 
 // ── Families ────────────────────────────────────────────────────────────
 
-/** The 6 fixed families from spec Section 2 — not user-creatable, hand-authored. */
+/**
+ * The 4 fixed families — not user-creatable, hand-authored. Consolidated
+ * 2026-11-26 from an original 6: `outdoor-cleaning` and `restoration` were
+ * byte-identical to `home-trades` in every field but label/schema_type_family
+ * (itself dead — never read by any renderer; the real schema @type comes from
+ * the niche-level `schema_subtype`) and `default_radius_minutes`, which is
+ * already expressible per-niche via `radius_minutes_override`. No niche ever
+ * existed in `outdoor-cleaning`; `restoration`'s one niche
+ * (`water-damage-restoration`) was repointed to `home-trades` with its radius
+ * preserved via that override. See docs/pluscities-family-niche-blocks.md.
+ */
 const PLUSCITIES_FAMILY_IDS = [
-    'home-trades', 'outdoor-cleaning', 'restoration',
-    'legal', 'medical-wellness', 'professional-services',
+    'home-trades', 'legal', 'medical-wellness', 'professional-services',
 ];
 
 function pluscities_family_defaults(): array
