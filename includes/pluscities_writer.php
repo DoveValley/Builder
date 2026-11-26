@@ -347,6 +347,49 @@ function pluscities_render_trust_bar(array $items): string
     return $html . '</ul></div></div>';
 }
 
+/**
+ * "Homeowner Safety Toolkit" — 3-of-5 trust/verification org cards, ported
+ * from plugins/safety_toolkit/plugin.php (the OLD site-building system,
+ * proven on the fleet's own reference sites — Wren/Bailey/Gann all have
+ * this exact section). Same algorithm as the original: deterministic per
+ * CLIENT DOMAIN (not random, not per-page) via a crc32-seeded sort, so a
+ * given client always shows the same 3 of their niche's 5 — stable across
+ * rebuilds/re-renders, no state to store. Zero AI writing — niche-level
+ * furniture like trust_bar/cta_band, not a pickable page block.
+ */
+function pluscities_render_safety_toolkit(array $niche, string $domain): string
+{
+    $items = $niche['safety_toolkit_items'] ?? [];
+    if (!$items) return '';
+
+    $domain = strtolower(trim($domain));
+    usort($items, function ($a, $b) use ($domain) {
+        $ka = crc32('safety-toolkit|' . $domain . '|' . ($a['id'] ?? $a['heading'] ?? ''));
+        $kb = crc32('safety-toolkit|' . $domain . '|' . ($b['id'] ?? $b['heading'] ?? ''));
+        return $ka <=> $kb;
+    });
+    $picked = array_slice($items, 0, 3);
+
+    $html = '<section class="lpc-safety-toolkit lpc-fullbleed"><div class="lpc-band-inner">'
+        . '<p class="lpc-eyebrow">Homeowner Safety Toolkit</p>'
+        . '<h3>Before You Hire, Check This</h3>'
+        . '<div class="lpc-safety-toolkit-grid">';
+    foreach ($picked as $org) {
+        // Icon is trusted niche-authored SVG (same trust level as every other
+        // niche-blueprint field), not user input — not escaped, same as the
+        // old plugin's own handling.
+        $html .= '<div><div class="lpc-safety-toolkit-icon">' . ($org['icon'] ?? '') . '</div>'
+            . '<h4>' . htmlspecialchars((string) ($org['heading'] ?? '')) . '</h4>'
+            . '<p>' . htmlspecialchars((string) ($org['text'] ?? '')) . '</p>';
+        if (!empty($org['link'])) {
+            $html .= '<a class="lpc-safety-toolkit-button" href="' . htmlspecialchars($org['link']) . '" target="_blank" rel="noopener noreferrer">'
+                . htmlspecialchars((string) ($org['btn_text'] ?? 'Learn More')) . '</a>';
+        }
+        $html .= '</div>';
+    }
+    return $html . '</div></div></section>';
+}
+
 /** Mid-page CTA band — solid dark band, bold headline, pill-shaped call
  *  button. Fixed position (right before the FAQ block) rather than a rhythm
  *  engine deciding placement — matches the fleet's own reference sites. */
@@ -666,6 +709,16 @@ function pluscities_page_style_css(array $client): string
         // this session, applied up front this time instead of after finding
         // it live.
         . '.pluscities-page section.lpc-why-choose-us .lpc-why-choose-us-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0;}'
+        // Safety Toolkit — same grid shape as why-choose-us, plus an icon
+        // badge and an outbound verification-link button per card (matching
+        // the reference sites' own treatment, not a bare text grid).
+        . '.pluscities-page section.lpc-safety-toolkit .lpc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:' . htmlspecialchars($brandColor) . ';margin:0 0 6px;}'
+        . '.lpc-safety-toolkit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:4px;}'
+        . '.lpc-safety-toolkit-icon{width:40px;height:40px;border-radius:10px;background:' . htmlspecialchars($brandColor) . ';display:flex;align-items:center;justify-content:center;margin-bottom:10px;}'
+        . '.lpc-safety-toolkit-icon svg{width:20px;height:20px;stroke:#fff;}'
+        . '.lpc-safety-toolkit-grid h4{font-size:1.05rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 8px;}'
+        . '.pluscities-page section.lpc-safety-toolkit .lpc-safety-toolkit-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0 0 12px;}'
+        . '.lpc-safety-toolkit-button{display:inline-block;background:' . htmlspecialchars($brandColor) . ';color:#fff;font-weight:700;font-size:.84rem;text-decoration:none;padding:8px 18px;border-radius:999px;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'

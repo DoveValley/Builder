@@ -111,6 +111,10 @@ function pluscities_page_styling_build_sections(array $blockRows, array $client,
             $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Trust bar', 'html' => pluscities_render_trust_bar($niche['trust_bar_items'])];
         }
     }
+    $safetyToolkitHtml = pluscities_render_safety_toolkit($niche ?? [], $client['domain'] ?? '');
+    if ($safetyToolkitHtml !== '') {
+        $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Safety Toolkit', 'html' => $safetyToolkitHtml];
+    }
     return $sections;
 }
 ?>

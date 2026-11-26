@@ -150,6 +150,10 @@ if ($action === 'page') {
             $html .= pluscities_render_trust_bar($niche['trust_bar_items']);
         }
     }
+    // Safety Toolkit sits after everything else, right before the page ends —
+    // same position as the fleet's own reference sites (Bailey/Wren/Gann).
+    // Niche-level furniture like trust_bar/cta_band above, not a page block.
+    $html .= pluscities_render_safety_toolkit($niche, $client['domain'] ?? '');
 
     $businessName = $client['identity']['business_name'] ?? '';
     $serviceLabel = $page['service_key'];

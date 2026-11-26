@@ -178,6 +178,15 @@ function pluscities_niche_defaults(): array
         // [{slot_id, label, width, height, default_image_path}]
         'image_slots' => [],
 
+        // "Homeowner Safety Toolkit" — 3-of-5 trust/verification org cards,
+        // ported from plugins/safety_toolkit/, ONE real set per niche shared
+        // by every client (hand-researched, not AI-written — same "research
+        // once, reuse everywhere" reasoning as image_slots above, applied to
+        // trust content instead of photos). [{id, icon, heading, text,
+        // btn_text, link}], 5 entries; which 3 show is picked deterministically
+        // per client domain at render time (pluscities_render_safety_toolkit()).
+        'safety_toolkit_items' => [],
+
         'created_at' => '',
         'updated_at' => '',
     ];
@@ -263,6 +272,7 @@ function pluscities_niche_resolved(string $niche_id): ?array
         'blog_topics'       => $niche['blog_topics'],
         'match_keywords'    => $niche['match_keywords'],
         'image_slots'       => $niche['image_slots'],
+        'safety_toolkit_items' => $niche['safety_toolkit_items'],
     ];
 }
 
