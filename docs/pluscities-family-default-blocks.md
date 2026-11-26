@@ -5,6 +5,70 @@ agency gets out of the box when creating a page, swappable from the family's rea
 any pick always has been. Started 2026-11-26, one family at a time — reviewed here as each one gets
 worked through, not all at once.
 
+## FINAL DECISION — locked default vs. optional blocks per family (2026-11-26)
+
+**Status: LOCKED, ready for implementation.** This is the one section to build against — everything
+below it in this doc is the rationale/history that produced these numbers, kept for context, not a
+second source of truth. "Default" means ships on every new page automatically (spine + always-on +
+the pre-selected happy-path picks); "Optional" means still in the family's pool and swappable in, just
+not pre-checked. Word targets are prose only (spine + always-on + default picks) and exclude furniture
+(charts/maps/tables aren't competing for the same uniqueness scrutiny as written prose — see "Why this
+exists" below).
+
+### Home-trades
+- **Target word count:** ~1,200–1,800 words
+- **Total blocks:** 15 (4 spine + 5 always-on + 6 default picks) + 7 furniture pieces
+- **DEFAULT** — spine: `hero`, `overview`, `faq`, `service_area` · always-on: `housing_stock`,
+  `neighborhoods`, `climate_data`, `common_problems`, `process` · picks: `reviews_from_city`,
+  `hazards`, `seasonal_guide` (city) + `why_choose_us`, `cost_factors`, `cited_expert_guidance`
+  (service)
+- **OPTIONAL** (pool, not pre-selected): `permits`, `utilities`, `hoa_rules` (city) + `repair_vs_replace`,
+  `maintenance`, `niche_data_table`, `before_the_tech_arrives` (service)
+
+### Legal
+- **Target word count:** ~1,200–1,800 words
+- **Total blocks:** 15 (4 spine + 5 always-on + 6 default picks) + 7 furniture pieces
+- **DEFAULT** — spine: `hero`, `overview`, `faq`, `service_area` · always-on: `housing_stock`,
+  `neighborhoods`, `climate_data`, `common_problems`, `process` · picks: `reviews_from_city`,
+  `seasonal_guide`, `hazards` (city) + `why_choose_us`, `cited_expert_guidance`, `cost_factors`
+  (service)
+- **OPTIONAL** (pool, not pre-selected): `permits`, `utilities`, `hoa_rules` (city, flagged `pool⚠` —
+  no real fit against any of the 4 niches actually on the roadmap) + `niche_data_table` (service)
+- **Confidence note:** no live niche yet — lower-confidence than home-trades, revisit once personal
+  injury (or any of the other 3 planned legal niches) is built. Locking it now doesn't block
+  implementation; it just means this family's picks are the first to re-check once real page data
+  exists.
+
+### Professional-services
+- **Target word count:** ~1,200–1,800 words
+- **Total blocks:** 15 (4 spine + 5 always-on + 6 default picks) + 7 furniture pieces
+- **DEFAULT** — identical structure to Legal (byte-identical block config): spine: `hero`, `overview`,
+  `faq`, `service_area` · always-on: `housing_stock`, `neighborhoods`, `climate_data`,
+  `common_problems`, `process` · picks: `reviews_from_city`, `seasonal_guide`, `hazards` (city) +
+  `why_choose_us`, `cited_expert_guidance`, `cost_factors` (service)
+- **OPTIONAL** (pool, not pre-selected): `permits`, `utilities`, `hoa_rules` (city, `pool⚠`) +
+  `niche_data_table` (service)
+- **Confidence note:** same as Legal — no live niche yet.
+
+### Medical-wellness
+- **Target word count:** ~900–1,300 words — scaled down from the other 3 families' 1,200–1,800
+  target in proportion to this family's smaller default block count (11 vs. 15), not a separate guess
+- **Total blocks:** 11 (4 spine + 3 always-on + 4 default picks) + 5 furniture pieces (no Housing
+  Snapshot/Climate Chart by default — this family never carries `climate_data`)
+- **DEFAULT** — spine: `hero`, `overview`, `faq`, `service_area` · always-on: `neighborhoods`,
+  `common_problems`, `process` · picks: `reviews_from_city` (city) + `why_choose_us`,
+  `cited_expert_guidance`, `cost_factors` (service)
+- **OPTIONAL** (pool, not pre-selected): `housing_stock` (city — deliberately excluded from default,
+  not just unranked: demoted from always-on this same week for lacking real content tie-in to a
+  medical-office visit) + `maintenance`, `repair_vs_replace`, `niche_data_table` (service)
+
+**What implementation needs, to turn this into working code:** a `happy_path_city_blocks[]` /
+`happy_path_service_blocks[]` field on each `niche_families/*.json` holding exactly the DEFAULT pick
+lists above (always-on and spine are already real fields/hardcoded — only the picks are new), plus the
+deterministic per-city variance picker described in "Design principle" below so real pages don't all
+draw the identical 3-of-N picks verbatim. Nothing above requires a pool or always-on change — those
+stay exactly as they are in `niche_families/*.json` today.
+
 ## Matrix — every block × every family, at a glance
 
 Status as of 2026-11-26. Not yet implemented in code — this reflects the design/ranking work in this
