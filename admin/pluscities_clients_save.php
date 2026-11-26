@@ -125,7 +125,18 @@ if ($action === 'create') {
     // hardcoded slice ONLY if the form submitted zero picks (e.g. JS
     // disabled) — client creation must never silently fail to produce a
     // working first page just because the picker didn't run client-side.
-    $firstService = $niche['services'][0]['slug'] ?? null;
+    //
+    // Service (= which page/keyword the first page targets) is now a real
+    // agency choice too, 2026-11-26 — previously always hardcoded to
+    // services[0], meaning a brand-new client in a niche with 11 real
+    // services (e.g. water-damage-restoration) could still only ever start
+    // on the first one. Validated against this niche's real service list,
+    // not trusted blindly — same discipline as the block picks below.
+    $postedService = trim((string) ($_POST['service_key'] ?? ''));
+    $nicheServiceSlugs = array_column($niche['services'] ?? [], 'slug');
+    $firstService = in_array($postedService, $nicheServiceSlugs, true)
+        ? $postedService
+        : ($niche['services'][0]['slug'] ?? null);
     if ($firstService) {
         $picks = pluscities_validate_block_picks(
             $niche,

@@ -505,7 +505,16 @@ function pluscities_validate_service_keyword(string $niche_id, string $service_s
     if (!($result['ok'] ?? false) || empty($result['rows'])) {
         return ['ok' => false, 'msg' => $result['msg'] ?? 'No data returned for "' . $phrase . '".'];
     }
-    $row   = $result['rows'][0];
+    // Both provider adapters (admin/infra/lib/keywords.php) key their rows by
+    // the lowercased, trimmed phrase — never a numeric index. This function
+    // had never actually worked for either provider until this fix (found
+    // 2026-11-26 trying to validate real keywords for the first time): it
+    // read rows[0], which only ever existed by coincidence for a phrase that
+    // happened to lowercase-trim to the literal string "0".
+    $row = $result['rows'][strtolower(trim($phrase))] ?? null;
+    if ($row === null) {
+        return ['ok' => false, 'msg' => $result['msg'] ?: 'No data returned for "' . $phrase . '".'];
+    }
     $score = infra_kw_score($row, $provider);
 
     $niche['services'][$idx]['primary_keyword_data'] = [

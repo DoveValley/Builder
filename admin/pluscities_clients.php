@@ -93,6 +93,7 @@ $pcNicheServicePools = [];
 $pcNicheAlways = [];
 $pcNicheHappyCity = [];
 $pcNicheHappyService = [];
+$pcNicheServices = [];
 foreach ($niches as $pcNicheId) {
     $pcNiche = pluscities_niche_resolved($pcNicheId);
     if (!$pcNiche) continue;
@@ -101,6 +102,12 @@ foreach ($niches as $pcNicheId) {
     $pcNicheAlways[$pcNicheId] = array_merge($pcNiche['always_city_blocks'] ?? [], $pcNiche['always_service_blocks'] ?? []);
     $pcNicheHappyCity[$pcNicheId] = $pcNiche['happy_path_city_blocks'] ?? [];
     $pcNicheHappyService[$pcNicheId] = $pcNiche['happy_path_service_blocks'] ?? [];
+    // Which real page/keyword the first page targets — added 2026-11-26, was
+    // previously always hardcoded to services[0] with no agency choice at all.
+    $pcNicheServices[$pcNicheId] = array_map(
+        fn($s) => ['slug' => $s['slug'], 'label' => $s['label'] ?: $s['slug']],
+        $pcNiche['services'] ?? []
+    );
 }
 ?>
 <!DOCTYPE html>
@@ -265,6 +272,9 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
                 <div class="fg"><label>Drive minutes from hub</label><input type="number" name="first_city_drive_minutes" min="0" value="15"></div>
                 <div class="fg"><label>Service radius (minutes)</label><input type="number" name="radius_minutes" min="0" value="30"></div>
                 <div class="fg"><label>URL base path</label><input type="text" name="url_base_path" value="service-area"></div>
+                <div class="fg"><label>Page / Service (which real keyword this first page targets)</label>
+                    <select name="service_key" id="pc-service-select" required></select>
+                </div>
 
                 <div class="pc-section-label" style="flex-basis:100%;">Block Topics — the first page's content</div>
                 <div style="flex-basis:100%;font-size:.8rem;color:var(--pc-muted,#52607a);margin-bottom:8px;" id="pc-topics-niche-hint">
@@ -311,6 +321,24 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
         var form = document.getElementById('pc-new-client-form');
         var nicheSelect = document.querySelector('select[name="niche_id"]');
         var nicheGroups = document.querySelectorAll('.pc-niche-topics');
+        var serviceSelect = document.getElementById('pc-service-select');
+        // Real per-niche service list — rebuilds the Service/Page dropdown's
+        // options on niche change, same data pluscities_niche_resolved()
+        // already exposes server-side (one <select> reused across niches,
+        // not one hidden <select> per niche, so there's only ever one
+        // service_key value in the submitted form).
+        var pcNicheServices = <?= json_encode($pcNicheServices, JSON_UNESCAPED_SLASHES) ?>;
+        function refreshServiceOptions() {
+            var activeNiche = nicheSelect.value;
+            var list = pcNicheServices[activeNiche] || [];
+            serviceSelect.innerHTML = '';
+            list.forEach(function(svc) {
+                var opt = document.createElement('option');
+                opt.value = svc.slug;
+                opt.textContent = svc.label;
+                serviceSelect.appendChild(opt);
+            });
+        }
 
         function enforceMax(selector, max) {
             var boxes = Array.prototype.slice.call(document.querySelectorAll(selector));
@@ -355,6 +383,7 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
             nicheGroups.forEach(function(g) {
                 g.style.display = (g.getAttribute('data-niche') === activeNiche) ? 'block' : 'none';
             });
+            refreshServiceOptions();
             refreshCityEnforcement();
             refreshServiceEnforcement();
         }
@@ -408,6 +437,7 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
                 ['Agency', form.querySelector('[name="agency_id"]').value],
                 ['Niche', form.querySelector('[name="niche_id"]').value],
                 ['First city', form.querySelector('[name="first_city_id"]').value],
+                ['Page / Service', serviceSelect.options[serviceSelect.selectedIndex] ? serviceSelect.options[serviceSelect.selectedIndex].text : ''],
                 ['City topics picked', String(document.querySelectorAll('.pc-city-cb:checked').length)],
                 ['Service topics picked', String(document.querySelectorAll('.pc-service-cb:checked').length)],
             ];
