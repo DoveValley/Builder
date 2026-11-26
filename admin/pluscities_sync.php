@@ -163,6 +163,14 @@ if ($action === 'page') {
         if ($b['block_type'] === 'housing_stock') {
             $html .= pluscities_render_housing_chart($page['city_id'], $client['domain'] ?? '');
         }
+        // Climate chart sits right after the climate_data block it
+        // visualizes — city+niche-level furniture (includes/pluscities_
+        // climate_chart.php), cache read only; same graceful no-op for a
+        // niche with no climate_chart_id configured or a city with no NOAA
+        // data generated yet.
+        if ($b['block_type'] === 'climate_data') {
+            $html .= pluscities_render_climate_chart($page['city_id'], $client['niche_id'] ?? '', $client['domain'] ?? '');
+        }
     }
     // Safety Toolkit sits after everything else, right before the page ends —
     // same position as the fleet's own reference sites (Bailey/Wren/Gann).

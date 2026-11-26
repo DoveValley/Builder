@@ -239,6 +239,13 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
     // blocks page creation.
     pluscities_ensure_city_map($city_id);
 
+    // Climate chart (includes/pluscities_climate_chart.php) — real NOAA
+    // data, city+niche-level furniture (different niches may pick different
+    // charts for the same city). Best-effort: a niche with no
+    // climate_chart_id configured, or a city with no NOAA station data,
+    // just means no chart renders later — never blocks page creation.
+    pluscities_ensure_climate_chart($city_id, $client['niche_id'] ?? '');
+
     pluscities_touch_page($pageId);
     pluscities_log_event($actor, 'create_page', 'page:' . $pageId, '');
     return ['ok' => true, 'msg' => '', 'page_id' => $pageId];

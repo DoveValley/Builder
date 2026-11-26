@@ -187,6 +187,14 @@ function pluscities_niche_defaults(): array
         // per client domain at render time (pluscities_render_safety_toolkit()).
         'safety_toolkit_items' => [],
 
+        // Which real NOAA-backed chart this niche shows (includes/pluscities_
+        // climate_chart.php) — a chart_id matching one of the old system's
+        // plugins/image-data-chart/niches/{old_slug}/*.json file names, via
+        // PLUSCITIES_CLIMATE_CHART_NICHE_SLUGS' niche_id->old_slug mapping.
+        // Empty means this niche gets no climate chart — opt-in per niche,
+        // same rollout discipline as safety_toolkit_items.
+        'climate_chart_id' => '',
+
         'created_at' => '',
         'updated_at' => '',
     ];
@@ -273,6 +281,7 @@ function pluscities_niche_resolved(string $niche_id): ?array
         'match_keywords'    => $niche['match_keywords'],
         'image_slots'       => $niche['image_slots'],
         'safety_toolkit_items' => $niche['safety_toolkit_items'],
+        'climate_chart_id'  => $niche['climate_chart_id'],
     ];
 }
 

@@ -40,6 +40,22 @@ function pluscities_dataset_get(string $city_id, string $provider): ?array
             'year_built_median' => $c['year_built_median'],
             'homeownership_pct' => $c['homeownership_pct'],
         ];
+    } elseif (str_starts_with($provider, 'noaa_climate:')) {
+        // Keyed per OLD-SYSTEM NICHE SLUG, not a bare 'noaa_climate' — two
+        // different niches picking different charts for the same city must
+        // not share or overwrite one cached row (see includes/pluscities_
+        // climate_chart.php's own docblock). chart_fetch_decls() (the old
+        // system's own function, called via the shell bridge) returns every
+        // chart a niche declares in one call, so this single cached row
+        // already holds fields for every future chart that niche might add.
+        if (!function_exists('pluscities_climate_chart_shell_fetch')) return null; // caller forgot to require pluscities_climate_chart.php
+        if (!function_exists('infra_city_get')) return null; // caller forgot to require cities.php
+        $oldNicheSlug = substr($provider, strlen('noaa_climate:'));
+        $city = infra_city_get($city_id);
+        if (!$city) return null;
+        $result = pluscities_climate_chart_shell_fetch($city, $oldNicheSlug);
+        if ($result === null || empty($result['updates'])) return null;
+        $values = $result['updates'];
     }
     if ($values === null) return null; // unknown provider or no data available yet
 

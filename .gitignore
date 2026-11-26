@@ -40,6 +40,10 @@ pluscities_uploads/city_maps/
 # Data Chart (includes/pluscities_data_chart.php): same reasoning — drawn
 # once per city_id, disposable/regenerable from the census_acs dataset.
 pluscities_uploads/data_charts/
+# Climate Chart (includes/pluscities_climate_chart.php): same reasoning —
+# drawn once per (city_id, chart_id), regenerable from NOAA + the datasets
+# table cache.
+pluscities_uploads/climate_charts/
 
 # Dedicated SSH key: www-data (this box) -> lpcdelivery (LPC box), scoped to
 # syncing the delivery data tree only. Real credential, never commit.

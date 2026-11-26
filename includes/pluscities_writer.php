@@ -758,6 +758,11 @@ function pluscities_page_style_css(array $client): string
         . '.pluscities-page section.lpc-data-chart .lpc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:' . htmlspecialchars($brandColor) . ';margin:0 0 6px;}'
         . '.lpc-data-chart-img{width:100%;max-width:100%;height:auto;border-radius:12px;display:block;margin-top:4px;}'
         . '.pluscities-page section.lpc-data-chart .lpc-data-chart-caption{font-size:.95rem;line-height:1.65;color:#334155;margin:14px 0 0;}'
+        // Climate chart — the image is self-contained (title/figures/source
+        // drawn into the SVG itself, includes/pluscities_climate_chart.php),
+        // so this just styles the eyebrow and centers the image.
+        . '.pluscities-page section.lpc-climate-chart .lpc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:' . htmlspecialchars($brandColor) . ';margin:0 0 6px;}'
+        . '.lpc-climate-chart-img{width:100%;max-width:100%;height:auto;border-radius:12px;display:block;margin-top:4px;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'

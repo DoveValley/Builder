@@ -17,5 +17,11 @@ noaa_normals = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(noaa_normals)
 
 req = json.load(sys.stdin)
-updates, problems = noaa_normals.fetch_city(req.get('city', {}), req.get('decls', []))
+decls = req.get('decls')
+if decls is None:
+    # A niche slug is simpler for a caller than hand-building decls itself,
+    # and chart_fetch_decls() already carries the "don't drop the benchmark
+    # block" fix documented in its own comment in datasets.py.
+    decls = noaa_normals.chart_fetch_decls(req.get('niche', ''))
+updates, problems = noaa_normals.fetch_city(req.get('city', {}), decls)
 print(json.dumps({'updates': updates, 'problems': problems}))

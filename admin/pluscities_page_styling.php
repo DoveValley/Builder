@@ -125,6 +125,12 @@ function pluscities_page_styling_build_sections(array $blockRows, array $client,
                 $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Housing Chart', 'html' => $chartHtml];
             }
         }
+        if ($row['block_type'] === 'climate_data' && $cityId) {
+            $climateHtml = pluscities_render_climate_chart($cityId, $client['niche_id'] ?? '', $client['domain'] ?? '');
+            if ($climateHtml !== '') {
+                $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Climate Chart', 'html' => $climateHtml];
+            }
+        }
     }
     $safetyToolkitHtml = pluscities_render_safety_toolkit($niche ?? [], $client['domain'] ?? '');
     if ($safetyToolkitHtml !== '') {
