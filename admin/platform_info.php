@@ -31,6 +31,7 @@ $TABS = [
     'city_page'            => 'City Page',
     'claude'               => 'Claude',
     'use_cases'            => 'Use Cases',
+    'flow_diagrams'        => 'Flow Diagrams',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -39,7 +40,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'roadmap', 'city_page', 'claude', 'use_cases']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1794,6 +1795,32 @@ function platform_info_content_flow_data(): array {
                         max-height:none;color:#1C2B45;"><?= h($docText) ?></div>
         <?php endif; ?>
     <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'flow_diagrams'):
+    $flowPath = __DIR__ . '/../docs/pluscities-flow-diagrams.md';
+    $flowText = is_file($flowPath) ? file_get_contents($flowPath) : null;
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Flow Diagrams</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        Two complementary views of the niche library → niche → city → page → block pipeline: a
+        component-architecture diagram (what each layer contains) and a step-by-step flow diagram (what
+        happens, in order, when a real page gets built), plus a worked example tracing one real client
+        through both. Every box names the real file/function it corresponds to.
+    </p>
+    <?php if ($flowText === null): ?>
+        <div class="lpc-empty"><h2>File not found</h2>
+            <p>Expected it at <code>docs/pluscities-flow-diagrams.md</code>.</p></div>
+    <?php else: ?>
+        <p style="font-size:.88rem;line-height:1.7;">
+            Source file: <code>docs/pluscities-flow-diagrams.md</code>, last updated
+            <?= h(date('Y-m-d H:i', filemtime($flowPath))) ?>.
+        </p>
+        <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                    padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                    font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                    max-height:none;color:#1C2B45;"><?= h($flowText) ?></div>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php lpc_admin_close(); ?>
