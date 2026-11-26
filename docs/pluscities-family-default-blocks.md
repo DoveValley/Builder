@@ -7,7 +7,13 @@ worked through, not all at once.
 
 ## FINAL DECISION — locked default vs. optional blocks per family (2026-11-26)
 
-**Status: LOCKED, ready for implementation.** This is the one section to build against — everything
+**Status: LOCKED AND SHIPPED, 2026-11-26.** All 4 families' picks below are live in
+`niche_families/*.json` (seeded through the real `pluscities_family_save()` path) and read by
+`pluscities_niche_resolved()` — every real niche under a family inherits them automatically, no
+per-niche setup. The Niche Library admin screen can edit all 4 buckets (Always/Default/Optional/
+Excluded) per family with real save-time validation, and the Add Page / New Client pickers pre-check
+the Default picks under a "Recommended" heading, "Optional" below. Everything in this section is now
+the real behavior, not a target to build toward. This is the one section to build against — everything
 below it in this doc is the rationale/history that produced these numbers, kept for context, not a
 second source of truth. "Default" means ships on every new page automatically (spine + always-on +
 the pre-selected happy-path picks); "Optional" means still in the family's pool and swappable in, just
@@ -62,17 +68,23 @@ exists" below).
   not just unranked: demoted from always-on this same week for lacking real content tie-in to a
   medical-office visit) + `maintenance`, `repair_vs_replace`, `niche_data_table` (service)
 
-**What implementation needs, to turn this into working code:** a `happy_path_city_blocks[]` /
-`happy_path_service_blocks[]` field on each `niche_families/*.json` holding exactly the DEFAULT pick
-lists above (always-on and spine are already real fields/hardcoded — only the picks are new), plus the
-deterministic per-city variance picker described in "Design principle" below so real pages don't all
-draw the identical 3-of-N picks verbatim. Nothing above requires a pool or always-on change — those
-stay exactly as they are in `niche_families/*.json` today.
+**What shipped, 2026-11-26** (was "what implementation needs" — now built, see
+`docs/pluscities-system-reference.md` §2.3c for the full writeup): `happy_path_city_blocks[]` /
+`happy_path_service_blocks[]` fields on every `niche_families/*.json`, seeded with exactly the
+DEFAULT pick lists above; `pluscities_niche_resolved()` passes them through, clipped to each niche's
+real resolved pool; the Niche Library admin form edits them with real validation; the Add Page / New
+Client pickers pre-check them under a Recommended heading. **Deliberately still deferred, same
+reasoning as before**: the deterministic per-city variance picker (so real pages don't all draw the
+identical N-of-M picks verbatim) and any per-niche override of the happy-path list — neither is
+needed for this to work correctly today, and both can layer onto the same 2 fields later without a
+data model change.
 
 ## Matrix — every block × every family, at a glance
 
-Status as of 2026-11-26. Not yet implemented in code — this reflects the design/ranking work in this
-doc, not a real `happy_path_*_blocks` field (none exists yet).
+Status as of 2026-11-26, now live in code (see "FINAL DECISION" above) — this matrix was originally a
+design/ranking reference before a real `happy_path_*_blocks` field existed; it still accurately
+describes the shipped data, just verify against `niche_families/*.json` directly if this doc and the
+live Niche Library tab ever disagree.
 
 **Legend:** `ALWAYS` = auto-included, never pickable · `PICK` = this doc's happy-path default ·
 `pool` = in the family's pickable pool (per `niche_families/*.json`), available but not a happy-path

@@ -40,6 +40,33 @@ $editingNiche  = !empty($_GET['edit_niche'])  ? pluscities_niche_load($_GET['edi
 $editingPreset = !empty($_GET['edit_preset']) ? pluscities_preset_load($_GET['edit_preset']) : null;
 
 $families = array_filter(array_map('pluscities_family_load', pluscities_family_list()));
+
+// Flat catalog maps used only to compute the "Excluded" bucket (catalog
+// slugs this family's pool doesn't include at all) — spine is deliberately
+// left out, it's never a family-configurable concept.
+$pcCityCatalogSlugs = $pcServiceCatalogSlugs = [];
+foreach (platform_info_city_page_blocks_data() as $pcSection) {
+    foreach ($pcSection['rows'] as $pcRow) {
+        if (empty($pcRow['slug'])) continue;
+        if (stripos($pcSection['title'], 'City pool') !== false) $pcCityCatalogSlugs[] = $pcRow['slug'];
+        if (stripos($pcSection['title'], 'Service pool') !== false) $pcServiceCatalogSlugs[] = $pcRow['slug'];
+    }
+}
+/**
+ * The 4 real buckets a block can be in for a given family/pool — Always and
+ * Default are stored fields, Optional and Excluded are both derived so
+ * there's nothing extra to keep in sync. See includes/pluscities_niche_
+ * library.php's happy_path_*_blocks comment for why Optional isn't stored.
+ */
+function pluscities_bucket_summary(array $default, array $always, array $happy, array $catalogUniverse): array
+{
+    return [
+        'always'   => $always,
+        'default'  => array_values(array_intersect($happy, $default)),
+        'optional' => array_values(array_diff($default, $always, $happy)),
+        'excluded' => array_values(array_diff($catalogUniverse, $default)),
+    ];
+}
 $niches   = array_filter(array_map('pluscities_niche_load', pluscities_niche_list()));
 $presets  = array_filter(array_map('pluscities_preset_load', array_map(
     fn($f) => basename($f, '.json'),
@@ -127,10 +154,29 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
         Sets defaults every niche in it inherits — schema type, default city-block pool, compliance
         preset, approved sources, radius, which research topics are relevant.
     </p>
-    <?php foreach ($families as $f): ?>
-        <div class="pc-row">
-            <div><strong><?= h($f['label'] ?: $f['family_id']) ?></strong>
-                <div style="font-size:.78rem;color:var(--pc-muted,#52607a);"><?= h($f['family_id']) ?> — preset: <?= h($f['compliance_preset'] ?: '—') ?></div></div>
+    <?php foreach ($families as $f):
+        $pcCityBuckets    = pluscities_bucket_summary($f['default_city_blocks'] ?? [], $f['always_city_blocks'] ?? [], $f['happy_path_city_blocks'] ?? [], $pcCityCatalogSlugs);
+        $pcServiceBuckets = pluscities_bucket_summary($f['default_service_blocks'] ?? [], $f['always_service_blocks'] ?? [], $f['happy_path_service_blocks'] ?? [], $pcServiceCatalogSlugs);
+    ?>
+        <div class="pc-row" style="align-items:flex-start;">
+            <div style="flex:1;">
+                <strong><?= h($f['label'] ?: $f['family_id']) ?></strong>
+                <div style="font-size:.78rem;color:var(--pc-muted,#52607a);"><?= h($f['family_id']) ?> — preset: <?= h($f['compliance_preset'] ?: '—') ?></div>
+                <div style="font-size:.76rem;margin-top:6px;line-height:1.6;">
+                    <strong>City</strong> —
+                    Always: <?= h($pcCityBuckets['always'] ? implode(', ', $pcCityBuckets['always']) : '—') ?> ·
+                    Default: <?= h($pcCityBuckets['default'] ? implode(', ', $pcCityBuckets['default']) : '—') ?> ·
+                    Optional: <?= h($pcCityBuckets['optional'] ? implode(', ', $pcCityBuckets['optional']) : '—') ?> ·
+                    Excluded: <?= h($pcCityBuckets['excluded'] ? implode(', ', $pcCityBuckets['excluded']) : '—') ?>
+                </div>
+                <div style="font-size:.76rem;margin-top:2px;line-height:1.6;">
+                    <strong>Service</strong> —
+                    Always: <?= h($pcServiceBuckets['always'] ? implode(', ', $pcServiceBuckets['always']) : '—') ?> ·
+                    Default: <?= h($pcServiceBuckets['default'] ? implode(', ', $pcServiceBuckets['default']) : '—') ?> ·
+                    Optional: <?= h($pcServiceBuckets['optional'] ? implode(', ', $pcServiceBuckets['optional']) : '—') ?> ·
+                    Excluded: <?= h($pcServiceBuckets['excluded'] ? implode(', ', $pcServiceBuckets['excluded']) : '—') ?>
+                </div>
+            </div>
             <a href="?edit_family=<?= h($f['family_id']) ?>" class="btn-sm-outline">Edit</a>
         </div>
     <?php endforeach; ?>
@@ -157,12 +203,24 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
             </select>
         </div>
         <div class="fg"><label>Default Radius (minutes)</label><input type="number" name="default_radius_minutes" value="<?= h($editingFamily['default_radius_minutes'] ?? 25) ?>"></div>
-        <div class="fg" style="flex-basis:100%;"><label>Default City Blocks (comma-separated)</label>
+        <div class="fg" style="flex-basis:100%;"><label>Default City Blocks — the full pool (comma-separated)</label>
             <input type="text" name="default_city_blocks" placeholder="climate_data, housing_stock, neighborhoods, permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city"
                 value="<?= h(implode(', ', $editingFamily['default_city_blocks'] ?? [])) ?>"></div>
-        <div class="fg" style="flex-basis:100%;"><label>Default Service Blocks (comma-separated)</label>
+        <div class="fg" style="flex-basis:100%;"><label>Always City Blocks — auto-included, never swappable out (comma-separated, must be in the pool above)</label>
+            <input type="text" name="always_city_blocks" placeholder="housing_stock, neighborhoods, climate_data"
+                value="<?= h(implode(', ', $editingFamily['always_city_blocks'] ?? [])) ?>"></div>
+        <div class="fg" style="flex-basis:100%;"><label>Default (Happy-Path) City Blocks — pre-selected but swappable (comma-separated, must be in the pool above, not in Always)</label>
+            <input type="text" name="happy_path_city_blocks" placeholder="reviews_from_city, hazards, seasonal_guide"
+                value="<?= h(implode(', ', $editingFamily['happy_path_city_blocks'] ?? [])) ?>"></div>
+        <div class="fg" style="flex-basis:100%;"><label>Default Service Blocks — the full pool (comma-separated)</label>
             <input type="text" name="default_service_blocks" placeholder="common_problems, cited_expert_guidance, niche_data_table, process, cost_factors, why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives"
                 value="<?= h(implode(', ', $editingFamily['default_service_blocks'] ?? [])) ?>"></div>
+        <div class="fg" style="flex-basis:100%;"><label>Always Service Blocks — auto-included, never swappable out (comma-separated, must be in the pool above)</label>
+            <input type="text" name="always_service_blocks" placeholder="common_problems, process"
+                value="<?= h(implode(', ', $editingFamily['always_service_blocks'] ?? [])) ?>"></div>
+        <div class="fg" style="flex-basis:100%;"><label>Default (Happy-Path) Service Blocks — pre-selected but swappable (comma-separated, must be in the pool above, not in Always)</label>
+            <input type="text" name="happy_path_service_blocks" placeholder="why_choose_us, cost_factors, cited_expert_guidance"
+                value="<?= h(implode(', ', $editingFamily['happy_path_service_blocks'] ?? [])) ?>"></div>
         <div class="fg" style="flex-basis:100%;"><label>Approved Sources (comma-separated domains)</label>
             <input type="text" name="approved_sources" value="<?= h(implode(', ', $editingFamily['approved_sources'] ?? [])) ?>"></div>
         <div class="fg" style="flex-basis:100%;"><label>Research Topics (comma-separated)</label>

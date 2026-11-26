@@ -91,16 +91,16 @@ foreach (platform_info_city_page_blocks_data() as $pcCatSection) {
 $pcNichePools = [];
 $pcNicheServicePools = [];
 $pcNicheAlways = [];
+$pcNicheHappyCity = [];
+$pcNicheHappyService = [];
 foreach ($niches as $pcNicheId) {
     $pcNiche = pluscities_niche_resolved($pcNicheId);
     if (!$pcNiche) continue;
-    $cityPool = $pcNiche['city_blocks'] ?? [];
-    $servicePool = $pcNiche['service_blocks'] ?? [];
-    shuffle($cityPool);
-    shuffle($servicePool);
-    $pcNichePools[$pcNicheId] = $cityPool;
-    $pcNicheServicePools[$pcNicheId] = $servicePool;
+    $pcNichePools[$pcNicheId] = $pcNiche['city_blocks'] ?? [];
+    $pcNicheServicePools[$pcNicheId] = $pcNiche['service_blocks'] ?? [];
     $pcNicheAlways[$pcNicheId] = array_merge($pcNiche['always_city_blocks'] ?? [], $pcNiche['always_service_blocks'] ?? []);
+    $pcNicheHappyCity[$pcNicheId] = $pcNiche['happy_path_city_blocks'] ?? [];
+    $pcNicheHappyService[$pcNicheId] = $pcNiche['happy_path_service_blocks'] ?? [];
 }
 ?>
 <!DOCTYPE html>
@@ -280,25 +280,11 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
                             </p>
                             <?php endif; ?>
                             <strong style="font-size:.84rem;">City topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(6, count($pcCityPool)) ?> of <?= count($pcCityPool) ?></strong>
-                            <?php foreach ($pcCityPool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
-                                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
-                                    <input type="checkbox" class="pc-city-cb" name="city_block_picks[]" value="<?= h($pcSlug) ?>" data-niche="<?= h($pcNicheId) ?>">
-                                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
-                                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
-                                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
-                                </label>
-                            <?php endforeach; ?>
+                            <?= pluscities_render_pool_picker($pcCityPool, $pcNicheHappyCity[$pcNicheId] ?? [], $pcCatalog, 'pc-city-cb', 'city_block_picks', $pcNicheId) ?>
 
                             <?php $pcServicePool = $pcNicheServicePools[$pcNicheId] ?? []; ?>
                             <strong style="font-size:.84rem;display:block;margin-top:10px;">Service topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(4, count($pcServicePool)) ?> of <?= count($pcServicePool) ?></strong>
-                            <?php foreach ($pcServicePool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
-                                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
-                                    <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>" data-niche="<?= h($pcNicheId) ?>">
-                                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
-                                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
-                                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
-                                </label>
-                            <?php endforeach; ?>
+                            <?= pluscities_render_pool_picker($pcServicePool, $pcNicheHappyService[$pcNicheId] ?? [], $pcCatalog, 'pc-service-cb', 'service_block_picks', $pcNicheId) ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -345,15 +331,27 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
         }
         function onNicheChange() {
             var activeNiche = nicheSelect.value;
-            // Clear every city/service checkbox first, not just the ones
-            // being hidden — switching niches must never let a different
-            // niche's stale picks ride along in the submission (a real bug
-            // caught before shipping: hiding a group doesn't uncheck its
-            // boxes on its own, and some block slugs exist in more than one
-            // niche's pool, so a stray checked box could silently survive
-            // the whitelist filter). Service pool joined this same per-niche
-            // scoping 2026-11-26 once it became family-customizable.
-            document.querySelectorAll('.pc-city-cb, .pc-service-cb').forEach(function(b) { b.checked = false; b.disabled = false; });
+            // Reset every box first, not just the ones being hidden —
+            // switching niches must never let a different niche's stale
+            // picks ride along in the submission (a real bug caught before
+            // shipping: hiding a group doesn't uncheck its boxes on its own,
+            // and some block slugs exist in more than one niche's pool, so a
+            // stray checked box could silently survive the whitelist
+            // filter). Service pool joined this same per-niche scoping
+            // 2026-11-26 once it became family-customizable.
+            //
+            // The newly-active niche's own boxes reset to b.defaultChecked
+            // (the server-rendered `checked` attribute — happy-path picks
+            // render pre-checked, 2026-11-26), not to false — otherwise
+            // every niche would always start from a blank picker and this
+            // whole feature would silently do nothing in this wizard.
+            // .defaultChecked reflects the original markup and never
+            // changes once JS starts toggling .checked, so this is safe to
+            // call repeatedly as the niche selection changes back and forth.
+            document.querySelectorAll('.pc-city-cb, .pc-service-cb').forEach(function(b) {
+                b.disabled = false;
+                b.checked = (b.getAttribute('data-niche') === activeNiche) ? b.defaultChecked : false;
+            });
             nicheGroups.forEach(function(g) {
                 g.style.display = (g.getAttribute('data-niche') === activeNiche) ? 'block' : 'none';
             });

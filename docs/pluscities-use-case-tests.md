@@ -1292,3 +1292,64 @@ doc read right," not a new render path to test — same low-risk shape as every 
 group in `admin/platform_info.php`'s roadmap tab (flags the whole effort as a real pending "todo" —
 implementing the `happy_path_*_blocks` fields and the deterministic variance picker isn't done yet,
 this pass was design/ranking only), this entry.
+
+## UC26, 2026-11-26 — Family to Default Blocks built for real: data model, admin form + validation,
+pickers, one real wizard bug fixed, all 4 families seeded live — ✅ PASS
+
+Scott: "I assume the client wizard was really just a modification of existing code... to add some
+functionality and make things simpler" (confirmed yes) and "build this" — turning UC25's locked design
+into working code, keeping the 4-bucket model (Always/Default/Optional/Excluded) explicit rather than
+collapsed to 2, per Scott's direct correction ("I do want to keep the four buckets instead of moving to
+two").
+
+**Data model** (`includes/pluscities_niche_library.php`): 2 new family fields,
+`happy_path_city_blocks[]`/`happy_path_service_blocks[]`, same deep-merge-default pattern as
+`always_*_blocks`. `pluscities_niche_resolved()` passes them through, clipped against the niche's real
+resolved pool (`array_intersect` against `city_blocks`/`service_blocks`, not a blind copy) — so a
+niche's own `blocks_off`/`service_blocks_off` denylist removing one of its family's happy-path picks
+just drops it from the recommendation too, no separate bookkeeping. "Optional" and "Excluded" are
+deliberately never stored — both derived at display time from the 3 real fields
+(`default_*_blocks`/`always_*_blocks`/`happy_path_*_blocks`), so nothing new can drift out of sync.
+
+**Admin form** (`admin/pluscities_niches.php` + `_niches_save.php`): 4 new CSV fields on the Family
+edit form (Always/Default × City/Service — closing the pre-existing gap where `always_*_blocks` had
+no form field at all), a live computed 4-bucket summary per family in the list view, and real
+save-time validation that didn't exist before for ANY of these CSV fields: every slug must be a real
+catalog type (checked against `platform_info_city_page_blocks_data()`, the same source of truth the
+agency-facing picker reads) and a member of that family's own `default_*_blocks`; Always and Default
+can't overlap. Rejects with a specific error instead of silently saving garbage.
+
+**Pickers** (`admin/pluscities_page_add.php`, `admin/pluscities_clients.php`): one new shared helper,
+`pluscities_render_pool_picker()` (`includes/pluscities_block_catalog.php`), renders the pool split
+into a pre-checked "Recommended" group and an unchecked "Optional" group (shuffled only within
+Optional — Recommended's order is a deliberate ranking, not noise to correct for), used by both
+pickers so they can't drift apart. `pluscities_create_page()` itself needed zero changes — it already
+just accepts whatever's checked.
+
+**One real bug found building this, not before**: the New Client wizard's existing niche-switch
+handler unconditionally unchecked every checkbox on every change (a real, deliberate anti-stale-pick
+safeguard from an earlier pass) — including on initial page load. That would have silently reset the
+new pre-checked Recommended defaults to blank the instant the page rendered, defeating the entire
+feature in that one screen while the Add Page picker (no niche switcher, simpler) worked fine. Fixed
+by restoring each niche's own defaults via `.defaultChecked` (the original server-rendered state, which
+never changes once JS starts toggling `.checked`) instead of blanket-clearing to `false`.
+
+**Seeded all 4 real families** with the exact values already locked in UC25's FINAL DECISION section,
+through the real `pluscities_family_save()` path (a one-off script run as `www-data`, not hand-edited
+JSON) — `home-trades`, `legal`, `professional-services`, `medical-wellness` all now carry real
+`happy_path_*_blocks` data.
+
+**Verified end-to-end, live**: `php -l` on all 6 touched PHP files; a direct CLI call to
+`pluscities_niche_resolved()` confirmed `hvac`/`water-damage-restoration` (home-trades) and
+`dental-practice` (medical-wellness) all inherit their family's happy-path picks automatically with
+zero per-niche config; forged a `www-data` session and curled the Families list (4-bucket summary
+matched the locked doc exactly for all 4 families), the Family edit form (new fields pre-filled with
+real data), 2 live save-validation attempts (a bogus slug and an Always/Default overlap — both
+correctly rejected, file untouched), the real Add Page picker for a live HVAC client (3 Recommended +
+3 Optional city, 3 Recommended + 4 Optional service, all pre-checked correctly), and the New Client
+wizard (all 3 real niches render their correct pre-checked count: 6 for both home-trades niches, 4 for
+medical-wellness).
+
+**Artifacts:** 6 PHP files changed, 4 `niche_families/*.json` seeded via the real save path, this
+entry. Deliberately still deferred, unchanged from UC25: the deterministic per-city variance picker and
+any per-niche happy-path override.

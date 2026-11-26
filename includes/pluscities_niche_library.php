@@ -106,6 +106,21 @@ function pluscities_family_defaults(): array
         // pluscities_niche_resolved() below.
         'default_service_blocks' => [],
         'always_service_blocks'  => [],
+        // The "happy path": a ranked, pre-selected subset of the pickable
+        // pool (default_*_blocks minus always_*_blocks) that a new page
+        // starts with checked, instead of starting blank — see
+        // docs/pluscities-family-default-blocks.md for the per-family
+        // rationale behind each pick. Added 2026-11-26. Deliberately NOT a
+        // 4th independent list: pluscities_niche_resolved() below clips
+        // this against the real resolved pool, so a niche denylisting one
+        // of its family's happy-path picks just drops it, same as any
+        // other pool member — no separate bookkeeping needed. "Optional"
+        // and "excluded" are never stored at all; both are derived at
+        // display time (optional = pool minus this list, excluded = full
+        // catalog minus default_*_blocks) so there's nothing here that can
+        // drift out of sync with default_*_blocks/always_*_blocks.
+        'happy_path_city_blocks'    => [],
+        'happy_path_service_blocks' => [],
         'compliance_preset'      => '',   // preset_id, this family's default
         'approved_sources'       => [],   // baseline trusted domains
         'default_radius_minutes' => 25,
@@ -412,6 +427,14 @@ function pluscities_niche_resolved(string $niche_id): ?array
     $alwaysServiceBlocks = $family['always_service_blocks'];
     $serviceBlocks = array_values(array_diff($family['default_service_blocks'], $niche['service_blocks_off'] ?? [], $alwaysServiceBlocks));
 
+    // Happy-path picks: clipped against the REAL resolved pool, not just
+    // copied from the family — if this niche's own blocks_off/
+    // service_blocks_off denylist removed one of the family's happy-path
+    // picks, it should simply disappear from the recommended list too, not
+    // dangle as a pick that was never actually in this niche's pool.
+    $happyPathCityBlocks = array_values(array_intersect($family['happy_path_city_blocks'] ?? [], $cityBlocks));
+    $happyPathServiceBlocks = array_values(array_intersect($family['happy_path_service_blocks'] ?? [], $serviceBlocks));
+
     return [
         'niche_id'       => $niche['niche_id'],
         'family_id'      => $family['family_id'],
@@ -426,6 +449,8 @@ function pluscities_niche_resolved(string $niche_id): ?array
         'always_city_blocks' => $alwaysCityBlocks,
         'service_blocks'       => $serviceBlocks,
         'always_service_blocks' => $alwaysServiceBlocks,
+        'happy_path_city_blocks'    => $happyPathCityBlocks,
+        'happy_path_service_blocks' => $happyPathServiceBlocks,
         'approved_sources'  => array_values(array_unique(array_merge(
             $family['approved_sources'], $niche['approved_sources_extra']
         ))),

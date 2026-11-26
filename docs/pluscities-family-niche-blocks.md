@@ -123,6 +123,14 @@ noting in this data, not smoothed over:
 - **`legal` and `professional-services` currently have no real niche in them yet** — their block
   configuration is real and already resolvable, just not exercised by a live niche today.
 
+**Pool membership vs. default selection — a separate, now-implemented concept.** This table (and
+`niche_families/*.json`) defines what's *in* each family's pool. It deliberately says nothing about
+what a new page actually ships with by default out of that pool — that's a second field,
+`happy_path_city_blocks[]`/`happy_path_service_blocks[]`, added 2026-11-26 and documented in
+`docs/pluscities-family-default-blocks.md`. Same family record, same admin screen (Niche Library →
+Families), genuinely separate concern: this doc's table answers "can a page have X at all," the
+other doc answers "does a new page start with X pre-checked."
+
 ## The 3 real niches today, and which family owns their blocks
 
 | Niche | Family | What that gets it |

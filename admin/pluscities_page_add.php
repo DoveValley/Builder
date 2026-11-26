@@ -85,14 +85,16 @@ lpc_admin_open('pluscities_clients', 'Add Page');
         }
     }
 
-    // Randomize pick-order per page load — a fixed catalog order plus a
-    // hard pick-cap meant whoever builds a page checks top-down until the
-    // limit, starving whatever sits near the end of a long list regardless
-    // of real value (confirmed live: before_the_tech_arrives picked on just
-    // 1 of 21 real pages). Shuffling removes position as the deciding
-    // factor for what's left after the always-on promotions above.
-    shuffle($cityPool);
-    shuffle($servicePool);
+    // Pick order: Recommended (the family's happy-path picks, pre-checked)
+    // first, then Optional — shuffled within Optional only, so a fixed
+    // catalog order plus a hard pick-cap doesn't starve whatever sits near
+    // the end of a long list regardless of real value (confirmed live:
+    // before_the_tech_arrives picked on just 1 of 21 real pages).
+    // pluscities_render_pool_picker() (includes/pluscities_block_catalog.php)
+    // does the actual grouping/shuffling/rendering, shared with the New
+    // Client wizard below so the two pickers can't drift apart.
+    $happyPathCityBlocks    = $niche['happy_path_city_blocks'] ?? [];
+    $happyPathServiceBlocks = $niche['happy_path_service_blocks'] ?? [];
 ?>
 <?php pluscities_client_subtabs($clientId, 'page_add'); ?>
 <div class="pc-card">
@@ -124,26 +126,12 @@ lpc_admin_open('pluscities_clients', 'Add Page');
 
         <div class="pc-section-label" style="flex-basis:100%;">City topics — choose up to <?= (int) min(6, count($cityPool)) ?> of <?= count($cityPool) ?></div>
         <div style="flex-basis:100%;">
-            <?php foreach ($cityPool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
-                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
-                    <input type="checkbox" class="pc-city-cb" name="city_block_picks[]" value="<?= h($pcSlug) ?>">
-                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
-                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
-                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
-                </label>
-            <?php endforeach; ?>
+            <?= pluscities_render_pool_picker($cityPool, $happyPathCityBlocks, $pcCatalog, 'pc-city-cb', 'city_block_picks') ?>
         </div>
 
         <div class="pc-section-label" style="flex-basis:100%;">Service topics — choose up to <?= (int) min(4, count($servicePool)) ?> of <?= count($servicePool) ?></div>
         <div style="flex-basis:100%;">
-            <?php foreach ($servicePool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
-                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
-                    <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>">
-                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
-                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
-                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
-                </label>
-            <?php endforeach; ?>
+            <?= pluscities_render_pool_picker($servicePool, $happyPathServiceBlocks, $pcCatalog, 'pc-service-cb', 'service_block_picks') ?>
         </div>
 
         <div style="flex-basis:100%;">
@@ -165,6 +153,13 @@ lpc_admin_open('pluscities_clients', 'Add Page');
     var serviceBoxes = document.querySelectorAll('.pc-service-cb');
     var serviceMax = Math.min(4, serviceBoxes.length);
     serviceBoxes.forEach(function(b) { b.addEventListener('change', function() { enforceMax('.pc-service-cb', serviceMax); }); });
+
+    // Recommended picks now start pre-checked, so run once on load too —
+    // otherwise a family whose happy-path count ever reaches the cap would
+    // leave Optional boxes clickable-but-silently-rejected until the first
+    // manual toggle.
+    enforceMax('.pc-city-cb', cityMax);
+    enforceMax('.pc-service-cb', serviceMax);
 })();
 </script>
 <?php endif; ?>

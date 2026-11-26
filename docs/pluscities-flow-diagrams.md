@@ -32,6 +32,9 @@ input.*
 │    always_city_blocks[]     │  subtracted from each other by          │
 │    default_service_blocks[] │  pluscities_niche_resolved() so a        │
 │    always_service_blocks[] ─┘  block is either always-on or pickable  │
+│    happy_path_city_blocks[] · happy_path_service_blocks[] — a ranked   │
+│      pre-selected subset of the pool (added 2026-11-26); "Optional"    │
+│      and "Excluded" are never stored, both derived at display time     │
 │    compliance_preset ───────────► COMPLIANCE PRESET (banned phrases,   │
 │                                    validator rule toggles)             │
 │    approved_sources[] · default_radius_minutes · research_topics[]    │
@@ -77,7 +80,9 @@ input.*
 │  2. ALWAYS-BLOCKS (per-family, not pickable): housing_stock,           │
 │     neighborhoods, [climate_data] · common_problems, process           │
 │  3. POOL (optional, capped, per-family): permits, utilities, …         │
-│     cost_factors, why_choose_us, …                                     │
+│     cost_factors, why_choose_us, … — shown to the agency split into     │
+│     Recommended (the family's happy-path picks, pre-checked) and       │
+│     Optional (everything else), not one flat list (added 2026-11-26)  │
 │  4. FURNITURE (unconditional, keyed city_id[+niche_id], not a pick):   │
 │     trust_bar → City Info + Area Map → Housing Chart → Climate         │
 │     Chart(s) → … → safety_toolkit                                      │
@@ -114,6 +119,9 @@ STEP 3 — pluscities_niche_resolved($niche_id)        ◄── the ONE merge p
   includes/pluscities_niche_library.php
   → city_blocks[] = family.default_city_blocks − niche.blocks_off − family.always_city_blocks
   → service_blocks[] = family.default_service_blocks − niche.service_blocks_off − family.always_service_blocks
+  → happy_path_city_blocks[]/happy_path_service_blocks[] = family's happy-path lists, CLIPPED to only
+    what's still actually in city_blocks[]/service_blocks[] above (a niche's denylist can remove a
+    family's happy-path pick — it just disappears from "recommended" too, same as any other pool item)
   → everything from Steps 1-2, flattened into ONE array every caller below reads
                               │
                               ▼
@@ -133,7 +141,10 @@ STEP 6 — pluscities_create_page($client_id, $city_id, $service_key, …)
   assembles the page's block list, IN ORDER:
     a) SPINE (hardcoded, every niche)        hero, overview … faq, service_area
     b) ALWAYS-BLOCKS merged in               niche.always_city_blocks + niche.always_service_blocks
-    c) POOL picks (agency-chosen, validated  against niche.city_blocks[] / niche.service_blocks[])
+    c) POOL picks (agency-chosen, validated  against niche.city_blocks[] / niche.service_blocks[];
+                                              the picker pre-checks niche.happy_path_*_blocks[] —
+                                              admin/pluscities_page_add.php's and pluscities_clients.
+                                              php's "Recommended" group — still freely swappable)
     d) FURNITURE triggered (city-level, not  a blocks-table row):
          pluscities_ensure_city_map() · pluscities_ensure_city_info() ·
          pluscities_ensure_climate_chart() · pluscities_ensure_housing_chart()

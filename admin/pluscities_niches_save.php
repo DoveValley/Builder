@@ -44,26 +44,54 @@ if ($action === 'save_family') {
     if (!in_array($familyId, PLUSCITIES_FAMILY_IDS, true)) {
         header('Location: pluscities_niches.php?msg=error:Invalid+family+ID'); exit;
     }
-    // Fields with no form input yet (always_city_blocks, always_service_blocks)
-    // must be preserved from the existing record, same as save_niche already
-    // does below — pluscities_family_save() has no "keep what's not passed"
-    // behavior of its own (pluscities_deep_merge_defaults() only fills in the
-    // SCHEMA default, [], for anything missing, it doesn't look at what's
-    // currently on disk). Omitting this fallback would silently wipe both
-    // fields back to [] on every single save through this form — the exact
-    // bug class image_slots hit on the niche side (found+fixed 2026-11-23).
-    $existingFamily = pluscities_family_load($familyId) ?? [];
+
+    $defaultCityBlocks    = pluscities_split_csv_field((string) ($_POST['default_city_blocks'] ?? ''));
+    $defaultServiceBlocks = pluscities_split_csv_field((string) ($_POST['default_service_blocks'] ?? ''));
+    $alwaysCityBlocks     = pluscities_split_csv_field((string) ($_POST['always_city_blocks'] ?? ''));
+    $alwaysServiceBlocks  = pluscities_split_csv_field((string) ($_POST['always_service_blocks'] ?? ''));
+    $happyPathCityBlocks    = pluscities_split_csv_field((string) ($_POST['happy_path_city_blocks'] ?? ''));
+    $happyPathServiceBlocks = pluscities_split_csv_field((string) ($_POST['happy_path_service_blocks'] ?? ''));
+
+    // Real validation, not just free text — a typo'd or nonsense slug used
+    // to save silently and only ever surface as a block that quietly never
+    // rendered. $pcKnownSlugs is the real catalog (includes/pluscities_
+    // block_catalog.php), the same source of truth the agency-facing picker
+    // itself reads from, not a second guess at what's valid.
+    $pcKnownSlugs = [];
+    foreach (platform_info_city_page_blocks_data() as $pcSection) {
+        foreach ($pcSection['rows'] as $pcRow) {
+            if (!empty($pcRow['slug'])) $pcKnownSlugs[] = $pcRow['slug'];
+        }
+    }
+    $pcErrors = [];
+    foreach (['always_city_blocks' => $alwaysCityBlocks, 'happy_path_city_blocks' => $happyPathCityBlocks] as $pcField => $pcSlugs) {
+        foreach (array_diff($pcSlugs, $pcKnownSlugs) as $pcBad) $pcErrors[] = "\"$pcBad\" ($pcField) is not a real block type";
+        foreach (array_diff($pcSlugs, $defaultCityBlocks) as $pcBad) $pcErrors[] = "\"$pcBad\" ($pcField) is not in Default City Blocks";
+    }
+    foreach (['always_service_blocks' => $alwaysServiceBlocks, 'happy_path_service_blocks' => $happyPathServiceBlocks] as $pcField => $pcSlugs) {
+        foreach (array_diff($pcSlugs, $pcKnownSlugs) as $pcBad) $pcErrors[] = "\"$pcBad\" ($pcField) is not a real block type";
+        foreach (array_diff($pcSlugs, $defaultServiceBlocks) as $pcBad) $pcErrors[] = "\"$pcBad\" ($pcField) is not in Default Service Blocks";
+    }
+    foreach (array_intersect($alwaysCityBlocks, $happyPathCityBlocks) as $pcBad) $pcErrors[] = "\"$pcBad\" can't be in both Always City Blocks and Default (Happy-Path) City Blocks";
+    foreach (array_intersect($alwaysServiceBlocks, $happyPathServiceBlocks) as $pcBad) $pcErrors[] = "\"$pcBad\" can't be in both Always Service Blocks and Default (Happy-Path) Service Blocks";
+    if ($pcErrors) {
+        header('Location: pluscities_niches.php?edit_family=' . urlencode($familyId) . '&msg=error:' . urlencode(implode('; ', $pcErrors)));
+        exit;
+    }
+
     pluscities_family_save($familyId, [
         'label'                  => trim($_POST['label'] ?? ''),
         'schema_type_family'     => trim($_POST['schema_type_family'] ?? ''),
         'compliance_preset'      => trim($_POST['compliance_preset'] ?? ''),
         'default_radius_minutes' => max(1, (int) ($_POST['default_radius_minutes'] ?? 25)),
-        'default_city_blocks'    => pluscities_split_csv_field((string) ($_POST['default_city_blocks'] ?? '')),
-        'default_service_blocks' => pluscities_split_csv_field((string) ($_POST['default_service_blocks'] ?? '')),
+        'default_city_blocks'    => $defaultCityBlocks,
+        'default_service_blocks' => $defaultServiceBlocks,
         'approved_sources'       => pluscities_split_csv_field((string) ($_POST['approved_sources'] ?? '')),
         'research_topics'        => pluscities_split_csv_field((string) ($_POST['research_topics'] ?? '')),
-        'always_city_blocks'     => $existingFamily['always_city_blocks'] ?? [],
-        'always_service_blocks'  => $existingFamily['always_service_blocks'] ?? [],
+        'always_city_blocks'        => $alwaysCityBlocks,
+        'always_service_blocks'     => $alwaysServiceBlocks,
+        'happy_path_city_blocks'    => $happyPathCityBlocks,
+        'happy_path_service_blocks' => $happyPathServiceBlocks,
     ]);
     header('Location: pluscities_niches.php?msg=success:Family+saved&edit_family=' . urlencode($familyId)); exit;
 }

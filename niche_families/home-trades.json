@@ -14,6 +14,17 @@
         "hazards",
         "reviews_from_city"
     ],
+    "default_service_blocks": [
+        "common_problems",
+        "cited_expert_guidance",
+        "niche_data_table",
+        "process",
+        "cost_factors",
+        "why_choose_us",
+        "repair_vs_replace",
+        "maintenance",
+        "before_the_tech_arrives"
+    ],
     "approved_sources": [
         "*.gov"
     ],
@@ -26,25 +37,24 @@
         "seasons",
         "civic"
     ],
-    "family_id": "home-trades",
     "always_city_blocks": [
         "housing_stock",
         "neighborhoods",
         "climate_data"
     ],
-    "default_service_blocks": [
-        "common_problems",
-        "cited_expert_guidance",
-        "niche_data_table",
-        "process",
-        "cost_factors",
-        "why_choose_us",
-        "repair_vs_replace",
-        "maintenance",
-        "before_the_tech_arrives"
-    ],
     "always_service_blocks": [
         "common_problems",
         "process"
+    ],
+    "family_id": "home-trades",
+    "happy_path_city_blocks": [
+        "reviews_from_city",
+        "hazards",
+        "seasonal_guide"
+    ],
+    "happy_path_service_blocks": [
+        "why_choose_us",
+        "cost_factors",
+        "cited_expert_guidance"
     ]
 }

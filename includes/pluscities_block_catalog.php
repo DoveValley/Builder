@@ -32,6 +32,45 @@ function pluscities_block_class_label(string $class): string {
     }
 }
 
+/**
+ * Renders one pool's checkbox list split into "Recommended" (the family's
+ * happy-path picks, pre-checked) and "Optional" (everything else still in
+ * the pool) — one place shared by the Add Page picker (admin/pluscities_
+ * page_add.php) and the New Client wizard (admin/pluscities_clients.php) so
+ * the two can't quietly drift into rendering this differently, same reason
+ * platform_info_city_page_blocks_data() itself is factored out. $pool is
+ * the niche's already-resolved pickable pool (always-on already subtracted
+ * by pluscities_niche_resolved()); $happyPath is that niche's resolved
+ * happy_path_city_blocks/happy_path_service_blocks, already clipped to
+ * real pool membership. $dataNiche is only set on the multi-niche wizard
+ * form, where JS shows/hides groups per selected niche.
+ */
+function pluscities_render_pool_picker(array $pool, array $happyPath, array $catalog, string $cssClass, string $fieldName, ?string $dataNiche = null): string
+{
+    $recommended = array_values(array_intersect($pool, $happyPath));
+    $optional    = array_values(array_diff($pool, $recommended));
+    shuffle($optional); // anti-bias shuffle only applies within Optional now — Recommended's order is a deliberate ranking, not an accident to correct for
+
+    $html = '';
+    foreach ([['Recommended', $recommended, true], ['Optional', $optional, false]] as [$groupLabel, $slugs, $checked]) {
+        if (!$slugs) continue;
+        $html .= '<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:#52607a;margin:10px 0 2px;">' . htmlspecialchars($groupLabel) . '</div>';
+        foreach ($slugs as $slug) {
+            $row = $catalog[$slug] ?? null;
+            if (!$row) continue;
+            $html .= '<label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">'
+                . '<input type="checkbox" class="' . htmlspecialchars($cssClass) . '" name="' . htmlspecialchars($fieldName) . '[]" value="' . htmlspecialchars($slug) . '"'
+                . ($dataNiche !== null ? ' data-niche="' . htmlspecialchars($dataNiche) . '"' : '')
+                . ($checked ? ' checked' : '') . '>'
+                . '<strong style="font-size:.82rem;">' . htmlspecialchars($row['block']) . '</strong>'
+                . '<span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;">' . htmlspecialchars(pluscities_block_class_label($row['class'])) . '</span>'
+                . '<p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;">' . htmlspecialchars($row['what']) . '</p>'
+                . '</label>';
+        }
+    }
+    return $html;
+}
+
 function platform_info_city_page_blocks_data(): array {
     return [
         [

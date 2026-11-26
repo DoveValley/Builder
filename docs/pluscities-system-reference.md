@@ -435,19 +435,35 @@ real clients in this niche (`lonestar-restoration`, `meade-restoration`, `clearw
 See `docs/pluscities-family-niche-blocks.md` for the full family definitions post-consolidation, and
 `docs/pluscities-niche-roadmap.md` for the ~50-niche buildout list this review fed into.
 
-### 2.3c Family to Default Blocks: a happy-path selection, not just a pool (design only, 2026-11-26)
+### 2.3c Family to Default Blocks: a happy-path selection, not just a pool (shipped 2026-11-26)
 
 `docs/pluscities-family-niche-blocks.md` (§2.3a/§2.3b above) defines what each family's pickable pool
 *is*. A separate doc, `docs/pluscities-family-default-blocks.md`, defines what a page should actually
 *ship with by default* — a real gap found reviewing home-trades: after the always-on promotions in
 §2.3a, home-trades' remaining pickable city pool is exactly 6 items with a pick-cap of 6, meaning no
 real choice happens; every page gets the entire remaining pool regardless of what's picked. All 4
-families now have a reviewed, ranked preference list plus a family×block matrix in that doc (ALWAYS /
-happy-path-pick / pool / pool-but-flagged-as-not-fitting-any-planned-niche / excluded-outright, per
-block per family). **Design only — no code reads this yet**: no `happy_path_*_blocks` field exists on
-any `niche_families/*.json`, and the deterministic per-city variance picker this design calls for
-(reusing the Safety Toolkit's proven crc32-per-domain mechanism) hasn't been built. See the "Family to
-Default Blocks" admin tab for the full write-up.
+families got a reviewed, ranked preference list plus a family×block matrix in that doc (ALWAYS /
+DEFAULT / OPTIONAL / EXCLUDED, per block per family — 4 explicit buckets by design, not collapsed to
+2, since Always and Default are genuinely different: one can never be swapped out, the other can).
+
+**Now real code, not just a design doc.** Two new family fields, `happy_path_city_blocks[]` /
+`happy_path_service_blocks[]` (`includes/pluscities_niche_library.php`), hold each family's DEFAULT
+picks; `pluscities_niche_resolved()` passes them through, clipped to that niche's actual resolved
+pool (so a niche's own `blocks_off`/`service_blocks_off` denylist can remove a family's happy-path
+pick and it simply disappears from the recommendation, no separate bookkeeping). "Optional" and
+"Excluded" are never stored — both are derived at display time (`Optional = default − always −
+happy_path`, `Excluded = full catalog − default`), so there's nothing extra that can drift out of
+sync. The Niche Library admin form (`admin/pluscities_niches.php`/`_niches_save.php`) edits all 4
+buckets per family, with real save-time validation (every slug must be a genuine catalog type and a
+member of that family's own pool; Always and Default can't overlap) — closing a gap that used to
+exist for the free-text pool fields. The Add Page (`admin/pluscities_page_add.php`) and New Client
+(`admin/pluscities_clients.php`) pickers render the pool split into a pre-checked "Recommended" group
+and an unchecked "Optional" group, via one shared helper
+(`pluscities_render_pool_picker()`, `includes/pluscities_block_catalog.php`) so the two pickers can't
+drift apart. **Still deliberately deferred**: the deterministic per-city variance picker (reusing the
+Safety Toolkit's proven crc32-per-domain mechanism) and any per-niche override of the happy-path list
+— neither blocks this from working correctly today. See the "Family to Default Blocks" admin tab for
+the full per-family write-up.
 
 ### 2.4 Block `content_json` shapes, by classification
 

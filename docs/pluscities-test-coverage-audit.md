@@ -170,6 +170,8 @@ fixes 4 more real PlusCities files plus the client-delete feature's own quaranti
 doc, 2026-11-26) consolidates the niche family taxonomy from 6 to 4 and locks in a ~50-niche buildout
 roadmap; UC25 (same doc, 2026-11-26) completes the Family to Default Blocks design pass (all 4
 families reviewed, a family×block matrix added, a real ranking mistake found and fixed on a second
-pass over legal) — all capabilities/fixes added *after* this audit's row set was fixed to the
+pass over legal); UC26 (same doc, 2026-11-26) builds it for real — 2 new family fields, an admin form
+with real validation, Recommended/Optional pickers, one real wizard bug fixed, all 4 families seeded
+live — all capabilities/fixes added *after* this audit's row set was fixed to the
 2026-11-23 system reference, not part of the original spec being measured here. See
-`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-25 for how it was verified.
+`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-26 for how it was verified.
