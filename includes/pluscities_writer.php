@@ -614,7 +614,18 @@ function pluscities_page_style_css(array $client): string
         // keeps every value in ONE consistent frame — percentages here and
         // vw there are combined inside the same calc() per side instead of
         // fighting each other as two separate properties.
-        . '.pluscities-page .lpc-fullbleed{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-radius:0 !important;padding:0 !important;}'
+        // All 5 properties need !important, not just border-radius/padding —
+        // found live: the generic card rule above is a <section> element
+        // selector with HIGHER specificity than this class-only rule, and
+        // its "margin:0 0 20px" shorthand silently won on margin-left/
+        // margin-right for every <section>-based band (alt-0/alt-1, CTA
+        // band, service area), leaving width:100vw unopposed — the element
+        // extended 100vw to the RIGHT of its normal position with no
+        // compensating negative margin, flush on the right edge but nowhere
+        // near the left one. Trust bar (a <div>, not a <section>) never
+        // matched that generic rule at all, which is exactly why it alone
+        // kept testing as correct.
+        . '.pluscities-page .lpc-fullbleed{width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important;border-radius:0 !important;padding:0 !important;}'
         . '.lpc-band-inner{max-width:1000px;margin:0 auto;}'
         . '.lpc-trust-bar .lpc-band-inner{padding:18px 24px;}'
         . '.lpc-trust-bar{background:' . htmlspecialchars($darkColor) . ';margin:0 0 20px;}'
