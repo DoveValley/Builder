@@ -26,7 +26,7 @@
     "research_topics": [],
     "custom_research_fields": [],
     "niche_table": {
-        "title": "Common AC Problems: Cause & Urgency",
+        "title": "Common AC & Furnace Problems: Cause & Urgency",
         "columns": [
             "Issue",
             "Likely Cause",
@@ -72,6 +72,31 @@
                 "Utility bills trending higher",
                 "Reduced system efficiency over time",
                 "Schedule service soon"
+            ],
+            [
+                "Furnace will not turn on",
+                "Thermostat issue, a tripped breaker, or a pilot light/ignitor failure",
+                "Same-day service recommended"
+            ],
+            [
+                "Furnace blows cold air",
+                "Pilot light out, gas supply issue, or a faulty ignitor",
+                "Same-day service recommended"
+            ],
+            [
+                "Yellow or flickering pilot light instead of steady blue",
+                "Possible incomplete combustion and a carbon monoxide risk",
+                "Same-day service recommended"
+            ],
+            [
+                "Furnace cycles on and off repeatedly",
+                "Clogged filter, failing thermostat, or an overheating limit switch",
+                "Within a few days"
+            ],
+            [
+                "Unusual smell when the furnace first runs each season",
+                "Dust burning off startup equipment (normal) versus a wiring or gas odor (not normal)",
+                "Call immediately if it smells like gas; otherwise schedule service soon"
             ]
         ],
         "source_topic": null
@@ -87,7 +112,7 @@
     "blog_topics": [],
     "match_keywords": [],
     "niche_id": "hvac",
-    "updated_at": "2026-11-26T03:06:25+00:00",
+    "updated_at": "2026-11-26T03:51:39+00:00",
     "created_at": "2026-11-21T20:34:15+00:00",
     "image_slots": [
         {
@@ -106,5 +131,6 @@
         "wet_days",
         "heavy_rain_days",
         "flood_decades"
-    ]
+    ],
+    "service_blocks_off": []
 }

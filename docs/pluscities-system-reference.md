@@ -350,6 +350,41 @@ use of `before_the_tech_arrives`/`repair_vs_replace`/`maintenance` belongs to `h
 clients, none to `legal`/`professional-services` (no niche blueprint references either family at all),
 so nothing needed backfilling.
 
+**Same-day follow-on #3: a different mismatch category, found at the NICHE level, not the family
+level.** Checked the 3 real `niche_blueprints/*.json` for the same business-category-fit mismatch found
+at the family level — found none; both real niches are internally consistent field-visit trades.
+Instead found a real, different issue: `niche_table` and `climate_chart_ids` are **niche-wide shared
+content with no per-service variation** (`pluscities_write_niche_data_table_block()`'s own docblock:
+"not per-city at all... shared by every client/city in the niche" — true for every service too, there's
+no `service_key` in the function signature at all), but 2 of the 3 real niches declare MULTIPLE distinct
+services under one niche: `hvac` has `ac-repair` + `furnace-repair`; `water-damage-restoration` has
+`water-damage-restoration` + `fire-damage-restoration` + `smoke-damage-cleaning`. Both niches' shared
+`niche_table` was authored around only the niche's namesake service — `hvac`'s table covered AC
+problems only (nothing about furnaces), `water-damage-restoration`'s covered IICRC water categories only
+(nothing about fire/smoke) — so a visitor on `furnace-repair`/`fire-damage-restoration`/
+`smoke-damage-cleaning` saw a reference table about a different service entirely. `dental-practice`
+coincidentally avoided this only because it has no `niche_table` authored yet (`null`), not because it
+was designed around its 2 services (`teeth-cleaning`/`emergency-dental`) correctly.
+
+**Fixed as a content broadening, not an architecture change** (Scott's call — a per-service
+`niche_table`/`climate_chart_ids` mechanism was offered as the "real fix" alternative and declined in
+favor of the cheaper option): `hvac`'s table retitled "Common AC & Furnace Problems: Cause & Urgency"
+with 5 new furnace-specific rows appended (won't-turn-on, blows-cold-air, yellow/flickering pilot light →
+real carbon-monoxide-risk guidance, short-cycling, startup odor); `water-damage-restoration`'s table
+retitled "Restoration Reference: Water, Fire & Smoke Damage Categories" with the original 3 IICRC water
+rows relabeled `Water — Category N` for consistency, plus 4 new rows covering the 3 recognized smoke
+residue types (dry/wet/protein) and structural fire damage. Both edited directly via
+`pluscities_niche_save()` (hand-authored content, not AI-written — same path the Niche Library admin
+form itself writes through). **Backfilled immediately, same discipline as every furniture piece this
+session**: `niche_table` is a cached `content_json` per block, not re-read live, so the content change
+alone wouldn't reach existing pages without an explicit regenerate — ran
+`pluscities_regenerate_block()` on all 12 existing `niche_data_table` blocks fleet-wide (not just the
+3 previously-mismatched fire/smoke pages — the `ac-repair`/`water-damage-restoration` pages also got a
+richer table and needed the same refresh) and bumped `site_rev` on all 6 affected clients. Verified
+directly: block #202 (`meade-restoration`'s `fire-damage-restoration` page) now contains all 7 rows
+including the 3 new fire/smoke entries, confirmed by reading its `content_json` straight from the DB
+after regeneration.
+
 **Still open, flagged not fixed:** `dental-practice` correctly has no climate chart option at all (no
 old-system folder exists for it, no climate angle applies). Richer per-city economic research
 (`market_blurb`/`top_employers`/`industries`) for City Info's narrative isn't wired to any PlusCities
