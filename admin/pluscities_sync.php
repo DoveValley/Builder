@@ -149,11 +149,14 @@ if ($action === 'page') {
         if ($b['block_type'] === 'hero' && !empty($niche['trust_bar_items'])) {
             $html .= pluscities_render_trust_bar($niche['trust_bar_items']);
         }
-        // Area Map sits right after the Service Area block it visually
-        // confirms — city-level furniture (includes/pluscities_area_map.
-        // php), cache read only; a city whose map hasn't been generated yet
-        // (or has no OSM data to draw from) just renders nothing here.
+        // City Info (real photo + narrative) and Area Map both sit right
+        // after the Service Area block — City Info first, matching the
+        // fleet's own reference sites' observed ordering (City Information
+        // + photo, THEN the Service Area Map). Both city-level furniture,
+        // cache read only; a city with nothing generated yet just renders
+        // nothing here.
         if ($b['block_type'] === 'service_area') {
+            $html .= pluscities_render_city_info($page['city_id']);
             $html .= pluscities_render_area_map($page['city_id'], $client['domain'] ?? '');
         }
         // Housing Snapshot chart sits right after the housing_stock block it

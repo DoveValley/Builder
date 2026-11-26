@@ -31,6 +31,7 @@ require_once __DIR__ . '/pluscities_research.php';
 require_once __DIR__ . '/pluscities_area_map.php';
 require_once __DIR__ . '/pluscities_data_chart.php';
 require_once __DIR__ . '/pluscities_climate_chart.php';
+require_once __DIR__ . '/pluscities_city_info.php';
 require_once __DIR__ . '/pluscities_images.php';
 require_once __DIR__ . '/pluscities_writer.php';
 require_once __DIR__ . '/pluscities_validator.php';

@@ -70,8 +70,15 @@ lpc_admin_open('pluscities_clients', 'Add Page');
         lpc_admin_close();
         exit;
     }
+    // $niche['city_blocks'] already excludes always_city_blocks —
+    // pluscities_niche_resolved() subtracts them before this ever sees the
+    // pool (includes/pluscities_niche_library.php). Service pool needs the
+    // same subtraction applied here since PLUSCITIES_SERVICE_POOL itself is
+    // still the full known-type catalog (see pluscities_validate_block_
+    // picks()'s own comment for why it stays that way).
     $cityPool    = $niche['city_blocks'] ?? [];
-    $servicePool = PLUSCITIES_SERVICE_POOL;
+    $servicePool = array_values(array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS));
+    $alwaysBlocks = array_merge($niche['always_city_blocks'] ?? [], PLUSCITIES_ALWAYS_SERVICE_BLOCKS);
 
     $pcCatalog = [];
     foreach (platform_info_city_page_blocks_data() as $pcCatSection) {
@@ -79,6 +86,15 @@ lpc_admin_open('pluscities_clients', 'Add Page');
             if (!empty($pcCatRow['slug'])) $pcCatalog[$pcCatRow['slug']] = $pcCatRow;
         }
     }
+
+    // Randomize pick-order per page load — a fixed catalog order plus a
+    // hard pick-cap meant whoever builds a page checks top-down until the
+    // limit, starving whatever sits near the end of a long list regardless
+    // of real value (confirmed live: before_the_tech_arrives picked on just
+    // 1 of 21 real pages). Shuffling removes position as the deciding
+    // factor for what's left after the always-on promotions above.
+    shuffle($cityPool);
+    shuffle($servicePool);
 ?>
 <?php pluscities_client_subtabs($clientId, 'page_add'); ?>
 <div class="pc-card">
@@ -99,6 +115,14 @@ lpc_admin_open('pluscities_clients', 'Add Page');
                 <?php endforeach; ?>
             </select>
         </div>
+
+        <?php if ($alwaysBlocks): ?>
+        <div class="pc-section-label" style="flex-basis:100%;">Always included</div>
+        <p style="flex-basis:100%;color:#6b7280;font-size:.8rem;margin:0 0 4px;">
+            <?= h(implode(', ', array_map(fn($s) => $pcCatalog[$s]['block'] ?? $s, $alwaysBlocks))) ?>
+            — every page gets these automatically, no pick needed.
+        </p>
+        <?php endif; ?>
 
         <div class="pc-section-label" style="flex-basis:100%;">City topics — choose up to <?= (int) min(6, count($cityPool)) ?> of <?= count($cityPool) ?></div>
         <div style="flex-basis:100%;">

@@ -763,6 +763,14 @@ function pluscities_page_style_css(array $client): string
         // so this just styles the eyebrow and centers the image.
         . '.pluscities-page section.lpc-climate-chart .lpc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:' . htmlspecialchars($brandColor) . ';margin:0 0 6px;}'
         . '.lpc-climate-chart-img{width:100%;max-width:100%;height:auto;border-radius:12px;display:block;margin-top:4px;}'
+        // City Info — photo left, narrative right on wider screens (same
+        // 2-column split Area Map already uses), stacks on mobile.
+        . '.lpc-city-info-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:4px;align-items:start;}'
+        . '@media(min-width:720px){.lpc-city-info-grid{grid-template-columns:2fr 3fr;}}'
+        . '.lpc-city-info-figure{margin:0;}'
+        . '.lpc-city-info-img{width:100%;height:auto;border-radius:10px;display:block;}'
+        . '.lpc-city-info-credit{font-size:.78rem;color:#6b7280;margin-top:6px;}'
+        . '.pluscities-page section.lpc-city-info .lpc-city-info-text p{font-size:.95rem;line-height:1.65;color:#334155;margin:0 0 12px;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'

@@ -62,6 +62,14 @@ function pluscities_family_defaults(): array
         'label'                  => '',
         'schema_type_family'     => '',
         'default_city_blocks'    => [],   // baseline pool, before a niche's blocks_off denylist
+        // City blocks real usage has already converged on as "every good
+        // page has this" for this family — auto-included on every page,
+        // never a pool pick, never pickable (subtracted from the regular
+        // pool below so a block is either always-on or pickable, never
+        // both). Distinct from default_city_blocks rather than just always
+        // picking everything in the pool: a family's pool can still carry
+        // genuinely optional blocks alongside its always-on ones.
+        'always_city_blocks'     => [],
         'compliance_preset'      => '',   // preset_id, this family's default
         'approved_sources'       => [],   // baseline trusted domains
         'default_radius_minutes' => 25,
@@ -252,8 +260,11 @@ function pluscities_niche_resolved(string $niche_id): ?array
     $family = pluscities_family_load($niche['family_id']);
     if ($family === null) return null;
 
-    // City blocks: family's default pool, minus the niche's denylist.
-    $cityBlocks = array_values(array_diff($family['default_city_blocks'], $niche['blocks_off']));
+    // City blocks: family's default pool, minus the niche's denylist, minus
+    // whatever the family marks always-on (always-on blocks are never
+    // pickable — see pluscities_family_defaults()'s own comment).
+    $alwaysCityBlocks = $family['always_city_blocks'];
+    $cityBlocks = array_values(array_diff($family['default_city_blocks'], $niche['blocks_off'], $alwaysCityBlocks));
 
     return [
         'niche_id'       => $niche['niche_id'],
@@ -266,6 +277,7 @@ function pluscities_niche_resolved(string $niche_id): ?array
         'seasonal_calendar' => $niche['seasonal_calendar'],
         'services'          => $niche['services'],
         'city_blocks'       => $cityBlocks,
+        'always_city_blocks' => $alwaysCityBlocks,
         'approved_sources'  => array_values(array_unique(array_merge(
             $family['approved_sources'], $niche['approved_sources_extra']
         ))),

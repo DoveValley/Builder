@@ -81,11 +81,25 @@ foreach (platform_info_city_page_blocks_data() as $pcCatSection) {
 // pool is resolved up front here (cheap at today's scale) and all of them
 // render as hidden groups; JS shows only the one matching the current
 // selection. Service pool is the one fixed, niche-independent constant.
+// Same always-on subtraction as admin/pluscities_page_add.php: $pcNiche
+// ['city_blocks'] already excludes always_city_blocks (pluscities_niche_
+// resolved() does this), service pool needs it applied here since
+// PLUSCITIES_SERVICE_POOL itself stays the full known-type catalog. Each
+// pool is shuffled so a fixed catalog order + hard pick-cap stops starving
+// whatever sits near the end of a long list (confirmed live: before_the_
+// tech_arrives picked on just 1 of 21 real pages).
 $pcNichePools = [];
+$pcNicheAlways = [];
 foreach ($niches as $pcNicheId) {
     $pcNiche = pluscities_niche_resolved($pcNicheId);
-    if ($pcNiche) $pcNichePools[$pcNicheId] = $pcNiche['city_blocks'] ?? [];
+    if (!$pcNiche) continue;
+    $pool = $pcNiche['city_blocks'] ?? [];
+    shuffle($pool);
+    $pcNichePools[$pcNicheId] = $pool;
+    $pcNicheAlways[$pcNicheId] = array_merge($pcNiche['always_city_blocks'] ?? [], PLUSCITIES_ALWAYS_SERVICE_BLOCKS);
 }
+$pcPickableServicePool = array_values(array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS));
+shuffle($pcPickableServicePool);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -257,6 +271,12 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
                 <div style="flex-basis:100%;">
                     <?php foreach ($pcNichePools as $pcNicheId => $pcCityPool): ?>
                         <div class="pc-niche-topics" data-niche="<?= h($pcNicheId) ?>" style="display:none;">
+                            <?php if (!empty($pcNicheAlways[$pcNicheId])): ?>
+                            <p style="color:#6b7280;font-size:.78rem;margin:0 0 6px;">
+                                Always included: <?= h(implode(', ', array_map(fn($s) => $pcCatalog[$s]['block'] ?? $s, $pcNicheAlways[$pcNicheId]))) ?>
+                                — no pick needed.
+                            </p>
+                            <?php endif; ?>
                             <strong style="font-size:.84rem;">City topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(6, count($pcCityPool)) ?> of <?= count($pcCityPool) ?></strong>
                             <?php foreach ($pcCityPool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
                                 <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
@@ -269,8 +289,8 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
                         </div>
                     <?php endforeach; ?>
 
-                    <strong style="font-size:.84rem;">Service topics — choose up to <?= (int) min(4, count(PLUSCITIES_SERVICE_POOL)) ?> of <?= count(PLUSCITIES_SERVICE_POOL) ?></strong>
-                    <?php foreach (PLUSCITIES_SERVICE_POOL as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
+                    <strong style="font-size:.84rem;">Service topics — choose up to <?= (int) min(4, count($pcPickableServicePool)) ?> of <?= count($pcPickableServicePool) ?></strong>
+                    <?php foreach ($pcPickableServicePool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
                         <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
                             <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>">
                             <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>

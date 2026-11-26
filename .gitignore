@@ -44,6 +44,10 @@ pluscities_uploads/data_charts/
 # drawn once per (city_id, chart_id), regenerable from NOAA + the datasets
 # table cache.
 pluscities_uploads/climate_charts/
+# City Info (includes/pluscities_city_info.php): a real Wikipedia photo +
+# AI narrative, drawn once per city_id — regenerable from Wikipedia +
+# the write step, never source of truth.
+pluscities_uploads/city_photos/
 
 # Dedicated SSH key: www-data (this box) -> lpcdelivery (LPC box), scoped to
 # syncing the delivery data tree only. Real credential, never commit.

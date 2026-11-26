@@ -133,7 +133,13 @@ if ($action === 'create') {
             (array) ($_POST['service_block_picks'] ?? [])
         );
         $cityPicks    = $picks['city']    ?: array_slice($niche['city_blocks'] ?? [], 0, 6);
-        $servicePicks = $picks['service'] ?: array_slice(PLUSCITIES_SERVICE_POOL, 0, 4);
+        // Pickable subset only — PLUSCITIES_SERVICE_POOL itself stays the
+        // full known-type catalog (pluscities_validate_block_picks()'s own
+        // comment); common_problems/process are always-included by
+        // pluscities_create_page() regardless, so defaulting from the full
+        // list here would be redundant, not wrong — this just keeps intent
+        // consistent with how the fallback is described.
+        $servicePicks = $picks['service'] ?: array_slice(array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS), 0, 4);
         $result = pluscities_create_page($clientId, $firstCityId, $firstService, $cityPicks, $servicePicks, $actor);
         if (!$result['ok']) {
             header('Location: pluscities_clients.php?msg=warning:' . urlencode('Client created, but the first page failed: ' . $result['msg'])); exit;

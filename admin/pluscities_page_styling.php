@@ -110,10 +110,16 @@ function pluscities_page_styling_build_sections(array $blockRows, array $client,
         if ($row['block_type'] === 'hero' && !empty($niche['trust_bar_items'])) {
             $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Trust bar', 'html' => pluscities_render_trust_bar($niche['trust_bar_items'])];
         }
-        // Area Map — only resolvable for a REAL page (needs a real city_id);
-        // the demo page (every block type, no specific city) never shows it,
-        // same as it would never show on a page that doesn't exist yet.
+        // City Info + Area Map — only resolvable for a REAL page (needs a
+        // real city_id); the demo page (every block type, no specific city)
+        // never shows either, same as they'd never show on a page that
+        // doesn't exist yet. City Info first, matching the fleet's own
+        // reference sites' observed ordering.
         if ($row['block_type'] === 'service_area' && $cityId) {
+            $cityInfoHtml = pluscities_render_city_info($cityId);
+            if ($cityInfoHtml !== '') {
+                $sections[] = ['id' => 'blk-' . $i++, 'label' => 'City Info', 'html' => $cityInfoHtml];
+            }
             $areaMapHtml = pluscities_render_area_map($cityId, $client['domain'] ?? '');
             if ($areaMapHtml !== '') {
                 $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Area Map', 'html' => $areaMapHtml];
