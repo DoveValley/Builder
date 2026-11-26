@@ -33,6 +33,7 @@ $TABS = [
     'use_cases'            => 'Use Cases',
     'flow_diagrams'        => 'Flow Diagrams',
     'users'                => 'Users',
+    'family_niche_blocks'  => 'Family to Niche Blocks',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -41,7 +42,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users', 'family_niche_blocks']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1878,6 +1879,33 @@ function platform_info_content_flow_data(): array {
                     padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
                     font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
                     max-height:none;color:#1C2B45;"><?= h($usersText) ?></div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'family_niche_blocks'):
+    $fnbPath = __DIR__ . '/../docs/pluscities-family-niche-blocks.md';
+    $fnbText = is_file($fnbPath) ? file_get_contents($fnbPath) : null;
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Family to Niche Blocks</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        How the 6 fixed families and the niches inside them actually decide what's on a page — the
+        4 layers (spine, always-on, pickable pool, furniture), the real current data for every family,
+        and exactly where that decision stops being the Niche Library's job and starts being a
+        client's (it never does — a client only ever picks from a pool the Niche Library already
+        defined).
+    </p>
+    <?php if ($fnbText === null): ?>
+        <div class="lpc-empty"><h2>File not found</h2>
+            <p>Expected it at <code>docs/pluscities-family-niche-blocks.md</code>.</p></div>
+    <?php else: ?>
+        <p style="font-size:.88rem;line-height:1.7;">
+            Source file: <code>docs/pluscities-family-niche-blocks.md</code>, last updated
+            <?= h(date('Y-m-d H:i', filemtime($fnbPath))) ?>.
+        </p>
+        <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                    padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                    font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                    max-height:none;color:#1C2B45;"><?= h($fnbText) ?></div>
     <?php endif; ?>
 <?php endif; ?>
 
