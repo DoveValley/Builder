@@ -8,8 +8,11 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 18 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
-UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why). UC9-14
+Status: **All 19 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19,
+added 2026-11-25/26, against real live clients directly — a build-and-verify pass for 5 new page-furniture
+pieces and a block-architecture rework, not a scripted fixture walkthrough, see that section for why).
+UC9-14
 were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
@@ -857,3 +860,74 @@ real blast-radius (the Suspend Site kill switch).
 **Artifacts:** `clearwater-restoration-pros` restored to 2 live pages, `site_suspended=false`. Gated test
 agency `coastal-marketing` unchanged (read-only exercise of its existing gate). No other fixture state
 left behind.
+
+## UC19, 2026-11-25/26 — page visual/furniture upgrades + block architecture rework — ✅ PASS (5 new
+furniture pieces shipped+backfilled, a real structural gap resolved, 4 real bugs found and fixed)
+
+Not a single scripted walkthrough like UC1-18 — a build-and-verify pass, run against real live clients
+(not the `qa-test-co`/demo fixtures), prompted by comparing a real PlusCities page against the fleet's own
+proven reference sites (baileyrestoration.com, wrenappliancerepair.com, gannmoldremediation.com) and
+finding PlusCities pages were missing whole content types those sites share, not just styling polish.
+Recorded here because every piece was verified with the same discipline as the scripted UCs: forge an
+admin session file directly on disk → hit the REAL production `admin/pluscities_sync.php` endpoint with
+real Bearer auth → confirm the generated HTML/image is actually there → screenshot the real Page Styling
+admin screen via headless Chromium/CDP → clean up every forged session + chrome profile + temp screenshot
+afterward. Full architecture detail lives in `docs/pluscities-system-reference.md` §2.3a; this entry is
+the verification record.
+
+**What shipped, in build order:**
+1. **Safety Toolkit** — niche-level furniture, deterministic 3-of-5 org-card pick per client domain
+   (crc32 seed), ported from `plugins/safety_toolkit/`, zero AI writing.
+2. **Area Map** — real OSM basemap + administrative boundary + a real "nearby towns served" list computed
+   via haversine distance against the `cities` table (never researched/guessed).
+3. **Housing Snapshot chart** — an owner-vs-renter occupancy bar + 3 stat tiles, drawn from the exact same
+   Census ACS dataset the `housing_stock` block already renders as text, no new network dependency.
+4. **Items-shaped block styling (Tier 2)** — `process`/`common_problems`/`seasonal_guide` moved off the
+   generic heading+paragraph fallback onto dedicated grid/timeline treatments.
+5. **City Info** — a real, CC-licensed Wikipedia lead photo + an AI-written narrative adapted from the old
+   system's proven `city_spotlight` prompt, grounded only in population + PlusCities' own `neighborhoods`
+   fact-card topic.
+6. **Always-blocks mechanism** — a new per-family `always_city_blocks[]` field (extends the niche
+   library's existing family-inheritance model, doesn't bypass it) plus a global
+   `PLUSCITIES_ALWAYS_SERVICE_BLOCKS` constant, closing the real pool-selection-bias gap found earlier
+   this session (`housing_stock`/`neighborhoods`/`climate_data` and `common_problems`/`process` were being
+   starved by picker position, not low real value).
+7. **Climate Chart(s)** — started as one NOAA chart (`rainfall_vs_average`, water-damage-restoration
+   only), pluralized to `climate_chart_ids[]` and extended to 6 chart types across both real
+   climate-data-carrying niches (water-damage-restoration, hvac): `rainfall_vs_average`/`hot_days`,
+   `avg_temp_monthly`, `freeze_days`, `wet_days`, `heavy_rain_days`, `flood_decades`. Reuses the old
+   system's `plugins/image-data-chart/` engine directly (already blessed for reuse per
+   `docs/lpc-vs-site-factory-boundary.md` §3) rather than rebuilding a NOAA pipeline from scratch.
+
+**Real bugs found and fixed along the way:**
+- SQLite TEXT-affinity columns (`lat`/`lng`) silently did STRING comparison against float literals,
+  returning zero nearby-towns results until `CAST(... AS REAL)` was added (Area Map).
+- Shipping Area Map's generation logic only inside `pluscities_create_page()` left existing pages
+  untouched — Scott caught it live ("I don't see it live or on the style page"). Fixed by backfilling all
+  15 existing cities + bumping `site_rev`; applied proactively on every subsequent piece without being
+  asked again.
+- Every AI writer prompt fed the raw `city_id` slug ("bedford-tx") instead of the real label ("Bedford,
+  TX") into every generation call — confirmed live, fixed at the one shared context-building call site.
+  Not yet backfilled onto already-generated content fleet-wide (a separate, bigger decision left to
+  Scott).
+- A read-through dataset cache (`pluscities_dataset_get()`) had no way to detect its underlying source
+  gained a new field — adding `avg_temp_monthly` to an already-fetched NOAA niche folder left existing
+  cities stale until a `$force` parameter was added. Confirmed live this can even change which station
+  qualifies for a city (Bedford, TX moved stations once the new data type was required at the same
+  station).
+
+**Architecture decision, made via Plan Mode after an explicit correction:** the first draft of the
+always-blocks idea considered a blanket global promotion. Scott's correction mid-review — "make sure
+we're including the niche library and how it integrates into the niche that is selected... and how that
+block library works" — caused a redesign to a per-FAMILY field instead, since `medical-wellness`
+(dental-practice) has a genuinely shorter pool with no `climate_data` at all; a global promotion would
+have force-added a block the niche library already deliberately excludes for that family. Verified
+directly: `pluscities_niche_resolved()` correctly produces `always_city_blocks = [housing_stock,
+neighborhoods]` + a 2-item pool for `medical-wellness`, vs. `[housing_stock, neighborhoods, climate_data]`
++ a 6-item pool for the other 5 families; a real test page created with zero block picks got all 5
+promoted blocks automatically with real generated content.
+
+**Artifacts:** all 15 live (city, niche) pairs across every real client backfilled for Area Map/Housing
+Snapshot/City Info; all (city, niche) pairs with climate data backfilled for all 6 chart types;
+`site_rev` bumped on every affected client in the same passes. No fixture state left behind — this pass
+touched real live clients directly, each change verified then left in its correct final state.

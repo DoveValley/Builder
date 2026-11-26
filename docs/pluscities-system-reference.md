@@ -1,11 +1,13 @@
-# PlusCities — System Reference (as-built, 2026-11-24)
+# PlusCities — System Reference (as-built, 2026-11-26)
 
 ## 0. How to use this doc
 
 This is **as-built ground truth**, verified directly against the real code, the real SQLite DB, and real
-client JSON files — last fully re-verified 2026-11-24, after a full production-readiness push that shipped
-a real approval workflow, real client cancellation, the admin panel's own domain, and more (see §3.1, §3.2,
-§3.6, §4) — not the original design intent. For *why* something was designed a
+client JSON files — last fully re-verified 2026-11-26, after a page-visual/block-architecture pass that
+reshaped the block model into 4 real categories (spine/always-blocks/pool/furniture) and shipped 5 new
+generated-image/chart furniture pieces (see §2.3a), on top of a 2026-11-24 production-readiness push that
+shipped a real approval workflow, real client cancellation, the admin panel's own domain, and more (see
+§3.1, §3.2, §3.6, §4) — not the original design intent. For *why* something was designed a
 certain way, or what's planned for later phases, read `docs/PLUSCITIES_FEATURE_SPEC.md` (750 lines, the
 original Phase 1-4 roadmap). Trust **this** doc for *what's actually there today*; trust the spec for
 *intent and roadmap*. In at least two places (noted in §4) the shipped code deliberately diverges from
@@ -170,8 +172,9 @@ new field, which gets added the first time that client's approval toggle is touc
 
 - **`niche_families/`** — 6 files (`home-trades`, `restoration`, `legal`, `medical-wellness`,
   `outdoor-cleaning`, `professional-services`), fixed and hand-authored, not user-creatable.
-- **`niche_blueprints/`** — **only 2 real files exist**: `hvac.json` (family: home-trades) and
-  `water-damage-restoration.json` (family: restoration).
+- **`niche_blueprints/`** — **only 3 real files exist**: `hvac.json` (family: home-trades),
+  `water-damage-restoration.json` (family: restoration), `dental-practice.json` (family:
+  medical-wellness, authored in UC11 testing).
 - **`compliance_presets/`** — **only 1 file**: `contractor.json`.
 
 `PLUSCITIES_SERVICE_POOL` (`includes/pluscities_lifecycle.php`) is **one shared pool of 9 service-block
@@ -183,7 +186,103 @@ seasonal_guide, hazards, reviews_from_city` (9 types).
 
 A resolved niche blueprint (`pluscities_niche_resolved()`) contains: `schema_subtype` (real schema.org
 type), `services[]` (with keyword-research data per service), `blocks_off[]`, `research_topics[]`,
-`niche_table` (the hand-authored shared data table), `trust_bar_items[]`, `blog_topics[]`, `image_slots[]`.
+`niche_table` (the hand-authored shared data table), `trust_bar_items[]`, `blog_topics[]`, `image_slots[]`,
+`always_city_blocks[]` and `climate_chart_ids[]` (both added 2026-11-26, see §2.3a).
+
+### 2.3a Block architecture: 4 categories, not 2 (added 2026-11-26)
+
+A page-styling pass (2026-11-25/26) compared real PlusCities pages against the fleet's own proven
+reference sites (baileyrestoration.com, wrenappliancerepair.com, gannmoldremediation.com) and found
+PlusCities pages were missing whole content types those sites share, not just styling polish. What
+shipped reshaped "spine blocks + two pickable pools" (§2.3 above) into four real categories:
+
+1. **SPINE — 4, hardcoded, never pool, never swapped.** `hero`, `overview` (front) + `faq`,
+   `service_area` (back) — built directly in `pluscities_create_page()`, identical for every niche.
+   Unchanged from before this pass.
+
+2. **ALWAYS-BLOCKS — auto-included, not pickable, varies by family.** New mechanism. A family's
+   `always_city_blocks[]` is subtracted from its `default_city_blocks` by `pluscities_niche_resolved()`
+   before the city pool is handed to any caller — a block is either always-on or pickable, never both,
+   and the subtraction happens once so every caller (Add Page picker, new-client wizard, swap dropdown,
+   `pluscities_create_page()` itself) sees an already-correctly-shaped pool. Populated per family from
+   real pick-frequency data (21 live pages, gathered before deciding): `housing_stock` + `neighborhoods`
+   always-on for all 6 families (18/21 and 17/21 picks — safe everywhere); `+climate_data` always-on only
+   for the 5 families that already carried it in their pool (not `medical-wellness` — its family never
+   had `climate_data` to begin with, so nothing is force-added to a niche the library already excludes it
+   from). One global constant covers the service side, since the service pool has no per-family variation
+   to preserve either way yet: `PLUSCITIES_ALWAYS_SERVICE_BLOCKS = ['common_problems', 'process']`
+   (15/21 and 14/21 picks).
+
+3. **POOL — what's left, genuinely optional, capped and pickable.** Same mechanism as before
+   (§2.3), just a shorter remaining list now that the near-universal picks moved to always-blocks. A
+   real bug fixed in the same pass: the Add Page/new-client pickers rendered the pool in a fixed catalog
+   order with a hard "choose up to N" cap enforced by JS — whoever built a page checked top-down until
+   the cap, so whatever sat near the end of a long list was starved regardless of real value
+   (`before_the_tech_arrives` was picked on just 1 of 21 real pages, literally last in the list). Fixed
+   by shuffling the remaining pool's checkbox order per page load in both pickers.
+
+4. **FURNITURE — not `blocks` table rows at all; rendered unconditionally by the production loop,
+   keyed on `city_id` (sometimes `+niche_id`), never a pick, never regenerated per-page.** This is
+   where all the new image/chart work lives — see the table below. Inserted at fixed points in the
+   render loop (`admin/pluscities_sync.php` and `admin/pluscities_page_styling.php`, both updated
+   identically): `trust_bar` right after `hero`; `cta_band` right before `faq`; **City Info** then
+   **Area Map** right after `service_area`; **Housing Snapshot chart** right after `housing_stock` (when
+   present); **Climate Chart(s)** right after `climate_data` (when present); `safety_toolkit` at the very
+   end.
+
+**Every furniture piece follows the same generation/render split as the rest of this system**
+(§3.2's table) — a `pluscities_ensure_X()` function does the real work (network calls, AI writing, SVG
+build, rasterize) and runs ONLY from `pluscities_create_page()` + a one-time backfill script; a
+`pluscities_render_X()` function is cache-READ ONLY and is the only one called from
+`admin/pluscities_sync.php` (real production) and `admin/pluscities_page_styling.php` (admin preview).
+Neither render function ever triggers generation; every piece degrades to `''` gracefully when its data
+isn't ready.
+
+| Piece | File | Source | Cache key |
+|---|---|---|---|
+| Safety Toolkit | `includes/pluscities_writer.php` (`pluscities_render_safety_toolkit`) | niche's own `safety_toolkit_items` (hand-curated) | none — deterministic crc32 pick per client domain, no image |
+| Area Map | `includes/pluscities_area_map.php` | OSM tiles + Nominatim boundary + the `cities` table (haversine nearby-towns, no AI guess) | `city_id` only — shared across every client/niche covering that city |
+| Housing Snapshot | `includes/pluscities_data_chart.php` | Census ACS (`pluscities_dataset_get('census_acs')`) — the exact same dataset the `housing_stock` block already renders as a bullet list, no new network dependency | `city_id` only |
+| Climate Chart(s) | `includes/pluscities_climate_chart.php` | NOAA Climate Normals (station-based monthly) or NOAA Storm Events (county-level lookup), shelled out to the old system's `plugins/image-data-chart/providers/lpc_bridge.py`/`datasets.py`, reusing `charts.php`'s series/caption functions directly | `(city_id, chart_id)` — a niche can carry multiple `climate_chart_ids[]`. Both real niches with climate data carry all 6 of the old system's water-restoration chart types: water-damage-restoration = `rainfall_vs_average, avg_temp_monthly, freeze_days, wet_days, heavy_rain_days, flood_decades`; hvac = `hot_days, avg_temp_monthly, freeze_days, wet_days, heavy_rain_days, flood_decades`. Every chart added past the first required zero PHP changes — a new per-niche-captioned JSON definition only |
+| City Info | `includes/pluscities_city_info.php` | Real photo via `plugins/city-image/fetch.php`'s Wikipedia lead-image fetch (CC-licensed, auto-attributed); narrative AI-written, adapted from the old system's `city_spotlight` prompt, grounded only in `population` + PlusCities' own `neighborhoods` fact-card topic — no business framing, pure city-level furniture | `city_id` only — shared across every client/niche |
+
+**Real bugs/limits found building this, worth remembering:**
+- SQLite TEXT-affinity columns (`lat`/`lng`) silently do STRING comparison against float literals —
+  `CAST(... AS REAL)` required (Area Map).
+- A chart's combined source citation can overflow a fixed-width SVG canvas — wrap at logical
+  boundaries, size the canvas to the wrapped line count (Climate Chart).
+- Wikipedia throttles rapid *different* city lookups with a silent empty-200, not a 429/5xx — no error
+  signal to retry on; backfills need unconditional pacing (a flat sleep), not adaptive retry (City Info).
+- A read-through dataset cache (`pluscities_dataset_get()`) had no way to know its underlying source
+  gained a new field — adding a new chart type to an already-fetched niche folder left existing cities
+  stale until a `$force` parameter was added; can even change which NOAA station qualifies, since every
+  requested data type must come from the same station.
+- Shipping new generation logic only inside `pluscities_create_page()` leaves EXISTING pages untouched —
+  every piece above required an explicit one-time backfill of every live (city, niche) pair plus a
+  `site_rev` bump on every affected client in the same pass, or the live WordPress sites never refetch.
+  Learned the hard way on Area Map (a real gap Scott caught: "I don't see it live"), applied proactively
+  on every piece built after.
+
+Items-shaped block styling (Tier 2, same pass): `why_choose_us`, `process`, `common_problems`, and
+`seasonal_guide` each moved off the generic heading+paragraph fallback onto one generalized writer,
+`pluscities_write_items_block($instruction, ...)` (`includes/pluscities_writer.php`) — one function,
+a different instruction string per type, rather than 4 near-duplicate writers. `process` → a connected
+numbered-step timeline; `common_problems` → an icon grid (same card pattern as Safety Toolkit);
+`seasonal_guide` → a 4-up Spring/Summer/Fall/Winter grid, validated directly against
+baileyrestoration.com's own "Seasonal Mitigation Guide". A block falls through to the old generic
+render until it's actually regenerated since the shape changed — this pass required an explicit
+backfill of 27 already-regenerated blocks across 8 live clients for the first two types.
+
+**Still open, flagged not fixed:** the service pool itself (`PLUSCITIES_SERVICE_POOL`) is one global
+list for every niche, unlike the city pool which is already family-customizable —
+`before_the_tech_arrives` might matter differently for an in-home HVAC visit vs. a water-damage
+emergency call-out, with no way to express that yet. `dental-practice` correctly has no climate chart
+option at all (no old-system folder exists for it, no climate angle applies). Richer per-city economic
+research (`market_blurb`/`top_employers`/`industries`) for City Info's narrative isn't wired to any
+PlusCities research topic yet — only 2 of the original prompt's 5 inputs are populated, an accepted v1
+tradeoff. A fleet-wide regeneration to apply a separate city-label prompt fix (the AI writer fed the
+raw `city_id` slug, "bedford-tx", instead of "Bedford, TX," fixed at the one shared context-building
+call site) to already-generated content was flagged and left to Scott's judgment, not done.
 
 ### 2.4 Block `content_json` shapes, by classification
 
@@ -391,10 +490,11 @@ Honest numbers, not aspirational ones:
   replacement isn't a straight port, it's a simpler model: two independent off-by-default toggles, agency-
   level and client-level, see §3.1/§3.6). Verified live, not just read in source.
 - **Manifest diffing**: whole-client, not true per-page revision diffing yet (Phase 2).
-- **Dataset providers**: only Census (`census_acs`) wired. NOAA/FEMA named in the spec as remaining work,
-  not built — concretely, the `climate_data` block type is spec'd as Automatic/NOAA-sourced but is
-  shipped as a normal AI-written Editable block grounded in a fact card instead, because no NOAA provider
-  exists.
+- **Dataset providers**: Census (`census_acs`) and, as of 2026-11-26, NOAA (`noaa_climate:{niche_slug}`,
+  both Climate Normals and Storm Events, via the old system's `plugins/image-data-chart/` bridge — see
+  §2.3a) are wired. The `climate_data` block type itself is still a normal AI-written Editable block
+  grounded in a fact card — the NOAA data drives a separate rendered Climate Chart furniture piece
+  alongside it, not the block's own text. FEMA is still unbuilt.
 - **Real block-selection algorithm** (spec's ≥50% city-block word ratio, ≤50% service-block overlap
   across a client's cities, varied ordering): not built — `pluscities_create_page()` takes an agency's
   raw picks as-is.
@@ -644,10 +744,14 @@ difference, just eventually generated from one shared fact source.
 | `includes/pluscities_writer.php` | Content generation per block classification |
 | `includes/pluscities_research.php` | Fact-card research + dataset fetch |
 | `includes/pluscities_validator.php` | The 12 compliance/quality checks |
-| `includes/pluscities_niche_library.php` | Niche family/blueprint/preset resolution |
+| `includes/pluscities_niche_library.php` | Niche family/blueprint/preset resolution, incl. `always_city_blocks`/`climate_chart_ids` (§2.3a) |
 | `includes/pluscities_schema.php` | JSON-LD assembly, city-label resolution |
 | `includes/pluscities_color_detect.php` | Brand color resolution precedence |
 | `includes/pluscities_images.php` | Photo slot model |
+| `includes/pluscities_area_map.php` | Furniture: real OSM basemap + nearby-towns (§2.3a) |
+| `includes/pluscities_data_chart.php` | Furniture: Housing Snapshot chart from Census ACS (§2.3a) |
+| `includes/pluscities_climate_chart.php` | Furniture: NOAA climate chart(s), multi-chart-per-niche (§2.3a) |
+| `includes/pluscities_city_info.php` | Furniture: real Wikipedia photo + AI city narrative (§2.3a) |
 | `includes/pluscities_users.php` | Agency Editor accounts |
 | `admin/pluscities_sync.php` | The public delivery API (manifest/page/hub) |
 | `wp-plugin/pluscities-delivery/pluscities-delivery.php` | The WP plugin (fetch/cache/place), v0.3.0 — now also self-reports version/theme/SEO plugin |
