@@ -622,15 +622,24 @@ Honest numbers, not aspirational ones:
     `pluscities_edit_block()` unchanged, so the auto-lock/`origin=edited`/`client_grounded=1` behavior is
     identical to every other manual edit. Verified directly against a real FAQ block.
   - **The Niche Library's real `save_niche` form has no fields at all for `niche_table`,
-    `trust_bar_items`, `blog_topics`, `custom_research_fields`, `approved_sources_extra`, or
-    `image_slots`** (found 2026-11-23, UC11) — every one of these stays `null`/`[]` on a niche authored
-    entirely through the real admin, same "no UI exists, must hand-edit JSON" shape as `banned_phrases`
-    (UC6) and `radius_minutes` (UC9). Most consequential for `niche_table`, since the `niche_data_table`
-    block type can't render anything meaningful without one. **Note:** `image_slots` was additionally a
-    live data-loss bug, not just a missing field — `admin/pluscities_niches_save.php` preserved the other
-    5 unexposed fields via an `$existing[...] ?? ...` fallback but omitted `image_slots` from that list
-    entirely, so every save through this screen silently wiped it to `[]`. Fixed 2026-11-23 (one-line
-    fallback added, matching the existing pattern); the missing-form-fields gap itself remains open.
+    `trust_bar_items`, `blog_topics`, `custom_research_fields`, or `approved_sources_extra`**
+    (found 2026-11-23, UC11; re-confirmed still true 2026-11-26 during the panel-coverage walkthrough) —
+    every one of these stays `null`/`[]` on a niche authored entirely through the real admin, same
+    "no UI exists, must hand-edit JSON" shape as `banned_phrases` (UC6) and `radius_minutes` (UC9). Most
+    consequential for `niche_table`, since the `niche_data_table` block type can't render anything
+    meaningful without one. **`image_slots` no longer belongs on this list** — real dedicated UI was
+    built for it at some point after UC11 (an "Add Image Slot" picker tied to the real block catalog +
+    a per-slot upload form, both verified live 2026-11-26) — this doc's own list had gone stale on that
+    point until this walkthrough caught it.
+  - **A second round of the same bug class, found via a deliberate panel walkthrough, 2026-11-26**:
+    `climate_chart_ids`/`safety_toolkit_items` were missing from `save_niche`'s unexposed-field
+    preservation list (the same `$existing[...] ?? ...` fallback pattern that protects `niche_table`/
+    `trust_bar_items`/etc.) — confirmed live by resubmitting `hvac`'s real niche form with its current
+    visible values unchanged: its 6 real `climate_chart_ids` were silently wiped to `[]`, which would
+    have stopped every HVAC client's Climate Chart furniture from rendering. Restored immediately,
+    then fixed at the source (both fields added to the preservation list) and re-verified via the same
+    resubmit on both `hvac` and `water-damage-restoration` (the only niche with real
+    `safety_toolkit_items`) — both now survive a resave unchanged.
   - **`pluscities_rollback_page()` dropped `blocks.client_grounded` on restore** (fixed 2026-11-23, found
     via real use-case testing — see `docs/pluscities-use-case-tests.md` UC7): its INSERT statement omitted
     the column entirely, silently resetting it to 0 regardless of what the revision snapshot actually
@@ -758,6 +767,13 @@ land on a PlusCities-native screen — a real, already-present inconsistency wor
    write-only today. Separately, `admin/impersonate.php` writes nothing at all when an impersonation
    session starts or ends — not even an error-log line — a real gap in exactly the action most worth
    logging.
+4. **No delete action exists anywhere in the Niche Library screen** (found 2026-11-26, panel-coverage
+   walkthrough Session 1) — `admin/pluscities_niches_save.php` has exactly 6 actions
+   (`save_preset`/`save_family`/`save_niche`/`upload_niche_image`/`add_image_slot`/`validate_keyword`),
+   none of them a delete/remove. A wrongly-created compliance preset, family mistake, niche, or image
+   slot can only be fixed by hand-editing the JSON file or the DB directly — there's no "undo creating
+   this" path through the panel at all. Not a data-safety bug (nothing gets silently destroyed), but a
+   real completeness gap for "can an agency/platform operator do everything through the panel."
 
 ## 6. Relationship to the old LPC system — RETIRED 2026-11-23 (historical section)
 

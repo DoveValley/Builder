@@ -124,6 +124,8 @@ if ($action === 'save_niche') {
         'blog_topics'                => $existing['blog_topics'] ?? [],
         'match_keywords'             => $existing['match_keywords'] ?? [],
         'image_slots'                => $existing['image_slots'] ?? [],
+        'safety_toolkit_items'       => $existing['safety_toolkit_items'] ?? [],
+        'climate_chart_ids'          => $existing['climate_chart_ids'] ?? [],
     ]);
     header('Location: pluscities_niches.php?msg=success:Niche+saved&edit_niche=' . urlencode($nicheId)); exit;
 }
