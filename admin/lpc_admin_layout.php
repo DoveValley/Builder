@@ -219,6 +219,11 @@ function lpc_admin_nav_items(): array {
         // with WP Builder below, which is the tool that replaced this screen.
         $items[] = ['key' => 'wp_builder', 'href' => 'wp_builder.php', 'label' => 'WP Builder',
             'icon' => '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'];
+        // Brings back a real link list of every site on the demo box (the old
+        // "Demo Sites" screen's one genuinely still-needed job after its
+        // onboarding-wizard half was retired 2026-11-23, Stage 3) — 2026-11-26.
+        $items[] = ['key' => 'site_demos', 'href' => 'site_demos.php', 'label' => 'Site Demos',
+            'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>'];
         $items[] = ['key' => 'sites', 'href' => 'sites.php', 'label' => '&larr; Site Factory',
             'icon' => '<path d="M3 12h18M3 6h18M3 18h18"/>'];
     }

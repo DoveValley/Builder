@@ -311,7 +311,13 @@ function wpb_create_site(string $profileKey, string $domain, array $rawInput, ar
         }
     }
 
-    $create = lpc_demo_create_site($domain, WPB_SEED_NICHE, '');
+    // Astra, 2026-11-26: the most common free WP theme among real agencies,
+    // already sitting in the golden image's wp-content/themes/ (confirmed via
+    // `wp theme list` before wiring this — lpc_demo_create_site()'s $theme
+    // param already did a real `wp theme activate`, it just never had a
+    // caller pass anything). Every WP Builder site gets real theme chrome
+    // instead of whatever the seed happened to have active, not just this one.
+    $create = lpc_demo_create_site($domain, WPB_SEED_NICHE, 'astra');
     if (!$create['ok']) {
         return $create;
     }

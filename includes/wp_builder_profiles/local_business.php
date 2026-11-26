@@ -31,11 +31,23 @@ function wpb_lb_default_testimonials(array $d): array
     ];
 }
 
+/** The 3 "why us" points shown unless the why_us_points field overrides them — kept as the
+ * fallback for any niche that doesn't bother filling that field in, same as default_services/
+ * default_testimonials above. */
+function wpb_lb_default_why_us(): array
+{
+    return [
+        ['title' => 'Licensed & Insured', 'body' => 'Fully licensed, insured, and background-checked — every job, every time.'],
+        ['title' => 'Fast Response', 'body' => "We answer the phone and get back to you quickly, not days later."],
+        ['title' => 'Upfront Pricing', 'body' => "You'll know the price before any work starts. No surprises on the invoice."],
+    ];
+}
+
 /** Parses the inputs collected from the form into the normalized shape every block/seo/site_options callback expects. */
 function wpb_lb_normalize(array $post): array
 {
     $d = [];
-    foreach (['business_name', 'niche', 'phone', 'city', 'state', 'primary_color', 'accent_color', 'tagline', 'email', 'services', 'testimonials'] as $key) {
+    foreach (['business_name', 'niche', 'phone', 'city', 'state', 'primary_color', 'accent_color', 'tagline', 'email', 'services', 'testimonials', 'why_us_points'] as $key) {
         $d[$key] = trim((string) ($post[$key] ?? ''));
     }
     if ($d['tagline'] === '') {
@@ -44,9 +56,22 @@ function wpb_lb_normalize(array $post): array
     if ($d['email'] === '') {
         $d['email'] = 'info@' . wpb_slug($d['business_name']) . '.com';
     }
-    $d['services_list'] = $d['services'] !== ''
-        ? array_values(array_filter(array_map('trim', explode(',', $d['services']))))
-        : wpb_lb_default_services($d['niche']);
+    // One service per line now (was comma-separated) so a real description can
+    // follow a "|", same line-based pattern testimonials already used below —
+    // a plain comma list still works fine as long as nobody's description
+    // itself contains a "|". A line with no "|" falls back to the generic
+    // boilerplate sentence wpb_lb_block_services_grid() always used to
+    // generate for every niche; this is purely additive.
+    if ($d['services'] !== '') {
+        $parsed = [];
+        foreach (array_filter(array_map('trim', explode("\n", str_replace(',', "\n", $d['services'])))) as $line) {
+            $parts = array_map('trim', explode('|', $line, 2));
+            if ($parts[0] ?? '') $parsed[] = ['name' => $parts[0], 'description' => $parts[1] ?? ''];
+        }
+        $d['services_list'] = $parsed;
+    } else {
+        $d['services_list'] = array_map(fn($n) => ['name' => $n, 'description' => ''], wpb_lb_default_services($d['niche']));
+    }
 
     if ($d['testimonials'] !== '') {
         $lines = array_filter(array_map('trim', explode("\n", $d['testimonials'])));
@@ -60,6 +85,22 @@ function wpb_lb_normalize(array $post): array
         $d['testimonials_list'] = $parsed ?: wpb_lb_default_testimonials($d);
     } else {
         $d['testimonials_list'] = wpb_lb_default_testimonials($d);
+    }
+
+    // "Title | Description" per line, same line-based pattern as above —
+    // blank = the 3 generic contractor-flavored points every niche got before
+    // this field existed (home-trades-appropriate, but a real mismatch for
+    // e.g. a med spa or law firm, found 2026-11-26 trying to build one).
+    if ($d['why_us_points'] !== '') {
+        $lines = array_filter(array_map('trim', explode("\n", $d['why_us_points'])));
+        $parsed = [];
+        foreach ($lines as $line) {
+            $parts = array_map('trim', explode('|', $line, 2));
+            if ($parts[0] ?? '') $parsed[] = ['title' => $parts[0], 'body' => $parts[1] ?? ''];
+        }
+        $d['why_us_points_list'] = $parsed ?: wpb_lb_default_why_us();
+    } else {
+        $d['why_us_points_list'] = wpb_lb_default_why_us();
     }
 
     if ($d['primary_color'] === '') $d['primary_color'] = '#1a2b49';
@@ -87,16 +128,11 @@ function wpb_lb_block_hero(array $d, array $ctx): string
 
 function wpb_lb_block_why_us(array $d, array $ctx): string
 {
-    $points = [
-        ['Licensed & Insured', 'Fully licensed, insured, and background-checked — every job, every time.'],
-        ['Fast Response', "We answer the phone and get back to you quickly, not days later."],
-        ['Upfront Pricing', "You'll know the price before any work starts. No surprises on the invoice."],
-    ];
     $out = wpb_group_open('wpb-section wpb-section-alt');
     $out .= wpb_heading('Why ' . $d['city'] . ' Chooses Us', 2);
     $out .= '<!-- wp:group {"className":"wpb-grid3"} --><div class="wp-block-group wpb-grid3">';
-    foreach ($points as [$title, $body]) {
-        $out .= '<div>' . wpb_heading($title, 3) . wpb_paragraph($body) . '</div>';
+    foreach ($d['why_us_points_list'] as $point) {
+        $out .= '<div>' . wpb_heading($point['title'], 3) . wpb_paragraph($point['body']) . '</div>';
     }
     $out .= "</div>\n<!-- /wp:group -->\n\n";
     $out .= wpb_group_close();
@@ -126,9 +162,10 @@ function wpb_lb_block_services_grid(array $d, array $ctx): string
     $out = wpb_group_open('wpb-section wpb-section-alt');
     $out .= '<!-- wp:group {"className":"wpb-grid3"} --><div class="wp-block-group wpb-grid3">';
     foreach ($d['services_list'] as $service) {
-        $out .= '<div class="wpb-card">' . wpb_heading($service, 3)
-            . wpb_paragraph('Call ' . $d['phone'] . ' to schedule ' . strtolower($service) . ' in ' . $d['city'] . '.')
-            . '</div>';
+        $body = $service['description'] !== ''
+            ? $service['description']
+            : 'Call ' . $d['phone'] . ' to schedule ' . strtolower($service['name']) . ' in ' . $d['city'] . '.';
+        $out .= '<div class="wpb-card">' . wpb_heading($service['name'], 3) . wpb_paragraph($body) . '</div>';
     }
     $out .= "</div>\n<!-- /wp:group -->\n\n";
     $out .= wpb_group_close();
@@ -197,7 +234,7 @@ function wpb_lb_seo(array $d, string $page): array
         case 'about':
             return ['About Us | ' . $biz, "Learn about $biz, a locally owned $niche business serving $loc."];
         case 'services':
-            return ['Services | ' . $biz, "$biz offers " . implode(', ', array_slice($d['services_list'], 0, 3)) . " and more in $loc."];
+            return ['Services | ' . $biz, "$biz offers " . implode(', ', array_slice(array_column($d['services_list'], 'name'), 0, 3)) . " and more in $loc."];
         case 'contact':
             return ['Contact Us | ' . $biz, "Contact $biz at $d[phone] or $d[email]. Serving $loc."];
         case 'testimonials':
@@ -254,8 +291,9 @@ wpb_register_profile(WPB_LB, [
         'state'         => ['required' => true, 'label' => 'State', 'maxlength' => 2, 'placeholder' => 'TX'],
         'tagline'       => ['required' => false, 'label' => 'Tagline', 'hint' => 'blank = auto'],
         'email'         => ['required' => false, 'label' => 'Email', 'hint' => 'blank = auto'],
-        'services'      => ['required' => false, 'label' => 'Services', 'placeholder' => 'Drain Cleaning, Water Heaters, Gas Lines', 'hint' => 'comma-separated, blank = auto from niche'],
+        'services'      => ['required' => false, 'label' => 'Services', 'type' => 'textarea', 'rows' => 4, 'placeholder' => "Drain Cleaning | Fast response for clogged or slow drains...\nWater Heaters", 'hint' => 'one per line: Name, or Name | real description — blank line description = generic boilerplate, blank field = auto from niche'],
         'testimonials'  => ['required' => false, 'label' => 'Testimonials', 'type' => 'textarea', 'rows' => 3, 'placeholder' => 'Fixed our water heater same day. | Donald Hunter | Downtown Lufkin', 'hint' => 'one per line: Quote | Name | City — blank = sample quotes'],
+        'why_us_points' => ['required' => false, 'label' => '"Why Us" Points', 'type' => 'textarea', 'rows' => 3, 'placeholder' => "Licensed Medical Staff | Every treatment is performed or supervised by a licensed provider.", 'hint' => 'one per line: Title | Description — blank = generic contractor-style points (Licensed & Insured, Fast Response, Upfront Pricing)'],
         'primary_color' => ['required' => true, 'default' => '#1a2b49', 'label' => 'Primary Color (footer)', 'type' => 'color'],
         'accent_color'  => ['required' => true, 'default' => '#2563eb', 'label' => 'Accent Color (buttons/links)', 'type' => 'color'],
     ],
@@ -264,7 +302,7 @@ wpb_register_profile(WPB_LB, [
         'about' => ['field' => 'about_photo', 'label' => 'About Photo', 'required_ui' => false, 'hint' => 'blank = reuse hero photo'],
     ],
     'tabs' => [
-        ['label' => 'Business Info', 'fields' => ['business_name', 'niche', 'phone', 'city', 'state', 'tagline', 'email', 'services', 'testimonials']],
+        ['label' => 'Business Info', 'fields' => ['business_name', 'niche', 'phone', 'city', 'state', 'tagline', 'email', 'services', 'why_us_points', 'testimonials']],
         ['label' => 'Design', 'fields' => ['primary_color', 'accent_color', 'hero', 'about']],
     ],
     'normalize' => 'wpb_lb_normalize',
