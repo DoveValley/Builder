@@ -16,8 +16,8 @@
  * that can drift apart — the exact anti-pattern this whole file's own
  * surrounding project exists to avoid, applied to itself. Added 'slug' (the
  * real block_type string PlusCities/the niche pool actually use — confirmed
- * against includes/pluscities_lifecycle.php's PLUSCITIES_SERVICE_POOL and a
- * real niche family file, not guessed) and 'class_label' (plain-language
+ * against a real niche family file's default_city_blocks/
+ * default_service_blocks, not guessed) and 'class_label' (plain-language
  * translation of 'class' for the agency-facing picker, which must not
  * surface internal dev vocabulary like "editable"/"automatic"/"client-
  * supplied" directly — Scott's call, 2026-11-22) to every row, on top of the

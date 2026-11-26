@@ -70,6 +70,14 @@ function pluscities_family_defaults(): array
         // picking everything in the pool: a family's pool can still carry
         // genuinely optional blocks alongside its always-on ones.
         'always_city_blocks'     => [],
+        // Service-pool equivalent of the two fields above, added 2026-11-26 —
+        // until then PLUSCITIES_SERVICE_POOL was one hardcoded global array
+        // shared by every family regardless of business type (a real
+        // structural gap vs. the city pool, which was already
+        // family-customizable). Same shape, same subtraction rule in
+        // pluscities_niche_resolved() below.
+        'default_service_blocks' => [],
+        'always_service_blocks'  => [],
         'compliance_preset'      => '',   // preset_id, this family's default
         'approved_sources'       => [],   // baseline trusted domains
         'default_radius_minutes' => 25,
@@ -167,6 +175,7 @@ function pluscities_niche_defaults(): array
         'services' => [],
 
         'blocks_off'             => [],   // denylist against the family's default_city_blocks
+        'service_blocks_off'     => [],   // denylist against the family's default_service_blocks
         'approved_sources_extra' => [],   // on top of the family baseline
         'research_topics'        => [],   // subset of the family's relevant topics this niche actually uses
         'custom_research_fields' => [],   // [{key, ask}] — same shape generate.py's niche_research_fields() already reads
@@ -270,6 +279,10 @@ function pluscities_niche_resolved(string $niche_id): ?array
     $alwaysCityBlocks = $family['always_city_blocks'];
     $cityBlocks = array_values(array_diff($family['default_city_blocks'], $niche['blocks_off'], $alwaysCityBlocks));
 
+    // Service blocks: same rule as city blocks above, added 2026-11-26.
+    $alwaysServiceBlocks = $family['always_service_blocks'];
+    $serviceBlocks = array_values(array_diff($family['default_service_blocks'], $niche['service_blocks_off'] ?? [], $alwaysServiceBlocks));
+
     return [
         'niche_id'       => $niche['niche_id'],
         'family_id'      => $family['family_id'],
@@ -282,6 +295,8 @@ function pluscities_niche_resolved(string $niche_id): ?array
         'services'          => $niche['services'],
         'city_blocks'       => $cityBlocks,
         'always_city_blocks' => $alwaysCityBlocks,
+        'service_blocks'       => $serviceBlocks,
+        'always_service_blocks' => $alwaysServiceBlocks,
         'approved_sources'  => array_values(array_unique(array_merge(
             $family['approved_sources'], $niche['approved_sources_extra']
         ))),

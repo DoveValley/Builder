@@ -48,11 +48,11 @@ $pcSwapPools = ['city' => [], 'service' => []];
 if ($page) {
     $pcClient = json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $page['client_id'] . '.json'), true) ?: [];
     $pcNiche  = pluscities_niche_resolved($pcClient['niche_id'] ?? '') ?: [];
-    // $pcNiche['city_blocks'] already excludes always_city_blocks. Service
-    // side needs the same pickable subset — swapping a block INTO
-    // common_problems/process would create a duplicate block_type on the
-    // page, since pluscities_create_page() already always-includes them.
-    $pcSwapPools = ['city' => $pcNiche['city_blocks'] ?? [], 'service' => array_values(array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS))];
+    // Both $pcNiche['city_blocks'] and $pcNiche['service_blocks'] already
+    // exclude their family's always-on blocks — swapping a block INTO one of
+    // those would create a duplicate block_type on the page, since
+    // pluscities_create_page() already always-includes them.
+    $pcSwapPools = ['city' => $pcNiche['city_blocks'] ?? [], 'service' => $pcNiche['service_blocks'] ?? []];
     $pcCatalog = [];
     foreach (platform_info_city_page_blocks_data() as $pcCatSection) {
         foreach ($pcCatSection['rows'] as $pcCatRow) {

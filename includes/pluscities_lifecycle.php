@@ -91,22 +91,6 @@ function pluscities_actor_can_access_client(string $client_id): bool
     return true;
 }
 
-/** Full service-pool list, spec Section 5 — one shared set for every niche
- *  (a process, cost factors, maintenance tips, etc. apply to any local
- *  service business), unlike the city pool which varies per family. */
-const PLUSCITIES_SERVICE_POOL = [
-    'common_problems', 'cited_expert_guidance', 'niche_data_table', 'process',
-    'cost_factors', 'why_choose_us', 'repair_vs_replace', 'maintenance', 'before_the_tech_arrives',
-];
-
-/** Service blocks real usage has already converged on as "every good page
- *  has this" (15/21 and 14/21 of live pages respectively, well ahead of the
- *  rest of the pool) — auto-included on every page, never a pool pick.
- *  Global rather than per-family: PLUSCITIES_SERVICE_POOL itself has no
- *  per-family variation to preserve either way today (a real structural gap,
- *  flagged separately, not fixed here). */
-const PLUSCITIES_ALWAYS_SERVICE_BLOCKS = ['common_problems', 'process'];
-
 /**
  * Validates a caller's raw city/service block picks against a niche's real
  * pools and caps each at the real count limit (5-6 of 9 city, 3-4 of 9
@@ -121,14 +105,15 @@ const PLUSCITIES_ALWAYS_SERVICE_BLOCKS = ['common_problems', 'process'];
  */
 function pluscities_validate_block_picks(array $niche, array $cityPicksRaw, array $servicePicksRaw): array
 {
+    // Both pools are already the correct pickable subset — pluscities_niche_
+    // resolved() subtracts each family's always-on blocks before this ever
+    // sees them (city_blocks since 2026-11-26's always-blocks mechanism,
+    // service_blocks the same way since the service pool became
+    // family-customizable the same day) — a block is either always-on or
+    // pickable, never both, and never double-counted in the "choose up to N
+    // of M" math.
     $cityPool    = $niche['city_blocks'] ?? [];
-    // PLUSCITIES_SERVICE_POOL stays the full known-type catalog (used
-    // elsewhere to recognize a valid service block_type string); the
-    // PICKABLE subset excludes whatever's always-on, same as city_blocks
-    // already has always_city_blocks subtracted out by pluscities_niche_
-    // resolved() — a block is either always-on or pickable, never both,
-    // and never double-counted in the "choose up to N of M" math.
-    $servicePool = array_values(array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS));
+    $servicePool = $niche['service_blocks'] ?? [];
 
     $cityPicks    = array_values(array_intersect($cityPicksRaw, $cityPool));
     $servicePicks = array_values(array_intersect($servicePicksRaw, $servicePool));
@@ -169,8 +154,8 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
         }
     }
     foreach ($service_block_picks as $bt) {
-        if (!in_array($bt, PLUSCITIES_SERVICE_POOL, true)) {
-            return ['ok' => false, 'msg' => "\"$bt\" is not a known service block type.", 'page_id' => null];
+        if (!in_array($bt, $niche['service_blocks'] ?? [], true)) {
+            return ['ok' => false, 'msg' => "\"$bt\" is not in this niche's service block pool.", 'page_id' => null];
         }
     }
 
@@ -182,7 +167,7 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
     // (housing_stock's 'automatic' classification, reviews_from_city's
     // client-supplied content) still applies for free.
     $city_block_picks = array_values(array_unique(array_merge($city_block_picks, $niche['always_city_blocks'] ?? [])));
-    $service_block_picks = array_values(array_unique(array_merge($service_block_picks, PLUSCITIES_ALWAYS_SERVICE_BLOCKS)));
+    $service_block_picks = array_values(array_unique(array_merge($service_block_picks, $niche['always_service_blocks'] ?? [])));
 
     $pageId   = 'pg_' . str_replace('-', '', $client_id) . '_' . $city_id . '_' . $service_key;
     $basePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
@@ -459,14 +444,14 @@ function pluscities_swap_block(int $block_id, string $new_block_type, string $ac
 
     $client = json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $block['client_id'] . '.json'), true) ?: [];
     $niche  = pluscities_niche_resolved($client['niche_id'] ?? '') ?? [];
-    // Pickable subsets only — swapping INTO an always-on type
-    // (common_problems/process, or whatever a niche's family marks
-    // always_city_blocks) would create a duplicate block_type on the page,
-    // since pluscities_create_page() already always-includes them. Both
-    // $niche['city_blocks'] (already subtracted by pluscities_niche_
-    // resolved()) and this explicit diff follow the same rule.
+    // Pickable subsets only — swapping INTO an always-on type (whatever a
+    // niche's family marks always_city_blocks/always_service_blocks) would
+    // create a duplicate block_type on the page, since pluscities_create_
+    // page() already always-includes them. Both $niche['city_blocks'] and
+    // $niche['service_blocks'] already have their family's always-on blocks
+    // subtracted by pluscities_niche_resolved().
     $pool = $block['pool'] === 'service'
-        ? array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS)
+        ? ($niche['service_blocks'] ?? [])
         : ($niche['city_blocks'] ?? []);
     if (!in_array($new_block_type, $pool, true)) {
         return ['ok' => false, 'msg' => '"' . $new_block_type . '" is not in this block\'s pool.'];

@@ -177,17 +177,22 @@ new field, which gets added the first time that client's approval toggle is touc
   medical-wellness, authored in UC11 testing).
 - **`compliance_presets/`** — **only 1 file**: `contractor.json`.
 
-`PLUSCITIES_SERVICE_POOL` (`includes/pluscities_lifecycle.php`) is **one shared pool of 9 service-block
-types for every niche**: `common_problems, cited_expert_guidance, niche_data_table, process,
-cost_factors, why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives`. The **city-block**
-pool is per-family instead: `family.default_city_blocks` minus the niche's own `blocks_off[]` denylist —
-e.g. home-trades' pool is `climate_data, housing_stock, neighborhoods, permits, utilities, hoa_rules,
-seasonal_guide, hazards, reviews_from_city` (9 types).
+Both pools are per-family (as of 2026-11-26 — see §2.3a for the fix): `family.default_city_blocks`
+minus the niche's own `blocks_off[]` denylist, and `family.default_service_blocks` minus the niche's own
+`service_blocks_off[]` denylist — e.g. home-trades' city pool is `climate_data, housing_stock,
+neighborhoods, permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city` (9 types), its
+service pool is `common_problems, cited_expert_guidance, niche_data_table, process, cost_factors,
+why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives` (9 types). All 6 families
+currently carry identical service pools (seeded that way deliberately — the mechanism was the point of
+the fix, not re-deciding content for niches that don't exist yet); `medical-wellness` already has a
+genuinely shorter CITY pool (no `climate_data` etc.), proving the per-family mechanism was real before
+this fix extended it to the service side too.
 
 A resolved niche blueprint (`pluscities_niche_resolved()`) contains: `schema_subtype` (real schema.org
-type), `services[]` (with keyword-research data per service), `blocks_off[]`, `research_topics[]`,
-`niche_table` (the hand-authored shared data table), `trust_bar_items[]`, `blog_topics[]`, `image_slots[]`,
-`always_city_blocks[]` and `climate_chart_ids[]` (both added 2026-11-26, see §2.3a).
+type), `services[]` (with keyword-research data per service), `blocks_off[]`, `service_blocks_off[]`,
+`research_topics[]`, `niche_table` (the hand-authored shared data table), `trust_bar_items[]`,
+`blog_topics[]`, `image_slots[]`, `always_city_blocks[]`, `always_service_blocks[]`, and
+`climate_chart_ids[]` (all added 2026-11-26, see §2.3a).
 
 ### 2.3a Block architecture: 4 categories, not 2 (added 2026-11-26)
 
@@ -200,18 +205,20 @@ shipped reshaped "spine blocks + two pickable pools" (§2.3 above) into four rea
    `service_area` (back) — built directly in `pluscities_create_page()`, identical for every niche.
    Unchanged from before this pass.
 
-2. **ALWAYS-BLOCKS — auto-included, not pickable, varies by family.** New mechanism. A family's
-   `always_city_blocks[]` is subtracted from its `default_city_blocks` by `pluscities_niche_resolved()`
-   before the city pool is handed to any caller — a block is either always-on or pickable, never both,
-   and the subtraction happens once so every caller (Add Page picker, new-client wizard, swap dropdown,
+2. **ALWAYS-BLOCKS — auto-included, not pickable, varies by family, both sides of the pool.** New
+   mechanism. A family's `always_city_blocks[]`/`always_service_blocks[]` are each subtracted from their
+   respective `default_city_blocks`/`default_service_blocks` by `pluscities_niche_resolved()` before
+   either pool is handed to any caller — a block is either always-on or pickable, never both, and the
+   subtraction happens once so every caller (Add Page picker, new-client wizard, swap dropdown,
    `pluscities_create_page()` itself) sees an already-correctly-shaped pool. Populated per family from
    real pick-frequency data (21 live pages, gathered before deciding): `housing_stock` + `neighborhoods`
-   always-on for all 6 families (18/21 and 17/21 picks — safe everywhere); `+climate_data` always-on only
-   for the 5 families that already carried it in their pool (not `medical-wellness` — its family never
-   had `climate_data` to begin with, so nothing is force-added to a niche the library already excludes it
-   from). One global constant covers the service side, since the service pool has no per-family variation
-   to preserve either way yet: `PLUSCITIES_ALWAYS_SERVICE_BLOCKS = ['common_problems', 'process']`
-   (15/21 and 14/21 picks).
+   always-on city blocks for all 6 families (18/21 and 17/21 picks — safe everywhere); `+climate_data`
+   always-on only for the 5 families that already carried it in their city pool (not `medical-wellness` —
+   its family never had `climate_data` to begin with, so nothing is force-added to a niche the library
+   already excludes it from); `common_problems` + `process` always-on service blocks for all 6 families
+   (15/21 and 14/21 picks). The service side started 2026-11-26 as one global constant
+   (`PLUSCITIES_ALWAYS_SERVICE_BLOCKS`) specifically because the service pool wasn't family-customizable
+   yet at all — fixed the same day the gap was flagged (see the closing note below).
 
 3. **POOL — what's left, genuinely optional, capped and pickable.** Same mechanism as before
    (§2.3), just a shorter remaining list now that the near-universal picks moved to always-blocks. A
@@ -273,16 +280,31 @@ baileyrestoration.com's own "Seasonal Mitigation Guide". A block falls through t
 render until it's actually regenerated since the shape changed — this pass required an explicit
 backfill of 27 already-regenerated blocks across 8 live clients for the first two types.
 
-**Still open, flagged not fixed:** the service pool itself (`PLUSCITIES_SERVICE_POOL`) is one global
-list for every niche, unlike the city pool which is already family-customizable —
-`before_the_tech_arrives` might matter differently for an in-home HVAC visit vs. a water-damage
-emergency call-out, with no way to express that yet. `dental-practice` correctly has no climate chart
-option at all (no old-system folder exists for it, no climate angle applies). Richer per-city economic
-research (`market_blurb`/`top_employers`/`industries`) for City Info's narrative isn't wired to any
-PlusCities research topic yet — only 2 of the original prompt's 5 inputs are populated, an accepted v1
-tradeoff. A fleet-wide regeneration to apply a separate city-label prompt fix (the AI writer fed the
-raw `city_id` slug, "bedford-tx", instead of "Bedford, TX," fixed at the one shared context-building
-call site) to already-generated content was flagged and left to Scott's judgment, not done.
+**Closed, 2026-11-26 (same day it was flagged):** the service pool was a global `PLUSCITIES_SERVICE_POOL`
+constant shared by every niche regardless of business type, unlike the city pool which was already
+family-customizable — a real asymmetry (e.g. `before_the_tech_arrives` makes sense for an in-home HVAC
+visit in a way it doesn't for a water-damage emergency call-out). Fixed by extending the exact same
+mechanism the city pool already used: `family.default_service_blocks` + `family.always_service_blocks`
++ `niche.service_blocks_off[]`, resolved into `niche['service_blocks']`/`['always_service_blocks']` by
+`pluscities_niche_resolved()` identically to `city_blocks`. The global `PLUSCITIES_SERVICE_POOL`/
+`PLUSCITIES_ALWAYS_SERVICE_BLOCKS` constants were removed outright (not deprecated/kept-for-compat) once
+every call site (`pluscities_validate_block_picks()`, `pluscities_create_page()`, `pluscities_swap_block()`,
+and 4 admin pickers) migrated to the niche-resolved values. Content-wise this is a pure mechanism build,
+not a content decision — all 6 families were seeded with an identical 9-item service pool (zero behavior
+change today); a family wanting a genuinely different service pool is now possible but not yet done for
+any real niche. Also fixed in the same pass: `admin/pluscities_niches_save.php`'s `save_family` action had
+no fallback preserving `always_city_blocks`/`always_service_blocks` (both fields have no form input yet) —
+every save through that form would have silently wiped them to `[]`, the same bug class `image_slots` hit
+on the niche side (2026-11-23). Verified directly: `pluscities_niche_resolved()` produces identical pool
+contents for `hvac`/`water-damage-restoration`/`dental-practice` before and after the refactor.
+
+**Still open, flagged not fixed:** `dental-practice` correctly has no climate chart option at all (no
+old-system folder exists for it, no climate angle applies). Richer per-city economic research
+(`market_blurb`/`top_employers`/`industries`) for City Info's narrative isn't wired to any PlusCities
+research topic yet — only 2 of the original prompt's 5 inputs are populated, an accepted v1 tradeoff. A
+fleet-wide regeneration to apply a separate city-label prompt fix (the AI writer fed the raw `city_id`
+slug, "bedford-tx", instead of "Bedford, TX," fixed at the one shared context-building call site) to
+already-generated content was flagged and left to Scott's judgment, not done.
 
 ### 2.4 Block `content_json` shapes, by classification
 

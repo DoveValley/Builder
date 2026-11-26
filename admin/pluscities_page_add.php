@@ -70,15 +70,13 @@ lpc_admin_open('pluscities_clients', 'Add Page');
         lpc_admin_close();
         exit;
     }
-    // $niche['city_blocks'] already excludes always_city_blocks —
-    // pluscities_niche_resolved() subtracts them before this ever sees the
-    // pool (includes/pluscities_niche_library.php). Service pool needs the
-    // same subtraction applied here since PLUSCITIES_SERVICE_POOL itself is
-    // still the full known-type catalog (see pluscities_validate_block_
-    // picks()'s own comment for why it stays that way).
+    // Both $niche['city_blocks'] and $niche['service_blocks'] already
+    // exclude their family's always-on blocks — pluscities_niche_resolved()
+    // subtracts them before this ever sees the pool
+    // (includes/pluscities_niche_library.php).
     $cityPool    = $niche['city_blocks'] ?? [];
-    $servicePool = array_values(array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS));
-    $alwaysBlocks = array_merge($niche['always_city_blocks'] ?? [], PLUSCITIES_ALWAYS_SERVICE_BLOCKS);
+    $servicePool = $niche['service_blocks'] ?? [];
+    $alwaysBlocks = array_merge($niche['always_city_blocks'] ?? [], $niche['always_service_blocks'] ?? []);
 
     $pcCatalog = [];
     foreach (platform_info_city_page_blocks_data() as $pcCatSection) {

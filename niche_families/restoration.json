@@ -31,5 +31,20 @@
         "housing_stock",
         "neighborhoods",
         "climate_data"
+    ],
+    "default_service_blocks": [
+        "common_problems",
+        "cited_expert_guidance",
+        "niche_data_table",
+        "process",
+        "cost_factors",
+        "why_choose_us",
+        "repair_vs_replace",
+        "maintenance",
+        "before_the_tech_arrives"
+    ],
+    "always_service_blocks": [
+        "common_problems",
+        "process"
     ]
 }

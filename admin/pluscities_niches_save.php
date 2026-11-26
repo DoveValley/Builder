@@ -50,14 +50,26 @@ if ($action === 'save_family') {
     if (!in_array($familyId, PLUSCITIES_FAMILY_IDS, true)) {
         header('Location: pluscities_niches.php?msg=error:Invalid+family+ID'); exit;
     }
+    // Fields with no form input yet (always_city_blocks, always_service_blocks)
+    // must be preserved from the existing record, same as save_niche already
+    // does below — pluscities_family_save() has no "keep what's not passed"
+    // behavior of its own (pluscities_deep_merge_defaults() only fills in the
+    // SCHEMA default, [], for anything missing, it doesn't look at what's
+    // currently on disk). Omitting this fallback would silently wipe both
+    // fields back to [] on every single save through this form — the exact
+    // bug class image_slots hit on the niche side (found+fixed 2026-11-23).
+    $existingFamily = pluscities_family_load($familyId) ?? [];
     pluscities_family_save($familyId, [
         'label'                  => trim($_POST['label'] ?? ''),
         'schema_type_family'     => trim($_POST['schema_type_family'] ?? ''),
         'compliance_preset'      => trim($_POST['compliance_preset'] ?? ''),
         'default_radius_minutes' => max(1, (int) ($_POST['default_radius_minutes'] ?? 25)),
         'default_city_blocks'    => pluscities_split_csv_field((string) ($_POST['default_city_blocks'] ?? '')),
+        'default_service_blocks' => pluscities_split_csv_field((string) ($_POST['default_service_blocks'] ?? '')),
         'approved_sources'       => pluscities_split_csv_field((string) ($_POST['approved_sources'] ?? '')),
         'research_topics'        => pluscities_split_csv_field((string) ($_POST['research_topics'] ?? '')),
+        'always_city_blocks'     => $existingFamily['always_city_blocks'] ?? [],
+        'always_service_blocks'  => $existingFamily['always_service_blocks'] ?? [],
     ]);
     header('Location: pluscities_niches.php?msg=success:Family+saved&edit_family=' . urlencode($familyId)); exit;
 }
@@ -98,6 +110,7 @@ if ($action === 'save_niche') {
         'local_angle'        => trim($_POST['local_angle'] ?? ''),
         'seasonal_calendar'  => trim($_POST['seasonal_calendar'] ?? ''),
         'blocks_off'         => pluscities_split_csv_field((string) ($_POST['blocks_off'] ?? '')),
+        'service_blocks_off' => pluscities_split_csv_field((string) ($_POST['service_blocks_off'] ?? '')),
         'services'           => $services,
         // Fields not yet exposed in the form keep their existing value rather
         // than getting silently cleared on every save.

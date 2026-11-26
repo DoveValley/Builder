@@ -143,6 +143,9 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
         <div class="fg" style="flex-basis:100%;"><label>Default City Blocks (comma-separated)</label>
             <input type="text" name="default_city_blocks" placeholder="climate_data, housing_stock, neighborhoods, permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city"
                 value="<?= h(implode(', ', $editingFamily['default_city_blocks'] ?? [])) ?>"></div>
+        <div class="fg" style="flex-basis:100%;"><label>Default Service Blocks (comma-separated)</label>
+            <input type="text" name="default_service_blocks" placeholder="common_problems, cited_expert_guidance, niche_data_table, process, cost_factors, why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives"
+                value="<?= h(implode(', ', $editingFamily['default_service_blocks'] ?? [])) ?>"></div>
         <div class="fg" style="flex-basis:100%;"><label>Approved Sources (comma-separated domains)</label>
             <input type="text" name="approved_sources" value="<?= h(implode(', ', $editingFamily['approved_sources'] ?? [])) ?>"></div>
         <div class="fg" style="flex-basis:100%;"><label>Research Topics (comma-separated)</label>
@@ -183,8 +186,10 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
         <div class="fg"><label>Service Noun</label><input type="text" name="service_noun" value="<?= h($editingNiche['service_noun'] ?? '') ?>"></div>
         <div class="fg" style="flex-basis:100%;"><label>Local Angle</label><input type="text" name="local_angle" value="<?= h($editingNiche['local_angle'] ?? '') ?>"></div>
         <div class="fg" style="flex-basis:100%;"><label>Seasonal Calendar</label><input type="text" name="seasonal_calendar" value="<?= h($editingNiche['seasonal_calendar'] ?? '') ?>"></div>
-        <div class="fg" style="flex-basis:100%;"><label>Blocks Off (denylist against family pool, comma-separated)</label>
+        <div class="fg" style="flex-basis:100%;"><label>Blocks Off (denylist against family's city pool, comma-separated)</label>
             <input type="text" name="blocks_off" value="<?= h(implode(', ', $editingNiche['blocks_off'] ?? [])) ?>"></div>
+        <div class="fg" style="flex-basis:100%;"><label>Service Blocks Off (denylist against family's service pool, comma-separated)</label>
+            <input type="text" name="service_blocks_off" value="<?= h(implode(', ', $editingNiche['service_blocks_off'] ?? [])) ?>"></div>
 
         <h4 style="flex-basis:100%;margin:10px 0 0;">Services</h4>
         <p style="flex-basis:100%;font-size:.78rem;color:var(--pc-muted,#52607a);margin:0;">

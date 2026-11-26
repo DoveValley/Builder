@@ -76,30 +76,32 @@ foreach (platform_info_city_page_blocks_data() as $pcCatSection) {
         if (!empty($pcCatRow['slug'])) $pcCatalog[$pcCatRow['slug']] = $pcCatRow;
     }
 }
-// City pool is real per-niche data (varies by family) — the niche isn't
+// Both pools are real per-niche data (vary by family) — the niche isn't
 // chosen until the agency picks it in the form below, so every real niche's
-// pool is resolved up front here (cheap at today's scale) and all of them
+// pools are resolved up front here (cheap at today's scale) and all of them
 // render as hidden groups; JS shows only the one matching the current
-// selection. Service pool is the one fixed, niche-independent constant.
-// Same always-on subtraction as admin/pluscities_page_add.php: $pcNiche
-// ['city_blocks'] already excludes always_city_blocks (pluscities_niche_
-// resolved() does this), service pool needs it applied here since
-// PLUSCITIES_SERVICE_POOL itself stays the full known-type catalog. Each
-// pool is shuffled so a fixed catalog order + hard pick-cap stops starving
-// whatever sits near the end of a long list (confirmed live: before_the_
-// tech_arrives picked on just 1 of 21 real pages).
+// selection. Both $pcNiche['city_blocks'] and $pcNiche['service_blocks']
+// already exclude their family's always-on blocks (pluscities_niche_
+// resolved() does this) — service pool became family-customizable 2026-11-26,
+// same mechanism as city blocks, replacing one global constant shared by
+// every niche regardless of business type. Each pool is shuffled so a fixed
+// catalog order + hard pick-cap stops starving whatever sits near the end of
+// a long list (confirmed live: before_the_tech_arrives picked on just 1 of 21
+// real pages).
 $pcNichePools = [];
+$pcNicheServicePools = [];
 $pcNicheAlways = [];
 foreach ($niches as $pcNicheId) {
     $pcNiche = pluscities_niche_resolved($pcNicheId);
     if (!$pcNiche) continue;
-    $pool = $pcNiche['city_blocks'] ?? [];
-    shuffle($pool);
-    $pcNichePools[$pcNicheId] = $pool;
-    $pcNicheAlways[$pcNicheId] = array_merge($pcNiche['always_city_blocks'] ?? [], PLUSCITIES_ALWAYS_SERVICE_BLOCKS);
+    $cityPool = $pcNiche['city_blocks'] ?? [];
+    $servicePool = $pcNiche['service_blocks'] ?? [];
+    shuffle($cityPool);
+    shuffle($servicePool);
+    $pcNichePools[$pcNicheId] = $cityPool;
+    $pcNicheServicePools[$pcNicheId] = $servicePool;
+    $pcNicheAlways[$pcNicheId] = array_merge($pcNiche['always_city_blocks'] ?? [], $pcNiche['always_service_blocks'] ?? []);
 }
-$pcPickableServicePool = array_values(array_diff(PLUSCITIES_SERVICE_POOL, PLUSCITIES_ALWAYS_SERVICE_BLOCKS));
-shuffle($pcPickableServicePool);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -286,17 +288,18 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
                                     <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
                                 </label>
                             <?php endforeach; ?>
-                        </div>
-                    <?php endforeach; ?>
 
-                    <strong style="font-size:.84rem;">Service topics — choose up to <?= (int) min(4, count($pcPickableServicePool)) ?> of <?= count($pcPickableServicePool) ?></strong>
-                    <?php foreach ($pcPickableServicePool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
-                        <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
-                            <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>">
-                            <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
-                            <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
-                            <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
-                        </label>
+                            <?php $pcServicePool = $pcNicheServicePools[$pcNicheId] ?? []; ?>
+                            <strong style="font-size:.84rem;display:block;margin-top:10px;">Service topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(4, count($pcServicePool)) ?> of <?= count($pcServicePool) ?></strong>
+                            <?php foreach ($pcServicePool as $pcSlug): $pcRow = $pcCatalog[$pcSlug] ?? null; if (!$pcRow) continue; ?>
+                                <label style="display:block;padding:6px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+                                    <input type="checkbox" class="pc-service-cb" name="service_block_picks[]" value="<?= h($pcSlug) ?>" data-niche="<?= h($pcNicheId) ?>">
+                                    <strong style="font-size:.82rem;"><?= h($pcRow['block']) ?></strong>
+                                    <span style="margin-left:6px;font-size:.7rem;color:#6b7280;background:#f1f5f9;border-radius:4px;padding:2px 6px;"><?= h(pluscities_block_class_label($pcRow['class'])) ?></span>
+                                    <p style="color:#6b7280;font-size:.75rem;margin:2px 0 0 22px;"><?= h($pcRow['what']) ?></p>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -334,29 +337,34 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
             var max = Math.min(6, visibleBoxes.length);
             enforceMax('.pc-city-cb[data-niche="' + activeNiche + '"]', max);
         }
+        function refreshServiceEnforcement() {
+            var activeNiche = nicheSelect.value;
+            var visibleBoxes = document.querySelectorAll('.pc-service-cb[data-niche="' + activeNiche + '"]');
+            var max = Math.min(4, visibleBoxes.length);
+            enforceMax('.pc-service-cb[data-niche="' + activeNiche + '"]', max);
+        }
         function onNicheChange() {
             var activeNiche = nicheSelect.value;
-            // Clear every city checkbox first, not just the ones being hidden —
-            // switching niches must never let a different niche's stale picks
-            // ride along in the submission (a real bug caught before shipping:
-            // hiding a group doesn't uncheck its boxes on its own, and some
-            // block slugs exist in more than one niche's pool, so a stray
-            // checked box could silently survive the whitelist filter).
-            document.querySelectorAll('.pc-city-cb').forEach(function(b) { b.checked = false; b.disabled = false; });
+            // Clear every city/service checkbox first, not just the ones
+            // being hidden — switching niches must never let a different
+            // niche's stale picks ride along in the submission (a real bug
+            // caught before shipping: hiding a group doesn't uncheck its
+            // boxes on its own, and some block slugs exist in more than one
+            // niche's pool, so a stray checked box could silently survive
+            // the whitelist filter). Service pool joined this same per-niche
+            // scoping 2026-11-26 once it became family-customizable.
+            document.querySelectorAll('.pc-city-cb, .pc-service-cb').forEach(function(b) { b.checked = false; b.disabled = false; });
             nicheGroups.forEach(function(g) {
                 g.style.display = (g.getAttribute('data-niche') === activeNiche) ? 'block' : 'none';
             });
             refreshCityEnforcement();
+            refreshServiceEnforcement();
         }
         nicheSelect.addEventListener('change', onNicheChange);
         document.querySelectorAll('.pc-city-cb').forEach(function(b) { b.addEventListener('change', refreshCityEnforcement); });
-
-        var serviceBoxes = document.querySelectorAll('.pc-service-cb');
-        function refreshServiceEnforcement() { enforceMax('.pc-service-cb', Math.min(4, serviceBoxes.length)); }
-        serviceBoxes.forEach(function(b) { b.addEventListener('change', refreshServiceEnforcement); });
+        document.querySelectorAll('.pc-service-cb').forEach(function(b) { b.addEventListener('change', refreshServiceEnforcement); });
 
         onNicheChange();
-        refreshServiceEnforcement();
 
         // Step UI — purely client-side, one plain form submitted once (same
         // backend as before). No session state to go stale, no server round
