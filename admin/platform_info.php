@@ -32,6 +32,7 @@ $TABS = [
     'claude'               => 'Claude',
     'use_cases'            => 'Use Cases',
     'flow_diagrams'        => 'Flow Diagrams',
+    'users'                => 'Users',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -40,7 +41,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1849,6 +1850,31 @@ function platform_info_content_flow_data(): array {
                     padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
                     font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
                     max-height:none;color:#1C2B45;"><?= h($flowText) ?></div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'users'):
+    $usersPath = __DIR__ . '/../docs/pluscities-users.md';
+    $usersText = is_file($usersPath) ? file_get_contents($usersPath) : null;
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Users</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        Every real user type in PlusCities today, what each one can actually do (verified against the
+        real role gates, not the original design spec), and a diagram of how they relate — including
+        impersonation, the one mechanism that connects all of them.
+    </p>
+    <?php if ($usersText === null): ?>
+        <div class="lpc-empty"><h2>File not found</h2>
+            <p>Expected it at <code>docs/pluscities-users.md</code>.</p></div>
+    <?php else: ?>
+        <p style="font-size:.88rem;line-height:1.7;">
+            Source file: <code>docs/pluscities-users.md</code>, last updated
+            <?= h(date('Y-m-d H:i', filemtime($usersPath))) ?>.
+        </p>
+        <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                    padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                    font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                    max-height:none;color:#1C2B45;"><?= h($usersText) ?></div>
     <?php endif; ?>
 <?php endif; ?>
 
