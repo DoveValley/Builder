@@ -203,6 +203,54 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
                 }
             ?></textarea>
         </div>
+
+        <div class="fg" style="flex-basis:100%;"><label>Trust Bar Items (comma-separated)</label>
+            <input type="text" name="trust_bar_items" placeholder="Licensed HVAC Technicians, Locally Owned &amp; Operated, Same-Day Service Available, Real Customer Reviews"
+                value="<?= h(implode(', ', $editingNiche['trust_bar_items'] ?? [])) ?>"></div>
+        <div class="fg" style="flex-basis:100%;"><label>Approved Sources — Extra (comma-separated domains, on top of the family's own)</label>
+            <input type="text" name="approved_sources_extra" value="<?= h(implode(', ', $editingNiche['approved_sources_extra'] ?? [])) ?>"></div>
+
+        <h4 style="flex-basis:100%;margin:10px 0 0;">Reference Table (the shared table every page in this niche shows — niche_data_table block)</h4>
+        <div class="fg" style="flex-basis:100%;"><label>Table Title</label>
+            <input type="text" name="niche_table_title" value="<?= h($editingNiche['niche_table']['title'] ?? '') ?>"></div>
+        <div class="fg" style="flex-basis:100%;">
+            <label>Table rows — first line is the column headers, then one row per line, pipe-separated</label>
+            <textarea name="niche_table_lines" style="min-height:90px;" placeholder="Issue|Likely Cause|Urgency"><?php
+                if (!empty($editingNiche['niche_table']['columns'])) {
+                    echo h(implode('|', $editingNiche['niche_table']['columns'])) . "\n";
+                }
+                foreach (($editingNiche['niche_table']['rows'] ?? []) as $row) {
+                    echo h(implode('|', $row)) . "\n";
+                }
+            ?></textarea>
+        </div>
+
+        <h4 style="flex-basis:100%;margin:10px 0 0;">Custom Research Fields</h4>
+        <p style="flex-basis:100%;font-size:.78rem;color:var(--pc-muted,#52607a);margin:0;">
+            One per line: <code>key|what to research/ask</code> — extra per-city facts beyond the standard
+            topics, read by <code>generate.py</code>'s research step.
+        </p>
+        <div class="fg" style="flex-basis:100%;">
+            <textarea name="custom_research_fields_lines" style="min-height:50px;" placeholder="top_employers|The 3 largest employers in this city"><?php
+                foreach (($editingNiche['custom_research_fields'] ?? []) as $f) {
+                    echo h(($f['key'] ?? '') . '|' . ($f['ask'] ?? '')) . "\n";
+                }
+            ?></textarea>
+        </div>
+
+        <h4 style="flex-basis:100%;margin:10px 0 0;">Blog Topics</h4>
+        <p style="flex-basis:100%;font-size:.78rem;color:var(--pc-muted,#52607a);margin:0;">
+            One per line: <code>slug|title|focus keyword|tag|related slugs (comma-separated, optional)</code>
+        </p>
+        <div class="fg" style="flex-basis:100%;">
+            <textarea name="blog_topics_lines" style="min-height:70px;" placeholder="seasonal-ac-maintenance|5 AC Maintenance Tips Before Summer|ac maintenance tips|maintenance"><?php
+                foreach (($editingNiche['blog_topics'] ?? []) as $bt) {
+                    echo h(($bt['slug'] ?? '') . '|' . ($bt['title'] ?? '') . '|' . ($bt['focus_keyword'] ?? '') . '|'
+                        . ($bt['tag'] ?? '') . '|' . implode(',', $bt['related_topics'] ?? [])) . "\n";
+                }
+            ?></textarea>
+        </div>
+
         <div style="flex-basis:100%;"><button type="submit" class="btn-open"><?= $editingNiche ? 'Save Niche' : 'Add Niche' ?></button></div>
     </form>
 

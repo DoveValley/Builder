@@ -621,16 +621,28 @@ Honest numbers, not aspirational ones:
     `edit_faq` action in `admin/pluscities_page_save.php` rebuilds the `faqs` array and reuses
     `pluscities_edit_block()` unchanged, so the auto-lock/`origin=edited`/`client_grounded=1` behavior is
     identical to every other manual edit. Verified directly against a real FAQ block.
-  - **The Niche Library's real `save_niche` form has no fields at all for `niche_table`,
-    `trust_bar_items`, `blog_topics`, `custom_research_fields`, or `approved_sources_extra`**
-    (found 2026-11-23, UC11; re-confirmed still true 2026-11-26 during the panel-coverage walkthrough) —
-    every one of these stays `null`/`[]` on a niche authored entirely through the real admin, same
-    "no UI exists, must hand-edit JSON" shape as `banned_phrases` (UC6) and `radius_minutes` (UC9). Most
-    consequential for `niche_table`, since the `niche_data_table` block type can't render anything
-    meaningful without one. **`image_slots` no longer belongs on this list** — real dedicated UI was
+  - ~~The Niche Library's real `save_niche` form has no fields at all for `niche_table`,
+    `trust_bar_items`, `blog_topics`, `custom_research_fields`, or `approved_sources_extra`~~ —
+    **CLOSED 2026-11-26, panel-coverage walkthrough Session 2.** All 5 now have real, simple form
+    fields: `trust_bar_items`/`approved_sources_extra` as comma-separated text inputs (same convention
+    `blocks_off`/`approved_sources` already use); `custom_research_fields`/`blog_topics`/`niche_table` as
+    pipe-delimited textareas, one line per item (same convention `services_lines` already uses —
+    `niche_table`'s first line is the column headers, every line after is one row). Verified live:
+    resubmitted `hvac`'s real niche form through all 5 new fields with its exact existing content,
+    confirmed a byte-for-byte match (`git diff` showed only the expected `updated_at` timestamp); then
+    created and fully populated a brand-new disposable test niche end-to-end through the panel alone —
+    zero hand-JSON — including a 2-row reference table and a blog topic with `related_topics`, confirmed
+    `pluscities_niche_resolved()` parses the result correctly, then deleted the test file directly (no
+    delete action exists in the panel for this — see the gap noted in §5.5). Still genuinely hand-JSON
+    only: `radius_minutes_override`, `compliance_preset_override`, `match_keywords`, `climate_chart_ids`,
+    `safety_toolkit_items` — deliberately out of scope for a simple text-field treatment (the first two
+    are rare per-niche overrides, `climate_chart_ids` is tightly coupled to a hardcoded old-system
+    slug mapping that only resolves for 2 real niches today, and `safety_toolkit_items` carries raw SVG
+    icon markup that doesn't fit a plain text field cleanly) — flagged as a real but lower-priority gap,
+    not silently dropped. **`image_slots` no longer belongs on this list either** — real dedicated UI was
     built for it at some point after UC11 (an "Add Image Slot" picker tied to the real block catalog +
     a per-slot upload form, both verified live 2026-11-26) — this doc's own list had gone stale on that
-    point until this walkthrough caught it.
+    point until the walkthrough caught it.
   - **A second round of the same bug class, found via a deliberate panel walkthrough, 2026-11-26**:
     `climate_chart_ids`/`safety_toolkit_items` were missing from `save_niche`'s unexposed-field
     preservation list (the same `$existing[...] ?? ...` fallback pattern that protects `niche_table`/

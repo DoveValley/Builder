@@ -102,6 +102,45 @@ if ($action === 'save_niche') {
         ];
     }
 
+    // Custom research fields: "key|ask" per line.
+    $customResearchFields = [];
+    foreach (explode("\n", (string) ($_POST['custom_research_fields_lines'] ?? '')) as $line) {
+        $line = trim($line);
+        if ($line === '') continue;
+        $parts = array_map('trim', explode('|', $line, 2));
+        if (($parts[0] ?? '') === '') continue;
+        $customResearchFields[] = ['key' => $parts[0], 'ask' => $parts[1] ?? ''];
+    }
+
+    // Blog topics: "slug|title|focus_keyword|tag|related,slugs" per line — the
+    // 5th segment is optional and comma-separated within itself.
+    $blogTopics = [];
+    foreach (explode("\n", (string) ($_POST['blog_topics_lines'] ?? '')) as $line) {
+        $line = trim($line);
+        if ($line === '') continue;
+        $parts = array_map('trim', explode('|', $line, 5));
+        $slug  = $parts[0] ?? '';
+        if ($slug === '') continue;
+        $blogTopics[] = [
+            'slug' => $slug, 'title' => $parts[1] ?? '', 'focus_keyword' => $parts[2] ?? '',
+            'tag' => $parts[3] ?? '', 'related_topics' => pluscities_split_csv_field($parts[4] ?? ''),
+        ];
+    }
+
+    // Reference table: first non-blank line is the column headers, every line
+    // after it is one row, both pipe-separated. An empty textarea means "no
+    // table for this niche" (null), same as before any table was ever authored.
+    $nicheTableLines = array_values(array_filter(
+        array_map('rtrim', explode("\n", (string) ($_POST['niche_table_lines'] ?? ''))),
+        fn($l) => trim($l) !== ''
+    ));
+    $nicheTable = null;
+    if ($nicheTableLines) {
+        $columns = array_map('trim', explode('|', array_shift($nicheTableLines)));
+        $rows = array_map(fn($line) => array_map('trim', explode('|', $line)), $nicheTableLines);
+        $nicheTable = ['title' => trim($_POST['niche_table_title'] ?? ''), 'columns' => $columns, 'rows' => $rows, 'source_topic' => null];
+    }
+
     pluscities_niche_save($nicheId, [
         'family_id'         => trim($_POST['family_id'] ?? ''),
         'label'              => trim($_POST['label'] ?? ''),
@@ -112,16 +151,16 @@ if ($action === 'save_niche') {
         'blocks_off'         => pluscities_split_csv_field((string) ($_POST['blocks_off'] ?? '')),
         'service_blocks_off' => pluscities_split_csv_field((string) ($_POST['service_blocks_off'] ?? '')),
         'services'           => $services,
-        // Fields not yet exposed in the form keep their existing value rather
-        // than getting silently cleared on every save.
-        'approved_sources_extra'     => $existing['approved_sources_extra'] ?? [],
+        'trust_bar_items'         => pluscities_split_csv_field((string) ($_POST['trust_bar_items'] ?? '')),
+        'approved_sources_extra'  => pluscities_split_csv_field((string) ($_POST['approved_sources_extra'] ?? '')),
+        'custom_research_fields'  => $customResearchFields,
+        'blog_topics'             => $blogTopics,
+        'niche_table'             => $nicheTable,
+        // Fields still not exposed in the form keep their existing value
+        // rather than getting silently cleared on every save.
         'research_topics'            => $existing['research_topics'] ?? [],
-        'custom_research_fields'     => $existing['custom_research_fields'] ?? [],
-        'niche_table'                => $existing['niche_table'] ?? null,
         'radius_minutes_override'    => $existing['radius_minutes_override'] ?? null,
         'compliance_preset_override' => $existing['compliance_preset_override'] ?? null,
-        'trust_bar_items'            => $existing['trust_bar_items'] ?? [],
-        'blog_topics'                => $existing['blog_topics'] ?? [],
         'match_keywords'             => $existing['match_keywords'] ?? [],
         'image_slots'                => $existing['image_slots'] ?? [],
         'safety_toolkit_items'       => $existing['safety_toolkit_items'] ?? [],
