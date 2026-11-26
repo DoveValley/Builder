@@ -8,16 +8,17 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 22 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
-UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-22,
+Status: **All 23 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-23,
 added 2026-11-25/26, against real live clients/config directly — a build-and-verify pass for 5 new
 page-furniture pieces plus a block-architecture rework (UC19), a family/niche-level mismatch sweep that
 made the service pool family-customizable and fixed 4 real content-fit issues (UC20), a deliberate
 5-session panel-completeness walkthrough that found+fixed 3 more real bugs live, shipped 3 new admin
 surfaces (Niche Blueprint fields, Business Info tab, per-page SEO + Danger Zone), and published one
-brand-new real client entirely through the panel (UC21), then extended real delete-with-safety-checks to
-niches and compliance presets (UC22) — none of these a scripted fixture walkthrough, see those sections
-for why). UC9-14
+brand-new real client entirely through the panel (UC21), extended real delete-with-safety-checks to
+niches and compliance presets (UC22), then found the root cause behind the whole "silently broken write
+access" bug class and fixed 4 more real PlusCities files plus the client-delete feature's own quarantine
+directory (UC23) — none of these a scripted fixture walkthrough, see those sections for why). UC9-14
 were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
@@ -1148,3 +1149,39 @@ helper + 4 new functions; `admin/pluscities_niches_save.php` gained 3 new action
 sections + a Remove link. All test artifacts (disposable niche/preset, fake client, quarantine
 directories) removed afterward; `hvac`'s real image slot restored to its exact original state. No
 fixture state left behind.
+
+## UC23, 2026-11-26 — found the root cause behind every "silently broken write access" bug this session
+— ✅ PASS (a real infrastructure bug, not a scripted test)
+
+Scott: "Check the remaining root-owned sweep items too" → "Yes, go ahead and check sites" — the standing
+"root-owned-file sweep" PENDING item, finally traced to its actual source rather than patched symptom by
+symptom again.
+
+**Root cause**: the local `php -S localhost:8080 router.php` dev server used for every single HTTP-level
+test across UC19-22 (every panel-coverage walkthrough session, both delete-feature builds) had been
+running as `root`, not `www-data`, since 2026-11-24. Every real form resubmission through it silently
+re-owned whatever file it touched back to `root`. Found by noticing this pattern was recurring (the same
+bug class already documented for Meade Restoration in an earlier, unrelated session) and checking the
+dev server's own process owner directly (`ps aux`) instead of assuming the tooling was neutral.
+
+**Confirmed via real `sudo -u www-data` write tests, not just `ls -la` ownership**, that this had broken
+4 currently-active PlusCities files: `niche_blueprints/water-damage-restoration.json`,
+`niche_families/home-trades.json`, `compliance_presets/contractor.json`,
+`pluscities_clients/elite-air-hvac.json` — every one of them a file the real www-data-run production
+Apache would need to write to for a completely ordinary future edit. Fixed by re-owning all 4, then
+fixing the actual root cause: killed the root dev-server process, restarted it as `www-data`, confirmed
+by process owner and a working HTTP request.
+
+**Found a real bug in this session's own newest feature before it could ever bite**:
+`PLUSCITIES_CLIENTS_DELETED_DIR` — the client-delete quarantine directory from UC21 — had itself been
+created root-owned by the same broken test session, which would have silently blocked any *future* real
+deletion from working at all. Fixed the same way, verified a real write succeeds.
+
+A broader sweep of the rest of the webroot followed the same pass (Site Factory's `sites/`/`output/`/
+cache directories, ~3,000 more confirmed-broken files, each category checked for real write-blocking and
+zero credentials before fixing) — out of scope for this PlusCities-specific suite; full detail lives in
+memory (`project_pluscities_service_area_page_build`), not repeated here.
+
+**Artifacts:** 4 real PlusCities files + 1 quarantine directory re-owned to `www-data`; the dev server
+itself restarted as `www-data` (fixing the actual recurring cause, not just this incident). No PlusCities
+data content changed — purely an ownership/infrastructure fix.

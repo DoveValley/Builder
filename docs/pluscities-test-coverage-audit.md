@@ -164,7 +164,9 @@ found by directly reviewing it; UC21 (same doc, 2026-11-26) covers the 5-session
 walkthrough — 3 more real bugs found+fixed, 3 new admin surfaces shipped (Niche Blueprint fields,
 Business Info tab, per-page SEO + the Danger Zone client-delete rebuild), and one brand-new real client
 built, published, and deleted/restored entirely through the panel; UC22 (same doc, 2026-11-26) extends
-real delete-with-safety-checks to niches and compliance presets — all capabilities added *after*
-this audit's row set was fixed to the 2026-11-23 system reference, not part of the original spec being
-measured here. See `docs/pluscities-system-reference.md` §5.5 for what's there and UC19-22 for how it
-was verified.
+real delete-with-safety-checks to niches and compliance presets; UC23 (same doc, 2026-11-26) finds the
+root cause behind every "silently broken write access" bug this session (a root-owned dev server) and
+fixes 4 more real PlusCities files plus the client-delete feature's own quarantine directory — all
+capabilities/fixes added *after* this audit's row set was fixed to the 2026-11-23 system reference, not
+part of the original spec being measured here. See `docs/pluscities-system-reference.md` §5.5 for what's
+there and UC19-23 for how it was verified.

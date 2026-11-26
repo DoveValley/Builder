@@ -880,6 +880,24 @@ land on a PlusCities-native screen — a real, already-present inconsistency wor
    to a graceful "not found" (no fatal error); restoring the files by hand brings the client and its page
    back immediately with zero regeneration needed, proving the "recoverable by hand" claim for real
    rather than just asserting it.
+9. **A real infrastructure bug found and fixed, affecting real PlusCities data: the local dev server
+   used for every panel test this session had been running as `root`, not `www-data`, since
+   2026-11-24.** Every real form resubmission through it silently re-owned whatever file it touched back
+   to `root` — the same class of bug already documented in memory for Meade Restoration, just recurring
+   from a different source. Confirmed via direct `sudo -u www-data` write tests (not just `ls -la`
+   ownership) that this had silently broken write access to 4 real, currently-active PlusCities files:
+   `niche_blueprints/water-damage-restoration.json`, `niche_families/home-trades.json`,
+   `compliance_presets/contractor.json`, and `pluscities_clients/elite-air-hvac.json` — meaning the real
+   production Apache (which genuinely runs as `www-data`) would have silently failed to save any future
+   edit to any of them. Fixed by re-owning all 4 to `www-data` and, more importantly, fixing the actual
+   root cause: killed the root dev-server process and restarted it as `www-data`, so this can't recur
+   from future testing. **Also caught a bug in this session's own new client-delete feature before it
+   could ever bite in production**: `PLUSCITIES_CLIENTS_DELETED_DIR` (the quarantine directory
+   `pluscities_delete_client()` creates) had itself been created root-owned by the same broken test
+   session, which would have silently blocked any *future* real deletion from working at all — fixed the
+   same way. A broader sweep of the rest of the webroot (Site Factory's own data, ~3,000 more files) was
+   also done the same pass, out of scope for this PlusCities-specific doc — see memory
+   (`project_pluscities_service_area_page_build`) for that detail.
 
 ## 6. Relationship to the old LPC system — RETIRED 2026-11-23 (historical section)
 
