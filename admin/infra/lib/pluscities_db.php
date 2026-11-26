@@ -73,6 +73,21 @@ function pluscities_db(): PDO
         index_status    TEXT DEFAULT ""
     )');
 
+    // Additive migration, same convention as blocks.client_grounded below —
+    // per-page SEO title/meta description overrides, added 2026-11-26
+    // (panel-coverage walkthrough Session 4). Blank means "use the
+    // auto-generated template" (admin/pluscities_sync.php) — these were
+    // 100% hardcoded with zero per-page override before this, so every
+    // client's every page shared the exact same templated meta description
+    // sentence shape.
+    $pagesCols = $db->query('PRAGMA table_info(pages)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('seo_title', $pagesCols, true)) {
+        $db->exec('ALTER TABLE pages ADD COLUMN seo_title TEXT DEFAULT ""');
+    }
+    if (!in_array('seo_description', $pagesCols, true)) {
+        $db->exec('ALTER TABLE pages ADD COLUMN seo_description TEXT DEFAULT ""');
+    }
+
     $db->exec('CREATE TABLE IF NOT EXISTS blocks (
         id             INTEGER PRIMARY KEY AUTOINCREMENT,
         page_id        TEXT NOT NULL,

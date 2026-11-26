@@ -201,8 +201,17 @@ if ($action === 'page') {
         'html'  => $breadcrumbHtml . $html,
         'style' => $style,
         'head'  => [
-            'title'            => $serviceLabel . ' in ' . $cityLabel . ' | ' . $businessName,
-            'meta_description' => 'Professional ' . $serviceLabel . ' in ' . $cityLabel . ' from ' . $businessName . '.',
+            // A non-empty per-page override (admin/pluscities_page.php's SEO
+            // fields, added 2026-11-26) always wins; blank falls back to the
+            // same auto-generated template every page used before this —
+            // never store the template text itself, so a future copy tweak
+            // to the template still reaches every page that never overrode it.
+            'title'            => trim((string) ($page['seo_title'] ?? '')) !== ''
+                ? $page['seo_title']
+                : $serviceLabel . ' in ' . $cityLabel . ' | ' . $businessName,
+            'meta_description' => trim((string) ($page['seo_description'] ?? '')) !== ''
+                ? $page['seo_description']
+                : 'Professional ' . $serviceLabel . ' in ' . $cityLabel . ' from ' . $businessName . '.',
             'schema'           => $schema,
             // Built here, not on the plugin side — the client's own domain is
             // already known server-side (same source BreadcrumbList's absolute

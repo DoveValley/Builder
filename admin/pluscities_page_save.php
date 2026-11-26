@@ -39,6 +39,33 @@ if ($action === 'edit') {
     header('Location: ' . $back . '&msg=success:Block+saved+and+locked'); exit;
 }
 
+if ($action === 'edit_seo') {
+    // Blank means "fall back to the auto-generated template" — never stored
+    // as the literal template text, so a later change to that template
+    // (e.g. a copy tweak) still reaches every page that never overrode it.
+    pluscities_db()->prepare('UPDATE pages SET seo_title = ?, seo_description = ? WHERE page_id = ?')
+        ->execute([trim((string) ($_POST['seo_title'] ?? '')), trim((string) ($_POST['seo_description'] ?? '')), $pageId]);
+
+    // admin/pluscities_sync.php reads these two columns straight off the live
+    // `pages` row, not a frozen revision snapshot — so this takes effect on an
+    // already-live page immediately, same "settings, not reviewed content"
+    // category as hub_content/url_base_path (admin/pluscities_hub_edit_save.php),
+    // not a block edit that waits for re-approval/re-publish. Bumping site_rev
+    // here (same way that file does) is what actually gets the live WordPress
+    // plugin to re-poll and pick it up — without this, the sync endpoint
+    // itself would already be correct but the plugin's cached copy never
+    // would be.
+    $clientFile = PLUSCITIES_CLIENTS_DIR . $pageClientId . '.json';
+    $pageClient = json_decode((string) @file_get_contents($clientFile), true);
+    if ($pageClient) {
+        $pageClient['site_rev'] = (int) ($pageClient['site_rev'] ?? 0) + 1;
+        pluscities_atomic_write_json($clientFile, $pageClient);
+    }
+
+    pluscities_log_event($actor, 'edit_seo', 'page:' . $pageId, '');
+    header('Location: ' . $back . '&msg=success:SEO+fields+saved'); exit;
+}
+
 if ($action === 'edit_faq') {
     $blockId = (int) ($_POST['block_id'] ?? 0);
     $db = pluscities_db();

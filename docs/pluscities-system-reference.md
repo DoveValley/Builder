@@ -809,6 +809,39 @@ land on a PlusCities-native screen — a real, already-present inconsistency wor
    here doesn't retroactively fix already-generated page content — it only changes what the writer
    grounds *future* regenerations in; an edit here plus a manual Regenerate on the affected blocks is
    still the real path to a corrected live page, same as every other content edit in this system.
+6. ~~Every page's `<title>`/meta description was 100% hardcoded with zero per-page override~~ —
+   **CLOSED 2026-11-26, panel-coverage walkthrough Session 4.** `admin/pluscities_sync.php`'s
+   `action=page` built both directly from a fixed template string
+   (`"{service} in {city} | {business}"` / `"Professional {service} in {city} from {business}."`) every
+   time, with no stored override anywhere — every client's every page shared the exact same templated
+   meta-description SHAPE, a real missed lever for search-result click-through and a real risk of Search
+   Console flagging near-duplicate meta descriptions at scale. Added `pages.seo_title`/
+   `pages.seo_description` columns (additive migration, same convention as `blocks.client_grounded`) and
+   a new **SEO Title & Meta Description** section on `admin/pluscities_page.php`, with the
+   auto-generated default shown as the field's own placeholder text so blank never looks like "nothing
+   happens here." `admin/pluscities_sync.php` now uses a non-empty override when present, falling back
+   to the exact same template otherwise — the template itself is never persisted, so a future copy tweak
+   to it still reaches every page that never overrode it. **A real gap in this same new feature caught
+   before it shipped wrong**: the new `edit_seo` action initially didn't bump the owning client's
+   `site_rev` at all — `sync.php` reads these two columns live off the `pages` row (not a frozen
+   revision snapshot), so the raw endpoint was already correct, but the production WordPress plugin only
+   re-polls a page's head data when `site_rev` advances; without the bump, a real site would have kept
+   serving its stale cached title/description forever. Fixed by bumping `site_rev` in the same action,
+   matching `admin/pluscities_hub_edit_save.php`'s existing pattern for the same category of change
+   (a per-page/per-client "settings" edit that takes effect immediately, not gated behind
+   validate→approve→publish the way a content block edit is). Verified live end to end: set a real
+   override on `elite-air-hvac`'s real live `mckinney-tx`/`ac-repair` page, confirmed the real production
+   sync endpoint (hit directly with the client's real Bearer key) returned the override; cleared it and
+   confirmed the endpoint fell back to the exact original template text; confirmed `site_rev` advanced on
+   both the set and the clear.
+7. **A related, smaller fix found in the same pass**: `niche_data_table` blocks showed literally
+   nothing in the page editor — no content preview, no edit control that did anything, just a disabled
+   empty textarea (the generic body-editor assumes every block has a `body` key; this one doesn't).
+   `service_area` and `housing_stock` had the same dead-control problem. Added a real read-only table
+   preview for `niche_data_table` (first 4 rows + a link to edit it where it's actually authored, the
+   Niche Library) and a plain "auto-generated, nothing to edit" note for `service_area`; the generic
+   editor now only renders at all when a block actually has a `body` key, so `housing_stock` (shape is
+   `intro`+dataset values, no `body`) no longer shows a dead disabled button either.
 
 ## 6. Relationship to the old LPC system — RETIRED 2026-11-23 (historical section)
 

@@ -107,7 +107,37 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
     $revStmt = $db->prepare('SELECT number, author, created_at FROM revisions WHERE page_id = ? ORDER BY number DESC');
     $revStmt->execute([$pageId]);
     $revisions = $revStmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Same formula admin/pluscities_sync.php falls back to when no override
+    // is set — shown as placeholder text so the editor sees exactly what a
+    // visitor/Google gets today, not a blank field with no context.
+    $pcServiceLabel = $page['service_key'];
+    foreach (($pcNiche['services'] ?? []) as $svc) {
+        if ($svc['slug'] === $page['service_key']) { $pcServiceLabel = $svc['label']; break; }
+    }
+    $pcCityLabel = pluscities_city_label($page['city_id']);
+    $pcBusinessName = $pcClient['identity']['business_name'] ?? '';
+    $pcDefaultTitle = $pcServiceLabel . ' in ' . $pcCityLabel . ' | ' . $pcBusinessName;
+    $pcDefaultDesc  = 'Professional ' . $pcServiceLabel . ' in ' . $pcCityLabel . ' from ' . $pcBusinessName . '.';
 ?>
+<div class="pc-card">
+    <h3 style="margin-top:0;">SEO Title &amp; Meta Description</h3>
+    <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:0 0 8px;">
+        Blank uses the auto-generated default shown as placeholder text below — nothing is lost by
+        leaving either field empty.
+    </p>
+    <form method="post" action="pluscities_page_save.php" class="pc-form-row" style="display:flex;flex-direction:column;gap:8px;">
+        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+        <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
+        <input type="hidden" name="action" value="edit_seo">
+        <div><label style="font-size:.8rem;font-weight:600;color:#374151;display:block;margin-bottom:4px;">Page Title</label>
+            <input type="text" name="seo_title" value="<?= h($page['seo_title'] ?? '') ?>" placeholder="<?= h($pcDefaultTitle) ?>" style="width:100%;padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.84rem;"></div>
+        <div><label style="font-size:.8rem;font-weight:600;color:#374151;display:block;margin-bottom:4px;">Meta Description</label>
+            <textarea name="seo_description" placeholder="<?= h($pcDefaultDesc) ?>" style="width:100%;min-height:50px;padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.84rem;font-family:inherit;"><?= h($page['seo_description'] ?? '') ?></textarea></div>
+        <div><button type="submit" class="btn-sm-outline">Save SEO Fields</button></div>
+    </form>
+</div>
+
 <div class="pc-card">
     <div class="pc-block-head">
         <div>
@@ -204,6 +234,32 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
             <p style="font-size:.84rem;margin:8px 0 0;"><?= h($content['intro']) ?></p>
         <?php elseif (isset($content['reviews'])): ?>
             <p style="font-size:.84rem;margin:8px 0 0;"><?= count($content['reviews']) ?> client-supplied review(s).</p>
+        <?php elseif ($b['block_type'] === 'niche_data_table' && !empty($content['rows'])): ?>
+            <!-- Shared niche-wide content (same table on every page in this
+                 niche, every service, every city) — editable only one level
+                 up, in the Niche Library, never per-page. Previously this
+                 block showed nothing at all here: no preview, no indication
+                 of what it even contains — found during the panel-coverage
+                 walkthrough, 2026-11-26. -->
+            <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:8px 0 4px;">
+                Shared reference table for every page in this niche — not editable per-page.
+                <a href="pluscities_niches.php?edit_niche=<?= h($pcClient['niche_id'] ?? '') ?>">Edit in the Niche Library →</a>
+            </p>
+            <table style="width:100%;border-collapse:collapse;font-size:.78rem;">
+                <?php if (!empty($content['title'])): ?><caption style="text-align:left;font-weight:600;margin-bottom:4px;"><?= h($content['title']) ?></caption><?php endif; ?>
+                <thead><tr><?php foreach ($content['columns'] ?? [] as $col): ?><th style="text-align:left;padding:3px 8px 3px 0;border-bottom:1px solid var(--pc-line,#e2e8f2);"><?= h($col) ?></th><?php endforeach; ?></tr></thead>
+                <tbody>
+                <?php foreach (array_slice($content['rows'], 0, 4) as $row): ?>
+                    <tr><?php foreach ($row as $cell): ?><td style="padding:3px 8px 3px 0;color:var(--pc-muted,#52607a);"><?= h($cell) ?></td><?php endforeach; ?></tr>
+                <?php endforeach; ?>
+                <?php if (count($content['rows']) > 4): ?><tr><td colspan="<?= count($content['columns'] ?? []) ?>" style="padding:3px 0;color:var(--pc-muted,#52607a);">&hellip; and <?= count($content['rows']) - 4 ?> more row(s)</td></tr><?php endif; ?>
+                </tbody>
+            </table>
+        <?php elseif ($b['block_type'] === 'service_area'): ?>
+            <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:8px 0 0;">
+                Auto-generated from this client/niche's own data (drive time, hub address, related
+                service links) — nothing here to manually write or edit.
+            </p>
         <?php endif; ?>
         <?php if (isset($content['faqs'])): ?>
         <form method="post" action="pluscities_page_save.php">
@@ -219,14 +275,14 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
             <?php endforeach; ?>
             <button type="submit" class="btn-sm-outline" style="margin-top:6px;">Save FAQ Edits (auto-locks)</button>
         </form>
-        <?php else: ?>
+        <?php elseif (isset($content['body'])): ?>
         <form method="post" action="pluscities_page_save.php">
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
             <input type="hidden" name="block_id" value="<?= (int) $b['id'] ?>">
             <input type="hidden" name="action" value="edit">
             <textarea class="pc-edit" name="body"><?= h($content['body'] ?? '') ?></textarea>
-            <button type="submit" class="btn-sm-outline" style="margin-top:6px;" <?= isset($content['body']) ? '' : 'disabled' ?>>Save Edit (auto-locks)</button>
+            <button type="submit" class="btn-sm-outline" style="margin-top:6px;">Save Edit (auto-locks)</button>
         </form>
         <?php endif; ?>
     </div>
