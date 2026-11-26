@@ -24,8 +24,19 @@ if ($action === 'create') {
     $hubAddress   = trim((string) ($_POST['hub_address'] ?? ''));
     $hubPhone     = trim((string) ($_POST['hub_phone'] ?? ''));
     $firstCityId  = trim((string) ($_POST['first_city_id'] ?? ''));
+    // "Multiple pages" wizard mode, 2026-11-26 — the single required city/
+    // service pair becomes a cities list + a services checklist instead;
+    // see includes/pluscities_bulk_pages_cli.php for what actually builds
+    // each combination (a detached background job, not this request).
+    $isBulk = ($_POST['page_mode'] ?? 'single') === 'bulk';
+    $bulkCities = $isBulk
+        ? array_values(array_filter(array_map('trim', explode("\n", (string) ($_POST['bulk_cities'] ?? '')))))
+        : [];
+    $bulkServices = $isBulk ? (array) ($_POST['bulk_services'] ?? []) : [];
 
-    if ($businessName === '' || $domain === '' || $agencyId === '' || $nicheId === '' || $hubAddress === '' || $hubPhone === '' || $firstCityId === '') {
+    if ($businessName === '' || $domain === '' || $agencyId === '' || $nicheId === '' || $hubAddress === '' || $hubPhone === ''
+        || (!$isBulk && $firstCityId === '')
+        || ($isBulk && (!$bulkCities || !$bulkServices))) {
         header('Location: pluscities_clients.php?msg=error:Missing+required+fields'); exit;
     }
     // Agency scoping — an Agency Admin/Editor can only create a client under
@@ -82,7 +93,12 @@ if ($action === 'create') {
         'status'      => 'active',
         'canceled_at' => null,
         'services' => array_column($niche['services'] ?? [], 'slug'),
-        'target_cities' => [[
+        // Bulk mode seeds no city here at all — includes/pluscities_bulk_
+        // pages_cli.php adds each real city to this list itself as it
+        // successfully creates that city's first page, same shape, same
+        // dedup-against-what's-already-tracked logic admin/pluscities_
+        // page_add_save.php already uses for city #2 onward.
+        'target_cities' => $isBulk ? [] : [[
             'city_id' => $firstCityId,
             'drive_minutes' => (int) ($_POST['first_city_drive_minutes'] ?? 15),
             'confirmed_by_client' => false,
@@ -118,6 +134,26 @@ if ($action === 'create') {
     file_put_contents(PLUSCITIES_CLIENTS_SECRETS_DIR . $clientId . '.txt', bin2hex(random_bytes(20)));
 
     pluscities_log_event($actor, 'create_client', 'client:' . $clientId, '');
+
+    // "Multiple pages" mode, 2026-11-26 — launches the background job
+    // (includes/pluscities_bulk_pages_cli.php via pluscities_bulk_create_
+    // pages_launch()) instead of creating one page inline, then sends the
+    // agency to a progress screen rather than a finished page_id (there
+    // isn't one single page to land on). Every combo uses its service's
+    // family happy-path blocks automatically — no block-picker in this mode.
+    if ($isBulk) {
+        $validServices = array_values(array_intersect($bulkServices, array_column($niche['services'] ?? [], 'slug')));
+        if (!$validServices) {
+            header('Location: pluscities_clients.php?msg=' . urlencode('warning:Client "' . $businessName . '" created, but no valid services were selected — add pages manually.')); exit;
+        }
+        $launch = pluscities_bulk_create_pages_launch(
+            $clientId, $bulkCities, $validServices,
+            (int) ($_POST['first_city_drive_minutes'] ?? 15), $actor
+        );
+        header('Location: pluscities_bulk_progress.php?client_id=' . urlencode($clientId) . '&run_id=' . urlencode($launch['run_id'])
+            . '&msg=' . urlencode(($launch['started'] ? 'success:' : 'warning:') . 'Client "' . $businessName . '" created. ' . ($launch['msg'] ?: 'Building ' . count($bulkCities) . ' x ' . count($validServices) . ' pages in the background…'))
+        ); exit;
+    }
 
     // First page — real agency-chosen block picks, 2026-11-22 (previously a
     // hardcoded array_slice with no human choice at all — see

@@ -267,34 +267,70 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
 
         <div class="pc-step-panel" data-step-panel="3">
             <div class="pc-form-row">
-                <div class="pc-section-label" style="flex-basis:100%;">First page</div>
-                <div class="fg"><label>City ID (from the cities table, e.g. "dallas-tx")</label><input type="text" name="first_city_id" required></div>
+                <div class="pc-section-label" style="flex-basis:100%;">How many pages?</div>
+                <div style="flex-basis:100%;margin-bottom:8px;">
+                    <label style="display:block;margin-bottom:4px;font-size:.86rem;">
+                        <input type="radio" name="page_mode" value="single" id="pc-mode-single-radio" checked>
+                        <strong>Single page</strong> — pick one city and one service now, review its blocks before creating
+                    </label>
+                    <label style="display:block;font-size:.86rem;">
+                        <input type="radio" name="page_mode" value="bulk" id="pc-mode-bulk-radio">
+                        <strong>Multiple pages</strong> — pick several cities and services at once; every page uses its
+                        service's recommended default blocks automatically (runs as a background job)
+                    </label>
+                </div>
                 <div class="fg"><label>Drive minutes from hub</label><input type="number" name="first_city_drive_minutes" min="0" value="15"></div>
                 <div class="fg"><label>Service radius (minutes)</label><input type="number" name="radius_minutes" min="0" value="30"></div>
                 <div class="fg"><label>URL base path</label><input type="text" name="url_base_path" value="service-area"></div>
-                <div class="fg"><label>Page / Service (which real keyword this first page targets)</label>
-                    <select name="service_key" id="pc-service-select" required></select>
+
+                <div id="pc-mode-single-wrap" style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:12px;">
+                    <div class="fg"><label>City ID (from the cities table, e.g. "dallas-tx")</label><input type="text" name="first_city_id"></div>
+                    <div class="fg"><label>Page / Service (which real keyword this first page targets)</label>
+                        <select name="service_key" id="pc-service-select"></select>
+                    </div>
+
+                    <div class="pc-section-label" style="flex-basis:100%;">Block Topics — the first page's content</div>
+                    <div style="flex-basis:100%;font-size:.8rem;color:var(--pc-muted,#52607a);margin-bottom:8px;" id="pc-topics-niche-hint">
+                        City topics for the niche picked in step 1.
+                    </div>
+                    <div style="flex-basis:100%;">
+                        <?php foreach ($pcNichePools as $pcNicheId => $pcCityPool): ?>
+                            <div class="pc-niche-topics" data-niche="<?= h($pcNicheId) ?>" style="display:none;">
+                                <?php if (!empty($pcNicheAlways[$pcNicheId])): ?>
+                                <p style="color:#6b7280;font-size:.78rem;margin:0 0 6px;">
+                                    Always included: <?= h(implode(', ', array_map(fn($s) => $pcCatalog[$s]['block'] ?? $s, $pcNicheAlways[$pcNicheId]))) ?>
+                                    — no pick needed.
+                                </p>
+                                <?php endif; ?>
+                                <strong style="font-size:.84rem;">City topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(6, count($pcCityPool)) ?> of <?= count($pcCityPool) ?></strong>
+                                <?= pluscities_render_pool_picker($pcCityPool, $pcNicheHappyCity[$pcNicheId] ?? [], $pcCatalog, 'pc-city-cb', 'city_block_picks', $pcNicheId) ?>
+
+                                <?php $pcServicePool = $pcNicheServicePools[$pcNicheId] ?? []; ?>
+                                <strong style="font-size:.84rem;display:block;margin-top:10px;">Service topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(4, count($pcServicePool)) ?> of <?= count($pcServicePool) ?></strong>
+                                <?= pluscities_render_pool_picker($pcServicePool, $pcNicheHappyService[$pcNicheId] ?? [], $pcCatalog, 'pc-service-cb', 'service_block_picks', $pcNicheId) ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
 
-                <div class="pc-section-label" style="flex-basis:100%;">Block Topics — the first page's content</div>
-                <div style="flex-basis:100%;font-size:.8rem;color:var(--pc-muted,#52607a);margin-bottom:8px;" id="pc-topics-niche-hint">
-                    City topics for the niche picked in step 1.
-                </div>
-                <div style="flex-basis:100%;">
-                    <?php foreach ($pcNichePools as $pcNicheId => $pcCityPool): ?>
-                        <div class="pc-niche-topics" data-niche="<?= h($pcNicheId) ?>" style="display:none;">
-                            <?php if (!empty($pcNicheAlways[$pcNicheId])): ?>
-                            <p style="color:#6b7280;font-size:.78rem;margin:0 0 6px;">
-                                Always included: <?= h(implode(', ', array_map(fn($s) => $pcCatalog[$s]['block'] ?? $s, $pcNicheAlways[$pcNicheId]))) ?>
-                                — no pick needed.
-                            </p>
-                            <?php endif; ?>
-                            <strong style="font-size:.84rem;">City topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(6, count($pcCityPool)) ?> of <?= count($pcCityPool) ?></strong>
-                            <?= pluscities_render_pool_picker($pcCityPool, $pcNicheHappyCity[$pcNicheId] ?? [], $pcCatalog, 'pc-city-cb', 'city_block_picks', $pcNicheId) ?>
-
-                            <?php $pcServicePool = $pcNicheServicePools[$pcNicheId] ?? []; ?>
-                            <strong style="font-size:.84rem;display:block;margin-top:10px;">Service topics for "<?= h($pcNicheId) ?>" — choose up to <?= (int) min(4, count($pcServicePool)) ?> of <?= count($pcServicePool) ?></strong>
-                            <?= pluscities_render_pool_picker($pcServicePool, $pcNicheHappyService[$pcNicheId] ?? [], $pcCatalog, 'pc-service-cb', 'service_block_picks', $pcNicheId) ?>
+                <div id="pc-mode-bulk-wrap" style="flex-basis:100%;display:none;">
+                    <div class="fg" style="flex-basis:100%;"><label>Cities (one per line, e.g. "dallas-tx")</label>
+                        <textarea name="bulk_cities" rows="4" style="width:100%;" placeholder="dallas-tx&#10;frisco-tx&#10;plano-tx"></textarea>
+                    </div>
+                    <p style="flex-basis:100%;font-size:.78rem;color:#6b7280;margin:0 0 8px;">
+                        A page is created for every city above x every service checked below. Each one uses its
+                        service's recommended default blocks automatically — swap blocks on an individual page
+                        afterward if one needs to differ. You'll see live progress after creating the client.
+                    </p>
+                    <?php foreach ($niches as $pcNicheId): $pcSvcList = $pcNicheServices[$pcNicheId] ?? []; ?>
+                        <div class="pc-niche-bulk-services" data-niche="<?= h($pcNicheId) ?>" style="display:none;flex-basis:100%;">
+                            <strong style="font-size:.84rem;">Services for "<?= h($pcNicheId) ?>"</strong>
+                            <?php foreach ($pcSvcList as $pcSvc): ?>
+                                <label style="display:block;padding:3px 0;font-size:.84rem;">
+                                    <input type="checkbox" class="pc-bulk-service-cb" name="bulk_services[]" value="<?= h($pcSvc['slug']) ?>" data-niche="<?= h($pcNicheId) ?>">
+                                    <?= h($pcSvc['label']) ?>
+                                </label>
+                            <?php endforeach; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -321,6 +357,7 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
         var form = document.getElementById('pc-new-client-form');
         var nicheSelect = document.querySelector('select[name="niche_id"]');
         var nicheGroups = document.querySelectorAll('.pc-niche-topics');
+        var bulkServiceGroups = document.querySelectorAll('.pc-niche-bulk-services');
         var serviceSelect = document.getElementById('pc-service-select');
         // Real per-niche service list — rebuilds the Service/Page dropdown's
         // options on niche change, same data pluscities_niche_resolved()
@@ -383,6 +420,18 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
             nicheGroups.forEach(function(g) {
                 g.style.display = (g.getAttribute('data-niche') === activeNiche) ? 'block' : 'none';
             });
+            // Bulk services checkboxes don't need the defaultChecked/stale-
+            // pick handling above (nothing pre-checks them, there's no happy-
+            // path concept at this layer — the bulk job applies happy-path
+            // automatically per page, server-side), just show the right
+            // niche's list and clear the others so a hidden niche's checked
+            // boxes can't silently ride along in bulk_services[].
+            document.querySelectorAll('.pc-bulk-service-cb').forEach(function(b) {
+                if (b.getAttribute('data-niche') !== activeNiche) b.checked = false;
+            });
+            bulkServiceGroups.forEach(function(g) {
+                g.style.display = (g.getAttribute('data-niche') === activeNiche) ? 'block' : 'none';
+            });
             refreshServiceOptions();
             refreshCityEnforcement();
             refreshServiceEnforcement();
@@ -392,6 +441,31 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
         document.querySelectorAll('.pc-service-cb').forEach(function(b) { b.addEventListener('change', refreshServiceEnforcement); });
 
         onNicheChange();
+
+        // Single page / Multiple pages mode toggle — purely a show/hide of
+        // which sub-form is relevant; both share the drive-minutes/radius/
+        // url-base-path fields above since those apply the same way either
+        // mode. See validateStep() below for the mode-aware "did they
+        // actually fill in the relevant half" check.
+        var modeSingleRadio = document.getElementById('pc-mode-single-radio');
+        var modeBulkRadio   = document.getElementById('pc-mode-bulk-radio');
+        var modeSingleWrap  = document.getElementById('pc-mode-single-wrap');
+        var modeBulkWrap    = document.getElementById('pc-mode-bulk-wrap');
+        function refreshMode() {
+            var bulk = modeBulkRadio.checked;
+            modeSingleWrap.style.display = bulk ? 'none' : 'flex';
+            modeBulkWrap.style.display = bulk ? 'block' : 'none';
+            // Only the active mode's fields are actually required — a hidden
+            // field is exempt from constraint validation per spec, but being
+            // explicit here means validateStep()'s reportValidity() loop
+            // below never has to guess which half of the form is "real."
+            form.querySelector('[name="first_city_id"]').required = !bulk;
+            serviceSelect.required = !bulk;
+            form.querySelector('[name="bulk_cities"]').required = bulk;
+        }
+        modeSingleRadio.addEventListener('change', refreshMode);
+        modeBulkRadio.addEventListener('change', refreshMode);
+        refreshMode();
 
         // Step UI — purely client-side, one plain form submitted once (same
         // backend as before). No session state to go stale, no server round
@@ -428,6 +502,19 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
             for (var i = 0; i < fields.length; i++) {
                 if (!fields[i].reportValidity()) return false;
             }
+            // "At least one service checked" has no native HTML constraint —
+            // anchor a custom validity message on one real checkbox in the
+            // active niche's group rather than a hand-rolled alert(), so this
+            // still uses the browser's own validation UI like everything else.
+            if (n === 3 && modeBulkRadio.checked) {
+                var activeNiche = nicheSelect.value;
+                var checkedAny = document.querySelectorAll('.pc-bulk-service-cb[data-niche="' + activeNiche + '"]:checked').length > 0;
+                var anchor = document.querySelector('.pc-bulk-service-cb[data-niche="' + activeNiche + '"]');
+                if (anchor) {
+                    anchor.setCustomValidity(checkedAny ? '' : 'Pick at least one service.');
+                    if (!anchor.reportValidity()) return false;
+                }
+            }
             return true;
         }
         function buildReview() {
@@ -436,11 +523,20 @@ lpc_admin_open($filterAgency ? 'agencies' : 'pluscities_clients', 'Clients');
                 ['Domain', form.querySelector('[name="domain"]').value],
                 ['Agency', form.querySelector('[name="agency_id"]').value],
                 ['Niche', form.querySelector('[name="niche_id"]').value],
-                ['First city', form.querySelector('[name="first_city_id"]').value],
-                ['Page / Service', serviceSelect.options[serviceSelect.selectedIndex] ? serviceSelect.options[serviceSelect.selectedIndex].text : ''],
-                ['City topics picked', String(document.querySelectorAll('.pc-city-cb:checked').length)],
-                ['Service topics picked', String(document.querySelectorAll('.pc-service-cb:checked').length)],
+                ['Mode', modeBulkRadio.checked ? 'Multiple pages (background job)' : 'Single page'],
             ];
+            if (modeBulkRadio.checked) {
+                var cityLines = form.querySelector('[name="bulk_cities"]').value.split('\n').map(function(s) { return s.trim(); }).filter(Boolean);
+                var svcChecked = document.querySelectorAll('.pc-bulk-service-cb:checked').length;
+                rows.push(['Cities', String(cityLines.length)]);
+                rows.push(['Services', String(svcChecked)]);
+                rows.push(['Pages to create', String(cityLines.length * svcChecked)]);
+            } else {
+                rows.push(['First city', form.querySelector('[name="first_city_id"]').value]);
+                rows.push(['Page / Service', serviceSelect.options[serviceSelect.selectedIndex] ? serviceSelect.options[serviceSelect.selectedIndex].text : '']);
+                rows.push(['City topics picked', String(document.querySelectorAll('.pc-city-cb:checked').length)]);
+                rows.push(['Service topics picked', String(document.querySelectorAll('.pc-service-cb:checked').length)]);
+            }
             document.getElementById('pc-review-body').innerHTML = rows.map(function(r) {
                 return '<div class="pc-review-row"><span>' + escapeHtml(r[0]) + '</span><span>' + escapeHtml(r[1] || '—') + '</span></div>';
             }).join('');

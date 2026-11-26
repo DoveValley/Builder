@@ -193,6 +193,12 @@ define('PLUSCITIES_COMPLIANCE_PRESETS_DELETED_DIR', BASE_DIR . '/compliance_pres
 // hash in the sibling secrets dir, same convention as above.
 define('PLUSCITIES_AGENCY_USERS_DIR', BASE_DIR . '/pluscities_agency_users/');
 define('PLUSCITIES_AGENCY_USERS_SECRETS_DIR', BASE_DIR . '/pluscities_agency_users_secrets/');
+// Bulk "multiple cities x multiple services" page-creation jobs (2026-11-26) —
+// one subfolder per client, each holding that client's run status JSON files
+// (runs/{run_id}.json) plus the detached job's raw .out/.pid bookkeeping files,
+// same shape as the multisite fleet's own proven background-job mechanism
+// (includes/multisite/batch.php) — reused directly, not reinvented.
+define('PLUSCITIES_BULK_RUNS_DIR', BASE_DIR . '/pluscities_bulk_runs/');
 // Client logo uploads, their own real photos, and the cached per-client
 // branded version of each niche default image — all reuse the existing
 // save_uploaded_file() validation (MIME/size/WebP conversion), just pointed

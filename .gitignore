@@ -36,6 +36,10 @@ niche_families_deleted/
 # in this sibling flat tree instead.
 pluscities_agency_users_secrets/
 
+# Bulk page-creation job output (config.php's PLUSCITIES_BULK_RUNS_DIR) — run
+# status JSON files and raw job logs, ephemeral build output, not source.
+pluscities_bulk_runs/
+
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 

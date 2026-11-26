@@ -314,6 +314,71 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
     return ['ok' => true, 'msg' => '', 'page_id' => $pageId];
 }
 
+/**
+ * Launches a detached "multiple cities x multiple services" page-creation
+ * job for one client — the New Client wizard's "Multiple pages" mode
+ * (2026-11-26). Reuses the multisite fleet's own proven background-job
+ * mechanism (includes/multisite/batch.php: ms_launch_job_now(), ms_with_
+ * launch_lock(), ms_active_run()) rather than rebuilding a second detach/
+ * liveness mechanism — it already solved the hard bugs (surviving an
+ * apache2 restart that would otherwise SIGKILL a plain setsid child; not
+ * misreading a recycled PID as "still running"). Required lazily so
+ * multisite's globals/constants aren't pulled into every ordinary PlusCities
+ * page view, only when a bulk job is actually launched or checked.
+ *
+ * The actual work (looping combos, calling pluscities_create_page() per one
+ * with each service's family happy-path blocks, writing structured progress)
+ * happens in the detached script, includes/pluscities_bulk_pages_cli.php —
+ * this function only launches it and hands back the run_id to poll.
+ *
+ * @return array{run_id:string,started:bool,msg:string}
+ */
+function pluscities_bulk_create_pages_launch(string $client_id, array $cities, array $services, int $drive_minutes, string $actor): array
+{
+    require_once __DIR__ . '/multisite/batch.php';
+
+    $dir = rtrim(PLUSCITIES_BULK_RUNS_DIR, '/') . '/' . $client_id;
+    if (!is_dir($dir) && !mkdir($dir, 0775, true) && !is_dir($dir)) {
+        return ['run_id' => '', 'started' => false, 'msg' => 'Could not create the job directory.'];
+    }
+
+    return ms_with_launch_lock($dir . '/.lock', function () use ($dir, $client_id, $cities, $services, $drive_minutes, $actor) {
+        // One bulk job at a time per client — same "is one already running"
+        // guard every other detached job in this codebase uses, scoped to
+        // this client's own runs dir rather than a shared one.
+        $active = ms_active_run($dir . '/runs');
+        if ($active) {
+            return ['run_id' => $active['run_id'], 'started' => false, 'msg' => 'A bulk job is already running for this client.'];
+        }
+        $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+        $script = __DIR__ . '/pluscities_bulk_pages_cli.php';
+        $args = [
+            $client_id,
+            '--run-id=' . $runId,
+            '--cities=' . implode(',', $cities),
+            '--services=' . implode(',', $services),
+            '--drive-minutes=' . $drive_minutes,
+            '--actor=' . $actor,
+        ];
+        ms_launch_job_now($dir, '__PC_BULK_DONE__', $script, $args);
+        return ['run_id' => $runId, 'started' => true, 'msg' => ''];
+    });
+}
+
+/**
+ * One bulk job's current status, liveness-corrected (ms_read_run() downgrades
+ * a dead process still marked 'running' to 'stale' rather than leaving a
+ * poller believing a killed job is still working — the exact bug this
+ * project already hit once on the multisite side).
+ */
+function pluscities_bulk_job_status(string $client_id, string $run_id): ?array
+{
+    require_once __DIR__ . '/multisite/batch.php';
+    if (!preg_match('/^[A-Za-z0-9._-]{1,64}$/', $run_id)) return null;
+    $file = rtrim(PLUSCITIES_BULK_RUNS_DIR, '/') . '/' . $client_id . '/runs/' . $run_id . '.json';
+    return ms_read_run($file);
+}
+
 function pluscities_compute_draft_hash(string $page_id): string
 {
     $db = pluscities_db();
