@@ -149,6 +149,13 @@ if ($action === 'page') {
         if ($b['block_type'] === 'hero' && !empty($niche['trust_bar_items'])) {
             $html .= pluscities_render_trust_bar($niche['trust_bar_items']);
         }
+        // Area Map sits right after the Service Area block it visually
+        // confirms — city-level furniture (includes/pluscities_area_map.
+        // php), cache read only; a city whose map hasn't been generated yet
+        // (or has no OSM data to draw from) just renders nothing here.
+        if ($b['block_type'] === 'service_area') {
+            $html .= pluscities_render_area_map($page['city_id'], $client['domain'] ?? '');
+        }
     }
     // Safety Toolkit sits after everything else, right before the page ends —
     // same position as the fleet's own reference sites (Bailey/Wren/Gann).

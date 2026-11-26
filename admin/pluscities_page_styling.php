@@ -98,7 +98,7 @@ function pluscities_page_styling_sample_block_row(string $slug, string $label, a
  * after hero, CTA band right before FAQ) so a real page previewed here reads
  * identically to its live rendering.
  */
-function pluscities_page_styling_build_sections(array $blockRows, array $client, ?array $niche, array $slugLabels): array {
+function pluscities_page_styling_build_sections(array $blockRows, array $client, ?array $niche, array $slugLabels, ?string $cityId = null): array {
     $sections = [];
     $i = 0;
     foreach ($blockRows as $row) {
@@ -109,6 +109,15 @@ function pluscities_page_styling_build_sections(array $blockRows, array $client,
         $sections[] = ['id' => 'blk-' . $i++, 'label' => $label, 'html' => pluscities_render_block($row, $client, $niche, $i)];
         if ($row['block_type'] === 'hero' && !empty($niche['trust_bar_items'])) {
             $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Trust bar', 'html' => pluscities_render_trust_bar($niche['trust_bar_items'])];
+        }
+        // Area Map — only resolvable for a REAL page (needs a real city_id);
+        // the demo page (every block type, no specific city) never shows it,
+        // same as it would never show on a page that doesn't exist yet.
+        if ($row['block_type'] === 'service_area' && $cityId) {
+            $areaMapHtml = pluscities_render_area_map($cityId, $client['domain'] ?? '');
+            if ($areaMapHtml !== '') {
+                $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Area Map', 'html' => $areaMapHtml];
+            }
         }
     }
     $safetyToolkitHtml = pluscities_render_safety_toolkit($niche ?? [], $client['domain'] ?? '');
@@ -182,7 +191,7 @@ lpc_admin_open('pluscities_clients', 'Page Styling');
         $heading = $realPages ? 'Demo page — every block type in the catalog' : 'Demo page — this client has no real pages built yet';
     }
 
-    $sections = pluscities_page_styling_build_sections($blockRows, $client, $niche, $slugLabels);
+    $sections = pluscities_page_styling_build_sections($blockRows, $client, $niche, $slugLabels, $selectedPage['city_id'] ?? null);
     $previewCss = pluscities_page_style_css($client);
 
     // A horizontal chip strip, not a second vertical rail — a vertical list

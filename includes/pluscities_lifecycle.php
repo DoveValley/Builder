@@ -228,6 +228,13 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
         pluscities_regenerate_block($bid, $actor);
     }
 
+    // Area Map — city-level furniture, drawn once per city_id and shared by
+    // every client's pages for that city (includes/pluscities_area_map.php).
+    // Best-effort: a city with no coordinates/nearby towns on record, or no
+    // SVG converter on this box, just means no map renders later — never
+    // blocks page creation.
+    pluscities_ensure_city_map($city_id);
+
     pluscities_touch_page($pageId);
     pluscities_log_event($actor, 'create_page', 'page:' . $pageId, '');
     return ['ok' => true, 'msg' => '', 'page_id' => $pageId];

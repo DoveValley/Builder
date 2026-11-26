@@ -719,6 +719,15 @@ function pluscities_page_style_css(array $client): string
         . '.lpc-safety-toolkit-grid h4{font-size:1.05rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 8px;}'
         . '.pluscities-page section.lpc-safety-toolkit .lpc-safety-toolkit-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0 0 12px;}'
         . '.lpc-safety-toolkit-button{display:inline-block;background:' . htmlspecialchars($brandColor) . ';color:#fff;font-weight:700;font-size:.84rem;text-decoration:none;padding:8px 18px;border-radius:999px;}'
+        // Area Map — a real photo-like image (not a bare text grid), so it
+        // gets a two-column layout on wider screens (image left, caption +
+        // outbound Google Maps link right) and stacks on mobile.
+        . '.pluscities-page section.lpc-area-map .lpc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:' . htmlspecialchars($brandColor) . ';margin:0 0 6px;}'
+        . '.lpc-area-map-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:4px;align-items:start;}'
+        . '@media(min-width:720px){.lpc-area-map-grid{grid-template-columns:3fr 2fr;}}'
+        . '.lpc-area-map-img{width:100%;height:auto;border-radius:10px;display:block;}'
+        . '.pluscities-page section.lpc-area-map .lpc-area-map-side p{font-size:.95rem;line-height:1.65;color:#334155;margin:0 0 14px;}'
+        . '.lpc-area-map-link{display:inline-block;font-weight:700;font-size:.9rem;color:' . htmlspecialchars($brandColor) . ';text-decoration:none;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'

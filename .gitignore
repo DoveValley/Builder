@@ -33,6 +33,10 @@ config/gsc_service_account.json
 pluscities_uploads/branded/
 pluscities_uploads/photos/
 pluscities_uploads/logos/
+# Area Map (includes/pluscities_area_map.php): drawn once per city_id,
+# disposable/regenerable from `cities` table + cached OSM tiles/boundaries
+# (cache/, already ignored below) — never source of truth.
+pluscities_uploads/city_maps/
 
 # Dedicated SSH key: www-data (this box) -> lpcdelivery (LPC box), scoped to
 # syncing the delivery data tree only. Real credential, never commit.

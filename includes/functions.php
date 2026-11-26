@@ -28,6 +28,7 @@ require_once __DIR__ . '/../admin/infra/lib/census.php';
 require_once __DIR__ . '/anthropic.php';
 require_once __DIR__ . '/pluscities_color_detect.php';
 require_once __DIR__ . '/pluscities_research.php';
+require_once __DIR__ . '/pluscities_area_map.php';
 require_once __DIR__ . '/pluscities_images.php';
 require_once __DIR__ . '/pluscities_writer.php';
 require_once __DIR__ . '/pluscities_validator.php';
