@@ -6,6 +6,7 @@
     "local_angle": "Local climate extremes drive HVAC demand and system sizing",
     "seasonal_calendar": "AC repair peaks May-September, heating peaks Nov-Feb",
     "blocks_off": [],
+    "service_blocks_off": [],
     "services": [
         {
             "slug": "ac-repair",
@@ -22,9 +23,15 @@
             "secondary_keywords": []
         }
     ],
+    "trust_bar_items": [
+        "Licensed HVAC Technicians",
+        "Locally Owned & Operated",
+        "Same-Day Service Available",
+        "Real Customer Reviews"
+    ],
     "approved_sources_extra": [],
-    "research_topics": [],
     "custom_research_fields": [],
+    "blog_topics": [],
     "niche_table": {
         "title": "Common AC & Furnace Problems: Cause & Urgency",
         "columns": [
@@ -101,19 +108,10 @@
         ],
         "source_topic": null
     },
+    "research_topics": [],
     "radius_minutes_override": null,
     "compliance_preset_override": null,
-    "trust_bar_items": [
-        "Licensed HVAC Technicians",
-        "Locally Owned & Operated",
-        "Same-Day Service Available",
-        "Real Customer Reviews"
-    ],
-    "blog_topics": [],
     "match_keywords": [],
-    "niche_id": "hvac",
-    "updated_at": "2026-11-26T03:51:39+00:00",
-    "created_at": "2026-11-21T20:34:15+00:00",
     "image_slots": [
         {
             "slot_id": "hero",
@@ -132,5 +130,7 @@
         "heavy_rain_days",
         "flood_decades"
     ],
-    "service_blocks_off": []
+    "niche_id": "hvac",
+    "updated_at": "2026-11-26T04:59:29+00:00",
+    "created_at": "2026-11-21T20:34:15+00:00"
 }
