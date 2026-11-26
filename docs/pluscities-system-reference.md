@@ -182,11 +182,14 @@ minus the niche's own `blocks_off[]` denylist, and `family.default_service_block
 `service_blocks_off[]` denylist — e.g. home-trades' city pool is `climate_data, housing_stock,
 neighborhoods, permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city` (9 types), its
 service pool is `common_problems, cited_expert_guidance, niche_data_table, process, cost_factors,
-why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives` (9 types). All 6 families
-currently carry identical service pools (seeded that way deliberately — the mechanism was the point of
-the fix, not re-deciding content for niches that don't exist yet); `medical-wellness` already has a
-genuinely shorter CITY pool (no `climate_data` etc.), proving the per-family mechanism was real before
-this fix extended it to the service side too.
+why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives` (9 types). 5 of the 6 families
+(every one except `medical-wellness`) carry that identical 9-item service pool; `medical-wellness`
+genuinely differs on the service side too now, not just the city side — its `default_service_blocks`
+drops `before_the_tech_arrives` (8 types instead of 9), since "a technician arrives at your home" framing
+doesn't fit an office-visit business like a dental practice. Removed at the FAMILY level, not a per-niche
+denylist, since the mismatch is true of any medical-wellness business, not `dental-practice` specifically
+— same reasoning `medical-wellness` already applied to its city pool (no `climate_data`/`permits`/
+`hoa_rules`/etc., none of which fit a medical office either).
 
 A resolved niche blueprint (`pluscities_niche_resolved()`) contains: `schema_subtype` (real schema.org
 type), `services[]` (with keyword-research data per service), `blocks_off[]`, `service_blocks_off[]`,
@@ -289,10 +292,14 @@ mechanism the city pool already used: `family.default_service_blocks` + `family.
 `pluscities_niche_resolved()` identically to `city_blocks`. The global `PLUSCITIES_SERVICE_POOL`/
 `PLUSCITIES_ALWAYS_SERVICE_BLOCKS` constants were removed outright (not deprecated/kept-for-compat) once
 every call site (`pluscities_validate_block_picks()`, `pluscities_create_page()`, `pluscities_swap_block()`,
-and 4 admin pickers) migrated to the niche-resolved values. Content-wise this is a pure mechanism build,
-not a content decision — all 6 families were seeded with an identical 9-item service pool (zero behavior
-change today); a family wanting a genuinely different service pool is now possible but not yet done for
-any real niche. Also fixed in the same pass: `admin/pluscities_niches_save.php`'s `save_family` action had
+and 4 admin pickers) migrated to the niche-resolved values. Shipped in two steps: first the mechanism
+(all 6 families seeded with an identical 9-item service pool, zero behavior change), then a real
+customization the same day — `medical-wellness` dropped `before_the_tech_arrives` from its
+`default_service_blocks` ("a technician arrives at your home" doesn't fit an office-visit business),
+removed at the family level since the mismatch applies to any medical-wellness niche, not
+`dental-practice` specifically. The other 5 families still share an identical service pool; nothing
+about the mechanism stops any of them from diverging whenever a real reason shows up. Also fixed in the
+same pass: `admin/pluscities_niches_save.php`'s `save_family` action had
 no fallback preserving `always_city_blocks`/`always_service_blocks` (both fields have no form input yet) —
 every save through that form would have silently wiped them to `[]`, the same bug class `image_slots` hit
 on the niche side (2026-11-23). Verified directly: `pluscities_niche_resolved()` produces identical pool
