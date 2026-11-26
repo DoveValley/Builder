@@ -214,8 +214,12 @@ shipped reshaped "spine blocks + two pickable pools" (§2.3 above) into four rea
    either pool is handed to any caller — a block is either always-on or pickable, never both, and the
    subtraction happens once so every caller (Add Page picker, new-client wizard, swap dropdown,
    `pluscities_create_page()` itself) sees an already-correctly-shaped pool. Populated per family from
-   real pick-frequency data (21 live pages, gathered before deciding): `housing_stock` + `neighborhoods`
-   always-on city blocks for all 6 families (18/21 and 17/21 picks — safe everywhere); `+climate_data`
+   real pick-frequency data (21 live pages, gathered before deciding, all of them home-trades/
+   restoration — no medical-wellness page had ever existed to validate against): `housing_stock` +
+   `neighborhoods` always-on city blocks for the 5 "field visit" families (18/21 and 17/21 picks — safe
+   there); `medical-wellness` only keeps `neighborhoods` always-on (`housing_stock` demoted back to
+   pickable 2026-11-26 once a direct review found no real content tie-in between Census home-value/
+   homeownership stats and a dental visit, unlike the natural fit for home-trades/restoration). `+climate_data`
    always-on only for the 5 families that already carried it in their city pool (not `medical-wellness` —
    its family never had `climate_data` to begin with, so nothing is force-added to a niche the library
    already excludes it from); `common_problems` + `process` always-on service blocks for all 6 families
@@ -304,6 +308,24 @@ no fallback preserving `always_city_blocks`/`always_service_blocks` (both fields
 every save through that form would have silently wiped them to `[]`, the same bug class `image_slots` hit
 on the niche side (2026-11-23). Verified directly: `pluscities_niche_resolved()` produces identical pool
 contents for `hvac`/`water-damage-restoration`/`dental-practice` before and after the refactor.
+
+**Same-day follow-on: the CITY pool got a real second look too.** Asked directly whether
+`dental-practice`'s city pool had similar mismatches, not just the service pool — found two. `utilities`
+("info on the city's utility providers/setup relevant to the service") has no sensible dental framing the
+way it ties to HVAC equipment, so it was dropped from `medical-wellness`'s `default_city_blocks` outright
+(3 of 4 city blocks now, not 4 of 4) — its now-unused `utilities` research topic was cleaned out of the
+family's `research_topics` in the same pass (confirmed zero code anywhere actually reads
+`research_topics` yet — pure forward-looking metadata today, so this was a zero-risk cleanup, not a
+behavior change). `housing_stock` was a softer call — it renders real Census home-value/income/
+homeownership stats, a natural fit for home-trades/restoration (older housing stock → more repair
+demand) but just generic city color for a dental practice, with no real content tie-in either way. Rather
+than remove it, demoted it from always-on back to pickable for `medical-wellness` specifically, since the
+original "always-on for all 6 families" decision was extrapolated from 21 real pages that were ALL
+home-trades/restoration — no real medical-wellness page ever existed to validate it belonged there at
+all. Verified: `dental-practice` resolves to `city_blocks = [housing_stock, reviews_from_city]`,
+`always_city_blocks = [neighborhoods]` only; confirmed no existing live page under any niche had
+`utilities`/`housing_stock` picked under a medical-wellness client (every real instance of either belongs
+to `hvac`/`water-damage-restoration`), so nothing needed backfilling.
 
 **Still open, flagged not fixed:** `dental-practice` correctly has no climate chart option at all (no
 old-system folder exists for it, no climate angle applies). Richer per-city economic research
