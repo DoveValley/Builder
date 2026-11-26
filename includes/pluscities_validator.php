@@ -364,7 +364,7 @@ function pluscities_check_faq(array $blocks): array
  *  the body-text checks elsewhere. */
 function pluscities_check_items(array $blocks): array
 {
-    $itemsShapedTypes = ['why_choose_us', 'process', 'common_problems'];
+    $itemsShapedTypes = ['why_choose_us', 'process', 'common_problems', 'seasonal_guide'];
     foreach ($blocks as $b) {
         if (!in_array($b['block_type'], $itemsShapedTypes, true)) continue;
         $content = json_decode($b['content_json'], true) ?: [];

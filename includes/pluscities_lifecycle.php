@@ -342,9 +342,22 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
         'common_problems' => 'Write 3-4 distinct, common problems or issues this service addresses, for a '
             . 'local-service landing page\'s "Common Problems" section. Each problem needs its own short '
             . 'heading (2-5 words naming the problem) and a 1-2 sentence body describing it.',
+        'seasonal_guide' => 'Write exactly 4 items, one for each season (Spring, Summer, Fall, Winter in that '
+            . 'order), describing what this service actually looks like in that season for this city, for a '
+            . 'local-service landing page\'s "Seasonal Guide" section. Each item\'s heading must be the '
+            . 'season name (e.g. "Spring") and the body is a 1-2 sentence description of that season\'s '
+            . 'specific risk/need and how this business addresses it.',
     ];
+    // Fact-topic lookups are the block's own type name by convention — except
+    // seasonal_guide, a pre-existing documented mismatch (includes/pluscities_
+    // block_catalog.php's own doc comment): the topic PLUSCITIES_TOPIC_EXPIRY_
+    // MONTHS actually defines is "seasons", not "seasonal_guide". Fixed here
+    // rather than left to silently never find a fact card this block's
+    // research was always meant to attach to.
+    $factTopicOverrides = ['seasonal_guide' => 'seasons'];
     if (isset($itemsInstructions[$block['block_type']])) {
-        $facts  = pluscities_fact_card_get_active('city', $block['city_id'], $block['block_type']);
+        $factTopic = $factTopicOverrides[$block['block_type']] ?? $block['block_type'];
+        $facts  = pluscities_fact_card_get_active('city', $block['city_id'], $factTopic);
         $result = pluscities_write_items_block($itemsInstructions[$block['block_type']], $facts, $clientFacts, $context);
         if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
         $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated", client_grounded = 1 WHERE id = ?')

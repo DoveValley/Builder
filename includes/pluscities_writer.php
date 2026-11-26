@@ -727,6 +727,12 @@ function pluscities_page_style_css(array $client): string
         . '.lpc-common-problems-icon svg{width:20px;height:20px;stroke:#fff;}'
         . '.lpc-common-problems-grid h4{font-size:1.05rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 8px;}'
         . '.pluscities-page section.lpc-common-problems .lpc-common-problems-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0;}'
+        // Seasonal guide — same numbered-badge look as Process's circles,
+        // just not connected by a line (parallel cards, not a sequence).
+        . '.lpc-seasonal-guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;margin-top:4px;}'
+        . '.lpc-seasonal-guide-num{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:' . htmlspecialchars($brandColor) . ';color:#fff;font-weight:800;font-size:.95rem;margin-bottom:10px;}'
+        . '.lpc-seasonal-guide-grid h4{font-size:1.05rem;font-weight:700;color:' . htmlspecialchars($darkColor) . ';margin:0 0 8px;}'
+        . '.pluscities-page section.lpc-seasonal-guide .lpc-seasonal-guide-grid p{font-size:.92rem;line-height:1.6;color:#334155;margin:0;}'
         // Safety Toolkit — same grid shape as why-choose-us, plus an icon
         // badge and an outbound verification-link button per card (matching
         // the reference sites' own treatment, not a bare text grid).
@@ -1004,6 +1010,23 @@ function pluscities_render_block(array $block_row, ?array $client = null, ?array
             $html .= '<div><div class="lpc-common-problems-icon">'
                 . '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>'
                 . '</div><h4>' . htmlspecialchars((string) ($item['heading'] ?? '')) . '</h4>'
+                . '<p>' . htmlspecialchars($itemBody) . '</p></div>';
+        }
+        return $html . '</div></div></section>';
+    }
+
+    // Seasonal guide — a 4-up numbered grid (Tier 2, 2026-11-26), matching
+    // the fleet's own reference sites (Bailey/Gann both have this exact
+    // section, numbered 1-4). Numbered circle badges like Process, but laid
+    // out as a parallel grid rather than a connected vertical timeline —
+    // seasons cycle, they don't happen in sequence. Same not-yet-
+    // regenerated-block fallback as why_choose_us above.
+    if ($block_row['block_type'] === 'seasonal_guide' && !empty($content['items'])) {
+        $html = '<section class="lpc-seasonal-guide' . $altClass . '"><div class="lpc-band-inner"><h3>Seasonal Guide</h3><div class="lpc-seasonal-guide-grid">';
+        foreach ($content['items'] as $i => $item) {
+            $itemBody = preg_replace('/\s*\[\[[a-z0-9_\-]+\]\]/i', '', (string) ($item['body'] ?? ''));
+            $html .= '<div><span class="lpc-seasonal-guide-num">' . ($i + 1) . '</span><h4>'
+                . htmlspecialchars((string) ($item['heading'] ?? '')) . '</h4>'
                 . '<p>' . htmlspecialchars($itemBody) . '</p></div>';
         }
         return $html . '</div></div></section>';
