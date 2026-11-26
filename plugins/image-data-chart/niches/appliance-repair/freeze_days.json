@@ -1,0 +1,37 @@
+{
+  "id": "freeze_days",
+  "name": "Freezing days per month",
+  "type": "bars",
+  "data_key": "freeze_days_monthly",
+  "source_key": "freeze_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days below freezing each month in {city}, {SS}",
+  "alt": "Chart of days below freezing per month in {city}, {SS} — the stretch that puts a heat pump's defrost cycle and an outdoor condenser to the test. {summary}",
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-TMIN-AVGNDS-LSTH032"
+  },
+  "captions": [
+    "{city} records about {total} below freezing in a typical year, concentrated in {peak}. A heat pump's outdoor unit runs its defrost cycle hardest in that stretch, and it is when an undersized or aging system falls behind on heat output.",
+    "Winter in {city}, {SS} brings roughly {total} at or below freezing, peaking in {peak} at {peak_value}. Ice buildup on an outdoor condenser coil and strain on auxiliary heat strips both track that number directly.",
+    "With around {total} of freezing temperatures a year, {peak} is the month HVAC systems work hardest just to hold a comfortable indoor temperature in {city}."
+  ],
+  "groups": [
+    "heating",
+    "cold"
+  ]
+}
