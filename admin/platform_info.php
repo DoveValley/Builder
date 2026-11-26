@@ -36,6 +36,7 @@ $TABS = [
     'family_niche_blocks'  => 'Family to Niche Blocks',
     'niche_to_family'      => 'Niche to Family',
     'family_default_blocks' => 'Family to Default Blocks',
+    'building_niche_blueprint' => 'Building a Niche Blueprint',
 ];
 $tab = $_GET['tab'] ?? 'who_logged_in';
 if (!isset($TABS[$tab])) $tab = 'who_logged_in';
@@ -44,7 +45,7 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users', 'family_niche_blocks', 'niche_to_family', 'family_default_blocks']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users', 'family_niche_blocks', 'niche_to_family', 'family_default_blocks', 'building_niche_blueprint']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
 ];
 
@@ -1986,6 +1987,31 @@ function platform_info_content_flow_data(): array {
                     padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
                     font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
                     max-height:none;color:#1C2B45;"><?= h($fdbText) ?></div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($tab === 'building_niche_blueprint'):
+    $bnbPath = __DIR__ . '/../docs/pluscities-building-a-niche-blueprint.md';
+    $bnbText = is_file($bnbPath) ? file_get_contents($bnbPath) : null;
+    ?>
+    <h3 style="margin-top:0;color:#1e3a5f;">Building a Niche Blueprint</h3>
+    <p style="font-size:.88rem;line-height:1.7;">
+        What a niche blueprint actually is, field by field, how it's built, and how it fits into the
+        Niche Library → client → page chain — written using the planned "Lawyer" niche as a worked
+        example, since legal surfaces real judgment calls a home-trades niche never did.
+    </p>
+    <?php if ($bnbText === null): ?>
+        <div class="lpc-empty"><h2>File not found</h2>
+            <p>Expected it at <code>docs/pluscities-building-a-niche-blueprint.md</code>.</p></div>
+    <?php else: ?>
+        <p style="font-size:.88rem;line-height:1.7;">
+            Source file: <code>docs/pluscities-building-a-niche-blueprint.md</code>, last updated
+            <?= h(date('Y-m-d H:i', filemtime($bnbPath))) ?>.
+        </p>
+        <div style="background:#fff;border:1px solid var(--pc-line, #e2e8f2);border-radius:14px;
+                    padding:24px 28px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+                    font-size:.82rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;
+                    max-height:none;color:#1C2B45;"><?= h($bnbText) ?></div>
     <?php endif; ?>
 <?php endif; ?>
 
