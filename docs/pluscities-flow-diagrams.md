@@ -181,3 +181,25 @@ Take `hvac` → `elite-air-hvac` → `frisco-tx` → `ac-repair`:
    regardless of city or which of the 2 services.
 8. **Render**: `admin/pluscities_sync.php` assembles the final HTML in the real production response.
 9. **Live**: `/service-area/frisco-tx/ac-repair/` — a complete, real page.
+
+---
+
+## Panel editability, as of the 5-session walkthrough (2026-11-26)
+
+This diagram describes what moves through the pipeline; this table is about which of those pieces you
+can actually reach through the real admin panel today, after a deliberate session-by-session check of
+every layer (Business Info build → Niche Blueprint fields → per-page SEO → client delete). Read alongside
+the Claude tab's §2.3a/§5.5 for the full detail behind each row.
+
+| Step | What's now panel-editable | What's still hand-JSON only |
+|---|---|---|
+| 1. Niche Family | Default/always-on city+service pools, compliance preset, approved sources, research topics, radius | — (nothing left) |
+| 2. Niche Blueprint | Denylists, services+keywords (incl. real keyword validation), **trust bar items, blog topics, custom research fields, extra approved sources, the shared reference table** (all 5 added this pass) | `climate_chart_ids` (tied to a hardcoded old-system slug mapping), `safety_toolkit_items` (raw SVG icon markup), `radius_minutes_override`, `compliance_preset_override`, `match_keywords` |
+| 4. Client | Identity/niche/domain at creation; **licenses, hours, banned phrases, price ranges, reviews-by-city** (all 5 added this pass, via the new Business Info tab) | Multi-hub support (the writer only ever reads `hubs[0]`, by design — not a gap) |
+| 6-9. Page/Block | Block pick/swap/lock/regenerate/edit, FAQ per-question editing, **per-page SEO title/meta description** (added this pass) | A per-service version of the shared reference table (one table is shared across every service in a niche — a deliberate cheap-fix choice, not an oversight) |
+| Client lifecycle | Create, cancel/reactivate, suspend/unsuspend, **permanently delete with type-to-confirm + quarantine** (rebuilt this pass after it was found missing) | — (nothing left at the client level) |
+
+**Net result:** a brand-new niche can be fully authored, a brand-new client can be fully onboarded, and
+a brand-new page can be built, published, and (if needed) the whole client deleted and restored — all
+without touching a JSON file by hand. Verified for real, not just asserted: Session 5 built and published
+one complete real client this way, with all 12 validator checks passing on the first try.

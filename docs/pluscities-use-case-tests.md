@@ -8,12 +8,15 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 20 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
-UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-20,
+Status: **All 21 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-21,
 added 2026-11-25/26, against real live clients/config directly — a build-and-verify pass for 5 new
-page-furniture pieces plus a block-architecture rework (UC19), then a family/niche-level mismatch sweep
-that made the service pool family-customizable and fixed 4 real content-fit issues (UC20) — neither a
-scripted fixture walkthrough, see those sections for why). UC9-14
+page-furniture pieces plus a block-architecture rework (UC19), a family/niche-level mismatch sweep that
+made the service pool family-customizable and fixed 4 real content-fit issues (UC20), then a deliberate
+5-session panel-completeness walkthrough that found+fixed 3 more real bugs live, shipped 3 new admin
+surfaces (Niche Blueprint fields, Business Info tab, per-page SEO + Danger Zone), and published one
+brand-new real client entirely through the panel (UC21) — none of these a scripted fixture walkthrough,
+see those sections for why). UC9-14
 were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
@@ -1010,3 +1013,93 @@ contains all 7 rows including the 3 new fire/smoke entries.
 `niche_blueprints/water-damage-restoration.json` all genuinely edited (not just mechanism scaffolding
 left at defaults). 6 clients' `site_rev` bumped. No fixture state left behind — every change was made
 directly to real family/niche config and verified against real resolved output and real DB rows.
+
+## UC21, 2026-11-26 — the 5-session panel-completeness walkthrough + the client-delete rebuild — ✅ PASS
+(2 more real bugs found+fixed live; 3 new panel surfaces shipped; 1 brand-new real client built,
+published, and deleted/restored entirely through the panel)
+
+Prompted directly by the Flow Diagrams tab (UC "0", if it had a number — the diagrams themselves)
+making the full niche-library → niche → client → page → block pipeline visible end to end for the first
+time: Scott asked for a deliberate, scoped walkthrough of that pipeline, one layer per session, checking
+that every real field is genuinely reachable through the panel, simple to use, and — repeatedly
+emphasized — supports real SEO/Google ranking, not just checked for its own sake. Recorded here in the
+same spirit as UC19/UC20: a real build-and-verify pass against real code and real live clients, not a
+scripted fixture walkthrough.
+
+**Session 1 — Niche Family + Compliance Preset.** Resubmitted a real family's (`home-trades`) and a real
+niche's (`hvac`) exact current form values unchanged, to catch any silent field loss. Found and fixed a
+live bug on the first try: `admin/pluscities_niches_save.php`'s `save_niche` action was missing
+`climate_chart_ids`/`safety_toolkit_items` from its unexposed-field preservation list — the resubmit
+silently wiped `hvac`'s 6 real climate chart settings to `[]`. Restored immediately, fixed at the source,
+re-verified on both `hvac` and `water-damage-restoration`. Also corrected a stale system-reference claim
+(`image_slots` was listed as having no admin UI; it actually already had one) and flagged a real gap: no
+delete action exists anywhere in the Niche Library screen (preset/family/niche/image slot) — still true,
+not fixed, lower priority than the client-delete gap UC21 itself later closed.
+
+**Session 2 — Niche Blueprint.** 5 real fields (`niche_table`, `trust_bar_items`, `blog_topics`,
+`custom_research_fields`, `approved_sources_extra`) had zero admin UI, hand-JSON only. Added simple
+fields matching the form's existing conventions (comma-separated inputs / pipe-delimited textareas, one
+line per item). Verified live: resubmitted `hvac`'s real 14-row reference table and 4 trust-bar items
+through the new fields unchanged (zero content drift); then created a disposable test niche fully
+populated through the panel alone — zero hand-JSON — confirmed `pluscities_niche_resolved()` parsed it
+correctly, then removed the test file (no delete action exists for this, per the Session 1 finding).
+
+**Session 3 — Client creation + city/page selection.** Grepped every admin file for `licenses[]`/
+`years_in_business`/`hours`/`banned_phrases`/`price_ranges`/`reviews_by_city` — found all 6 were only
+ever settable at client-creation time, despite being actively read by the AI writer
+(`pluscities_client_facts_for_writer()`) and checked by the validator (banned phrases, invented prices)
+or driving real schema output (`reviews_by_city` → `AggregateRating`). Built a new **Business Info**
+client tab. Caught a second real bug live: the first save attempt 500'd because
+`pluscities_split_csv_field()` was defined only locally inside a different file from Session 2 — fixed
+by moving it to the shared `includes/helpers.php`, removing the duplicate-definition risk outright, not
+patching around it. Re-verified a real client's (`elite-air-hvac`) exact existing licenses/hours/banned
+phrases/2-city reviews round-tripped unchanged. Separately confirmed (no fix needed) that the "choose up
+to N of M" picker math already correctly caps for every family's pool size, including
+`medical-wellness`'s short 2-item pool.
+
+**Session 4 — the page/block editor.** The single most SEO-consequential finding of the whole
+walkthrough: every page's `<title>`/meta description were 100% hardcoded from one fixed template, with
+zero per-page override anywhere — every client's every page shared the identical templated shape. Added
+real `seo_title`/`seo_description` overrides (additive DB migration) with the auto-generated default
+shown as the field's own placeholder. Caught a third real bug in this same new feature before it shipped
+wrong: the save action didn't bump the owning client's `site_rev`, so the raw endpoint would have been
+correct but the real production WordPress plugin would never have re-polled to pick it up — fixed to
+match `hub_edit`'s existing pattern for this category of change. Verified the full round trip against a
+real live page (`elite-air-hvac`/`mckinney-tx`/`ac-repair`) via its real Bearer key: override served,
+cleared, fallback confirmed, `site_rev` advancing correctly both times. Also fixed 3 page-editor blocks
+(`niche_data_table`/`service_area`/`housing_stock`) that showed a dead, disabled, empty edit control with
+no explanation — `niche_data_table` now shows a real read-only preview + a link to where it's actually
+authored.
+
+**Session 5 — end-to-end check, explicitly no architecture changes.** Built and published "Plano Family
+Dental" (`dental-practice` niche) completely from scratch through the real panel, zero hand-JSON — the
+first real client this niche has ever had, directly proving Sessions 1-2's earlier family/niche
+customization work (from the block-pool mismatch sweep) holds up on a real client, not just in isolated
+tests. Block composition was exactly right (correct always-on blocks, correct absence of `climate_data`
+for this niche); furniture generation reused already-cached city data at zero new cost; **all 12
+validator checks passed on the first try**; Validate → Approve → Publish all worked; the real production
+sync endpoint delivered a complete, correct live page (right title/meta — Session 4's fallback path
+confirmed on fresh data — right canonical, right schema including the `Dentist` subtype). One real
+finding while cleaning up: the roadmap's documented "Danger Zone" client-delete action doesn't exist
+anywhere in the current code, despite being recorded as built on 2026-11-22 — likely lost in an earlier
+workspace consolidation. Flagged, not fixed (Session 5 was scoped check-only); cleaned up the test
+client by hand.
+
+**The client-delete rebuild, same day, a direct follow-on request.** Built `pluscities_delete_client()`:
+moves a client's JSON record + API secret into a new gitignored quarantine directory rather than
+destroying them — soft delete, not a true wipe, since both real client-list functions
+(`pluscities_client_ids_for_current_actor()`/`pluscities_actor_can_access_client()`) glob/check the
+client directory directly, so pulling the file out is sufficient on its own. A new "Danger Zone" card
+(Platform Admin only) requires typing the exact business name, checked in JS for immediate feedback and
+— the real guard — again server-side. Verified live, the full matrix: wrong name rejected with the file
+untouched; an `agency_admin` session rejected specifically by the role gate (isolated from a CSRF false
+positive by fixing that session's own token first); the correct path quarantines both files and the
+client/page degrade gracefully everywhere (no fatal errors); copying the files back by hand restored the
+client and its page immediately with zero regeneration needed, proving the "recoverable by hand" design
+claim for real rather than just asserting it.
+
+**Artifacts:** 2 real niches' config genuinely edited and re-verified (`hvac`, `water-damage-restoration`
+climate settings restored); 3 new real admin surfaces shipped (Niche Blueprint's 5 new fields, Business
+Info tab, per-page SEO fields + the Danger Zone card); 3 real bugs found and fixed live, not just in
+theory; 1 real client built, published, and fully deleted+restored through the panel with zero leftover
+state. No fixture state left behind anywhere.
