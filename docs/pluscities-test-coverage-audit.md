@@ -163,7 +163,8 @@ making the service pool family-customizable and fixing 4 real family/niche-level
 found by directly reviewing it; UC21 (same doc, 2026-11-26) covers the 5-session panel-completeness
 walkthrough — 3 more real bugs found+fixed, 3 new admin surfaces shipped (Niche Blueprint fields,
 Business Info tab, per-page SEO + the Danger Zone client-delete rebuild), and one brand-new real client
-built, published, and deleted/restored entirely through the panel — all capabilities added *after*
+built, published, and deleted/restored entirely through the panel; UC22 (same doc, 2026-11-26) extends
+real delete-with-safety-checks to niches and compliance presets — all capabilities added *after*
 this audit's row set was fixed to the 2026-11-23 system reference, not part of the original spec being
-measured here. See `docs/pluscities-system-reference.md` §5.5 for what's there and UC19-21 for how it
+measured here. See `docs/pluscities-system-reference.md` §5.5 for what's there and UC19-22 for how it
 was verified.

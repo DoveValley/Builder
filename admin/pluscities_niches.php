@@ -102,6 +102,23 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
             <input type="text" name="validator_rule_toggles" value="<?= h(implode(', ', array_keys($editingPreset['validator_rule_toggles'] ?? []))) ?>"></div>
         <div style="flex-basis:100%;"><button type="submit" class="btn-open"><?= $editingPreset ? 'Save Preset' : 'Add Preset' ?></button></div>
     </form>
+    <?php if ($editingPreset): ?>
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid #fecaca;">
+        <h4 style="margin:0 0 6px;color:#991b1b;">Danger Zone</h4>
+        <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:0 0 8px;">
+            Refused if any family or niche still references this preset. Soft delete — recoverable by
+            hand from the file quarantine. Type the exact label to confirm.
+        </p>
+        <form method="post" action="pluscities_niches_save.php" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;"
+              onsubmit="return pcConfirmDeleteNamed(this, <?= json_encode($editingPreset['label'] ?: $editingPreset['preset_id']) ?>, 'preset');">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="action" value="delete_preset">
+            <input type="hidden" name="preset_id" value="<?= h($editingPreset['preset_id']) ?>">
+            <input type="text" name="confirm_label" placeholder="Type &quot;<?= h($editingPreset['label'] ?: $editingPreset['preset_id']) ?>&quot; to confirm" style="font-size:.84rem;padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;min-width:240px;">
+            <button type="submit" class="btn-sm-danger">Delete Preset</button>
+        </form>
+    </div>
+    <?php endif; ?>
 </div>
 
 <div class="pc-card">
@@ -281,6 +298,13 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
                         <input type="file" name="image_file" accept="image/png,image/jpeg,image/webp" required style="font-size:.76rem;max-width:140px;">
                         <button type="submit" class="btn-sm-outline">Upload</button>
                     </form>
+                    <form method="post" action="pluscities_niches_save.php" onsubmit="return confirm('Remove this image slot? The uploaded photo file itself is left in place, just no longer used.');">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="action" value="remove_image_slot">
+                        <input type="hidden" name="niche_id" value="<?= h($editingNiche['niche_id']) ?>">
+                        <input type="hidden" name="slot_id" value="<?= h($slot['slot_id']) ?>">
+                        <button type="submit" class="btn-sm-danger">Remove</button>
+                    </form>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -336,7 +360,33 @@ lpc_admin_open('pluscities_niches', 'Niche Library');
                 <button type="submit" class="btn-sm-outline">Validate Keyword</button>
             </form>
         <?php endforeach; ?>
+
+        <div style="margin-top:18px;padding-top:14px;border-top:1px solid #fecaca;">
+            <h4 style="margin:0 0 6px;color:#991b1b;">Danger Zone</h4>
+            <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:0 0 8px;">
+                Refused if any real client still points at this niche. Soft delete — recoverable by hand
+                from the file quarantine. Type the exact label to confirm.
+            </p>
+            <form method="post" action="pluscities_niches_save.php" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;"
+                  onsubmit="return pcConfirmDeleteNamed(this, <?= json_encode($editingNiche['label'] ?: $editingNiche['niche_id']) ?>, 'niche');">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="action" value="delete_niche">
+                <input type="hidden" name="niche_id" value="<?= h($editingNiche['niche_id']) ?>">
+                <input type="text" name="confirm_label" placeholder="Type &quot;<?= h($editingNiche['label'] ?: $editingNiche['niche_id']) ?>&quot; to confirm" style="font-size:.84rem;padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;min-width:240px;">
+                <button type="submit" class="btn-sm-danger">Delete Niche</button>
+            </form>
+        </div>
     <?php endif; ?>
 </div>
+<script>
+function pcConfirmDeleteNamed(form, expectedName, kind) {
+    var typed = form.querySelector('[name="confirm_label"]').value.trim();
+    if (typed !== expectedName) {
+        alert('Type the exact label ("' + expectedName + '") to confirm deletion.');
+        return false;
+    }
+    return confirm('Permanently remove this ' + kind + ' ("' + expectedName + '")? It can only be restored by hand from the file quarantine afterward.');
+}
+</script>
 
 <?php lpc_admin_close(); ?>

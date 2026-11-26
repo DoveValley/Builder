@@ -779,13 +779,26 @@ land on a PlusCities-native screen — a real, already-present inconsistency wor
    write-only today. Separately, `admin/impersonate.php` writes nothing at all when an impersonation
    session starts or ends — not even an error-log line — a real gap in exactly the action most worth
    logging.
-4. **No delete action exists anywhere in the Niche Library screen** (found 2026-11-26, panel-coverage
-   walkthrough Session 1) — `admin/pluscities_niches_save.php` has exactly 6 actions
-   (`save_preset`/`save_family`/`save_niche`/`upload_niche_image`/`add_image_slot`/`validate_keyword`),
-   none of them a delete/remove. A wrongly-created compliance preset, family mistake, niche, or image
-   slot can only be fixed by hand-editing the JSON file or the DB directly — there's no "undo creating
-   this" path through the panel at all. Not a data-safety bug (nothing gets silently destroyed), but a
-   real completeness gap for "can an agency/platform operator do everything through the panel."
+4. ~~No delete action exists anywhere in the Niche Library screen~~ — **CLOSED 2026-11-26** for the 2
+   real deletable entities, image slots given a lighter removal, family deletion deliberately excluded.
+   `admin/pluscities_niches_save.php` had exactly 6 actions, none a delete/remove — found during the
+   panel-coverage walkthrough's Session 1, built the same day the client-delete action was.
+   `pluscities_delete_niche()`/`pluscities_delete_preset()` (`includes/pluscities_niche_library.php`)
+   share one new helper, `pluscities_quarantine_move()`, with the client-delete mechanism rather than
+   each reimplementing file-move logic — soft delete, same quarantine-not-wipe pattern, same
+   type-to-confirm-the-exact-label UI (checked in JS, enforced again server-side). Both have a real
+   safety check a client delete never needed: a client has no downstream dependents, but a niche can
+   have real clients pointing at it and a preset can be referenced by a family's `compliance_preset` or
+   a niche's `compliance_preset_override` — `pluscities_niche_clients_using()`/
+   `pluscities_preset_usages()` block the delete outright and name exactly what's still using it, rather
+   than silently orphaning a reference. Verified live: deleting a real in-use niche/preset is correctly
+   refused (named the blocking client/family); a disposable unused niche/preset deletes cleanly and
+   restores cleanly by hand. Image slots got a plain "Remove" link instead of the same heavier machinery
+   — a single array entry, not a whole file, so type-to-confirm would be disproportionate; the uploaded
+   photo itself is left on disk, only the slot reference is removed. **Family deletion was deliberately
+   NOT built** — `PLUSCITIES_FAMILY_IDS` is a hardcoded PHP constant, not user-created data (every
+   dropdown in this screen iterates it directly), so "deleting" one would need a code change, not a data
+   change — fixed taxonomy by design, the same way spine blocks aren't user-removable.
 5. ~~No admin UI existed to edit a client's `licenses[]`, `years_in_business`, `hours`,
    `banned_phrases`, `price_ranges`, or `reviews_by_city` after creation~~ — **CLOSED 2026-11-26,
    panel-coverage walkthrough Session 3.** All 6 were only ever settable at client-creation time

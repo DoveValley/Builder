@@ -8,15 +8,16 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 21 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
-UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-21,
+Status: **All 22 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-22,
 added 2026-11-25/26, against real live clients/config directly — a build-and-verify pass for 5 new
 page-furniture pieces plus a block-architecture rework (UC19), a family/niche-level mismatch sweep that
-made the service pool family-customizable and fixed 4 real content-fit issues (UC20), then a deliberate
+made the service pool family-customizable and fixed 4 real content-fit issues (UC20), a deliberate
 5-session panel-completeness walkthrough that found+fixed 3 more real bugs live, shipped 3 new admin
 surfaces (Niche Blueprint fields, Business Info tab, per-page SEO + Danger Zone), and published one
-brand-new real client entirely through the panel (UC21) — none of these a scripted fixture walkthrough,
-see those sections for why). UC9-14
+brand-new real client entirely through the panel (UC21), then extended real delete-with-safety-checks to
+niches and compliance presets (UC22) — none of these a scripted fixture walkthrough, see those sections
+for why). UC9-14
 were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
@@ -1103,3 +1104,47 @@ climate settings restored); 3 new real admin surfaces shipped (Niche Blueprint's
 Info tab, per-page SEO fields + the Danger Zone card); 3 real bugs found and fixed live, not just in
 theory; 1 real client built, published, and fully deleted+restored through the panel with zero leftover
 state. No fixture state left behind anywhere.
+
+## UC22, 2026-11-26 — extending delete to the Niche Library (niches + compliance presets), with real
+in-use safety checks — ✅ PASS
+
+Direct follow-on to UC21's Session 1 finding (no delete action anywhere in the Niche Library screen),
+asked for explicitly: "Also check the niche-authoring delete gap we flagged in Session 1" → "Yes, go
+ahead and build it."
+
+Investigated all 4 Niche Library entity types first, since they aren't symmetric: niches and compliance
+presets are real user-created data (same category as clients); families are a hardcoded
+`PLUSCITIES_FAMILY_IDS` PHP constant, not deletable without a code change, so explicitly scoped OUT;
+image slots are a single array entry, not a whole record, so scoped for a lighter plain "Remove" link
+instead of the heavier type-to-confirm machinery.
+
+Built `pluscities_delete_niche()`/`pluscities_delete_preset()` (`includes/pluscities_niche_library.php`),
+sharing one new extracted helper, `pluscities_quarantine_move()`, with the client-delete mechanism
+rather than reimplementing file-move logic a second/third time — same soft-delete-to-quarantine pattern,
+same type-the-exact-label-to-confirm UI (JS first, server-side again for real). Added the one real
+safety check client-delete never needed: both have downstream dependents a client never does.
+`pluscities_niche_clients_using()` scans every real client for a matching `niche_id`;
+`pluscities_preset_usages()` scans every family's `compliance_preset` and every niche's
+`compliance_preset_override`. Either blocks the delete outright and names exactly what's still using it.
+
+**Verified live, the full matrix**: created a disposable test niche + test preset (zero AI cost — direct
+function calls, not through the real create form, since this was testing delete mechanics, not
+creation). (1) Attempted deleting the test niche while a fake client pointed at it → correctly refused,
+named the blocking client, file untouched. (2) Removed that dependency, tried deleting with the wrong
+label → refused, file untouched. (3) Correct label → moved to quarantine, confirmed gone from the real
+niche list. (4) Attempted deleting the REAL `contractor` compliance preset (in active use by 5 of the 6
+families) → correctly refused, named all 5 blocking families. (5) Deleted the disposable test preset
+(genuinely unused) → succeeded cleanly. (6) Removed a real image slot from `hvac` (the live niche's
+actual hero photo slot) via the new "Remove" link, confirmed it dropped to 0 slots, then restored it
+exactly (including the real `default_image_path`) via direct write — a deliberate non-destructive test
+against real data, not a disposable fixture, since a slot removal has no quarantine/restore mechanism of
+its own (by design — it's meant to be a quick, low-stakes action). (7) Restored the quarantined test
+niche by copying the file back and confirmed it reappeared in the real niche list, proving the
+"recoverable by hand" claim held for this entity type too, not just clients.
+
+**Artifacts:** `includes/pluscities_niche_library.php` gained the shared `pluscities_quarantine_move()`
+helper + 4 new functions; `admin/pluscities_niches_save.php` gained 3 new actions
+(`remove_image_slot`/`delete_niche`/`delete_preset`); `admin/pluscities_niches.php` gained 2 Danger Zone
+sections + a Remove link. All test artifacts (disposable niche/preset, fake client, quarantine
+directories) removed afterward; `hvac`'s real image slot restored to its exact original state. No
+fixture state left behind.

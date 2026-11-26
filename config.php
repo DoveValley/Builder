@@ -181,6 +181,13 @@ define('PLUSCITIES_CLIENTS_SECRETS_DIR', BASE_DIR . '/pluscities_clients_secrets
 // they become unreachable the moment the client file is gone, and restoring
 // the file restores full access to them too, with nothing to re-create.
 define('PLUSCITIES_CLIENTS_DELETED_DIR', BASE_DIR . '/pluscities_clients_deleted/');
+// Same soft-delete pattern, extended 2026-11-26 to the other 2 real
+// (user-created, not fixed-taxonomy) Niche Library entities — niches and
+// compliance presets. Families are deliberately excluded: PLUSCITIES_FAMILY_IDS
+// is a hardcoded PHP constant, not user-created data, so there's nothing to
+// delete there without a code change.
+define('PLUSCITIES_NICHE_BLUEPRINTS_DELETED_DIR', BASE_DIR . '/niche_blueprints_deleted/');
+define('PLUSCITIES_COMPLIANCE_PRESETS_DELETED_DIR', BASE_DIR . '/compliance_presets_deleted/');
 // Real per-person Agency Editor accounts (spec Section 1/10) — replaces
 // today's one-shared-login-per-agency model for that one role. Password
 // hash in the sibling secrets dir, same convention as above.

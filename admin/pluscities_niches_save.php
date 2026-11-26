@@ -244,4 +244,37 @@ if ($action === 'validate_keyword') {
     exit;
 }
 
+if ($action === 'remove_image_slot') {
+    // Low-risk by comparison to the whole-entity deletes below — one array
+    // entry, not a file — so no type-to-confirm needed. The uploaded image
+    // file itself is left on disk untouched (cheap, harmless, and another
+    // slot could plausibly reuse the same block_type's photo later).
+    $nicheId = trim((string) ($_POST['niche_id'] ?? ''));
+    $slotId  = trim((string) ($_POST['slot_id'] ?? ''));
+    $niche   = pluscities_niche_load($nicheId);
+    if (!$niche) { header('Location: pluscities_niches.php?msg=error:Niche+not+found'); exit; }
+    $niche['image_slots'] = array_values(array_filter($niche['image_slots'], fn($s) => $s['slot_id'] !== $slotId));
+    pluscities_niche_save($nicheId, $niche);
+    pluscities_log_event(lpc_current_actor_role() . ':' . (lpc_current_actor_identity()['name'] ?? 'unknown'), 'remove_image_slot', 'niche:' . $nicheId . ' / ' . $slotId, '');
+    header('Location: pluscities_niches.php?edit_niche=' . urlencode($nicheId) . '&msg=success:Slot+removed'); exit;
+}
+
+if ($action === 'delete_niche') {
+    $nicheId = trim((string) ($_POST['niche_id'] ?? ''));
+    $confirmLabel = (string) ($_POST['confirm_label'] ?? '');
+    $actor = lpc_current_actor_role() . ':' . (lpc_current_actor_identity()['name'] ?? 'unknown');
+    $result = pluscities_delete_niche($nicheId, $confirmLabel, $actor);
+    header('Location: pluscities_niches.php?msg=' . ($result['ok'] ? 'success:' : 'error:') . urlencode($result['msg']));
+    exit;
+}
+
+if ($action === 'delete_preset') {
+    $presetId = trim((string) ($_POST['preset_id'] ?? ''));
+    $confirmLabel = (string) ($_POST['confirm_label'] ?? '');
+    $actor = lpc_current_actor_role() . ':' . (lpc_current_actor_identity()['name'] ?? 'unknown');
+    $result = pluscities_delete_preset($presetId, $confirmLabel, $actor);
+    header('Location: pluscities_niches.php?msg=' . ($result['ok'] ? 'success:' : 'error:') . urlencode($result['msg']));
+    exit;
+}
+
 header('Location: pluscities_niches.php?msg=error:Unknown+action');

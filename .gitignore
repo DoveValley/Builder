@@ -21,6 +21,12 @@ pluscities_clients_secrets/
 # client's secrets file did, same reasoning as pluscities_clients_secrets/.
 pluscities_clients_deleted/
 
+# Same soft-delete quarantine pattern, extended 2026-11-26 to niches and
+# compliance presets — no secrets in these two, but still a recycle bin, not
+# something source control needs to track.
+niche_blueprints_deleted/
+compliance_presets_deleted/
+
 # Same reasoning, for real per-person Agency Editor account passwords —
 # pluscities_agency_users/*.json is tracked source; the password hash lives
 # in this sibling flat tree instead.

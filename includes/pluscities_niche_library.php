@@ -47,6 +47,25 @@ function pluscities_deep_merge_defaults(array $data, array $defaults): array
     return $data;
 }
 
+/**
+ * Shared soft-delete mechanics — moves a real file into a quarantine
+ * directory rather than destroying it, timestamped so deleting-recreating-
+ * deleting the same id never clobbers an earlier quarantined copy. One copy
+ * of this logic, reused by every "delete" action in PlusCities (clients,
+ * niches, compliance presets) instead of each one re-implementing its own
+ * move/rename — added 2026-11-26 when the niche/preset delete actions were
+ * built right after the client one, rather than duplicating what
+ * pluscities_delete_client() already did inline.
+ */
+function pluscities_quarantine_move(string $src_file, string $dest_dir, string $id): bool
+{
+    if (!file_exists($src_file)) return false;
+    if (!is_dir($dest_dir) && !mkdir($dest_dir, 0775, true) && !is_dir($dest_dir)) return false;
+    $ext = pathinfo($src_file, PATHINFO_EXTENSION);
+    $dest = $dest_dir . $id . '.' . gmdate('Ymd-His') . ($ext !== '' ? '.' . $ext : '');
+    return rename($src_file, $dest);
+}
+
 // ── Families ────────────────────────────────────────────────────────────
 
 /** The 6 fixed families from spec Section 2 — not user-creatable, hand-authored. */
@@ -150,6 +169,56 @@ function pluscities_preset_save(string $preset_id, array $data): bool
     if ($file === null) return false;
     $data['preset_id'] = $preset_id;
     return pluscities_atomic_write_json($file, pluscities_deep_merge_defaults($data, pluscities_preset_defaults()));
+}
+
+/** Which families/niches currently reference this preset — a family's own
+ *  compliance_preset, or a niche's compliance_preset_override. Same reasoning
+ *  as pluscities_niche_clients_using(): a preset has downstream dependents a
+ *  client never does, so this has to be checked before deleting one, not
+ *  just the niche_id-in-use case. */
+function pluscities_preset_usages(string $preset_id): array
+{
+    $usages = [];
+    foreach (pluscities_family_list() as $fid) {
+        $f = pluscities_family_load($fid);
+        if ($f && ($f['compliance_preset'] ?? '') === $preset_id) $usages[] = 'family: ' . ($f['label'] ?: $fid);
+    }
+    foreach (pluscities_niche_list() as $nid) {
+        $n = pluscities_niche_load($nid);
+        if ($n && ($n['compliance_preset_override'] ?? '') === $preset_id) $usages[] = 'niche: ' . ($n['label'] ?: $nid);
+    }
+    return $usages;
+}
+
+/**
+ * Soft-deletes a compliance preset — same quarantine mechanics as niche/
+ * client delete. Refuses outright if any family or niche still references
+ * it (see pluscities_preset_usages()).
+ *
+ * @return array{ok:bool,msg:string}
+ */
+function pluscities_delete_preset(string $preset_id, string $confirm_label, string $actor): array
+{
+    $preset = pluscities_preset_load($preset_id);
+    if (!$preset) return ['ok' => false, 'msg' => 'Compliance preset not found.'];
+
+    $inUse = pluscities_preset_usages($preset_id);
+    if ($inUse) {
+        return ['ok' => false, 'msg' => 'Cannot delete — still used by: ' . implode(', ', $inUse) . '.'];
+    }
+
+    $realLabel = trim((string) ($preset['label'] ?: $preset['preset_id']));
+    if (trim($confirm_label) !== $realLabel) {
+        return ['ok' => false, 'msg' => 'Typed name did not match this preset\'s exact label — nothing was deleted.'];
+    }
+
+    $file = pluscities_preset_file($preset_id);
+    if ($file === null || !pluscities_quarantine_move($file, PLUSCITIES_COMPLIANCE_PRESETS_DELETED_DIR, $preset_id)) {
+        return ['ok' => false, 'msg' => 'Could not move the preset record — check file permissions.'];
+    }
+
+    pluscities_log_event($actor, 'delete_preset', 'preset:' . $preset_id, 'label=' . $realLabel);
+    return ['ok' => true, 'msg' => '"' . $realLabel . '" was deleted.'];
 }
 
 // ── Niche blueprints ────────────────────────────────────────────────────
@@ -256,6 +325,57 @@ function pluscities_niche_list(): array
     foreach (glob(PLUSCITIES_NICHE_BLUEPRINTS_DIR . '*.json') as $f) $ids[] = basename($f, '.json');
     sort($ids);
     return $ids;
+}
+
+/** Which real clients currently point at this niche — the real safety check
+ *  a niche delete needs that a client delete never did (a client has no
+ *  downstream dependents; a niche can have many). Scans the same directory
+ *  pluscities_client_ids_for_current_actor() does, platform-wide (every
+ *  agency), since a niche being deleted is a platform-level decision. */
+function pluscities_niche_clients_using(string $niche_id): array
+{
+    $clients = [];
+    foreach (glob(PLUSCITIES_CLIENTS_DIR . '*.json') as $f) {
+        $c = json_decode((string) file_get_contents($f), true);
+        if (is_array($c) && ($c['niche_id'] ?? '') === $niche_id) {
+            $clients[] = $c['identity']['business_name'] ?? $c['client_id'] ?? basename($f, '.json');
+        }
+    }
+    return $clients;
+}
+
+/**
+ * Soft-deletes a niche blueprint — moves it to PLUSCITIES_NICHE_BLUEPRINTS_
+ * DELETED_DIR via the same pluscities_quarantine_move() helper the client
+ * delete uses, rather than destroying it. Refuses outright if any real
+ * client still points at this niche (a niche has downstream dependents a
+ * client never does — leaving one orphaned would silently empty out every
+ * page that client has, not just make the niche itself unreachable).
+ *
+ * @return array{ok:bool,msg:string}
+ */
+function pluscities_delete_niche(string $niche_id, string $confirm_label, string $actor): array
+{
+    $niche = pluscities_niche_load($niche_id);
+    if (!$niche) return ['ok' => false, 'msg' => 'Niche not found.'];
+
+    $inUse = pluscities_niche_clients_using($niche_id);
+    if ($inUse) {
+        return ['ok' => false, 'msg' => 'Cannot delete — still in use by: ' . implode(', ', $inUse) . '.'];
+    }
+
+    $realLabel = trim((string) ($niche['label'] ?: $niche['niche_id']));
+    if (trim($confirm_label) !== $realLabel) {
+        return ['ok' => false, 'msg' => 'Typed name did not match this niche\'s exact label — nothing was deleted.'];
+    }
+
+    $file = pluscities_niche_file($niche_id);
+    if ($file === null || !pluscities_quarantine_move($file, PLUSCITIES_NICHE_BLUEPRINTS_DELETED_DIR, $niche_id)) {
+        return ['ok' => false, 'msg' => 'Could not move the niche record — check file permissions.'];
+    }
+
+    pluscities_log_event($actor, 'delete_niche', 'niche:' . $niche_id, 'label=' . $realLabel);
+    return ['ok' => true, 'msg' => '"' . $realLabel . '" was deleted.'];
 }
 
 /**
