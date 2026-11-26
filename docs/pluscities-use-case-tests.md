@@ -8,11 +8,12 @@ is permanent and reusable, not cleaned up after each run — meant to be re-run 
 Test-WordPress install (`/opt/landing-page-clients/test-wordpress`, `localhost:8099`) is permanently
 repointed to QA Test Co's API key — this is now the QA delivery test site for this suite going forward.
 
-Status: **All 19 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
-UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19,
-added 2026-11-25/26, against real live clients directly — a build-and-verify pass for 5 new page-furniture
-pieces and a block-architecture rework, not a scripted fixture walkthrough, see that section for why).
-UC9-14
+Status: **All 20 use cases complete and verified** (UC1-14 against the permanent `qa-test-co` fixture;
+UC15-18, added 2026-11-24, against the demo-sales fixture instead — see that section for why; UC19-20,
+added 2026-11-25/26, against real live clients/config directly — a build-and-verify pass for 5 new
+page-furniture pieces plus a block-architecture rework (UC19), then a family/niche-level mismatch sweep
+that made the service pool family-customizable and fixed 4 real content-fit issues (UC20) — neither a
+scripted fixture walkthrough, see those sections for why). UC9-14
 were added after a coverage audit
 (`docs/pluscities-test-coverage-audit.md`) found UC1-8 only exercised ~43% of the system's real
 capabilities — see that doc for the final, exactly-recomputed coverage tally (learned from an earlier
@@ -931,3 +932,81 @@ promoted blocks automatically with real generated content.
 Snapshot/City Info; all (city, niche) pairs with climate data backfilled for all 6 chart types;
 `site_rev` bumped on every affected client in the same passes. No fixture state left behind — this pass
 touched real live clients directly, each change verified then left in its correct final state.
+
+## UC20, 2026-11-26 — block-pool/niche-content mismatch sweep across all 6 families + 3 real niches —
+✅ PASS (made the service pool family-customizable, found+fixed 3 real family-level mismatches and 1 real
+niche-level content gap, backfilled everywhere it mattered)
+
+Not a scripted fixture walkthrough either — a direct code/config review and fix pass, prompted by Scott
+asking "what is the service-pool-not-family-customizable gap" after it turned up flagged-but-unfixed in
+UC19/the architecture reference doc, then "make the service pool family-customizable," then two rounds of
+"check \[X\] for similar mismatches." Recorded here for the same reason UC19 was: every change was
+verified directly against real code/data, not just read and assumed correct.
+
+**Step 1 — extended the niche library's existing family-inheritance model to the service pool**
+(`includes/pluscities_niche_library.php`): added `family.default_service_blocks[]`/
+`family.always_service_blocks[]` + `niche.service_blocks_off[]`, resolved by
+`pluscities_niche_resolved()` into `service_blocks`/`always_service_blocks` exactly like `city_blocks`
+already worked. Removed the 2 global constants (`PLUSCITIES_SERVICE_POOL`/
+`PLUSCITIES_ALWAYS_SERVICE_BLOCKS`) that previously forced every business type to share one identical
+pool, migrating all 6 real call sites (3 in `includes/pluscities_lifecycle.php`, 4 admin pickers).
+Verified via direct function calls: `pluscities_niche_resolved()` produced byte-identical pool contents
+for `hvac`/`water-damage-restoration`/`dental-practice` before and after the refactor — confirmed the
+mechanism change itself altered zero behavior. Found and fixed a real latent bug along the way: the
+Niche Library's `save_family` admin action had no fallback preserving `always_city_blocks`/
+`always_service_blocks` (both fields have no form input), so every save through that screen would have
+silently wiped both to `[]` — same bug class as the documented `image_slots` data-loss bug (2026-11-23).
+
+**Step 2 — used the new mechanism for real**, once asked "do we need to check dental-practice's city
+pool for similar mismatches... is it important" then "do both": reviewed all 4 of `medical-wellness`'s
+city blocks against an office-visit business model. Dropped `utilities` entirely (no sensible dental
+framing the way it ties to HVAC equipment — its orphaned `research_topics` entry was cleaned out too,
+confirmed zero code anywhere reads that field yet). Demoted `housing_stock` from always-on to pickable —
+a softer call, since the original always-on decision (UC19/v506) was extrapolated from 21 real pages
+that were ALL home-trades/restoration, never validated against a real medical-wellness page.
+`medical-wellness` also dropped `before_the_tech_arrives` from its service pool the same way.
+
+**Step 3 — extended the check to all 5 remaining families**, once asked "check the other 4 families for
+similar mismatches." `home-trades`/`restoration` confirmed fine (real niches, pool IS the validated
+baseline); `outdoor-cleaning` confirmed fine (no real niche yet, but the family genuinely describes a
+field-visit trade, same shape as home-trades/restoration). `legal`/`professional-services` fixed — both
+describe office/consultative businesses with no real niche committed to either — dropped
+`before_the_tech_arrives`/`repair_vs_replace`/`maintenance` from both families' service pools, since none
+of the 3 fit any plausible interpretation of either category. Deliberately left both families' city pools
+untouched (`permits`/`climate_data`/`hoa_rules` etc. could fit *some* legal/professional niche but not
+others, and neither has a real niche yet to judge against concretely — a genuine "don't guess" call, not
+an oversight). Verified via direct DB query: every existing live use of the 3 dropped block types belongs
+to `home-trades`/`restoration` clients, none to `legal`/`professional-services` — nothing needed
+backfilling at the family level.
+
+**Step 4 — checked the real niche_blueprints themselves**, once asked "check the niche blueprints
+themselves for similar mismatches." Found no business-category mismatch at the niche level (both real
+niches are internally consistent field-visit trades) — but found a different, real issue: `niche_table`/
+`climate_chart_ids` are niche-WIDE shared content with zero per-service variation
+(`pluscities_write_niche_data_table_block()` takes no `service_key` parameter at all), while `hvac`
+declares 2 services (`ac-repair`/`furnace-repair`) and `water-damage-restoration` declares 3
+(`water-damage-restoration`/`fire-damage-restoration`/`smoke-damage-cleaning`). Both niches'
+`niche_table` was authored around only the niche's namesake service — a `furnace-repair` visitor saw an
+AC-only troubleshooting table, a `fire-damage-restoration`/`smoke-damage-cleaning` visitor saw a
+water-only IICRC categories table. Offered Scott a choice (cheap content broadening vs. a real
+per-service mechanism); "do the cheap content fix" was the answer. Broadened both tables directly via
+`pluscities_niche_save()` — `hvac` gained 5 real furnace-troubleshooting rows (including a genuine
+carbon-monoxide safety fact: yellow/flickering pilot flame vs. steady blue), `water-damage-restoration`
+gained 4 rows covering the 3 recognized smoke residue types (dry/wet/protein) plus structural fire
+damage, with its original 3 water rows relabeled for consistency.
+
+**Required an immediate backfill, same discipline as every furniture piece in UC19**: `niche_table`
+content is a cached per-block `content_json`, not read live, so the JSON edit alone would never reach
+existing pages. Ran `pluscities_regenerate_block()` on all 12 existing `niche_data_table` blocks
+fleet-wide (not just the 3 previously-mismatched fire/smoke pages — the `ac-repair`/
+`water-damage-restoration` pages also got a richer table and needed the refresh too) and bumped
+`site_rev` on all 6 affected clients (`lonestar-restoration`, `elite-air-hvac`, `meade-restoration`,
+`qa-test-co`, `qa-test-co-2`, `qa-test-co-b`). Verified directly: block #202
+(`meade-restoration`'s `fire-damage-restoration` page), read straight from the DB post-regeneration,
+contains all 7 rows including the 3 new fire/smoke entries.
+
+**Artifacts:** `niche_families/medical-wellness.json`, `niche_families/legal.json`,
+`niche_families/professional-services.json`, `niche_blueprints/hvac.json`,
+`niche_blueprints/water-damage-restoration.json` all genuinely edited (not just mechanism scaffolding
+left at defaults). 6 clients' `site_rev` bumped. No fixture state left behind — every change was made
+directly to real family/niche config and verified against real resolved output and real DB rows.

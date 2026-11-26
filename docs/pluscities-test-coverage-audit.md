@@ -158,7 +158,9 @@ dialog auto-dismiss, hit twice; CSRF tokens aren't present on every page).
 
 **Not re-tallied into the 57-row table above:** UC19 (2026-11-25/26, `docs/pluscities-use-case-tests.md`)
 covers 5 new page-furniture pieces (Safety Toolkit, Area Map, Housing Snapshot, Climate Chart(s), City
-Info) and the always-blocks/niche-library block-architecture rework — all capabilities added *after*
+Info) and the always-blocks/niche-library block-architecture rework; UC20 (same doc, 2026-11-26) covers
+making the service pool family-customizable and fixing 4 real family/niche-level content-fit mismatches
+found by directly reviewing it — all capabilities added *after*
 this audit's row set was fixed to the 2026-11-23 system reference, not part of the original spec being
 measured here. See `docs/pluscities-system-reference.md` §2.3a for what's there and UC19 for how it was
 verified.
