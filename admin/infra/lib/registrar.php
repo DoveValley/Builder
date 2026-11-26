@@ -1703,6 +1703,78 @@ function infra_reg_namecheap_set_ns(string $domain, array $ns, array $cfg): arra
         'message' => $ok ? 'Namecheap: nameservers set → ' . implode(', ', $ns) : "Namecheap error: {$msg}"];
 }
 
+/**
+ * Every individual DNS host record Namecheap has for a domain still on its
+ * own default nameservers (dns1/dns2.registrar-servers.com) — i.e. a domain
+ * that was never migrated to Cloudflare, so cf_upsert_a_record() doesn't
+ * apply. Only relevant when `infra_reg_namecheap_set_ns()` was never called
+ * for this domain (or it was explicitly reverted to Namecheap's own DNS).
+ */
+function infra_reg_namecheap_get_hosts(string $domain, array $cfg): array
+{
+    $parts = explode('.', $domain, 2);
+    $r = infra_reg_namecheap_call($cfg, 'namecheap.domains.dns.getHosts', [
+        'SLD' => $parts[0], 'TLD' => $parts[1] ?? '',
+    ]);
+    if (!$r['ok']) return ['ok' => false, 'message' => $r['message'], 'hosts' => []];
+
+    $hosts = [];
+    foreach ($r['xml']->CommandResponse->DomainDNSGetHostsResult->host ?? [] as $h) {
+        $hosts[] = [
+            'HostName'   => (string) $h['Name'],
+            'RecordType' => (string) $h['Type'],
+            'Address'    => (string) $h['Address'],
+            'MXPref'     => (string) ($h['MXPref'] ?? '10'),
+            'TTL'        => (string) ($h['TTL'] ?? '1800'),
+        ];
+    }
+    return ['ok' => true, 'message' => '', 'hosts' => $hosts];
+}
+
+/**
+ * Point one subdomain's A record at an IP, for a domain on Namecheap's own
+ * DNS (not Cloudflare). Namecheap's setHosts call replaces the ENTIRE host
+ * record set in one shot — there is no additive "upsert a single record"
+ * API — so this reads the current full list first, then rewrites it with
+ * the target host added or updated, leaving every other record untouched.
+ */
+function infra_reg_namecheap_set_a_record(string $domain, string $host, string $ip, array $cfg, int $ttl = 1800): array
+{
+    $current = infra_reg_namecheap_get_hosts($domain, $cfg);
+    if (!$current['ok']) return ['ok' => false, 'message' => "Namecheap error reading existing records: {$current['message']}"];
+
+    $host = trim($host, '.');
+    $hosts = $current['hosts'];
+    $found = false;
+    foreach ($hosts as &$h) {
+        if (strcasecmp($h['HostName'], $host) === 0 && $h['RecordType'] === 'A') {
+            $h['Address'] = $ip;
+            $h['TTL']     = (string) $ttl;
+            $found = true;
+            break;
+        }
+    }
+    unset($h);
+    if (!$found) {
+        $hosts[] = ['HostName' => $host, 'RecordType' => 'A', 'Address' => $ip, 'MXPref' => '10', 'TTL' => (string) $ttl];
+    }
+
+    $parts = explode('.', $domain, 2);
+    $q = ['SLD' => $parts[0], 'TLD' => $parts[1] ?? ''];
+    foreach (array_values($hosts) as $i => $h) {
+        $n = $i + 1;
+        $q["HostName{$n}"]   = $h['HostName'];
+        $q["RecordType{$n}"] = $h['RecordType'];
+        $q["Address{$n}"]    = $h['Address'];
+        $q["MXPref{$n}"]     = $h['MXPref'];
+        $q["TTL{$n}"]        = $h['TTL'];
+    }
+    $r = infra_reg_namecheap_call($cfg, 'namecheap.domains.dns.setHosts', $q);
+    return ['ok' => $r['ok'], 'message' => $r['ok']
+        ? "Namecheap: {$host}.{$domain} A → {$ip}"
+        : "Namecheap error: {$r['message']}"];
+}
+
 /* ============================= Gandi =============================
  *
  * One bearer token, no IP allowlist, no signing. Base https://api.gandi.net/v5.
