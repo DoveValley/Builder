@@ -203,6 +203,15 @@ function lpc_admin_nav_items(): array {
         // niche library below is unaffected — always was a separate system.
         $items[] = ['key' => 'pluscities_niches', 'href' => 'pluscities_niches.php', 'label' => 'Niche Library',
             'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/>'];
+        // Read-only per-niche info sheet (2026-11-26) — every real niche's
+        // full built-out content (services + keyword data, niche_table,
+        // trust bar, safety toolkit, resolved block composition, compliance
+        // preset in effect) in one view, grouped by family. Separate from
+        // the Niche Library's own edit form on purpose: that screen is for
+        // authoring raw fields, this one is for seeing what a niche actually
+        // amounts to once built.
+        $items[] = ['key' => 'pluscities_niche_info', 'href' => 'pluscities_niche_info.php', 'label' => 'Niche Information',
+            'icon' => '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'];
         // "Demo Sites" (lpc_demo_sites.php) removed 2026-11-23 (LPC Stage 3,
         // final step) — it only ever rehearsed the old LPC delivery
         // mechanism. The demo-sites box, its WordPress installs, and the SSH
