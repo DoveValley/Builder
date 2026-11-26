@@ -1,4 +1,14 @@
 <?php
+/** "a, b , c" -> ['a','b','c'], blanks dropped. Shared by every admin save
+ *  handler that takes a comma-separated text field (PlusCities' Niche
+ *  Library, Business Info, etc.) — moved here 2026-11-26 after it was found
+ *  defined only locally in admin/pluscities_niches_save.php, making it
+ *  unavailable to a second file that needed the same parsing. */
+function pluscities_split_csv_field(string $raw): array
+{
+    return array_values(array_filter(array_map('trim', explode(',', $raw)), fn($v) => $v !== ''));
+}
+
 /**
  * Sanitize a user-supplied URL (button links, menu links, canonical URLs, etc.)
  * Only allows http(s), tel, mailto, in-page anchors, and relative/site-internal paths.

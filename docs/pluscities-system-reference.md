@@ -786,6 +786,29 @@ land on a PlusCities-native screen — a real, already-present inconsistency wor
    slot can only be fixed by hand-editing the JSON file or the DB directly — there's no "undo creating
    this" path through the panel at all. Not a data-safety bug (nothing gets silently destroyed), but a
    real completeness gap for "can an agency/platform operator do everything through the panel."
+5. ~~No admin UI existed to edit a client's `licenses[]`, `years_in_business`, `hours`,
+   `banned_phrases`, `price_ranges`, or `reviews_by_city` after creation~~ — **CLOSED 2026-11-26,
+   panel-coverage walkthrough Session 3.** All 6 were only ever settable at client-creation time
+   (`admin/pluscities_clients.php`'s wizard) — a typo in a license number, or any update after launch,
+   had no panel path at all, despite every one of these being real inputs the AI writer states directly
+   and the validator checks content against (`pluscities_client_facts_for_writer()`,
+   `pluscities_check_banned_phrases()`/`pluscities_check_invented_prices()`) or that drive real schema
+   output (`reviews_by_city` → `AggregateRating`, `includes/pluscities_schema.php`). Built a new
+   **Business Info** client sub-tab (`admin/pluscities_business_info.php`/`_save.php`), added to
+   `pluscities_client_subtabs()` right after Overview — licenses as a pipe-delimited textarea
+   (`number|state|trade`, one per line), banned phrases/price ranges as comma-separated inputs (same
+   convention as the rest of the admin), and reviews as one pipe-delimited textarea per target city
+   (`text|author|rating`). Verified live: resubmitted a real client's (`elite-air-hvac`) exact existing
+   licenses/hours/banned-phrases/2-city-reviews through the new form unchanged — `git diff`-equivalent
+   showed zero real content change (only the expected `site_rev` bump and a harmless `null`→`[]`
+   normalization on a field that was never set). **A real bug was caught before it could ship**:
+   `pluscities_split_csv_field()` was defined only locally inside `admin/pluscities_niches_save.php`,
+   making it unavailable to the new save handler — the first live save attempt 500'd. Fixed by moving
+   the function to the shared `includes/helpers.php` (removing the duplicate-definition risk entirely,
+   not just patching around it) and re-verified clean. **Honest caveat, not oversold**: saving new facts
+   here doesn't retroactively fix already-generated page content — it only changes what the writer
+   grounds *future* regenerations in; an edit here plus a manual Regenerate on the affected blocks is
+   still the real path to a corrected live page, same as every other content edit in this system.
 
 ## 6. Relationship to the old LPC system — RETIRED 2026-11-23 (historical section)
 

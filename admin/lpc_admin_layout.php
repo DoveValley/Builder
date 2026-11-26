@@ -296,6 +296,7 @@ function lpc_admin_open(string $activeKey, string $title, string $actionsHtml = 
 function pluscities_client_subtabs(string $clientId, string $activeKey): void {
     $tabs = [
         'overview'    => ['pluscities_client_overview.php', 'Overview'],
+        'business_info' => ['pluscities_business_info.php', 'Business Info'],
         'photos'      => ['pluscities_photos.php', 'Photos'],
         'pages'       => ['pluscities_pages.php', 'Pages'],
         'page_add'    => ['pluscities_page_add.php', '+ Add Page'],

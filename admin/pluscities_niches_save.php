@@ -20,12 +20,6 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
     exit;
 }
 
-/** "a, b , c" -> ['a','b','c'], blanks dropped. */
-function pluscities_split_csv_field(string $raw): array
-{
-    return array_values(array_filter(array_map('trim', explode(',', $raw)), fn($v) => $v !== ''));
-}
-
 $action = $_POST['action'] ?? '';
 
 if ($action === 'save_preset') {
