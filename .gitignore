@@ -37,6 +37,9 @@ pluscities_uploads/logos/
 # disposable/regenerable from `cities` table + cached OSM tiles/boundaries
 # (cache/, already ignored below) — never source of truth.
 pluscities_uploads/city_maps/
+# Data Chart (includes/pluscities_data_chart.php): same reasoning — drawn
+# once per city_id, disposable/regenerable from the census_acs dataset.
+pluscities_uploads/data_charts/
 
 # Dedicated SSH key: www-data (this box) -> lpcdelivery (LPC box), scoped to
 # syncing the delivery data tree only. Real credential, never commit.

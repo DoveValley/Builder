@@ -156,6 +156,13 @@ if ($action === 'page') {
         if ($b['block_type'] === 'service_area') {
             $html .= pluscities_render_area_map($page['city_id'], $client['domain'] ?? '');
         }
+        // Housing Snapshot chart sits right after the housing_stock block it
+        // visualizes — city-level furniture (includes/pluscities_data_chart.
+        // php), cache read only; same graceful no-op as Area Map for a city
+        // whose chart hasn't been generated yet.
+        if ($b['block_type'] === 'housing_stock') {
+            $html .= pluscities_render_housing_chart($page['city_id'], $client['domain'] ?? '');
+        }
     }
     // Safety Toolkit sits after everything else, right before the page ends —
     // same position as the fleet's own reference sites (Bailey/Wren/Gann).

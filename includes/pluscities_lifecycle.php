@@ -221,6 +221,10 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
                 $db->prepare('UPDATE blocks SET dataset_refs = ? WHERE id = ?')
                    ->execute([json_encode([['city_id' => $city_id, 'provider' => 'census_acs']]), $hsId]);
             }
+            // Housing Snapshot chart (includes/pluscities_data_chart.php) —
+            // same dataset, no new fetch. City-level furniture like Area
+            // Map: best-effort, never blocks page creation.
+            pluscities_ensure_housing_chart($city_id);
         }
     }
 

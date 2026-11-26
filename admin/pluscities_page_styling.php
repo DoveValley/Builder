@@ -119,6 +119,12 @@ function pluscities_page_styling_build_sections(array $blockRows, array $client,
                 $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Area Map', 'html' => $areaMapHtml];
             }
         }
+        if ($row['block_type'] === 'housing_stock' && $cityId) {
+            $chartHtml = pluscities_render_housing_chart($cityId, $client['domain'] ?? '');
+            if ($chartHtml !== '') {
+                $sections[] = ['id' => 'blk-' . $i++, 'label' => 'Housing Chart', 'html' => $chartHtml];
+            }
+        }
     }
     $safetyToolkitHtml = pluscities_render_safety_toolkit($niche ?? [], $client['domain'] ?? '');
     if ($safetyToolkitHtml !== '') {

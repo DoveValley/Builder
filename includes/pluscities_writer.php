@@ -728,6 +728,12 @@ function pluscities_page_style_css(array $client): string
         . '.lpc-area-map-img{width:100%;height:auto;border-radius:10px;display:block;}'
         . '.pluscities-page section.lpc-area-map .lpc-area-map-side p{font-size:.95rem;line-height:1.65;color:#334155;margin:0 0 14px;}'
         . '.lpc-area-map-link{display:inline-block;font-weight:700;font-size:.9rem;color:' . htmlspecialchars($brandColor) . ';text-decoration:none;}'
+        // Housing Snapshot chart — the image already carries its own card
+        // styling (drawn in white/neutral tones, includes/pluscities_data_
+        // chart.php), so this just centers it and styles the caption below.
+        . '.pluscities-page section.lpc-data-chart .lpc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:' . htmlspecialchars($brandColor) . ';margin:0 0 6px;}'
+        . '.lpc-data-chart-img{width:100%;max-width:100%;height:auto;border-radius:12px;display:block;margin-top:4px;}'
+        . '.pluscities-page section.lpc-data-chart .lpc-data-chart-caption{font-size:.95rem;line-height:1.65;color:#334155;margin:14px 0 0;}'
         . '.lpc-faq-grid{display:grid;grid-template-columns:1fr;gap:12px;}'
         . '@media(min-width:720px){.lpc-faq-grid{grid-template-columns:1fr 1fr;}}'
         . '.pluscities-page .lpc-faq-item{background:#f1f5f9;border-radius:10px;padding:16px 18px;margin:0;}'
