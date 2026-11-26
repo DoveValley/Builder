@@ -59,6 +59,15 @@ const PLUSCITIES_CLIMATE_CHART_THEME = ['bg' => '#f4f7fa', 'ink' => '#12314f', '
  *  discipline as Safety Toolkit. */
 const PLUSCITIES_CLIMATE_CHART_NICHE_SLUGS = [
     'water-damage-restoration' => 'water-restoration',
+    // HVAC has no exact-named old-system folder (the old system never built
+    // one) — mapped to appliance-repair, the closest existing niche: AC
+    // strain in extreme heat (hot_days) is at least as relevant to an HVAC
+    // business as to generic appliance repair. appliance-repair's only
+    // 'compare'-type chart (water_hardness) uses a low-coverage AI-research
+    // mechanism incompatible with this NOAA/Census automated pipeline, so
+    // 'hot_days' ('bars' type) is used instead — see pluscities_climate_
+    // chart_svg_bars().
+    'hvac' => 'appliance-repair',
 ];
 
 function pluscities_climate_chart_paths(string $city_id, string $chart_id): array
@@ -142,7 +151,36 @@ function pluscities_climate_chart_shell_fetch(array $city, string $old_niche_slu
  *
  * @param array $series ['values'=>float[],'labels'=>string[],'source'=>string,'highlight'=>int]
  */
-function pluscities_climate_chart_svg(string $title, array $series, array $def): string
+/**
+ * Wraps a (possibly multi-source, " · "-joined) citation across lines
+ * instead of letting it run off a fixed-width SVG canvas — confirmed live:
+ * a compare chart's combined sources ran to 113 characters for a real city
+ * (Bedford, TX), clipped off the right edge of the card before this existed.
+ * Shared by both chart-type renderers below.
+ *
+ * @return string[] each already prefixed "Source: " on the first line
+ */
+function pluscities_climate_chart_wrap_source(string $src, int $maxLen = 95): array
+{
+    $src = trim($src);
+    if ($src === '') return [];
+    $lines = [];
+    $cur = '';
+    foreach (explode(' · ', $src) as $seg) {
+        $candidate = $cur === '' ? $seg : $cur . ' · ' . $seg;
+        if (strlen($candidate) > $maxLen && $cur !== '') {
+            $lines[] = $cur;
+            $cur = $seg;
+        } else {
+            $cur = $candidate;
+        }
+    }
+    if ($cur !== '') $lines[] = $cur;
+    $lines[0] = 'Source: ' . $lines[0];
+    return $lines;
+}
+
+function pluscities_climate_chart_svg_compare(string $title, array $series, array $def): string
 {
     $vals = $series['values'];
     $labels = $series['labels'];
@@ -158,27 +196,7 @@ function pluscities_climate_chart_svg(string $title, array $series, array $def):
     $W = 900;
     $padL = 34; $padR = 34; $padT = 96;
 
-    // A compare chart often joins 2+ benchmark sources with " · "
-    // (city_chart_compare_series()) — long enough on a real station name to
-    // run off a fixed 900px canvas (confirmed live: Bedford, TX's combined
-    // source ran to 113 characters). Wrapped at " · " boundaries rather than
-    // truncated, so no citation is ever silently dropped.
-    $src = trim((string) ($series['source'] ?? ''));
-    $srcLines = [];
-    if ($src !== '') {
-        $cur = '';
-        foreach (explode(' · ', $src) as $seg) {
-            $candidate = $cur === '' ? $seg : $cur . ' · ' . $seg;
-            if (strlen($candidate) > 95 && $cur !== '') {
-                $srcLines[] = $cur;
-                $cur = $seg;
-            } else {
-                $cur = $candidate;
-            }
-        }
-        if ($cur !== '') $srcLines[] = $cur;
-        $srcLines[0] = 'Source: ' . $srcLines[0];
-    }
+    $srcLines = pluscities_climate_chart_wrap_source((string) ($series['source'] ?? ''));
     $srcBlockH = $srcLines ? (count($srcLines) * 20 + 16) : 0;
     $H = $padT + $n * $rowH + 40 + $srcBlockH;
     $labelW = 250;
@@ -239,6 +257,126 @@ function pluscities_climate_chart_svg(string $title, array $series, array $def):
 }
 
 /**
+ * A direct port of plugins/image-data-chart/draw.php's city_chart_svg()
+ * (the plain-bars branch) — a month-by-month (or decade-by-decade) bar
+ * chart, e.g. "Days above 90°F each month". Covers niches whose only
+ * NOAA-backed chart isn't a 'compare' type (e.g. HVAC's hot_days) — most of
+ * plugins/image-data-chart's own niche folders only have 'bars' charts;
+ * 'compare' (what rainfall_vs_average uses) is the exception, not the rule.
+ */
+function pluscities_climate_chart_svg_bars(string $title, array $series, array $def): string
+{
+    $vals = $series['values'];
+    $labels = $series['labels'];
+    if (!$vals) return '';
+
+    $theme  = PLUSCITIES_CLIMATE_CHART_THEME;
+    $bg = $theme['bg']; $ink = $theme['ink']; $accent = $theme['accent']; $muted = $theme['muted'];
+    $unit = (string) ($def['unit'] ?? '');
+
+    $W = 900;
+    $padL = 62; $padR = 34; $padT = 74;
+    $plotW = $W - $padL - $padR;
+
+    $max = max($vals);
+    $min = min(0, min($vals));
+    $span = max($max - $min, 0.0001);
+    $step = pow(10, floor(log10($span))) / 2;
+    $top  = ceil($max / $step) * $step;
+    if ($top <= $min) $top = $min + $step;
+
+    $n = count($vals);
+    $slot = $plotW / $n;
+    $barW = min($slot * 0.62, 58);
+
+    $srcLines = pluscities_climate_chart_wrap_source((string) ($series['source'] ?? ''));
+    $padB = 76 + ($srcLines ? (count($srcLines) - 1) * 20 : 0);
+    $H = $padT + 446 + $padB; // 446 = original fixed plotH (520 total - 74 padT - 76 padB — see old draw.php)
+    $plotH = $H - $padT - $padB;
+
+    $esc = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES | ENT_XML1, 'UTF-8');
+    $fmt = fn($x) => rtrim(rtrim(number_format($x, 1), '0'), '.');
+    $y = fn($v) => $padT + $plotH - (($v - $min) / ($top - $min)) * $plotH;
+
+    $o = [];
+    $o[] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' . $W . ' ' . $H . '" width="' . $W . '" height="' . $H . '" role="img">';
+    $o[] = '<defs>'
+         . '<linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1">'
+         . '<stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="' . $esc($bg) . '"/></linearGradient>'
+         . '<linearGradient id="barg" x1="0" y1="0" x2="0" y2="1">'
+         . '<stop offset="0" stop-color="' . $esc($accent) . '" stop-opacity=".95"/>'
+         . '<stop offset="1" stop-color="' . $esc($accent) . '" stop-opacity=".45"/></linearGradient>'
+         . '<linearGradient id="barp" x1="0" y1="0" x2="0" y2="1">'
+         . '<stop offset="0" stop-color="' . $esc($ink) . '"/>'
+         . '<stop offset="1" stop-color="' . $esc($accent) . '"/></linearGradient>'
+         . '</defs>';
+    $o[] = '<rect width="' . $W . '" height="' . $H . '" fill="url(#cbg)"/>';
+    $o[] = '<rect x="0" y="0" width="' . $W . '" height="6" fill="' . $esc($accent) . '" fill-opacity=".9"/>';
+    $o[] = '<text x="' . $padL . '" y="46" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="25" font-weight="700" fill="'
+         . $esc($ink) . '">' . $esc($title) . '</text>';
+
+    for ($i = 0; $i <= 4; $i++) {
+        $v = $min + ($top - $min) * $i / 4;
+        $yy = round($y($v), 1);
+        $o[] = '<line x1="' . $padL . '" y1="' . $yy . '" x2="' . ($W - $padR) . '" y2="' . $yy
+             . '" stroke="' . $esc($muted) . '" stroke-opacity=".22" stroke-width="1"/>';
+        $o[] = '<text x="' . ($padL - 12) . '" y="' . ($yy + 5) . '" text-anchor="end" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
+             . ' font-size="15" fill="' . $esc($muted) . '">' . $esc($fmt($v)) . '</text>';
+    }
+
+    $maxI = array_keys($vals, max($vals))[0];
+    foreach ($vals as $i => $v) {
+        $cx = $padL + $slot * $i + $slot / 2;
+        $bx = $cx - $barW / 2;
+        $by = $y($v);
+        $bh = max($y($min) - $by, 1);
+        $o[] = '<rect x="' . round($bx, 1) . '" y="' . round($by, 1) . '" width="' . round($barW, 1) . '" height="' . round($bh, 1)
+             . '" rx="6" fill="url(#' . ($i === $maxI ? 'barp' : 'barg') . ')"/>';
+        if ($labels) {
+            $o[] = '<text x="' . round($cx, 1) . '" y="' . ($padT + $plotH + 26) . '" text-anchor="middle"'
+                 . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="15" fill="' . $esc($muted) . '">'
+                 . $esc($labels[$i]) . '</text>';
+        }
+    }
+
+    $peakTxt = $fmt($vals[$maxI]) . ($unit === '' ? '' : ($unit === '%' ? '%' : ' ' . $unit));
+    $chW = 10.2 * mb_strlen($peakTxt) + 22;
+    $chX = $padL + $slot * $maxI + $slot / 2 - $chW / 2;
+    $chY = $y($vals[$maxI]) - 40;
+    if ($chY < $padT + 4) $chY = $y($vals[$maxI]) + 8;
+    $o[] = '<rect x="' . round($chX, 1) . '" y="' . round($chY, 1) . '" width="' . round($chW, 1) . '" height="28" rx="14" fill="'
+         . $esc($ink) . '"/>';
+    $o[] = '<text x="' . round($chX + $chW / 2, 1) . '" y="' . round($chY + 19, 1) . '" text-anchor="middle"'
+         . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="700" fill="#ffffff">'
+         . $esc($peakTxt) . '</text>';
+
+    $o[] = '<line x1="' . $padL . '" y1="' . round($y($min), 1) . '" x2="' . ($W - $padR) . '" y2="' . round($y($min), 1)
+         . '" stroke="' . $esc($ink) . '" stroke-opacity=".45" stroke-width="1.5"/>';
+
+    foreach ($srcLines as $li => $line) {
+        $ly = $H - 20 - (count($srcLines) - 1 - $li) * 20;
+        $o[] = '<text x="' . $padL . '" y="' . $ly . '" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
+             . ' font-size="14" fill="' . $esc($muted) . '">' . $esc($line) . '</text>';
+    }
+    $o[] = '<rect x="2" y="2" width="' . ($W - 4) . '" height="' . ($H - 4) . '" rx="16" fill="none" stroke="'
+         . $esc($accent) . '" stroke-opacity=".55" stroke-width="4"/>';
+    $o[] = '</svg>';
+    return implode("\n", $o);
+}
+
+/** Dispatches to the right renderer by chart type — same split as the old
+ *  system's own city_chart_svg(). Only 'bars' and 'compare' are wired;
+ *  'timeline' (flood_decades) isn't ported — no niche currently configured
+ *  needs it. */
+function pluscities_climate_chart_svg(string $title, array $series, array $def): string
+{
+    $type = $def['type'] ?? 'bars';
+    if ($type === 'compare') return pluscities_climate_chart_svg_compare($title, $series, $def);
+    if ($type === 'bars')    return pluscities_climate_chart_svg_bars($title, $series, $def);
+    return ''; // unsupported type (e.g. timeline) — no chart rather than a wrong one
+}
+
+/**
  * Generates (or refreshes) one city's climate chart for one niche and
  * caches it. Called from pluscities_create_page() and a one-time backfill —
  * NEVER from the public sync endpoint. Graceful no-op (same "no data means
@@ -276,7 +414,12 @@ function pluscities_ensure_climate_chart(string $city_id, string $niche_id, bool
         $dataset['values']
     );
 
-    $series = city_chart_compare_series($def, $cityRow);
+    // city_chart_series() is charts.php's own top-level dispatcher — it
+    // branches on $def['type'] (bars/compare/timeline) internally, so this
+    // works for any chart type without this file needing its own type
+    // switch on the SERIES side (only the SVG-drawing side needs one, since
+    // that's where PlusCities' own theme/layout lives).
+    $series = city_chart_series($def, $cityRow);
     if (!$series) return ['ok' => false, 'drawn' => false]; // no figure for this city — never a filled-in guess
 
     $title = city_chart_text((string) ($def['title'] ?? ''), $cityRow, $def, $series);
