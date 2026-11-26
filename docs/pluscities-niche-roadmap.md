@@ -75,17 +75,37 @@ general retail store.
 
 ## Legal
 
-43. Personal injury attorney
-44. Family law attorney
-45. DUI / criminal defense attorney
-46. Estate planning attorney
+**Expanded 2026-11-26** from 4 to 15 — one niche per distinct legal practice area, not a handful of
+broad catch-alls. Splitting these out matters here more than it did for home-trades: a personal
+injury search and a traffic-ticket search share almost no real content (different local facts,
+different compliance framing, different client fact set), unlike two home-trades niches which often
+share a genuinely similar relevance pattern. Ranked by real-world legal-marketing demand/CPC, not
+build convenience — personal injury is the highest-value, most commonly agency-bought legal vertical
+by a wide margin, which is why it was already item 1 here before this expansion.
+
+43. Personal injury attorney — *(already listed, kept at #1)*
+44. DUI attorney
+45. Criminal defense attorney — split out from "DUI / criminal defense" (2026-11-26) — distinct
+    enough in practice to deserve its own niche rather than being folded into DUI
+46. Family law attorney
+47. Divorce attorney — distinct, high-volume search term from general family law despite the overlap
+48. Traffic ticket / moving violations attorney
+49. Real estate attorney
+50. Estate planning attorney
+51. Bankruptcy attorney
+52. Immigration attorney
+53. Workers' compensation attorney
+54. Employment law attorney
+55. Business / corporate attorney
+56. Civil litigation attorney
+57. Tax attorney
 
 ## Professional-services
 
-47. Accounting / CPA
-48. Financial advisor
-49. Insurance agency
-50. Real estate agent / team
+58. Accounting / CPA
+59. Financial advisor
+60. Insurance agency
+61. Real estate agent / team
 
 ## Build-first order (not family-by-family)
 
