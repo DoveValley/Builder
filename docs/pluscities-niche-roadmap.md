@@ -69,7 +69,7 @@ general retail store.
 37. Chiropractic
 38. Physical therapy
 39. Orthodontics
-40. Med spa / aesthetics
+40. Med spa / aesthetics — *built* (`med-spa`)
 41. Veterinary
 42. Optometry
 
@@ -106,7 +106,7 @@ niche, many services, same as every other family). There is one real legal niche
 
 44. Accounting / CPA
 45. Financial advisor
-46. Insurance agency
+46. Insurance agency — *built* (`insurance-agency`)
 47. Real estate agent / team
 
 ## Build-first order (not family-by-family)

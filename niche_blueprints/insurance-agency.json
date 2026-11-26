@@ -1,0 +1,205 @@
+{
+    "niche_id": "insurance-agency",
+    "family_id": "professional-services",
+    "label": "Insurance Agency",
+    "schema_subtype": "InsuranceAgency",
+    "service_noun": "insurance agent",
+    "local_angle": "Helping local individuals, families, and businesses find the right coverage from multiple carriers, not just one.",
+    "seasonal_calendar": "Auto and home insurance shopping often rises at policy renewal time and after severe local weather events; life and business insurance inquiries stay fairly steady year-round.",
+    "services": [
+        {
+            "slug": "home-insurance",
+            "label": "Home Insurance",
+            "primary_keyword": "home insurance",
+            "primary_keyword_data": {
+                "volume": "939000",
+                "kd": "54",
+                "cpc": "30.00",
+                "score": 1,
+                "provider": "ahrefs",
+                "checked_at": "2026-11-26T17:27:45+00:00"
+            },
+            "secondary_keywords": []
+        },
+        {
+            "slug": "auto-insurance",
+            "label": "Auto Insurance",
+            "primary_keyword": "auto insurance",
+            "primary_keyword_data": {
+                "volume": "529000",
+                "kd": "79",
+                "cpc": "35.00",
+                "score": 1,
+                "provider": "ahrefs",
+                "checked_at": "2026-11-26T17:27:45+00:00"
+            },
+            "secondary_keywords": []
+        },
+        {
+            "slug": "renters-insurance",
+            "label": "Renters Insurance",
+            "primary_keyword": "renters insurance",
+            "primary_keyword_data": {
+                "volume": "1790000",
+                "kd": "65",
+                "cpc": "13.00",
+                "score": 1,
+                "provider": "ahrefs",
+                "checked_at": "2026-11-26T17:27:45+00:00"
+            },
+            "secondary_keywords": []
+        },
+        {
+            "slug": "life-insurance",
+            "label": "Life Insurance",
+            "primary_keyword": "life insurance",
+            "primary_keyword_data": {
+                "volume": "584000",
+                "kd": "65",
+                "cpc": "14.00",
+                "score": 1,
+                "provider": "ahrefs",
+                "checked_at": "2026-11-26T17:27:46+00:00"
+            },
+            "secondary_keywords": []
+        },
+        {
+            "slug": "business-insurance",
+            "label": "Business Insurance",
+            "primary_keyword": "business insurance",
+            "primary_keyword_data": {
+                "volume": "132000",
+                "kd": "60",
+                "cpc": "20.00",
+                "score": 1,
+                "provider": "ahrefs",
+                "checked_at": "2026-11-26T17:27:46+00:00"
+            },
+            "secondary_keywords": []
+        },
+        {
+            "slug": "umbrella-insurance",
+            "label": "Umbrella Insurance",
+            "primary_keyword": "umbrella insurance",
+            "primary_keyword_data": {
+                "volume": "34000",
+                "kd": "53",
+                "cpc": "4.00",
+                "score": 1,
+                "provider": "ahrefs",
+                "checked_at": "2026-11-26T17:27:47+00:00"
+            },
+            "secondary_keywords": []
+        }
+    ],
+    "blocks_off": [],
+    "service_blocks_off": [],
+    "approved_sources_extra": [],
+    "research_topics": [],
+    "custom_research_fields": [],
+    "niche_table": {
+        "title": "What Each Policy Actually Covers",
+        "columns": [
+            "Policy Type",
+            "What It Covers",
+            "Who Typically Needs It"
+        ],
+        "rows": [
+            [
+                "Home Insurance",
+                "Dwelling damage, personal property, liability, additional living expenses",
+                "Homeowners"
+            ],
+            [
+                "Auto Insurance",
+                "Collision, liability, comprehensive (theft/weather), uninsured motorist",
+                "Vehicle owners and drivers — required by law in most states"
+            ],
+            [
+                "Renters Insurance",
+                "Personal property and liability, plus additional living expenses — not the building itself",
+                "Renters and tenants"
+            ],
+            [
+                "Life Insurance",
+                "A death benefit paid to your beneficiaries; term and whole life differ in duration and cash value",
+                "Anyone with dependents or financial obligations others rely on"
+            ],
+            [
+                "Business Insurance",
+                "General liability, property, workers' compensation, and business interruption, depending on the policy",
+                "Business owners"
+            ],
+            [
+                "Umbrella Insurance",
+                "Extra liability coverage above your home or auto policy's limits",
+                "Anyone wanting protection beyond their standard policy limits"
+            ]
+        ],
+        "source_topic": null
+    },
+    "radius_minutes_override": null,
+    "compliance_preset_override": "insurance",
+    "trust_bar_items": [
+        "Licensed Insurance Agents",
+        "Multiple Carrier Options",
+        "Free Policy Review",
+        "Real Customer Reviews"
+    ],
+    "blog_topics": [],
+    "match_keywords": [],
+    "image_slots": [
+        {
+            "slot_id": "hero",
+            "label": "Hero",
+            "width": 1536,
+            "height": 1024,
+            "default_image_path": "niche_default_images/insurance-agency/insurance_hero_1795714096.png"
+        }
+    ],
+    "safety_toolkit_items": [
+        {
+            "id": "naic",
+            "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z\"/><path d=\"M9 12l2 2 4-4\"/></svg>",
+            "heading": "Your State Department of Insurance",
+            "text": "Every licensed insurance agent is registered with their state's insurance regulator. Confirm an agent's license status before you buy a policy.",
+            "btn_text": "Find Your State Regulator",
+            "link": "https://content.naic.org/state-insurance-departments"
+        },
+        {
+            "id": "ambest",
+            "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 3\"/></svg>",
+            "heading": "A.M. Best",
+            "text": "The leading credit rating agency for the insurance industry — check a carrier's real financial-strength rating before trusting them to pay a future claim.",
+            "btn_text": "Check a Carrier Rating",
+            "link": "https://www.ambest.com/"
+        },
+        {
+            "id": "bbb",
+            "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6l-6.3 4.4 2.3-7.2-6-4.4h7.6z\"/></svg>",
+            "heading": "Better Business Bureau",
+            "text": "A real, independent place to check an agency's complaint history and accreditation status before you do business with them.",
+            "btn_text": "Check BBB Rating",
+            "link": "https://www.bbb.org/"
+        },
+        {
+            "id": "naic-consumer",
+            "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 10h18\"/></svg>",
+            "heading": "National Association of Insurance Commissioners",
+            "text": "The real organization that coordinates insurance regulation across all 50 states — a genuine resource for understanding your rights as a policyholder.",
+            "btn_text": "Visit NAIC",
+            "link": "https://naic.org/"
+        },
+        {
+            "id": "trusted-choice",
+            "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z\"/></svg>",
+            "heading": "Trusted Choice (Independent Agents & Brokers of America)",
+            "text": "The real national association representing independent insurance agents, who represent multiple carriers rather than just one.",
+            "btn_text": "Learn More",
+            "link": "https://www.trustedchoice.com/"
+        }
+    ],
+    "climate_chart_ids": [],
+    "created_at": "2026-11-26T17:27:39+00:00",
+    "updated_at": "2026-11-26T17:28:21+00:00"
+}

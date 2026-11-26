@@ -1,0 +1,15 @@
+{
+    "label": "Insurance",
+    "banned_phrases": [
+        "guaranteed approval",
+        "guaranteed lowest rate",
+        "guaranteed coverage",
+        "always covered",
+        "no claim denied",
+        "lowest rates guaranteed"
+    ],
+    "validator_rule_toggles": {
+        "show_license": true
+    },
+    "preset_id": "insurance"
+}
