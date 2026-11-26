@@ -182,14 +182,17 @@ minus the niche's own `blocks_off[]` denylist, and `family.default_service_block
 `service_blocks_off[]` denylist — e.g. home-trades' city pool is `climate_data, housing_stock,
 neighborhoods, permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city` (9 types), its
 service pool is `common_problems, cited_expert_guidance, niche_data_table, process, cost_factors,
-why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives` (9 types). 5 of the 6 families
-(every one except `medical-wellness`) carry that identical 9-item service pool; `medical-wellness`
-genuinely differs on the service side too now, not just the city side — its `default_service_blocks`
-drops `before_the_tech_arrives` (8 types instead of 9), since "a technician arrives at your home" framing
-doesn't fit an office-visit business like a dental practice. Removed at the FAMILY level, not a per-niche
-denylist, since the mismatch is true of any medical-wellness business, not `dental-practice` specifically
-— same reasoning `medical-wellness` already applied to its city pool (no `climate_data`/`permits`/
-`hoa_rules`/etc., none of which fit a medical office either).
+why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives` (9 types) — shared identically by
+`home-trades`, `restoration`, and `outdoor-cleaning` (all 3 describe genuine field-visit trades, real or
+plausible). The other 2 placeholder families diverge: `medical-wellness` drops `before_the_tech_arrives`
+only (8 types — "a technician arrives at your home" doesn't fit an office-visit business like a dental
+practice); `legal` and `professional-services` drop all 3 contractor-specific blocks —
+`before_the_tech_arrives`, `repair_vs_replace`, `maintenance` (6 types each — none of the 3 make sense
+for an office/consultative business regardless of which specific legal or professional-services niche
+eventually gets built). Every removal happened at the FAMILY level, not a per-niche denylist, since each
+mismatch is true of the whole business category, not one specific niche — same reasoning
+`medical-wellness` already applied to its own city pool (no `climate_data`/`permits`/`hoa_rules`/etc.,
+none of which fit a medical office either).
 
 A resolved niche blueprint (`pluscities_niche_resolved()`) contains: `schema_subtype` (real schema.org
 type), `services[]` (with keyword-research data per service), `blocks_off[]`, `service_blocks_off[]`,
@@ -301,9 +304,8 @@ and 4 admin pickers) migrated to the niche-resolved values. Shipped in two steps
 customization the same day — `medical-wellness` dropped `before_the_tech_arrives` from its
 `default_service_blocks` ("a technician arrives at your home" doesn't fit an office-visit business),
 removed at the family level since the mismatch applies to any medical-wellness niche, not
-`dental-practice` specifically. The other 5 families still share an identical service pool; nothing
-about the mechanism stops any of them from diverging whenever a real reason shows up. Also fixed in the
-same pass: `admin/pluscities_niches_save.php`'s `save_family` action had
+`dental-practice` specifically (see below for `legal`/`professional-services` getting the same
+treatment the same day). Also fixed in the same pass: `admin/pluscities_niches_save.php`'s `save_family` action had
 no fallback preserving `always_city_blocks`/`always_service_blocks` (both fields have no form input yet) —
 every save through that form would have silently wiped them to `[]`, the same bug class `image_slots` hit
 on the niche side (2026-11-23). Verified directly: `pluscities_niche_resolved()` produces identical pool
@@ -326,6 +328,27 @@ all. Verified: `dental-practice` resolves to `city_blocks = [housing_stock, revi
 `always_city_blocks = [neighborhoods]` only; confirmed no existing live page under any niche had
 `utilities`/`housing_stock` picked under a medical-wellness client (every real instance of either belongs
 to `hvac`/`water-damage-restoration`), so nothing needed backfilling.
+
+**Same-day follow-on #2: checked the remaining 5 families for the same class of mismatch, not just
+`medical-wellness`.** `home-trades`/`restoration` were skipped outright — both have a real niche with
+real live pages, so their pool isn't a guess, it's the validated baseline the always-blocks promotions
+were themselves derived from. `outdoor-cleaning` was also left alone — no real niche yet, but the family
+describes a genuine field-visit trade (pressure washing, lawn care, pool/gutter service), the same
+business shape as home-trades/restoration, so the shared template is a reasonable fit rather than a
+copy-paste oversight. `legal` and `professional-services` got a real fix: both describe office/
+consultative businesses (no real niche committed to either yet), and 3 service blocks are unambiguously
+contractor-framed regardless of which specific legal/professional niche eventually gets built —
+`before_the_tech_arrives` (no technician visits for a legal consult), `repair_vs_replace` and
+`maintenance` (both meaningless outside physical equipment) — dropped from both families'
+`default_service_blocks` (6 of 9 now, not 9 of 9). Their CITY pool (`permits`, `utilities`, `hoa_rules`,
+`climate_data`, `hazards`, `seasonal_guide`) was deliberately left untouched — those could plausibly fit
+*some* legal/professional-services niche (construction law, HOA disputes, weather-related injury claims)
+but not others (family law, criminal defense), and unlike `medical-wellness`/`dental-practice`, neither
+family has a committed real niche yet to reason about concretely — pruning now would be guessing at a
+business that doesn't exist yet, not a confident fix. Confirmed via direct DB query: every existing live
+use of `before_the_tech_arrives`/`repair_vs_replace`/`maintenance` belongs to `home-trades`/`restoration`
+clients, none to `legal`/`professional-services` (no niche blueprint references either family at all),
+so nothing needed backfilling.
 
 **Still open, flagged not fixed:** `dental-practice` correctly has no climate chart option at all (no
 old-system folder exists for it, no climate angle applies). Richer per-city economic research
