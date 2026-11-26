@@ -171,6 +171,16 @@ define('PLUSCITIES_PLATFORM_SETTINGS_FILE', BASE_DIR . '/pluscities_platform_set
 // secret has no business in version control even though the client record
 // itself is tracked source. Sibling flat tree, gitignored.
 define('PLUSCITIES_CLIENTS_SECRETS_DIR', BASE_DIR . '/pluscities_clients_secrets/');
+// Where a deleted client's record + API secret move to, 2026-11-26 — soft
+// delete, not a true wipe: pulling the client JSON out of
+// PLUSCITIES_CLIENTS_DIR is enough on its own to make it vanish from every
+// list/access-check (both glob that directory, see pluscities_client_ids_
+// for_current_actor()), so quarantining instead of destroying costs nothing
+// and makes a wrong deletion recoverable by hand (move the file back). Page/
+// block rows in pluscities.db are deliberately left untouched, not deleted —
+// they become unreachable the moment the client file is gone, and restoring
+// the file restores full access to them too, with nothing to re-create.
+define('PLUSCITIES_CLIENTS_DELETED_DIR', BASE_DIR . '/pluscities_clients_deleted/');
 // Real per-person Agency Editor accounts (spec Section 1/10) — replaces
 // today's one-shared-login-per-agency model for that one role. Password
 // hash in the sibling secrets dir, same convention as above.

@@ -145,6 +145,22 @@ if ($action === 'create') {
     exit;
 }
 
+if ($action === 'delete') {
+    // Platform Admin only, deliberately — same reasoning as suspend_site:
+    // an Agency Admin can't permanently remove its own client without
+    // platform oversight. Added 2026-11-26, closing the gap found during
+    // the panel-coverage walkthrough's Session 5 (the roadmap had claimed
+    // this existed; it didn't).
+    if (lpc_current_actor_role() !== 'super_admin') {
+        header('Location: pluscities_clients.php?msg=error:Not+authorized'); exit;
+    }
+    $clientId = trim((string) ($_POST['client_id'] ?? ''));
+    $confirmName = (string) ($_POST['confirm_name'] ?? '');
+    $result = pluscities_delete_client($clientId, $confirmName, $actor);
+    header('Location: pluscities_clients.php?msg=' . ($result['ok'] ? 'success:' : 'error:') . urlencode($result['msg']));
+    exit;
+}
+
 if ($action === 'toggle_client_approval') {
     // Agency Admin territory, not Agency Editor — this is a trust-level
     // decision about how much the client is involved, same spirit as other

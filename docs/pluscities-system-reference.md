@@ -842,6 +842,31 @@ land on a PlusCities-native screen — a real, already-present inconsistency wor
    Niche Library) and a plain "auto-generated, nothing to edit" note for `service_area`; the generic
    editor now only renders at all when a block actually has a `body` key, so `housing_stock` (shape is
    `intro`+dataset values, no `body`) no longer shows a dead disabled button either.
+8. ~~Client deletion ("Danger Zone") doesn't exist, despite the roadmap claiming it does~~ — **CLOSED
+   2026-11-26.** Found during the Session 5 end-to-end check-walkthrough (building a real test client
+   then trying to clean it up): no delete action of any kind existed in `pluscities_clients.php`/
+   `_save.php`/`pluscities_client_overview.php`, though the roadmap had claimed since 2026-11-22 that a
+   type-to-confirm Danger Zone action existed — likely lost in the 2026-11-25 client-workspace
+   consolidation without being re-added. **Built for real** (not re-adding the old version, building it
+   fresh): `pluscities_delete_client()` (`includes/pluscities_lifecycle.php`) moves
+   `pluscities_clients/{id}.json` and its API secret into a new `PLUSCITIES_CLIENTS_DELETED_DIR`
+   quarantine directory (gitignored, same reasoning as `pluscities_clients_secrets/`) rather than
+   destroying them — soft delete, not a true wipe. Works because both
+   `pluscities_client_ids_for_current_actor()` and `pluscities_actor_can_access_client()` glob/check
+   `PLUSCITIES_CLIENTS_DIR` directly, so pulling the file out is sufficient on its own to make the client
+   vanish from every list and access check — no second `is_deleted` flag needed anywhere. Page/block rows
+   in `pluscities.db` are deliberately left untouched: unreachable the moment the client file is gone,
+   fully restored (with nothing to regenerate) the moment the file is moved back. Server-side name
+   verification is the real guard (`trim($confirm_name) !== $realName`), not just client-side JS — the
+   panel's "Danger Zone" card (`admin/pluscities_client_overview.php`, Platform Admin only) adds a typed
+   text field the JS also checks before submitting, but the server never trusts that alone. Verified
+   live end to end: a wrong typed name is rejected with the file left untouched; an `agency_admin`
+   session is rejected by the role gate specifically (isolated from a CSRF-token false-positive by fixing
+   the session's own token first); the correct super_admin + exact name path moves both files into
+   quarantine, the client vanishes from the list and both its own overview and its page's editor degrade
+   to a graceful "not found" (no fatal error); restoring the files by hand brings the client and its page
+   back immediately with zero regeneration needed, proving the "recoverable by hand" claim for real
+   rather than just asserting it.
 
 ## 6. Relationship to the old LPC system — RETIRED 2026-11-23 (historical section)
 

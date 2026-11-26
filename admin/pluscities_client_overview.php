@@ -165,5 +165,33 @@ lpc_admin_open('pluscities_clients', 'Overview');
         <?php endif; ?>
     </div>
 </div>
+
+<?php if ($isSuperAdmin): ?>
+<div class="pc-card" style="border-color:#fecaca;">
+    <h3 style="margin-top:0;color:#991b1b;">Danger Zone</h3>
+    <p style="font-size:.84rem;color:var(--pc-muted,#52607a);margin:0 0 10px;">
+        Removes this client from every list — soft delete, not a true wipe: the record moves to a
+        quarantine folder and can be restored by hand. Type the exact business name to confirm.
+    </p>
+    <form method="post" action="pluscities_clients_save.php" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;"
+          onsubmit="return pcConfirmDeleteClient(this, <?= json_encode($businessName) ?>);">
+        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+        <input type="hidden" name="action" value="delete">
+        <input type="hidden" name="client_id" value="<?= h($clientId) ?>">
+        <input type="text" name="confirm_name" placeholder="Type &quot;<?= h($businessName) ?>&quot; to confirm" style="font-size:.84rem;padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;min-width:260px;">
+        <button type="submit" class="btn-sm-danger">Delete Client</button>
+    </form>
+</div>
+<script>
+function pcConfirmDeleteClient(form, expectedName) {
+    var typed = form.querySelector('[name="confirm_name"]').value.trim();
+    if (typed !== expectedName) {
+        alert('Type the exact business name ("' + expectedName + '") to confirm deletion.');
+        return false;
+    }
+    return confirm('Permanently remove "' + expectedName + '" from every list? It can only be restored by hand from the file quarantine afterward.');
+}
+</script>
+<?php endif; ?>
 <?php endif; ?>
 <?php lpc_admin_close(); ?>

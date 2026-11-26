@@ -46,6 +46,54 @@ function pluscities_client_load(string $client_id): ?array
 }
 
 /**
+ * Permanently removes a client from every list/access-check — but soft,
+ * not a true wipe (added 2026-11-26, closing the gap found during the
+ * panel-coverage walkthrough's Session 5). Moves pluscities_clients/{id}.json
+ * and its API secret into PLUSCITIES_CLIENTS_DELETED_DIR rather than
+ * destroying them: pluscities_client_ids_for_current_actor() and
+ * pluscities_actor_can_access_client() both work by globbing/checking
+ * PLUSCITIES_CLIENTS_DIR, so pulling the file out is sufficient on its own to
+ * make the client vanish everywhere — no second "is_deleted" flag to keep in
+ * sync. Page/block rows in pluscities.db are deliberately left untouched:
+ * they become unreachable the moment the client file is gone, and moving the
+ * file back out of quarantine restores full access to them with nothing to
+ * regenerate or re-create.
+ *
+ * @return array{ok:bool,msg:string}
+ */
+function pluscities_delete_client(string $client_id, string $confirm_name, string $actor): array
+{
+    $client = pluscities_client_load($client_id);
+    if (!$client) return ['ok' => false, 'msg' => 'Client not found.'];
+
+    $realName = trim((string) ($client['identity']['business_name'] ?? ''));
+    if ($realName === '' || trim($confirm_name) !== $realName) {
+        return ['ok' => false, 'msg' => 'Typed name did not match this client\'s exact business name — nothing was deleted.'];
+    }
+
+    if (!is_dir(PLUSCITIES_CLIENTS_DELETED_DIR) && !mkdir(PLUSCITIES_CLIENTS_DELETED_DIR, 0775, true) && !is_dir(PLUSCITIES_CLIENTS_DELETED_DIR)) {
+        return ['ok' => false, 'msg' => 'Could not create the quarantine directory.'];
+    }
+
+    // Timestamped, not overwritten — deleting, recreating, and deleting the
+    // same client_id again must never clobber an earlier quarantined copy.
+    $stamp = gmdate('Ymd-His');
+    $clientFile = PLUSCITIES_CLIENTS_DIR . $client_id . '.json';
+    $destFile   = PLUSCITIES_CLIENTS_DELETED_DIR . $client_id . '.' . $stamp . '.json';
+    if (!rename($clientFile, $destFile)) {
+        return ['ok' => false, 'msg' => 'Could not move the client record — check file permissions.'];
+    }
+
+    $secretFile = PLUSCITIES_CLIENTS_SECRETS_DIR . $client_id . '.txt';
+    if (file_exists($secretFile)) {
+        @rename($secretFile, PLUSCITIES_CLIENTS_DELETED_DIR . $client_id . '.' . $stamp . '.secret.txt');
+    }
+
+    pluscities_log_event($actor, 'delete_client', 'client:' . $client_id, 'business_name=' . $realName);
+    return ['ok' => true, 'msg' => '"' . $realName . '" was deleted.'];
+}
+
+/**
  * Which pluscities_clients/*.json ids the current actor may see — Platform
  * Owner sees all, Agency Admin/Editor see only their own agency's. Shared by
  * admin/pluscities_pages.php (listing) and admin/pluscities_pages_save.php
