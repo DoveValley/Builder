@@ -83,7 +83,7 @@ is from sewage cleanup, but that difference lives at the *service* level, not th
 niche, many services, same as every other family). There is one real legal niche to build —
 **"Lawyer" / general legal practice** — not 15.
 
-43. **Lawyer / general legal practice** — one niche, planned services (ranked by real-world
+43. **Lawyer / general legal practice** — *built* (`lawyer`) — one niche, real services (ranked by real-world
     legal-marketing demand/CPC, not build convenience — personal injury is the highest-value, most
     commonly agency-bought legal vertical by a wide margin):
     1. Personal injury
