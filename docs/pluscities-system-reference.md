@@ -435,6 +435,20 @@ real clients in this niche (`lonestar-restoration`, `meade-restoration`, `clearw
 See `docs/pluscities-family-niche-blocks.md` for the full family definitions post-consolidation, and
 `docs/pluscities-niche-roadmap.md` for the ~50-niche buildout list this review fed into.
 
+### 2.3c Family to Default Blocks: a happy-path selection, not just a pool (design only, 2026-11-26)
+
+`docs/pluscities-family-niche-blocks.md` (§2.3a/§2.3b above) defines what each family's pickable pool
+*is*. A separate doc, `docs/pluscities-family-default-blocks.md`, defines what a page should actually
+*ship with by default* — a real gap found reviewing home-trades: after the always-on promotions in
+§2.3a, home-trades' remaining pickable city pool is exactly 6 items with a pick-cap of 6, meaning no
+real choice happens; every page gets the entire remaining pool regardless of what's picked. All 4
+families now have a reviewed, ranked preference list plus a family×block matrix in that doc (ALWAYS /
+happy-path-pick / pool / pool-but-flagged-as-not-fitting-any-planned-niche / excluded-outright, per
+block per family). **Design only — no code reads this yet**: no `happy_path_*_blocks` field exists on
+any `niche_families/*.json`, and the deterministic per-city variance picker this design calls for
+(reusing the Safety Toolkit's proven crc32-per-domain mechanism) hasn't been built. See the "Family to
+Default Blocks" admin tab for the full write-up.
+
 ### 2.4 Block `content_json` shapes, by classification
 
 **`editable`** (AI-written, fact-grounded) — real `overview` example:

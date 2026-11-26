@@ -1238,3 +1238,57 @@ tab's intro confirmed now says "4 fixed families."
 (`pluscities-family-niche-blocks.md` ×2 passes, `pluscities-flow-diagrams.md`, `pluscities-system-
 reference.md` §2.3/§2.3b/§4, `admin/platform_info.php`'s Claude tab + new tab + missed intro fix, this
 entry), 1 new roadmap doc, 1 new admin tab.
+
+## UC25, 2026-11-26 — Family to Default Blocks: all 4 families reviewed, a family×block matrix added,
+a real ranking mistake found and fixed on a second pass over legal — ✅ PASS (design only, not yet
+implemented in code)
+
+New tab + doc (`docs/pluscities-family-default-blocks.md`), started the same day as UC24: a per-family
+**happy-path default** — a recommended, smaller-than-the-full-pool block selection a page should ship
+with out of the box, distinct from `docs/pluscities-family-niche-blocks.md` (which defines what the
+pool *is*, not what should be pre-selected from it). Found reviewing home-trades: after UC20's
+always-on promotions, home-trades' remaining pickable city pool is exactly 6 items with a pick-cap of
+6 — no real choice is happening, every page gets the whole remaining pool regardless of what an agency
+picks. Design principle locked: a **ranked preference list**, not a fixed set, with the real per-page
+selection meant to draw from the top of that list with deterministic per-city variance (reusing the
+Safety Toolkit's proven crc32-per-domain mechanism) — not yet built, this doc is the reference for when
+it is.
+
+Home-trades was reviewed and locked in the prior session (ranked against 21 real live pages' pick-
+frequency data, the same sample UC20's always-on promotions used). This session picked up where a
+terminal disconnect had interrupted the legal review, and completed all 3 remaining families:
+
+- **Legal** — no live niche exists yet, so flagged honestly as a generic best-guess ranking, not
+  data-backed like home-trades. First pass justified `hoa_rules`/`permits` with a real-estate-law
+  example; **second pass caught the mistake** by checking `docs/pluscities-niche-roadmap.md`'s actual
+  4 planned legal niches (personal injury, family law, DUI/criminal defense, estate planning) — none
+  is real-estate law. Reworked the ranking against the real 4, upgraded `seasonal_guide`'s confidence
+  (the one pick with plausible fit across all 4: PI's weather-correlated accidents, family law's
+  custody-schedule timing, DUI's holiday-enforcement spikes, estate planning's year-end tax timing),
+  and recommended the real fix is niche-level `blocks_off` once a niche is built, not a single
+  family-wide ranking — legal's niches don't share a relevance pattern with each other the way
+  home-trades' do.
+- **Professional-services** — byte-identical block config to legal (per UC24), same ranking carried
+  over with the same caveat, flagged pick #3 (`hazards`) as the single lowest-confidence choice of any
+  family's happy path in the doc.
+- **Medical-wellness** — genuinely different shape, not just a smaller version of the same pattern:
+  a 2-item city pool (pick target 1, not 3) and a deliberate exclusion — `housing_stock` stays out of
+  the happy path on purpose, since it was *just* demoted from always-on this same week (UC20) for
+  lacking real content tie-in to a medical-office visit; promoting it back into the happy-path default
+  would have quietly undone that finding one layer down.
+
+**New family×block matrix** added to the top of the doc: every city/service block as rows, all 4
+families as columns, each cell marked always-on / happy-path pick / pool / pool-but-flagged-as-not-
+really-fitting-any-planned-niche / excluded-at-the-family-level. Surfaced at a glance that
+legal/professional-services each carry 3 flagged cells (the `hoa_rules`/`permits`/`utilities` finding
+above) and that medical-wellness excludes 6 of 9 city blocks and 1 of 9 service blocks outright, not
+just low-ranks them — the most trimmed family of the 4.
+
+**Verified**: `php -l` on every touched file; the tab renders the doc file verbatim (no template
+change needed beyond the original tab wiring from the prior session), so correctness here is "does the
+doc read right," not a new render path to test — same low-risk shape as every other doc-dump tab.
+
+**Artifacts:** 1 doc (`pluscities-family-default-blocks.md`, ~250 lines added this pass), 1 new roadmap
+group in `admin/platform_info.php`'s roadmap tab (flags the whole effort as a real pending "todo" —
+implementing the `happy_path_*_blocks` fields and the deterministic variance picker isn't done yet,
+this pass was design/ranking only), this entry.
