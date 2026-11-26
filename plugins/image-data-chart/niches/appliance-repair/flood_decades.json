@@ -1,0 +1,22 @@
+{
+  "id": "flood_decades",
+  "name": "Recorded flood events by decade",
+  "type": "bars",
+  "data_key": "flood_events_by_decade",
+  "source_key": "flood_events_source",
+  "unit": "events",
+  "title": "Recorded flood events by decade in {city}, {SS}",
+  "alt": "Chart of flood events recorded by decade in the county containing {city}, {SS} — a real risk to any furnace, air handler or ductwork installed in a basement or crawl space. {summary}",
+  "fetch": {
+    "provider": "noaa_storm_events",
+    "note": "County lookup against plugins/image-data-chart/providers/flood_index.json, built from the Storm Events bulk archive. Any Flood, Flash Flood or Coastal Flood event counts."
+  },
+  "captions": [
+    "The county containing {city} has {total} flood events on record, most of them in the {peak}. A furnace or air handler sitting in a basement or crawl space is directly exposed to that history — these are National Weather Service records, not insurance estimates.",
+    "{city}, {SS} sits in a county with {total} recorded flood events, peaking in the {peak}. HVAC equipment installed below grade shares that same exposure, which is worth knowing before placing a new system rather than after a loss.",
+    "Flood events in this county total {total} on record, most frequent in the {peak}. Any heating or cooling equipment in a low-lying or below-grade space carries that same real, documented risk."
+  ],
+  "groups": [
+    "flood"
+  ]
+}

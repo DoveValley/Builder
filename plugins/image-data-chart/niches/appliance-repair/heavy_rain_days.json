@@ -1,0 +1,37 @@
+{
+  "id": "heavy_rain_days",
+  "name": "Days with an inch or more of rain",
+  "type": "bars",
+  "data_key": "heavy_rain_days_monthly",
+  "source_key": "heavy_rain_days_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days with an inch or more of rain in {city}, {SS}",
+  "alt": "Chart of days per month with at least one inch of rainfall in {city}, {SS} — the stretch that backs up a condensate drain and floods an outdoor unit. {summary}",
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-PRCP-AVGNDS-GE100HI"
+  },
+  "captions": [
+    "{city} averages about {total} a year with an inch or more of rain, most often in {peak}. A downpour that heavy is what overwhelms a condensate line or floods a ground-mounted outdoor unit faster than the pump can clear it.",
+    "Roughly {total} of heavy rain fall on {city}, {SS} each year, peaking in {peak}. Standing water around an outdoor condenser or heat pump in that stretch is what drives corrosion and electrical faults years earlier than normal.",
+    "Heavy-rain days in {city} cluster around {peak}. That is when drainage around outdoor equipment gets tested hardest, and when a clogged condensate line finally backs up into the system."
+  ],
+  "groups": [
+    "drainage",
+    "flood"
+  ]
+}
