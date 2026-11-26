@@ -296,7 +296,13 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
     if ($block['classification'] === 'client-supplied') return ['ok' => false, 'msg' => 'Nothing to regenerate — this block is the client\'s own content.'];
 
     $client  = json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $block['client_id'] . '.json'), true) ?: [];
-    $context = ['city_label' => $block['city_id'], 'service_label' => $block['service_key'], 'business_name' => $client['identity']['business_name'] ?? ''];
+    // Real "Frisco, TX" label, not the internal city_id slug — every AI
+    // writer prompt below says "City: {$context['city_label']}" and a model
+    // fed "bedford-tx" verbatim sometimes echoed it back uncorrected (e.g.
+    // "Bedford-TX" in generated body text) instead of reliably normalizing
+    // it itself. Same function pluscities_sync.php/pluscities_schema.php
+    // already use for the real visible city name.
+    $context = ['city_label' => pluscities_city_label($block['city_id']), 'service_label' => $block['service_key'], 'business_name' => $client['identity']['business_name'] ?? ''];
     $clientFacts = pluscities_client_facts_for_writer($client);
 
     // Service area + links is pure structural data — no writer call, nothing
