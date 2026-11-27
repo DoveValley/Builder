@@ -1,0 +1,87 @@
+{
+    "client_id": "lufkin-lawyers",
+    "agency_id": "coastal-marketing",
+    "niche_id": "lawyer",
+    "domain": "demo-lawyer.q111.xyz",
+    "site_rev": 5,
+    "plugin_rev": 0,
+    "plugin_version": "0.3.1",
+    "last_seen_at": "2026-11-27T05:35:00+00:00",
+    "class_prefix": "lpc-lufkinlawyers",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "Lufkin Lawyers",
+        "hubs": [
+            {
+                "address": "300 N Timberland Dr, Lufkin, TX 75901",
+                "phone": "(936) 555-0117"
+            }
+        ]
+    },
+    "licenses": [],
+    "years_in_business": null,
+    "hours": {
+        "mon_fri": "",
+        "sat": "",
+        "sun": ""
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": [],
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "requires_client_approval": false,
+    "status": "active",
+    "canceled_at": null,
+    "services": [
+        "personal-injury",
+        "dui",
+        "criminal-defense",
+        "family-law",
+        "divorce",
+        "traffic-tickets",
+        "real-estate-law",
+        "estate-planning",
+        "bankruptcy",
+        "immigration",
+        "workers-compensation",
+        "employment-law",
+        "business-law",
+        "civil-litigation",
+        "tax-law"
+    ],
+    "target_cities": [
+        {
+            "city_id": "lufkin-tx",
+            "drive_minutes": 15,
+            "confirmed_by_client": false
+        },
+        {
+            "city_id": "nacogdoches-tx",
+            "drive_minutes": 15,
+            "confirmed_by_client": false
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": "",
+        "accent_override": null,
+        "dark_override": null,
+        "detected_accent": null,
+        "detected_dark": null,
+        "colors_detected_at": null
+    },
+    "images": [],
+    "hub_content": {
+        "top_text": "",
+        "footer_text": "",
+        "hub_city_format": "simple",
+        "hub_city_format_custom": ""
+    },
+    "theme": "GeneratePress",
+    "seo_plugin": "Rank Math"
+}
