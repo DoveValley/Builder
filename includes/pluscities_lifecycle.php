@@ -204,6 +204,22 @@ function pluscities_sanitize_slug(string $s): string
     return trim($s, '-/');
 }
 
+/** A real primary_keyword ("ac repair") title-cased for display ("AC Repair"), not a slug —
+ *  plain ucwords() alone gives "Ac Repair" for an acronym, a real bug found live 2026-11-27 on
+ *  the hvac niche's own "ac repair" keyword. Small explicit exception list, not a general acronym
+ *  detector — this codebase's real keyword set is small enough that this is simpler and more
+ *  reliable than guessing. Extend the list as a real case turns up, not preemptively. */
+function pluscities_title_case(string $s): string
+{
+    $acronyms = ['ac', 'hvac', 'iv', 'hoa'];
+    $words = explode(' ', str_replace('-', ' ', $s));
+    $words = array_map(
+        fn($w) => in_array(strtolower($w), $acronyms, true) ? strtoupper($w) : ucfirst($w),
+        $words
+    );
+    return implode(' ', $words);
+}
+
 /**
  * Pattern -> real slug, e.g. "{primary_keyword}-{city}-{state}" with
  * city_id "corpus-christi-tx" and the botox service -> "botox-corpus-
@@ -550,13 +566,35 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
     if ($block['classification'] === 'client-supplied') return ['ok' => false, 'msg' => 'Nothing to regenerate — this block is the client\'s own content.'];
 
     $client  = json_decode((string) @file_get_contents(PLUSCITIES_CLIENTS_DIR . $block['client_id'] . '.json'), true) ?: [];
+    $niche   = pluscities_niche_resolved($client['niche_id'] ?? '') ?: [];
+    // Real "Dermal Fillers", not the internal service_key slug — same
+    // "normalize before it ever reaches a prompt" reasoning as city_label
+    // below, found live 2026-11-27: every hero/overview prompt was passing
+    // the raw slug (e.g. "dermal-fillers") into "Service: ..." instead of
+    // the niche's own real label.
+    //
+    // $primaryKeyword is the SAME field (and the same slug/fallback) that
+    // drives {primary_keyword} in pluscities_resolve_slug() — used below for
+    // the hero H1 specifically, deliberately not $serviceLabel, per Scott's
+    // direct ask: the H1 should read "{primary keyword} in {City}, {ST}" on
+    // every page, same keyword the URL itself is built from, not whichever
+    // wording the niche's display label happens to use.
+    $serviceLabel = $block['service_key'];
+    $primaryKeyword = $block['service_key'];
+    foreach ($niche['services'] ?? [] as $svc) {
+        if (($svc['slug'] ?? '') === $block['service_key']) {
+            $serviceLabel = $svc['label'];
+            $primaryKeyword = trim((string) ($svc['primary_keyword'] ?? '')) ?: $svc['slug'];
+            break;
+        }
+    }
     // Real "Frisco, TX" label, not the internal city_id slug — every AI
     // writer prompt below says "City: {$context['city_label']}" and a model
     // fed "bedford-tx" verbatim sometimes echoed it back uncorrected (e.g.
     // "Bedford-TX" in generated body text) instead of reliably normalizing
     // it itself. Same function pluscities_sync.php/pluscities_schema.php
     // already use for the real visible city name.
-    $context = ['city_label' => pluscities_city_label($block['city_id']), 'service_label' => $block['service_key'], 'business_name' => $client['identity']['business_name'] ?? ''];
+    $context = ['city_label' => pluscities_city_label($block['city_id']), 'service_label' => $serviceLabel, 'business_name' => $client['identity']['business_name'] ?? ''];
     $clientFacts = pluscities_client_facts_for_writer($client);
 
     // Service area + links is pure structural data — no writer call, nothing
@@ -635,6 +673,20 @@ function pluscities_regenerate_block(int $block_id, string $actor): array
             ? [] : pluscities_fact_card_get_active('city', $block['city_id'], $block['block_type']);
         $result = pluscities_write_editable_block($block['block_type'], $block['block_type'], $facts, $clientFacts, $context);
         if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg']];
+        // The hero H1 is the one real keyword-match moment on the page — the
+        // AI writes a fine BODY paragraph, but left to its own phrasing it's
+        // inconsistent page to page (one real example found live 2026-11-27:
+        // "Dermal Fillers in Galveston, TX" on one city, "Refresh Your Look
+        // With Dermal Fillers in Corpus Christi" on another, same service,
+        // same niche). Forced deterministic here, same "don't trust the model
+        // for something that needs to be exactly right" reasoning as the SEO
+        // title in pluscities_sync.php — not re-prompted, since a prompt
+        // instruction is a request, not a guarantee.
+        if ($block['block_type'] === 'hero' && is_array($result['content'])) {
+            // primary_keyword is stored lowercase (it's SEO text, not display
+            // text — see Niche Library) — title-cased only here, for the H1.
+            $result['content']['heading'] = pluscities_title_case($primaryKeyword) . ' in ' . $context['city_label'];
+        }
         $db->prepare('UPDATE blocks SET content_json = ?, fact_ids = ?, origin = "generated", client_grounded = 1 WHERE id = ?')
            ->execute([json_encode($result['content']), json_encode($result['fact_ids']), $block_id]);
     } elseif ($block['block_type'] === 'niche_data_table') {
