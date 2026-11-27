@@ -235,7 +235,11 @@ function pluscities_resolve_slug(array $client, array $niche, string $city_id, s
         '{service}'         => $service,
     ]);
 
-    $basePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
+    // Off by default (every existing client keeps today's behavior). The hub
+    // page's own URL is a SEPARATE concept and always keeps url_base_path —
+    // this only controls whether a SERVICE page's slug is nested under it.
+    $prefixed = $client['prefix_service_pages'] ?? true;
+    $basePath = $prefixed ? '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/' : '/';
     return $basePath . pluscities_sanitize_slug($resolved) . '/';
 }
 

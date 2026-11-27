@@ -52,6 +52,7 @@ function pluscities_delivery_activate() {
     // see pluscities_delivery_render_pill() below for where these are read.
     add_option('pluscities_pill_enabled', 1);
     add_option('pluscities_pill_text', 'All Service Areas');
+    add_option('pluscities_prefix_service_pages', 1);
     pluscities_delivery_add_rewrite_rules();
     flush_rewrite_rules();
 }
@@ -298,6 +299,7 @@ function pluscities_delivery_sync_if_needed() {
     // the next unrelated content change to actually show up site-wide.
     update_option('pluscities_pill_enabled', !empty($manifest['pill_enabled']) ? 1 : 0);
     update_option('pluscities_pill_text', (string) ($manifest['pill_text'] ?? 'All Service Areas'));
+    update_option('pluscities_prefix_service_pages', array_key_exists('prefix_service_pages', $manifest) && !$manifest['prefix_service_pages'] ? 0 : 1);
 
     // Cancellation, added 2026-11-24 — checked before the site_rev gate
     // below, since a cancelled-past-grace manifest always reports
@@ -420,6 +422,53 @@ function pluscities_delivery_render_pill() {
         . esc_html($label) . '</a>';
 }
 
+/**
+ * Shared "place this already-rendered page" output — title/meta/canonical/
+ * schema/style in <head>, HTML inside the theme's own header/footer, thin
+ * placement only (spec Section 9). $page false/null renders a real 404.
+ * Used by every route that can reach a PlusCities page: the city/service
+ * route, the hub route, and the root-level fallback below. Always exits.
+ */
+function pluscities_delivery_output_page($page) {
+    if (!$page) {
+        status_header(404);
+        get_header();
+        echo '<p>Page not found.</p>';
+        get_footer();
+        exit;
+    }
+    add_filter('document_title_parts', function ($parts) use ($page) {
+        // Our own title is already a complete, self-contained title (service +
+        // city + business name) — WordPress's default behavior still appends
+        // " – {site name}" on top of it, which reads as a real duplicate
+        // whenever a client's blogname happens to be their own business name
+        // (not a coincidence specific to one client — any client could hit
+        // this). Clearing 'site'/'tagline' here, not just setting 'title'.
+        $parts = ['title' => $page['head']['title'] ?? $parts['title']];
+        return $parts;
+    });
+    add_action('wp_head', function () use ($page) {
+        if (!empty($page['head']['meta_description'])) {
+            echo '<meta name="description" content="' . esc_attr($page['head']['meta_description']) . '">' . "\n";
+        }
+        if (!empty($page['head']['canonical'])) {
+            echo '<link rel="canonical" href="' . esc_url($page['head']['canonical']) . '">' . "\n";
+        }
+        if (!empty($page['style'])) echo $page['style'] . "\n";
+        // Schema arrived already-assembled from the server (spec Section 5) —
+        // the plugin's only job is placing it, same "thin plugin" rule as the
+        // HTML itself. One <script> tag per schema object, not one array,
+        // since that's the format Google's own rich-results tooling expects.
+        foreach ($page['head']['schema'] ?? [] as $schemaObject) {
+            echo '<script type="application/ld+json">' . wp_json_encode($schemaObject) . '</script>' . "\n";
+        }
+    });
+    get_header();
+    echo '<div class="pluscities-page">' . $page['html'] . '</div>';
+    get_footer();
+    exit;
+}
+
 add_action('template_redirect', function () {
     $slug = get_query_var('pluscities_slug');
     if (!$slug) return;
@@ -447,48 +496,7 @@ add_action('template_redirect', function () {
     $pageId = get_option('pluscities_page_url_' . md5($url));
     $page   = $pageId ? get_transient('pluscities_page_' . $pageId) : false;
 
-    if (!$page) {
-        status_header(404);
-        get_header();
-        echo '<p>Page not found.</p>';
-        get_footer();
-        exit;
-    }
-
-    // Thin placement only — no rendering decisions happen here, the HTML
-    // arrived already finished. Wrapped in the theme's own header/footer so
-    // it inherits the client's real site chrome, per spec Section 9.
-    add_filter('document_title_parts', function ($parts) use ($page) {
-        // Our own title is already a complete, self-contained title (service +
-        // city + business name) — WordPress's default behavior still appends
-        // " – {site name}" on top of it, which reads as a real duplicate
-        // whenever a client's blogname happens to be their own business name
-        // (not a coincidence specific to one client — any client could hit
-        // this). Clearing 'site'/'tagline' here, not just setting 'title'.
-        $parts = ['title' => $page['head']['title'] ?? $parts['title']];
-        return $parts;
-    });
-    add_action('wp_head', function () use ($page) {
-        if (!empty($page['head']['meta_description'])) {
-            echo '<meta name="description" content="' . esc_attr($page['head']['meta_description']) . '">' . "\n";
-        }
-        if (!empty($page['head']['canonical'])) {
-            echo '<link rel="canonical" href="' . esc_url($page['head']['canonical']) . '">' . "\n";
-        }
-        if (!empty($page['style'])) echo $page['style'] . "\n";
-        // Schema arrived already-assembled from the server (spec Section 5) —
-        // the plugin's only job is placing it, same "thin plugin" rule as the
-        // HTML itself. One <script> tag per schema object, not one array,
-        // since that's the format Google's own rich-results tooling expects.
-        foreach ($page['head']['schema'] ?? [] as $schemaObject) {
-            echo '<script type="application/ld+json">' . wp_json_encode($schemaObject) . '</script>' . "\n";
-        }
-    });
-
-    get_header();
-    echo '<div class="pluscities-page">' . $page['html'] . '</div>';
-    get_footer();
-    exit;
+    pluscities_delivery_output_page($page);
 });
 
 // Separate closure, not folded into the one above — different query var, and
@@ -500,35 +508,46 @@ add_action('template_redirect', function () {
 
     pluscities_delivery_sync_if_needed();
 
-    $page = get_transient('pluscities_hub_content');
-
-    if (!$page) {
-        status_header(404);
-        get_header();
-        echo '<p>Page not found.</p>';
-        get_footer();
-        exit;
-    }
-
-    add_filter('document_title_parts', function ($parts) use ($page) {
-        $parts = ['title' => $page['head']['title'] ?? $parts['title']];
-        return $parts;
-    });
-    add_action('wp_head', function () use ($page) {
-        if (!empty($page['head']['meta_description'])) {
-            echo '<meta name="description" content="' . esc_attr($page['head']['meta_description']) . '">' . "\n";
-        }
-        if (!empty($page['head']['canonical'])) {
-            echo '<link rel="canonical" href="' . esc_url($page['head']['canonical']) . '">' . "\n";
-        }
-        if (!empty($page['style'])) echo $page['style'] . "\n";
-        foreach ($page['head']['schema'] ?? [] as $schemaObject) {
-            echo '<script type="application/ld+json">' . wp_json_encode($schemaObject) . '</script>' . "\n";
-        }
-    });
-
-    get_header();
-    echo '<div class="pluscities-page">' . $page['html'] . '</div>';
-    get_footer();
-    exit;
+    pluscities_delivery_output_page(get_transient('pluscities_hub_content'));
 });
+
+/**
+ * Root-level fallback for a client with "Service pages live under /{base}/"
+ * turned off (admin/pluscities_hub_edit.php's prefix_service_pages) — a
+ * service page's slug then sits at the site root instead of under the
+ * reserved base-path namespace, so there's no rewrite rule that can safely
+ * claim it the way the city/service route above does (a root catch-all
+ * would try to intercept every real page/post on the site, not just
+ * PlusCities ones). Only ever engages on a genuine WordPress 404 — real
+ * content on this client's site always wins a collision; a PlusCities page
+ * that happens to share a slug with real content just stays unreachable,
+ * same disclosed tradeoff as the admin screen's own warning text.
+ * Priority 20 (after the two routes above, which run at the default 10) so
+ * if a request somehow matched both, the real route always wins outright.
+ */
+add_action('template_redirect', function () {
+    if (!is_404()) return;
+    if (get_option('pluscities_api_key', '') === '') return;
+    if (get_option('pluscities_prefix_service_pages', 1)) return;
+
+    // The other two routes already 301 a cancelled-past-grace client's whole
+    // site; nothing left for this fallback to do once that's in effect.
+    if (get_option('pluscities_cancelled_redirect', '') !== '') return;
+
+    $path = trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
+    if ($path === '') return; // never hijack the homepage itself
+
+    pluscities_delivery_sync_if_needed();
+
+    $url    = '/' . $path . '/';
+    $pageId = get_option('pluscities_page_url_' . md5($url));
+    $page   = $pageId ? get_transient('pluscities_page_' . $pageId) : false;
+    if (!$page) return; // genuinely not ours either — leave WordPress's real 404 alone
+
+    // WordPress already flagged this request 404 (that's the only reason
+    // we're here) and will send that status unless overridden — found a
+    // real page, so this needs a real 200, not real content behind a 404
+    // status (which Google would never index).
+    status_header(200);
+    pluscities_delivery_output_page($page);
+}, 20);

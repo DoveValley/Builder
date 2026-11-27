@@ -82,6 +82,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
     $urlBasePath   = (string) ($client['url_base_path'] ?? 'service-area');
     $liveUrl       = 'https://' . trim((string) ($client['domain'] ?? '')) . '/' . trim($urlBasePath, '/') . '/';
     $slugPattern   = (string) ($client['slug_pattern'] ?? '');
+    $prefixServicePages = $client['prefix_service_pages'] ?? true;
     pluscities_client_subtabs($clientId, 'hub_edit');
 ?>
 <form method="post" action="pluscities_hub_edit_save.php">
@@ -125,6 +126,21 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
                 <code>botox-corpus-christi-tx</code>. Only applies to pages built <strong>after</strong> you
                 change this — it never changes a page that already exists. To change one existing page's URL,
                 edit its Slug field directly on that page.
+            </p>
+        </div>
+        <div class="fg" style="min-width:260px;">
+            <label>
+                <input type="hidden" name="prefix_service_pages" value="0">
+                <input type="checkbox" name="prefix_service_pages" value="1" <?= $prefixServicePages ? 'checked' : '' ?> style="width:auto;margin-right:6px;vertical-align:middle;">
+                Service pages live under <code>/<?= h($urlBasePath) ?>/</code>
+            </label>
+            <p style="color:var(--pc-muted,#52607a);font-size:.78rem;margin:4px 0 0;">
+                On (default): a service page's URL is <code>/<?= h($urlBasePath) ?>/botox-corpus-christi-tx/</code>.
+                Off: it drops straight to <code>/botox-corpus-christi-tx/</code> — only turn this off if you're
+                sure nothing else on this client's real site already uses that exact URL, since there's no
+                automatic collision check against the rest of their site. Only applies to pages built
+                <strong>after</strong> you change this, same as the Slug Pattern above. The Service Area hub page
+                itself always keeps its own URL slug (above), regardless of this setting.
             </p>
         </div>
         <div class="fg" style="min-width:260px;">

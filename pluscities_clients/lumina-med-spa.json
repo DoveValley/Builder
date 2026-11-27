@@ -3,7 +3,7 @@
     "agency_id": "coastal-marketing",
     "niche_id": "med-spa",
     "domain": "demo-lumina-medspa.q111.xyz",
-    "site_rev": 11,
+    "site_rev": 14,
     "plugin_rev": 0,
     "plugin_version": "0.3.1",
     "last_seen_at": "2026-11-27T04:27:27+00:00",
@@ -82,5 +82,6 @@
     },
     "theme": "Astra",
     "seo_plugin": "none",
-    "slug_pattern": "{primary_keyword}-{city}-{state}"
+    "slug_pattern": "{primary_keyword}-{city}-{state}",
+    "prefix_service_pages": false
 }

@@ -40,6 +40,7 @@ $client['hub_content'] = [
 
 $client['url_base_path'] = trim((string) ($_POST['url_base_path'] ?? 'service-area')) ?: 'service-area';
 $client['slug_pattern']  = trim((string) ($_POST['slug_pattern'] ?? ''));
+$client['prefix_service_pages'] = ($_POST['prefix_service_pages'] ?? '1') === '1';
 
 // Bump site_rev — same signal pluscities_publish_page()/unpublish_page() use
 // (includes/pluscities_lifecycle.php) to tell the delivery plugin's poll loop

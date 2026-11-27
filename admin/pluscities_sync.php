@@ -91,6 +91,7 @@ if ($action === 'manifest') {
             'cancelled' => true, 'redirect_to' => 'https://' . $client['domain'] . '/',
             'cache_ttl_seconds' => $platformSettings['plugin_cache_ttl_hours'] * 3600,
             'pill_enabled' => false, 'pill_text' => '',
+            'prefix_service_pages' => true,
         ]);
         exit;
     }
@@ -129,6 +130,11 @@ if ($action === 'manifest') {
         'cache_ttl_seconds' => $platformSettings['plugin_cache_ttl_hours'] * 3600,
         'pill_enabled' => $pillEnabled, 'pill_text' => $pillText,
         'base_path' => trim((string) ($client['url_base_path'] ?? 'service-area'), '/'),
+        // Whether NEW service pages get nested under base_path, or sit at the
+        // site root instead — see includes/pluscities_lifecycle.php's
+        // pluscities_resolve_slug(). Tells the plugin whether its root-level
+        // 404-fallback lookup needs to engage at all for this client.
+        'prefix_service_pages' => $client['prefix_service_pages'] ?? true,
     ]);
     exit;
 }
