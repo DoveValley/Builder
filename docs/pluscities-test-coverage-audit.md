@@ -186,7 +186,11 @@ plugin rewrite rules on a base-path rename, and a stale cached URL for a renamed
 that silently kept serving its old URL forever, contradicting the no-redirect design's own promise; UC31
 (same doc, 2026-11-27) makes the hero H1 deterministic (primary keyword + city, abbreviated state) instead
 of freely AI-phrased, rolled out to every existing real client's pages, catching a second real bug
-(ucwords() mangling "ac repair" into "Ac Repair") along the way —
+(ucwords() mangling "ac repair" into "Ac Repair") along the way; UC32 (same doc, 2026-11-27) reviews
+the insurance-agency niche instead of re-creating it, finds and fixes a real professional-services
+family block-fit bug, clones a WP Builder demo site from an existing one (a new reusable capability),
+and builds a second real client that incidentally re-verifies UC30's stale-URL-cache fix on a real,
+unplanned case —
 all capabilities/fixes added *after* this audit's row set was fixed to the
 2026-11-23 system reference, not part of the original spec being measured here. See
-`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-31 for how it was verified.
+`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-32 for how it was verified.

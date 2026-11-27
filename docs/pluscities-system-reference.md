@@ -122,14 +122,18 @@ explicit revoke needed. **0 rows in the live DB today** — built, not yet exerc
 
 ### 2.2 Client JSON record — `pluscities_clients/<client_id>.json`
 
-File-based, not in SQLite. Built in `admin/pluscities_clients_save.php`. 4 real files exist today:
-`elite-air-hvac.json`, `lonestar-restoration.json`, `meade-restoration.json`, and `lumina-med-spa.json`
-(added 2026-11-27 — the first client ever created through the actual wizard rather than hand-authored
-JSON; Coastal Marketing agency, med-spa niche, 2 real cities × 2 real services, used directly to prove
-out §3.5a's slug-pattern work end to end). Plus 3 demo-only files, built 2026-11-24 specifically for sales
-demos, deliberately separate from both the real clients above and the QA suite's fixtures:
-`lone-star-comfort-heating-air-2.json`, `coastal-breeze-hvac-services.json`,
-`clearwater-restoration-pros.json` (under the demo agency `northstar-digital-marketing-demo`).
+File-based, not in SQLite. Built in `admin/pluscities_clients_save.php`. 6 real files exist today:
+`elite-air-hvac.json`, `lonestar-restoration.json`, `meade-restoration.json`, and 3 built through the
+actual wizard rather than hand-authored JSON, all 2026-11-27: `lumina-med-spa.json` (Coastal Marketing
+agency, med-spa niche, 2 real cities × 2 real services, used directly to prove out §3.5a's slug-pattern
+work end to end), `lufkin-lawyers.json` (Coastal Marketing, `lawyer` niche), and `lufkin-insurance.json`
+(Coastal Marketing, `insurance-agency` niche, the client used to exercise §2.3d's family block-fit
+fix — on the same domain as a WP Builder demo site, where the PlusCities Delivery plugin turned out to
+already be present from the clone, still holding the prior client's API key, swapped for the real one).
+Plus 3 demo-only files, built 2026-11-24 specifically for sales demos, deliberately separate from both
+the real clients above and the QA suite's fixtures: `lone-star-comfort-heating-air-2.json`,
+`coastal-breeze-hvac-services.json`, `clearwater-restoration-pros.json` (under the demo agency
+`northstar-digital-marketing-demo`).
 
 | Field | Meaning | Notes |
 |---|---|---|
@@ -469,6 +473,22 @@ drift apart. **Still deliberately deferred**: the deterministic per-city varianc
 Safety Toolkit's proven crc32-per-domain mechanism) and any per-niche override of the happy-path list
 — neither blocks this from working correctly today. See the "Family to Default Blocks" admin tab for
 the full per-family write-up.
+
+### 2.3d `professional-services` family block-fit fix, 2026-11-27
+
+`legal` and `professional-services` were byte-identical since the 2026-11-26 consolidation (§2.3b),
+and stayed that way with no niche in either to check the fit against. `insurance-agency` (built
+2026-11-26) changed that — reviewing it directly surfaced a real mismatch: `always_service_blocks`
+included `common_problems` (no professional-services niche has a natural "common problems" framing
+the way a repair trade does), and `always_city_blocks` included `housing_stock`/`climate_data`
+unconditionally even though they only genuinely fit a niche like insurance (home/auto risk framing),
+not `legal`'s one real niche, `lawyer` (general practice, no reason to always show weather data).
+Fixed in `niche_families/professional-services.json` only, through the real Niche Library family-edit
+screen: `common_problems` dropped from the pool entirely; `housing_stock`/`climate_data` demoted from
+always-on to the optional pool (still pickable per-page, just not forced). `legal` deliberately left
+unchanged — nothing has shown ITS config to be a bad fit for `lawyer` yet, this was a targeted fix
+against a real observed mismatch, not a blanket re-audit. See the "Family to Niche Blocks" and "Family
+to Default Blocks" admin tabs for the full before/after data.
 
 ### 2.4 Block `content_json` shapes, by classification
 

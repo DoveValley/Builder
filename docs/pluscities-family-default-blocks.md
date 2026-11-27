@@ -43,21 +43,31 @@ exists" below).
   (service)
 - **OPTIONAL** (pool, not pre-selected): `permits`, `utilities`, `hoa_rules` (city, flagged `pool⚠` —
   no real fit against any of the 4 niches actually on the roadmap) + `niche_data_table` (service)
-- **Confidence note:** no live niche yet — lower-confidence than home-trades, revisit once personal
-  injury (or any of the other 3 planned legal niches) is built. Locking it now doesn't block
-  implementation; it just means this family's picks are the first to re-check once real page data
-  exists.
+- **Confidence note, updated 2026-11-27:** `lawyer` is now a real, built niche (added 2026-11-26) —
+  this family's picks haven't been re-checked against it yet, unlike `professional-services` below,
+  whose equivalent check (2026-11-27) found and fixed a real mismatch. Worth the same review once
+  there's a reason to; nothing has forced it yet.
 
 ### Professional-services
-- **Target word count:** ~1,200–1,800 words
-- **Total blocks:** 15 (4 spine + 5 always-on + 6 default picks) + 7 furniture pieces
-- **DEFAULT** — identical structure to Legal (byte-identical block config): spine: `hero`, `overview`,
-  `faq`, `service_area` · always-on: `housing_stock`, `neighborhoods`, `climate_data`,
-  `common_problems`, `process` · picks: `reviews_from_city`, `seasonal_guide`, `hazards` (city) +
-  `why_choose_us`, `cited_expert_guidance`, `cost_factors` (service)
-- **OPTIONAL** (pool, not pre-selected): `permits`, `utilities`, `hoa_rules` (city, `pool⚠`) +
-  `niche_data_table` (service)
-- **Confidence note:** same as Legal — no live niche yet.
+- **Target word count:** ~900–1,400 words — down from the original ~1,200–1,800 estimate now that
+  `common_problems` is gone (see below); not re-measured against real generated pages yet.
+- **Total blocks:** 12 (4 spine + 2 always-on + 6 default picks) + 7 furniture pieces — down from 15,
+  2026-11-27: this family's `always_service_blocks` lost `common_problems` entirely (no real
+  "common problems" framing fits any professional-services niche), so always-on dropped from 5 to 2.
+- **DEFAULT** — spine: `hero`, `overview`, `faq`, `service_area` · always-on: `neighborhoods`,
+  `process` · picks: `reviews_from_city`, `seasonal_guide`, `hazards` (city) + `why_choose_us`,
+  `cited_expert_guidance`, `cost_factors` (service) — the 6 default picks are unchanged; only the
+  always-on set shrank.
+- **OPTIONAL** (pool, not pre-selected): `climate_data`, `housing_stock`, `permits`, `utilities`,
+  `hoa_rules` (city) + `niche_data_table` (service). `climate_data`/`housing_stock` moved here FROM
+  always-on, 2026-11-27 — genuinely fits `insurance-agency` (weather/home-value risk is real content
+  for home/auto insurance) but not a general-practice `lawyer` page, so demoted to optional rather
+  than staying forced; an insurance-specific page can still pick them in manually. `common_problems`
+  is gone from the pool entirely, not just demoted — no professional-services niche has a natural
+  "common problems" section the way a repair trade does.
+- **Confidence note, updated 2026-11-27:** this family now has a real niche (`insurance-agency`,
+  built 2026-11-26) and its block fit has actually been checked against it — the fix above is the
+  result, not a remaining open question the way Legal's still is.
 
 ### Medical-wellness
 - **Target word count:** ~900–1,300 words — scaled down from the other 3 families' 1,200–1,800

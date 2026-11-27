@@ -26,10 +26,12 @@ NICHE BLUEPRINT  ◄── this doc is about building one of these
 CLIENT  →  PAGE (one per city × service)
 ```
 
-Only 3 real niches exist today: `hvac`, `water-damage-restoration` (both `home-trades`), and
-`dental-practice` (`medical-wellness`). `legal` and `professional-services` are real, resolvable
-families with **zero** niches built in them yet — building "Lawyer" would be the first niche either
-family has ever actually had.
+**Update, 2026-11-27**: `lawyer` (`legal`) and `insurance-agency` (`professional-services`) have since
+been built — the worked example below still walks through building "Lawyer" as a from-scratch
+exercise (useful as a tutorial regardless), but it's no longer literally the first niche either family
+has had. 6 real niches exist today total: `hvac`, `water-damage-restoration` (`home-trades`),
+`dental-practice`, `med-spa` (`medical-wellness`), `lawyer` (`legal`), `insurance-agency`
+(`professional-services`).
 
 ## What's inherited for free — zero new work
 

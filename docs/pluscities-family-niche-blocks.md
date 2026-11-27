@@ -19,13 +19,23 @@ not copied from an existing field:
 | Family | What it's for | Real niches in it today |
 |---|---|---|
 | **home-trades** | Residential trade/contractor services performed at the customer's property — repair, install, maintenance, *or* emergency/disaster-response (water, fire, mold, storm damage), *or* exterior property services (pressure washing, lawn/landscape). All three used to be separate families (`home-trades`, `restoration`, `outdoor-cleaning`) until the 2026-11-26 consolidation found they were byte-identical in every field that matters — see "The consolidation" below. | `hvac`, `water-damage-restoration` |
-| **legal** | Attorneys / law firms serving a local area. Keeps the housing/neighborhood/climate always-on set (a firm's local-authority content still benefits from it) but drops the service-side blocks that only make sense for physical repair work (`repair_vs_replace`, `maintenance`, `before_the_tech_arrives`). Not yet used by a live niche — kept as its own family on the bet that a real law-firm niche will need genuinely different content from professional-services once built, not because the two configs differ today. | *(none yet)* |
-| **professional-services** | Local professional/consultative services that aren't medical or legal (accounting, financial advising, and similar) — same trimmed service-side pool as `legal`. Not yet used by a live niche. | *(none yet)* |
+| **legal** | Attorneys / law firms serving a local area. Keeps the housing/neighborhood/climate always-on set (a firm's local-authority content still benefits from it) but drops the service-side blocks that only make sense for physical repair work (`repair_vs_replace`, `maintenance`, `before_the_tech_arrives`). | `lawyer` |
+| **professional-services** | Local professional/consultative services that aren't medical or legal (accounting, financial advising, insurance, and similar). | `insurance-agency` |
 | **medical-wellness** | Licensed medical/dental/wellness practices. The one family that's actually different in shape, not just in compliance text: no climate chart (a dental practice has no reason to show NOAA weather data), a much shorter always-on/pickable pool, and the `medical` compliance preset instead of `contractor`. | `dental-practice` |
 
-`legal` and `professional-services` have a real, resolvable block configuration today but no live
-niche exercising it yet, and are currently byte-identical to each other — see "The real data"
-below.
+**Update, 2026-11-27**: both families now have a real niche in them (`lawyer` built 2026-11-26,
+`insurance-agency` built the same day), and they're **no longer byte-identical** — reviewing
+`professional-services` directly against the niche actually built in it (rather than assuming the
+`legal` config still fit) surfaced a real content-fit problem: `common_problems` and
+`housing_stock`/`climate_data` as *always-on* were copied verbatim from `home-trades` and never
+re-checked. There's no natural "common problems with your insurance policy" framing, and
+`housing_stock`/`climate_data` fit insurance (genuinely tied to home/auto risk) but not `legal`'s one
+real niche, `lawyer` (a general-practice firm has no reason to always show weather data). Fixed in
+`professional-services` only (`niche_families/professional-services.json`), through the real Niche
+Library family-edit screen: `common_problems` dropped from the pool entirely, `housing_stock`/
+`climate_data` demoted from always-on to the optional pool. `legal` was deliberately left unchanged —
+nothing has shown its current config to be a bad fit for `lawyer` yet. See "The real data" below for
+the current, now-diverged table.
 
 ## The consolidation (2026-11-26): 6 families → 4
 
@@ -102,26 +112,29 @@ submitted picks are checked only against the pickable pool, and the always-ons c
 wrongly rejected as "not in the pool" (they were deliberately subtracted out of it one step
 earlier).
 
-## The real data, as of 2026-11-26 — 4 families
+## The real data, as of 2026-11-27 — 4 families
 
 | Family | Always city | Pickable city pool | Always service | Pickable service pool | Compliance preset |
 |---|---|---|---|---|---|
 | **home-trades** | housing_stock, neighborhoods, climate_data | permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city | common_problems, process | cited_expert_guidance, niche_data_table, cost_factors, why_choose_us, repair_vs_replace, maintenance, before_the_tech_arrives | contractor |
 | **legal** | housing_stock, neighborhoods, climate_data | permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city | common_problems, process | cited_expert_guidance, niche_data_table, cost_factors, why_choose_us | contractor |
-| **professional-services** | housing_stock, neighborhoods, climate_data | permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city | common_problems, process | cited_expert_guidance, niche_data_table, cost_factors, why_choose_us | contractor |
+| **professional-services** | neighborhoods | climate_data, housing_stock, permits, utilities, hoa_rules, seasonal_guide, hazards, reviews_from_city | process | cited_expert_guidance, niche_data_table, cost_factors, why_choose_us | contractor |
 | **medical-wellness** | neighborhoods | housing_stock, reviews_from_city | common_problems, process | cited_expert_guidance, niche_data_table, cost_factors, why_choose_us, repair_vs_replace, maintenance | medical |
 
 Read directly out of `niche_families/*.json` — not copied from a spec. Two real things worth
 noting in this data, not smoothed over:
 
-- **`legal` and `professional-services` are still byte-identical to each other.** Kept as two
-  families anyway (see "The consolidation" above) — unlike the home-trades trio, there's a real
-  argument these should diverge once a real niche exists in either, just not yet evidence either
-  way. `medical-wellness` is the only family that's actually different in shape today: no
-  `climate_data`, a much shorter city pool (2 items instead of 6), and the `medical` compliance
-  preset instead of `contractor`.
-- **`legal` and `professional-services` currently have no real niche in them yet** — their block
-  configuration is real and already resolvable, just not exercised by a live niche today.
+- **`legal` and `professional-services` have diverged, 2026-11-27.** They started byte-identical
+  (see "The consolidation" above) and stayed that way until `professional-services` got its own real
+  niche (`insurance-agency`) and its block fit was actually checked against it — `legal` keeps the
+  original home-trades-derived set unchanged, `professional-services` now has a real, niche-informed
+  config of its own. `medical-wellness` is still the only family that's different in *shape* from the
+  home-trades original (no `climate_data` at all, a much shorter city pool, the `medical` compliance
+  preset) — `professional-services`'s divergence is a trim, not a reshape.
+- **Both families now have a real niche exercising their configuration** — `lawyer` in `legal`,
+  `insurance-agency` in `professional-services` — so from here on, any further divergence should be
+  driven by what those real niches' pages actually need, the same way `professional-services`'s own
+  fix just was, not left to assumption.
 
 **Pool membership vs. default selection — a separate, now-implemented concept.** This table (and
 `niche_families/*.json`) defines what's *in* each family's pool. It deliberately says nothing about

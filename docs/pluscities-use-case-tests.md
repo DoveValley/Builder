@@ -1614,3 +1614,42 @@ live one.
 
 **Artifacts:** `fa9f0ecc`, pushed. Scoped out on request: the 3 demo/sales clients and 4 QA-fixture
 clients (16 hero blocks) keep their pre-existing AI-phrased headings for now.
+
+## UC32, 2026-11-27 — insurance-agency niche reviewed (not re-created), a real family block-fit bug
+found and fixed, a WP Builder demo site cloned from an existing one, and a second real client built — ✅ PASS
+
+Scott: "let's create the insurance agency niche, ask many questions if necessary" — turned out
+`insurance-agency` already existed, fully built (6 real services with keyword data, compliance preset,
+niche_table, trust bar, 5 safety-toolkit resources, hero image). Rather than re-creating it, reviewed
+it against the other built niches and found a real, concrete gap: `professional-services`' always-on
+blocks (`common_problems`, `housing_stock`, `climate_data`) were copied from `home-trades` and never
+re-checked — asked directly, Scott confirmed "trim them now, before building." Fixed through the real
+Niche Library family-edit screen (§2.3d of the system reference) — `common_problems` dropped from the
+pool entirely, `housing_stock`/`climate_data` demoted from forced always-on to the optional pool.
+Confirmed scoped correctly along the way: `lawyer` turned out to be in a SEPARATE `legal` family, not
+`professional-services` as first assumed, so the fix touches only the intended family.
+
+**Then**: "use WP Builder to build an insurance agency website starting with demo-lawyer.q111.xyz...
+convert this site." Flagged first that this domain already had the live Lufkin Lawyers PlusCities
+client on it — Scott's actual intent, once clarified: leave Lufkin Lawyers untouched, CLONE that
+site's WordPress install as the starting point for a new, separate demo
+(`demo-insurance-agency.q111.xyz`). Added a real, reusable capability for this rather than a one-off
+hack: `wpb_create_site()` now takes an optional clone-source-niche parameter instead of always cloning
+the generic blank seed. Researched real independent insurance agency sites (web search + a direct
+fetch of a real agency's site) for genuine content patterns before writing "Lufkin Insurance Group"'s
+5 pages, using the same 6 services as the niche blueprint. Added the new subdomain's Namecheap A
+record (same no-wildcard-DNS requirement as every other new `q111.xyz` subdomain tonight). Added 2 real
+Pexels stock photos (hero + about) when asked for pictures, and — while checking — found and flagged
+(not yet fixed) a separate pre-existing defect: Astra's footer widget area, which WP Builder doesn't
+manage, carries a leftover generic logo and wrong phone number from the original demo-import content,
+present on every site cloned this way including the untouched `demo-lawyer.q111.xyz`.
+
+**Then built the actual PlusCities client**: Lufkin Insurance, Coastal Marketing, 2 towns
+(Lufkin/Nacogdoches) × 2 services (Home/Auto Insurance), validated/approved/published. Found the
+PlusCities Delivery plugin was already present on the new domain (cloned along with everything else)
+— still holding Lufkin LAWYERS' own API key. Swapped it for the real key and reset the sync state,
+which incidentally exercised UC30's stale-URL-cache fix for real, unplanned: Lufkin Lawyers' old
+`/personal-injury/`-style URLs correctly 404 on this domain now instead of bleeding through from the
+shared clone.
+
+**Artifacts:** `0e6cc700`, pushed.
