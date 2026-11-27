@@ -250,34 +250,42 @@ function infra_kw_dfs_headers(array $c): array
  * (infra_kw_dfs_post_many()) so a future change to how a status is read can't
  * drift between them. Takes the same shape infra_http()/infra_http_multi()
  * already return.
+ *
+ * Every branch also returns 'cost' — DataForSEO reports the REAL dollar cost of
+ * the call directly in its own response (both a top-level request cost and a
+ * per-task cost, confirmed live 2026-11-27 — a business_data search call
+ * reported cost=0.01236 in both places). 0 for any branch where no charge was
+ * incurred (network error, rejected credentials, an error response). Surfaced
+ * here rather than re-parsed per caller so cost-tracking doesn't drift the way
+ * a second hand-rolled client would.
  */
 function infra_kw_dfs_interpret(array $r): array
 {
-    if ($r['error'] !== '')  return ['ok' => false, 'msg' => 'Network error: ' . $r['error'], 'result' => []];
-    if ($r['code'] === 401)  return ['ok' => false, 'msg' => 'DataForSEO rejected the login/password.', 'result' => []];
+    if ($r['error'] !== '')  return ['ok' => false, 'msg' => 'Network error: ' . $r['error'], 'result' => [], 'cost' => 0.0];
+    if ($r['code'] === 401)  return ['ok' => false, 'msg' => 'DataForSEO rejected the login/password.', 'result' => [], 'cost' => 0.0];
 
     // 40104 is worth naming: the credentials are RIGHT and the balance reads fine,
     // but the data endpoints stay shut until the account is verified. Reported as a
     // bare HTTP error it looks like a broken key, which sends you fixing the wrong thing.
     if ((int) ($r['json']['status_code'] ?? 0) === 40104) {
-        return ['ok' => false, 'result' => [], 'msg' =>
+        return ['ok' => false, 'result' => [], 'cost' => 0.0, 'msg' =>
             'DataForSEO needs the account verified before it will serve data — the login and balance are fine. '
           . 'Complete verification at https://app.dataforseo.com/ and try again.'];
     }
     if ($r['code'] !== 200 || !is_array($r['json'])) {
         return ['ok' => false, 'msg' => 'HTTP ' . $r['code'] . ': '
-            . trim(preg_replace('/\s+/', ' ', substr($r['raw'], 0, 400))), 'result' => []];
+            . trim(preg_replace('/\s+/', ' ', substr($r['raw'], 0, 400))), 'result' => [], 'cost' => (float) ($r['json']['cost'] ?? 0)];
     }
     // DataForSEO answers HTTP 200 for its own errors and puts the truth in
     // status_code — twice, once for the request and once per task. 20000 is OK.
     if ((int) ($r['json']['status_code'] ?? 0) !== 20000) {
-        return ['ok' => false, 'msg' => 'DataForSEO: ' . ($r['json']['status_message'] ?? 'unknown error'), 'result' => []];
+        return ['ok' => false, 'msg' => 'DataForSEO: ' . ($r['json']['status_message'] ?? 'unknown error'), 'result' => [], 'cost' => (float) ($r['json']['cost'] ?? 0)];
     }
     $t = $r['json']['tasks'][0] ?? [];
     if ((int) ($t['status_code'] ?? 0) !== 20000) {
-        return ['ok' => false, 'msg' => 'DataForSEO task: ' . ($t['status_message'] ?? 'unknown error'), 'result' => []];
+        return ['ok' => false, 'msg' => 'DataForSEO task: ' . ($t['status_message'] ?? 'unknown error'), 'result' => [], 'cost' => (float) ($t['cost'] ?? $r['json']['cost'] ?? 0)];
     }
-    return ['ok' => true, 'msg' => '', 'result' => (array) ($t['result'] ?? [])];
+    return ['ok' => true, 'msg' => '', 'result' => (array) ($t['result'] ?? []), 'cost' => (float) ($t['cost'] ?? $r['json']['cost'] ?? 0)];
 }
 
 /** One POST to a DataForSEO live endpoint, with its two layers of status code unwrapped. */

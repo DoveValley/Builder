@@ -27,7 +27,7 @@ header('Content-Disposition: attachment; filename="sales_prospects_' . gmdate('Y
 
 $out = fopen('php://output', 'w');
 $columns = ['id', 'business_name', 'phone', 'domain', 'website_url', 'niche', 'city', 'state',
-    'google_rating', 'google_review_count', 'is_wordpress', 'sitemap_url_count', 'domain_rank',
+    'office_cities', 'google_rating', 'google_review_count', 'is_wordpress', 'sitemap_url_count', 'domain_rank',
     'status', 'notes', 'found_at', 'last_checked_at'];
 fputcsv($out, $columns);
 foreach ($rows as $row) {
