@@ -159,6 +159,9 @@ STEP 7 — CONTENT GENERATION, per block
   → grounds each block in: client facts (always) + a city-scoped fact card (editable blocks) +
     niche.niche_table (if block_type = niche_data_table, SAME table for every service in the niche) +
     a Census/NOAA dataset (if housing_stock / climate_data)
+  → EXCEPTION (added 2026-11-27): hero's heading is AI-written then immediately overwritten
+    deterministically — "{primary_keyword} in {city_label}", the one field on the page that's
+    NOT left to the model's phrasing, so every page's H1 agrees with its own URL's keyword
                               │
                               ▼
 STEP 8 — RENDER (production)

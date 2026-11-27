@@ -1569,3 +1569,48 @@ normally.
 **Artifacts:** `2f0688ef`, `d0c201a8`, `42584e80`, all pushed. Three real bugs found this one session
 purely by testing past "looks right in the database" all the way to the live site: `target_cities`
 (UC29), stale rewrite rules (this UC), stale URL cache (this UC).
+
+## UC31, 2026-11-27 — deterministic hero H1 (primary keyword + city), rolled out across every real
+client, not just new pages — ✅ PASS
+
+Scott, looking at 2 real live pages side by side: "the other town... Dermal Fillers in Galveston, TX...
+I thought this should be the format on all of them so the H1 is focused on primary keyword in city" →
+confirmed exactly: "the H1 on every page should be the same format, primary keyword in city, abbreviated
+state."
+
+**Root cause**: the hero heading was entirely AI-written — the prompt names the topic/city/service but
+never constrains the heading's exact wording, so the model chose differently each time ("Refresh Your
+Look With Dermal Fillers in Corpus Christi" vs. a plain "Dermal Fillers in Galveston, TX" for the
+identical service in the identical niche).
+
+**Fixed at the root, in `pluscities_regenerate_block()`**: the hero block's heading is now overwritten
+deterministically after generation — `{primary_keyword} in {city_label}` — using the exact same
+`primary_keyword` field (with the same fallback-to-slug) that already drives the URL slug itself
+(UC29/UC30), not the niche's display label, so the H1 and the URL always name the same keyword. Verified
+on Lumina Med Spa first (all 4 pages came out identically formatted, confirmed live).
+
+**Then asked directly**: would new niches get this automatically (yes — it's in the shared function, not
+per-niche), and had I already fixed existing content in the library (no, not yet — same "code change
+only governs what's generated after it, never retroactive" pattern as every other change tonight).
+Checked and reported the real count: 23 existing hero blocks across 10 other clients (7 on the 3 real
+production clients, 16 across demo/sales + QA fixtures). Scott: "just the real clients for now."
+
+**Rolled out to all 7 real-client pages** (`elite-air-hvac` ×2, `lonestar-restoration` ×1,
+`meade-restoration` ×4): regenerate → validate → approve → publish on each. One (`elite-air-hvac`'s
+Frisco/AC-repair hero) was `locked=1` — a real human edit ("Professional AC Repair in Frisco, TX"),
+correctly left untouched rather than silently overwritten, and reported rather than force-unlocked.
+
+**Found and fixed a second real bug along the way**: plain `ucwords()` turned "ac repair" into "Ac
+Repair," not "AC Repair" — caught live on the McKinney page. Added `pluscities_title_case()` with a
+small explicit acronym exception list (ac/hvac/iv/hoa) rather than a general detector, re-ran that one
+page.
+
+**Verification was honest about its own limits**: `meaderestoration.com` and the Lumina Med Spa demo
+site were curl-verified live, correct. `eliteairhvac.com` doesn't resolve from this sandbox (a pre-
+existing environment/DNS limitation, not caused by this change) and `lonestarrestoration.com` currently
+redirects to a parked `/lander` page (pre-existing, unrelated) — both verified instead by reading the
+real stored `content_json` directly, reported as a database-only confirmation rather than claimed as a
+live one.
+
+**Artifacts:** `fa9f0ecc`, pushed. Scoped out on request: the 3 demo/sales clients and 4 QA-fixture
+clients (16 hero blocks) keep their pre-existing AI-phrased headings for now.

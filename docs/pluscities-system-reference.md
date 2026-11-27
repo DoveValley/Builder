@@ -531,7 +531,7 @@ again, regardless of how many times it cleared them before.
 |---|---|---|---|
 | `pluscities_validate_block_picks()` | Whitelists+caps a caller's city/service block picks against the niche's real pools (silently drops invalid, caps 6 city/4 service) | nothing (pure helper) | — |
 | `pluscities_create_page()` | Inserts the page row + spine blocks (hero/overview first, faq/service_area last by design) + chosen city/service blocks, then regenerates every block | `pages`, `blocks` | Rejects picks not in the niche's real pool (returns a named error, doesn't silently drop like the validator helper above) |
-| `pluscities_regenerate_block()` | Re-writes one block's content via the writer, dispatched by classification | `blocks` | Fails if locked; fails if `client-supplied` |
+| `pluscities_regenerate_block()` | Re-writes one block's content via the writer, dispatched by classification | `blocks` | Fails if locked; fails if `client-supplied`. **Added 2026-11-27**: for `hero` specifically, the AI-written heading is overwritten afterward with a deterministic `{primary_keyword} in {city_label}` (title-cased via `pluscities_title_case()`) — see §3.7 |
 | `pluscities_swap_block()` | Changes a block's type within its own pool | `blocks` | **Pool-membership validation added 2026-11-22** — previously had none at all despite a doc comment claiming it did |
 | `pluscities_set_block_lock()` | Toggles `blocks.locked` | `blocks` | **None** — no existence check, thinnest function in the file |
 | `pluscities_edit_block()` | Human edit; auto-locks, sets `origin='edited'`, `client_grounded=1` unconditionally | `blocks` | — |
@@ -821,6 +821,34 @@ restoration on reactivate.
 (`elite-air-hvac`, `lonestar-restoration`, `meade-restoration`) are running the plugin version from before
 this date and won't get cancellation protection until their plugin is reinstalled — this protects new
 clients going forward, not retroactively.
+
+### 3.7 Deterministic hero H1 — added 2026-11-27
+
+Before this date, a hero block's `heading` was entirely AI-written (`pluscities_write_editable_block()`,
+§3.4) — the prompt only says "write a heading + short paragraph, topic: hero, City: X, Service: Y," with
+no instruction constraining the heading's exact wording. Real, live inconsistency this produced: the
+same service in the same niche got "Dermal Fillers in Galveston, TX" on one city and "Refresh Your Look
+With Dermal Fillers in Corpus Christi" on another — same facts, different phrasing, because nothing
+forced agreement.
+
+`pluscities_regenerate_block()` now overwrites a hero block's `heading` after generation (not via a
+tighter prompt — "a prompt instruction is a request, not a guarantee," the same reasoning that already
+governs the SEO `<title>` tag, §3.5): always `{primary_keyword} in {city_label}`, title-cased via the new
+`pluscities_title_case()` rather than plain `ucwords()` (which turns "ac repair" into "Ac Repair," not
+"AC Repair" — a real bug found live, fixed with a small explicit acronym exception list, not a general
+acronym detector). `$primary_keyword` is the SAME field (same fallback-to-slug behavior) that
+`pluscities_resolve_slug()` uses for `{primary_keyword}` (§3.5a) — deliberately not the niche's display
+`label`, so the H1 and the URL always agree on the same keyword. The AI still writes the body paragraph
+underneath; only the heading is no longer left to its phrasing. Same fix also corrected
+`$context['service_label']` (used in every hero/overview prompt's "Service: ..." line) from the raw
+`service_key` slug to the niche's real label — a pre-existing imprecision, found while wiring up the
+label lookup this needed anyway.
+
+**Rolled out to every REAL client's existing pages** (not just applied to future ones): Lumina Med Spa
+(4 pages), `meade-restoration` (4, live on meaderestoration.com), `lonestar-restoration` (1),
+`elite-air-hvac` (1 of 2 — the other, Frisco/AC-repair, is a human-edited block with `locked=1`,
+correctly left untouched rather than silently overwritten). Demo/sales and QA-fixture clients
+deliberately scoped out for now, on request.
 
 ## 4. Functional scope — what's real vs. scaffolding, today
 
