@@ -93,6 +93,58 @@ function lpc_demo_set_niche_override(string $domain, string $niche): void
     @file_put_contents(lpc_demo_niche_overrides_file(), json_encode($overrides, JSON_PRETTY_PRINT));
 }
 
+/** Same file-per-concern pattern as the niche overrides above: the Site Demos
+ *  screen's own custom sort order + a free-text note per domain, since Hestia
+ *  itself has no concept of either and always returns domains alphabetically. */
+function lpc_demo_display_file(): string
+{
+    return BASE_DIR . '/.lpc_demo_display.json';
+}
+
+function lpc_demo_display_data(): array
+{
+    $data = json_decode((string) @file_get_contents(lpc_demo_display_file()), true) ?: [];
+    return [
+        'order' => $data['order'] ?? [],
+        'notes' => $data['notes'] ?? [],
+    ];
+}
+
+function lpc_demo_save_display_data(array $data): void
+{
+    @file_put_contents(lpc_demo_display_file(), json_encode($data, JSON_PRETTY_PRINT));
+}
+
+/** Stored order first (dropping any domain no longer on the box), then any
+ *  domain Hestia reports that isn't in the stored order yet, appended at the
+ *  end in its original (alphabetical) position — so a freshly built site
+ *  always shows up without needing the order to be re-saved first. */
+function lpc_demo_ordered_domains(array $domains): array
+{
+    $order = lpc_demo_display_data()['order'];
+    $known = array_values(array_intersect($order, $domains));
+    $new = array_values(array_diff($domains, $known));
+    return array_merge($known, $new);
+}
+
+function lpc_demo_move_domain(array $domains, string $domain, string $dir): void
+{
+    $order = lpc_demo_ordered_domains($domains);
+    $pos = array_search($domain, $order, true);
+    if ($pos === false) return;
+    $swap = $dir === 'up' ? $pos - 1 : $pos + 1;
+    if ($swap < 0 || $swap >= count($order)) return;
+    [$order[$pos], $order[$swap]] = [$order[$swap], $order[$pos]];
+    lpc_demo_save_display_data(['order' => $order, 'notes' => lpc_demo_display_data()['notes']]);
+}
+
+function lpc_demo_set_note(string $domain, string $note): void
+{
+    $data = lpc_demo_display_data();
+    $data['notes'][$domain] = $note;
+    lpc_demo_save_display_data($data);
+}
+
 function lpc_demo_list_sites(): array
 {
     $siteUser = LPC_DEMO_BOX_SITE_USER;

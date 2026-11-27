@@ -80,8 +80,10 @@ add_action( 'wp_head', function () {
 		.wpb-footer-cols > div { flex: 1 1 220px; }
 		.wpb-footer-bottom { max-width: 1100px; margin: 32px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.15); font-size: .82rem; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
 		@media (max-width: 640px) { .wpb-header { flex-direction: column; gap: 10px; } .wpb-nav a { margin: 0 10px; } }
-		/* Hello Elementor's own header (site title) and page-title both duplicate what our hero block + wpb-header already show — hide both, ours is the only header/title that should render. */
-		.site-header, .page-header { display: none; }
+		/* Hello Elementor's own header (site title) and page-title both duplicate what our hero block + wpb-header already show — hide both, ours is the only header/title that should render.
+		   Astra (2026-11-26) additionally ships its own real Footer Builder output (.site-footer/#colophon) with its own
+		   leftover customizer content — hide it too, ours is the only footer that should render. */
+		.site-header, .page-header, .site-footer { display: none; }
 	</style>
 	<?php
 }, 20 );

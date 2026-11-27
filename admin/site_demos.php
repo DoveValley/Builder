@@ -31,6 +31,20 @@ if (lpc_current_actor_role() !== 'super_admin') {
 }
 
 $domains = lpc_demo_box_domains();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['move_domain']) && in_array($_POST['move_domain'], $domains, true)) {
+    lpc_demo_move_domain($domains, $_POST['move_domain'], $_POST['dir'] === 'up' ? 'up' : 'down');
+    header('Location: site_demos.php');
+    exit;
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['note_domain']) && in_array($_POST['note_domain'], $domains, true)) {
+    lpc_demo_set_note($_POST['note_domain'], trim((string) ($_POST['note'] ?? '')));
+    header('Location: site_demos.php');
+    exit;
+}
+
+$domains = lpc_demo_ordered_domains($domains);
+$notes = lpc_demo_display_data()['notes'];
 $registry = wpb_registry();
 $checkStatus = !empty($_GET['check_status']);
 $status = $checkStatus ? lpc_demo_check_sites_status() : [];
@@ -54,6 +68,10 @@ $status = $checkStatus ? lpc_demo_check_sites_status() : [];
 .pc-demo-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:10px;}
 .pc-demo-up{background:#dcfce7;color:#166534;}
 .pc-demo-down{background:#fee2e2;color:#991b1b;}
+.pc-demo-order{display:flex;flex-direction:column;margin-right:10px;}
+.pc-demo-order button{border:none;background:none;cursor:pointer;color:#6b7280;font-size:.8rem;line-height:1;padding:2px 4px;}
+.pc-demo-order button:disabled{opacity:.25;cursor:default;}
+.pc-demo-note{border:1px solid var(--pc-line,#e2e8f2);border-radius:6px;font-size:.8rem;padding:3px 7px;width:220px;}
 </style>
 
 <div class="pc-card">
@@ -67,16 +85,26 @@ $status = $checkStatus ? lpc_demo_check_sites_status() : [];
             Live status checked just now. <a href="site_demos.php">Hide status</a>
         <?php endif; ?>
     </p>
-    <?php foreach ($domains as $domain):
+    <?php foreach ($domains as $i => $domain):
         $profile = $registry[$domain]['profile'] ?? null;
         $info = $status[$domain] ?? null;
     ?>
         <div class="pc-demo-row">
-            <div>
+            <form method="post" class="pc-demo-order">
+                <input type="hidden" name="move_domain" value="<?= h($domain) ?>">
+                <button type="submit" name="dir" value="up" <?= $i === 0 ? 'disabled' : '' ?>>&#9650;</button>
+                <button type="submit" name="dir" value="down" <?= $i === count($domains) - 1 ? 'disabled' : '' ?>>&#9660;</button>
+            </form>
+            <div style="flex:1;">
                 <a href="http://<?= h($domain) ?>/" target="_blank" rel="noopener"><strong><?= h($domain) ?></strong></a>
                 <?php if ($profile): ?><span style="color:#6b7280;"> — <?= h(wpb_profiles()[$profile] ?? $profile) ?></span><?php endif; ?>
                 <?php if ($info): ?><div style="font-size:.76rem;color:#6b7280;">theme: <?= h($info['theme']) ?></div><?php endif; ?>
             </div>
+            <form method="post" style="display:flex;gap:6px;align-items:center;margin-right:10px;">
+                <input type="hidden" name="note_domain" value="<?= h($domain) ?>">
+                <input type="text" name="note" class="pc-demo-note" placeholder="Note…" value="<?= h($notes[$domain] ?? '') ?>">
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
             <?php if ($info): ?>
                 <span class="pc-demo-badge <?= $info['running'] ? 'pc-demo-up' : 'pc-demo-down' ?>">
                     <?= $info['running'] ? 'Up' : 'Down' ?>
