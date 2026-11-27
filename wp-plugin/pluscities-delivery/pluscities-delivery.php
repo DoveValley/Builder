@@ -301,6 +301,36 @@ function pluscities_delivery_sync_if_needed() {
     update_option('pluscities_pill_text', (string) ($manifest['pill_text'] ?? 'All Service Areas'));
     update_option('pluscities_prefix_service_pages', array_key_exists('prefix_service_pages', $manifest) && !$manifest['prefix_service_pages'] ? 0 : 1);
 
+    // base_path drives the actual REGISTERED rewrite rules (hub route +
+    // prefixed-service-page catch-all), not just an option value read fresh
+    // each request the way the two above are — a real bug found live
+    // 2026-11-27: changing the Service Area URL slug on the admin panel's
+    // Service Area tab updated client.url_base_path server-side (and every
+    // NEW page's slug used it correctly), but this plugin's own rewrite
+    // rules kept matching the OLD value until something explicitly
+    // regenerated + flushed them, which nothing did — the hub page went
+    // unreachable at its new URL while the stale old URL kept half-working.
+    // Only flush on an actual change, not every sync — flush_rewrite_rules()
+    // rewrites a real DB option and shouldn't run on every single pageview.
+    $newBasePath = trim((string) ($manifest['base_path'] ?? ''), '/');
+    $oldBasePath = get_option('pluscities_base_path', 'service-area');
+    if ($newBasePath !== '' && $newBasePath !== $oldBasePath) {
+        // add_rewrite_rule() only ever ADDS — it has no concept of "replace
+        // the rule this plugin registered last time," so without explicitly
+        // removing the two old base-path-specific patterns first, the OLD
+        // base path keeps matching forever alongside the new one (found
+        // live 2026-11-27: both /service-area/ and /service-area1/ served
+        // the same hub page after a rename, instead of the old one 404ing).
+        global $wp_rewrite;
+        unset(
+            $wp_rewrite->extra_rules_top['^' . $oldBasePath . '/(.+)/?$'],
+            $wp_rewrite->extra_rules_top['^' . $oldBasePath . '/?$']
+        );
+        update_option('pluscities_base_path', $newBasePath);
+        pluscities_delivery_add_rewrite_rules();
+        flush_rewrite_rules();
+    }
+
     // Cancellation, added 2026-11-24 — checked before the site_rev gate
     // below, since a cancelled-past-grace manifest always reports
     // site_rev=0/unchanged live_page_ids but still needs the redirect flag
@@ -343,23 +373,42 @@ function pluscities_delivery_sync_if_needed() {
         update_option('pluscities_page_url_' . md5($cp['url']), $cp['page_id']);
     }
 
-    // Reconciliation — delete anything cached earlier that's no longer in the
-    // manifest's live set (e.g. a page that got unpublished). live_page_ids is
-    // the full current truth, not just what changed, so anything cached that
-    // ISN'T in it is stale and safe to remove. The no-expiry transient above
-    // is deliberate for still-live pages (the offline fallback); without this
-    // step an unpublished page would otherwise keep serving forever, since
-    // nothing else in this protocol ever signals a removal.
-    global $wpdb;
+    // Reconciliation — delete anything cached earlier that's no longer
+    // correct. Two distinct stale cases, not one:
+    //   1. A page that got unpublished — its page_id is no longer in
+    //      live_page_ids at all.
+    //   2. A page that got RENAMED (its slug changed, e.g. the Slug field
+    //      or a Niche Library keyword edit) — its page_id is still live,
+    //      but THIS url hash isn't its current one any more. A real bug
+    //      found live 2026-11-27: the old check only ever looked at whether
+    //      the page_id was still live, never whether a given cached URL was
+    //      still that page's real one — so a renamed page's OLD url kept
+    //      serving its content forever, directly contradicting the "no
+    //      redirect, the old URL just 404s" design the admin panel's own
+    //      confirm-before-rename warning promises.
+    // changed_pages is the full live set's current urls whenever site_rev
+    // advances (Phase 1 returns every live page, not a true diff — see the
+    // comment on $changed in pluscities_sync.php), so it's a complete valid
+    // set to check hashes against, not a partial one.
     $liveSet = array_flip($manifest['live_page_ids'] ?? []);
+    $validUrlHashes = array_flip(array_map(fn($cp) => md5($cp['url']), $manifest['changed_pages'] ?? []));
+    global $wpdb;
     $cachedUrlOptions = $wpdb->get_results(
         "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE 'pluscities_page_url_%'"
     );
     foreach ($cachedUrlOptions as $opt) {
+        $hash = substr($opt->option_name, strlen('pluscities_page_url_'));
         $cachedPageId = $opt->option_value;
-        if (!isset($liveSet[$cachedPageId])) {
+        if (!isset($validUrlHashes[$hash])) {
             delete_option($opt->option_name);
-            delete_transient('pluscities_page_' . $cachedPageId);
+            // Only drop the page's own content cache if the page_id itself
+            // is gone too — if it's still live, this was just its OLD url;
+            // the transient under this same page_id is still correct
+            // content for whichever url (plural, potentially) IS still
+            // valid for it, cached above moments earlier in this same pass.
+            if (!isset($liveSet[$cachedPageId])) {
+                delete_transient('pluscities_page_' . $cachedPageId);
+            }
         }
     }
 
