@@ -14,6 +14,13 @@
         "hazards",
         "reviews_from_city"
     ],
+    "default_service_blocks": [
+        "cited_expert_guidance",
+        "niche_data_table",
+        "process",
+        "cost_factors",
+        "why_choose_us"
+    ],
     "approved_sources": [
         "*.gov"
     ],
@@ -26,22 +33,10 @@
         "seasons",
         "civic"
     ],
-    "family_id": "professional-services",
     "always_city_blocks": [
-        "housing_stock",
-        "neighborhoods",
-        "climate_data"
-    ],
-    "default_service_blocks": [
-        "common_problems",
-        "cited_expert_guidance",
-        "niche_data_table",
-        "process",
-        "cost_factors",
-        "why_choose_us"
+        "neighborhoods"
     ],
     "always_service_blocks": [
-        "common_problems",
         "process"
     ],
     "happy_path_city_blocks": [
@@ -53,5 +48,6 @@
         "why_choose_us",
         "cited_expert_guidance",
         "cost_factors"
-    ]
+    ],
+    "family_id": "professional-services"
 }

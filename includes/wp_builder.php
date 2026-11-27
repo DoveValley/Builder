@@ -299,7 +299,7 @@ function wpb_set_home_page(string $domain, array $profile, array $pageIds): void
  * proven vhost+clone+search-replace steps), then run through the same
  * shared steps wpb_update_site() uses.
  */
-function wpb_create_site(string $profileKey, string $domain, array $rawInput, array $files): array
+function wpb_create_site(string $profileKey, string $domain, array $rawInput, array $files, string $cloneFromNiche = ''): array
 {
     $profile = wpb_get_profile($profileKey);
     if (!$profile) {
@@ -317,7 +317,12 @@ function wpb_create_site(string $profileKey, string $domain, array $rawInput, ar
     // param already did a real `wp theme activate`, it just never had a
     // caller pass anything). Every WP Builder site gets real theme chrome
     // instead of whatever the seed happened to have active, not just this one.
-    $create = lpc_demo_create_site($domain, WPB_SEED_NICHE, 'astra');
+    //
+    // $cloneFromNiche lets a caller start from an existing demo site's WP
+    // install instead of the generic blank seed (added 2026-11-27, converting
+    // demo-lawyer.q111.xyz into the starting point for a new insurance-agency
+    // demo) — same clone mechanism either way, just a different source.
+    $create = lpc_demo_create_site($domain, $cloneFromNiche !== '' ? $cloneFromNiche : WPB_SEED_NICHE, 'astra');
     if (!$create['ok']) {
         return $create;
     }
