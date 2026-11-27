@@ -224,6 +224,11 @@ function lpc_admin_nav_items(): array {
         // onboarding-wizard half was retired 2026-11-23, Stage 3) — 2026-11-26.
         $items[] = ['key' => 'site_demos', 'href' => 'site_demos.php', 'label' => 'Site Demos',
             'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>'];
+        // Sales prospecting tool (2026-11-27) — finds real local businesses to
+        // sell PlusCities to, standalone from everything else in this group
+        // (own data store, own files: includes/sales_prospecting*.php).
+        $items[] = ['key' => 'sales', 'href' => 'sales.php', 'label' => 'Sales',
+            'icon' => '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'];
         $items[] = ['key' => 'sites', 'href' => 'sites.php', 'label' => '&larr; Site Factory',
             'icon' => '<path d="M3 12h18M3 6h18M3 18h18"/>'];
     }

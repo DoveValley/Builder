@@ -40,6 +40,11 @@ pluscities_agency_users_secrets/
 # status JSON files and raw job logs, ephemeral build output, not source.
 pluscities_bulk_runs/
 
+# Sales prospecting tool's own job-run status files — same reasoning as
+# pluscities_bulk_runs/ above (the real results live in admin/infra/state/sales.db,
+# already gitignored under admin/infra/state/).
+sales_runs/
+
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 
