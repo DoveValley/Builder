@@ -134,13 +134,17 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
                 <input type="checkbox" name="prefix_service_pages" value="1" <?= $prefixServicePages ? 'checked' : '' ?> style="width:auto;margin-right:6px;vertical-align:middle;">
                 Service pages live under <code>/<?= h($urlBasePath) ?>/</code>
             </label>
-            <p style="color:var(--pc-muted,#52607a);font-size:.78rem;margin:4px 0 0;">
-                On (default): a service page's URL is <code>/<?= h($urlBasePath) ?>/botox-corpus-christi-tx/</code>.
-                Off: it drops straight to <code>/botox-corpus-christi-tx/</code> — only turn this off if you're
-                sure nothing else on this client's real site already uses that exact URL, since there's no
-                automatic collision check against the rest of their site. Only applies to pages built
-                <strong>after</strong> you change this, same as the Slug Pattern above. The Service Area hub page
-                itself always keeps its own URL slug (above), regardless of this setting.
+            <p style="font-size:.86rem;margin:4px 0 0;">
+                <strong>Checked = YES, nest it under <code>/<?= h($urlBasePath) ?>/</code></strong>
+                (default) — a service page's URL is <code>/<?= h($urlBasePath) ?>/botox-corpus-christi-tx/</code>.<br>
+                <strong>Unchecked = NO, drop straight to the root</strong> — a service page's URL is
+                <code>/botox-corpus-christi-tx/</code> instead.
+            </p>
+            <p style="color:var(--pc-muted,#52607a);font-size:.78rem;margin:8px 0 0;">
+                Only turn this off if you're sure nothing else on this client's real site already uses that
+                exact URL — there's no automatic collision check against the rest of their site. Only applies
+                to pages built <strong>after</strong> you change this, same as the Slug Pattern above. The
+                Service Area hub page itself always keeps its own URL slug (above), regardless of this setting.
             </p>
         </div>
         <div class="fg" style="min-width:260px;">
