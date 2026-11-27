@@ -90,6 +90,7 @@ if ($action === 'manifest') {
             'site_rev' => (int) $client['site_rev'], 'changed_pages' => [], 'live_page_ids' => [],
             'cancelled' => true, 'redirect_to' => 'https://' . $client['domain'] . '/',
             'cache_ttl_seconds' => $platformSettings['plugin_cache_ttl_hours'] * 3600,
+            'pill_enabled' => false, 'pill_text' => '',
         ]);
         exit;
     }
@@ -113,10 +114,21 @@ if ($action === 'manifest') {
     // the plugin's ground truth for reconciling away anything it cached
     // earlier that's no longer live (e.g. unpublished), since nothing else
     // in this protocol ever signals a removal.
+    //
+    // Site-wide footer pill settings, sent on every manifest regardless of
+    // whether site_rev moved (the plugin persists these unconditionally,
+    // not gated on the site_rev check below) — same "takes effect
+    // immediately, no regenerate/republish step" intent as the per-page
+    // Related Services pill in pluscities_render_block().
+    $hubContent  = $client['hub_content'] ?? [];
+    $pillEnabled = ($hubContent['enabled'] ?? true) && ($hubContent['pill_enabled'] ?? true);
+    $pillText    = trim((string) ($hubContent['pill_text'] ?? '')) ?: 'All Service Areas';
     echo json_encode([
         'site_rev' => (int) $client['site_rev'], 'changed_pages' => $changed, 'live_page_ids' => $livePageIds,
         'cancelled' => false,
         'cache_ttl_seconds' => $platformSettings['plugin_cache_ttl_hours'] * 3600,
+        'pill_enabled' => $pillEnabled, 'pill_text' => $pillText,
+        'base_path' => trim((string) ($client['url_base_path'] ?? 'service-area'), '/'),
     ]);
     exit;
 }

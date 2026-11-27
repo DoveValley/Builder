@@ -122,8 +122,9 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
                 Show the pill link on other pages
             </label>
             <p style="color:var(--pc-muted,#52607a);font-size:.78rem;margin:4px 0 0;">
-                Every city/service page has a "Related Services" band with a link back to this page — turn
-                it off here if you'd rather not show it.
+                Shows a floating pill in the bottom-right corner of every page on the site, linking back to
+                this page — plus a matching link in each city/service page's own "Related Services" band.
+                Turn it off here if you'd rather not show either.
             </p>
         </div>
         <div class="fg" style="min-width:260px;">

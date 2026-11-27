@@ -48,6 +48,10 @@ function pluscities_delivery_activate() {
     // this platform-wide would be a real regression from what agencies can
     // already do today.
     add_option('pluscities_base_path', 'service-area');
+    // Sensible defaults until the first manifest sync overwrites them —
+    // see pluscities_delivery_render_pill() below for where these are read.
+    add_option('pluscities_pill_enabled', 1);
+    add_option('pluscities_pill_text', 'All Service Areas');
     pluscities_delivery_add_rewrite_rules();
     flush_rewrite_rules();
 }
@@ -280,6 +284,15 @@ function pluscities_delivery_sync_if_needed() {
     $manifest = json_decode(wp_remote_retrieve_body($resp), true);
     if (!is_array($manifest) || !isset($manifest['site_rev'])) return;
 
+    // Site-wide footer pill settings — persisted on EVERY successful manifest
+    // fetch, unconditionally, not gated on the site_rev check below. These
+    // change independently of page content (the Platform Admin can flip the
+    // pill on/off or reword it without touching a single page), so gating
+    // them on "did a page change" would mean a pill edit silently waits for
+    // the next unrelated content change to actually show up site-wide.
+    update_option('pluscities_pill_enabled', !empty($manifest['pill_enabled']) ? 1 : 0);
+    update_option('pluscities_pill_text', (string) ($manifest['pill_text'] ?? 'All Service Areas'));
+
     // Cancellation, added 2026-11-24 — checked before the site_rev gate
     // below, since a cancelled-past-grace manifest always reports
     // site_rev=0/unchanged live_page_ids but still needs the redirect flag
@@ -364,6 +377,41 @@ function pluscities_delivery_sync_if_needed() {
     }
 
     update_option('pluscities_site_rev_seen', (int) $manifest['site_rev']);
+}
+
+/**
+ * Site-wide floating footer pill — the one piece of the retired "Landing
+ * Page Client" plugin's design (includes/footer_link.php, removed in the
+ * Stage 3 cleanup) carried forward into this one: a fixed bottom-right link
+ * back to the hub page, on EVERY page of the site, not just the PlusCities
+ * routes this plugin itself renders. Same reasoning Scott landed on for the
+ * old plugin after two failed attempts at an in-flow version (2026-11-15):
+ * an in-flow wp_footer() link lands wherever a given theme happens to fire
+ * wp_footer(), which on at least one real theme put it buried under that
+ * theme's own fixed-position elements. Fixed positioning sidesteps DOM
+ * placement entirely instead of fighting each theme's markup.
+ *
+ * Calls the sync check itself, same as the two template_redirect handlers
+ * below — this is the only hook that fires on pages neither of those two
+ * ever touch (the theme's own homepage, blog, etc.), so without this call
+ * here the pill's enabled/text options would only ever update when a
+ * visitor happened to land on a PlusCities page first.
+ */
+add_action('wp_footer', 'pluscities_delivery_render_pill');
+function pluscities_delivery_render_pill() {
+    if (get_option('pluscities_api_key', '') === '') return;
+    pluscities_delivery_sync_if_needed();
+    if (!get_option('pluscities_pill_enabled', 1)) return;
+    // A cancelled-past-grace client already 301s every PlusCities route to
+    // their homepage (see the two template_redirect handlers below) — the
+    // pill would otherwise keep linking to a hub page that no longer serves
+    // anything.
+    if (get_option('pluscities_cancelled_redirect', '') !== '') return;
+
+    $base  = trim(get_option('pluscities_base_path', 'service-area'), '/');
+    $label = get_option('pluscities_pill_text', 'All Service Areas');
+    echo '<a href="' . esc_url(home_url('/' . $base . '/')) . '" class="pluscities-footer-pill" style="position:fixed;right:16px;bottom:16px;z-index:999999;background:#1a1a2e;color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;line-height:1.2;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);">'
+        . esc_html($label) . '</a>';
 }
 
 add_action('template_redirect', function () {
