@@ -1518,3 +1518,54 @@ on a changed live URL ever becomes a real, recurring cost worth revisiting.
 is a new real client file (§2.2 of the system reference), left live and in place — including its flat
 slug pattern and the one flat-pattern test page — as a working demonstration of this use case, not torn
 down after testing.
+
+## UC30, 2026-11-27 — optional prefix-less service-page URLs, then 2 real bugs found by actually
+deleting and rebuilding a live client's pages under changing settings, not by reading the code — ✅ PASS
+
+Scott: "if an agency wants a client not to have that pre-slug e.g. service-area, can we create something
+that allows that to not be there" → confirmed "simple" to greenlight the design → "let's do it one more
+time. Delete the pages, re-create the pages with the new default. I just saved... then validate approve
+and publish" — repeated twice over, under two different real setting changes made live through the panel.
+
+**Built**: `client.prefix_service_pages` (default `true`, no change for any existing client) — a page
+either nests under `url_base_path` or sits at the site root. Routing for the root case can't reuse the
+reserved-namespace rewrite rule (`/service-area/*` is reserved; the site root is not), so it's served
+through a new fallback that only ever engages on a genuine WordPress 404 — real content on the client's
+own site always wins a collision. Extracted the title/meta/schema/render block — by now pasted 2 separate
+times across the existing routes — into one shared function while adding the third copy.
+
+**Round 1** (prefix on, the existing `{primary_keyword}-{city}-{state}` pattern): deleted all 4 Lumina
+Med Spa pages + blocks/revisions/overrides directly (no delete-page function exists, same precedent as
+UC28), cleared `target_cities`, relaunched the real bulk job — clean run, no crash this time. Slugs
+resolved exactly as designed, e.g. `/service-area/botox-near-me-galveston-tx/` (Botox's real primary
+keyword really is "botox near me," not a guess).
+
+**Round 2**, after Scott toggled the prefix off and renamed the hub slug to `service-area1` through the
+real panel: same delete+rebuild. New slugs correctly came out flat (`/botox-near-me-galveston-tx/`, no
+prefix) — but the renamed hub page itself was unreachable. **Found bug #1**: the plugin's own local
+`pluscities_base_path` WP option (driving its actual rewrite rules) was never synced from the server's
+`client.url_base_path` — and the first fix attempt still wasn't enough, since `add_rewrite_rule()` only
+ever adds, never replaces, so the OLD base path kept matching too, right alongside the new one
+(`/service-area/` and `/service-area1/` both served the same hub simultaneously). Real fix: explicitly
+remove the plugin's own old rule entries before registering the new ones, then flush — plus one manual
+`wp rewrite flush` to clear the already-corrupted state the first attempt left behind.
+
+**Then** Scott asked where a service's primary keyword is set (Niche Library → Services,
+`slug|label|primary_keyword`) and changed Botox's from "botox near me" to "botox" through the real
+screen. Rebuilt just the 2 Botox pages — new slug correct (`/botox-corpus-christi-tx/`) — but the OLD
+url (`/botox-near-me-corpus-christi-tx/`) kept serving the identical content instead of 404ing. **Found
+bug #2**, more fundamental: the cache-reconciliation step only ever checked "is this page's ID still
+live," never "is this SPECIFIC cached URL still that page's real one" — so a renamed-but-still-live
+page's old URL was never cleaned up, directly contradicting the slug-pattern work's own "no redirect, the
+old URL just 404s" promise (UC29). Fixed by checking each cached URL's hash against the full valid-URL
+set the manifest already carries (every live page's current URL, whenever `site_rev` advances), instead
+of only checking whether the page itself was still live.
+
+**Verified live after both fixes**: new URLs resolve correctly either way; both renamed old URLs (the hub
+rename and the keyword rename) now genuinely 404, no redirect, exactly as designed; every unrelated page,
+the hub, and the floating pill stayed unaffected throughout; a genuinely nonexistent path still 404s
+normally.
+
+**Artifacts:** `2f0688ef`, `d0c201a8`, `42584e80`, all pushed. Three real bugs found this one session
+purely by testing past "looks right in the database" all the way to the live site: `target_cities`
+(UC29), stale rewrite rules (this UC), stale URL cache (this UC).

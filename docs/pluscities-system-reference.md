@@ -158,6 +158,7 @@ demos, deliberately separate from both the real clients above and the QA suite's
 | `target_cities[]` | `{city_id, drive_minutes, confirmed_by_client}` | |
 | `url_base_path` | default `"service-area"` | builds page slugs |
 | `slug_pattern` | token template, added 2026-11-27, default `{city}-{state}/{service}` when unset | only applies to pages created after it's set — see §3.5a |
+| `prefix_service_pages` | bool, added 2026-11-27, default `true` | whether a service page nests under `url_base_path` or sits at the site root — see §3.5d. The hub page always keeps `url_base_path` regardless. |
 | `branding` | logo/accent/dark + detected-color cache | resolution: override > detected > fallback (`#1C2B45`) |
 | `images` | object keyed by slot_id (not an array, despite defaulting to `[]`) | |
 | `hub_content` | `{top_text, footer_text}`, `{{business_name}}` token | renders the client's hub/listing page |
@@ -732,6 +733,59 @@ routing simplification, not a new cache layer. The bare-base-path hub rule is un
 at least one character past `{base}/`, so it never overlaps with the hub rule's zero-segment match
 regardless of rule order. Verified live: every existing nested-path page still resolves unchanged, and a
 newly-created flat-pattern page resolves correctly, side by side on the same site.
+
+### 3.5d Optional prefix-less service-page URLs, added 2026-11-27
+
+`client.prefix_service_pages` (default `true` — no change for any existing client), set on
+`admin/pluscities_hub_edit.php` right below Slug Pattern. When `true` (default), `pluscities_resolve_slug()`
+nests a service page under `url_base_path` same as always. When `false`, it drops that prefix entirely —
+a service page lives at the site root (e.g. `/botox-corpus-christi-tx/` instead of
+`/service-area/botox-corpus-christi-tx/`). The hub page itself always keeps its own `url_base_path` slug
+regardless of this setting — these are deliberately two separate concepts, not one overloaded field,
+since emptying `url_base_path` itself would also break the hub's own bare-path rewrite rule (it would
+become `^/?$` — the client's real homepage).
+
+**The real constraint this runs into**: `/service-area/*` is a reserved namespace — nothing else on a
+client's real WordPress site will ever use it, so the plugin can safely claim the whole thing with one
+rewrite rule. A service page at the site root can't get that same guarantee; a root-level catch-all
+rewrite rule would try to intercept every real page/post on the site, not just PlusCities ones. Instead,
+prefix-less pages are served through a NEW fallback (`template_redirect`, priority 20, after the two
+reserved-namespace routes) that only ever engages on a genuine WordPress 404 — real content on the
+client's site always wins a collision; a PlusCities page that happens to share a slug with real content
+just stays unreachable, a disclosed tradeoff (surfaced in the admin screen's own help text), not a silent
+corruption. Requires an explicit `status_header(200)` before rendering — WordPress already sends a 404
+status by the time this fallback runs, and shipping real content behind a 404 status would make it
+unindexable; found as a real bug during first verification (content was correct, status code wasn't).
+The title/meta/schema/`get_header()`/`get_footer()` placement logic used by all three routes (the city/
+service route, the hub route, and this fallback) was extracted into one shared
+`pluscities_delivery_output_page()` while adding the third copy, rather than pasting a fourth near-
+identical block.
+
+### 3.5e Two real bugs found live during end-to-end slug-pattern testing, 2026-11-27
+
+Both found by actually deleting and rebuilding a real client's pages under changing settings and checking
+the live site, not by reading the code — see Use Cases UC30 for the full narrative.
+
+1. **Stale rewrite rules on a `url_base_path` rename.** The plugin's own `pluscities_base_path` WP option
+   (which drives its actual REGISTERED rewrite rules) was never synced from the server's
+   `client.url_base_path` at all — changing the Service Area slug server-side updated every new page's
+   stored slug correctly, but the plugin kept matching the OLD base path until something explicitly
+   regenerated + flushed its rewrite rules, which nothing did. Fixed in
+   `pluscities_delivery_sync_if_needed()`: sync `base_path` from the manifest, and when it changes,
+   explicitly `unset()` the plugin's own previously-registered rule entries from
+   `$wp_rewrite->extra_rules_top` before re-registering with the new value and flushing —
+   `add_rewrite_rule()` only ever adds, it has no "replace what I registered last time" concept, so
+   without the explicit removal the old base path kept matching forever alongside the new one (both
+   were observed serving the same hub page simultaneously before this fix).
+2. **Stale cached URL for a renamed-but-still-live page.** The cache-reconciliation step in
+   `pluscities_delivery_sync_if_needed()` only ever checked "is this page's ID still live" to decide
+   whether a cached `pluscities_page_url_*` mapping was stale — never "is THIS SPECIFIC cached URL still
+   that page's current one." A page whose slug changed (via the per-page Slug field, or a Niche Library
+   primary-keyword edit) kept its OLD url serving the same content forever, directly contradicting §3.5a's
+   own "no redirect — the old URL just 404s" design. Fixed by building the valid-URL-hash set from the
+   manifest's `changed_pages` (which already carries every live page's CURRENT url whenever `site_rev`
+   advances — a Phase 1 guarantee, see §3.5) and purging any cached mapping whose hash isn't in that set,
+   independent of whether its page_id is still live.
 
 ### 3.6 Client cancellation — added 2026-11-24
 

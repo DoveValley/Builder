@@ -179,7 +179,11 @@ tool, validated/approved/published, confirmed genuinely live on a real productio
 (same doc, 2026-11-27) covers the first client ever built end-to-end through the real wizard (not
 hand-authored), 2 real gaps found and fixed live (plugin never installed; a crashed bulk job left
 `target_cities` unregistered), the site-wide floating pill restored from the retired engine, and
-configurable page-slug patterns shipped with a confirm-guard instead of redirect infrastructure —
+configurable page-slug patterns shipped with a confirm-guard instead of redirect infrastructure; UC30
+(same doc, 2026-11-27) adds optional prefix-less service-page URLs, then finds and fixes 2 MORE real
+bugs live by actually deleting and rebuilding a client's pages under changing settings — stale WP-
+plugin rewrite rules on a base-path rename, and a stale cached URL for a renamed-but-still-live page
+that silently kept serving its old URL forever, contradicting the no-redirect design's own promise —
 all capabilities/fixes added *after* this audit's row set was fixed to the
 2026-11-23 system reference, not part of the original spec being measured here. See
-`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-29 for how it was verified.
+`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-30 for how it was verified.
