@@ -176,6 +176,74 @@ function wpb_deploy_profile_chrome(string $domain, array $profile): void
     if (!empty($profile['chrome_dir'])) {
         wpb_deploy_mu_plugin_dir($domain, $profile['chrome_dir']);
     }
+    wpb_clear_astra_demo_leftovers($domain);
+}
+
+/**
+ * Astra's own native Footer/Header Builder sections carry real leftover
+ * content from whichever Astra starter-template demo was originally
+ * imported onto a site (found live 2026-11-27: demo-lawyer.q111.xyz's
+ * "injury-accident-lawyer" import left a stale logo image hotlinked to
+ * websitedemos.net, a wrong phone number, and sample working hours — none
+ * of it this client's real info, none of it something any WP Builder
+ * profile field ever set or manages). Not every site has this (confirmed
+ * clean on demo-lumina-medspa.q111.xyz, a different starter template), but
+ * nothing distinguishes "clean" from "affected" cheaply, so this just
+ * clears the known leftover keys unconditionally on every site — a no-op
+ * on a site that never had them. The mu-plugin chrome (.wpb-footer) is the
+ * only footer that should show real business info, same reasoning as the
+ * CSS reset above that hides Astra's native .site-footer/.site-header —
+ * these Astra-native HTML zones should render nothing, not something stale.
+ */
+function wpb_clear_astra_demo_leftovers(string $domain): void
+{
+    $dir = wpb_site_dir($domain);
+    $getCmd = wpb_wp_cli($domain, 'option get astra-settings --format=json') . ' 2>/dev/null';
+    $r = lpc_demo_box_ssh($getCmd);
+    // lpc_demo_box_ssh() merges the local ssh client's own stderr (a real,
+    // unconditional "Warning: Permanently added..." host-key line every
+    // call, not just the first — StrictHostKeyChecking=no + a null known-
+    // hosts file) ahead of the remote command's actual output — found live
+    // 2026-11-27 silently breaking this exact json_decode(). Skip to the
+    // first '{' rather than trusting $r['output'] is clean JSON on its own.
+    $jsonStart = strpos($r['output'], '{');
+    $settings = $jsonStart !== false ? json_decode(substr($r['output'], $jsonStart), true) : null;
+    if (!is_array($settings)) return; // no astra-settings option at all — nothing to clean
+
+    $leftoverKeys = ['footer-html-1', 'footer-html-2', 'header-button1-text'];
+    $changed = false;
+    foreach ($leftoverKeys as $key) {
+        if (($settings[$key] ?? '') !== '') {
+            $settings[$key] = '';
+            $changed = true;
+        }
+    }
+    if (!$changed) return;
+
+    // Staged through a file, not inlined as a shell argument — the full
+    // option is 200KB+ of nested serialized Customizer data, the same
+    // "transfer the bytes, don't fight shell-escaping them" reasoning
+    // wpb_upload_photo() already uses for binary uploads.
+    $localTmp = tempnam(sys_get_temp_dir(), 'wpb_astra_');
+    file_put_contents($localTmp, json_encode($settings));
+    $remoteStage = '/tmp/wpb_astra_' . bin2hex(random_bytes(6)) . '.json';
+    wpb_scp_to_box($localTmp, $remoteStage);
+    unlink($localTmp);
+
+    // Two real bugs found live getting this far, 2026-11-27:
+    // 1. scp (as root, lpc_demo_box_ssh()'s own user) lands the staged file
+    //    owned root:root, mode 600 — unreadable by `demo`, the user the
+    //    wp-cli call runs as via sudo, so without this chmod `cat` fails
+    //    (permission denied on stderr) and the update silently no-ops.
+    // 2. The full ~215KB value can't go through as a literal command-line
+    //    argument via `"$(cat file)"` — `sudo` itself rejects it with
+    //    "Argument list too long" before wp-cli ever runs. Piped through
+    //    stdin instead (wp-cli reads the value from stdin when none is
+    //    given positionally) — stdin has no such size limit.
+    $setCmd = 'chmod 644 ' . escapeshellarg($remoteStage) . ' && cat ' . escapeshellarg($remoteStage) . ' | '
+            . wpb_wp_cli($domain, 'option update astra-settings --format=json')
+            . ' ; rm -f ' . escapeshellarg($remoteStage);
+    lpc_demo_box_ssh($setCmd);
 }
 
 /** Normalizes raw input through a profile's own normalize callback, then fills in any field defaults it left blank. */
