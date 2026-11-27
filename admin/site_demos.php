@@ -30,20 +30,57 @@ if (lpc_current_actor_role() !== 'super_admin') {
     exit;
 }
 
+/** The 4 reorder buttons (one step up/down, or jump straight to top/bottom)
+ *  shared by domain rows and section-header rows — same move_entry target,
+ *  just a different type/id. */
+function site_demos_order_buttons(string $type, string $id, bool $isFirst, bool $isLast): void
+{
+    ?>
+    <form method="post" class="pc-demo-order">
+        <input type="hidden" name="move_type" value="<?= h($type) ?>">
+        <input type="hidden" name="move_id" value="<?= h($id) ?>">
+        <button type="submit" name="move_action" value="top" <?= $isFirst ? 'disabled' : '' ?> title="Move to top">&#8607;</button>
+        <button type="submit" name="move_action" value="bottom" <?= $isLast ? 'disabled' : '' ?> title="Move to bottom">&#8609;</button>
+        <button type="submit" name="move_action" value="up" <?= $isFirst ? 'disabled' : '' ?> title="Move up">&#9650;</button>
+        <button type="submit" name="move_action" value="down" <?= $isLast ? 'disabled' : '' ?> title="Move down">&#9660;</button>
+    </form>
+    <?php
+}
+
 $domains = lpc_demo_box_domains();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['move_domain']) && in_array($_POST['move_domain'], $domains, true)) {
-    lpc_demo_move_domain($domains, $_POST['move_domain'], $_POST['dir'] === 'up' ? 'up' : 'down');
-    header('Location: site_demos.php');
-    exit;
-}
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['note_domain']) && in_array($_POST['note_domain'], $domains, true)) {
-    lpc_demo_set_note($_POST['note_domain'], trim((string) ($_POST['note'] ?? '')));
-    header('Location: site_demos.php');
-    exit;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $moveType = $_POST['move_type'] ?? '';
+    $moveId = $_POST['move_id'] ?? '';
+    $moveAction = in_array($_POST['move_action'] ?? '', ['up', 'down', 'top', 'bottom'], true) ? $_POST['move_action'] : null;
+    if ($moveType === 'domain' && $moveAction && in_array($moveId, $domains, true)) {
+        lpc_demo_move_entry($domains, 'domain', $moveId, $moveAction);
+        header('Location: site_demos.php');
+        exit;
+    }
+    if ($moveType === 'section' && $moveAction && $moveId !== '') {
+        lpc_demo_move_entry($domains, 'section', $moveId, $moveAction);
+        header('Location: site_demos.php');
+        exit;
+    }
+    if (!empty($_POST['note_domain']) && in_array($_POST['note_domain'], $domains, true)) {
+        lpc_demo_set_note($_POST['note_domain'], trim((string) ($_POST['note'] ?? '')));
+        header('Location: site_demos.php');
+        exit;
+    }
+    if (!empty($_POST['add_section_label'])) {
+        lpc_demo_add_section(trim((string) $_POST['add_section_label']));
+        header('Location: site_demos.php');
+        exit;
+    }
+    if (!empty($_POST['remove_section_id'])) {
+        lpc_demo_remove_section($_POST['remove_section_id']);
+        header('Location: site_demos.php');
+        exit;
+    }
 }
 
-$domains = lpc_demo_ordered_domains($domains);
+$layout = lpc_demo_layout($domains);
 $notes = lpc_demo_display_data()['notes'];
 $registry = wpb_registry();
 $checkStatus = !empty($_GET['check_status']);
@@ -68,10 +105,13 @@ $status = $checkStatus ? lpc_demo_check_sites_status() : [];
 .pc-demo-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:10px;}
 .pc-demo-up{background:#dcfce7;color:#166534;}
 .pc-demo-down{background:#fee2e2;color:#991b1b;}
-.pc-demo-order{display:flex;flex-direction:column;margin-right:10px;}
-.pc-demo-order button{border:none;background:none;cursor:pointer;color:#6b7280;font-size:.8rem;line-height:1;padding:2px 4px;}
+.pc-demo-order{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-right:10px;}
+.pc-demo-order button{border:none;background:none;cursor:pointer;color:#6b7280;font-size:.72rem;line-height:1.6;padding:1px 4px;}
 .pc-demo-order button:disabled{opacity:.25;cursor:default;}
-.pc-demo-note{border:1px solid var(--pc-line,#e2e8f2);border-radius:6px;font-size:.8rem;padding:3px 7px;width:220px;}
+.pc-demo-note{border:1px solid var(--pc-line,#e2e8f2);border-radius:6px;font-size:.8rem;padding:3px 7px;width:180px;}
+.pc-demo-section{display:flex;justify-content:space-between;align-items:center;padding:8px 0 6px;margin-top:6px;border-bottom:2px solid var(--pc-line,#e2e8f2);}
+.pc-demo-section:first-child{margin-top:0;}
+.pc-demo-section h4{margin:0;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:#6b7280;}
 </style>
 
 <div class="pc-card">
@@ -85,33 +125,49 @@ $status = $checkStatus ? lpc_demo_check_sites_status() : [];
             Live status checked just now. <a href="site_demos.php">Hide status</a>
         <?php endif; ?>
     </p>
-    <?php foreach ($domains as $i => $domain):
+    <form method="post" style="display:flex;gap:6px;align-items:center;margin-bottom:14px;">
+        <input type="text" name="add_section_label" class="pc-demo-note" placeholder="New section name…">
+        <button type="submit" class="btn-sm-outline">+ Add section</button>
+    </form>
+    <?php foreach ($layout as $i => $entry):
+        $isFirst = $i === 0;
+        $isLast = $i === count($layout) - 1;
+        if (is_array($entry)): // section header
+    ?>
+        <div class="pc-demo-section">
+            <h4><?= h($entry['section']) ?></h4>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <?php site_demos_order_buttons('section', $entry['id'], $isFirst, $isLast) ?>
+                <form method="post" onsubmit="return confirm('Remove this section header? Sites under it are kept.');">
+                    <input type="hidden" name="remove_section_id" value="<?= h($entry['id']) ?>">
+                    <button type="submit" class="btn-sm-danger">Remove</button>
+                </form>
+            </div>
+        </div>
+    <?php else:
+        $domain = $entry;
         $profile = $registry[$domain]['profile'] ?? null;
         $info = $status[$domain] ?? null;
     ?>
         <div class="pc-demo-row">
-            <form method="post" class="pc-demo-order">
-                <input type="hidden" name="move_domain" value="<?= h($domain) ?>">
-                <button type="submit" name="dir" value="up" <?= $i === 0 ? 'disabled' : '' ?>>&#9650;</button>
-                <button type="submit" name="dir" value="down" <?= $i === count($domains) - 1 ? 'disabled' : '' ?>>&#9660;</button>
+            <?php site_demos_order_buttons('domain', $domain, $isFirst, $isLast) ?>
+            <form method="post" style="display:flex;gap:6px;align-items:center;margin-right:10px;">
+                <input type="hidden" name="note_domain" value="<?= h($domain) ?>">
+                <input type="text" name="note" class="pc-demo-note" placeholder="Note…" value="<?= h($notes[$domain] ?? '') ?>">
+                <button type="submit" class="btn-sm-outline">Save</button>
             </form>
             <div style="flex:1;">
                 <a href="http://<?= h($domain) ?>/" target="_blank" rel="noopener"><strong><?= h($domain) ?></strong></a>
                 <?php if ($profile): ?><span style="color:#6b7280;"> — <?= h(wpb_profiles()[$profile] ?? $profile) ?></span><?php endif; ?>
                 <?php if ($info): ?><div style="font-size:.76rem;color:#6b7280;">theme: <?= h($info['theme']) ?></div><?php endif; ?>
             </div>
-            <form method="post" style="display:flex;gap:6px;align-items:center;margin-right:10px;">
-                <input type="hidden" name="note_domain" value="<?= h($domain) ?>">
-                <input type="text" name="note" class="pc-demo-note" placeholder="Note…" value="<?= h($notes[$domain] ?? '') ?>">
-                <button type="submit" class="btn-sm-outline">Save</button>
-            </form>
             <?php if ($info): ?>
                 <span class="pc-demo-badge <?= $info['running'] ? 'pc-demo-up' : 'pc-demo-down' ?>">
                     <?= $info['running'] ? 'Up' : 'Down' ?>
                 </span>
             <?php endif; ?>
         </div>
-    <?php endforeach; ?>
-    <?php if (!$domains): ?><p style="color:#6b7280;font-size:.84rem;">No sites on the box yet.</p><?php endif; ?>
+    <?php endif; endforeach; ?>
+    <?php if (!$layout): ?><p style="color:#6b7280;font-size:.84rem;">No sites on the box yet.</p><?php endif; ?>
 </div>
 <?php lpc_admin_close(); ?>

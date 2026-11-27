@@ -1,0 +1,85 @@
+{
+    "client_id": "lumina-med-spa",
+    "agency_id": "coastal-marketing",
+    "niche_id": "med-spa",
+    "domain": "demo-lumina-medspa.q111.xyz",
+    "site_rev": 5,
+    "plugin_rev": 0,
+    "plugin_version": "0.3.1",
+    "last_seen_at": "2026-11-27T03:38:17+00:00",
+    "class_prefix": "lpc-luminamedspa",
+    "radius_minutes": 30,
+    "identity": {
+        "business_name": "Lumina Med Spa",
+        "hubs": [
+            {
+                "address": "100 Seawall Blvd, Galveston, TX 77550",
+                "phone": "(409) 555-0142"
+            }
+        ]
+    },
+    "licenses": [],
+    "years_in_business": null,
+    "hours": {
+        "mon_fri": "",
+        "sat": "",
+        "sun": ""
+    },
+    "banned_phrases": [],
+    "photos_by_city": [],
+    "reviews_by_city": [],
+    "price_ranges": null,
+    "billing": {
+        "tier": "50",
+        "custom_override": null
+    },
+    "requires_client_approval": false,
+    "status": "active",
+    "canceled_at": null,
+    "services": [
+        "botox",
+        "dermal-fillers",
+        "lip-fillers",
+        "laser-hair-removal",
+        "coolsculpting",
+        "chemical-peels",
+        "microneedling",
+        "hydrafacial",
+        "iv-therapy",
+        "medical-weight-loss"
+    ],
+    "target_cities": [
+        {
+            "city_id": "galveston-tx",
+            "drive_minutes": 15,
+            "confirmed_by_client": false
+        },
+        {
+            "city_id": "corpus-christi-tx",
+            "drive_minutes": 15,
+            "confirmed_by_client": false
+        }
+    ],
+    "url_base_path": "service-area",
+    "branding": {
+        "logo_url": "",
+        "brand_color": "",
+        "accent_override": null,
+        "dark_override": null,
+        "detected_accent": null,
+        "detected_dark": null,
+        "colors_detected_at": null
+    },
+    "images": [],
+    "hub_content": {
+        "top_text": "&nbsp;\r\n\r\n<h2>Service Area</h2>\r\n\r\n{{business_name}} proudly serves the following areas:\r\n\r\n&nbsp;",
+        "footer_text": "&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;\r\n\r\n&nbsp;",
+        "hub_city_format": "simple",
+        "hub_city_format_custom": "",
+        "enabled": true,
+        "pill_enabled": true,
+        "pill_text": "Service Area"
+    },
+    "theme": "Astra",
+    "seo_plugin": "none"
+}

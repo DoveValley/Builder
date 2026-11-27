@@ -115,27 +115,75 @@ function lpc_demo_save_display_data(array $data): void
     @file_put_contents(lpc_demo_display_file(), json_encode($data, JSON_PRETTY_PRINT));
 }
 
-/** Stored order first (dropping any domain no longer on the box), then any
- *  domain Hestia reports that isn't in the stored order yet, appended at the
- *  end in its original (alphabetical) position — so a freshly built site
- *  always shows up without needing the order to be re-saved first. */
-function lpc_demo_ordered_domains(array $domains): array
+/** The stored order, but it's not just domains any more — a section header
+ *  is stored as ['section' => label, 'id' => id] in the same array, so it
+ *  sorts and moves exactly like a domain does. Stale domains (no longer on
+ *  the box) are dropped; a domain Hestia reports that isn't positioned yet
+ *  is appended at the end — so a freshly built site always shows up without
+ *  needing the layout to be re-saved first. Section headers are always kept
+ *  (removed only via lpc_demo_remove_section). */
+function lpc_demo_layout(array $domains): array
 {
     $order = lpc_demo_display_data()['order'];
-    $known = array_values(array_intersect($order, $domains));
-    $new = array_values(array_diff($domains, $known));
-    return array_merge($known, $new);
+    $placed = [];
+    $layout = [];
+    foreach ($order as $entry) {
+        if (is_array($entry)) {
+            $layout[] = $entry;
+        } elseif (in_array($entry, $domains, true)) {
+            $layout[] = $entry;
+            $placed[] = $entry;
+        }
+    }
+    foreach (array_diff($domains, $placed) as $new) {
+        $layout[] = $new;
+    }
+    return $layout;
 }
 
-function lpc_demo_move_domain(array $domains, string $domain, string $dir): void
+/** $type is 'domain' (id = the domain string) or 'section' (id = its generated id).
+ *  $action is 'up'/'down' (one step) or 'top'/'bottom' (the bigger jump). */
+function lpc_demo_move_entry(array $domains, string $type, string $id, string $action): void
 {
-    $order = lpc_demo_ordered_domains($domains);
-    $pos = array_search($domain, $order, true);
-    if ($pos === false) return;
-    $swap = $dir === 'up' ? $pos - 1 : $pos + 1;
-    if ($swap < 0 || $swap >= count($order)) return;
-    [$order[$pos], $order[$swap]] = [$order[$swap], $order[$pos]];
-    lpc_demo_save_display_data(['order' => $order, 'notes' => lpc_demo_display_data()['notes']]);
+    $layout = lpc_demo_layout($domains);
+    $pos = null;
+    foreach ($layout as $i => $entry) {
+        $entryId = is_array($entry) ? ($entry['id'] ?? null) : $entry;
+        $entryType = is_array($entry) ? 'section' : 'domain';
+        if ($entryType === $type && $entryId === $id) { $pos = $i; break; }
+    }
+    if ($pos === null) return;
+    $item = $layout[$pos];
+    unset($layout[$pos]);
+    $layout = array_values($layout);
+    $target = match ($action) {
+        'up' => max(0, $pos - 1),
+        'down' => min(count($layout), $pos + 1),
+        'top' => 0,
+        'bottom' => count($layout),
+        default => $pos,
+    };
+    array_splice($layout, $target, 0, [$item]);
+    $data = lpc_demo_display_data();
+    $data['order'] = $layout;
+    lpc_demo_save_display_data($data);
+}
+
+function lpc_demo_add_section(string $label): void
+{
+    $data = lpc_demo_display_data();
+    $data['order'][] = ['section' => $label, 'id' => bin2hex(random_bytes(4))];
+    lpc_demo_save_display_data($data);
+}
+
+function lpc_demo_remove_section(string $id): void
+{
+    $data = lpc_demo_display_data();
+    $data['order'] = array_values(array_filter(
+        $data['order'],
+        fn($entry) => !(is_array($entry) && ($entry['id'] ?? null) === $id)
+    ));
+    lpc_demo_save_display_data($data);
 }
 
 function lpc_demo_set_note(string $domain, string $note): void

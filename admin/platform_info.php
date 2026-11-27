@@ -45,8 +45,9 @@ if (!isset($TABS[$tab])) $tab = 'who_logged_in';
 // key => label map everything else (validation, tab lookups) uses.
 $TAB_ROWS = [
     ['label' => 'Settings', 'tabs' => ['who_logged_in']],
-    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page', 'roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users', 'family_niche_blocks', 'niche_to_family', 'family_default_blocks', 'building_niche_blueprint']],
+    ['label' => 'PlusCities', 'tabs' => ['how_it_works', 'content_workflow', 'client_approval_stage', 'spec_document', 'city_page']],
     ['label' => 'General Niche/Page Generation', 'tabs' => ['content_flow']],
+    ['label' => 'System', 'tabs' => ['roadmap', 'claude', 'use_cases', 'flow_diagrams', 'users', 'family_niche_blocks', 'niche_to_family', 'family_default_blocks', 'building_niche_blueprint']],
 ];
 
 function platform_info_fmt_duration(int $seconds): string {
