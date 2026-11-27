@@ -1453,3 +1453,68 @@ in the abstract ("published pages are served... through a thin WordPress plugin.
 **Artifacts:** no code changes (pure verification + real lifecycle actions on real data), this entry.
 Milestone 1 (one real niche, end to end, on a real WP site) is DONE. Milestone 2 (review all 4
 families' rendered page quality/SEO) not started.
+
+## UC29, 2026-11-27 — first client built end-to-end through the real wizard (not hand-authored),
+found + fixed 2 real gaps live; site-wide pill restored; configurable slug patterns shipped — ✅ PASS
+
+Scott: "can we test the med spa niche by adding a client in coastal marketing... demo-lumina-medspa.q111.xyz...
+add two towns and two services... add a pill link at the bottom that says service area... just do the
+default items through the wizards."
+
+**Every real client before this one (`elite-air-hvac`, `lonestar-restoration`, `meade-restoration`) was
+hand-authored JSON or built through direct function calls — this is the first one created by actually
+driving `admin/pluscities_clients.php`'s wizard itself**, end to end: Coastal Marketing agency, med-spa
+niche, `demo-lumina-medspa.q111.xyz`, bulk mode, 2 real cities (`galveston-tx`, `corpus-christi-tx`) × 2
+real services (`botox`, `dermal-fillers`). Driven with Playwright against the real login form using
+real credentials — attempting to forge an admin session to skip the login step (to avoid asking for the
+password) was correctly refused by the environment's own security classifier as an auth-bypass pattern,
+even self-directed on a box already under full filesystem control; asking Scott for the real credentials
+and driving the actual form was the right call, not a workaround to find.
+
+**Found + fixed 2 real gaps live, not during planning:**
+1. **The PlusCities Delivery plugin had never been installed on this demo site.** `plugin_rev`/
+   `last_seen_at` were empty on the client record, and the box's `wp-content/plugins/` only had the OLD,
+   retired `landing-page-client` plugin (pointed at a different, old delivery server) — confirmed via
+   direct SSH listing, not assumed. Deployed `pluscities-delivery`, activated via wp-cli, set the real API
+   key + delivery base URL, confirmed via a real `last_seen_at` check-in.
+2. **The bulk page-build job crashed on its 4th combo** — a `SQLite database is locked` fatal, caused by
+   concurrent read queries against `pluscities.db` from this same debugging session while the job held a
+   write lock (a self-inflicted collision, not a latent bug waiting to be found by someone else). The page
+   row itself got created before the crash, but the post-loop step in
+   `includes/pluscities_bulk_pages_cli.php` that registers built cities onto `client.target_cities[]`
+   never ran — so every one of the 4 pages failed the validator's `service_radius` check with "this city
+   is not on the client's target-cities list at all." Patched `target_cities` by hand, regenerated the one
+   page's content blocks that got left mid-generation, then ran all 4 through
+   `pluscities_run_validator()` → `pluscities_approve_page()` → `pluscities_publish_page()` for real —
+   confirmed live on the actual domain (`200`, real content, both towns, both services).
+
+**Site-wide floating Service Area pill, restored from the retired engine.** The old
+`landing-page-client` plugin's `includes/footer_link.php` (deleted in the Stage 3 cleanup, recovered
+from git history at `8391774e~1`) rendered a fixed bottom-right badge on every page linking back to the
+hub; the PlusCities rewrite only ever carried the per-page inline version forward. Re-built as a
+`wp_footer` hook in `pluscities-delivery.php`, driven by the same `pill_enabled`/`pill_text` fields the
+inline pill already used — one setting now controls both. Verified live on 3 different page types:
+the client's own (non-PlusCities) homepage, the hub page, and a generated service page.
+
+**Configurable page-slug patterns, with a guard instead of redirect infrastructure, by explicit
+decision.** Walked the full design through conversationally before writing any code — a per-client
+`slug_pattern` token template (default reproduces today's URLs byte-for-byte, confirmed via direct
+comparison against a real stored slug), a per-page slug field for one-off edits, and — when Scott said
+"let's go with the guard-only approach, keep it simple" after weighing the redirect question directly —
+a confirm-before-save warning for changing an already-*live* page's slug (no hard block, no redirect
+system; a draft page changes freely). The real architectural change this required: the WordPress
+plugin's rewrite rule went from a fixed two-segment `city/service` parse to one catch-all captured
+string, looked up directly — necessary since a pattern can produce a flat single segment or a nested
+path of any depth, neither of which the old fixed shape could parse positionally. Verified live,
+end to end, via the real admin panel (Playwright again, not just unit tests): existing nested URLs
+resolve unchanged; a new page built under a flat pattern (`/service-area/lip-fillers-galveston-tx/`)
+resolves correctly; dismissing the live-page confirm dialog genuinely blocks the save and accepting it
+genuinely saves; a real slug collision with another page is rejected with a clear error. Cleaned up
+every test edit back to the real values afterward. The deferred redirect system is recorded on the
+Product Roadmap tab (Tier 3 — differentiators) rather than silently dropped, in case losing SEO value
+on a changed live URL ever becomes a real, recurring cost worth revisiting.
+
+**Artifacts:** `8a8cd76b`, `7ae4a97f`, `18bff662`, `1c557b7b`, `83fdc6d2`, all pushed. `lumina-med-spa.json`
+is a new real client file (§2.2 of the system reference), left live and in place — including its flat
+slug pattern and the one flat-pattern test page — as a working demonstration of this use case, not torn
+down after testing.

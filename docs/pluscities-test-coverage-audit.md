@@ -175,7 +175,11 @@ with real validation, Recommended/Optional pickers, one real wizard bug fixed, a
 live; UC27 (same doc, 2026-11-26) ships bulk "multiple cities x multiple services" page creation as a
 real background job, expands water-damage-restoration to 11 real services, fixes a real keyword-
 validation bug; UC28 (same doc, 2026-11-26) proves Milestone 1 — one real niche built via the bulk
-tool, validated/approved/published, confirmed genuinely live on a real production WordPress site —
+tool, validated/approved/published, confirmed genuinely live on a real production WordPress site; UC29
+(same doc, 2026-11-27) covers the first client ever built end-to-end through the real wizard (not
+hand-authored), 2 real gaps found and fixed live (plugin never installed; a crashed bulk job left
+`target_cities` unregistered), the site-wide floating pill restored from the retired engine, and
+configurable page-slug patterns shipped with a confirm-guard instead of redirect infrastructure —
 all capabilities/fixes added *after* this audit's row set was fixed to the
 2026-11-23 system reference, not part of the original spec being measured here. See
-`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-28 for how it was verified.
+`docs/pluscities-system-reference.md` §5.5 for what's there and UC19-29 for how it was verified.

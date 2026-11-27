@@ -171,6 +171,14 @@ STEP 8 — RENDER (production)
 STEP 9 — LIVE PAGE
   /service-area/frisco-tx/ac-repair/
   — the niche's inherited block shape + this city's furniture + this service's keyword, assembled
+
+  NOTE (added 2026-11-27): this URL shape is the DEFAULT, not the only one — client.slug_pattern
+  (a token template: {primary_keyword}/{city}/{state}/{service}) can produce a flat single segment
+  (e.g. /service-area/botox-corpus-christi-tx/) or any nested depth instead. Only applies to pages
+  created after the pattern is set; a per-page Slug field can also override one page directly. See
+  docs/pluscities-system-reference.md §3.5a/§3.5c (the routing change this required — a catch-all
+  rewrite rule + lookup-by-slug, not the fixed two-segment parse this diagram's STEP 9/Render still
+  describe as the default case).
 ```
 
 ---

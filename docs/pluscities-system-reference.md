@@ -72,7 +72,7 @@ page_id          TEXT PRIMARY KEY   -- "pg_<client_id>_<city_id>_<service_key>"
 client_id        TEXT               -- -> pluscities_clients/<client_id>.json (file-based, not a DB FK)
 city_id          TEXT
 service_key      TEXT
-slug             TEXT
+slug             TEXT                     -- resolved from client.slug_pattern at creation, directly editable after — see §3.5a
 status           TEXT DEFAULT "draft"     -- draft | approved | live | unpublished
 approval_stage   TEXT DEFAULT "none"      -- none | pending_client_review | approved (real values as of 2026-11-24 — see §3.1)
 live_revision_id INTEGER                  -- -> revisions.number
@@ -122,10 +122,13 @@ explicit revoke needed. **0 rows in the live DB today** — built, not yet exerc
 
 ### 2.2 Client JSON record — `pluscities_clients/<client_id>.json`
 
-File-based, not in SQLite. Built in `admin/pluscities_clients_save.php`. 3 real files exist today:
-`elite-air-hvac.json`, `lonestar-restoration.json`, `meade-restoration.json`. Plus 3 demo-only files, built
-2026-11-24 specifically for sales demos, deliberately separate from both the real clients above and the QA
-suite's fixtures: `lone-star-comfort-heating-air-2.json`, `coastal-breeze-hvac-services.json`,
+File-based, not in SQLite. Built in `admin/pluscities_clients_save.php`. 4 real files exist today:
+`elite-air-hvac.json`, `lonestar-restoration.json`, `meade-restoration.json`, and `lumina-med-spa.json`
+(added 2026-11-27 — the first client ever created through the actual wizard rather than hand-authored
+JSON; Coastal Marketing agency, med-spa niche, 2 real cities × 2 real services, used directly to prove
+out §3.5a's slug-pattern work end to end). Plus 3 demo-only files, built 2026-11-24 specifically for sales
+demos, deliberately separate from both the real clients above and the QA suite's fixtures:
+`lone-star-comfort-heating-air-2.json`, `coastal-breeze-hvac-services.json`,
 `clearwater-restoration-pros.json` (under the demo agency `northstar-digital-marketing-demo`).
 
 | Field | Meaning | Notes |
@@ -154,6 +157,7 @@ suite's fixtures: `lone-star-comfort-heating-air-2.json`, `coastal-breeze-hvac-s
 | `services[]` | slugs, must match the niche blueprint's `services[].slug` | |
 | `target_cities[]` | `{city_id, drive_minutes, confirmed_by_client}` | |
 | `url_base_path` | default `"service-area"` | builds page slugs |
+| `slug_pattern` | token template, added 2026-11-27, default `{city}-{state}/{service}` when unset | only applies to pages created after it's set — see §3.5a |
 | `branding` | logo/accent/dark + detected-color cache | resolution: override > detected > fallback (`#1C2B45`) |
 | `images` | object keyed by slot_id (not an array, despite defaulting to `[]`) | |
 | `hub_content` | `{top_text, footer_text}`, `{{business_name}}` token | renders the client's hub/listing page |
@@ -623,9 +627,13 @@ per-client secret file (matched by client_id, not by scanning key content — av
 authenticating as the wrong client).
 
 - **`action=manifest&site_rev=N`** → `{site_rev, changed_pages:[{page_id,revision,url}], live_page_ids:[...],
-  cancelled, cache_ttl_seconds}`. Phase 1 simplification: "changed since N" just means "is `client.site_rev`
-  > N" — if so, returns **every** currently-live page, not a true per-page diff (Phase 2 item).
-  `cache_ttl_seconds` and `cancelled`/`redirect_to` added 2026-11-24 — see §3.6.
+  cancelled, cache_ttl_seconds, pill_enabled, pill_text, base_path}`. Phase 1 simplification: "changed since
+  N" just means "is `client.site_rev` > N" — if so, returns **every** currently-live page, not a true
+  per-page diff (Phase 2 item). `cache_ttl_seconds` and `cancelled`/`redirect_to` added 2026-11-24 — see
+  §3.6. `pill_enabled`/`pill_text`/`base_path` added 2026-11-27 — see §3.5b — sent on **every** manifest
+  response regardless of whether `site_rev` advanced (the plugin persists them unconditionally, not gated
+  on the `site_rev` check below), so a pill edit takes effect immediately rather than waiting for the next
+  unrelated content change.
 - **Health check-in, added 2026-11-24**: the plugin appends `plugin_version`, `theme`, `seo_plugin` as GET
   params on every manifest request (its own `PLUSCITIES_DELIVERY_VERSION` constant, `wp_get_theme()`'s
   name, and the already-detected SEO plugin reused from the sitemap-registration logic below). The server
@@ -653,6 +661,77 @@ Plugin is currently `0.3.0` (`PLUSCITIES_DELIVERY_VERSION` constant). `wp-plugin
 plugin from the Plugins screen (never on deactivate) — deletes every option the plugin created plus the
 dynamic `pluscities_page_url_*` options and their matching transients, verified live against a loaded WP
 test install.
+
+### 3.5a Page URL slugs — configurable patterns, added 2026-11-27
+
+Before this date, a page's URL was hardcoded: `{url_base_path}/{city_id}/{service_key}/`, built once in
+`pluscities_create_page()` (`includes/pluscities_lifecycle.php`) and never touched again. Scott walked
+through the full design conversationally before any code — wanted a real primary-keyword-driven URL
+shape (e.g. `/botox-corpus-christi-tx/`), explicitly decided against building redirect infrastructure for
+it ("keep it simple" — the deferred item is recorded on the Product Roadmap tab's Tier 3 —
+differentiators, `gate: differentiate`), and landed on a confirm-only guard instead.
+
+- **`client.slug_pattern`** (§2.2) — a token template, editable on `admin/pluscities_hub_edit.php` right
+  next to `url_base_path`. Tokens: `{primary_keyword}` (from the niche service's own `primary_keyword`
+  field, falling back to the service's `slug`), `{city}`, `{state}` (both split from `city_id` via
+  `pluscities_split_city_state()` — the last hyphen-segment is the state if it's exactly 2 letters),
+  `{service}` (the service slug). Default, when unset: `{city}-{state}/{service}` — chosen specifically to
+  reproduce every existing client's URLs byte-for-byte (confirmed via direct comparison against a real
+  stored page slug), so a client that never touches this field sees no change at all. **Only applies to
+  pages created after the pattern changes — it is never retroactively applied to an existing page.**
+- **`pages.slug`** (§2.1) is now resolved by `pluscities_resolve_slug($client, $niche, $city_id,
+  $service_key)`, which substitutes the tokens then sanitizes the result (`pluscities_sanitize_slug()` —
+  lowercases, strips to `[a-z0-9-/]`, collapses any run touching a slash to a single `/`, collapses
+  repeated hyphens). A pattern is free to contain `/` (producing a nested path, today's default shape) or
+  no `/` at all (a flat single segment) — both are handled identically by the routing change below.
+- **Per-page override**: `admin/pluscities_page.php`'s "URL Slug" field edits `pages.slug` directly — not
+  a separate override-vs-pattern field, just the real stored value, pre-filled, directly editable (the
+  pattern only ever matters at the moment a page is first created; after that there's just "the page's
+  slug"). `pluscities_set_page_slug($page_id, $new_slug, $actor, $confirmed)`
+  (`includes/pluscities_lifecycle.php`) is the single write path for both the admin save handler and any
+  future caller:
+  - A **draft** page's slug changes freely — nothing is indexed yet, nothing to protect.
+  - A **live** page's slug change requires `$confirmed = true`, or the call returns
+    `['ok' => false, 'needs_confirm' => true, 'msg' => '...']` instead of saving. The UI pairs a
+    client-side `confirm()` dialog with a server-side `confirm_live_slug_change` hidden field the save
+    handler actually checks (`admin/pluscities_page_save.php`'s `edit_slug` action) — not client-side trust
+    alone. **There is deliberately no redirect from the old URL to the new one** — the warning text says so
+    explicitly, and the old URL will 404 the moment the change is confirmed.
+  - Both paths call `pluscities_slug_is_unique($client_id, $slug, $exclude_page_id)` — a slug that would
+    collide with another page on the same client is rejected with a named error, never silently allowed to
+    shadow another page.
+- Either write path bumps `client.site_rev` (same signal every other live-page-affecting edit already
+  uses) so the WP plugin's next poll picks up the new slug.
+
+### 3.5b Site-wide floating Service Area pill, restored 2026-11-27
+
+The retired "Landing Page Client" plugin (`wp-plugin/landing-page-client`, deleted from the repo in the
+Stage 3 cleanup, recovered from git history at `8391774e~1` for reference) rendered a fixed bottom-right
+badge on **every** page of a client's site, linking back to its hub/listing page — the PlusCities rewrite
+only ever carried over the per-page inline "Related Services" link row (§2.4's `service_area` block
+content), not this. Re-added as `pluscities_delivery_render_pill()`
+(`wp-plugin/pluscities-delivery/pluscities-delivery.php`), hooked on `wp_footer` so it fires on **every**
+page the theme renders, including pages PlusCities itself never touches (the client's own homepage, blog,
+etc.) — this is also the only hook that calls `pluscities_delivery_sync_if_needed()` on those pages, since
+neither of the two `template_redirect` handlers below ever fires there.
+
+Driven by the exact same `client.hub_content.pill_enabled`/`pill_text` fields (§2.2) the per-page inline
+pill already reads — one checkbox on `admin/pluscities_hub_edit.php` now turns off both the floating and
+the inline version together, not two separate settings.
+
+### 3.5c Routing change: fixed two-segment parse → catch-all + lookup-by-slug, 2026-11-27
+
+Required by §3.5a: a slug pattern can produce a flat single segment or a nested path of any depth, which
+a fixed two-capture rewrite rule can't parse positionally. `pluscities_delivery_add_rewrite_rules()`
+changed from `^{base}/([^/]+)/([^/]+)/?$` (→ `pluscities_city`/`pluscities_service` query vars,
+reconstructed into a URL to look up) to one catch-all `^{base}/(.+)/?$` (→ a single `pluscities_slug`
+query var, used directly — no reconstruction, no positional meaning). The lookup mechanism itself didn't
+change: the plugin already cached each page keyed by its full URL string
+(`pluscities_page_url_<md5($url)>`, populated from the manifest's `changed_pages[].url`), so this was a
+routing simplification, not a new cache layer. The bare-base-path hub rule is unaffected — `(.+)` requires
+at least one character past `{base}/`, so it never overlaps with the hub rule's zero-segment match
+regardless of rule order. Verified live: every existing nested-path page still resolves unchanged, and a
+newly-created flat-pattern page resolves correctly, side by side on the same site.
 
 ### 3.6 Client cancellation — added 2026-11-24
 
