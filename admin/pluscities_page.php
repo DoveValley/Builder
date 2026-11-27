@@ -121,6 +121,34 @@ textarea.pc-edit{width:100%;min-height:70px;margin-top:8px;padding:8px;border:1p
     $pcDefaultDesc  = 'Professional ' . $pcServiceLabel . ' in ' . $pcCityLabel . ' from ' . $pcBusinessName . '.';
 ?>
 <div class="pc-card">
+    <h3 style="margin-top:0;">URL Slug</h3>
+    <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:0 0 8px;">
+        <?= $page['status'] === 'live'
+            ? 'This page is live — changing this changes its real URL immediately, with no redirect from the old one.'
+            : 'Still a draft, so this is safe to change freely — nothing is indexed yet.' ?>
+    </p>
+    <form method="post" action="pluscities_page_save.php" id="pc-slug-form" style="display:flex;gap:8px;align-items:center;">
+        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+        <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
+        <input type="hidden" name="action" value="edit_slug">
+        <input type="hidden" name="confirm_live_slug_change" id="pc-slug-confirm" value="0">
+        <input type="text" name="slug" id="pc-slug-input" value="<?= h($page['slug']) ?>" data-original="<?= h($page['slug']) ?>" data-live="<?= $page['status'] === 'live' ? '1' : '0' ?>" style="flex:1;padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.84rem;font-family:monospace;">
+        <button type="submit" class="btn-sm-outline">Save Slug</button>
+    </form>
+    <script>
+    document.getElementById('pc-slug-form').addEventListener('submit', function (e) {
+        var input = document.getElementById('pc-slug-input');
+        if (input.value === input.dataset.original || input.dataset.live !== '1') return;
+        if (!confirm('This page is already live at ' + input.dataset.original + ' — changing this breaks that exact URL, with no redirect. Change it anyway?')) {
+            e.preventDefault();
+            return;
+        }
+        document.getElementById('pc-slug-confirm').value = '1';
+    });
+    </script>
+</div>
+
+<div class="pc-card">
     <h3 style="margin-top:0;">SEO Title &amp; Meta Description</h3>
     <p style="font-size:.78rem;color:var(--pc-muted,#52607a);margin:0 0 8px;">
         Blank uses the auto-generated default shown as placeholder text below — nothing is lost by

@@ -173,6 +173,84 @@ function pluscities_validate_block_picks(array $niche, array $cityPicksRaw, arra
 }
 
 /**
+ * city_id is always "{city-slug}-{2-letter state}" (e.g. "corpus-christi-tx")
+ * per the cities table convention — splitting the state off the end is what
+ * lets a slug pattern use {city} and {state} as two separate tokens rather
+ * than just re-exposing the raw city_id.
+ */
+function pluscities_split_city_state(string $city_id): array
+{
+    $lastDash = strrpos($city_id, '-');
+    if ($lastDash === false) return ['city' => $city_id, 'state' => ''];
+    $maybeState = substr($city_id, $lastDash + 1);
+    if (strlen($maybeState) !== 2 || !ctype_alpha($maybeState)) return ['city' => $city_id, 'state' => ''];
+    return ['city' => substr($city_id, 0, $lastDash), 'state' => $maybeState];
+}
+
+/**
+ * Safe to put directly into a URL path: lowercase letters/digits/hyphens,
+ * '/' kept as a real segment separator (a slug pattern is allowed to nest
+ * into real sub-paths; a flat pattern just never produces one). Collapses
+ * whatever a token substitution could leave behind (an empty
+ * {state} leaving a trailing "-", two tokens colliding into "--" or "//")
+ * rather than storing a visibly broken URL.
+ */
+function pluscities_sanitize_slug(string $s): string
+{
+    $s = strtolower($s);
+    $s = preg_replace('/[^a-z0-9\-\/]+/', '-', $s);  // anything unsafe -> hyphen
+    $s = preg_replace('/[\-\/]*\/[\-\/]*/', '/', $s); // any run touching a slash (incl. "//") -> one slash
+    $s = preg_replace('/-{2,}/', '-', $s);           // remaining repeated hyphens -> one
+    return trim($s, '-/');
+}
+
+/**
+ * Pattern -> real slug, e.g. "{primary_keyword}-{city}-{state}" with
+ * city_id "corpus-christi-tx" and the botox service -> "botox-corpus-
+ * christi-tx". Default pattern ("{city}-{state}/{service}") reproduces
+ * exactly what every client got before this existed (city_id's full
+ * "corpus-christi-tx" form, not the split-off city alone), so a client
+ * that never touches the new Slug Pattern field keeps today's URLs
+ * unchanged.
+ */
+function pluscities_resolve_slug(array $client, array $niche, string $city_id, string $service_key): string
+{
+    $pattern = trim((string) ($client['slug_pattern'] ?? '')) ?: '{city}-{state}/{service}';
+    $split = pluscities_split_city_state($city_id);
+
+    $service = $service_key;
+    $primaryKeyword = $service_key;
+    foreach ($niche['services'] ?? [] as $svc) {
+        if (($svc['slug'] ?? '') === $service_key) {
+            $service = $svc['slug'];
+            $primaryKeyword = trim((string) ($svc['primary_keyword'] ?? '')) ?: $svc['slug'];
+            break;
+        }
+    }
+
+    $resolved = strtr($pattern, [
+        '{primary_keyword}' => $primaryKeyword,
+        '{city}'            => $split['city'],
+        '{state}'           => $split['state'],
+        '{service}'         => $service,
+    ]);
+
+    $basePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
+    return $basePath . pluscities_sanitize_slug($resolved) . '/';
+}
+
+/** Two pages for the SAME client landing on the identical final slug would
+ *  have one silently shadow the other at request time — checked wherever a
+ *  slug is about to be written, not just at creation. */
+function pluscities_slug_is_unique(string $client_id, string $slug, string $excludePageId = ''): bool
+{
+    $db = pluscities_db();
+    $st = $db->prepare('SELECT 1 FROM pages WHERE client_id = ? AND slug = ? AND page_id != ?');
+    $st->execute([$client_id, $slug, $excludePageId]);
+    return !$st->fetchColumn();
+}
+
+/**
  * Creates a new page with its full real block set — the 4 spine blocks
  * (always present) plus the caller's chosen city/service blocks — and
  * generates real content for every one via the same pluscities_regenerate_block()
@@ -217,14 +295,16 @@ function pluscities_create_page(string $client_id, string $city_id, string $serv
     $city_block_picks = array_values(array_unique(array_merge($city_block_picks, $niche['always_city_blocks'] ?? [])));
     $service_block_picks = array_values(array_unique(array_merge($service_block_picks, $niche['always_service_blocks'] ?? [])));
 
-    $pageId   = 'pg_' . str_replace('-', '', $client_id) . '_' . $city_id . '_' . $service_key;
-    $basePath = '/' . trim($client['url_base_path'] ?? 'service-area', '/') . '/';
-    $slug     = $basePath . $city_id . '/' . $service_key . '/';
+    $pageId = 'pg_' . str_replace('-', '', $client_id) . '_' . $city_id . '_' . $service_key;
+    $slug   = pluscities_resolve_slug($client, $niche, $city_id, $service_key);
 
     $db = pluscities_db();
     $existing = $db->prepare('SELECT 1 FROM pages WHERE page_id = ?');
     $existing->execute([$pageId]);
     if ($existing->fetchColumn()) return ['ok' => false, 'msg' => 'This page already exists.', 'page_id' => null];
+    if (!pluscities_slug_is_unique($client_id, $slug)) {
+        return ['ok' => false, 'msg' => "Another page already has the slug \"$slug\" — check the client's Slug Pattern.", 'page_id' => null];
+    }
 
     $db->prepare('INSERT INTO pages (page_id, client_id, city_id, service_key, slug, status, approval_stage) VALUES (?,?,?,?,?,?,?)')
        ->execute([$pageId, $client_id, $city_id, $service_key, $slug, 'draft', 'none']);
@@ -394,6 +474,41 @@ function pluscities_touch_page(string $page_id): void
     $hash = pluscities_compute_draft_hash($page_id);
     pluscities_db()->prepare('UPDATE pages SET draft_hash = ?, approval_stage = "none" WHERE page_id = ?')
         ->execute([$hash, $page_id]);
+}
+
+/**
+ * Changes a page's own slug/URL. Draft pages change freely — nothing's
+ * indexed yet, nothing to protect. A LIVE page needs $confirmed=true, since
+ * there's deliberately no redirect from the old URL to the new one (see
+ * project discussion, 2026-11-27) — changing a live page's slug without
+ * confirming would silently 404 whatever Google already has indexed.
+ */
+function pluscities_set_page_slug(string $page_id, string $new_slug, string $actor, bool $confirmed): array
+{
+    $db = pluscities_db();
+    $st = $db->prepare('SELECT client_id, slug, status FROM pages WHERE page_id = ?');
+    $st->execute([$page_id]);
+    $page = $st->fetch(PDO::FETCH_ASSOC);
+    if (!$page) return ['ok' => false, 'msg' => 'Page not found.', 'needs_confirm' => false];
+
+    $new_slug = pluscities_sanitize_slug($new_slug);
+    $new_slug = '/' . trim($new_slug, '/') . '/';
+    if ($new_slug === $page['slug']) return ['ok' => true, 'msg' => '', 'needs_confirm' => false];
+
+    if (!pluscities_slug_is_unique($page['client_id'], $new_slug, $page_id)) {
+        return ['ok' => false, 'msg' => "Another page already has the slug \"$new_slug\".", 'needs_confirm' => false];
+    }
+    if ($page['status'] === 'live' && !$confirmed) {
+        return [
+            'ok' => false, 'needs_confirm' => true,
+            'msg' => "This page is already live at {$page['slug']} — changing this will break that exact URL "
+                . "(no redirect gets created). Confirm to change it anyway.",
+        ];
+    }
+
+    $db->prepare('UPDATE pages SET slug = ? WHERE page_id = ?')->execute([$new_slug, $page_id]);
+    pluscities_log_event($actor, 'edit_slug', 'page:' . $page_id, "{$page['slug']} -> $new_slug");
+    return ['ok' => true, 'msg' => '', 'needs_confirm' => false];
 }
 
 /** Edit: saves content, auto-locks the block (protects a human edit from a

@@ -81,6 +81,7 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
     $pillTextVal   = (string) ($hub['pill_text'] ?? '');
     $urlBasePath   = (string) ($client['url_base_path'] ?? 'service-area');
     $liveUrl       = 'https://' . trim((string) ($client['domain'] ?? '')) . '/' . trim($urlBasePath, '/') . '/';
+    $slugPattern   = (string) ($client['slug_pattern'] ?? '');
     pluscities_client_subtabs($clientId, 'hub_edit');
 ?>
 <form method="post" action="pluscities_hub_edit_save.php">
@@ -113,6 +114,17 @@ lpc_admin_open('pluscities_clients', 'Service Area Page');
                 e.g. <code>service-area</code> → the page lives at <code>/service-area/</code>. Changing this
                 takes effect on every already-live page's link to this page immediately — nothing to
                 regenerate or republish.
+            </p>
+        </div>
+        <div class="fg" style="min-width:260px;">
+            <label>Slug pattern — new pages only</label>
+            <input type="text" name="slug_pattern" value="<?= h($slugPattern) ?>" placeholder="{city}-{state}/{service} (default)" style="padding:8px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.84rem;width:100%;">
+            <p style="color:var(--pc-muted,#52607a);font-size:.78rem;margin:4px 0 0;">
+                Tokens: <code>{primary_keyword}</code>, <code>{city}</code>, <code>{state}</code>,
+                <code>{service}</code> — e.g. <code>{primary_keyword}-{city}-{state}</code> →
+                <code>botox-corpus-christi-tx</code>. Only applies to pages built <strong>after</strong> you
+                change this — it never changes a page that already exists. To change one existing page's URL,
+                edit its Slug field directly on that page.
             </p>
         </div>
         <div class="fg" style="min-width:260px;">

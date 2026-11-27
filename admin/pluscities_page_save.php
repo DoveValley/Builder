@@ -66,6 +66,27 @@ if ($action === 'edit_seo') {
     header('Location: ' . $back . '&msg=success:SEO+fields+saved'); exit;
 }
 
+if ($action === 'edit_slug') {
+    $confirmed = ($_POST['confirm_live_slug_change'] ?? '0') === '1';
+    $result = pluscities_set_page_slug($pageId, (string) ($_POST['slug'] ?? ''), $actor, $confirmed);
+    if ($result['ok']) {
+        // Same site_rev bump as edit_seo above — the live WordPress plugin
+        // only re-polls and picks up a changed slug once this moves.
+        $clientFile = PLUSCITIES_CLIENTS_DIR . $pageClientId . '.json';
+        $pageClient = json_decode((string) @file_get_contents($clientFile), true);
+        if ($pageClient) {
+            $pageClient['site_rev'] = (int) ($pageClient['site_rev'] ?? 0) + 1;
+            pluscities_atomic_write_json($clientFile, $pageClient);
+        }
+        header('Location: ' . $back . '&msg=success:Slug+saved'); exit;
+    }
+    // needs_confirm isn't a hard failure — the page just re-renders with the
+    // warning text as the error message; the same submit button's JS
+    // confirm() in pluscities_page.php resubmits with confirm_live_slug_
+    // change=1 rather than a separate "yes, really" screen.
+    header('Location: ' . $back . '&msg=error:' . urlencode($result['msg'])); exit;
+}
+
 if ($action === 'edit_faq') {
     $blockId = (int) ($_POST['block_id'] ?? 0);
     $db = pluscities_db();

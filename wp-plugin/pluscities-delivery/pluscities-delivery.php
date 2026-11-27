@@ -62,21 +62,27 @@ add_action('init', 'pluscities_delivery_add_rewrite_rules');
 function pluscities_delivery_add_rewrite_rules() {
     $base = trim(get_option('pluscities_base_path', 'service-area'), '/');
     if ($base === '') return;
+    // One catch-all, not a fixed city/service two-segment pattern — a slug
+    // pattern (set server-side, per client) can produce a flat single
+    // segment ("botox-corpus-christi-tx") or a nested path of any depth, so
+    // positional parsing can't work generally. The captured string is looked
+    // up directly against the page cached under that exact URL (see
+    // pluscities_delivery_sync_if_needed()'s pluscities_page_url_* options)
+    // rather than being split into city/service here.
     add_rewrite_rule(
-        '^' . $base . '/([^/]+)/([^/]+)/?$',
-        'index.php?pluscities_city=$matches[1]&pluscities_service=$matches[2]',
+        '^' . $base . '/(.+)/?$',
+        'index.php?pluscities_slug=$matches[1]',
         'top'
     );
-    // Bare base path — the hub/listing page. No pattern overlap with the rule
-    // above (this one has zero path segments after $base), so order between
-    // them doesn't matter.
+    // Bare base path — the hub/listing page. (.+) above requires at least
+    // one character past "$base/", so this never overlaps with it regardless
+    // of rule order.
     add_rewrite_rule('^' . $base . '/?$', 'index.php?pluscities_hub=1', 'top');
     add_rewrite_rule('^pluscities-sitemap\.xml$', 'index.php?pluscities_sitemap=1', 'top');
 }
 
 add_filter('query_vars', function ($vars) {
-    $vars[] = 'pluscities_city';
-    $vars[] = 'pluscities_service';
+    $vars[] = 'pluscities_slug';
     $vars[] = 'pluscities_hub';
     $vars[] = 'pluscities_sitemap';
     return $vars;
@@ -415,9 +421,8 @@ function pluscities_delivery_render_pill() {
 }
 
 add_action('template_redirect', function () {
-    $city    = get_query_var('pluscities_city');
-    $service = get_query_var('pluscities_service');
-    if (!$city || !$service) return;
+    $slug = get_query_var('pluscities_slug');
+    if (!$slug) return;
 
     pluscities_delivery_sync_if_needed();
 
@@ -432,8 +437,13 @@ add_action('template_redirect', function () {
         exit;
     }
 
+    // Captured raw from the rewrite rule, so this is the exact same string
+    // the server computed as this page's slug (flat, nested, whatever the
+    // client's slug pattern produced) — looked up directly, not reassembled
+    // from separate city/service pieces the way a fixed two-segment URL
+    // shape would have allowed.
     $base   = trim(get_option('pluscities_base_path', 'service-area'), '/');
-    $url    = '/' . $base . '/' . $city . '/' . $service . '/';
+    $url    = '/' . $base . '/' . trim($slug, '/') . '/';
     $pageId = get_option('pluscities_page_url_' . md5($url));
     $page   = $pageId ? get_transient('pluscities_page_' . $pageId) : false;
 
